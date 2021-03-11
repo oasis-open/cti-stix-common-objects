@@ -21,14 +21,14 @@ The current maintainers of this TC Open Repository are:
 * [Rich Piazza](mailto:rpiazza@mitre.org), GitHub ID: rpiazza, [The MITRE Corporatino](https://www.mitre.org/)
 * [Chris Lenk](mailto:clenk@mitre.org), GitHub ID: clenk, [The MITRE Corporatino](https://www.mitre.org/)
 
-TC Open Repository [maintainers](https://www.oasis-open.org/resources/open-repositories/maintainers-guide) are responsible for oversight of this project's community development activities, including evaluation of GitHub [pull requests](https://github.com/oasis-open/ZZrepoName/blob/master/CONTRIBUTING.md#fork-and-pull-collaboration-model) and [preserving](https://www.oasis-open.org/policies-guidelines/open-repositories#repositoryManagement) open source principles of openness and fairness. Maintainers are recognized and trusted experts who serve to implement community goals and consensus design preferences.
+TC Open Repository [maintainers](https://www.oasis-open.org/resources/open-repositories/maintainers-guide) are responsible for oversight of this project's community development activities, including evaluation of GitHub [pull requests](https://github.com/oasis-open/cti-stix-common-objects/blob/master/CONTRIBUTING.md#fork-and-pull-collaboration-model) and [preserving](https://www.oasis-open.org/policies-guidelines/open-repositories#repositoryManagement) open source principles of openness and fairness. Maintainers are recognized and trusted experts who serve to implement community goals and consensus design preferences.
 
 Initially, the TC members designated one or more persons to serve as Maintainer(s); subsequently, participating community members may select additional or substitute Maintainers by [consensus agreement](https://www.oasis-open.org/resources/open-repositories/maintainers-guide#additionalMaintainers).
 
 ## About OASIS TC Open Repositories
 
 * [TC Open Repositories: Overview and Resources](https://www.oasis-open.org/resources/open-repositories/)
-* [Frequently Asked Questions(https://www.oasis-open.org/resources/open-repositories/faq)
+* [Frequently Asked Questions](https://www.oasis-open.org/resources/open-repositories/faq)
 * [Open Source Licenses](https://www.oasis-open.org/resources/open-repositories/licenses)
 * [Maintainers' Guidelines and Agreement](https://www.oasis-open.org/resources/open-repositories/maintainers-guide)
 
