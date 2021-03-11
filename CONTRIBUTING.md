@@ -1,0 +1,24 @@
+# Contributing
+
+## Public Participation Invited
+
+This [OASIS TC Open Repository](https://www.oasis-open.org/resources/open-repositories) ( [github.com/oasis-open/cti-stix-common-objects](https://github.com/oasis-open/cti-stix-common-objects) ) is a community public repository that supports participation by anyone, whether affiliated with OASIS or not. Substantive contributions (repository "code") and related feedback is invited from all parties, following the common conventions for participation in GitHub public repository projects.  Participation is expected to be consistent with the [OASIS TC Open Repository Guidelines and Procedures](https://www.oasis-open.org/policies-guidelines/open-repositories), the [LICENSE](https://www-legacy.oasis-open.org/sites/www.oasis-open.org/files/BSD-3-Clause.txt) designated for this particular repository and the requirement for an [Individual Contributor License Agreement](https://cla-assistant.io/oasis-open/Open-Repo-admin). Please see the repository  [README](https://github.com/oasis-open/cti-stix-common-objects/blob/master/README.md">README</a> document for other details.
+
+## Governance Distinct from OASIS TC Process
+
+Content accepted as "contributions" to this TC Open Repository, as defined below, are distinct from any [Contributions](https://www.oasis-open.org/policies-guidelines/ipr#contributions") made to the [OASIS Cyber Threat Intelligence (CTI) TC](https://www.oasis-open.org/committees/cti/).  Participation in the associated Technical Committee is governed by the [OASIS Bylaws](https://www.oasis-open.org/policies-guidelines/bylaws), [OASIS TC Process](https://www.oasis-open.org/policies-guidelines/tc-process), [IPR Policy](https://www.oasis-open.org/policies-guidelines/ipr), and other related [policies](https://www.oasis-open.org/policies-guidelines/). This TC Open Repository is not subject to the OASIS TC-related policies.  TC Open Repository governance is defined by separate [participation and contribution guidelines](https://www.oasis-open.org/policies-guidelines/open-repositories).
+
+
+## Licensing Distinct from OASIS IPR Policy
+
+Because different licenses apply to the OASIS TC's specification work, and this TC Open Repository, there is no guarantee that the licensure of specific repository material will be compatible with licensing requirements of an implementation of a TC's specification.  Please refer to the [LICENSE.md](https://github.com/oasis-open/cti-stix-common-objects/blob/master/LICENSE) for the terms of this material, and to the OASIS IPR Policy for [the terms applicable to the TC's specifications](https://www.oasis-open.org/policies-guidelines/ipr/#Non-Assertion-Mode) including any applicable [declarations](https://www.oasis-open.org/committees/cti/ipr.php).</div>
+
+## Contributions Subject to Individual CLA
+
+<p>A contribution to this TC Open Repository refers to content merged into the code repository (repository changes represented by code [commits](https://github.com/oasis-open/cti-stix-common-objects) ), following the GitHub definition of [contributor](https://help.github.com/articles/github-glossary/#contributor): "someone who has contributed to a project by having a pull request merged but does not have collaborator (i.e., direct write) access." Anyone who signs the TC Open Repository [Individual Contributor License Agreement (CLA)](https://cla-assistant.io/oasis-open/Open-Repo-admin) signifying agreement with the licensing requirement may contribute substantive content subject to evaluation of a GitHub pull request.  The main web page for this repository, as with any GitHub public repository, displays a link to a document listing contributions to the repository's default branch (filtered by Commits, Additions, and Deletions).
+
+This TC Open Repository, as with GitHub public repositories generally, also accepts public feedback from any GitHub user.  Public feedback includes opening issues, authoring and editing comments, participating in conversations, making wiki edits, creating repository stars, and making suggestions via pull requests. 
+
+## Feedback
+
+Questions or comments about this TC Open Repository's activities should be composed as GitHub issues or comments. If use of an issue/comment is not possible or appropriate, questions may be directed by email to the [maintainers](https://github.com/oasis-open/cti-stix-common-objects/blob/master/README.md). Please send general questions about TC Open Repository participation to OASIS Staff at [repository-admin@oasis-open.org](mailto:repository-admin@oasis-open.org) and any specific CLA-related questions to [repository-cla@oasis-open.org](mailto:repository-cla@oasis-open.org).
