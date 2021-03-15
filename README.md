@@ -19,7 +19,7 @@ This repository is for commonly used STIX objects that do not need to be created
 The current maintainers of this TC Open Repository are: 
 
 * [Rich Piazza](mailto:rpiazza@mitre.org), GitHub ID: rpiazza, [The MITRE Corporatino](https://www.mitre.org/)
-* [Chris Lenk](mailto:clenk@mitre.org), GitHub ID: clenk, [The MITRE Corporatino](https://www.mitre.org/)
+* [Chris Lenk](mailto:clenk@mitre.org), GitHub ID: clenk, [The MITRE Corporation](https://www.mitre.org/)
 
 TC Open Repository [maintainers](https://www.oasis-open.org/resources/open-repositories/maintainers-guide) are responsible for oversight of this project's community development activities, including evaluation of GitHub [pull requests](https://github.com/oasis-open/cti-stix-common-objects/blob/master/CONTRIBUTING.md#fork-and-pull-collaboration-model) and [preserving](https://www.oasis-open.org/policies-guidelines/open-repositories#repositoryManagement) open source principles of openness and fairness. Maintainers are recognized and trusted experts who serve to implement community goals and consensus design preferences.
 
