@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--7766c81d-f5e7-4842-addf-f9833552f611",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--566ebb23-d5b2-426b-9a0d-e71b7619f6b9",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.17714Z",
+            "modified": "2021-03-13T20:09:21.17714Z",
+            "name": "Wallis and Futuna",
+            "country": "WF",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

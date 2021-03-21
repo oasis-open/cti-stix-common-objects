@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--15b9835d-478b-4958-8549-e05afcd00f1f",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--767e1d99-8fea-40d8-ac17-7ab8d162c3b4",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.98365Z",
+            "modified": "2021-03-13T20:09:20.98365Z",
+            "name": "Fiji",
+            "country": "FJ",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

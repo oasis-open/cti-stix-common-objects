@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--1685cb42-6185-4d74-8a7e-e8f3685094af",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--7347ba47-8bb0-4fb5-a907-71d1d3906b29",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.032972Z",
+            "modified": "2021-03-13T20:09:21.032972Z",
+            "name": "Kenya",
+            "country": "KE",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

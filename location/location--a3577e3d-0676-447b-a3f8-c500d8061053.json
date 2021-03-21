@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--16507f77-c22a-4d1b-88de-07192fad73a9",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--a3577e3d-0676-447b-a3f8-c500d8061053",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.127399Z",
+            "modified": "2021-03-13T20:09:21.127399Z",
+            "name": "San Marino",
+            "country": "SM",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

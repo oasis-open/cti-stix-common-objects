@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--df9d718f-a21b-4b9b-8040-ee7b0b741395",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--bc24e752-666d-400d-a078-b2afe2f19a9c",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.920045Z",
+            "modified": "2021-03-13T20:09:20.920045Z",
+            "name": "Bahamas",
+            "country": "BS",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

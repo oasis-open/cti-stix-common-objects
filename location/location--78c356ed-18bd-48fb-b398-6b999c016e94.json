@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--bb2de80f-3b19-4d98-a5ee-b055ba17aa7e",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--78c356ed-18bd-48fb-b398-6b999c016e94",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.087395Z",
+            "modified": "2021-03-13T20:09:21.087395Z",
+            "name": "Niue",
+            "country": "NU",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

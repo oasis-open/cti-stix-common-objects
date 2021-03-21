@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--a677de96-1c7d-4395-9b6d-aa8730530331",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--34f0b03b-9aa5-4183-a35e-a947c378b758",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.994308Z",
+            "modified": "2021-03-13T20:09:20.994308Z",
+            "name": "Ghana",
+            "country": "GH",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

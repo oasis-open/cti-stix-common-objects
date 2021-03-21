@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--601d41c2-99fa-43fa-ba1d-2730bbaf1df9",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--c4ecea20-7e3d-45a4-a789-0a59c001b2e2",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.909902Z",
+            "modified": "2021-03-13T20:09:20.909902Z",
+            "name": "Azerbaijan",
+            "country": "AZ",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

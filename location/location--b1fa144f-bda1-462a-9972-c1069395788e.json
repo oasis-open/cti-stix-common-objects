@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--2acff0d5-79e3-4ce7-9939-b3cd20bbfbdb",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--b1fa144f-bda1-462a-9972-c1069395788e",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.957419Z",
+            "modified": "2021-03-13T20:09:20.957419Z",
+            "name": "Comoros",
+            "country": "KM",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

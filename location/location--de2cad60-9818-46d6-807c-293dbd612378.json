@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--058d202b-98c6-41d2-99b9-d649b9a5097b",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--de2cad60-9818-46d6-807c-293dbd612378",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.896645Z",
+            "modified": "2021-03-13T20:09:20.896645Z",
+            "name": "Albania",
+            "country": "AL",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

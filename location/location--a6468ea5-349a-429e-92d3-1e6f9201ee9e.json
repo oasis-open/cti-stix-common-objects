@@ -1,0 +1,20 @@
+{
+    "type": "bundle",
+    "id": "bundle--666ff851-675c-4b25-af12-6a55e31265a3",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--a6468ea5-349a-429e-92d3-1e6f9201ee9e",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.285235Z",
+            "modified": "2021-03-13T20:09:21.285235Z",
+            "name": "Wyoming",
+            "country": "US",
+            "administrative_area": "US-WY",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

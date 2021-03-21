@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--c3659bff-b119-4e6f-b51f-e1f348a8db67",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--0ebbe953-02a8-4ea7-a10e-8be3f4cca0aa",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.189066Z",
+            "modified": "2021-03-13T20:09:21.189066Z",
+            "name": "Southern Africa",
+            "region": "southern-africa",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

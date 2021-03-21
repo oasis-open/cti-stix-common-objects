@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--6c314298-1ffa-4f9b-aa53-f4b0a06064c1",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--55dcb050-4e2d-4d33-9be1-6d496af31a58",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.199149Z",
+            "modified": "2021-03-13T20:09:21.199149Z",
+            "name": "Central Asia",
+            "region": "central-asia",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

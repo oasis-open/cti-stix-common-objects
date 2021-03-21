@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--4a67da91-f304-4683-a412-6b978c322ba9",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--3450fba7-2de7-4ebf-b2e9-8363195129e2",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.93653Z",
+            "modified": "2021-03-13T20:09:20.93653Z",
+            "name": "Canada",
+            "country": "CA",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

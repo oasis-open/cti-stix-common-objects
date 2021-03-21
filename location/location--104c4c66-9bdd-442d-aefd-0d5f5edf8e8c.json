@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--7f6c0c7d-1725-427b-ada8-b2edd8bdb612",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--104c4c66-9bdd-442d-aefd-0d5f5edf8e8c",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.047753Z",
+            "modified": "2021-03-13T20:09:21.047753Z",
+            "name": "Sri Lanka",
+            "country": "LK",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

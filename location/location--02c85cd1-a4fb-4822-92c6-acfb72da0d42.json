@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--63e23708-8e23-4df6-8ffc-b481895585d8",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--02c85cd1-a4fb-4822-92c6-acfb72da0d42",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.191316Z",
+            "modified": "2021-03-13T20:09:21.191316Z",
+            "name": "Americas",
+            "region": "americas",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

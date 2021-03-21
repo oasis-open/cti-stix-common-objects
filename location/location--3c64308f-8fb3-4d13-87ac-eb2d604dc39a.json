@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--f40beb3a-57f5-4197-b9a1-c6b9693ae88c",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--3c64308f-8fb3-4d13-87ac-eb2d604dc39a",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.126373Z",
+            "modified": "2021-03-13T20:09:21.126373Z",
+            "name": "El Salvador",
+            "country": "SV",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

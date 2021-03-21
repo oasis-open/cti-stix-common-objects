@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--7056122d-2324-461d-9717-6a673b58cfc4",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--5f7f88b5-b153-49ff-a119-ca1e671cee76",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.203471Z",
+            "modified": "2021-03-13T20:09:21.203471Z",
+            "name": "Western Asia",
+            "region": "western-asia",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

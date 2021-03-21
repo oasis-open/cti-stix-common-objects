@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--a21c4edd-3c92-4072-b7ec-7819abb610c1",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--49bfaf93-f1b4-4b00-81a7-9809d09ea6b9",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.14956Z",
+            "modified": "2021-03-13T20:09:21.14956Z",
+            "name": "Turkmenistan",
+            "country": "TM",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

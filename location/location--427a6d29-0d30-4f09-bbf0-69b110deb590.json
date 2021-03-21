@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--27818bd1-331a-46bf-aac8-29a8afe557c8",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--427a6d29-0d30-4f09-bbf0-69b110deb590",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.07729Z",
+            "modified": "2021-03-13T20:09:21.07729Z",
+            "name": "Malawi",
+            "country": "MW",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

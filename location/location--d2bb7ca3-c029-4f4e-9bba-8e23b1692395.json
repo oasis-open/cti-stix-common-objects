@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--3b78eb6c-1be0-4295-bf16-8f7d95cda893",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--d2bb7ca3-c029-4f4e-9bba-8e23b1692395",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.962369Z",
+            "modified": "2021-03-13T20:09:20.962369Z",
+            "name": "Cura\u00e7ao",
+            "country": "CW",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--9d1c24b0-9008-4b4f-93c8-5ac900b625f4",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--63ffdd2e-faf3-4d87-934e-d9bb3905107a",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.922083Z",
+            "modified": "2021-03-13T20:09:20.922083Z",
+            "name": "Saint Barth\u00e9lemy",
+            "country": "BL",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

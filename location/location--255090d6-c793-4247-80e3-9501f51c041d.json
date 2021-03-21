@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--fadcbddc-aca3-4b81-b180-3bef6ea635d8",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--255090d6-c793-4247-80e3-9501f51c041d",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.895619Z",
+            "modified": "2021-03-13T20:09:20.895619Z",
+            "name": "\u00c5land Islands",
+            "country": "AX",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--a805a08f-19be-4c68-ad4a-20e3a146ac0a",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--44bcd5e4-6ab9-487e-bfb0-954f57961c99",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.123169Z",
+            "modified": "2021-03-13T20:09:21.123169Z",
+            "name": "Svalbard and Jan Mayen",
+            "country": "SJ",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--f32453c6-5533-4171-bef7-0a32abc368a1",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--a6e81045-1d7a-41d2-870a-8124bb723e8c",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.129467Z",
+            "modified": "2021-03-13T20:09:21.129467Z",
+            "name": "Saint Pierre and Miquelon",
+            "country": "PM",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

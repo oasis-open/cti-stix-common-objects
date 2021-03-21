@@ -1,0 +1,20 @@
+{
+    "type": "bundle",
+    "id": "bundle--d81ec3c9-ce11-40fe-b60c-1a7ddc38a524",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--78b70340-9642-47df-a47f-9498601cc3ad",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.24151Z",
+            "modified": "2021-03-13T20:09:21.24151Z",
+            "name": "Georgia",
+            "country": "US",
+            "administrative_area": "US-GA",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--76735b03-fb0b-45ef-9c36-43ed354855ea",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--b2973077-fc4f-4ae8-91c7-67dac58bcf73",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.196022Z",
+            "modified": "2021-03-13T20:09:21.196022Z",
+            "name": "Central America",
+            "region": "central-america",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

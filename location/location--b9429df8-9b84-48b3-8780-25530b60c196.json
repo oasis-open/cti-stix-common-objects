@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--1c629641-ca3a-488f-8bd4-5bf53459cf06",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--b9429df8-9b84-48b3-8780-25530b60c196",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.106282Z",
+            "modified": "2021-03-13T20:09:21.106282Z",
+            "name": "Portugal",
+            "country": "PT",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

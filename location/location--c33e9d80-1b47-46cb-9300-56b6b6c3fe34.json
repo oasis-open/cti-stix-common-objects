@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--a1220e0e-a978-48b7-9553-6841eb969f4c",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--c33e9d80-1b47-46cb-9300-56b6b6c3fe34",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.993076Z",
+            "modified": "2021-03-13T20:09:20.993076Z",
+            "name": "Guernsey",
+            "country": "GG",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

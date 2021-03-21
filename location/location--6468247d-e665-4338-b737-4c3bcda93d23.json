@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--7198a9dc-6676-4f42-9669-e97a8c265da9",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--6468247d-e665-4338-b737-4c3bcda93d23",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.194812Z",
+            "modified": "2021-03-13T20:09:21.194812Z",
+            "name": "Caribbean",
+            "region": "caribbean",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

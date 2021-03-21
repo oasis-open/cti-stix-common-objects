@@ -1,0 +1,20 @@
+{
+    "type": "bundle",
+    "id": "bundle--994bb26f-3a54-4d14-a3f9-3c9789c1ac3b",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--070a8da5-2cf1-4418-8d69-12d1a0057ebe",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.274471Z",
+            "modified": "2021-03-13T20:09:21.274471Z",
+            "name": "South Carolina",
+            "country": "US",
+            "administrative_area": "US-SC",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

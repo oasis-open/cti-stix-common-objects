@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--4f219b97-681e-4df5-80d2-eefc6dff777c",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--ff032e68-83a1-4301-a7df-1104191aaca6",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.053173Z",
+            "modified": "2021-03-13T20:09:21.053173Z",
+            "name": "Macao",
+            "country": "MO",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

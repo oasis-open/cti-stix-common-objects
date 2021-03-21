@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--83cf3392-589e-4367-89d5-f6816e0eee01",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--d3b22604-842a-400f-91c5-e97b6b61fffa",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.079477Z",
+            "modified": "2021-03-13T20:09:21.079477Z",
+            "name": "Mayotte",
+            "country": "YT",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--3ee5ce81-af2e-43ac-93e9-e97560ce6465",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--d9925004-e91b-47df-81ba-57176b6b4861",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.210195Z",
+            "modified": "2021-03-13T20:09:21.210195Z",
+            "name": "Oceania",
+            "region": "oceania",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

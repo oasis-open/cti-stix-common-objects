@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--a1193c22-50e5-4402-8ae0-49a956ded0ad",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--cf629038-06bd-40a7-a5f5-5bf18bc33910",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.114169Z",
+            "modified": "2021-03-13T20:09:21.114169Z",
+            "name": "Russian Federation",
+            "country": "RU",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

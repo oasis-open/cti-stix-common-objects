@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--2c9b7420-7c9f-4a86-82d0-5620f8d15898",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--527c8085-4f69-48b6-ad4f-adc4bf89a695",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.9231Z",
+            "modified": "2021-03-13T20:09:20.9231Z",
+            "name": "Belarus",
+            "country": "BY",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

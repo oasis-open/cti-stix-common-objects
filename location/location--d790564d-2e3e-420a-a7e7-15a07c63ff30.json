@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--71716bad-e198-43c8-813c-6096cc289330",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--d790564d-2e3e-420a-a7e7-15a07c63ff30",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.928834Z",
+            "modified": "2021-03-13T20:09:20.928834Z",
+            "name": "Barbados",
+            "country": "BB",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

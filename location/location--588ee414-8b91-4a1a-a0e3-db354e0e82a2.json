@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--0e33ce21-f32b-4d62-9683-4872b9e1308c",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--588ee414-8b91-4a1a-a0e3-db354e0e82a2",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.165002Z",
+            "modified": "2021-03-13T20:09:21.165002Z",
+            "name": "Uruguay",
+            "country": "UY",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

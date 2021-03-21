@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--55718294-689f-4f14-a89f-c92bcf18b4d3",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--3ae9ac9d-0935-4ff8-a2a9-2a9ee83df65d",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.897925Z",
+            "modified": "2021-03-13T20:09:20.897925Z",
+            "name": "Andorra",
+            "country": "AD",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

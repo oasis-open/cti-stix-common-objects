@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--e8b32214-29cb-45d2-9207-75dfb5c5226a",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--e6da102a-de9c-4d64-9a13-b587962a1fc5",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.009864Z",
+            "modified": "2021-03-13T20:09:21.009864Z",
+            "name": "Hong Kong",
+            "country": "HK",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

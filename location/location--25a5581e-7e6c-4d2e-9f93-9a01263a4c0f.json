@@ -1,0 +1,20 @@
+{
+    "type": "bundle",
+    "id": "bundle--16ec21c2-66bf-4045-b90d-d6a5cae0a58c",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--25a5581e-7e6c-4d2e-9f93-9a01263a4c0f",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.263601Z",
+            "modified": "2021-03-13T20:09:21.263601Z",
+            "name": "New Jersey",
+            "country": "US",
+            "administrative_area": "US-NJ",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

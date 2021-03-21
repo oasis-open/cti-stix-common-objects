@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--69e08bf5-dfec-4d73-8ef9-ffd2566b7b83",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--3d526f45-7702-45e2-bc9d-903d201d9681",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.152686Z",
+            "modified": "2021-03-13T20:09:21.152686Z",
+            "name": "Tonga",
+            "country": "TO",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "type": "bundle",
+    "id": "bundle--f467815b-ab1f-4855-bb8f-8f77b149bfff",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--fee09061-f3f7-4969-848c-37d816aa0bea",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.219312Z",
+            "modified": "2021-03-13T20:09:21.219312Z",
+            "name": "Manitoba",
+            "country": "CA",
+            "administrative_area": "MB",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

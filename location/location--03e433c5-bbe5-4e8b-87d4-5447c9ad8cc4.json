@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--514a923b-46bf-4f5b-81eb-7d1ab8ea3841",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--03e433c5-bbe5-4e8b-87d4-5447c9ad8cc4",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.113054Z",
+            "modified": "2021-03-13T20:09:21.113054Z",
+            "name": "Romania",
+            "country": "RO",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--ee02af07-bb48-42fb-b283-e1d98e65f1e1",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--ed2fe216-d648-4825-bd2e-ab3872d0cf85",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.901908Z",
+            "modified": "2021-03-13T20:09:20.901908Z",
+            "name": "Armenia",
+            "country": "AM",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

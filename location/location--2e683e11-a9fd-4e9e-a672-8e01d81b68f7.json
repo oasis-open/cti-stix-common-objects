@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--a996a5ad-b6db-4a24-abe1-c533a34c6b6a",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--2e683e11-a9fd-4e9e-a672-8e01d81b68f7",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.964631Z",
+            "modified": "2021-03-13T20:09:20.964631Z",
+            "name": "Cayman Islands",
+            "country": "KY",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

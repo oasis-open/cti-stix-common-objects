@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--2fcd79e4-ef4e-4134-8489-ebaec63cc576",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--5b0a7927-d8ef-4208-90c2-957ee2adb9a6",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.05896Z",
+            "modified": "2021-03-13T20:09:21.05896Z",
+            "name": "Madagascar",
+            "country": "MG",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

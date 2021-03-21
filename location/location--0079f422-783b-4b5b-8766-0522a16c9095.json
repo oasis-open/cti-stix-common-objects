@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--338b8832-e23c-4fc8-95e1-20fb5252ebf4",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--0079f422-783b-4b5b-8766-0522a16c9095",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.11202Z",
+            "modified": "2021-03-13T20:09:21.11202Z",
+            "name": "R\u00e9union",
+            "country": "RE",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

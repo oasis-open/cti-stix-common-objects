@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--5f7197ac-6047-4c59-bbf4-8346426db4c5",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--1ed84e38-3ba7-4f2f-9a8a-dfa09b4e0140",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.947006Z",
+            "modified": "2021-03-13T20:09:20.947006Z",
+            "name": "C\u00f4te d'Ivoire",
+            "country": "CI",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

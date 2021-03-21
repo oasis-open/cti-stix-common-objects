@@ -1,0 +1,22 @@
+{
+    "type": "bundle",
+    "id": "bundle--674603fe-dbdf-48d2-9301-f1f6c1df5114",
+    "objects": [
+        {
+            "type": "identity",
+            "spec_version": "2.1",
+            "id": "identity--03e23f6c-0ac9-4b47-9c84-f718132adb21",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.317437Z",
+            "modified": "2021-03-13T20:09:21.317437Z",
+            "name": "Hospitality Leisure sector as a target",
+            "identity_class": "class",
+            "sectors": [
+                "hospitality-leisure"
+            ],
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "type": "bundle",
+    "id": "bundle--d3478071-6675-4e65-8199-9dc8fb4e4658",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--62018a49-4508-43d6-b82e-bdff62f60a0a",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.277729Z",
+            "modified": "2021-03-13T20:09:21.277729Z",
+            "name": "Texas",
+            "country": "US",
+            "administrative_area": "US-TX",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

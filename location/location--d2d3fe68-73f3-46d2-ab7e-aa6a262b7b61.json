@@ -1,0 +1,20 @@
+{
+    "type": "bundle",
+    "id": "bundle--19e86b9a-f3e0-4411-baee-8bd56d1dcf50",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--d2d3fe68-73f3-46d2-ab7e-aa6a262b7b61",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.267977Z",
+            "modified": "2021-03-13T20:09:21.267977Z",
+            "name": "North Dakota",
+            "country": "US",
+            "administrative_area": "US-ND",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

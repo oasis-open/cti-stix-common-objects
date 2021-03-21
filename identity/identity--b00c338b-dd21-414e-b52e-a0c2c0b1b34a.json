@@ -1,0 +1,22 @@
+{
+    "type": "bundle",
+    "id": "bundle--0e086d6e-3dc7-43a6-8ed1-5b3cfff0876c",
+    "objects": [
+        {
+            "type": "identity",
+            "spec_version": "2.1",
+            "id": "identity--b00c338b-dd21-414e-b52e-a0c2c0b1b34a",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.320582Z",
+            "modified": "2021-03-13T20:09:21.320582Z",
+            "name": "Nuclear sector as a target",
+            "identity_class": "class",
+            "sectors": [
+                "nuclear"
+            ],
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

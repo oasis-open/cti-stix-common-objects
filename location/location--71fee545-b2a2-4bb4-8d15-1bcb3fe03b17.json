@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--d8af770c-f2d6-4fd2-bfa3-dba7c596234e",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--71fee545-b2a2-4bb4-8d15-1bcb3fe03b17",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.094944Z",
+            "modified": "2021-03-13T20:09:21.094944Z",
+            "name": "Pakistan",
+            "country": "PK",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

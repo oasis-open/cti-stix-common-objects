@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--2470466a-79cc-4e4e-8983-0e8ba3d9b27f",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--7a341500-61f0-4dd8-bfe9-11646d8963b8",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.00063Z",
+            "modified": "2021-03-13T20:09:21.00063Z",
+            "name": "Equatorial Guinea",
+            "country": "GQ",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

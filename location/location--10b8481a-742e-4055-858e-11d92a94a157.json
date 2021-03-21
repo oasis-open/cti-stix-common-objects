@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--c48f6d59-6e25-4f2a-b0af-f6133abd7cb8",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--10b8481a-742e-4055-858e-11d92a94a157",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.95085Z",
+            "modified": "2021-03-13T20:09:20.95085Z",
+            "name": "Congo, The Democratic Republic of the",
+            "country": "CD",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

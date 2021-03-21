@@ -1,0 +1,43 @@
+name: cti-stix-commom-objects daily update
+on:
+  push
+  # schedule:
+    # * is a special character in YAML so you have to quote this string
+  #  - cron:  '?'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    name: Update Stix Commom Objects Repository
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+    - name: Pull latest from cve
+        uses: actions/checkout@v2
+          with:
+            repository: CVEProject/cvelist
+            path: './cvelist'
+    - name: Install and update essential dependencies
+      run: |
+        pip install -U pip setuptools
+        pip install stix2 stix2validator pycountry
+    - name: Run Updater
+      run: |
+        python generate_common_objects.py -r mapping.csv ./cvelist .
+    - name: validate
+      run: |
+        python test/validate_content.py -v "--version 2.1" common-object-repository-prototype
+    - name: push
+      if: ${{ success() }}
+      uses: github-actions-x/commit@v2.7
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        push-branch: 'master'
+        commit-message: 'published latest'
+        force-add: 'true'
+        email: rpiazza@mitre.org

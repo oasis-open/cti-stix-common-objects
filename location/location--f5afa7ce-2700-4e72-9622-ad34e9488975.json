@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--4ee83b46-85ad-4965-89c4-bc455a3e21a3",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--f5afa7ce-2700-4e72-9622-ad34e9488975",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.961187Z",
+            "modified": "2021-03-13T20:09:20.961187Z",
+            "name": "Cuba",
+            "country": "CU",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

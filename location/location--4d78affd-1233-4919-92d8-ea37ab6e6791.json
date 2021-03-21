@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--2b435f73-36b6-4574-ba4d-67c3b423223e",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--4d78affd-1233-4919-92d8-ea37ab6e6791",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.132564Z",
+            "modified": "2021-03-13T20:09:21.132564Z",
+            "name": "Sao Tome and Principe",
+            "country": "ST",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

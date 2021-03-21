@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--53745eed-a953-4a54-a646-8050f3967e03",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--dd4ea245-5d51-4a8b-a779-38de75509f4e",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.200189Z",
+            "modified": "2021-03-13T20:09:21.200189Z",
+            "name": "Eastern Asia",
+            "region": "eastern-asia",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

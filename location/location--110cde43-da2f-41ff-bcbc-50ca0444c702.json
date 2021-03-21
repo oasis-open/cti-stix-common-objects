@@ -1,0 +1,20 @@
+{
+    "type": "bundle",
+    "id": "bundle--f445c648-c284-4b76-a22b-0d9907eba349",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--110cde43-da2f-41ff-bcbc-50ca0444c702",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.292845Z",
+            "modified": "2021-03-13T20:09:21.292845Z",
+            "name": "Marshall Islands",
+            "country": "US",
+            "administrative_area": "US-MH",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

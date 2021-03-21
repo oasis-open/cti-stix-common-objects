@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--04d3b0b1-f5d6-4e66-957e-1968c2f4ab54",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--a76c4fb1-4067-4753-a533-bb5add38a964",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.046724Z",
+            "modified": "2021-03-13T20:09:21.046724Z",
+            "name": "Liechtenstein",
+            "country": "LI",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

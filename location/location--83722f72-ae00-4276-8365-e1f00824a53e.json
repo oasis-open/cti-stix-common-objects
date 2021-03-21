@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--296c456e-b111-46f6-812c-c4d3a18c5e1f",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--83722f72-ae00-4276-8365-e1f00824a53e",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.131527Z",
+            "modified": "2021-03-13T20:09:21.131527Z",
+            "name": "South Sudan",
+            "country": "SS",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

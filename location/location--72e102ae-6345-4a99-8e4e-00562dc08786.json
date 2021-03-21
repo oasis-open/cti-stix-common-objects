@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--1fbe3d53-4883-408e-97c8-6c09a3540cfa",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--72e102ae-6345-4a99-8e4e-00562dc08786",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.082642Z",
+            "modified": "2021-03-13T20:09:21.082642Z",
+            "name": "Niger",
+            "country": "NE",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

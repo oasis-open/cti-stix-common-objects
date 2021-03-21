@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--c1436303-98dc-4573-8f92-7742621fd8e1",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--2808ddf2-c5c0-44b8-afeb-c0f3d481b10d",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.124213Z",
+            "modified": "2021-03-13T20:09:21.124213Z",
+            "name": "Solomon Islands",
+            "country": "SB",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "type": "bundle",
+    "id": "bundle--91bb3d8a-f02d-4352-820d-9fd916af4a7e",
+    "objects": [
+        {
+            "type": "identity",
+            "spec_version": "2.1",
+            "id": "identity--ef1f53f1-ec2b-4c2e-bcac-d1f70b1e89be",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.330327Z",
+            "modified": "2021-03-13T20:09:21.330327Z",
+            "name": "Telecommunications sector as a target",
+            "identity_class": "class",
+            "sectors": [
+                "telecommunications"
+            ],
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

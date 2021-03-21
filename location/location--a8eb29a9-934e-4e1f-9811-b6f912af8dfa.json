@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--986847ed-0477-49de-93e1-2cb4d9965586",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--a8eb29a9-934e-4e1f-9811-b6f912af8dfa",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.133596Z",
+            "modified": "2021-03-13T20:09:21.133596Z",
+            "name": "Suriname",
+            "country": "SR",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

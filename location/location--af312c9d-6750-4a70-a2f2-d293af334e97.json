@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--97c00604-2a6e-4e47-a562-5e5ca242f2d8",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--af312c9d-6750-4a70-a2f2-d293af334e97",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.934617Z",
+            "modified": "2021-03-13T20:09:20.934617Z",
+            "name": "Central African Republic",
+            "country": "CF",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

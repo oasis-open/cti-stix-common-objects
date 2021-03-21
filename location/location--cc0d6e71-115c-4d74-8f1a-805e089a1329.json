@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--64b5be03-7b7f-4893-88a7-d1fd85ba10ae",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--cc0d6e71-115c-4d74-8f1a-805e089a1329",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.20123Z",
+            "modified": "2021-03-13T20:09:21.20123Z",
+            "name": "Southern Asia",
+            "region": "southern-asia",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

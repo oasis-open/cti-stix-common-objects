@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--4c2d38f2-3421-4d2c-a259-65c6c1d0946f",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--8b7e6ddd-c968-4257-a3cd-7106fec1f03d",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.011948Z",
+            "modified": "2021-03-13T20:09:21.011948Z",
+            "name": "Honduras",
+            "country": "HN",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

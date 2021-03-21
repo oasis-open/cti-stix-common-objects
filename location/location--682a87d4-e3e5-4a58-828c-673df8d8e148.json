@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--5bb4b8d6-e20c-4553-abdd-bf6aa8b4af7e",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--682a87d4-e3e5-4a58-828c-673df8d8e148",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.154091Z",
+            "modified": "2021-03-13T20:09:21.154091Z",
+            "name": "Trinidad and Tobago",
+            "country": "TT",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

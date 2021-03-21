@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--9bb0b2c1-9337-402b-a26d-dec9e8401ab0",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--aefbbe9d-8952-49bc-9b46-96deefe241aa",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.07232Z",
+            "modified": "2021-03-13T20:09:21.07232Z",
+            "name": "Mauritania",
+            "country": "MR",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

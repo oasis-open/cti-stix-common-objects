@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--205a4f7e-4798-482a-bbd2-6e994844918d",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--714f0a0d-9eed-414d-a060-a3a3173197ed",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.940838Z",
+            "modified": "2021-03-13T20:09:20.940838Z",
+            "name": "Switzerland",
+            "country": "CH",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

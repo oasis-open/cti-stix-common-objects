@@ -1,0 +1,20 @@
+{
+    "type": "bundle",
+    "id": "bundle--2ffcd347-c4cd-4668-878e-155c30556b06",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--62b57560-2987-4580-b8ca-06a66f96235d",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.217041Z",
+            "modified": "2021-03-13T20:09:21.217041Z",
+            "name": "Alberta",
+            "country": "CA",
+            "administrative_area": "AB",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

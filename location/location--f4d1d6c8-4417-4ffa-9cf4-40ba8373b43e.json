@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--e4520572-710c-4ee0-9060-e98e78466cb3",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--f4d1d6c8-4417-4ffa-9cf4-40ba8373b43e",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.050942Z",
+            "modified": "2021-03-13T20:09:21.050942Z",
+            "name": "Luxembourg",
+            "country": "LU",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

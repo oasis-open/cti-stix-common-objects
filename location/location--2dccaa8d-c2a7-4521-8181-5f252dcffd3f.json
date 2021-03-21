@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--8c97bd44-b457-48ae-97be-38ddf4edbfe4",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--2dccaa8d-c2a7-4521-8181-5f252dcffd3f",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.031916Z",
+            "modified": "2021-03-13T20:09:21.031916Z",
+            "name": "Kazakhstan",
+            "country": "KZ",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

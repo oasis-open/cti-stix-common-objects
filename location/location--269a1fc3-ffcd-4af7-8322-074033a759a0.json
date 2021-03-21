@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--ef3330c6-f363-4d77-b994-259d784d7ca1",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--269a1fc3-ffcd-4af7-8322-074033a759a0",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.21225Z",
+            "modified": "2021-03-13T20:09:21.21225Z",
+            "name": "Melanesia",
+            "region": "melanesia",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

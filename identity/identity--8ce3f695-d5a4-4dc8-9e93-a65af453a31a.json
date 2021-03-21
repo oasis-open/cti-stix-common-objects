@@ -1,0 +1,16 @@
+{
+    "type": "bundle",
+    "id": "bundle--72f08673-5737-4de1-8c4f-4275cfc06b59",
+    "objects": [
+        {
+            "type": "identity",
+            "spec_version": "2.1",
+            "id": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.8889Z",
+            "modified": "2021-03-13T20:09:20.8889Z",
+            "name": "OASIS",
+            "description": "OASIS is a global community of experts who drive the creation and adoption of open standards promoting interoperability, innovation, and freedom of choice.",
+            "identity_class": "organization"
+        }
+    ]
+}

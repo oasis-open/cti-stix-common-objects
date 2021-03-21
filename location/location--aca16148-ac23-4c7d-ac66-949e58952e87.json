@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--66e0d4f3-a647-4382-baf7-393345c1dbd5",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--aca16148-ac23-4c7d-ac66-949e58952e87",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.921065Z",
+            "modified": "2021-03-13T20:09:20.921065Z",
+            "name": "Bosnia and Herzegovina",
+            "country": "BA",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

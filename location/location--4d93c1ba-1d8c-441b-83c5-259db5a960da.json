@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--480dbdd7-39d2-45ed-868c-072e1fa620c1",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--4d93c1ba-1d8c-441b-83c5-259db5a960da",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.013355Z",
+            "modified": "2021-03-13T20:09:21.013355Z",
+            "name": "Croatia",
+            "country": "HR",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}
