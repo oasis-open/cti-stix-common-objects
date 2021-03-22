@@ -19,9 +19,9 @@ jobs:
         python-version: 3.9
     - name: Pull latest from cve
     - uses: actions/checkout@v2
-          with:
-            repository: CVEProject/cvelist
-            path: './cvelist'
+      with:
+        repository: CVEProject/cvelist
+        path: './cvelist'
     - name: Install and update essential dependencies
       run: |
         pip install -U pip setuptools
