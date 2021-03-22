@@ -31,7 +31,7 @@ jobs:
         python generate_common_objects.py -r mapping.csv ./cvelist .
     - name: validate
       run: |
-        python test/validate_content.py -v "--version 2.1" common-object-repository-prototype
+        python test/validate_content.py -v "--version 2.1" .
     - name: push
       if: ${{ success() }}
       uses: github-actions-x/commit@v2.7
