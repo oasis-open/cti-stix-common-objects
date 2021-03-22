@@ -25,7 +25,7 @@ jobs:
     - name: Install and update essential dependencies
       run: |
         pip install -U pip setuptools
-        pip install stix2 stix2validator pycountry
+        pip install stix2 stix2-validator pycountry
     - name: Run Updater
       run: |
         python generate_common_objects.py -r mapping.csv ./cvelist .
