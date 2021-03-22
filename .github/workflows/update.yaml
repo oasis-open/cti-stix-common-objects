@@ -18,7 +18,7 @@ jobs:
       with:
         python-version: 3.9
     - name: Pull latest from cve
-        uses: actions/checkout@v2
+    - uses: actions/checkout@v2
           with:
             repository: CVEProject/cvelist
             path: './cvelist'
