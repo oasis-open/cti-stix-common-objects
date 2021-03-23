@@ -17,7 +17,7 @@ STIX 2.1 is expressed using JSON, which can be easily consumed using Python or o
 What type of STIX content can be found in this repository
 ---------------------------------------------------------
 
-The current objects were created via a script found at `generate_common_objects.py <generate_common_objects.py>`_.
+The current objects were created via a script found at `generate_common_objects.py <scripts/generate_common_objects.py>`_.
 
 Location objects
 ~~~~~~~~~~~~~~~~
@@ -30,13 +30,13 @@ Location objects
 Identity objects
 ~~~~~~~~~~~~~~~~
 
--    One for the object creator (currently `OASIS <identity/identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a.json>`_)
+-    One for the object creator (currently `OASIS <objects/identity/identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a.json>`_)
 -    All sectors in `industry-sector-ov <https://docs.oasis-open.org/cti/stix/v2.1/cs02/stix-v2.1-cs02.html#_oogrswk3onck>`_
 
 Vulnerability objects
 ~~~~~~~~~~~~~~~~~~~~~
 
--    All “published” CVEs (updated daily).  As of 3/11/2021, there are approximately 150,000 objects.
+-    All “published” CVEs (updated daily).  As of March 2021, there are approximately 150,000 objects.
 
 Using Python and STIX 2.1
 -------------------------
