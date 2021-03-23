@@ -28,10 +28,10 @@ jobs:
         pip install stix2 stix2-validator pycountry
     - name: Run Updater
       run: |
-        python generate_common_objects.py -r mapping.csv ./cvelist .
+        python scripts/generate_common_objects.py -r mapping.csv ./cvelist objects
     - name: validate
       run: |
-        python test/validate_content.py -v "--version 2.1" .
+        python scripts/validate_content.py -v "--version 2.1" objects
     - name: push
       if: ${{ success() }}
       uses: github-actions-x/commit@v2.7

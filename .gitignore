@@ -1,0 +1,61 @@
+# vim swap files
+*.swp
+
+# compiled python modules
+*.py[co]
+
+# eclipse project files
+*.project
+*.pydevproject
+*.settings
+
+# pycharm
+.idea/
+
+# python setuptools
+build/
+dist/
+*.egg-info
+
+# log folder for elevator
+/logs/
+
+docs/_build
+
+### macOS template
+*.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*,cover
+.pytest_cache
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk

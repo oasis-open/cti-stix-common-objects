@@ -7,7 +7,6 @@ from stix2validator import ValidationError, codes, output, validate_string
 from stix2validator.scripts import stix2_validator
 from stix2validator.validator import FileValidationResults
 
-import stix2
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
@@ -51,6 +50,8 @@ def main():
                     except Exception:
                         print("Failed with uncaught exception: " + file_full_path)
                         return_value = -1
+    if return_value != -1:
+        print("All content is valid")
     return return_value
 
 if __name__ == "__main__":
