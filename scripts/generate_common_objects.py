@@ -1,13 +1,10 @@
 import argparse
 import csv
-import io
 import json
 import pathlib
-import zipfile
 
 # external
 import pycountry
-import requests
 from stix2 import v21
 from stix2validator.v21.enums import INDUSTRY_SECTOR_OV, REGION_OV
 
