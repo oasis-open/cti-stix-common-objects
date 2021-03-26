@@ -1,10 +1,13 @@
 import argparse
 import csv
+import io
 import json
 import pathlib
+import zipfile
 
 # external
 import pycountry
+import requests
 from stix2 import v21
 from stix2validator.v21.enums import INDUSTRY_SECTOR_OV, REGION_OV
 
@@ -103,8 +106,6 @@ MARKING_ID = "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description='Create STIX common objects')
-    parser.add_argument('cve_dir',
-                        help='directory holding CVE entries')
     parser.add_argument('stix_dir',
                         help='output directory for generated stix files')
     parser.add_argument('-r', required=False, metavar='id_mapping_file', default=None,
@@ -233,24 +234,30 @@ def main():
 
     # Vulnerability objects
 
-    top_level_cve_directory = pathlib.Path(args.cve_dir).resolve()
-    for iterdir in top_level_cve_directory.iterdir():
-        if iterdir.is_dir() and iterdir.name != ".git":
-            for cve_entry in iterdir.rglob("*.json"):
-                with cve_entry.open('r', encoding='utf-8') as cve_file:
-                    cve_data = json.load(cve_file)
-                    cve_meta_data = cve_data["CVE_data_meta"]
-                    cve_id = cve_meta_data["ID"]
-                    if (not existing_object("vulnerability", cve_id, id_map) and
-                            cve_meta_data.get("STATE", None) == "PUBLIC"):
-                        vulnerability = v21.Vulnerability(
-                            name=cve_id,
-                            description=cve_data["description"]["description_data"][0]["value"],
-                            external_references=[v21.ExternalReference(source_name="cve", external_id=cve_id)],
-                            created_by_ref=ident_id,
-                            object_marking_refs=[marking_def_id],
-                        )
-                        write_object(vulnerability, output_dir, cve_id, id_map)
+    response = requests.get(r"https://github.com/CVEProject/cvelist/archive/refs/heads/master.zip", verify=True)
+
+    with zipfile.ZipFile(io.StringIO(response.text), "r") as cve_zip:
+        cve_zip.extractall("cvelist")
+
+    top_level_cve_directory = pathlib.Path("./cvelist/cvelist-master").resolve()
+    for cve_entry in top_level_cve_directory.rglob("*.json"):
+        with cve_entry.open('r', encoding='utf-8') as cve_file:
+            cve_data = json.load(cve_file)
+        cve_meta_data = cve_data["CVE_data_meta"]
+        cve_id = cve_meta_data["ID"]
+        if (not existing_object("vulnerability", cve_id, id_map) and
+                cve_meta_data.get("STATE", None) == "PUBLIC"):
+            cve_description = cve_data["description"]["description_data"][0]["value"]
+            vulnerability = v21.Vulnerability(
+                name=cve_id,
+                description=cve_description,
+                external_references=[v21.ExternalReference(source_name="cve", external_id=cve_id)],
+                created_by_ref=ident_id,
+                object_marking_refs=[marking_def_id],
+            )
+            write_object(vulnerability, output_dir, cve_id, id_map)
+
+    top_level_cve_directory.rmdir()  # removes directory
 
     if args.r:
         with mapping_file.open('w', encoding='utf-8') as csv_file:
