@@ -106,6 +106,8 @@ MARKING_ID = "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description='Create STIX common objects')
+    parser.add_argument('cve_dir',
+                        help='directory holding CVE entries')
     parser.add_argument('stix_dir',
                         help='output directory for generated stix files')
     parser.add_argument('-r', required=False, metavar='id_mapping_file', default=None,
@@ -234,12 +236,7 @@ def main():
 
     # Vulnerability objects
 
-    response = requests.get(r"https://github.com/CVEProject/cvelist/archive/refs/heads/master.zip", verify=True)
-
-    with zipfile.ZipFile(io.StringIO(response.text), "r") as cve_zip:
-        cve_zip.extractall("cvelist")
-
-    top_level_cve_directory = pathlib.Path("./cvelist/cvelist-master").resolve()
+    top_level_cve_directory = pathlib.Path(args.cve_dir).resolve()
     for cve_entry in top_level_cve_directory.rglob("*.json"):
         with cve_entry.open('r', encoding='utf-8') as cve_file:
             cve_data = json.load(cve_file)
@@ -256,8 +253,6 @@ def main():
                 object_marking_refs=[marking_def_id],
             )
             write_object(vulnerability, output_dir, cve_id, id_map)
-
-    top_level_cve_directory.rmdir()  # removes directory
 
     if args.r:
         with mapping_file.open('w', encoding='utf-8') as csv_file:
