@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--147ad965-93a3-4ed6-b783-2ccbfaf419bf",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--0f917779-5421-49fb-b437-a3ef72f1dc62",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.084773Z",
+            "modified": "2021-03-13T20:09:21.084773Z",
+            "name": "Nigeria",
+            "country": "NG",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

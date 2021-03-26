@@ -1,0 +1,22 @@
+{
+    "type": "bundle",
+    "id": "bundle--a3bfbdc3-517e-443b-9a72-1c9fd1b1d69f",
+    "objects": [
+        {
+            "type": "identity",
+            "spec_version": "2.1",
+            "id": "identity--e20ed48d-3af2-4f71-bd86-d798e19d0851",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.33241Z",
+            "modified": "2021-03-13T20:09:21.33241Z",
+            "name": "Utilities sector as a target",
+            "identity_class": "class",
+            "sectors": [
+                "utilities"
+            ],
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

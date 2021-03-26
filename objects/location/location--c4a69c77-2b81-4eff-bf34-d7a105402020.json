@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--bf43ae37-53a2-49a1-8aa9-b51cd1db656f",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--c4a69c77-2b81-4eff-bf34-d7a105402020",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.98258Z",
+            "modified": "2021-03-13T20:09:20.98258Z",
+            "name": "Finland",
+            "country": "FI",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

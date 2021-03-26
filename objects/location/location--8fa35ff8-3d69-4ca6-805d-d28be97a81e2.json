@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--f454a8a2-e386-495d-8dea-8a3d64d38ec2",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--8fa35ff8-3d69-4ca6-805d-d28be97a81e2",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.967942Z",
+            "modified": "2021-03-13T20:09:20.967942Z",
+            "name": "Germany",
+            "country": "DE",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--cf4384be-f042-4c3b-98c5-3a67c0385cf1",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--250e52c7-e394-4dce-b416-c0d39fc54455",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.121048Z",
+            "modified": "2021-03-13T20:09:21.121048Z",
+            "name": "South Georgia and the South Sandwich Islands",
+            "country": "GS",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

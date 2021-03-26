@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--67bebfd3-e8c6-41ac-9261-6d84b8e1187a",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--d4cfdef1-5a53-46f5-b1e8-380a2281eac8",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.996466Z",
+            "modified": "2021-03-13T20:09:20.996466Z",
+            "name": "Guinea",
+            "country": "GN",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

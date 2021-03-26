@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--98cd7271-70f2-4c15-b0cc-0ed6c9b2a041",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--646c0d1e-6049-4e52-8de5-64c4d992e329",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.926301Z",
+            "modified": "2021-03-13T20:09:20.926301Z",
+            "name": "Bolivia, Plurinational State of",
+            "country": "BO",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

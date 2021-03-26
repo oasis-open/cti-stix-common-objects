@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--ed86e2fc-36b7-4fe1-9b0f-0dc0fd8a9fad",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--29f41013-d04e-4d5c-99b3-255dbf085a36",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.157616Z",
+            "modified": "2021-03-13T20:09:21.157616Z",
+            "name": "Tuvalu",
+            "country": "TV",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

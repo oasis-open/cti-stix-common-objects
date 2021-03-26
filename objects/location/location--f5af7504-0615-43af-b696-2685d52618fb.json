@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--02efbcf1-f054-4021-99e0-4cab1b386088",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--f5af7504-0615-43af-b696-2685d52618fb",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.145398Z",
+            "modified": "2021-03-13T20:09:21.145398Z",
+            "name": "Togo",
+            "country": "TG",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

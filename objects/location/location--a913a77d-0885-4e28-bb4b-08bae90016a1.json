@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--748203cc-d065-40d3-ab83-580e1e5a716a",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--a913a77d-0885-4e28-bb4b-08bae90016a1",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.972863Z",
+            "modified": "2021-03-13T20:09:20.972863Z",
+            "name": "Dominican Republic",
+            "country": "DO",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

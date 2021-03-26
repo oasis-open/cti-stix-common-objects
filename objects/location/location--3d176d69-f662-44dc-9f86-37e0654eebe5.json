@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--5478186c-90ea-4681-b9aa-72c6bc8de6ee",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--3d176d69-f662-44dc-9f86-37e0654eebe5",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.060033Z",
+            "modified": "2021-03-13T20:09:21.060033Z",
+            "name": "Maldives",
+            "country": "MV",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

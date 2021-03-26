@@ -1,0 +1,20 @@
+{
+    "type": "bundle",
+    "id": "bundle--f7d64622-fc71-498a-ae55-11b04b1e41a1",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--23e7707b-236f-404b-ada0-684510085983",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.293995Z",
+            "modified": "2021-03-13T20:09:21.293995Z",
+            "name": "Armed Forces Africa",
+            "country": "US",
+            "administrative_area": "US-AE",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

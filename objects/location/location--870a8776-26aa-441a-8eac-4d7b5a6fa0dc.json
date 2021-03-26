@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--2208dd25-2e49-4e99-9620-b7382c28cf02",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--870a8776-26aa-441a-8eac-4d7b5a6fa0dc",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.061088Z",
+            "modified": "2021-03-13T20:09:21.061088Z",
+            "name": "Mexico",
+            "country": "MX",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

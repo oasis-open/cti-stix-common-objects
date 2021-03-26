@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--46011f16-7ac1-4d20-9fe0-894275629f9e",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--fa34bd2f-56eb-4e6a-8d64-5b076d0083c6",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.193461Z",
+            "modified": "2021-03-13T20:09:21.193461Z",
+            "name": "South America",
+            "region": "south-america",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

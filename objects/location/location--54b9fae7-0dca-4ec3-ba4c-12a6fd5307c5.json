@@ -1,0 +1,20 @@
+{
+    "type": "bundle",
+    "id": "bundle--09bc3a22-3c8b-4486-ba69-564a0d2f7888",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--54b9fae7-0dca-4ec3-ba4c-12a6fd5307c5",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.230312Z",
+            "modified": "2021-03-13T20:09:21.230312Z",
+            "name": "Yukon",
+            "country": "CA",
+            "administrative_area": "YT",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

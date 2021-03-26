@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--2839d8b6-dcc1-47a7-8016-5fb4788d06aa",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--b29664c7-c890-4efd-9ea7-ecd86e96dc01",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.175002Z",
+            "modified": "2021-03-13T20:09:21.175002Z",
+            "name": "Viet Nam",
+            "country": "VN",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

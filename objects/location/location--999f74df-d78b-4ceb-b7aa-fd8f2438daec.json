@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--7403fffa-6cad-4967-a526-7ea6e2d033ec",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--999f74df-d78b-4ceb-b7aa-fd8f2438daec",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.158709Z",
+            "modified": "2021-03-13T20:09:21.158709Z",
+            "name": "Taiwan, Province of China",
+            "country": "TW",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

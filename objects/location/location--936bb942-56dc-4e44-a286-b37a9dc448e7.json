@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--52e8a9c1-2fbb-4707-84a7-fc305f276d62",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--936bb942-56dc-4e44-a286-b37a9dc448e7",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.987333Z",
+            "modified": "2021-03-13T20:09:20.987333Z",
+            "name": "Faroe Islands",
+            "country": "FO",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

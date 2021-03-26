@@ -1,0 +1,20 @@
+{
+    "type": "bundle",
+    "id": "bundle--10f99457-7886-4679-86c9-4cf21b418402",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--6192c8f9-57b4-4f9c-aa33-ca2e226927c0",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.269035Z",
+            "modified": "2021-03-13T20:09:21.269035Z",
+            "name": "Ohio",
+            "country": "US",
+            "administrative_area": "US-OH",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

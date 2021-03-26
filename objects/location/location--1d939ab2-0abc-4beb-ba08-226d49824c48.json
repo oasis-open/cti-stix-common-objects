@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--b93ee92e-7679-4bc7-9145-19e2578ba1de",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--1d939ab2-0abc-4beb-ba08-226d49824c48",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.03675Z",
+            "modified": "2021-03-13T20:09:21.03675Z",
+            "name": "Kiribati",
+            "country": "KI",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

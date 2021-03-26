@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--1c4bb752-f911-4681-a484-895147a8a2a4",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--9e8dc013-00aa-49d9-8766-52fcaf7ec242",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.001659Z",
+            "modified": "2021-03-13T20:09:21.001659Z",
+            "name": "Greece",
+            "country": "GR",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--9196a021-5d2f-41c8-bf5e-1037af71ed49",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--285cd9ec-27f7-4f48-b47f-8a229db7493d",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.073397Z",
+            "modified": "2021-03-13T20:09:21.073397Z",
+            "name": "Montserrat",
+            "country": "MS",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

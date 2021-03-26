@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--09f87bef-b705-42a3-9e72-716e55ee432f",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--4d31dcb7-1abb-4d1a-ab98-82859f784750",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.187964Z",
+            "modified": "2021-03-13T20:09:21.187964Z",
+            "name": "Northern Africa",
+            "region": "northern-africa",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--831100d6-feba-47d1-a058-6c76c2d85ec6",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--04fcb24a-472f-4215-9c6c-80200fee0c1d",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.894593Z",
+            "modified": "2021-03-13T20:09:20.894593Z",
+            "name": "Anguilla",
+            "country": "AI",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--195d0721-c2f4-4a23-8408-043ff0ef6cac",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--b74ea056-83ac-4b6c-996f-f50d27da1d67",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.017721Z",
+            "modified": "2021-03-13T20:09:21.017721Z",
+            "name": "Isle of Man",
+            "country": "IM",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

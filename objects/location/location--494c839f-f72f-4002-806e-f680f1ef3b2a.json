@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--717af790-e2b0-441e-a727-4f53ab7ef9ee",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--494c839f-f72f-4002-806e-f680f1ef3b2a",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.891211Z",
+            "modified": "2021-03-13T20:09:20.891211Z",
+            "name": "Aruba",
+            "country": "AW",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

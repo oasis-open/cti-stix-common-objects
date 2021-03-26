@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--a77081f9-e1ad-42b1-9391-2bce9af11c4d",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--28bd8d40-f5ac-47c6-a519-b11382f8394e",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.900702Z",
+            "modified": "2021-03-13T20:09:20.900702Z",
+            "name": "Argentina",
+            "country": "AR",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

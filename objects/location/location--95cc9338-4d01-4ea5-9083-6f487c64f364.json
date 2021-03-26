@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--6f6e625f-f514-4532-8089-f114aa9cb009",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--95cc9338-4d01-4ea5-9083-6f487c64f364",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.179399Z",
+            "modified": "2021-03-13T20:09:21.179399Z",
+            "name": "Yemen",
+            "country": "YE",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

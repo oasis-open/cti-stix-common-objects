@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--84c1e030-b4d8-44bf-bf30-15c219617dff",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--8780b0da-b45e-429d-b5b8-4a49daf059c0",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.155354Z",
+            "modified": "2021-03-13T20:09:21.155354Z",
+            "name": "Tunisia",
+            "country": "TN",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

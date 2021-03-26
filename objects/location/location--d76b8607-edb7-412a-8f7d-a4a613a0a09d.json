@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--21a7391d-07e2-4bf2-88b5-41b6945a75b8",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--d76b8607-edb7-412a-8f7d-a4a613a0a09d",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.016638Z",
+            "modified": "2021-03-13T20:09:21.016638Z",
+            "name": "Indonesia",
+            "country": "ID",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

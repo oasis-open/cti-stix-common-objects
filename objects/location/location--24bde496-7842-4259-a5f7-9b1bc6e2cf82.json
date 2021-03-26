@@ -1,0 +1,20 @@
+{
+    "type": "bundle",
+    "id": "bundle--5d831413-369a-4fff-b2be-2f33abc34d63",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--24bde496-7842-4259-a5f7-9b1bc6e2cf82",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.233478Z",
+            "modified": "2021-03-13T20:09:21.233478Z",
+            "name": "Arizona",
+            "country": "US",
+            "administrative_area": "US-AZ",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--c4324a08-66e0-4e1a-809d-13be6cbd4ac5",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--c49c857e-0234-46c2-9dc6-3747684ad7ee",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.006699Z",
+            "modified": "2021-03-13T20:09:21.006699Z",
+            "name": "French Guiana",
+            "country": "GF",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

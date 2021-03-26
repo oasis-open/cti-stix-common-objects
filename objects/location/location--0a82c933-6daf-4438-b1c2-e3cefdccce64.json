@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--3decb656-c52d-432f-b9e3-e1167b244a1f",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--0a82c933-6daf-4438-b1c2-e3cefdccce64",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.125248Z",
+            "modified": "2021-03-13T20:09:21.125248Z",
+            "name": "Sierra Leone",
+            "country": "SL",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

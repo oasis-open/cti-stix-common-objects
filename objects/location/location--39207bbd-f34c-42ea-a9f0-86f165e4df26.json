@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--173f2d97-d67d-42c2-987b-2b7d73c5a2c9",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--39207bbd-f34c-42ea-a9f0-86f165e4df26",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.997521Z",
+            "modified": "2021-03-13T20:09:20.997521Z",
+            "name": "Guadeloupe",
+            "country": "GP",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

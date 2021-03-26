@@ -1,0 +1,20 @@
+{
+    "type": "bundle",
+    "id": "bundle--ef0347ff-e29a-4d1a-ba9b-e5d7ba23ac5c",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--9b2df552-8531-412e-a52f-020ad2f755a3",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.287355Z",
+            "modified": "2021-03-13T20:09:21.287355Z",
+            "name": "American Samoa",
+            "country": "US",
+            "administrative_area": "US-AS",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

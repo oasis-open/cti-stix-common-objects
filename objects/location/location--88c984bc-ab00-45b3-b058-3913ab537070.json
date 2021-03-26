@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--a6ed9007-a576-4a5b-a5d6-fca0a9449f55",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--88c984bc-ab00-45b3-b058-3913ab537070",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.213272Z",
+            "modified": "2021-03-13T20:09:21.213272Z",
+            "name": "Micronesia",
+            "region": "micronesia",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--2b34166b-7380-4de8-86b8-c267277d2e61",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--3c391a4e-c16f-4780-8d40-a92f87ee13de",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.90617Z",
+            "modified": "2021-03-13T20:09:20.90617Z",
+            "name": "Antigua and Barbuda",
+            "country": "AG",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

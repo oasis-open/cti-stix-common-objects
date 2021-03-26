@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--20081fbd-cc2a-43cf-a415-78a8e91c1bba",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--3b542e4f-1668-4641-893e-ca9b6d96b357",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.067062Z",
+            "modified": "2021-03-13T20:09:21.067062Z",
+            "name": "Myanmar",
+            "country": "MM",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--4c42e77e-6865-4774-b585-76b093adfc0d",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--8ae75a15-061e-4d5d-af4c-e08bdfb059a0",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.980482Z",
+            "modified": "2021-03-13T20:09:20.980482Z",
+            "name": "Estonia",
+            "country": "EE",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

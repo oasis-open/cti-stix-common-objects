@@ -1,0 +1,20 @@
+{
+    "type": "bundle",
+    "id": "bundle--5d3c6236-b3bf-4992-bfbe-3e9b50f6d235",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--6c598d3f-4307-4daf-9358-98bf626c74ac",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.253498Z",
+            "modified": "2021-03-13T20:09:21.253498Z",
+            "name": "Massachusetts",
+            "country": "US",
+            "administrative_area": "US-MA",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

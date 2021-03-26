@@ -1,0 +1,20 @@
+{
+    "type": "bundle",
+    "id": "bundle--d0676d34-5896-4206-85e2-ef86edf715ea",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--6b89c9d0-b7e8-4fbd-87e0-1dbcba348f55",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.256811Z",
+            "modified": "2021-03-13T20:09:21.256811Z",
+            "name": "Mississippi",
+            "country": "US",
+            "administrative_area": "US-MS",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

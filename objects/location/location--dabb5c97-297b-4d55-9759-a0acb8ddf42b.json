@@ -1,0 +1,20 @@
+{
+    "type": "bundle",
+    "id": "bundle--63723429-cb47-4803-bcc4-ab94daba4cdd",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--dabb5c97-297b-4d55-9759-a0acb8ddf42b",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.24899Z",
+            "modified": "2021-03-13T20:09:21.24899Z",
+            "name": "Kentucky",
+            "country": "US",
+            "administrative_area": "US-KY",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

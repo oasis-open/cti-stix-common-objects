@@ -1,0 +1,20 @@
+{
+    "type": "bundle",
+    "id": "bundle--3a17f9a9-2e2e-4a8d-a5fe-e8c30d37bc70",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--a9a71b6c-7740-4056-a588-91d8ac238d80",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.27553Z",
+            "modified": "2021-03-13T20:09:21.27553Z",
+            "name": "South Dakota",
+            "country": "US",
+            "administrative_area": "US-SD",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

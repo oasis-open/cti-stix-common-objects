@@ -1,0 +1,16 @@
+{
+    "type": "bundle",
+    "id": "bundle--98c99a54-139c-4633-8bfa-cb44e11013e4",
+    "objects": [
+        {
+            "type": "marking-definition",
+            "spec_version": "2.1",
+            "id": "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf",
+            "created": "2021-03-13T20:09:20.886268Z",
+            "definition_type": "statement",
+            "definition": {
+                "statement": "This content is subject to open source license terms expressed in the BSD-3-Clause License. For more information, please see https://github.com/oasis-open/cti-stix-common-objects"
+            }
+        }
+    ]
+}

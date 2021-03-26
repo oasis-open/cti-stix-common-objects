@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--17c13071-db71-48bb-a5fe-98f6bba54295",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--a7801cf0-c5d7-42ce-a091-e643779235ff",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.064919Z",
+            "modified": "2021-03-13T20:09:21.064919Z",
+            "name": "Mali",
+            "country": "ML",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

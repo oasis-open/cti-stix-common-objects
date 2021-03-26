@@ -1,0 +1,22 @@
+{
+    "type": "bundle",
+    "id": "bundle--c63581e6-1b83-442c-b20b-c85931e20a32",
+    "objects": [
+        {
+            "type": "identity",
+            "spec_version": "2.1",
+            "id": "identity--aa25fea8-ef34-47b8-83ab-05ac3dc9326d",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.304762Z",
+            "modified": "2021-03-13T20:09:21.304762Z",
+            "name": "Defense sector as a target",
+            "identity_class": "class",
+            "sectors": [
+                "defense"
+            ],
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

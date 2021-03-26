@@ -1,0 +1,22 @@
+{
+    "type": "bundle",
+    "id": "bundle--d11728e9-1d6b-485e-9d2f-af616902a112",
+    "objects": [
+        {
+            "type": "identity",
+            "spec_version": "2.1",
+            "id": "identity--2438cb7e-0104-4576-b9a2-b2623ed3de7a",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.326044Z",
+            "modified": "2021-03-13T20:09:21.326044Z",
+            "name": "Non Profit sector as a target",
+            "identity_class": "class",
+            "sectors": [
+                "non-profit"
+            ],
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "type": "bundle",
+    "id": "bundle--f9d179b2-a3d3-480f-a493-62dd2aa859bd",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--9a9a78fa-0f7c-4daa-ad9b-7fe24e90e4ff",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.221419Z",
+            "modified": "2021-03-13T20:09:21.221419Z",
+            "name": "Newfoundland and Labrador",
+            "country": "CA",
+            "administrative_area": "NL",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

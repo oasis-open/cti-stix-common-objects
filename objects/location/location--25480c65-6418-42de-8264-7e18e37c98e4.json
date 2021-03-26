@@ -1,0 +1,20 @@
+{
+    "type": "bundle",
+    "id": "bundle--0c80a5c7-2185-4a77-8ea8-2b558218d80d",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--25480c65-6418-42de-8264-7e18e37c98e4",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.229221Z",
+            "modified": "2021-03-13T20:09:21.229221Z",
+            "name": "Saskatchewan",
+            "country": "CA",
+            "administrative_area": "SK",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

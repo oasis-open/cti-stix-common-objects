@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--e41402b8-5ca9-4405-970e-0362cd1d0b03",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--cf47f07b-6a8b-4aa4-bbe1-aca45ad0694d",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.97394Z",
+            "modified": "2021-03-13T20:09:20.97394Z",
+            "name": "Algeria",
+            "country": "DZ",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

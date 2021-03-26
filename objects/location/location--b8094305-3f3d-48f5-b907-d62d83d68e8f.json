@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--a71dab70-9f2a-4c33-8e59-34bab84794b3",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--b8094305-3f3d-48f5-b907-d62d83d68e8f",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.144359Z",
+            "modified": "2021-03-13T20:09:21.144359Z",
+            "name": "Chad",
+            "country": "TD",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

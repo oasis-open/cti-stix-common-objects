@@ -1,0 +1,22 @@
+{
+    "type": "bundle",
+    "id": "bundle--649f6db4-7ee7-4f33-af58-0af3e2d9fe33",
+    "objects": [
+        {
+            "type": "identity",
+            "spec_version": "2.1",
+            "id": "identity--8004c490-64c3-46a4-b78b-2806e0d08ce5",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.324884Z",
+            "modified": "2021-03-13T20:09:21.324884Z",
+            "name": "Mining sector as a target",
+            "identity_class": "class",
+            "sectors": [
+                "mining"
+            ],
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

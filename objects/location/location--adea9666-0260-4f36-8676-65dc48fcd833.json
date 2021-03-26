@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--e1e24302-d890-4395-93fd-fcb5c3f615f4",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--adea9666-0260-4f36-8676-65dc48fcd833",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.911994Z",
+            "modified": "2021-03-13T20:09:20.911994Z",
+            "name": "Belgium",
+            "country": "BE",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

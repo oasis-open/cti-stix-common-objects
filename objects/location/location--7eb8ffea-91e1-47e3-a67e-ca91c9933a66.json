@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--2a19c3dd-01c7-4959-ad65-836a4230df43",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--7eb8ffea-91e1-47e3-a67e-ca91c9933a66",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.958497Z",
+            "modified": "2021-03-13T20:09:20.958497Z",
+            "name": "Cabo Verde",
+            "country": "CV",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

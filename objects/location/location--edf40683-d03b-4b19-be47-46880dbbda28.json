@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--471570f8-da44-4c8b-8f95-3e382cdea535",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--edf40683-d03b-4b19-be47-46880dbbda28",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.063221Z",
+            "modified": "2021-03-13T20:09:21.063221Z",
+            "name": "North Macedonia",
+            "country": "MK",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

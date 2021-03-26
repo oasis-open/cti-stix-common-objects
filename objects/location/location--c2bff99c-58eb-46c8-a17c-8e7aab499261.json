@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--a1d3c842-fac1-4661-a4ea-5d5efa58ed1e",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--c2bff99c-58eb-46c8-a17c-8e7aab499261",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.030883Z",
+            "modified": "2021-03-13T20:09:21.030883Z",
+            "name": "Japan",
+            "country": "JP",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

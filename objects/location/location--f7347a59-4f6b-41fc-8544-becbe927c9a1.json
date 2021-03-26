@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--f9afde11-b0f8-415a-aae4-2199f0034954",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--f7347a59-4f6b-41fc-8544-becbe927c9a1",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.915305Z",
+            "modified": "2021-03-13T20:09:20.915305Z",
+            "name": "Burkina Faso",
+            "country": "BF",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

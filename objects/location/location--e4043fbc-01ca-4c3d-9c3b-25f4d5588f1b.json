@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--3b5e3c89-933e-4852-98c8-913a456244d9",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--e4043fbc-01ca-4c3d-9c3b-25f4d5588f1b",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.115204Z",
+            "modified": "2021-03-13T20:09:21.115204Z",
+            "name": "Rwanda",
+            "country": "RW",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--c2c6755c-f537-471c-99d1-3d6344cb7b5e",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--dcd3ae63-2bbf-4c64-997c-b731be5b2aa8",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.102076Z",
+            "modified": "2021-03-13T20:09:21.102076Z",
+            "name": "Papua New Guinea",
+            "country": "PG",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

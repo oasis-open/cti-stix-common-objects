@@ -1,0 +1,20 @@
+{
+    "type": "bundle",
+    "id": "bundle--a2b87e76-dccb-4a72-9f02-e6ca04583e1e",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--5a126759-ddc6-4b51-a80f-72a647aab18f",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.24687Z",
+            "modified": "2021-03-13T20:09:21.24687Z",
+            "name": "Iowa",
+            "country": "US",
+            "administrative_area": "US-IA",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "type": "bundle",
+    "id": "bundle--542f331b-229c-4356-9c95-300fc32fab84",
+    "objects": [
+        {
+            "type": "identity",
+            "spec_version": "2.1",
+            "id": "identity--7119e085-8c5a-4153-bb5c-10c9eb919305",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.309978Z",
+            "modified": "2021-03-13T20:09:21.309978Z",
+            "name": "Government sector as a target",
+            "identity_class": "class",
+            "sectors": [
+                "government"
+            ],
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

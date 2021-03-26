@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--e3fd2b3f-ce44-4b50-8abd-4efb5ec6e379",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--c760c60a-2b1f-4e47-82ee-941a49535a3b",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.088459Z",
+            "modified": "2021-03-13T20:09:21.088459Z",
+            "name": "Netherlands",
+            "country": "NL",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--f48bbe3f-6a83-4bb9-807f-5fb247ec4ad4",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--8a9e75a7-925c-4a87-95a2-7c52a3010655",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.008815Z",
+            "modified": "2021-03-13T20:09:21.008815Z",
+            "name": "Guyana",
+            "country": "GY",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

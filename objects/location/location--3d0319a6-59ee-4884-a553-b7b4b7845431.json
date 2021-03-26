@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--75d429a3-7e71-41ad-9a01-a264504ec5be",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--3d0319a6-59ee-4884-a553-b7b4b7845431",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.167235Z",
+            "modified": "2021-03-13T20:09:21.167235Z",
+            "name": "Uzbekistan",
+            "country": "UZ",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--7e04ec39-bca7-4081-9e66-e4c437809348",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--eb8d62cf-ec41-4d58-9fe8-3c27a7766e0e",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.910956Z",
+            "modified": "2021-03-13T20:09:20.910956Z",
+            "name": "Burundi",
+            "country": "BI",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

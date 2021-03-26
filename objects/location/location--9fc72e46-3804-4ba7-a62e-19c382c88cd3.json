@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--85df2124-1312-4737-952d-ad1ba28c1765",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--9fc72e46-3804-4ba7-a62e-19c382c88cd3",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.066024Z",
+            "modified": "2021-03-13T20:09:21.066024Z",
+            "name": "Malta",
+            "country": "MT",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

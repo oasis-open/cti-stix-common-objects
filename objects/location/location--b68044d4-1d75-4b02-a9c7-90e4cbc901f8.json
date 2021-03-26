@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--d402a409-bb91-44f2-99b0-16fb6e42ce74",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--b68044d4-1d75-4b02-a9c7-90e4cbc901f8",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.942573Z",
+            "modified": "2021-03-13T20:09:20.942573Z",
+            "name": "Chile",
+            "country": "CL",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

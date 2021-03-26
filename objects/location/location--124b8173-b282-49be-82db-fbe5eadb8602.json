@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--a5a89dd4-4fc3-4444-b98c-16d364b85254",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--124b8173-b282-49be-82db-fbe5eadb8602",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.042034Z",
+            "modified": "2021-03-13T20:09:21.042034Z",
+            "name": "Lebanon",
+            "country": "LB",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--6577c00e-39a6-4383-965a-3beb5b4c78d4",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--a2fa3116-e7f2-44bf-828e-76e88e4216d8",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.959513Z",
+            "modified": "2021-03-13T20:09:20.959513Z",
+            "name": "Costa Rica",
+            "country": "CR",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

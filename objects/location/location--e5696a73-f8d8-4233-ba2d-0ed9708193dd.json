@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--26b34b80-d676-4cc8-8337-f2b05bae800a",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--e5696a73-f8d8-4233-ba2d-0ed9708193dd",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.019791Z",
+            "modified": "2021-03-13T20:09:21.019791Z",
+            "name": "British Indian Ocean Territory",
+            "country": "IO",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

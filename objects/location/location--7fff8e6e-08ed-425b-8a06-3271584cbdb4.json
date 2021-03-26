@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--238a91c3-44ab-4ff8-9f65-473df08bd816",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--7fff8e6e-08ed-425b-8a06-3271584cbdb4",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.003297Z",
+            "modified": "2021-03-13T20:09:21.003297Z",
+            "name": "Grenada",
+            "country": "GD",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

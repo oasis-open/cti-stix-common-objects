@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--4262c798-93b1-4fdf-bc2d-e32a3d0571fc",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--93ce9242-7ff5-4b4f-9451-c3ad4c00a640",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.128433Z",
+            "modified": "2021-03-13T20:09:21.128433Z",
+            "name": "Somalia",
+            "country": "SO",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

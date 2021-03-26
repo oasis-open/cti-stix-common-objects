@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--e8e1a11a-0709-418d-b461-7fadecf53d35",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--729d6be3-49d6-4e0e-aa54-b45fc4744bc5",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.94886Z",
+            "modified": "2021-03-13T20:09:20.94886Z",
+            "name": "Cameroon",
+            "country": "CM",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

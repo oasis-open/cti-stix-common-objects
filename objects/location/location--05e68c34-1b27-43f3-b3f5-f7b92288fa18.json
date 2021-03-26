@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--a4ca35b0-7236-47dd-99fc-f4e5bacde9f2",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--05e68c34-1b27-43f3-b3f5-f7b92288fa18",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.892482Z",
+            "modified": "2021-03-13T20:09:20.892482Z",
+            "name": "Afghanistan",
+            "country": "AF",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

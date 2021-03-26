@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--95862326-2733-4469-97f7-0d7fce0455be",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--d2e7b249-5b15-485c-8eb7-8817c37aaccb",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.918915Z",
+            "modified": "2021-03-13T20:09:20.918915Z",
+            "name": "Bahrain",
+            "country": "BH",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

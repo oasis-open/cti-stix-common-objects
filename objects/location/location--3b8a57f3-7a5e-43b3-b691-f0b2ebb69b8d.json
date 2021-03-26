@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--513c2dfc-2adb-493c-b27a-841061fb3c84",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--3b8a57f3-7a5e-43b3-b691-f0b2ebb69b8d",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.027767Z",
+            "modified": "2021-03-13T20:09:21.027767Z",
+            "name": "Jamaica",
+            "country": "JM",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

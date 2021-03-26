@@ -1,0 +1,22 @@
+{
+    "type": "bundle",
+    "id": "bundle--6200fb02-e8a9-4fd0-8def-a08af8ef7173",
+    "objects": [
+        {
+            "type": "identity",
+            "spec_version": "2.1",
+            "id": "identity--0ead7b25-814f-41b3-8c19-4f5194d3b165",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.300517Z",
+            "modified": "2021-03-13T20:09:21.300517Z",
+            "name": "Chemical sector as a target",
+            "identity_class": "class",
+            "sectors": [
+                "chemical"
+            ],
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

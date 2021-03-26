@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--25062c6e-8862-46c2-8f8e-c2bc9a2e1c8c",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--8bb153ed-0bca-4ca5-bee8-950759bf2717",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.905021Z",
+            "modified": "2021-03-13T20:09:20.905021Z",
+            "name": "French Southern Territories",
+            "country": "TF",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

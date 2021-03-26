@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--f13a6a6c-0f3b-4888-8286-b7212e5940e2",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--c6d36ae8-444b-42ae-aced-5763c0826d5e",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.00449Z",
+            "modified": "2021-03-13T20:09:21.00449Z",
+            "name": "Greenland",
+            "country": "GL",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

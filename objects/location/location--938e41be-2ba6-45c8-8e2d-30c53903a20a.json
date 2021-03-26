@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--60fab64e-ead1-4296-8e2b-383209e1c7e9",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--938e41be-2ba6-45c8-8e2d-30c53903a20a",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.913077Z",
+            "modified": "2021-03-13T20:09:20.913077Z",
+            "name": "Benin",
+            "country": "BJ",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "type": "bundle",
+    "id": "bundle--e3e6520b-15de-4e1d-8011-ca61f633f0f8",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--32fccece-848a-4cdd-b025-edae8f863392",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.276675Z",
+            "modified": "2021-03-13T20:09:21.276675Z",
+            "name": "Tennessee",
+            "country": "US",
+            "administrative_area": "US-TN",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

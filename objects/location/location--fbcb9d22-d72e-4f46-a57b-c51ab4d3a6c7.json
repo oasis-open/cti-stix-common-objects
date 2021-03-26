@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--73dabbed-0c78-443a-82c6-22ced52d86ff",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--fbcb9d22-d72e-4f46-a57b-c51ab4d3a6c7",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.041001Z",
+            "modified": "2021-03-13T20:09:21.041001Z",
+            "name": "Lao People's Democratic Republic",
+            "country": "LA",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

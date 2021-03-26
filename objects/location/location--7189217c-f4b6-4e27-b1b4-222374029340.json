@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--a01644eb-d921-436a-9ee7-9078c209fa43",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--7189217c-f4b6-4e27-b1b4-222374029340",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.968999Z",
+            "modified": "2021-03-13T20:09:20.968999Z",
+            "name": "Djibouti",
+            "country": "DJ",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--24180e3f-1b06-40a2-bfcf-8709966c46cf",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--cd30c2df-9e02-4ab9-8b79-b693d4470b54",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.136244Z",
+            "modified": "2021-03-13T20:09:21.136244Z",
+            "name": "Slovenia",
+            "country": "SI",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

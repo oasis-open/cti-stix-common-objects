@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--acc77937-184e-474d-a0a4-f363c5777114",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--2430e354-274b-4db2-8802-085a6e749595",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.02185Z",
+            "modified": "2021-03-13T20:09:21.02185Z",
+            "name": "Iran, Islamic Republic of",
+            "country": "IR",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}

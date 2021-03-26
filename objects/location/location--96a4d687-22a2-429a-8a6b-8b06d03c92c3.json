@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--f3f321e0-9d65-4737-9118-5bb3d2e7d3f6",
+    "objects": [
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--96a4d687-22a2-429a-8a6b-8b06d03c92c3",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:21.00559Z",
+            "modified": "2021-03-13T20:09:21.00559Z",
+            "name": "Guatemala",
+            "country": "GT",
+            "object_marking_refs": [
+                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
+            ]
+        }
+    ]
+}
