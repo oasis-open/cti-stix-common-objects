@@ -93,7 +93,7 @@ Once this filter is defined, you can pass it to the DataSource `query` function 
 
 Notice that the `query` function takes a **list** of filters.  These filters are logically AND'd together during the query. 
 
-*For the remaining examples, these imports and the FileSystemStore initialization will be omitted.*
+*For the remaining examples, the imports and the FileSystemStore initialization will be omitted.*
 
 Get the Location object for a country
 *************************************
