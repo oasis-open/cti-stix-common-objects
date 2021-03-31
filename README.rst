@@ -10,6 +10,8 @@ This repository contains commonly used STIX 2.1 objects that can be used by STIX
 
 Using these objects, instead of each producer creating their own, will reduce the number of duplicates shared and enable producers to share information using just the identifier reference of these common objects.  Consumers can incorporate these object instances locally in order to resolve those identifiers.
 
+Contributions are encouraged via a pull request and will be vetted by the repository maintainers until a more formal process is put in place.  Please enter an issue on GitHub for bugs and feature requests.
+
 The following describes the contents of the repository and how to query and manipulate it. 
 
 STIX 2.1 is expressed using JSON, which can be easily consumed using Python or other programming languages. If you are using Python, the `python-stix2 <https://github.com/oasis-open/cti-python-stix2>`_ library can help you work with the content as shown in the examples below.  
