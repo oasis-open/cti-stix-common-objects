@@ -38,7 +38,7 @@ def main():
     modified_files = []
     new_files = []
 
-    if args.repo_dir:
+    if not args.repo_dir:
         sub_proc = subprocess.run(["git", "status"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True)
 
         if sub_proc.returncode != 0:
@@ -46,9 +46,9 @@ def main():
             print(sub_proc.stderr)
             return -1
 
-        str_stdout = str(sub_proc.stdout)
-        modified_files = re.findall(r'modified:\s{3}(.*\.json)', str_stdout)
-        new_files = re.findall(r'new file:\s{3}(.*\.json)', str_stdout)
+        str_stdout = sub_proc.stdout.decode("utf-8")
+        modified_files = re.findall(r'modified:\s{3}(.*\.json)', str_stdout, re.MULTILINE)
+        new_files = re.findall(r'new file:\s{3}(.*\.json)', str_stdout, re.MULTILINE)
 
     search_criteria = top_level_repo_directory or (modified_files + new_files)
 
