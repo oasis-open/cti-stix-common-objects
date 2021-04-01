@@ -68,7 +68,7 @@ Once the stix2 Python library is installed and the content is acquired, we need 
 .. code-block:: python
 
     from stix2 import FileSystemSource
-    fs = FileSystemSource(<the directory containing the contents of the repository>)
+    fs = FileSystemSource('./cti-stix-common-objects/objects')
 
 
 
@@ -82,14 +82,14 @@ To perform a query, we must define a `Filter <http://stix2.readthedocs.io/en/lat
 .. code-block:: python
 
     from stix2 import Filter
-    filt = Filter('type', '=', 'vulnerability')
+    filter = Filter('type', '=', 'vulnerability')
 
 
 Once this filter is defined, you can pass it to the DataSource `query` function in order to actually query the data:
 
 .. code-block:: python
 
-    vulnerabilities = fs.query([filt])
+    vulnerabilities = fs.query([filter])
 
 *This query will process approximately 150,000 objects, which takes about 2 minutes.*
 
@@ -105,11 +105,11 @@ In this example, the country name must be passed into the function. Here we quer
 .. code-block:: python
 
     def get_location_for_country(store, country_name):
-        filt = [
+        filter = [
             Filter('type', '=', 'location'),
             Filter('name', '=', country_name),
         ]
-        return store.query(filt)
+        return store.query(filter)
 
     get_location_for_country(fs, "France")
 
@@ -121,14 +121,14 @@ Here we query for all of Vulnerability objects added after midnight on 2/28/2021
 
 .. code-block:: python
 
-    def get_new_vulnerabilties(store, added_after_date):
-        filt = [
+    def get_new_vulnerabilities(store, added_after_date):
+        filter = [
             Filter('type', '=', 'vulnerability'),
             Filter("created", ">=", added_after_date)
         ]
-        return store.query(filt)
+        return store.query(filter)
 
-    get_new_vulnerabilties(fs, "2021-02-28T00:00:00.000Z")
+    get_new_vulnerabilities(fs, "2021-02-28T00:00:00.000Z")
 
 Governance
 ----------
