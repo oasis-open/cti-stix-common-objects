@@ -65,6 +65,8 @@ def main():
                 if not validation_results.is_valid:
                     output.print_results([validation_results])
                     return_value = -1
+                else:
+                    print(f"{json_filename_str} is valid")
         except ValidationError as ex:
             output.error("Validation error occurred: '{}'".format(ex))
             output.error("Error Code: {}".format(codes.EXIT_VALIDATION_ERROR))
