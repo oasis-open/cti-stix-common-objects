@@ -1,0 +1,21 @@
+{
+  "type": "bundle",
+  "id": "bundle--1d3fa741-e3bd-451a-acf5-b2f01d075ba7",
+  "objects": [
+    {
+      "id": " extension-definition--3a65884d-005a-4290-8335-cb2d778a83ce ",
+      "type": "extension-definition",
+      "spec_version": "2.1",
+      "name": "Extension to support ACS 3.0a Data Markings",
+      "description": "This schema adds ACS data markings",
+      "created": "2021-02-01T00:00:00.000000Z",
+      "modified": "2021-02-01T00:00:00.000000Z",
+      "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+      "schema": "https://github.com/open-oasis/extension-definition-specifications/acs-data-markings/isa-acs-4-0.json",
+      "version": "1.0.0",
+      "extension_types": [
+        "property-extension"
+      ]
+    }
+  ]
+}
