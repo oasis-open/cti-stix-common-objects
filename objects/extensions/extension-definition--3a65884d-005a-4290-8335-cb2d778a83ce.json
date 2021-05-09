@@ -11,7 +11,7 @@
       "created": "2021-02-01T00:00:00.000000Z",
       "modified": "2021-02-01T00:00:00.000000Z",
       "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
-      "schema": "https://github.com/open-oasis/extension-definition-specifications/acs-data-markings/isa-acs-3-0.json",
+      "schema": "https://github.com/oasis-open/cti-stix-common-objects/tree/master/extension-definition-specifications/acs-data-markings",
       "version": "1.0.0",
       "extension_types": [
         "property-extension"
