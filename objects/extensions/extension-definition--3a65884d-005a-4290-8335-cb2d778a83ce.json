@@ -6,7 +6,7 @@
       "id": " extension-definition--3a65884d-005a-4290-8335-cb2d778a83ce ",
       "type": "extension-definition",
       "spec_version": "2.1",
-      "name": "Extension to support ACS 3.0a Data Markings",
+      "name": "isa-acs-3-0",
       "description": "This schema adds ACS data markings",
       "created": "2021-02-01T00:00:00.000000Z",
       "modified": "2021-02-01T00:00:00.000000Z",
