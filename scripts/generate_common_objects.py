@@ -235,21 +235,24 @@ def main():
 
     top_level_cve_directory = pathlib.Path(args.cve_dir).resolve()
     for cve_entry in top_level_cve_directory.rglob("*.json"):
-        with cve_entry.open('r', encoding='utf-8') as cve_file:
-            cve_data = json.load(cve_file)
-        cve_meta_data = cve_data["CVE_data_meta"]
-        cve_id = cve_meta_data["ID"]
-        if (not existing_object("vulnerability", cve_id, id_map) and
-                cve_meta_data.get("STATE", None) == "PUBLIC"):
-            cve_description = cve_data["description"]["description_data"][0]["value"]
-            vulnerability = v21.Vulnerability(
-                name=cve_id,
-                description=cve_description,
-                external_references=[v21.ExternalReference(source_name="cve", external_id=cve_id)],
-                created_by_ref=ident_id,
-                object_marking_refs=[marking_def_id],
-            )
-            write_object(vulnerability, output_dir, cve_id, id_map)
+        try:
+            with cve_entry.open('r', encoding='utf-8') as cve_file:
+                cve_data = json.load(cve_file)
+            cve_meta_data = cve_data["CVE_data_meta"]
+            cve_id = cve_meta_data["ID"]
+            if (not existing_object("vulnerability", cve_id, id_map) and
+                    cve_meta_data.get("STATE", None) == "PUBLIC"):
+                cve_description = cve_data["description"]["description_data"][0]["value"]
+                vulnerability = v21.Vulnerability(
+                    name=cve_id,
+                    description=cve_description,
+                    external_references=[v21.ExternalReference(source_name="cve", external_id=cve_id)],
+                    created_by_ref=ident_id,
+                    object_marking_refs=[marking_def_id],
+                )
+                write_object(vulnerability, output_dir, cve_id, id_map)
+        except:
+            print(f"Error while processing file {cve_entry}")
 
     if args.r:
         with mapping_file.open('w', encoding='utf-8') as csv_file:
