@@ -31,9 +31,13 @@
                     "$comment": "based on Appendix A of ACS 3.0a specification"
                 },
                 "authority_reference": {
-                    "type": "string",
+                    "type": "array",
                     "$comment": "pattern can be made more robust to represent a urn exactly",
-                    "pattern": "^(urn:isa:authority:\\w+)$"
+                    "items": {
+                        "type": "string",
+                        "$comment": "pattern can be made more robust to represent a urn exactly",
+                        "pattern": "^(urn:isa:authority:\\w+)$"
+                    }
                 },
                 "policy_reference": {
                     "type": "string",
