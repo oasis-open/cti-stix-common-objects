@@ -3,7 +3,7 @@
   "id": "bundle--1d3fa741-e3bd-451a-acf5-b2f01d075ba7",
   "objects": [
     {
-      "id": " extension-definition--3a65884d-005a-4290-8335-cb2d778a83ce ",
+      "id": "extension-definition--3a65884d-005a-4290-8335-cb2d778a83ce ",
       "type": "extension-definition",
       "spec_version": "2.1",
       "name": "isa-acs-3-0",
