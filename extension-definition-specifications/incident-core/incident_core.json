@@ -166,10 +166,15 @@
             "items": {
                 "type": "object",
                 "required": [
-                    "description"
+                    "type"
                 ],
                 "additionalProperties": false,
                 "properties": {
+                    "type": {
+                        "type": "string",
+                        "description": "A general type for the timestamp for higher level rollups",
+                        "$comment": "Open-Vocab including: 'first-recorded'"
+                    },
                     "description": {
                         "type": "string",
                         "description": "A description of adversary activity that occurred and in what sequence.  Sequence information defined by the sequence_start and sequence_end properties, not the position in the array.  This allows for indeterminate sequences to be recorded."
