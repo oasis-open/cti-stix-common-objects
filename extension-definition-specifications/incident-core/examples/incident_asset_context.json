@@ -1,0 +1,123 @@
+[
+    {
+        "id": "extension-definition--ef765651-680c-498d-9894-99799f2fa126",
+        "type": "extension-definition",
+        "spec_version": "2.1",
+        "name": "DC3 Incident Core Extension",
+        "description": "A core extension of the Incident object to allow core details of the Incident to be shared while tracking major details tied to the incident's timeline.  Multiple Incidents can be tied together via relationships if a higher degree of fidelity is needed across phases.",
+        "created": "2020-10-19T20:51:00.000Z",
+        "modified": "2021-07-30T16:00:00.000Z",
+        "created_by_ref": "identity--24c6ec5e-0db6-4029-b98e-cb87303c942d",
+        "schema": "https://github.com/oasis-open/cti-stix-common-objects/tree/master/extension-definition-specifications/incident-core",
+        "version": "0.2.1",
+        "extension_types": [ "property-extension" ]
+    },
+    {
+        "type": "incident",
+        "id": "incident--200de3e1-6545-4d21-80b0-ded3570ec7d8",
+        "created": "2020-10-19T01:01:01.000Z",
+        "modified":"2020-10-19T01:01:01.000Z",
+        "created_by_ref": "identity--2242662b-d581-4864-8696-fff719dc0500",
+        "spec_version": "2.1",
+        "name": "Exchange Server Compromise",
+        "description": "An Exchange server was compromised",
+        "recoverability": "regular",
+        "mitigation": "Stand up new Exchange server, migrate data store",
+        "extensions": {
+            "extension-definition--ef765651-680c-498d-9894-99799f2fa126": {
+                "extension_type": "property-extension",
+                "defender_activities": [
+                    {
+                        "type": "discovery",
+                        "time": "2021-02-15T01:01:01.000Z"
+                    }
+                ],
+                "detection_methods": ["automated-tool"],
+                "incident_types": ["unauthorized-release"],
+                "criticality": "critical",
+                "functional_impact": "significant",
+                "information_impacts": [
+                    {
+                        "type": "phi",
+                        "impact": "suspected"
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "type": "identity",
+        "spec_version": "2.1",
+        "id": "identity--a52b3918-1819-454b-8e6a-42cf18a06c0b",
+        "created_by_ref": "identity--f431f809-377b-45e0-aa1c-6a4751cae5ff",
+        "created": "2020-10-19T01:01:01.000Z",
+        "modified": "2020-10-19T01:01:01.000Z",
+        "name": "Victim Corp",
+        "sectors": ["defense", "construction"],
+        "identity_class": "organization"
+    },
+    {
+        "type": "asset",
+        "spec_version": "2.1",
+        "id": "asset-1c69a97c-bcfa-4674-b3a2-bfb8f797b7e5",
+        "created": "2021-03-26T01:01:01.000Z",
+        "modified": "2021-03-26T01:01:01.000Z",
+        "name": "Victim Corp Exchange Exchange Server",
+        "cpe": "a:microsoft:exchange_server:2016:cumulative_update_9",
+        "infrastructure_types": ["non-malicious"]
+    },
+    {
+        "type": "vulnerability",
+        "spec_version": "2.1",
+        "id": "vulnerability-c8e2c77a-0369-47a3-831e-e851bd634028",
+        "created": "2021-03-26T01:01:01.000Z",
+        "modified": "2021-03-26T01:01:01.000Z",
+        "name": "CVE-2021-26855",
+        "external_references": [
+            {
+                "source_name": "cve",
+                "external_id": "CVE-2021-26855"
+            }
+        ]
+    },
+    {
+        "type": "relationship",
+        "spec_version": "2.1",
+        "id": "relationship--b76aa1ba-520a-4f71-b451-0c920305b180",
+        "created": "2021-03-26T01:01:01.000Z",
+        "modified": "2021-03-26T01:01:01.000Z",
+        "relationship_type": "owns",
+        "source_ref": "identity--a52b3918-1819-454b-8e6a-42cf18a06c0b",
+        "target_ref": "asset-1c69a97c-bcfa-4674-b3a2-bfb8f797b7e5"
+    },
+    {
+        "type": "relationship",
+        "spec_version": "2.1",
+        "id": "relationship--fd3aa181-2ad6-4822-821d-b7e4dd42c19d",
+        "created": "2020-10-19T01:01:01.000Z",
+        "modified": "2020-10-19T01:01:01.000Z",
+        "relationship_type": "targets",
+        "source_ref": "incident--200de3e1-6545-4d21-80b0-ded3570ec7d8",
+        "target_ref": "identity--a52b3918-1819-454b-8e6a-42cf18a06c0b"
+    },
+    {
+        "type": "relationship",
+        "spec_version": "2.1",
+        "id": "relationship--6a0d7534-39ac-4a04-aab7-7774db1a57d6",
+        "created": "2020-10-19T01:01:01.000Z",
+        "modified": "2020-10-19T01:01:01.000Z",
+        "relationship_type": "impacts",
+        "source_ref": "incident--200de3e1-6545-4d21-80b0-ded3570ec7d8",
+        "target_ref": "asset-1c69a97c-bcfa-4674-b3a2-bfb8f797b7e5"
+    },
+    {
+        "type": "relationship",
+        "spec_version": "2.1",
+        "id": "relationship--e509fe36-6dcd-4b78-8bd2-60dd6788ab55",
+        "created": "2020-10-19T01:01:01.000Z",
+        "modified": "2020-10-19T01:01:01.000Z",
+        "relationship_type": "has",
+        "source_ref": "asset-1c69a97c-bcfa-4674-b3a2-bfb8f797b7e5",
+        "target_ref": "vulnerability-c8e2c77a-0369-47a3-831e-e851bd634028"
+    }
+]

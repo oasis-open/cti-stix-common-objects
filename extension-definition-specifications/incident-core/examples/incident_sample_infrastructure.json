@@ -1,0 +1,150 @@
+[
+    {
+        "id": "extension-definition--ef765651-680c-498d-9894-99799f2fa126",
+        "type": "extension-definition",
+        "spec_version": "2.1",
+        "name": "DC3 Incident Core Extension",
+        "description": "A core extension of the Incident object to allow core details of the Incident to be shared while tracking major details tied to the incident's timeline.  Multiple Incidents can be tied together via relationships if a higher degree of fidelity is needed across phases.",
+        "created": "2020-10-19T20:51:00.000Z",
+        "modified": "2021-07-30T16:00:00.000Z",
+        "created_by_ref": "identity--24c6ec5e-0db6-4029-b98e-cb87303c942d",
+        "schema": "https://github.com/oasis-open/cti-stix-common-objects/tree/master/extension-definition-specifications/incident-core",
+        "version": "0.2.1",
+        "extension_types": [ "property-extension" ]
+    },
+    {
+        "type": "incident",
+        "id": "incident--2242662b-d581-4864-8696-fff719dc0500",
+        "created": "2020-10-19T01:01:01.000Z",
+        "modified":"2020-10-19T01:01:01.000Z",
+        "created_by_ref": "identity--2242662b-d581-4864-8696-fff719dc0500",
+        "spec_version": "2.1",
+        "name": "Sample Destruction with Unknown Recovery",
+        "description": "Two systems were hit, but we don't know how and are currently trying to find if it can be fixed while preparing to report on it",
+        "extensions": {
+            "extension-definition--ef765651-680c-498d-9894-99799f2fa126": {
+                "extension_type": "property-extension",
+                "defender_activities": [
+                    {
+                        "type": "discovery",
+                        "time": "2020-10-15T01:01:01.000Z"
+                    },
+                    {
+                        "type": "reported",
+                        "time": "2020-10-17T04:42:00.000Z"
+                    },
+                    {
+                        "type": "estimated-recovery-started",
+                        "time": "2030-01-01T04:42:00.000Z"
+                    }
+                ],
+                "detection_methods": ["user-reporting", "message-from-attacker"],
+                "incident_types": ["unauthorized-release", "destructive"],
+                "criticality": "critical",
+                "functional_impact": "none",
+                "information_impacts": [
+                    {
+                        "type": "pii",
+                        "impact": "loss"
+                    }, 
+                    {
+                        "type": "phi",
+                        "impact": "loss"
+                    },
+                    {
+                        "type": "system-data",
+                        "impact": "destruction"
+                    }
+                ],
+                "recoverability": "regular",
+                "observable_refs": ["file--ff0251fc-b70b-4565-8966-9bf57a2779b8", "file--ff0251fc-b70b-4565-8966-9bf57a2779b8"]
+            }
+        }
+    },
+    {
+        "type": "identity",
+        "spec_version": "2.1",
+        "id": "identity--a52b3918-1819-454b-8e6a-42cf18a06c0b",
+        "created_by_ref": "identity--f431f809-377b-45e0-aa1c-6a4751cae5ff",
+        "created": "2020-10-19T01:01:01.000Z",
+        "modified": "2020-10-19T01:01:01.000Z",
+        "name": "Victim Corp",
+        "sectors": ["defense", "construction"],
+        "identity_class": "organization"
+    },
+    {
+        "type": "threat-actor",
+        "spec_version": "2.1",
+        "id": "threat-actor--8e2e2d2b-17d4-4cbf-938f-98ee46b3cd3f",
+        "created_by_ref": "identity--f431f809-377b-45e0-aa1c-6a4751cae5ff",
+        "created": "2016-04-06T20:03:48.000Z",
+        "modified": "2016-04-06T20:03:48.000Z",
+        "threat_actor_types": [ "crime-syndicate"],
+        "name": "Evil Org",
+        "description": "The Evil Org threat actor group",
+        "aliases": ["Syndicate 1", "Evil Syndicate 99"],
+        "roles": ["director"],
+        "goals": ["Steal bank money", "Steal credit cards"],
+        "sophistication": "advanced",
+        "resource_level": "team",
+        "primary_motivation": "organizational-gain"
+    },
+    {
+        "type": "infrastructure",
+        "spec_version": "2.1",
+        "id": "infrastructure--d17635b3-0165-43f6-9409-34e11df070be",
+        "created": "2020-10-19T01:01:01.000Z",
+        "modified": "2020-10-19T01:01:01.000Z",
+        "name": "Enterprise Chat App",
+        "infrastructure_types": ["non-malicious"]
+    },
+    {
+        "type": "infrastructure",
+        "spec_version": "2.1",
+        "id": "infrastructure--3f515010-494d-4bd2-94be-12f285e1f19e",
+        "created": "2020-10-19T01:01:01.000Z",
+        "modified": "2020-10-19T01:01:01.000Z",
+        "name": "Electronic Health Record System",
+        "infrastructure_types": ["non-malicious"]
+    },
+    {
+        "type": "relationship",
+        "spec_version": "2.1",
+        "id": "relationship--fd3aa181-2ad6-4822-821d-b7e4dd42c19d",
+        "created": "2020-10-19T01:01:01.000Z",
+        "modified": "2020-10-19T01:01:01.000Z",
+        "relationship_type": "targets",
+        "source_ref": "incident--2242662b-d581-4864-8696-fff719dc0500",
+        "target_ref": "identity--a52b3918-1819-454b-8e6a-42cf18a06c0b"
+    },
+    {
+        "type": "relationship",
+        "spec_version": "2.1",
+        "id": "relationship--fd3aa181-2ad6-4822-821d-b7e4dd42c19d",
+        "created": "2020-10-19T01:01:01.000Z",
+        "modified": "2020-10-19T01:01:01.000Z",
+        "relationship_type": "attributed-to",
+        "source_ref": "incident--2242662b-d581-4864-8696-fff719dc0500",
+        "target_ref": "threat-actor--8e2e2d2b-17d4-4cbf-938f-98ee46b3cd3f"
+    },
+    {
+        "type": "relationship",
+        "spec_version": "2.1",
+        "id": "relationship--6a0d7534-39ac-4a04-aab7-7774db1a57d6",
+        "created": "2020-10-19T01:01:01.000Z",
+        "modified": "2020-10-19T01:01:01.000Z",
+        "relationship_type": "impacts",
+        "source_ref": "incident--2242662b-d581-4864-8696-fff719dc0500",
+        "target_ref": "infrastructure--d17635b3-0165-43f6-9409-34e11df070be"
+    },
+    {
+        "type": "relationship",
+        "spec_version": "2.1",
+        "id": "relationship--5ff837f4-fd1a-49cd-b64e-e5fcafc0db5d",
+        "created": "2020-10-19T01:01:01.000Z",
+        "modified": "2020-10-19T01:01:01.000Z",
+        "relationship_type": "impacts",
+        "source_ref": "incident--2242662b-d581-4864-8696-fff719dc0500",
+        "target_ref": "infrastructure--3f515010-494d-4bd2-94be-12f285e1f19e"
+    }
+]
