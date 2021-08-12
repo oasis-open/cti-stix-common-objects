@@ -18,10 +18,11 @@
         },
         "determination": {
             "type": "string",
-            "description": "If the incident has been confirmed or is suspected.",
+            "description": "If the incident has been confirmed or is suspected.  If it is determined to be benign it is considered a false-positive.",
             "enum": [
                 "suspected"
                 , "confirmed"
+                , "false-positive"
             ]
         },
         "investigation_status": {
