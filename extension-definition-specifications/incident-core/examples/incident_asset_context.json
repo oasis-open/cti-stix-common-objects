@@ -21,11 +21,11 @@
         "spec_version": "2.1",
         "name": "Exchange Server Compromise",
         "description": "An Exchange server was compromised",
-        "recoverability": "regular",
-        "mitigation": "Stand up new Exchange server, migrate data store",
         "extensions": {
             "extension-definition--ef765651-680c-498d-9894-99799f2fa126": {
                 "extension_type": "property-extension",
+                "recoverability": "regular",
+                "mitigation": "Stand up new Exchange server, migrate data store",
                 "defender_activities": [
                     {
                         "type": "discovery",
@@ -57,19 +57,25 @@
         "identity_class": "organization"
     },
     {
-        "type": "asset",
+        "type": "infrastructure",
         "spec_version": "2.1",
-        "id": "asset-1c69a97c-bcfa-4674-b3a2-bfb8f797b7e5",
+        "id": "infrastructure--1c69a97c-bcfa-4674-b3a2-bfb8f797b7e5",
         "created": "2021-03-26T01:01:01.000Z",
         "modified": "2021-03-26T01:01:01.000Z",
-        "name": "Victim Corp Exchange Exchange Server",
-        "cpe": "a:microsoft:exchange_server:2016:cumulative_update_9",
+        "name": "Victim Corp Exchange Server",
         "infrastructure_types": ["non-malicious"]
+    },
+    {
+        "type": "software",
+        "spec_version": "2.1",
+        "id": "software--4c907a8b-c842-4dd2-b5b9-da4a421d8626",
+        "name": "Exchange 2016",
+        "cpe": "cpe:2.3:a:microsoft:exchange_server:2016:cumulative_update_9:*:*:*:*:*:*"
     },
     {
         "type": "vulnerability",
         "spec_version": "2.1",
-        "id": "vulnerability-c8e2c77a-0369-47a3-831e-e851bd634028",
+        "id": "vulnerability--c8e2c77a-0369-47a3-831e-e851bd634028",
         "created": "2021-03-26T01:01:01.000Z",
         "modified": "2021-03-26T01:01:01.000Z",
         "name": "CVE-2021-26855",
@@ -88,7 +94,7 @@
         "modified": "2021-03-26T01:01:01.000Z",
         "relationship_type": "owns",
         "source_ref": "identity--a52b3918-1819-454b-8e6a-42cf18a06c0b",
-        "target_ref": "asset-1c69a97c-bcfa-4674-b3a2-bfb8f797b7e5"
+        "target_ref": "infrastructure--1c69a97c-bcfa-4674-b3a2-bfb8f797b7e5"
     },
     {
         "type": "relationship",
@@ -108,7 +114,17 @@
         "modified": "2020-10-19T01:01:01.000Z",
         "relationship_type": "impacts",
         "source_ref": "incident--200de3e1-6545-4d21-80b0-ded3570ec7d8",
-        "target_ref": "asset-1c69a97c-bcfa-4674-b3a2-bfb8f797b7e5"
+        "target_ref": "infrastructure--1c69a97c-bcfa-4674-b3a2-bfb8f797b7e5"
+    },
+    {
+        "type": "relationship",
+        "spec_version": "2.1",
+        "id": "relationship--e509fe36-6dcd-4b78-8bd2-60dd6788ab55",
+        "created": "2020-10-19T01:01:01.000Z",
+        "modified": "2020-10-19T01:01:01.000Z",
+        "relationship_type": "consists-of",
+        "source_ref": "infrastructure--1c69a97c-bcfa-4674-b3a2-bfb8f797b7e5",
+        "target_ref": "software--4c907a8b-c842-4dd2-b5b9-da4a421d8626"
     },
     {
         "type": "relationship",
@@ -117,7 +133,7 @@
         "created": "2020-10-19T01:01:01.000Z",
         "modified": "2020-10-19T01:01:01.000Z",
         "relationship_type": "has",
-        "source_ref": "asset-1c69a97c-bcfa-4674-b3a2-bfb8f797b7e5",
-        "target_ref": "vulnerability-c8e2c77a-0369-47a3-831e-e851bd634028"
+        "source_ref": "software--4c907a8b-c842-4dd2-b5b9-da4a421d8626",
+        "target_ref": "vulnerability--c8e2c77a-0369-47a3-831e-e851bd634028"
     }
 ]
