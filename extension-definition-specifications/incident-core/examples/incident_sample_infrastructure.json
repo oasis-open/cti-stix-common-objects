@@ -9,7 +9,7 @@
         "modified": "2021-07-30T16:00:00.000Z",
         "created_by_ref": "identity--24c6ec5e-0db6-4029-b98e-cb87303c942d",
         "schema": "https://github.com/oasis-open/cti-stix-common-objects/tree/master/extension-definition-specifications/incident-core",
-        "version": "0.3.0",
+        "version": "0.4.0",
         "extension_types": [ "property-extension" ]
     },
     {
@@ -24,6 +24,8 @@
         "extensions": {
             "extension-definition--ef765651-680c-498d-9894-99799f2fa126": {
                 "extension_type": "property-extension",
+                "determination": "confirmed",
+                "investigation_status": "open",
                 "defender_activities": [
                     {
                         "type": "discovery",
@@ -34,12 +36,13 @@
                         "time": "2020-10-17T04:42:00.000Z"
                     },
                     {
-                        "type": "estimated-recovery-started",
+                        "type": "recovery-started",
+                        "is_projection": true,
                         "time": "2030-01-01T04:42:00.000Z"
                     }
                 ],
                 "detection_methods": ["user-reporting", "message-from-attacker"],
-                "incident_types": ["unauthorized-release", "destructive"],
+                "incident_types": ["unauthorized-release", "destruction"],
                 "criticality": "critical",
                 "functional_impact": "none",
                 "information_impacts": [

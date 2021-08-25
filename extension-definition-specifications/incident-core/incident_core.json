@@ -6,6 +6,8 @@
     "type": "object",
     "required": [
         "extension_type"
+        , "determination"
+        , "investigation_status"
     ],
     "additionalProperties": false,
     "properties": {
@@ -42,7 +44,7 @@
             "items": {
                 "type": "string"
             },
-            "$comment": "'blocked', 'failed-attempt', 'major', 'under-investigation'; blocked = stopped via affirmative defense, failed-attempt = it didn't succeed but not due to any affirmative defense for example a password guesser failed but was also not rate limited"
+            "$comment": "'blocked', 'failed-attempt', 'under-investigation'; blocked = stopped via affirmative defense, failed-attempt = it didn't succeed but not due to any affirmative defense for example a password guesser failed but was also not rate limited"
         },
         "detection_methods": {
             "type": "array",
@@ -56,7 +58,7 @@
             "type": "string",
             "description": "How important this incident is to operations",
             "enum": [
-                "depricated",
+                "deprecated",
                 "non-critical",
                 "critical"
             ],
@@ -120,7 +122,7 @@
         },
         "observable_refs": {
             "type": "array",
-            "description": "A list of all observed data that was part of this incident",
+            "description": "A list of all observed data that was part of this incident.  This can relate directly to SCOs, but can also reference Sightings, Observables, and Indicators.",
             "minItems": 1,
             "items": {
                 "type": "string",
@@ -146,11 +148,16 @@
                     "type": {
                         "type": "string",
                         "description": "A general type for the timestamp for higher level rollups",
-                        "$comment": "Open-Vocab including: 'recovery-completed', 'recovery-started', 'detected', 'declared', 'earliest', 'escalated', 'first-observed'"
+                        "$comment": "Open-Vocab including: 'recovery', 'detected', 'declared', 'escalated'"
+                    },
+                    "is_projection": {
+                        "type": "boolean",
+                        "description": "If this is a projection of when a future event will occur for example when recovery will be completed.",
+                        "default": "false"
                     },
                     "description": {
                         "type": "string",
-                        "description": "A description of the advesary activity that occurred"
+                        "description": "A description of the adversary activity that occurred."
                     },
                     "time": {
                         "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/timestamp.json",
@@ -165,8 +172,17 @@
             "description": "A list of attacker focused activities associated with the Incident including information about when these occurred.",
             "items": {
                 "type": "object",
-                "required": [
-                    "type"
+                "anyOf": [
+                    {
+                        "required": [
+                            "type"
+                        ]
+                    },
+                    {
+                        "required": [
+                            "pattern_ref"
+                        ]
+                    }
                 ],
                 "additionalProperties": false,
                 "properties": {
