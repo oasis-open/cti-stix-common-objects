@@ -18,6 +18,46 @@
                 "property-extension"
             ]
         },
+        "additional_ids": {
+            "description": "A list of other IDs used to track this Incident across various systems", 
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": ["id", "name"],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The ID value"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name or system that uses this ID value for tracking"
+                    }
+                }
+            }
+        },
+        "scores": {
+            "type": "array",
+            "description": "A list of scores from various automated or manual mechanisms along with optional descriptions",
+            "items": {
+                "type": "object",
+                "required": ["name", "value"],
+                "properties": {
+                    "name" : {
+                        "type": "string",
+                        "description": "The name of the score.  This is normally a system or process name or some combination of these such as [Tool Name] Automated Exposure Score"
+                    },
+                    "value": {
+                        "type": "number",
+                        "description": "The numeric score."
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "An optional description about how this score was arrived at for systems that provide these"
+                    }
+                }
+            }
+        },
         "determination": {
             "type": "string",
             "description": "If the incident has been confirmed or is suspected.  If it is determined to be benign it is considered a false-positive.",
