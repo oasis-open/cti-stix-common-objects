@@ -3,7 +3,7 @@
         "id": "extension-definition--ef765651-680c-498d-9894-99799f2fa126",
         "type": "extension-definition",
         "spec_version": "2.1",
-        "name": "DC3 Incident Core Extension",
+        "name": "Incident Core Extension",
         "description": "A core extension of the Incident object to allow core details of the Incident to be shared while tracking major details tied to the incident's timeline.  Multiple Incidents can be tied together via relationships if a higher degree of fidelity is needed across phases.",
         "created": "2020-10-19T20:51:00.000Z",
         "modified": "2021-07-30T16:00:00.000Z",
@@ -28,15 +28,15 @@
                 "investigation_status": "open",
                 "defender_activities": [
                     {
-                        "type": "discovery",
+                        "activity_type": "discovery",
                         "time": "2020-10-15T01:01:01.000Z"
                     },
                     {
-                        "type": "reported",
+                        "activity_type": "reported",
                         "time": "2020-10-17T04:42:00.000Z"
                     },
                     {
-                        "type": "recovery-started",
+                        "activity_type": "recovery-started",
                         "is_projection": true,
                         "time": "2030-01-01T04:42:00.000Z"
                     }
@@ -47,15 +47,15 @@
                 "functional_impact": "none",
                 "information_impacts": [
                     {
-                        "type": "pii",
+                        "impact_type": "pii",
                         "impact": "loss"
                     }, 
                     {
-                        "type": "phi",
+                        "impact_type": "phi",
                         "impact": "loss"
                     },
                     {
-                        "type": "system-data",
+                        "impact_type": "system-data",
                         "impact": "destruction"
                     }
                 ],

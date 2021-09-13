@@ -123,8 +123,9 @@
             "items": {
                 "type": "object",
                 "additionalProperties": false,
+                "required": ["impact", "impact_type"],
                 "properties": {
-                    "type": {
+                    "impact_type": {
                         "type": "string",
                         "$comment": "Open Vocabulary including: 'pii', 'phi', 'proprietary', 'credentials', 'classified-material' from https://us-cert.cisa.gov/incident-notification-guidelines but will also likely draw in other sources"
                     },
@@ -175,7 +176,7 @@
             "items": {
                 "type": "object",
                 "required": [
-                    "type"
+                    "activity_type"
                     , "time"
                 ],
                 "additionalProperties": false,
@@ -185,7 +186,7 @@
                         "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
                         "pattern": "^course-of-action--"
                     },
-                    "type": {
+                    "activity_type": {
                         "type": "string",
                         "description": "A general type for the timestamp for higher level rollups",
                         "$comment": "Open-Vocab including: 'recovery', 'detected', 'declared', 'escalated'"
@@ -215,7 +216,7 @@
                 "anyOf": [
                     {
                         "required": [
-                            "type"
+                            "activity_type"
                         ]
                     },
                     {
@@ -226,10 +227,9 @@
                 ],
                 "additionalProperties": false,
                 "properties": {
-                    "type": {
+                    "activity_type": {
                         "type": "string",
-                        "description": "A general type for the timestamp for higher level rollups",
-                        "$comment": "Open-Vocab including: 'first-recorded'"
+                        "description": "A general type for the timestamp for higher level rollups"
                     },
                     "description": {
                         "type": "string",
@@ -247,6 +247,16 @@
                     "end_time": {
                         "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/timestamp.json",
                         "description": "The date the activity was last recorded.  If this is not present it is assumed to be unknown."
+                    },
+                    "sequence_start": {
+                        "type": "number",
+                        "description": "An optional sequence number starting at 0 that shows the earlier point in an attack that this activity is believed to have occurred relative to other attacker activities.  This cannot be greater than sequence_end, but the two can be equal.",
+                        "minimum": 0
+                    },
+                    "sequence_end": {
+                        "type": "number",
+                        "description": "An optional sequence number starting at 0 that shows the lastest point in an attack that this activity is believed to have occurred relative to other attacker activities.  This cannot be less than sequence_start, but the two can be equal.",
+                        "minimum": 0
                     }
                 }
             }

@@ -6,7 +6,7 @@
             "id": "extension-definition--ef765651-680c-498d-9894-99799f2fa126",
             "type": "extension-definition",
             "spec_version": "2.1",
-            "name": "DC3 Incident Core Extension",
+            "name": "Incident Core Extension",
             "description": "A core extension of the Incident object to allow core details of the Incident to be shared while tracking major details tied to the incident's timeline.  Multiple Incidents can be tied together via relationships if a higher degree of fidelity is needed across phases.",
             "created": "2020-10-19T20:51:00.000Z",
             "modified": "2021-07-30T16:00:00.000Z",
@@ -32,7 +32,7 @@
                     "detection_methods": ["human-review"],
                     "defender_activities": [
                         {
-                            "type": "discovery",
+                            "activity_type": "discovery",
                             "description": "A server admin found a strange account",
                             "time": "2020-10-15T01:01:01.000Z"
                         }
@@ -40,20 +40,28 @@
                     "attacker_activities": [
                         {
                             "pattern_ref": "attack-pattern--d742a578-d70e-4d0e-96a6-02a9c30204e6",
-                            "description": "Drive-by compromise of a trusted domain was believed to deliver malware, but it is unclear when it was activated"
+                            "description": "Drive-by compromise of a trusted domain was believed to deliver malware, but it is unclear when it was activated",
+                            "sequence_start": 1,
+                            "sequence_end": 1
                         },
                         {
                             "pattern_ref": "attack-pattern--6aac77c4-eaf2-4366-8c13-ce50ab951f38",
-                            "description": "A phishing campaign was attachments was used to attempt to deliver malicious PDFs.  The malware may have already been active by the time a user clicks on this however as it started before the drive by, but also ended after it."
+                            "description": "A phishing campaign was attachments was used to attempt to deliver malicious PDFs.  The malware may have already been active by the time a user clicks on this however as it started before the drive by, but also ended after it.",
+                            "sequence_start": 1,
+                            "sequence_end": 3
                         },
                         {
                             "pattern_ref": "attack-pattern--51dea151-0898-4a45-967c-3ebee0420484",
-                            "description": "Remote desktop protocol was used to access domain controller"
+                            "description": "Remote desktop protocol was used to access domain controller",
+                            "sequence_start": 3,
+                            "sequence_end": 3
                         },
                         {
                             "pattern_ref": "attack-pattern--7610cada-1499-41a4-b3dd-46467b68d177",
                             "description": "A domain account was created to allow remote access using normal means by the attacker",
-                            "end_time": "2020-10-15T00:01:32.700Z"
+                            "end_time": "2020-10-15T00:01:32.700Z",
+                            "sequence_start": 4,
+                            "sequence_end": 4
                         }
                     ]
                 }
