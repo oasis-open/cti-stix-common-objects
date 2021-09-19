@@ -1,0 +1,216 @@
+{
+  "$id": "https://gitlab.mitre.org/structured-threat/acs-data-markings/-/raw/master/isa-acs-3-0.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "stix1x-incident-extension-schema",
+  "description": "This is the wrapper for the incident extension is used by the stix-elevator",
+  "type": "object",
+  "properties": {
+    "extension_type": {
+      "type": "string",
+      "enum": [
+        "property-extension"
+      ]
+    },
+    "content_refs": {
+      "type": "array",
+      "description": "The contact_refs property identifies and characterizes organizations or personnel involved in this Incident.",
+      "items": {
+        "$ref": "<root>/common/identifier.json"
+      },
+      "minItems": 1
+    },
+    "coodinator_refs": {
+      "type": "array",
+      "description": "The coordinator_refs property is optional and details information about the assigned coordinator for this Incident.",
+      "items": {
+        "$ref": "<root>/common/identifier.json"
+      },
+      "minItems": 1
+    },
+    "discovery_methods": {
+      "type": "array",
+      "description": "The Discovery_Method property identifies how the incident was discovered.",
+      "items": {
+        "$comment": "The values for this property SHOULD come from the discovery_method-ov open vocabulary.",
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "reporter_ref": {
+      "$ref": "<root>/common/identifier.json",
+      "description": "The reporter_ref property details information about the reporting source of this Incident."
+    },
+    "responder_refs": {
+      "type": "array",
+      "description": "The Responder field is optional and details information about the assigned responder for this Incident.",
+      "items": {
+        "$ref": "<root>/common/identifier.json"
+      },
+      "minItems": 1
+    },
+    "security_compromise ": {
+      "type": "string",
+      "description": "Specifies knowledge of whether the Incident involved a compromise of security properties. The values for this property SHOULD come from the security-compromise-ov open vocabulary."
+    },
+    "status": {
+      "$ref": "string",
+      "description": "The values for this property SHOULD come from the incident-status-ov open vocabulary."
+    },
+    "victim_refs": {
+      "type": "array",
+      "description": "The victim_refs property is optional and details information about a victim of this Incident.",
+      "items": {
+        "$ref": "<root>/common/identifier.json"
+      },
+      "minItems": 1
+    },
+    "intended_effects": {
+      "$ref": "#/definitions/intended-effect-statement",
+      "description": ""
+    },
+    "time_of_first_malicious_action": {
+      "$ref": "<root>/common/timestamp",
+      "description": ""
+    },
+    "time_of_initial_compromise": {
+      "$ref": "<root>/common/timestamp",
+      "description": ""
+    },
+    "time_of_first_data_exfiltration": {
+      "$ref": "<root>/common/timestamp",
+      "description": ""
+    },
+    "time_of_incident_discovery": {
+      "$ref": "<root>/common/timestamp",
+      "description": ""
+    },
+    "time_of_first_malicious_action": {
+      "$ref": "<root>/common/timestamp",
+      "description": ""
+    },
+    "time_when_incident_opened": {
+      "$ref": "<root>/common/timestamp",
+      "description": ""
+    },
+    "time_when_containment_achieved": {
+      "$ref": "<root>/common/timestamp",
+      "description": ""
+    },
+    "time_when_restoration_achieved": {
+      "$ref": "<root>/common/timestamp,",
+      "description": ""
+    },
+    "time_when_incident_reported": {
+      "$ref": "<root>/common/timestamp",
+      "description": ""
+    },
+    "time_when_incident_closed": {
+      "$ref": "<root>/common/timestamp",
+      "description": ""
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "extension_type"
+  ],
+  "definitions": {
+    "intended-effect-statement": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "description": "This property contains a prose description of the intended effect.",
+          "type": "string"
+        },
+        "confidence": {
+          "description": "See confidence common property definition in section 3.2 of the STIX 2.1 specification.",
+          "type": "integer"
+        },
+        "value": {
+          "description": "This property contains the intended effect. The values for this property SHOULD come from the intended-effect-ov open vocabulary.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "value"
+      ]
+    },
+    "discovery_method-ov": {
+      "type": "string",
+      "enum": [
+        "agent-disclosure",
+        "external-fraud-detection",
+        "monitoring-service",
+        "law-enforcement",
+        "customer",
+        "unrelated-party",
+        "audit",
+        "antivirus",
+        "incident-response",
+        "financial-audit",
+        "internal-fraud-detection",
+        "hips",
+        "it-audit",
+        "log-review",
+        "nids",
+        "security-alarm",
+        "user",
+        "unknown"
+      ]
+    },
+    "incident-status-ov": {
+      "type": "string",
+      "enum": [
+        "new",
+        "open",
+        "stalled",
+        "containment-achieved",
+        "restoration-achieved",
+        "incident-reported",
+        "closed",
+        "rejected",
+        "deleted"
+      ]
+    },
+    "intended-effect-ov": {
+      "type": "string",
+      "enum": [
+        "advantage",
+        "advantage-economic",
+        "advantage-military",
+        "advantage-political",
+        "theft",
+        "theft-intellectual-property",
+        "theft-credential-theft",
+        "theft-identity-theft",
+        "theft-theft-of-proprietary-information",
+        "account-takeover",
+        "brand-damage",
+        "competitive-advantage",
+        "degradation-of-service",
+        "denial-and-deception",
+        "destruction",
+        "disruption",
+        "embarrassment",
+        "exposure",
+        "extortion",
+        "fraud",
+        "harassment",
+        "ics-control",
+        "traffic-diversion",
+        "unauthorized-access"
+      ]
+    },
+    "security-compromise-ov": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "suspected",
+        "no",
+        "unknown"
+      ]
+    }
+  }
+}
+
+
