@@ -1,0 +1,16 @@
+{
+    "id": "extension-definition--7a8eaf47-9b0f-487d-b280-1e6cc4cccee9",
+    "type": "extension-definition",
+    "spec_version": "2.1",
+    "name": "Extension to support STIX 1.x Incident",
+    "description": "This schema adds STIX 1.x Incident properties not present in the STIX 2.1 Incident stub object",
+    "created": "2020-12-22T00:00:00.000000Z",
+    "modified": "2020-12-22T00:00:00.000000Z",
+    "created_by_ref":"identity--659e8342-f720-4d0d-b193-6a04fdfbb401",
+    "object_marking_refs": [
+        "marking-definition--3cd55916-d34b-4747-a8e0-dedec14b711b"
+    ],
+    "schema": "https://github.com/oasis-open/cti-stix-common-objects/tree/main/extension-definition-specifications/stix1-incident/",
+    "version": "1.0.0",
+    "extension_types": ["property-extension"]
+}
