@@ -161,7 +161,7 @@
             "type": "string",
             "description": "A description of the steps taken to mitigate this incident.  If available this can be further detailed within defender_activity, but this captures a high level narrative of what has been done instead of a more step by step chain of action."
         },
-        "observable_refs": {
+        "object_refs": {
             "type": "array",
             "description": "A list of all observed data that was part of this incident.  This can relate directly to SCOs, but can also reference Sightings, Observables, and Indicators.",
             "minItems": 1,

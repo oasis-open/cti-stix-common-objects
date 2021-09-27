@@ -60,7 +60,7 @@
                     }
                 ],
                 "recoverability": "regular",
-                "observable_refs": ["file--ff0251fc-b70b-4565-8966-9bf57a2779b8", "file--ff0251fc-b70b-4565-8966-9bf57a2779b8"]
+                "object_refs": ["file--ff0251fc-b70b-4565-8966-9bf57a2779b8", "file--ff0251fc-b70b-4565-8966-9bf57a2779b8"]
             }
         }
     },
