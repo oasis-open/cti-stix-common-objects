@@ -18,24 +18,6 @@
                 "property-extension"
             ]
         },
-        "additional_ids": {
-            "description": "A list of other IDs used to track this Incident across various systems", 
-            "type": "array",
-            "items": {
-                "type": "object",
-                "required": ["id", "name"],
-                "properties": {
-                    "id": {
-                        "type": "string",
-                        "description": "The ID value"
-                    },
-                    "name": {
-                        "type": "string",
-                        "description": "The name or system that uses this ID value for tracking"
-                    }
-                }
-            }
-        },
         "scores": {
             "type": "array",
             "description": "A list of scores from various automated or manual mechanisms along with optional descriptions",
@@ -161,15 +143,6 @@
             "type": "string",
             "description": "A description of the steps taken to mitigate this incident.  If available this can be further detailed within defender_activity, but this captures a high level narrative of what has been done instead of a more step by step chain of action."
         },
-        "object_refs": {
-            "type": "array",
-            "description": "A list of all observed data that was part of this incident.  This can relate directly to SCOs, but can also reference Sightings, Observables, and Indicators.",
-            "minItems": 1,
-            "items": {
-                "type": "string",
-                "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json"
-            }
-        },
         "defender_activities": {
             "type": "array",
             "description": "Points in time relevant to the lifecycle of this incident, such as when it was first detected or when the activity first appeared.  Since each entry is a timestamp when recording events with a start end date they should be marked with '-started' or '-completed' as suffixes",
@@ -198,7 +171,7 @@
                     },
                     "description": {
                         "type": "string",
-                        "description": "A description of the adversary activity that occurred."
+                        "description": "A description of the activity that occurred."
                     },
                     "time": {
                         "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/timestamp.json",
@@ -257,6 +230,15 @@
                         "type": "number",
                         "description": "An optional sequence number starting at 0 that shows the lastest point in an attack that this activity is believed to have occurred relative to other attacker activities.  This cannot be less than sequence_start, but the two can be equal.",
                         "minimum": 0
+                    },
+                    "object_refs": {
+                        "type": "array",
+                        "description": "A list of all observed data that was part of this attacker activity.  This can relate directly to SCOs, but can also reference Sightings, Observables, and Indicators.",
+                        "minItems": 1,
+                        "items": {
+                            "type": "string",
+                            "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json"
+                        }
                     }
                 }
             }

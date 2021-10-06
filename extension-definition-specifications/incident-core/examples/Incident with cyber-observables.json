@@ -3,19 +3,6 @@
     "id": "bundle--b72fa03b-d1e0-4f34-81f0-f60e7f019818",
     "objects": [
         {
-            "id": "extension-definition--ef765651-680c-498d-9894-99799f2fa126",
-            "type": "extension-definition",
-            "spec_version": "2.1",
-            "name": "Incident Core Extension",
-            "description": "A core extension of the Incident object to allow core details of the Incident to be shared while tracking major details tied to the incident's timeline.  Multiple Incidents can be tied together via relationships if a higher degree of fidelity is needed across phases.",
-            "created": "2020-10-19T20:51:00.000Z",
-            "modified": "2021-07-30T16:00:00.000Z",
-            "created_by_ref": "identity--24c6ec5e-0db6-4029-b98e-cb87303c942d",
-            "schema": "https://github.com/oasis-open/cti-stix-common-objects/tree/master/extension-definition-specifications/incident-core",
-            "version": "0.4.0",
-            "extension_types": [ "property-extension" ]
-        },
-        {
             "type": "incident",
             "id": "incident--1a074418-9248-4a21-9918-a79d0f1dbc5b",
             "created": "2020-10-19T01:01:01.000Z",
@@ -38,9 +25,17 @@
                             "time": "2020-10-15T01:01:01.000Z"
                         }
                     ],
-                    "object_refs": [
-                        "file--9432f4c7-8cd0-4ed4-a18e-c06fa6175db3"
-                        , "email-addr--5e61397b-9c38-4a14-9232-b9f76254b1c1"
+                    "attacker_activities": [
+                        {
+                            "pattern_ref": "attack-pattern--6aac77c4-eaf2-4366-8c13-ce50ab951f38",
+                            "description": "Email with a malicious attachment",
+                            "sequence_start": 1,
+                            "sequence_end": 1,
+                            "object_refs": [
+                                "file--9432f4c7-8cd0-4ed4-a18e-c06fa6175db3"
+                                , "email-addr--5e61397b-9c38-4a14-9232-b9f76254b1c1"
+                            ]
+                        }
                     ]
                 }
             }
