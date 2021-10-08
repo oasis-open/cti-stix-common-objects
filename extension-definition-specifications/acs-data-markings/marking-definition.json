@@ -1,80 +1,33 @@
 {
-    "$id": "https://gitlab.mitre.org/structured-threat/acs-data-markings/-/raw/master/testing-schema.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "testing-schema",
-    "description": "This marking extension was created to apply the SD-EDH Cyber Profile to ISA shared documents. This is one of two extensions used to apply the SD-EDH Cyber profile: the ISA Markings Extension and the ISA Markings Assertions Extension.",
-    "type": "object",
-    "allOf": [
-        {
-            "$ref": "#/definitions/marking_definition"
-        },
-        {
-            "properties": {
-                "extensions": {
-                    "type": "object",
-                    "properties": {
-                      "extension-definition--3a65884d-005a-4290-8335-cb2d778a83ce": {
-                        "type": "object",
-                        "allOf": [
-
-                          {
-                            "$ref": "isa-acs-3-0.json"
-                          }
-                        ]
-                      }
-                    }
+  "$id": "https://gitlab.mitre.org/structured-threat/acs-data-markings/-/raw/master/testing-schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "testing-schema",
+  "description": "This marking extension was created to apply the SD-EDH Cyber Profile to ISA shared documents (ACS)",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/master/schemas/marking-definition.json"
+    },
+    {
+      "properties": {
+        "extensions": {
+          "type": "object",
+          "properties": {
+            "extension-definition--3a65884d-005a-4290-8335-cb2d778a83ce": {
+              "type": "object",
+              "allOf": [
+                {
+                  "$ref": "isa-acs-3-0.json"
                 }
-            },
-            "required": [
-                "extensions"
-            ]
-        }
-    ],
-    "definitions": {
-      "marking_definition": {
-        "$comment": "included here for easy validation using online jsonschema checkers - e.g. https://www.jsonschemavalidator.net/.  See https://github.com/oasis-open/cti-stix2-json-schemas/blob/master/schemas/common/marking-definition.json",
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^marking-definition--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$"
-          },
-          "type": {
-            "type": "string",
-            "description": "The type of this object, which MUST be the literal `marking-definition`.",
-            "enum": [
-              "marking-definition"
-            ]
-          },
-          "name": {
-            "type": "string",
-            "description": "A name used to identify the Marking Definition."
-          },
-          "created_by_ref": {
-            "type": "string",
-            "pattern": "^identity--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$",
-            "description": "The created_by_ref property specifies the ID of the identity object that describes the entity that created this Marking Definition."
-          },
-          "created": {
-            "$ref": "#/definitions/timestamp",
-            "description": "The created property represents the time at which the first version of this Marking Definition object was created."
-          },
-          "object_marking_refs": {
-            "type": "array",
-            "description": "The object_marking_refs property specifies a list of IDs of marking-definition objects that apply to this Marking Definition.",
-            "items": {
-              "type": "string",
-              "pattern": "^marking-definition--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$"
-            },
-            "minItems": 1
+              ]
+            }
           }
         }
       },
-      "timestamp": {
-            "$comment": "included here for easy validation using online jsonschema checkers - e.g. https://www.jsonschemavalidator.net/. See https://github.com/oasis-open/cti-stix2-json-schemas/blob/master/schemas/common/timestamp.json",
-            "type": "string",
-            "pattern": "^[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9]|60)(\\.[0-9]+)?Z$"
-          }
-        }
-      }
+      "required": [
+        "extensions"
+      ]
+    }
+  ]
+}
 
