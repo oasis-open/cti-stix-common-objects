@@ -20,7 +20,13 @@
                 "determination": "confirmed",
                 "investigation_status": "open",
                 "recoverability": "regular",
-                "mitigation": "Stand up new Exchange server, migrate data store",
+                "actions": [
+                    {
+                        "stage": "mitigation",
+                        "status": "planned",
+                        "description": "Stand up new Exchange server, migrate data store"
+                    }
+                ],
                 "defender_activities": [
                     {
                         "activity_type": "discovery",
@@ -30,11 +36,11 @@
                 "detection_methods": ["automated-tool"],
                 "incident_types": ["unauthorized-release"],
                 "criticality": "critical",
-                "functional_impact": "significant",
-                "information_impacts": [
+                "availability_impact": "significant",
+                "confidentiality_impacts": [
                     {
-                        "impact_type": "phi",
-                        "impact": "suspected"
+                        "information_type": "phi",
+                        "loss_type": "suspected-loss"
                     }
                 ]
             }

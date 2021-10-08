@@ -47,6 +47,7 @@
                 "suspected"
                 , "confirmed"
                 , "false-positive"
+                , "low-value"
             ]
         },
         "investigation_status": {
@@ -86,38 +87,6 @@
             ],
             "$comment": "I think more granularity is needed here, but not sure how this should be broken up"
         },
-        "functional_impact": {
-            "type": "string",
-            "description": "The functional impact of the incident on operations",
-            "enum": [
-                "none",
-                "minimal",
-                "significant",
-                "denial",
-                "loss-of-control"
-            ],
-            "$comment": "This scale feels weird to me, but I think it is important to break up the criticality of the system from its impact"
-        },
-        "information_impacts": {
-            "type": "array",
-            "description": "If information has been lost, compromised or otherwise corrupted.  Multiple items can be entered here as an incident can include multiple forms of data theft or destruction.",
-            "minItems": 1,
-            "items": {
-                "type": "object",
-                "additionalProperties": false,
-                "required": ["impact", "impact_type"],
-                "properties": {
-                    "impact_type": {
-                        "type": "string",
-                        "$comment": "Open Vocabulary including: 'pii', 'phi', 'proprietary', 'credentials', 'classified-material' from https://us-cert.cisa.gov/incident-notification-guidelines but will also likely draw in other sources"
-                    },
-                    "impact": {
-                        "type": "string",
-                        "enum": ["suspected", "destruction", "loss", "major-loss"]
-                    }
-                }
-            }
-        },
         "recoverability": {
             "type": "string",
             "description": "The scope of impact required to recover from an incident",
@@ -130,6 +99,18 @@
             ],
             "$comment": "This is a closed vocabulary: non-applicable is an addition to what is found on https://us-cert.cisa.gov/incident-notification-guidelines for Incident reports that do not have associated recover costs.  For example a phishing email that was detected successfully."
         },
+        "availability_impact": {
+            "type": "string",
+            "description": "The availability / functional impact of the incident on operations",
+            "enum": [
+                "none",
+                "minimal",
+                "significant",
+                "denial",
+                "loss-of-control"
+            ],
+            "$comment": "This scale feels weird to me, but I think it is important to break up the criticality of the system from its impact"
+        },
         "external_impacts": {
             "type": "array",
             "description": "The scope of impact outside of the direct organization",
@@ -139,9 +120,109 @@
             },
             "$comment": "This will be an open vocabulary including: 'national-security', 'foreign-relations', 'economic', 'public-confidence', 'civil-liberties', 'public-health'"
         },
-        "mitigation": {
-            "type": "string",
-            "description": "A description of the steps taken to mitigate this incident.  If available this can be further detailed within defender_activity, but this captures a high level narrative of what has been done instead of a more step by step chain of action."
+        "confidentiality_impacts": {
+            "type": "array",
+            "description": "Information that has been stolen, compromised, or may been stolen or compromised as part of this incident.",
+            "minItems": 1,
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["information_type", "loss_type"],
+                "properties": {
+                    "information_type": {
+                        "type": "string",
+                        "description": "The type of data that had its confidentiality compromised"
+                    },
+                    "loss_type": {
+                        "type": "string",
+                        "enum": [
+                            "suspected-loss"
+                            , "suspected-major-loss"
+                            , "contained"
+                            , "loss"
+                            , "major-loss"
+                        ]
+                    }
+                }
+            }
+        },
+        "integrity_impacts": {
+            "type": "array",
+            "description": "Information that has been altered or destroyed as part of this incident.",
+            "minItems": 1,
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["information_type", "alteration"],
+                "properties": {
+                    "information_type": {
+                        "type": "string",
+                        "description": "The type of information that had its integrity compromised.  This can include control systems and other processes that can result in virtual or physical impacts."
+                    },
+                    "alteration": {
+                        "type": "string",
+                        "enum": [
+                            "potential-destruction"
+                            , "potential-modification"
+                            , "recoverable-destruction"
+                            , "recoverable-modification"
+                            , "unrecoverable-destruction"
+                            , "unrecoverable-modification"
+                        ]
+                    }
+                }
+            }
+        },
+        "actions": {
+            "type": "array",
+            "description": "A list of defensive actions that were planned for this incident including if / when these were attempted",
+            "items": {
+                "type": "object",
+                "required": [
+                    "stage"
+                    , "status"
+                    , "description"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                    "stage": {
+                        "type": "string",
+                        "description": "The stage this action should be employed in",
+                        "enum": [
+                            "prevention"
+                            , "detection"
+                            , "containment"
+                            , "mitigation"
+                            , "eradication"
+                            , "recovery"
+                            , "post-incident"
+                        ]
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "A description of the action"
+                    },
+                    "object_ref": {
+                        "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
+                        "description": "A reference to a control or course of action that describes this action"
+                    },
+                    "time": {
+                        "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/timestamp.json",
+                        "description": "The timestamp that this action was implemented if applicable."
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "The status of this action's impelmentation / efficacy",
+                        "enum": [
+                            "failed"
+                            , "new-control"
+                            , "planned"
+                            , "successful"
+                            , "unused"
+                        ]
+                    }
+                }
+            }
         },
         "defender_activities": {
             "type": "array",
@@ -242,6 +323,15 @@
                     }
                 }
             }
+        },
+        "traceability": {
+            "type": "string",
+            "description": "The level of forensic or other traces left by the incident in order to enable auditing and accountability",
+            "enum": [
+                "accountability-lost"
+                , "partial-accountability"
+                , "provable-accountability"
+            ]
         }
     }
 }

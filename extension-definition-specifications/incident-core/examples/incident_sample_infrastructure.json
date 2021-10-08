@@ -31,22 +31,25 @@
                 "detection_methods": ["user-reporting", "message-from-attacker"],
                 "incident_types": ["unauthorized-release", "destruction"],
                 "criticality": "critical",
-                "functional_impact": "none",
-                "information_impacts": [
+                "availability_impact": "none",
+                "confidentiality_impacts": [
                     {
-                        "impact_type": "pii",
-                        "impact": "loss"
+                        "information_type": "pii",
+                        "loss_type": "loss"
                     }, 
                     {
-                        "impact_type": "phi",
-                        "impact": "loss"
-                    },
-                    {
-                        "impact_type": "system-data",
-                        "impact": "destruction"
+                        "information_type": "phi",
+                        "loss_type": "loss"
                     }
                 ],
-                "recoverability": "regular"
+                "integrity_impacts": [
+                    {
+                        "information_type": "system-data",
+                        "alteration": "recoverable-destruction"
+                    }
+                ],
+                "recoverability": "regular",
+                "traceability": "accountability-lost"
             }
         }
     },
