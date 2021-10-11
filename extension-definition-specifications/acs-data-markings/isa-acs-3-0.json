@@ -18,7 +18,7 @@
                     "description": "Some name for the data marking for user convenience."
                 },
                 "create_date_time": {
-                    "$ref": "#/definitions/timestamp",
+                    "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/master/schemas/common/timestamp.json",
                     "description": "The date of the ACS creation."
                 },
                 "responsible_entity_custodian": {
@@ -96,12 +96,6 @@
         "extension_type"
     ],
     "definitions": {
-        "timestamp": {
-            "$comment": "included here for easy validation using online jsonschema checkers - e.g. https://www.jsonschemavalidator.net/. See https://github.com/oasis-open/cti-stix2-json-schemas/blob/master/schemas/common/timestamp.json",
-            "type": "string",
-            "pattern": "^[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9]|60)(\\.[0-9]+)?Z$"
-        },
-       
         "shareability": {
             "type": "string",
             "enum": ["NCC", "EM", "LE", "IC"]
@@ -250,7 +244,7 @@
             "properties": {
                 "classified_by": {"type": "string"},
                 "classified_on": {
-                    "$ref": "#/definitions/timestamp",
+                    "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/master/schemas/common/timestamp.json",
                     "description": "The date an original classification determination was made."
                  },
                  "derived_from": {"type": "string"}
@@ -266,7 +260,7 @@
             "properties": {
                 "classified_by": {"type": "string"},
                 "classified_on": {
-                    "$ref": "#/definitions/timestamp",
+                    "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/master/schemas/common/timestamp.json",
                     "description": "The date an original classification determination was made."
                 },
                 "classification_reason": {"type": "string"},
@@ -281,7 +275,7 @@
                 "declass_exemption": {"type": "string"},
                 "declass_period": {"type": "integer"},
                 "declass_date": {
-                    "$ref": "#/definitions/timestamp",
+                    "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/master/schemas/common/timestamp.json",
                     "description": "A date upon which a resource will be automatically declassified if not exempt."
                  },
                  "declass_event": {"type": "string"}
@@ -293,7 +287,7 @@
              "type": "object",
              "properties": {
                  "disposition_date": {
-                    "$ref": "#/definitions/timestamp",
+                    "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/master/schemas/common/timestamp.json",
                      "description": "The date of the disposition is initiated"
                  },
                  "disposition_process": {"type": "string"}
@@ -309,7 +303,7 @@
             "properties": {
                 "released_by": {"type": "string"},
                 "released_on": {
-                    "$ref": "#/definitions/timestamp",
+                    "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/master/schemas/common/timestamp.json",
                     "description": "The date of public release."
                 }
             },
