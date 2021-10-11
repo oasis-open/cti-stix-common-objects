@@ -6,7 +6,7 @@
   "type": "object",
   "allOf": [
     {
-      "$ref": "<root>/sdos/incident"
+      "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/master/schemas/sdos/incident.json"
     },
     {
       "properties": {

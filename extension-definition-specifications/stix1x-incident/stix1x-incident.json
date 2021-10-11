@@ -15,7 +15,7 @@
       "type": "array",
       "description": "The contact_refs property identifies and characterizes organizations or personnel involved in this Incident.",
       "items": {
-        "$ref": "<root>/common/identifier.json"
+        "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/master/schemas/common/identifier.json"
       },
       "minItems": 1
     },
@@ -23,7 +23,7 @@
       "type": "array",
       "description": "The coordinator_refs property is optional and details information about the assigned coordinator for this Incident.",
       "items": {
-        "$ref": "<root>/common/identifier.json"
+        "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/master/schemas/common/identifier.json"
       },
       "minItems": 1
     },
@@ -37,14 +37,14 @@
       "minItems": 1
     },
     "reporter_ref": {
-      "$ref": "<root>/common/identifier.json",
+      "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/master/schemas/common/identifier.json",
       "description": "The reporter_ref property details information about the reporting source of this Incident."
     },
     "responder_refs": {
       "type": "array",
       "description": "The Responder field is optional and details information about the assigned responder for this Incident.",
       "items": {
-        "$ref": "<root>/common/identifier.json"
+        "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/master/schemas/common/identifier.json"
       },
       "minItems": 1
     },
@@ -60,7 +60,7 @@
       "type": "array",
       "description": "The victim_refs property is optional and details information about a victim of this Incident.",
       "items": {
-        "$ref": "<root>/common/identifier.json"
+        "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/master/schemas/common/identifier.json"
       },
       "minItems": 1
     },
@@ -69,43 +69,39 @@
       "description": ""
     },
     "time_of_first_malicious_action": {
-      "$ref": "<root>/common/timestamp",
+      "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/master/schemas/common/timestamp.json",
       "description": ""
     },
     "time_of_initial_compromise": {
-      "$ref": "<root>/common/timestamp",
+      "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/master/schemas/common/timestamp.json",
       "description": ""
     },
     "time_of_first_data_exfiltration": {
-      "$ref": "<root>/common/timestamp",
+      "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/master/schemas/common/timestamp.json",
       "description": ""
     },
     "time_of_incident_discovery": {
-      "$ref": "<root>/common/timestamp",
-      "description": ""
-    },
-    "time_of_first_malicious_action": {
-      "$ref": "<root>/common/timestamp",
+      "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/master/schemas/common/timestamp.json",
       "description": ""
     },
     "time_when_incident_opened": {
-      "$ref": "<root>/common/timestamp",
+      "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/master/schemas/common/timestamp.json",
       "description": ""
     },
     "time_when_containment_achieved": {
-      "$ref": "<root>/common/timestamp",
+      "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/master/schemas/common/timestamp.json",
       "description": ""
     },
     "time_when_restoration_achieved": {
-      "$ref": "<root>/common/timestamp,",
+      "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/master/schemas/common/timestamp.json",
       "description": ""
     },
     "time_when_incident_reported": {
-      "$ref": "<root>/common/timestamp",
+      "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/master/schemas/common/timestamp.json",
       "description": ""
     },
     "time_when_incident_closed": {
-      "$ref": "<root>/common/timestamp",
+      "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/master/schemas/common/timestamp.json",
       "description": ""
     }
   },
@@ -180,10 +176,10 @@
         "advantage-military",
         "advantage-political",
         "theft",
-        "theft-intellectual-property",
-        "theft-credential-theft",
-        "theft-identity-theft",
-        "theft-theft-of-proprietary-information",
+        "intellectual-property-theft",
+        "credential-theft",
+        "identity-theft",
+        "proprietary-information-theft",
         "account-takeover",
         "brand-damage",
         "competitive-advantage",
