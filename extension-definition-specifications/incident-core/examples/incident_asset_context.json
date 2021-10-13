@@ -20,16 +20,10 @@
                 "determination": "confirmed",
                 "investigation_status": "open",
                 "recoverability": "regular",
-                "actions": [
-                    {
-                        "stage": "mitigation",
-                        "status": "planned",
-                        "description": "Stand up new Exchange server, migrate data store"
-                    }
-                ],
                 "defender_activities": [
                     {
                         "activity_type": "discovery",
+                        "object_ref": "playbook--6b74199d-42a6-43a1-99cb-75d52207a778",
                         "time": "2021-02-15T01:01:01.000Z"
                     }
                 ],
@@ -45,6 +39,16 @@
                 ]
             }
         }
+    },
+    {
+        "type": "course-of-action",
+        "spec_version": "2.1",
+        "id": "course-of-action--45b98e3a-3800-49eb-b353-e56def4b6084",
+        "name": "Replace Exchange Server",
+        "description": "Stand up new Exchange server, migrate data store",
+        "created_by_ref": "identity--f431f809-377b-45e0-aa1c-6a4751cae5ff",
+        "created": "2020-10-19T01:01:01.000Z",
+        "modified": "2020-10-19T01:01:01.000Z"
     },
     {
         "type": "identity",
@@ -106,6 +110,16 @@
         "relationship_type": "targets",
         "source_ref": "incident--200de3e1-6545-4d21-80b0-ded3570ec7d8",
         "target_ref": "identity--a52b3918-1819-454b-8e6a-42cf18a06c0b"
+    },
+    {
+        "type": "relationship",
+        "spec_version": "2.1",
+        "id": "relationship--c1f8ab4b-d3cd-4c30-93cd-d60f174560db",
+        "created": "2020-10-19T01:01:01.000Z",
+        "modified": "2020-10-19T01:01:01.000Z",
+        "relationship_type": "planned-to-mitigate",
+        "source_ref": "course-of-action--45b98e3a-3800-49eb-b353-e56def4b6084",
+        "target_ref": "incident--200de3e1-6545-4d21-80b0-ded3570ec7d8"
     },
     {
         "type": "relationship",

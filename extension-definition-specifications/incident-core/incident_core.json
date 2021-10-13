@@ -235,10 +235,10 @@
                 ],
                 "additionalProperties": false,
                 "properties": {
-                    "course_of_action_ref": {
+                    "object_ref": {
                         "type": "string",
                         "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
-                        "pattern": "^course-of-action--"
+                        "description": "A reference to a course-of-action, playbook or similar detailed explanation of what was done"
                     },
                     "activity_type": {
                         "type": "string",
