@@ -45,7 +45,8 @@
                 "integrity_impacts": [
                     {
                         "information_type": "system-data",
-                        "alteration": "recoverable-destruction"
+                        "alteration": "full-destruction",
+                        "recoverability": "regular"
                     }
                 ],
                 "recoverability": "regular",
