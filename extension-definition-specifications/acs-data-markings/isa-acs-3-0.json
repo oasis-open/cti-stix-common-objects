@@ -107,39 +107,7 @@
         "custodian": {
             "type": "string",
             "$comment": "a subset of Appendix A: List of Organizations of 'Information Sharing Architecture (ISA) Access Control Specification (ACS) Version 3.0a'",
-            "oneOf": [
-                {
-                    "enum": [
-                        "USA.CIA", "USA.CTIIC",
-                        "USA.DIA",
-                        "USA.DHS", "USA.DHS.CBP", "USA.DHS.ICE", "USA.DHS.NCCIC", "USA.DHS.NCSC", "USA.DHS.TSA", "USA.DHS.USCG", "USA.DHS.US-CERT", "USA.DHS.USSS",
-                        "USA.DISA",
-                        "USA.DNI", "USA.DNI.IC-SCC",
-                        "USA.DOC", "USA.DOC.NIST",
-                        "USA.DOD", "USA.DOD.AFCYBER", "USA.DOD.ARCYBER", "USA.DOD.C10F","USA.DOD.DC3", "USA.DOD.MARFORCYBER", "USA.DOD.USA", "USA.DOD.USAF", "USA.DOD.USCYBERCOM", "USA.DOD.USCYBERCOM-JOC", "USA.DOD.USMC", "USA.DOD.USN", "USA.DOD.USSTRATCOM",
-                        "USA.DOE",
-                        "USA.DOJ", "USA.DOJ.DEA", "USA.DOJ.FBI",
-                        "USA.DOS",
-                        "USA.DOT", "USA.DOT.FAA",
-                        "USA.ED",
-                        "USA.EOP",
-                        "USA.GSA",
-                        "USA.HHS",
-                        "USA.HUD",
-                        "USA.NASA",
-                        "USA.NCIJTF",
-                        "USA.NGA",
-                        "USA.NRO",
-                        "USA.NSA", "USA.NSA.NTOC",
-                        "USA.SSA",
-                        "USA.TREAS",
-                        "USA.USDA"
-                    ]
-                },
-                {
-                    "pattern": "USA.(AL|AK|AZ|AR|CA|CO|CT|DE|DC|FL|GA|HI|ID|IL|IN|IA|KS|KY|LA|ME|MD|MA|MI|MN|MS|MO|MT|NE|NV|NH|NJ|NM|NY|NC|ND|OH|OK|OR|PA|RI|SC|SD|TN|TX|UT|VT|VA|WA|WV|WI|WY|AS|GU|MH|FM|MP|PW|PR|VI)"
-                }
-            ]
+            "pattern": "[A-Z0-9]+\\.[A-Z0-9]+(\\.[A-Z0-9][A-Z0-9-]+)?"
         },
        "permitted_nationalities": {
             "type": "string",
