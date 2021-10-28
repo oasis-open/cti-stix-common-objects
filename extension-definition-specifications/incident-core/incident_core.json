@@ -116,25 +116,41 @@
             "description": "Information that has been stolen, compromised, or may been stolen or compromised as part of this incident.",
             "minItems": 1,
             "items": {
-                "type": "object",
-                "additionalProperties": false,
-                "required": ["information_type", "loss_type"],
-                "properties": {
-                    "information_type": {
-                        "type": "string",
-                        "description": "The type of data that had its confidentiality compromised"
+                "oneOf": [
+                    {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": ["information_type", "loss_type"],
+                        "properties": {
+                            "information_type": {
+                                "type": "string",
+                                "description": "The type of data that had its confidentiality compromised"
+                            },
+                            "loss_type": {
+                                "type": "string",
+                                "enum": [
+                                    "suspected-loss"
+                                    , "suspected-major-loss"
+                                    , "contained"
+                                    , "loss"
+                                    , "major-loss"
+                                    , "none"
+                                ]
+                            }
+                        }
                     },
-                    "loss_type": {
-                        "type": "string",
-                        "enum": [
-                            "suspected-loss"
-                            , "suspected-major-loss"
-                            , "contained"
-                            , "loss"
-                            , "major-loss"
-                        ]
+                    {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": ["loss_type"],
+                        "properties": {
+                            "loss_type": {
+                                "type": "string",
+                                "const": "none"
+                            }
+                        }
                     }
-                }
+                ]
             }
         },
         "integrity_impacts": {
@@ -142,31 +158,46 @@
             "description": "Information that has been altered or destroyed as part of this incident.",
             "minItems": 1,
             "items": {
-                "type": "object",
-                "additionalProperties": false,
-                "required": ["information_type", "alteration"],
-                "properties": {
-                    "information_type": {
-                        "type": "string",
-                        "description": "The type of information that had its integrity compromised.  This can include control systems and other processes that can result in virtual or physical impacts."
+                "oneOf": [
+                    {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": ["information_type", "alteration"],
+                        "properties": {
+                            "information_type": {
+                                "type": "string",
+                                "description": "The type of information that had its integrity compromised.  This can include control systems and other processes that can result in virtual or physical impacts."
+                            },
+                            "alteration": {
+                                "type": "string",
+                                "enum": [
+                                    "potential-destruction"
+                                    , "potential-modification"
+                                    , "partial-destruction"
+                                    , "partial-modification"
+                                    , "full-destruction"
+                                    , "full-modification"
+                                    , "none"
+                                ]
+                            },
+                            "recoverability": {
+                                "$ref": "#/definitions/Recoverability"
+                            }
+                        }
                     },
-                    "alteration": {
-                        "type": "string",
-                        "enum": [
-                            "potential-destruction"
-                            , "potential-modification"
-                            , "partial-destruction"
-                            , "partial-modification"
-                            , "full-destruction"
-                            , "full-modification"
-                            , "no-destruction"
-                            , "no-modification"
-                        ]
-                    },
-                    "recoverability": {
-                        "$ref": "#/definitions/Recoverability"
+                    {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": ["alteration"],
+                        "properties": {
+                            "alteration": {
+                                "type": "string",
+                                "description": "The type of information that had its integrity compromised.  This can include control systems and other processes that can result in virtual or physical impacts.",
+                                "const": "none"
+                            }
+                        }
                     }
-                }
+                ]
             }
         },
         "defender_activities": {

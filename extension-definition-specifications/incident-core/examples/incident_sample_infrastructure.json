@@ -47,6 +47,10 @@
                         "information_type": "system-data",
                         "alteration": "full-destruction",
                         "recoverability": "regular"
+                    }, 
+                    {
+                        "information_type": "phi",
+                        "alteration": "none"
                     }
                 ],
                 "recoverability": "regular",
