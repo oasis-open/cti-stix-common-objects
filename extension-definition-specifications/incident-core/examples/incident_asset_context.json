@@ -29,7 +29,7 @@
                 ],
                 "detection_methods": ["automated-tool"],
                 "incident_types": ["unauthorized-release"],
-                "criticality": "critical",
+                "criticality": 93,
                 "availability_impact": "significant",
                 "confidentiality_impacts": [
                     {

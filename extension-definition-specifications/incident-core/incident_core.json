@@ -78,14 +78,10 @@
             }
         },
         "criticality": {
-            "type": "string",
-            "description": "How important this incident is to operations",
-            "enum": [
-                "deprecated",
-                "non-critical",
-                "critical"
-            ],
-            "$comment": "I think more granularity is needed here, but not sure how this should be broken up"
+            "type": "number",
+            "description": "How important this incident is to operations on a scale of 0 to 100.",
+            "minimum": 0,
+            "maximum": 100
         },
         "recoverability": {
             "$ref": "#/definitions/Recoverability"
@@ -99,8 +95,7 @@
                 "significant",
                 "denial",
                 "loss-of-control"
-            ],
-            "$comment": "This scale feels weird to me, but I think it is important to break up the criticality of the system from its impact"
+            ]
         },
         "external_impacts": {
             "type": "array",

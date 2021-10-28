@@ -30,7 +30,7 @@
                 ],
                 "detection_methods": ["user-reporting", "message-from-attacker"],
                 "incident_types": ["unauthorized-release", "destruction"],
-                "criticality": "critical",
+                "criticality": 90,
                 "availability_impact": "none",
                 "confidentiality_impacts": [
                     {
