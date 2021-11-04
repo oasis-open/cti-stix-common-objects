@@ -28,6 +28,7 @@
                 "responsible_entity_originator": {
                     "type": "string",
                     "description": "originator",
+                    "$ref": "#/definitions/organizations",
                     "$comment": "based on Appendix A of ACS 3.0a specification"
                 },
                 "authority_reference": {
@@ -113,9 +114,15 @@
             "type": "string",
             "$comment": "should contain one or more values listed in 'Geopolitical Entities, Names, and Codes (GENC) Standard Edition 1'"
         },
-       "permitted_organizations": {
+       "organizations": {
             "type": "string",
-            "$comment": "based on Table A1 in Appendix A: List of Organizations of 'Information Sharing Architecture (ISA) Access Control Specification (ACS) Version 3.0a'"
+            "$comment": "based on Table A1 in Appendix A: List of Organizations of 'Information Sharing Architecture (ISA) Access Control Specification (ACS) Version 3.0a'",
+            "oneOf": [
+                { "$ref": "#/definitions/custodian" },
+                {
+                    "enum": [ "CDC", "CIKR", "DIB", "FIN", "ISAC", "NONFED", "PRIVATESECTOR" ]
+                }
+            ]
        },
         "control_set": {
             "type": "object",
@@ -200,7 +207,7 @@
                 "permitted_organizations": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/permitted_organizations"
+                        "$ref": "#/definitions/organizations"
                     }
                 }
             },
@@ -307,7 +314,7 @@
                               "type": "array",
                               "anyOf": [
                                   {
-                                    "items": { "$ref": "#/definitions/permitted_organizations"}
+                                    "items": { "$ref": "#/definitions/organizations" }
                                   },
                                   {
                                       "items": {
@@ -393,8 +400,10 @@
                   "sharing_scope": {
                       "type": "array",
                       "items": {
-                          "type": "string",
-                          "$comment": "based on Appendix A of ACS 3.0 specification"
+                          "oneOf": [
+                              { "$ref": "#/definitions/organizations" },
+                              { "enum": [ "FOREIGNGOV", "SECTOR" ] }
+                          ]
                       }
                   },
                   "rule_effect": {
