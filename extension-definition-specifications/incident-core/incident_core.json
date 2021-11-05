@@ -78,7 +78,7 @@
             }
         },
         "criticality": {
-            "type": "number",
+            "type": "integer",
             "description": "How important this incident is to operations on a scale of 0 to 100.",
             "minimum": 0,
             "maximum": 100
@@ -87,15 +87,10 @@
             "$ref": "#/definitions/Recoverability"
         },
         "availability_impact": {
-            "type": "string",
+            "type": "integer",
             "description": "The availability / functional impact of the incident on operations",
-            "enum": [
-                "none",
-                "minimal",
-                "significant",
-                "denial",
-                "loss-of-control"
-            ]
+            "minimum": 0,
+            "maximum": 100
         },
         "external_impacts": {
             "type": "array",

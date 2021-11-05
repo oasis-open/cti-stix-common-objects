@@ -31,7 +31,7 @@
                 "detection_methods": ["user-reporting", "message-from-attacker"],
                 "incident_types": ["unauthorized-release", "destruction"],
                 "criticality": 90,
-                "availability_impact": "none",
+                "availability_impact": 0,
                 "confidentiality_impacts": [
                     {
                         "information_type": "pii",

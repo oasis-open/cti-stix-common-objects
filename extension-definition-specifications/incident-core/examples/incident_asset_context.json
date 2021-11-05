@@ -30,7 +30,7 @@
                 "detection_methods": ["automated-tool"],
                 "incident_types": ["unauthorized-release"],
                 "criticality": 93,
-                "availability_impact": "significant",
+                "availability_impact": 50,
                 "confidentiality_impacts": [
                     {
                         "information_type": "phi",
