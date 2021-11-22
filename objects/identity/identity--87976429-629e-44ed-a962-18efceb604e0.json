@@ -1,22 +1,19 @@
 {
-    "type": "bundle",
     "id": "bundle--04df6466-d1fe-4263-93a9-b06008a5e4a5",
     "objects": [
         {
-            "type": "identity",
-            "spec_version": "2.1",
-            "id": "identity--87976429-629e-44ed-a962-18efceb604e0",
-            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
             "created": "2021-03-13T20:09:21.303701Z",
-            "modified": "2021-03-13T20:09:21.303701Z",
-            "name": "Construction sector as a target",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "id": "identity--87976429-629e-44ed-a962-18efceb604e0",
             "identity_class": "class",
+            "modified": "2021-11-22T14:54:52.900149Z",
+            "name": "Construction sector as a target",
             "sectors": [
                 "construction"
             ],
-            "object_marking_refs": [
-                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
-            ]
+            "spec_version": "2.1",
+            "type": "identity"
         }
-    ]
+    ],
+    "type": "bundle"
 }

@@ -1,22 +1,19 @@
 {
-    "type": "bundle",
     "id": "bundle--916e250b-030d-43fe-89d1-dd690eeb8814",
     "objects": [
         {
-            "type": "identity",
-            "spec_version": "2.1",
-            "id": "identity--916a7143-9aa0-4956-aba1-beb40ac47f3a",
-            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
             "created": "2021-03-13T20:09:21.318514Z",
-            "modified": "2021-03-13T20:09:21.318514Z",
-            "name": "Infrastructure sector as a target",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "id": "identity--916a7143-9aa0-4956-aba1-beb40ac47f3a",
             "identity_class": "class",
+            "modified": "2021-11-22T14:54:52.900149Z",
+            "name": "Infrastructure sector as a target",
             "sectors": [
                 "infrastructure"
             ],
-            "object_marking_refs": [
-                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
-            ]
+            "spec_version": "2.1",
+            "type": "identity"
         }
-    ]
+    ],
+    "type": "bundle"
 }

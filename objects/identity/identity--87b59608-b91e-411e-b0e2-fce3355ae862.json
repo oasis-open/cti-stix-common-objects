@@ -1,22 +1,19 @@
 {
-    "type": "bundle",
     "id": "bundle--e1950ab4-cbcb-4a6d-9382-c43b0fda8e60",
     "objects": [
         {
-            "type": "identity",
-            "spec_version": "2.1",
-            "id": "identity--87b59608-b91e-411e-b0e2-fce3355ae862",
-            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
             "created": "2021-03-13T20:09:21.307919Z",
-            "modified": "2021-03-13T20:09:21.307919Z",
-            "name": "Entertainment sector as a target",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "id": "identity--87b59608-b91e-411e-b0e2-fce3355ae862",
             "identity_class": "class",
+            "modified": "2021-11-22T14:54:52.900149Z",
+            "name": "Entertainment sector as a target",
             "sectors": [
                 "entertainment"
             ],
-            "object_marking_refs": [
-                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
-            ]
+            "spec_version": "2.1",
+            "type": "identity"
         }
-    ]
+    ],
+    "type": "bundle"
 }

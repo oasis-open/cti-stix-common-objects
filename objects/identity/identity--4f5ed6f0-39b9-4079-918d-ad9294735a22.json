@@ -1,22 +1,19 @@
 {
-    "type": "bundle",
     "id": "bundle--63db1549-e635-40b5-b02d-68bc6ad87f5d",
     "objects": [
         {
-            "type": "identity",
-            "spec_version": "2.1",
-            "id": "identity--4f5ed6f0-39b9-4079-918d-ad9294735a22",
-            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
             "created": "2021-03-13T20:09:21.298321Z",
-            "modified": "2021-03-13T20:09:21.298321Z",
-            "name": "Aerospace sector as a target",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "id": "identity--4f5ed6f0-39b9-4079-918d-ad9294735a22",
             "identity_class": "class",
+            "modified": "2021-11-22T14:54:52.900149Z",
+            "name": "Aerospace sector as a target",
             "sectors": [
                 "aerospace"
             ],
-            "object_marking_refs": [
-                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
-            ]
+            "spec_version": "2.1",
+            "type": "identity"
         }
-    ]
+    ],
+    "type": "bundle"
 }

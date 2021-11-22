@@ -1,22 +1,19 @@
 {
-    "type": "bundle",
     "id": "bundle--ff536d97-35a4-4ad2-878e-b024b3ceda64",
     "objects": [
         {
-            "type": "identity",
-            "spec_version": "2.1",
-            "id": "identity--9d5a4f3f-9573-49d7-a799-ab78e29f395d",
-            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
             "created": "2021-03-13T20:09:21.315226Z",
-            "modified": "2021-03-13T20:09:21.315226Z",
-            "name": "Government Regional sector as a target",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "id": "identity--9d5a4f3f-9573-49d7-a799-ab78e29f395d",
             "identity_class": "class",
+            "modified": "2021-11-22T14:54:52.900149Z",
+            "name": "Government Regional sector as a target",
             "sectors": [
                 "government-regional"
             ],
-            "object_marking_refs": [
-                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
-            ]
+            "spec_version": "2.1",
+            "type": "identity"
         }
-    ]
+    ],
+    "type": "bundle"
 }

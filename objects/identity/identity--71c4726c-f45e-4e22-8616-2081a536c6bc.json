@@ -1,22 +1,19 @@
 {
-    "type": "bundle",
     "id": "bundle--18f94728-5f5d-4ac2-8ac3-230666fc0b23",
     "objects": [
         {
-            "type": "identity",
-            "spec_version": "2.1",
-            "id": "identity--71c4726c-f45e-4e22-8616-2081a536c6bc",
-            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
             "created": "2021-03-13T20:09:21.329303Z",
-            "modified": "2021-03-13T20:09:21.329303Z",
-            "name": "Technology sector as a target",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "id": "identity--71c4726c-f45e-4e22-8616-2081a536c6bc",
             "identity_class": "class",
+            "modified": "2021-11-22T14:54:52.900149Z",
+            "name": "Technology sector as a target",
             "sectors": [
                 "technology"
             ],
-            "object_marking_refs": [
-                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
-            ]
+            "spec_version": "2.1",
+            "type": "identity"
         }
-    ]
+    ],
+    "type": "bundle"
 }

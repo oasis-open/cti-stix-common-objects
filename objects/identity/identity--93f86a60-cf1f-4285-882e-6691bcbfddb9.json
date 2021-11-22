@@ -1,22 +1,19 @@
 {
-    "type": "bundle",
     "id": "bundle--a9bb1af5-7862-483a-98b8-72182edfe3cd",
     "objects": [
         {
-            "type": "identity",
-            "spec_version": "2.1",
-            "id": "identity--93f86a60-cf1f-4285-882e-6691bcbfddb9",
-            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
             "created": "2021-03-13T20:09:21.316245Z",
-            "modified": "2021-03-13T20:09:21.316245Z",
-            "name": "Healthcare sector as a target",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "id": "identity--93f86a60-cf1f-4285-882e-6691bcbfddb9",
             "identity_class": "class",
+            "modified": "2021-11-22T14:54:52.900149Z",
+            "name": "Healthcare sector as a target",
             "sectors": [
                 "healthcare"
             ],
-            "object_marking_refs": [
-                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
-            ]
+            "spec_version": "2.1",
+            "type": "identity"
         }
-    ]
+    ],
+    "type": "bundle"
 }

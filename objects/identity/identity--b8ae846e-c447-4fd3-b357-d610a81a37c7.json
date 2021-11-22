@@ -1,22 +1,19 @@
 {
-    "type": "bundle",
     "id": "bundle--97282e9f-f41f-48a6-bdb8-8e8da6f82469",
     "objects": [
         {
-            "type": "identity",
-            "spec_version": "2.1",
-            "id": "identity--b8ae846e-c447-4fd3-b357-d610a81a37c7",
-            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
             "created": "2021-03-13T20:09:21.313176Z",
-            "modified": "2021-03-13T20:09:21.313176Z",
-            "name": "Government National sector as a target",
+            "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "id": "identity--b8ae846e-c447-4fd3-b357-d610a81a37c7",
             "identity_class": "class",
+            "modified": "2021-11-22T14:54:52.900149Z",
+            "name": "Government National sector as a target",
             "sectors": [
                 "government-national"
             ],
-            "object_marking_refs": [
-                "marking-definition--62fd3f9b-15f3-4ebc-802c-91fce9536bcf"
-            ]
+            "spec_version": "2.1",
+            "type": "identity"
         }
-    ]
+    ],
+    "type": "bundle"
 }
