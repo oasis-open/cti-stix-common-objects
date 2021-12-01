@@ -1,0 +1,32 @@
+{
+    "type": "bundle",
+    "id": "bundle--15067de5-05b6-4330-8104-45da359c2d2a",
+    "objects": [
+        {
+            "type": "marking-definition",
+            "spec_version": "2.1",
+            "id": "marking-definition--20864905-06a0-47be-a04c-2164af17d635",
+            "created": "2020-06-18T00:00:00Z",
+            "extensions": {
+                "extension-definition--3a65884d-005a-4290-8335-cb2d778a83ce": {
+                    "control_set": {
+                        "classification": "TS",
+                        "entity": [
+                            "GOV",
+                            "CTR",
+                            "MIL"
+                        ],
+                        "shareability": [
+                        ]
+                    },
+                    "create_date_time": "2018-05-27T14:10:26.723Z",
+                    "extension_type": "property-extension",
+                    "identifier": "isa:guide.19001.ACS3-3bda2f6e-cedc-4c0f-a756-c03d6b586917",
+                    "name": "Use Case 1: Access Granted to Cybersecurity Data",
+                    "policy_reference": "urn:isa:policy:acs:ns:v3.0?privdefault=deny&sharedefault=deny",
+                    "responsible_entity_custodian": "USA.NSA"
+                }
+            }
+        }
+     ]
+}

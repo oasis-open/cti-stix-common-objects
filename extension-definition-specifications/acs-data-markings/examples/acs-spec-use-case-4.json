@@ -1,0 +1,37 @@
+{
+    "type": "bundle",
+    "id": "bundle--0a2277ac-a785-4c11-b691-582293ea9eb1",
+    "objects": [
+        {
+            "type": "marking-definition",
+            "spec_version": "2.1",
+            "created": "2020-06-18T00:00:00Z",
+            "extensions": {
+                "extension-definition--3a65884d-005a-4290-8335-cb2d778a83ce": {
+                    "control_set": {
+                        "classification": "U",
+                        "permitted_organizations": [
+                            "USA.USG"
+                        ],
+                        "entity": [
+                            "MIL",
+                            "CTR",
+                            "GOV",
+                            "SVR",
+                            "SVC",
+                            "DEV",
+                            "NET"
+                        ]
+                    },
+                    "create_date_time": "2018-05-27T14:10:26.723Z",
+                    "extension_type": "property-extension",
+                    "identifier": "isa:guide.19001.ACS3-6b142579-f21c-4199-865c-207d9df7313c",
+                    "name": "Use Case 4: Analytic NPE",
+                    "policy_reference": "urn:isa:policy:acs:ns:v3.0?privdefault=permit&sharedefault=permit",
+                    "responsible_entity_custodian": "USA.DOD.DC3"
+                }
+            },
+            "id": "marking-definition--ff7043e7-b1c9-4115-8bfc-79db1bed6862"
+        }
+    ]
+}

@@ -1,0 +1,85 @@
+{
+    "type": "bundle",
+    "id": "bundle--5be1c5b5-98ee-408e-918c-2ead90bc8014",
+    "objects": [
+        {
+            "type": "marking-definition",
+            "spec_version": "2.1",
+            "created": "2020-06-18T00:00:00Z",
+            "extensions": {
+                "extension-definition--3a65884d-005a-4290-8335-cb2d778a83ce": {
+                    "access_privilege": [
+                        {
+                            "privilege_action": "INTEL",
+                            "privilege_scope": {
+                                "entity": [
+                                    "ALL"
+                                ],
+                                "permitted_nationalities": [
+                                    "ALL"
+                                ],
+                                "permitted_organizations": [
+                                    "ALL"
+                                ],
+                                "shareability": [
+                                    "ALL"
+                                ]
+                            },
+                            "rule_effect": "permit"
+                        },
+                        {
+                            "privilege_action": "DSPLY",
+                            "privilege_scope": {
+                                "entity": [
+                                    "ALL"
+                                ],
+                                "permitted_nationalities": [
+                                    "ALL"
+                                ],
+                                "permitted_organizations": [
+                                    "ALL"
+                                ],
+                                "shareability": [
+                                    "ALL"
+                                ]
+                            },
+                            "rule_effect": "permit"
+                        },
+                        {
+                            "privilege_action": "REQUEST",
+                            "privilege_scope": {
+                                "entity": [
+                                    "ALL"
+                                ],
+                                "permitted_nationalities": [
+                                    "ALL"
+                                ],
+                                "permitted_organizations": [
+                                    "ALL"
+                                ],
+                                "shareability": [
+                                    "ALL"
+                                ]
+                            },
+                            "rule_effect": "permit"
+                        }
+                    ],
+                    "control_set": {
+                        "classification": "U",
+                        "formal_determination": [
+                            "FOUO"
+                        ]
+                    },
+                    "create_date_time": "2018-05-27T14:10:26.723Z",
+                    "extension_type": "property-extension",
+                    "identifier": "isa:guide.19001.ACS3-76342cc9-1440-4031-84a3-d498c404cab3",
+                    "name": "Use Case 2: Access Privilege",
+                    "policy_reference": "urn:isa:policy:acs:ns:v3.0?privdefault=deny&sharedefault=permit",
+                    "responsible_entity_custodian": "USA.DOJ.FBI"
+                }
+            },
+            "id": "marking-definition--6010b3f4-a603-4d3b-9098-8708cdbe151b"
+        }
+    ]
+}
+
