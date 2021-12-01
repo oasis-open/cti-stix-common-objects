@@ -9,7 +9,7 @@
                 "property-extension"
             ],
             "id": "extension-definition--3a65884d-005a-4290-8335-cb2d778a83ce",
-            "modified": "2021-11-22T14:54:52.900149Z",
+            "modified": "2021-12-01T16:19:51.601791Z",
             "name": "isa-acs-3-0",
             "schema": "https://github.com/oasis-open/cti-stix-common-objects/tree/master/extension-definition-specifications/acs-data-markings",
             "spec_version": "2.1",

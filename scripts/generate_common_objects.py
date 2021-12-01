@@ -170,8 +170,7 @@ def main():
             name="OASIS",
             description="OASIS is a global community of experts who drive the creation and adoption of open standards promoting interoperability, innovation, and freedom of choice.",
             identity_class="organization",
-            id=ident_id,
-            object_marking_refs=[marking_def_id],
+            id=ident_id
         )
         write_object(identity, output_dir, "OASIS", id_map)
 
@@ -182,8 +181,7 @@ def main():
             location = v21.Location(
                 name=c.name,
                 country=c.alpha_2,
-                created_by_ref=ident_id,
-                object_marking_refs=[marking_def_id],
+                created_by_ref=ident_id
             )
             write_object(location, output_dir, c.name, id_map)
 
@@ -192,8 +190,7 @@ def main():
             location = v21.Location(
                 name=pretty_print_name(reg),
                 region=reg,
-                created_by_ref=ident_id,
-                object_marking_refs=[marking_def_id],
+                created_by_ref=ident_id
             )
             write_object(location, output_dir, reg, id_map)
 
@@ -203,8 +200,7 @@ def main():
                 name=cc[0],
                 country="CA",
                 administrative_area=cc[1],
-                created_by_ref=ident_id,
-                object_marking_refs=[marking_def_id],
+                created_by_ref=ident_id
             )
             write_object(location, output_dir, cc[1], id_map)
 
@@ -214,8 +210,7 @@ def main():
                 name=cc[0],
                 country="US",
                 administrative_area="US-" + cc[1],
-                created_by_ref=ident_id,
-                object_marking_refs=[marking_def_id],
+                created_by_ref=ident_id
             )
             write_object(location, output_dir, cc[1], id_map)
 
@@ -226,8 +221,7 @@ def main():
                 name=pretty_print_name(sec) + " sector as a target",
                 sectors=[sec],
                 created_by_ref=ident_id,
-                identity_class="class",
-                object_marking_refs=[marking_def_id],
+                identity_class="class"
             )
             write_object(identity, output_dir, sec, id_map)
 
@@ -247,8 +241,7 @@ def main():
                     name=cve_id,
                     description=cve_description,
                     external_references=[v21.ExternalReference(source_name="cve", external_id=cve_id)],
-                    created_by_ref=ident_id,
-                    object_marking_refs=[marking_def_id],
+                    created_by_ref=ident_id
                 )
                 write_object(vulnerability, output_dir, cve_id, id_map)
         except:

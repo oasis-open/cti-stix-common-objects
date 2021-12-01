@@ -31,23 +31,29 @@ def main():
             json_filename = os.path.join(dir_path_name, f)
             json_filename_path = pathlib.Path(json_filename)
             stix_file_r = json_filename_path.open('r', encoding='utf-8')
-            bundle = json.load(stix_file_r)
+            try:
+                bundle = json.load(stix_file_r)
+            except Exception as exc:
+                print("Bad: " + json_filename)
+                raise exc
             obj = bundle["objects"][0]
             if "object_marking_refs" in obj:
                 obj.pop("object_marking_refs")
+                obj["modified"] = current_datetime
+                stix_file_r.close()
+                with json_filename_path.open('w', encoding='utf-8') as stix_file_w:
+                    json.dump(
+                        bundle,
+                        stix_file_w,
+                        ensure_ascii=False,
+                        indent=4,
+                        separators=(',', ': '),
+                        sort_keys=True
+                    )
+
             else:
                 print(json_filename)
-            obj["modified"] = current_datetime
-            stix_file_r.close()
-            with json_filename_path.open('w', encoding='utf-8') as stix_file_w:
-                json.dump(
-                    bundle,
-                    stix_file_w,
-                    ensure_ascii=False,
-                    indent=4,
-                    separators=(',', ': '),
-                    sort_keys=True
-                )
+
 
 
 if __name__ == "__main__":
