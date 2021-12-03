@@ -1,5 +1,5 @@
 {
-    "$id": "https://gitlab.mitre.org/structured-threat/acs-data-markings/-/raw/master/isa-acs-3-0.json",
+    "$id": "https://raw.githubusercontent.com/oasis-open/cti-stix-common-objects/main/extension-definition-specifications/acs-data-markings/isa-acs-3-0.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "title": "isa-acs-3-0",
     "description": "This marking extension was created to apply the SD-EDH Cyber Profile to ISA shared documents. This is one of two extensions used to apply the SD-EDH Cyber profile: the ISA Markings Extension and the ISA Markings Assertions Extension.",
@@ -18,7 +18,7 @@
                     "description": "Some name for the data marking for user convenience."
                 },
                 "create_date_time": {
-                    "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/master/schemas/common/timestamp.json",
+                    "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/timestamp.json",
                     "description": "The date of the ACS creation."
                 },
                 "responsible_entity_custodian": {
@@ -38,7 +38,8 @@
                         "type": "string",
                         "$comment": "pattern can be made more robust to represent a urn exactly",
                         "pattern": "^(urn:isa:authority:\\w+)$"
-                    }
+                    },
+                    "minItems": 1
                 },
                 "policy_reference": {
                     "type": "string",
@@ -136,14 +137,18 @@
                     "items": {
                         "type": "string",
                         "$comment": "classified enum"
-                    }
+                    },
+                    "minItems": 1,
+                    "$comment": "not required, but if used, there must be 1 item"
                 },
                 "logical_authority_category": {
                     "type": "array",
                     "items": {
                         "type": "string",
                         "$comment": "values are listed in the NSA’s Master Data Registry"
-                    }
+                    },
+                    "minItems": 1,
+                    "$comment": "not required, but if used, there must be 1 item"
                 },
                 "formal_determination": {
                     "type": "array",
@@ -158,7 +163,9 @@
                             "FOUO",
                             "INFORMATION-DIRECTLY-RELATED-TO-CYBERSECURITY-THREAT"
                         ]
-                    }
+                    },
+                    "minItems": 1,
+                    "$comment": "not required, but if used, there must be 1 item"
                 },
                 "caveat": {
                     "type": "array",
@@ -169,7 +176,9 @@
                             "POSSIBLEPII",
                             "CISAPROPRIETARY"
                         ]
-                    }
+                    },
+                    "minItems": 1,
+                    "$comment": "not required, but if used, there must be 1 item"
                 },
                 "sensitivity": {
                     "type": "array",
@@ -184,31 +193,41 @@
                             "PR",
                             "TEI"
                         ]
-                    }
+                    },
+                    "minItems": 1,
+                    "$comment": "not required, but if used, there must be 1 item"
                 },
                 "shareability": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/shareability"
-                    }
+                    },
+                    "minItems": 1,
+                    "$comment": "not required, but if used, there must be 1 item"
                 },
                 "entity": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/entity"
-                    }
+                    },
+                    "minItems": 1,
+                    "$comment": "not required, but if used, there must be 1 item"
                 },
                 "permitted_nationalities": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/permitted_nationalities"
-                    }
+                    },
+                    "minItems": 1,
+                    "$comment": "not required, but if used, there must be 1 item"
                 },
                 "permitted_organizations": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/organizations"
-                    }
+                    },
+                    "minItems": 1,
+                    "$comment": "not required, but if used, there must be 1 item"
                 }
             },
             "additionalProperties": false,
@@ -219,7 +238,7 @@
             "properties": {
                 "classified_by": {"type": "string"},
                 "classified_on": {
-                    "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/master/schemas/common/timestamp.json",
+                    "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/timestamp.json",
                     "description": "The date an original classification determination was made."
                  },
                  "derived_from": {"type": "string"}
@@ -235,7 +254,7 @@
             "properties": {
                 "classified_by": {"type": "string"},
                 "classified_on": {
-                    "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/master/schemas/common/timestamp.json",
+                    "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/timestamp.json",
                     "description": "The date an original classification determination was made."
                 },
                 "classification_reason": {"type": "string"},
@@ -250,7 +269,7 @@
                 "declass_exemption": {"type": "string"},
                 "declass_period": {"type": "integer"},
                 "declass_date": {
-                    "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/master/schemas/common/timestamp.json",
+                    "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/timestamp.json",
                     "description": "A date upon which a resource will be automatically declassified if not exempt."
                  },
                  "declass_event": {"type": "string"}
@@ -262,7 +281,7 @@
              "type": "object",
              "properties": {
                  "disposition_date": {
-                    "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/master/schemas/common/timestamp.json",
+                    "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/timestamp.json",
                      "description": "The date of the disposition is initiated"
                  },
                  "disposition_process": {"type": "string"}
@@ -278,7 +297,7 @@
             "properties": {
                 "released_by": {"type": "string"},
                 "released_on": {
-                    "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/master/schemas/common/timestamp.json",
+                    "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/timestamp.json",
                     "description": "The date of public release."
                 }
             },
@@ -307,7 +326,8 @@
                                       },
                                       "maxItems": 1
                                   }
-                              ]
+                              ],
+                              "minItems": 1
                           },
                           "permitted_organizations": {
                               "$comment": "use oneOf construction (see entity), once permitted_organizations defined based on Appendix A of ACS 3.0a specification",
@@ -323,7 +343,8 @@
                                       },
                                       "maxItems": 1
                                   }
-                              ]
+                              ],
+                              "minItems": 1
                           },
                           "shareability": {
                               "type": "array",
@@ -338,7 +359,8 @@
                                       },
                                       "maxItems": 1
                                   }
-                              ]
+                              ],
+                              "minItems": 1
                           },
                           "entity": {
                               "type": "array",
@@ -354,9 +376,11 @@
                                           },
                                           "maxItems": 1
                                   }
-                              ]
+                              ],
+                              "minItems": 1
                           }
-                      }
+                      },
+                      "additionalProperties": false
                   },
                   {
                       "anyOf": [
@@ -404,7 +428,8 @@
                               { "$ref": "#/definitions/organizations" },
                               { "enum": [ "FOREIGNGOV", "SECTOR" ] }
                           ]
-                      }
+                      },
+                      "minItems": 1
                   },
                   "rule_effect": {
                       "type": "string",

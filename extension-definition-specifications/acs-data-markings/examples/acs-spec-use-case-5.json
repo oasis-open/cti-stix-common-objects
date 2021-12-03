@@ -1,0 +1,37 @@
+{
+    "type": "bundle",
+    "id": "bundle--bfcf564a-6981-4000-8e8b-1cb42d26195a",
+    "objects": [
+        {
+            "type": "marking-definition",
+            "spec_version": "2.1",
+            "id": "marking-definition--ff7043e7-b1c9-4115-8bfc-79db1bed6862",
+            "created": "2020-06-18T00:00:00Z",
+            "extensions": {
+                "extension-definition--3a65884d-005a-4290-8335-cb2d778a83ce": {
+                    "control_set": {
+                        "classification": "U",
+                        "sensitivity": [
+                            "LES"
+                        ],
+                        "permitted_organizations": [
+                            "USA.USG",
+                            "USA.SLTT"
+                        ],
+                        "entity": [
+                            "MIL",
+                            "CTR",
+                            "GOV"
+                        ]
+                    },
+                    "create_date_time": "2018-05-27T14:10:26.723Z",
+                    "extension_type": "property-extension",
+                    "identifier": "isa:guide.19001.ACS3-6b142579-f21c-4199-865c-207d9df7313c",
+                    "name": "Use Case 5: Access Denied to Law Enforcement Data",
+                    "policy_reference": "urn:isa:policy:acs:ns:v3.0?privdefault=permit&sharedefault=permit",
+                    "responsible_entity_custodian": "USA.DOJ.FBI"
+                }
+            }
+        }
+    ]
+}

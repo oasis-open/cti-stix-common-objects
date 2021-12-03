@@ -1,0 +1,93 @@
+{
+    "type": "bundle",
+    "id": "bundle--5d0092c5-5f74-4287-9642-33f4c354e56d",
+    "objects": [
+        {
+            "type": "marking-definition",
+            "spec_version": "2.1",
+            "created": "2020-06-18T00:00:00Z",
+            "extensions": {
+                "extension-definition--3a65884d-005a-4290-8335-cb2d778a83ce": {
+                    "control_set": {
+                        "classification": "S"
+                    },
+                    "create_date_time": "2018-05-27T14:10:26.723Z",
+                    "extension_type": "property-extension",
+                    "identifier": "isa:guide.19001.ACS3-a526c69f-1468-4f4e-96eb-cdbf302cc0e3",
+                    "name": "Use Case 3: PUBREL and Portion Marking - S",
+                    "policy_reference": "urn:isa:policy:acs:ns:v3.0?privdefault=deny&sharedefault=permit",
+                    "responsible_entity_custodian": "USA.DHS"
+                }
+            },
+            "id": "marking-definition--e3896452-4dcf-4e19-a571-8571c1c530a2"
+        },
+        {
+           "type": "marking-definition",
+           "spec_version": "2.1",
+           "id": "marking-definition--d0038fa3-d4db-460b-813d-191917213910",
+           "created": "2020-06-18T00:00:00Z",
+           "extensions": {
+                "extension-definition--3a65884d-005a-4290-8335-cb2d778a83ce": {
+                    "control_set": {
+                        "classification": "U",
+                        "formal_determination": [
+                            "PUBREL"
+                        ]
+                    },
+                    "create_date_time": "2018-05-27T14:10:26.723Z",
+                    "extension_type": "property-extension",
+                    "identifier": "isa:guide.19001.ACS3-2db30d2d-036c-4631-a057-bd85b189adee",
+                    "name": "Use Case 3: PUBREL and Portion Marking - U",
+                    "policy_reference": "urn:isa:policy:acs:ns:v3.0?privdefault=permit&sharedefault=permit",
+                    "public_release": {
+                        "released_by": "Authority",
+                        "released_on": "2020-01-01T00:00:00Z"
+                    },
+                    "responsible_entity_custodian": "USA.DHS"
+                }
+            }
+        },
+        {
+            "object_marking_refs": [
+                "marking-definition--d0038fa3-d4db-460b-813d-191917213910"
+            ],
+            "id": "ipv4-addr--ff26c055-6336-5bc5-b98d-13d6226742dd",
+            "type": "ipv4-addr",
+            "value": "198.51.100.3"
+        },
+        {
+            "type": "threat-actor",
+            "spec_version": "2.1",
+            "id": "threat-actor--8e2e2d2b-17d4-4cbf-938f-98ee46b3cd3f",
+            "created": "2016-04-06T20:03:48.000Z",
+            "modified": "2016-04-06T20:03:48.000Z",
+            "threat_actor_types": [ "nation-state"],
+            "name": "Evil Republic Div 37",
+            "sophistication": "expert",
+            "resource_level": "government",
+            "primary_motivation": "organizational-gain",
+            "object_marking_refs": [
+                "marking-definition--e3896452-4dcf-4e19-a571-8571c1c530a2"
+            ]
+        },
+        {
+            "type": "report",
+            "spec_version": "2.1",
+            "id": "report--eff11c91-12da-4bec-ac82-285d1efc0cf6",
+            "created": "2020-06-18T00:00:00.000Z",
+            "modified": "2020-06-18T00:00:00.000Z",
+            "name": "Use Case 3: PUBREL and Portion Marking",
+            "published": "2020-07-19T00:00:00Z",
+            "report_types": [ "threat-actor"],
+            "object_refs": [
+                "marking-definition--e3896452-4dcf-4e19-a571-8571c1c530a2",
+                "marking-definition--d0038fa3-d4db-460b-813d-191917213910",
+                "ipv4-addr--ff26c055-6336-5bc5-b98d-13d6226742dd",
+                "threat-actor--8e2e2d2b-17d4-4cbf-938f-98ee46b3cd3f"
+            ]
+        }
+    ]
+}
+
+
+    
