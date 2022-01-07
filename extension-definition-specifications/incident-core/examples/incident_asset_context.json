@@ -114,10 +114,11 @@
     {
         "type": "relationship",
         "spec_version": "2.1",
+        "labels": ["planned"],
         "id": "relationship--c1f8ab4b-d3cd-4c30-93cd-d60f174560db",
         "created": "2020-10-19T01:01:01.000Z",
         "modified": "2020-10-19T01:01:01.000Z",
-        "relationship_type": "planned-to-mitigate",
+        "relationship_type": "mitigates",
         "source_ref": "course-of-action--45b98e3a-3800-49eb-b353-e56def4b6084",
         "target_ref": "incident--200de3e1-6545-4d21-80b0-ded3570ec7d8"
     },
