@@ -1,448 +1,452 @@
 {
-    "$id": "https://raw.githubusercontent.com/oasis-open/cti-stix-common-objects/main/extension-definition-specifications/acs-data-markings/isa-acs-3-0.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "isa-acs-3-0",
-    "description": "This marking extension was created to apply the SD-EDH Cyber Profile to ISA shared documents. This is one of two extensions used to apply the SD-EDH Cyber profile: the ISA Markings Extension and the ISA Markings Assertions Extension.",
-    "type": "object",
-    "properties": {
-                "extension_type": {
-                    "type": "string",
-                    "enum": ["property-extension"]
-                },
-                "identifier": {
-                    "type": "string",
-                    "description": "Single unique identifier associated with the resource."
-                },
-                "name": {
-                    "type": "string",
-                    "description": "Some name for the data marking for user convenience."
-                },
-                "create_date_time": {
-                    "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/timestamp.json",
-                    "description": "The date of the ACS creation."
-                },
-                "responsible_entity_custodian": {
-                    "$ref": "#/definitions/custodian",
-                    "description": "custodian"
-                },
-                "responsible_entity_originator": {
-                    "type": "string",
-                    "description": "originator",
-                    "$ref": "#/definitions/organizations",
-                    "$comment": "based on Appendix A of ACS 3.0a specification"
-                },
-                "authority_reference": {
-                    "type": "array",
-                    "$comment": "pattern can be made more robust to represent a urn exactly",
-                    "items": {
-                        "type": "string",
-                        "$comment": "pattern can be made more robust to represent a urn exactly",
-                        "pattern": "^(urn:isa:authority:\\w+)$"
-                    },
-                    "minItems": 1
-                },
-                "policy_reference": {
-                    "type": "string",
-                    "pattern": "^(urn:isa:policy:acs:ns:v3\\.0\\?privdefault=(permit|deny)&sharedefault=(permit|deny)\\s?)+$"
-                },
-                "original_classification": {
-                    "$ref": "#/definitions/original_classification",
-                    "description": "Details for generating a classification authority block based on classification by an Original Classification Authority."
-                },
-                "derivative_classification": {
-                    "$ref": "#/definitions/derivative_classification",
-                    "description": "Details for generating a classification authority block based on a derived classification."
-                },
-                "declassification": {
-                    "$ref": "#/definitions/declassification",
-                    "description": "The declassification instructions associated with an original or derived classification for generating a classification authority block."
-                },
-                "resource_disposition": {
-                    "$ref": "#/definitions/resource_disposition",
-                    "description": "Provide a fixed date and time at which an action is to be taken on the associated resource, such as destruction."
-                },
-                "public_release": {
-                    "$ref": "#/definitions/public_release",
-                    "description": "The release authority and date for resources that have been through a formal public release determination process."
-                },
-                "access_privilege": {
-                     "type": "array",
-                     "items": {
-                         "type": "object",
-                         "$ref": "#/definitions/access_privilege"
-                     },
-                     "minItems": 1,
-                     "$comment": "not required, but if used, there must be 1 item"
-                },
-                "further_sharing": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "$comment": "$ref - #/definitions/further_sharing"
-                    },
-                    "minItems": 1,
-                    "$comment": "not required, but if used, there must be 1 item"
-                },
-                "control_set": {
-                    "$ref": "#/definitions/control_set",
-                    "description": "Group of data tags that are used to inform automated access control decisions."
-                }
+  "$id": "https://raw.githubusercontent.com/oasis-open/cti-stix-common-objects/main/extension-definition-specifications/acs-data-markings/isa-acs-3-0.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "isa-acs-3-0",
+  "description": "This marking extension was created to apply the SD-EDH Cyber Profile to ISA shared documents. This is one of two extensions used to apply the SD-EDH Cyber profile: the ISA Markings Extension and the ISA Markings Assertions Extension.",
+  "type": "object",
+  "properties": {
+    "extension_type": {
+      "type": "string",
+      "enum": ["property-extension"]
     },
-    "additionalProperties": false,
-    "required": [
-        "identifier",
-        "create_date_time",
-        "responsible_entity_custodian",
-        "policy_reference",
-        "control_set",
-        "extension_type"
-    ],
-    "definitions": {
-        "shareability": {
+    "identifier": {
+      "type": "string",
+      "description": "Single unique identifier associated with the resource."
+    },
+    "name": {
+      "type": "string",
+      "description": "Some name for the data marking for user convenience."
+    },
+    "create_date_time": {
+      "$ref": "#/definitions/timestamp",
+      "description": "The date of the ACS creation."
+    },
+    "responsible_entity_custodian": {
+      "$ref": "#/definitions/custodian",
+      "description": "custodian"
+    },
+    "responsible_entity_originator": {
+      "type": "string",
+      "description": "originator",
+      "$ref": "#/definitions/organizations",
+      "$comment": "based on Appendix A of ACS 3.0a specification"
+    },
+    "authority_reference": {
+      "type": "array",
+      "$comment": "pattern can be made more robust to represent a urn exactly",
+      "items": {
+        "type": "string",
+        "$comment": "pattern can be made more robust to represent a urn exactly",
+        "pattern": "^(urn:isa:authority:\\w+)$"
+      },
+      "minItems": 1
+    },
+    "policy_reference": {
+      "type": "string",
+      "pattern": "^(urn:isa:policy:acs:ns:v3\\.0\\?privdefault=(permit|deny)&sharedefault=(permit|deny)\\s?)+$"
+    },
+    "original_classification": {
+      "$ref": "#/definitions/original_classification",
+      "description": "Details for generating a classification authority block based on classification by an Original Classification Authority."
+    },
+    "derivative_classification": {
+      "$ref": "#/definitions/derivative_classification",
+      "description": "Details for generating a classification authority block based on a derived classification."
+    },
+    "declassification": {
+      "$ref": "#/definitions/declassification",
+      "description": "The declassification instructions associated with an original or derived classification for generating a classification authority block."
+    },
+    "resource_disposition": {
+      "$ref": "#/definitions/resource_disposition",
+      "description": "Provide a fixed date and time at which an action is to be taken on the associated resource, such as destruction."
+    },
+    "public_release": {
+      "$ref": "#/definitions/public_release",
+      "description": "The release authority and date for resources that have been through a formal public release determination process."
+    },
+    "access_privilege": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "$ref": "#/definitions/access_privilege"
+      },
+      "minItems": 1,
+      "$comment": "not required, but if used, there must be 1 item"
+    },
+    "further_sharing": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "$comment": "$ref - #/definitions/further_sharing"
+      },
+      "minItems": 1,
+      "$comment": "not required, but if used, there must be 1 item"
+    },
+    "control_set": {
+      "$ref": "#/definitions/control_set",
+      "description": "Group of data tags that are used to inform automated access control decisions."
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "identifier",
+    "create_date_time",
+    "responsible_entity_custodian",
+    "policy_reference",
+    "control_set",
+    "extension_type"
+  ],
+  "definitions": {
+    "timestamp": {
+      "$comment": "included here for easy validation using online jsonschema checkers - e.g. https://www.jsonschemavalidator.net/. See https://github.com/oasis-open/cti-stix2-json-schemas/blob/master/schemas/common/timestamp.json",
+      "type": "string",
+      "pattern": "^[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9]|60)(\\.[0-9]+)?Z$"
+    },
+
+    "shareability": {
+      "type": "string",
+      "enum": ["NCC", "EM", "LE", "IC"]
+    },
+    "entity": {
+      "type": "string",
+      "enum": ["MIL", "GOV", "CTR", "SVR", "SVC", "DEV", "NET"]
+    },
+    "custodian": {
+      "type": "string",
+      "$comment": "a subset of Appendix A: List of Organizations of 'Information Sharing Architecture (ISA) Access Control Specification (ACS) Version 3.0a'",
+      "pattern": "[A-Z0-9]+\\.[A-Z0-9]+(\\.[A-Z0-9][A-Z0-9-]+)?"
+    },
+    "permitted_nationalities": {
+      "type": "string",
+      "$comment": "should contain one or more values listed in 'Geopolitical Entities, Names, and Codes (GENC) Standard Edition 1'"
+    },
+    "organizations": {
+      "type": "string",
+      "$comment": "based on Table A1 in Appendix A: List of Organizations of 'Information Sharing Architecture (ISA) Access Control Specification (ACS) Version 3.0a'",
+      "oneOf": [
+        { "$ref": "#/definitions/custodian" },
+        {
+          "enum": [ "CDC", "CIKR", "DIB", "FIN", "ISAC", "NONFED", "PRIVATESECTOR" ]
+        }
+      ]
+    },
+    "control_set": {
+      "type": "object",
+      "properties": {
+        "classification": {
+          "type": "string",
+          "enum": [ "U", "C", "S", "TS"]
+        },
+        "sci_controls": {
+          "type": "array",
+          "items": {
             "type": "string",
-            "enum": ["NCC", "EM", "LE", "IC"]
+            "$comment": "classified enum"
+          },
+          "minItems": 1,
+          "$comment": "not required, but if used, there must be 1 item"
+        },
+        "logical_authority_category": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "$comment": "values are listed in the NSA’s Master Data Registry"
+          },
+          "minItems": 1,
+          "$comment": "not required, but if used, there must be 1 item"
+        },
+        "formal_determination": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "PUBREL",
+              "NF",
+              "AIS",
+              "PII-NECESSARY-TO-UNDERSTAND-THREAT",
+              "NO-PII-PRESENT",
+              "FOUO",
+              "INFORMATION-DIRECTLY-RELATED-TO-CYBERSECURITY-THREAT"
+            ]
+          },
+          "minItems": 1,
+          "$comment": "not required, but if used, there must be 1 item"
+        },
+        "caveat": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "FISA",
+              "POSSIBLEPII",
+              "CISAPROPRIETARY"
+            ]
+          },
+          "minItems": 1,
+          "$comment": "not required, but if used, there must be 1 item"
+        },
+        "sensitivity": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "NTOC_DHS_ECYBER_SVC_SHARE.NSA.NSA",
+              "PCII",
+              "LES",
+              "INT",
+              "PII",
+              "PR",
+              "TEI"
+            ]
+          },
+          "minItems": 1,
+          "$comment": "not required, but if used, there must be 1 item"
+        },
+        "shareability": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/shareability"
+          },
+          "minItems": 1,
+          "$comment": "not required, but if used, there must be 1 item"
         },
         "entity": {
-            "type": "string",
-            "enum": ["MIL", "GOV", "CTR", "SVR", "SVC", "DEV", "NET"]
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/entity"
+          },
+          "minItems": 1,
+          "$comment": "not required, but if used, there must be 1 item"
         },
-        "custodian": {
-            "type": "string",
-            "$comment": "a subset of Appendix A: List of Organizations of 'Information Sharing Architecture (ISA) Access Control Specification (ACS) Version 3.0a'",
-            "pattern": "[A-Z0-9]+\\.[A-Z0-9]+(\\.[A-Z0-9][A-Z0-9-]+)?"
+        "permitted_nationalities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/permitted_nationalities"
+          },
+          "minItems": 1,
+          "$comment": "not required, but if used, there must be 1 item"
         },
-       "permitted_nationalities": {
-            "type": "string",
-            "$comment": "should contain one or more values listed in 'Geopolitical Entities, Names, and Codes (GENC) Standard Edition 1'"
+        "permitted_organizations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/organizations"
+          },
+          "minItems": 1,
+          "$comment": "not required, but if used, there must be 1 item"
+        }
+      },
+      "additionalProperties": false,
+      "required": ["classification"]
+    },
+    "derivative_classification": {
+      "type": "object",
+      "properties": {
+        "classified_by": {"type": "string"},
+        "classified_on": {
+          "$ref": "#/definitions/timestamp",
+          "description": "The date an original classification determination was made."
         },
-       "organizations": {
-            "type": "string",
-            "$comment": "based on Table A1 in Appendix A: List of Organizations of 'Information Sharing Architecture (ISA) Access Control Specification (ACS) Version 3.0a'",
-            "oneOf": [
-                { "$ref": "#/definitions/custodian" },
+        "derived_from": {"type": "string"}
+      },
+      "additionalProperties": false,
+      "required": [
+        "classified_by",
+        "derived_from"
+      ]
+    },
+    "original_classification": {
+      "type": "object",
+      "properties": {
+        "classified_by": {"type": "string"},
+        "classified_on": {
+          "$ref": "#/definitions/timestamp",
+          "description": "The date an original classification determination was made."
+        },
+        "classification_reason": {"type": "string"},
+        "compilation_reason": {"type": "string"}
+      },
+      "additionalProperties": false,
+      "required": ["classified_by"]
+    },
+    "declassification": {
+      "type": "object",
+      "properties": {
+        "declass_exemption": {"type": "string"},
+        "declass_period": {"type": "integer"},
+        "declass_date": {
+          "$ref": "#/definitions/timestamp",
+          "description": "A date upon which a resource will be automatically declassified if not exempt."
+        },
+        "declass_event": {"type": "string"}
+      },
+      "minProperties": 1,
+      "additionalProperties": false
+    },
+    "resource_disposition": {
+      "type": "object",
+      "properties": {
+        "disposition_date": {
+          "$ref": "#/definitions/timestamp",
+          "description": "The date of the disposition is initiated"
+        },
+        "disposition_process": {"type": "string"}
+      },
+      "required": [
+        "disposition_date",
+        "disposition_process"
+      ],
+      "additionalProperties": false
+    },
+    "public_release": {
+      "type": "object",
+      "properties": {
+        "released_by": {"type": "string"},
+        "released_on": {
+          "$ref": "#/definitions/timestamp",
+          "description": "The date of public release."
+        }
+      },
+      "required": [
+        "released_by"
+      ],
+      "additionalProperties": false
+    },
+    "privilege_scope": {
+      "type": "object",
+      "$comment": "At least one property must be present",
+      "allOf": [
+        {
+          "properties": {
+            "permitted_nationalities": {
+              "$comment": "use oneOf construction (see entity), once permitted_nationalities is the actual enum",
+              "type": "array",
+              "anyOf": [
                 {
-                    "enum": [ "CDC", "CIKR", "DIB", "FIN", "ISAC", "NONFED", "PRIVATESECTOR" ]
-                }
-            ]
-       },
-        "control_set": {
-            "type": "object",
-            "properties": {
-                "classification": {
+                  "items": { "$ref": "#/definitions/permitted_nationalities"}
+                },
+                {
+                  "items": {
                     "type": "string",
-                    "enum": [ "U", "C", "S", "TS"]
-                },
-                "sci_controls": {
-                    "type": "array",
-                    "items": {
-                        "type": "string",
-                        "$comment": "classified enum"
-                    },
-                    "minItems": 1,
-                    "$comment": "not required, but if used, there must be 1 item"
-                },
-                "logical_authority_category": {
-                    "type": "array",
-                    "items": {
-                        "type": "string",
-                        "$comment": "values are listed in the NSA’s Master Data Registry"
-                    },
-                    "minItems": 1,
-                    "$comment": "not required, but if used, there must be 1 item"
-                },
-                "formal_determination": {
-                    "type": "array",
-                    "items": {
-                        "type": "string",
-                        "enum": [
-                            "PUBREL",
-                            "NF",
-                            "AIS",
-                            "PII-NECESSARY-TO-UNDERSTAND-THREAT",
-                            "NO-PII-PRESENT",
-                            "FOUO",
-                            "INFORMATION-DIRECTLY-RELATED-TO-CYBERSECURITY-THREAT"
-                        ]
-                    },
-                    "minItems": 1,
-                    "$comment": "not required, but if used, there must be 1 item"
-                },
-                "caveat": {
-                    "type": "array",
-                    "items": {
-                        "type": "string",
-                        "enum": [
-                            "FISA",
-                            "POSSIBLEPII",
-                            "CISAPROPRIETARY"
-                        ]
-                    },
-                    "minItems": 1,
-                    "$comment": "not required, but if used, there must be 1 item"
-                },
-                "sensitivity": {
-                    "type": "array",
-                    "items": {
-                        "type": "string",
-                        "enum": [
-                            "NTOC_DHS_ECYBER_SVC_SHARE.NSA.NSA",
-                            "PCII",
-                            "LES",
-                            "INT",
-                            "PII",
-                            "PR",
-                            "TEI"
-                        ]
-                    },
-                    "minItems": 1,
-                    "$comment": "not required, but if used, there must be 1 item"
-                },
-                "shareability": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/shareability"
-                    },
-                    "minItems": 1,
-                    "$comment": "not required, but if used, there must be 1 item"
-                },
-                "entity": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/entity"
-                    },
-                    "minItems": 1,
-                    "$comment": "not required, but if used, there must be 1 item"
-                },
-                "permitted_nationalities": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/permitted_nationalities"
-                    },
-                    "minItems": 1,
-                    "$comment": "not required, but if used, there must be 1 item"
-                },
-                "permitted_organizations": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/organizations"
-                    },
-                    "minItems": 1,
-                    "$comment": "not required, but if used, there must be 1 item"
+                    "enum": [ "ALL" ]
+                  },
+                  "maxItems": 1
                 }
+              ],
+              "minItems": 1
             },
-            "additionalProperties": false,
-            "required": ["classification"]
-        },
-        "derivative_classification": {
-            "type": "object",
-            "properties": {
-                "classified_by": {"type": "string"},
-                "classified_on": {
-                    "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/timestamp.json",
-                    "description": "The date an original classification determination was made."
-                 },
-                 "derived_from": {"type": "string"}
-             },
-             "additionalProperties": false,
-             "required": [
-                 "classified_by",
-                 "derived_from"
-             ]
-        },
-        "original_classification": {
-            "type": "object",
-            "properties": {
-                "classified_by": {"type": "string"},
-                "classified_on": {
-                    "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/timestamp.json",
-                    "description": "The date an original classification determination was made."
+            "permitted_organizations": {
+              "$comment": "use oneOf construction (see entity), once permitted_organizations defined based on Appendix A of ACS 3.0a specification",
+              "type": "array",
+              "anyOf": [
+                {
+                  "items": { "$ref": "#/definitions/organizations" }
                 },
-                "classification_reason": {"type": "string"},
-                "compilation_reason": {"type": "string"}
-             },
-             "additionalProperties": false,
-             "required": ["classified_by"]
-         },
-         "declassification": {
-             "type": "object",
-             "properties": {
-                "declass_exemption": {"type": "string"},
-                "declass_period": {"type": "integer"},
-                "declass_date": {
-                    "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/timestamp.json",
-                    "description": "A date upon which a resource will be automatically declassified if not exempt."
-                 },
-                 "declass_event": {"type": "string"}
-            },
-            "minProperties": 1,
-            "additionalProperties": false
-          },
-         "resource_disposition": {
-             "type": "object",
-             "properties": {
-                 "disposition_date": {
-                    "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/timestamp.json",
-                     "description": "The date of the disposition is initiated"
-                 },
-                 "disposition_process": {"type": "string"}
-             },
-             "required": [
-                 "disposition_date",
-                 "disposition_process"
-             ],
-             "additionalProperties": false
-         },
-          "public_release": {
-            "type": "object",
-            "properties": {
-                "released_by": {"type": "string"},
-                "released_on": {
-                    "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/timestamp.json",
-                    "description": "The date of public release."
+                {
+                  "items": {
+                    "type": "string",
+                    "enum": [ "ALL" ]
+                  },
+                  "maxItems": 1
                 }
+              ],
+              "minItems": 1
             },
-            "required": [
-                "released_by"
-            ],
-            "additionalProperties": false
-          },
-          "privilege_scope": {
-              "type": "object",
-              "$comment": "At least one property must be present",
-              "allOf": [
+            "shareability": {
+              "type": "array",
+              "oneOf": [
+                {
+                  "items": {"$ref":"#/definitions/shareability"}
+                },
+                {
+                  "items": {
+                    "type": "string",
+                    "enum": [ "ALL" ]
+                  },
+                  "maxItems": 1
+                }
+              ],
+              "minItems": 1
+            },
+            "entity": {
+              "type": "array",
+              "oneOf": [
+                {
+                  "items": {"$ref":"#/definitions/entity"}
+                },
+                {
+                  "items":
                   {
-                      "properties": {
-                          "permitted_nationalities": {
-                              "$comment": "use oneOf construction (see entity), once permitted_nationalities is the actual enum",
-                              "type": "array",
-                              "anyOf": [
-                                  {
-                                    "items": { "$ref": "#/definitions/permitted_nationalities"}
-                                  },
-                                  {
-                                      "items": {
-                                          "type": "string",
-                                          "enum": [ "ALL" ]
-                                      },
-                                      "maxItems": 1
-                                  }
-                              ],
-                              "minItems": 1
-                          },
-                          "permitted_organizations": {
-                              "$comment": "use oneOf construction (see entity), once permitted_organizations defined based on Appendix A of ACS 3.0a specification",
-                              "type": "array",
-                              "anyOf": [
-                                  {
-                                    "items": { "$ref": "#/definitions/organizations" }
-                                  },
-                                  {
-                                      "items": {
-                                          "type": "string",
-                                          "enum": [ "ALL" ]
-                                      },
-                                      "maxItems": 1
-                                  }
-                              ],
-                              "minItems": 1
-                          },
-                          "shareability": {
-                              "type": "array",
-                              "oneOf": [
-                                  {
-                                      "items": {"$ref":"#/definitions/shareability"}
-                                  },
-                                  {
-                                      "items": {
-                                          "type": "string",
-                                          "enum": [ "ALL" ]
-                                      },
-                                      "maxItems": 1
-                                  }
-                              ],
-                              "minItems": 1
-                          },
-                          "entity": {
-                              "type": "array",
-                              "oneOf": [
-                                  {
-                                      "items": {"$ref":"#/definitions/entity"}
-                                  },
-                                  {
-                                      "items":
-                                          {
-                                              "type": "string",
-                                              "enum": [ "ALL" ]
-                                          },
-                                          "maxItems": 1
-                                  }
-                              ],
-                              "minItems": 1
-                          }
-                      },
-                      "additionalProperties": false
+                    "type": "string",
+                    "enum": [ "ALL" ]
                   },
-                  {
-                      "anyOf": [
-                          { "required": ["permitted_nationalities"] },
-                          { "required": ["permitted_organizations"] },
-                          { "required": ["shareability"] },
-                          { "required": ["entity"] }
-                      ]
-                  }
-              ]
+                  "maxItems": 1
+                }
+              ],
+              "minItems": 1
+            }
           },
-          "access_privilege": {
-              "type": "object",
-              "properties": {
-                  "privilege_action": {
-                      "type": "string",
-                      "enum": [
-                          "DSPLY", "IDSRC", "TENOT", "NETDEF", "LEGAL", "INTEL",
-                          "TEARLINE", "OPACTION", "REQUEST", "ANONYMOUSACCESS", "CISAUSES",
-                          "ALL"
-                      ]
-                  },
-                  "privilege_scope": {
-                      "$ref": "#/definitions/privilege_scope"
-                  },
-                  "rule_effect": {
-                      "type": "string",
-                      "enum": [ "permit", "deny"]
-                  }
-              },
-              "additionalProperties": false,
-              "required": [
-                "privilege_action",
-                "privilege_scope",
-                "rule_effect"
-              ]
+          "additionalProperties": false
+        },
+        {
+          "anyOf": [
+            { "required": ["permitted_nationalities"] },
+            { "required": ["permitted_organizations"] },
+            { "required": ["shareability"] },
+            { "required": ["entity"] }
+          ]
+        }
+      ]
+    },
+    "access_privilege": {
+      "type": "object",
+      "properties": {
+        "privilege_action": {
+          "type": "string",
+          "enum": [
+            "DSPLY", "IDSRC", "TENOT", "NETDEF", "LEGAL", "INTEL",
+            "TEARLINE", "OPACTION", "REQUEST", "ANONYMOUSACCESS", "CISAUSES",
+            "ALL"
+          ]
+        },
+        "privilege_scope": {
+          "$ref": "#/definitions/privilege_scope"
+        },
+        "rule_effect": {
+          "type": "string",
+          "enum": [ "permit", "deny"]
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "privilege_action",
+        "privilege_scope",
+        "rule_effect"
+      ]
+    },
+    "further_sharing": {
+      "type": "object",
+      "properties": {
+        "sharing_scope": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              { "$ref": "#/definitions/organizations" },
+              { "enum": [ "FOREIGNGOV", "SECTOR" ] }
+            ]
           },
-          "further_sharing": {
-              "type": "object",
-              "properties": {
-                  "sharing_scope": {
-                      "type": "array",
-                      "items": {
-                          "oneOf": [
-                              { "$ref": "#/definitions/organizations" },
-                              { "enum": [ "FOREIGNGOV", "SECTOR" ] }
-                          ]
-                      },
-                      "minItems": 1
-                  },
-                  "rule_effect": {
-                      "type": "string",
-                      "enum": [ "permit", "deny"]
-                  }
-              },
-              "additionalProperties": false,
-              "required": [
-                "sharing_scope",
-                "rule_effect"
-              ]
-          }
-       }
-   }
-
-
+          "minItems": 1
+        },
+        "rule_effect": {
+          "type": "string",
+          "enum": [ "permit", "deny"]
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "sharing_scope",
+        "rule_effect"
+      ]
+    }
+  }
+}
