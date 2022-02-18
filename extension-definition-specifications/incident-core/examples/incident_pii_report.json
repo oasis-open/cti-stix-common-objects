@@ -24,7 +24,7 @@
                     ],
                     "attacker_activities": [
                         {
-                            "activity_type": "theft",
+                            "outcome": "successful-attempt",
                             "pattern_ref": "attack-pattern--7ad205e1-02b2-42a2-b425-a5bf96b48046",
                             "description": "A theif stole the encrypted laptop from a table at a coffee shop while it was unlocked",
                             "sequence_start": 1,
@@ -37,28 +37,28 @@
                         {
                             "activity_type": "discovery",
                             "description": "Security was alerting the theft of equipment",
-                            "time": "2020-10-15T01:01:01.000Z"
+                            "timestamp": "2020-10-15T01:01:01.000Z"
                         },
                         {
                             "activity_type": "declared",
                             "description": "The laptop was determined to have PII so a potential breach was declared",
-                            "time": "2020-10-16T15:01:10.000Z"
+                            "timestamp": "2020-10-16T15:01:10.000Z"
                         },
                         {
                             "activity_type": "escalated",
                             "description": "Found the laptop contained 123,456 records and was unlocked when stolen so this data has a high probability of being exposed",
-                            "time": "2020-10-16T15:01:10.000Z"
+                            "timestamp": "2020-10-16T15:01:10.000Z"
                         },
                         {
                             "activity_type": "reported",
                             "object_ref": "course-of-action--8bb544ff-0499-4ee3-b683-305b8b0955a3",
                             "description": "Police were contacted regarding the theft of the laptop and are working with the coffee shop to identify the using security footage",
-                            "time": "2020-10-16T15:01:10.000Z"
+                            "timestamp": "2020-10-16T15:01:10.000Z"
                         },
                         {
                             "activity_type": "reported",
                             "description": "PII Breach report was filed per regulations",
-                            "time": "2020-10-16T15:02:23.000Z"
+                            "timestamp": "2020-10-16T15:02:23.000Z"
                         }
                     ],
                     "confidentiality_impacts": [

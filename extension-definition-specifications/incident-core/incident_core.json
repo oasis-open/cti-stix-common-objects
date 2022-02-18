@@ -44,10 +44,12 @@
             "type": "string",
             "description": "If the incident has been confirmed or is suspected.  If it is determined to be benign it is considered a false-positive.",
             "enum": [
-                "suspected"
-                , "confirmed"
+                "blocked"
+                , "failed-attempt"
                 , "false-positive"
                 , "low-value"
+                , "successful-attempt"
+                , "suspected"
             ]
         },
         "investigation_status": {
@@ -61,8 +63,7 @@
             "minItems": 1,
             "items": {
                 "type": "string"
-            },
-            "$comment": "'blocked', 'failed-attempt', 'under-investigation'; blocked = stopped via affirmative defense, failed-attempt = it didn't succeed but not due to any affirmative defense for example a password guesser failed but was also not rate limited"
+            }
         },
         "detection_methods": {
             "type": "array",
@@ -117,10 +118,24 @@
                                     "suspected-loss"
                                     , "suspected-major-loss"
                                     , "contained"
-                                    , "loss"
+                                    , "some-loss"
                                     , "major-loss"
                                     , "none"
                                 ]
+                            },
+                            "record_count": {
+                                "type": "integer",
+                                "description": "The number of records of this type that were compromised",
+                                "minimum": 0
+                            },
+                            "record_size": {
+                                "type": "integer",
+                                "description": "The amount of data that was compromised in bytes",
+                                "minimum": 0
+                            },
+                            "description": {
+                                "type": "string",
+                                "description": "An optional narative that further describes this impact"
                             }
                         }
                     },
@@ -167,6 +182,20 @@
                             },
                             "recoverability": {
                                 "$ref": "#/definitions/Recoverability"
+                            },
+                            "record_count": {
+                                "type": "integer",
+                                "description": "The number of records of this type that were compromised",
+                                "minimum": 0
+                            },
+                            "record_size": {
+                                "type": "integer",
+                                "description": "The amount of data that was compromised in bytes",
+                                "minimum": 0
+                            },
+                            "description": {
+                                "type": "string",
+                                "description": "An optional narative that further describes this impact"
                             }
                         }
                     },
@@ -185,6 +214,60 @@
                 ]
             }
         },
+        "monetary_impacts": {
+            "type": "array",
+            "description": "A list of monetary impacts for the incident",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                    "variety",
+                    "criticality"
+                ],
+                "oneOf": [
+                    {
+                        "not": {
+                            "anyOf": [
+                                {"required": ["amount_min"]},
+                                {"required": ["amount_max"]}
+                            ]
+                        }
+                    },
+                    {
+                        "required": ["amount_min", "amount_max", "currency"]
+                    }
+                ],
+                "properties": {
+                    "criticality": {
+                        "type": "integer",
+                        "description": "The criticality of this particular impact",
+                        "minimum": 0,
+                        "maximum": 100
+                    },
+                    "variety": {
+                        "type": "string",
+                        "description": "The variety of the impact"
+                    },
+                    "currency": {
+                        "type": "string",
+                        "description": "The currency that amount_min and amount_max are measured in"
+                    },
+                    "max_amount": {
+                        "type": "number",
+                        "description": "The lower bound estimate using the currency listed for the monetary damage caused by this impact",
+                        "minimum": 0
+                    },
+                    "min_amount": {
+                        "type": "number",
+                        "description": "The lower bound estimate using the currency listed for the monetary damage caused by this impact",
+                        "minimum": 0
+                    },
+                    "description": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
         "defender_activities": {
             "type": "array",
             "description": "Points in time relevant to the lifecycle of this incident, such as when it was first detected or when the activity first appeared.  Since each entry is a timestamp when recording events with a start end date they should be marked with '-started' or '-completed' as suffixes",
@@ -192,7 +275,7 @@
                 "type": "object",
                 "required": [
                     "activity_type"
-                    , "time"
+                    , "timestamp"
                 ],
                 "additionalProperties": false,
                 "properties": {
@@ -215,9 +298,14 @@
                         "type": "string",
                         "description": "A description of the activity that occurred."
                     },
-                    "time": {
+                    "timestamp": {
                         "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/timestamp.json",
                         "description": "When this activity occurred"
+                    },
+                    "timestamp_fidelity": {
+                        "type": "string",
+                        "description": "The maximum degree of fidelity provided by the timestamp.  When set to day for example the timestamp 2021-02-01T04:00:00Z should only be read to be accurate to Februrary 1st 2021 for a day starting at 4:00:00Z and not at that exact hour minute or second within that 24 hour period.",
+                        "enum": ["second", "minute", "hour", "day", "month", "year"]
                     }
                 },
                 "$comment": "This was included as an array instead of a series of external relationships because course of action is optional, and will often not be included.  As such it allows defenders to provide timestamps of when they performed general actions without needing to provide an explicit course of action object.  Many events including detection also do not fit the standard Course of Action use case so it is unclear if this would be the desired long-term behavior."
@@ -228,27 +316,26 @@
             "description": "A list of attacker focused activities associated with the Incident including information about when these occurred.",
             "items": {
                 "type": "object",
-                "anyOf": [
-                    {
-                        "required": [
-                            "activity_type"
-                        ]
-                    },
-                    {
-                        "required": [
-                            "pattern_ref"
-                        ]
-                    }
-                ],
+                "required": ["outcome"],
                 "additionalProperties": false,
                 "properties": {
-                    "activity_type": {
-                        "type": "string",
-                        "description": "A general type for the timestamp for higher level rollups"
-                    },
                     "description": {
                         "type": "string",
-                        "description": "A description of adversary activity that occurred and in what sequence.  Sequence information defined by the sequence_start and sequence_end properties, not the position in the array.  This allows for indeterminate sequences to be recorded."
+                        "description": "A description of adversary activity that occurred and in what sequence.  Sequence information defined by the sequence_start and sequence_end properties, not the position in the array.  This allows for indeterminate sequences to be recorded."
+                    },
+                    "goal": {
+                        "type": "string",
+                        "description": "The attack's assumed objective when performing this activity"
+                    },
+                    "outcome": {
+                        "type": "string",
+                        "description": "The outcome of a particular attacker activity",
+                        "enum": [
+                            "blocked"
+                            , "failed-attempt"
+                            , "successful-attempt"
+                            , "unknown"
+                        ]
                     },
                     "pattern_ref": {
                         "type": "string",
@@ -259,9 +346,19 @@
                         "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/timestamp.json",
                         "description": "The date the activity was first recorded.  If this is not present it is assumed to be unknown."
                     },
+                    "start_time_fidelity": {
+                        "type": "string",
+                        "description": "The maximum degree of fidelity provided by the start_time.  When set to 'month' for example the timestamp 2021-02-01T04:00:00Z should only be read to be accurate to Februrary 2021 not a specific day within the month.",
+                        "enum": ["second", "minute", "hour", "day", "month", "year"]
+                    },
                     "end_time": {
                         "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/timestamp.json",
                         "description": "The date the activity was last recorded.  If this is not present it is assumed to be unknown."
+                    },
+                    "end_time_fidelity": {
+                        "type": "string",
+                        "description": "The maximum degree of fidelity provided by the end_time.  When set to 'hour' for example the timestamp 2021-02-01T04:00:00Z should only be read to be accurate to Februrary 1st 2021 between 04:00:00Z (inclusive) and 05:00:00Z (exclusive).",
+                        "enum": ["second", "minute", "hour", "day", "month", "year"]
                     },
                     "sequence_start": {
                         "type": "number",

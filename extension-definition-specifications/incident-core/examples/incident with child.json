@@ -15,22 +15,24 @@
                 "extension-definition--ef765651-680c-498d-9894-99799f2fa126": {
                     "extension_type": "property-extension",
                     "investigation_status": "closed",
-                    "determination": "confirmed",
+                    "determination": "successful-attempt",
                     "detection_methods": ["user-report"],
                     "incident_types": ["loss-of-control"],
                     "defender_activities": [
                         {
                             "activity_type": "discovery",
                             "description": "User alerted security",
-                            "time": "2020-10-15T01:01:01.000Z"
+                            "timestamp": "2020-10-15T06:00:00.000Z",
+                            "timestamp_fidelity": "day"
                         },
                         {
                             "activity_type": "updated-inventory",
-                            "time": "2020-10-19T02:12:23.000Z"
+                            "timestamp": "2020-10-19T06:00:00.000Z",
+                            "timestamp_fidelity": "day"
                         },
                         {
                             "activity_type": "flagged-spill-incident",
-                            "time": "2020-10-19T02:12:23.000Z"
+                            "timestamp": "2020-10-19T02:12:23.000Z"
                         }
                     ]
                 }

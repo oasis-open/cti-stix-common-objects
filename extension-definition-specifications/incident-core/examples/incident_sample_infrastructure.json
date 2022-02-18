@@ -11,21 +11,21 @@
         "extensions": {
             "extension-definition--ef765651-680c-498d-9894-99799f2fa126": {
                 "extension_type": "property-extension",
-                "determination": "confirmed",
+                "determination": "successful-attempt",
                 "investigation_status": "open",
                 "defender_activities": [
                     {
                         "activity_type": "discovery",
-                        "time": "2020-10-15T01:01:01.000Z"
+                        "timestamp": "2020-10-15T01:01:01.000Z"
                     },
                     {
                         "activity_type": "reported",
-                        "time": "2020-10-17T04:42:00.000Z"
+                        "timestamp": "2020-10-17T04:42:00.000Z"
                     },
                     {
                         "activity_type": "recovery-started",
                         "is_projection": true,
-                        "time": "2030-01-01T04:42:00.000Z"
+                        "timestamp": "2030-01-01T04:42:00.000Z"
                     }
                 ],
                 "detection_methods": ["user-reporting", "message-from-attacker"],
@@ -35,11 +35,11 @@
                 "confidentiality_impacts": [
                     {
                         "information_type": "pii",
-                        "loss_type": "loss"
+                        "loss_type": "some-loss"
                     }, 
                     {
                         "information_type": "phi",
-                        "loss_type": "loss"
+                        "loss_type": "some-loss"
                     }
                 ],
                 "integrity_impacts": [

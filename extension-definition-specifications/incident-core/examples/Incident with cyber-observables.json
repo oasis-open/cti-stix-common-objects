@@ -17,16 +17,16 @@
                     "investigation_status": "new",
                     "determination": "suspected",
                     "detection_methods": ["email-filter"],
-                    "incident_types": ["blocked"],
                     "defender_activities": [
                         {
                             "activity_type": "discovery",
                             "description": "An alert was triggered",
-                            "time": "2020-10-15T01:01:01.000Z"
+                            "timestamp": "2020-10-15T01:01:01.000Z"
                         }
                     ],
                     "attacker_activities": [
                         {
+                            "outcome": "blocked",
                             "pattern_ref": "attack-pattern--6aac77c4-eaf2-4366-8c13-ce50ab951f38",
                             "description": "Email with a malicious attachment",
                             "sequence_start": 1,
