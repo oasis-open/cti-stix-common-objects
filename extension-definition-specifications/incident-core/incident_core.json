@@ -115,13 +115,21 @@
                             "loss_type": {
                                 "type": "string",
                                 "enum": [
-                                    "suspected-loss"
-                                    , "suspected-major-loss"
+                                    "confirmed-loss"
                                     , "contained"
-                                    , "some-loss"
-                                    , "major-loss"
+                                    , "exploited-loss"
                                     , "none"
+                                    , "suspected-loss"
                                 ]
+                            },
+                            "impacted_refs": {
+                                "type": "array",
+                                "description": "A list of all assets or infrastructure impacted by this activity.  This can relate directly to SCOs, but can also reference Infrastructure or other SDOs.",
+                                "minItems": 1,
+                                "items": {
+                                    "type": "string",
+                                    "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json"
+                                }
                             },
                             "record_count": {
                                 "type": "integer",
@@ -179,6 +187,15 @@
                                     , "full-modification"
                                     , "none"
                                 ]
+                            },
+                            "impacted_refs": {
+                                "type": "array",
+                                "description": "A list of all assets or infrastructure impacted by this activity.  This can relate directly to SCOs, but can also reference Infrastructure or other SDOs.",
+                                "minItems": 1,
+                                "items": {
+                                    "type": "string",
+                                    "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json"
+                                }
                             },
                             "recoverability": {
                                 "$ref": "#/definitions/Recoverability"
@@ -268,6 +285,63 @@
                 }
             }
         },
+        "physical_impacts": {
+            "type": "array",
+            "description": "Physical damage caused by this incident.",
+            "minItems": 1,
+            "items": {
+                "oneOf": [
+                    {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": ["asset_type", "impact_type"],
+                        "properties": {
+                            "asset_type": {
+                                "type": "string",
+                                "description": "The type of asset that was affected by this impact."
+                            },
+                            "impact_type": {
+                                "type": "string",
+                                "enum": [
+                                    "damaged-functional"
+                                    , "damaged-nonfunctional"
+                                    , "destruction"
+                                    , "none"
+                                ]
+                            },
+                            "impacted_refs": {
+                                "type": "array",
+                                "description": "A list of all assets or infrastructure impacted by this activity.  This can relate directly to SCOs, but can also reference Infrastructure or other SDOs.",
+                                "minItems": 1,
+                                "items": {
+                                    "type": "string",
+                                    "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json"
+                                }
+                            },
+                            "recoverability": {
+                                "$ref": "#/definitions/Recoverability"
+                            },
+                            "description": {
+                                "type": "string",
+                                "description": "An optional narative that further describes this impact"
+                            }
+                        }
+                    },
+                    {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": ["impact_type"],
+                        "properties": {
+                            "alteration": {
+                                "type": "string",
+                                "description": "The level of damage from the incident.",
+                                "const": "none"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
         "defender_activities": {
             "type": "array",
             "description": "Points in time relevant to the lifecycle of this incident, such as when it was first detected or when the activity first appeared.  Since each entry is a timestamp when recording events with a start end date they should be marked with '-started' or '-completed' as suffixes",
@@ -288,6 +362,24 @@
                         "type": "string",
                         "description": "A general type for the timestamp for higher level rollups",
                         "$comment": "Open-Vocab including: 'recovery', 'detected', 'declared', 'escalated'"
+                    },
+                    "identity_refs": {
+                        "type": "array",
+                        "description": "A list of all identities involved in this activity.  For example a report provided to specific individuals or organizations.",
+                        "minItems": 1,
+                        "items": {
+                            "type": "string",
+                            "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json"
+                        }
+                    },
+                    "impacted_refs": {
+                        "type": "array",
+                        "description": "A list of all assets or infrastructure impacted by this activity.  This can relate directly to SCOs, but can also reference Infrastructure or other SDOs.",
+                        "minItems": 1,
+                        "items": {
+                            "type": "string",
+                            "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json"
+                        }
                     },
                     "is_projection": {
                         "type": "boolean",
@@ -370,7 +462,16 @@
                         "description": "An optional sequence number starting at 0 that shows the lastest point in an attack that this activity is believed to have occurred relative to other attacker activities.  This cannot be less than sequence_start, but the two can be equal.",
                         "minimum": 0
                     },
-                    "object_refs": {
+                    "impacted_refs": {
+                        "type": "array",
+                        "description": "A list of all assets or infrastructure impacted by this activity.  This can relate directly to SCOs, but can also reference Infrastructure or other SDOs.",
+                        "minItems": 1,
+                        "items": {
+                            "type": "string",
+                            "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json"
+                        }
+                    },
+                    "observed_refs": {
                         "type": "array",
                         "description": "A list of all observed data that was part of this attacker activity.  This can relate directly to SCOs, but can also reference Sightings, Observables, and Indicators.",
                         "minItems": 1,

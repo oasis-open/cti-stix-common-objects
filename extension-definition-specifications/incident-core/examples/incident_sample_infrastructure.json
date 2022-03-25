@@ -35,17 +35,21 @@
                 "confidentiality_impacts": [
                     {
                         "information_type": "pii",
-                        "loss_type": "some-loss"
+                        "loss_type": "confirmed-loss",
+                        "impacted_refs": ["infrastructure--3f515010-494d-4bd2-94be-12f285e1f19e"]
                     }, 
                     {
                         "information_type": "phi",
-                        "loss_type": "some-loss"
+                        "loss_type": "confirmed-loss",
+                        "record_size": 124000,
+                        "impacted_refs": ["infrastructure--3f515010-494d-4bd2-94be-12f285e1f19e"]
                     }
                 ],
                 "integrity_impacts": [
                     {
                         "information_type": "system-data",
                         "alteration": "full-destruction",
+                        "impacted_refs": ["infrastructure--d17635b3-0165-43f6-9409-34e11df070be"],
                         "recoverability": "regular"
                     }, 
                     {
@@ -123,25 +127,5 @@
         "relationship_type": "attributed-to",
         "source_ref": "incident--2242662b-d581-4864-8696-fff719dc0500",
         "target_ref": "threat-actor--8e2e2d2b-17d4-4cbf-938f-98ee46b3cd3f"
-    },
-    {
-        "type": "relationship",
-        "spec_version": "2.1",
-        "id": "relationship--6a0d7534-39ac-4a04-aab7-7774db1a57d6",
-        "created": "2020-10-19T01:01:01.000Z",
-        "modified": "2020-10-19T01:01:01.000Z",
-        "relationship_type": "impacts",
-        "source_ref": "incident--2242662b-d581-4864-8696-fff719dc0500",
-        "target_ref": "infrastructure--d17635b3-0165-43f6-9409-34e11df070be"
-    },
-    {
-        "type": "relationship",
-        "spec_version": "2.1",
-        "id": "relationship--5ff837f4-fd1a-49cd-b64e-e5fcafc0db5d",
-        "created": "2020-10-19T01:01:01.000Z",
-        "modified": "2020-10-19T01:01:01.000Z",
-        "relationship_type": "impacts",
-        "source_ref": "incident--2242662b-d581-4864-8696-fff719dc0500",
-        "target_ref": "infrastructure--3f515010-494d-4bd2-94be-12f285e1f19e"
     }
 ]

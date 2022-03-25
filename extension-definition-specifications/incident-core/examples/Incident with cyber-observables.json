@@ -31,7 +31,7 @@
                             "description": "Email with a malicious attachment",
                             "sequence_start": 1,
                             "sequence_end": 1,
-                            "object_refs": [
+                            "observed_refs": [
                                 "file--9432f4c7-8cd0-4ed4-a18e-c06fa6175db3"
                                 , "email-addr--5e61397b-9c38-4a14-9232-b9f76254b1c1"
                             ]

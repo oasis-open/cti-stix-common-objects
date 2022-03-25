@@ -52,6 +52,7 @@
                         {
                             "activity_type": "reported",
                             "object_ref": "course-of-action--8bb544ff-0499-4ee3-b683-305b8b0955a3",
+                            "identity_refs": ["identity--e0ee62af-7b13-4345-ad42-11950850cabe"],
                             "description": "Police were contacted regarding the theft of the laptop and are working with the coffee shop to identify the using security footage",
                             "timestamp": "2020-10-16T15:01:10.000Z"
                         },
@@ -64,7 +65,8 @@
                     "confidentiality_impacts": [
                         {
                             "information_type": "pii",
-                            "loss_type": "suspected-major-loss"
+                            "loss_type": "suspected-loss",
+                            "record_count": 123456
                         }
                     ],
                     "availability_impact": 0,
@@ -179,16 +181,6 @@
             "roles": ["detective"],
             "sectors": ["government-local"],
             "contact_information": "111-222-333 / danderson@fakelocaloffice.gov"
-        },
-        {
-            "type": "relationship",
-            "spec_version": "2.1",
-            "id": "relationship--664bf848-e2ad-44a3-93b5-1ab24742a734",
-            "created": "2020-10-19T01:01:01.000Z",
-            "modified": "2020-10-19T01:01:01.000Z",
-            "relationship_type": "contacted-for-assistance",
-            "source_ref": "incident--63c6e23e-7994-4536-acad-4309a7069540",
-            "target_ref": "identity--e0ee62af-7b13-4345-ad42-11950850cabe"
         },
         {
             "type": "identity",
