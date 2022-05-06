@@ -237,21 +237,18 @@
             "items": {
                 "type": "object",
                 "additionalProperties": false,
-                "required": [
-                    "variety",
-                    "criticality"
-                ],
+                "required": ["variety"],
                 "oneOf": [
                     {
                         "not": {
                             "anyOf": [
-                                {"required": ["amount_min"]},
-                                {"required": ["amount_max"]}
+                                {"required": ["min_amount"]},
+                                {"required": ["max_amount"]}
                             ]
                         }
                     },
                     {
-                        "required": ["amount_min", "amount_max", "currency"]
+                        "required": ["currency", "min_amount", "max_amount"]
                     }
                 ],
                 "properties": {
