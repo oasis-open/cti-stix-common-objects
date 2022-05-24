@@ -1,0 +1,332 @@
+{
+    "type": "bundle",
+    "id": "bundle--46337fae-c81d-46e9-8cc3-c7d385880214",
+    "objects": [
+        {
+            "type": "incident",
+            "id": "incident--a089c631-4392-48e5-8d55-7d1999ca9395",
+            "created": "2022-05-06T01:01:01.000Z",
+            "modified":"2022-05-06T01:01:01.000Z",
+            "spec_version": "2.1",
+            "name": "Sample Incident with Indicators",
+            "description": "A phishing email was received that introduced a worm that resulted in an ICS system experiencing physical damage.",
+            "extensions": {
+                "extension-definition--ef765651-680c-498d-9894-99799f2fa126": {
+                    "extension_type": "property-extension",
+                    "investigation_status": "open",
+                    "determination": "successful-attempt",
+                    "detection_methods": ["user-reporting"],
+                    "incident_types": [
+                        "compromised-system"
+                        , "denial-of-service"
+                        , "major"
+                    ],
+                    "attacker_activities": [
+                        {
+                            "outcome": "successful-attempt",
+                            "pattern_ref": "attack-pattern--2b742742-28c3-4e1b-bab7-8350d6300fa7",
+                            "description": "A phishing email with a malicious link was delivered.  When the user went to this link it put a dropper on their computer.",
+                            "sequence_start": 1,
+                            "sequence_end": 1,
+                            "observed_refs": ["file--9704eca1-8efd-542c-a626-77d7cbcfe49f"]
+                        },
+                        {
+                            "outcome": "successful-attempt",
+                            "description": "The dropper verified it had internet access by checking google and then downloaded second stage tooling.",
+                            "sequence_start": 2,
+                            "sequence_end": 2,
+                            "observed_refs": ["domain-name--160f66e8-85b8-55b0-b81e-b0e7454f179d", "url--fef943a6-8bba-5237-af37-03a6f2ae58f5", "domain-name--430fdb3b-be9f-53fe-891c-955952b7a570"]
+                        },
+                        {
+                            "outcome": "blocked",
+                            "description": "The second stage tooling attempted to spread laterally, but firewall rules prevented it from doing so to other workstations.",
+                            "sequence_start": 3,
+                            "sequence_end": 4,
+                            "observed_refs": ["file--6a597e24-1209-5e8f-819c-1addce1bb314"]
+                        },
+                        {
+                            "outcome": "successful-attempt",
+                            "description": "One of the second stage tools was able to communicate with an ICS sensor device and destroyed it.",
+                            "sequence_start": 3,
+                            "sequence_end": 4,
+                            "impacted_refs": ["ipv4-addr--b7c7aace-c5f3-463e-bb63-4de6cb5e8995"]
+                        }
+                    ],
+                    "defender_activities": [
+                        {
+                            "activity_type": "discovery",
+                            "description": "The assembly line experienced a shutdown due to a device failing.  This was determined to be a sensor failure.",
+                            "timestamp": "2022-05-01T07:00:00Z",
+                            "timestamp_fidelity": "day"
+                        },
+                        {
+                            "activity_type": "declared",
+                            "description": "Investigations into the sensor found that its controller was behaving strangely and it was believed to be due to a problem with the code",
+                            "timestamp": "2022-05-01T07:00:00Z",
+                            "timestamp_fidelity": "day"
+                        },
+                        {
+                            "activity_type": "escalated",
+                            "description": "The cause of the error was traced to malware on the system and an investigation began",
+                            "timestamp": "2022-05-02T07:00:00Z",
+                            "timestamp_fidelity": "day"
+                        },
+                        {
+                            "activity_type": "reported",
+                            "object_ref": "course-of-action--8bb544ff-0499-4ee3-b683-305b8b0955a3",
+                            "identity_refs": ["identity--e0ee62af-7b13-4345-ad42-11950850cabe"],
+                            "description": "Law enforcement was contacted regarding the incident",
+                            "timestamp": "2022-05-02T07:00:00Z",
+                            "timestamp_fidelity": "day"
+                        }
+                    ],
+                    "availability_impact": 65,
+                    "physical_impacts": [
+                        {
+                            "impact_type": "damaged-nonfunctional",
+                            "description": "A series of commands were given to cause a sensor to lose callibration in a manner that requires it to be replaced",
+                            "asset_type": "ics-sensor",
+                            "recoverability": "supplemented",
+                            "impacted_refs": ["infrastructure--8faf3522-88a2-4402-b5c1-0d7ecb1a767f"]
+                        }
+                    ],
+                    "monetary_impacts": [
+                        {
+                            "variety": "business-disruption",
+                            "currency": "usd",
+                            "description": "Each day of downtime is estimated at 10k USD and the outage is still ongoing",
+                            "min_amount": 10000,
+                            "max_amount": 100000
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "type": "file",
+            "spec_version": "2.1",
+            "id": "file--9704eca1-8efd-542c-a626-77d7cbcfe49f",
+            "hashes": {
+                "MD5": "acbd18db4cc2f85cedef654fccc4a4d8"
+            }
+        },
+        {
+            "type": "file", 
+            "spec_version": "2.1",
+            "id": "file--6a597e24-1209-5e8f-819c-1addce1bb314",
+            "hashes": {
+                "MD5": "9e742d0eebff3d5ef8bcf55f243e76f4"
+            }
+        },
+        {
+            "type": "domain-name",
+            "spec_version": "2.1",
+            "id": "domain-name--160f66e8-85b8-55b0-b81e-b0e7454f179d", 
+            "value": "www.google.com"
+        },
+        {
+            "type": "domain-name",
+            "spec_version": "2.1",
+            "id": "domain-name--160f66e8-85b8-55b0-b81e-b0e7454f179d", 
+            "value": "www.google.com"
+        },
+        {
+            "type": "ipv4-addr",
+            "spec_version": "2.1",
+            "id": "ipv4-addr--b7c7aace-c5f3-463e-bb63-4de6cb5e8995",
+            "value": "192.168.32.109"
+        },
+        {
+            "type": "url",
+            "spec_version": "2.1",
+            "id": "url--fef943a6-8bba-5237-af37-03a6f2ae58f5",
+            "value": "https://drive.google.com/uc?export=download&id=94212323213123533"
+        },
+        {
+            "type": "domain-name",
+            "spec_version": "2.1",
+            "id": "domain-name--430fdb3b-be9f-53fe-891c-955952b7a570",
+            "value": "downloader.downloading.fakemalicious.xyz"
+        },
+        {
+            "type": "infrastructure",
+            "spec_version": "2.1",
+            "id": "infrastructure--8faf3522-88a2-4402-b5c1-0d7ecb1a767f",
+            "infrastructure_types": ["non-malicious", "manufacturing"],
+            "created": "2022-05-06T16:24:19.081292Z",
+            "modified": "2022-05-06T16:24:19.081292Z",
+            "name": "Sensor Platform for Widget Maker"
+        },
+        {
+            "type": "infrastructure",
+            "spec_version": "2.1",
+            "id": "infrastructure--3c916d6e-b629-468e-9b6c-fd08a5c447ba",
+            "infrastructure_types": ["command-and-control"],
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "lockheed-martin-cyber-kill-chain",
+                    "phase_name": "command-and-control"
+                }
+            ],
+            "created": "2022-05-06T16:24:19.081292Z",
+            "modified": "2022-05-06T16:24:19.081292Z",
+            "name": "Fake C2 Network Infrastructure"
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--5c28b384-08df-43e9-a140-394ef40fa055",
+            "created": "2022-05-06T16:08:07.347784Z",
+            "modified": "2022-05-06T16:08:07.347784Z",
+            "indicator_types": [
+                "benign"
+            ],
+            "pattern": "[domain-name:value='www.google.com']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2022-05-06T16:08:07.347784Z"
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--878492d0-9802-4854-88f3-bd433ae54d4d",
+            "created": "2022-05-06T16:10:57.324018Z",
+            "modified": "2022-05-06T16:10:57.324018Z",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "pattern": "[file:hashes.MD5='acbd18db4cc2f85cedef654fccc4a4d8']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2022-05-06T16:10:57.324018Z"
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--2149c5c5-2917-4f89-958f-e34eab7a315c",
+            "created": "2022-05-06T16:10:57.324018Z",
+            "modified": "2022-05-06T16:10:57.324018Z",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "pattern": "[file:hashes.MD5='9e742d0eebff3d5ef8bcf55f243e76f4']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2022-05-06T16:10:57.324018Z"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--dddcb3d1-0e56-4170-97e2-eb79da432cbb",
+            "created": "2022-05-06T01:01:01.000Z",
+            "modified": "2022-05-06T01:01:01.000Z",
+            "relationship_type": "based-on",
+            "source_ref": "indicator--5c28b384-08df-43e9-a140-394ef40fa055",
+            "target_ref": "domain-name--160f66e8-85b8-55b0-b81e-b0e7454f179d"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--01a931ed-fd06-4f02-b8ac-4550ae5fd00e",
+            "created": "2022-05-06T01:01:01.000Z",
+            "modified": "2022-05-06T01:01:01.000Z",
+            "relationship_type": "based-on",
+            "source_ref": "indicator--2149c5c5-2917-4f89-958f-e34eab7a315c",
+            "target_ref": "file--6a597e24-1209-5e8f-819c-1addce1bb314"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--3ae1b648-fd3f-4172-80a2-f9cd8b97e3e5",
+            "created": "2022-05-06T01:01:01.000Z",
+            "modified": "2022-05-06T01:01:01.000Z",
+            "relationship_type": "based-on",
+            "source_ref": "indicator--878492d0-9802-4854-88f3-bd433ae54d4d",
+            "target_ref": "file--9704eca1-8efd-542c-a626-77d7cbcfe49f"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--76dc8fc7-9eca-475e-9201-387f1b6fa3a6",
+            "created": "2022-05-06T01:01:01.000Z",
+            "modified": "2022-05-06T01:01:01.000Z",
+            "relationship_type": "consists-of",
+            "source_ref": "infrastructure--8faf3522-88a2-4402-b5c1-0d7ecb1a767f",
+            "target_ref": "ipv4-addr--b7c7aace-c5f3-463e-bb63-4de6cb5e8995"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--42a77500-2c87-44f5-90d3-9a80505ee31b",
+            "created": "2022-05-06T01:01:01.000Z",
+            "modified": "2022-05-06T01:01:01.000Z",
+            "relationship_type": "consists-of",
+            "source_ref": "infrastructure--3c916d6e-b629-468e-9b6c-fd08a5c447ba",
+            "target_ref": "domain-name--430fdb3b-be9f-53fe-891c-955952b7a570"
+        },
+        {
+            "type": "identity",
+            "id": "identity--0594861f-ebbd-413f-b810-6bcf9a3d8604",
+            "created": "2022-05-06T01:01:01.000Z",
+            "modified":"2022-05-06T01:01:01.000Z",
+            "spec_version": "2.1",
+            "name": "Contact Contacterson",
+            "description": "A point of contact for the incident.",
+            "identity_class": "individual",
+            "roles": ["security-point-of-contact"],
+            "contact_information": "123-456-7890 / contact.contacterson@fakeincident.com"
+        },
+        {
+            "type": "course-of-action",
+            "id": "course-of-action--8bb544ff-0499-4ee3-b683-305b8b0955a3",
+            "created": "2022-05-06T01:01:01.000Z",
+            "modified":"2022-05-06T01:01:01.000Z",
+            "spec_version": "2.1",
+            "name": "Contact Law Enforcement regarding Damaging Incident"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--8ee45c2e-3382-4300-b34f-7c89398dee80",
+            "created": "2022-05-06T01:01:01.000Z",
+            "modified": "2022-05-06T01:01:01.000Z",
+            "relationship_type": "contact-for",
+            "source_ref": "identity--0594861f-ebbd-413f-b810-6bcf9a3d8604",
+            "target_ref": "incident--a089c631-4392-48e5-8d55-7d1999ca9395"
+        },
+        {
+            "type": "identity",
+            "id": "identity--e0ee62af-7b13-4345-ad42-11950850cabe",
+            "created": "2022-05-06T01:01:01.000Z",
+            "modified":"2022-05-06T01:01:01.000Z",
+            "spec_version": "2.1",
+            "name": "Detective Anderson",
+            "description": "The local law enforcement detective assigned to the case.",
+            "identity_class": "individual",
+            "roles": ["detective"],
+            "sectors": ["government-local"],
+            "contact_information": "111-222-333 / danderson@fakelocaloffice.gov"
+        },
+        {
+            "type": "identity",
+            "id": "identity--7a164253-fbfd-420b-9316-79f5d3dff51f",
+            "created": "2022-05-06T01:01:01.000Z",
+            "modified":"2022-05-06T01:01:01.000Z",
+            "spec_version": "2.1",
+            "name": "Fake Local Law Enforcement Agency",
+            "description": "A fake local law enforcement agency.",
+            "identity_class": "organization",
+            "sectors": ["government-local"]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--05298766-27ed-4390-ae32-eb4a94bf5947",
+            "created": "2022-05-06T01:01:01.000Z",
+            "modified": "2022-05-06T01:01:01.000Z",
+            "relationship_type": "member-of",
+            "source_ref": "identity--e0ee62af-7b13-4345-ad42-11950850cabe",
+            "target_ref": "identity--7a164253-fbfd-420b-9316-79f5d3dff51f"
+        }
+    ]
+}

@@ -1,0 +1,208 @@
+{
+    "type": "bundle",
+    "id": "bundle--22895644-a135-46ab-b48e-ef3176ef4107",
+    "objects": [
+        {
+            "type": "incident",
+            "id": "incident--63c6e23e-7994-4536-acad-4309a7069540",
+            "created": "2020-10-16T01:01:01.000Z",
+            "modified":"2020-10-17T01:01:01.000Z",
+            "created_by_ref": "identity--2242662b-d581-4864-8696-fff719dc0500",
+            "spec_version": "2.1",
+            "name": "Sample PII Incident",
+            "description": "A laptop with an encrypted laptop that contains PII records for 123,456 individuals was reported stolen.  Per the employee they believe it was unlocked at the time of the theft as they had it open working on other tasks while at a coffee shop when it was taken from their table.",
+            "extensions": {
+                "extension-definition--ef765651-680c-498d-9894-99799f2fa126": {
+                    "extension_type": "property-extension",
+                    "investigation_status": "open",
+                    "determination": "suspected",
+                    "detection_methods": ["user-reporting"],
+                    "incident_types": [
+                        "equipment-loss"
+                        , "equipment-theft"
+                        , "major"
+                    ],
+                    "attacker_activities": [
+                        {
+                            "outcome": "successful-attempt",
+                            "pattern_ref": "attack-pattern--7ad205e1-02b2-42a2-b425-a5bf96b48046",
+                            "description": "A theif stole the encrypted laptop from a table at a coffee shop while it was unlocked",
+                            "sequence_start": 1,
+                            "sequence_end": 1,
+                            "start_time": "2020-10-14T22:01:01.000Z",
+                            "end_time": "2020-10-14T23:01:01.000Z"
+                        }
+                    ],
+                    "defender_activities": [
+                        {
+                            "activity_type": "discovery",
+                            "description": "Security was alerting the theft of equipment",
+                            "timestamp": "2020-10-15T01:01:01.000Z"
+                        },
+                        {
+                            "activity_type": "declared",
+                            "description": "The laptop was determined to have PII so a potential breach was declared",
+                            "timestamp": "2020-10-16T15:01:10.000Z"
+                        },
+                        {
+                            "activity_type": "escalated",
+                            "description": "Found the laptop contained 123,456 records and was unlocked when stolen so this data has a high probability of being exposed",
+                            "timestamp": "2020-10-16T15:01:10.000Z"
+                        },
+                        {
+                            "activity_type": "reported",
+                            "object_ref": "course-of-action--8bb544ff-0499-4ee3-b683-305b8b0955a3",
+                            "identity_refs": ["identity--e0ee62af-7b13-4345-ad42-11950850cabe"],
+                            "description": "Police were contacted regarding the theft of the laptop and are working with the coffee shop to identify the using security footage",
+                            "timestamp": "2020-10-16T15:01:10.000Z"
+                        },
+                        {
+                            "activity_type": "reported",
+                            "description": "PII Breach report was filed per regulations",
+                            "timestamp": "2020-10-16T15:02:23.000Z"
+                        }
+                    ],
+                    "confidentiality_impacts": [
+                        {
+                            "information_type": "pii",
+                            "loss_type": "suspected-loss",
+                            "record_count": 123456
+                        }
+                    ],
+                    "availability_impact": 0,
+                    "integrity_impacts": [
+                        {
+                            "alteration": "none"
+                        }
+                    ],
+                    "impacted_entity_counts": {
+                        "individual": 123456
+                    }
+                }
+            }
+        },
+        {
+            "type": "location",
+            "id": "location--cfc9ee94-78d0-4d84-a34c-9cf54c6b249b",
+            "created": "2020-10-16T01:01:01.000Z",
+            "modified":"2020-10-17T01:01:01.000Z",
+            "created_by_ref": "identity--2242662b-d581-4864-8696-fff719dc0500",
+            "spec_version": "2.1",
+            "country": "us",
+            "city": "Fakerstown",
+            "street_address": "123 Fake Street",
+            "description": "A fake coffee shop"
+        },
+        {
+            "type": "attack-pattern",
+            "id": "attack-pattern--7ad205e1-02b2-42a2-b425-a5bf96b48046",
+            "created": "2020-10-16T01:01:01.000Z",
+            "modified":"2020-10-17T01:01:01.000Z",
+            "created_by_ref": "identity--2242662b-d581-4864-8696-fff719dc0500",
+            "spec_version": "2.1",
+            "name": "Laptop or Tablet",
+            "description": "Gain unauthorized access to a laptop or tablet to acquire data"
+        },
+        {
+            "type": "identity",
+            "id": "identity--0594861f-ebbd-413f-b810-6bcf9a3d8604",
+            "created": "2020-10-16T01:01:01.000Z",
+            "modified":"2020-10-17T01:01:01.000Z",
+            "created_by_ref": "identity--2242662b-d581-4864-8696-fff719dc0500",
+            "spec_version": "2.1",
+            "name": "Contact Contacterson",
+            "description": "A point of contact for the incident.",
+            "identity_class": "individual",
+            "roles": ["security-point-of-contact"],
+            "contact_information": "123-456-7890 / contact.contacterson@fakeincident.com"
+        },
+        {
+            "type": "course-of-action",
+            "id": "course-of-action--a6c2ef7e-5b34-4113-a440-d2e33e79197e",
+            "created": "2020-10-16T01:01:01.000Z",
+            "modified":"2020-10-17T01:01:01.000Z",
+            "created_by_ref": "identity--2242662b-d581-4864-8696-fff719dc0500",
+            "spec_version": "2.1",
+            "name": "Encrypt Portable Devices",
+            "description": "Encrypt all portable devices to protect them in case of loss of control."
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "labels": ["successful"],
+            "id": "relationship--acd3e17e-73dc-4f42-ab16-dc63ddbb6fdd",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified": "2020-10-19T01:01:01.000Z",
+            "relationship_type": "for-mitigation-of",
+            "source_ref": "course-of-action--a6c2ef7e-5b34-4113-a440-d2e33e79197e",
+            "target_ref": "incident--63c6e23e-7994-4536-acad-4309a7069540",
+            "description": "The laptop was encrypted, but it is unclear if this is actually preventing the thief from exacting information as the device was unlocked."
+        },
+        {
+            "type": "course-of-action",
+            "id": "course-of-action--8bb544ff-0499-4ee3-b683-305b8b0955a3",
+            "created": "2020-10-16T01:01:01.000Z",
+            "modified":"2020-10-17T01:01:01.000Z",
+            "created_by_ref": "identity--2242662b-d581-4864-8696-fff719dc0500",
+            "spec_version": "2.1",
+            "name": "Contact Law Enforcement Regarding Theft",
+            "description": "When physical equipment is stolen contact local law enforcement in order to potentially regain custody of it."
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--679d4dd6-b02a-40a8-9e08-b2fe830138bd",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified": "2020-10-19T01:01:01.000Z",
+            "relationship_type": "located-at",
+            "source_ref": "incident--63c6e23e-7994-4536-acad-4309a7069540",
+            "target_ref": "location--cfc9ee94-78d0-4d84-a34c-9cf54c6b249b"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--8ee45c2e-3382-4300-b34f-7c89398dee80",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified": "2020-10-19T01:01:01.000Z",
+            "relationship_type": "contact-for",
+            "source_ref": "identity--0594861f-ebbd-413f-b810-6bcf9a3d8604",
+            "target_ref": "incident--63c6e23e-7994-4536-acad-4309a7069540"
+        },
+        {
+            "type": "identity",
+            "id": "identity--e0ee62af-7b13-4345-ad42-11950850cabe",
+            "created": "2020-10-16T01:01:01.000Z",
+            "modified":"2020-10-17T01:01:01.000Z",
+            "created_by_ref": "identity--2242662b-d581-4864-8696-fff719dc0500",
+            "spec_version": "2.1",
+            "name": "Detective Anderson",
+            "description": "The local law enforcement detective assigned to the case.",
+            "identity_class": "individual",
+            "roles": ["detective"],
+            "sectors": ["government-local"],
+            "contact_information": "111-222-333 / danderson@fakelocaloffice.gov"
+        },
+        {
+            "type": "identity",
+            "id": "identity--7a164253-fbfd-420b-9316-79f5d3dff51f",
+            "created": "2020-10-16T01:01:01.000Z",
+            "modified":"2020-10-17T01:01:01.000Z",
+            "created_by_ref": "identity--2242662b-d581-4864-8696-fff719dc0500",
+            "spec_version": "2.1",
+            "name": "Fake Local Law Enforcement Agency",
+            "description": "A fake local law enforcement agency.",
+            "identity_class": "organization",
+            "sectors": ["government-local"]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--05298766-27ed-4390-ae32-eb4a94bf5947",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified": "2020-10-19T01:01:01.000Z",
+            "relationship_type": "member-of",
+            "source_ref": "identity--e0ee62af-7b13-4345-ad42-11950850cabe",
+            "target_ref": "identity--7a164253-fbfd-420b-9316-79f5d3dff51f"
+        }
+    ]
+}

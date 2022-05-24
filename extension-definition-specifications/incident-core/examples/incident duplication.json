@@ -1,0 +1,77 @@
+{
+    "type": "bundle",
+    "id": "bundle--b72fa03b-d1e0-4f34-81f0-f60e7f019818",
+    "objects": [
+        {
+            "type": "incident",
+            "id": "incident--bf319a69-abcb-447b-bab4-eaa54316020c",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified":"2020-10-19T02:12:23.000Z",
+            "created_by_ref": "identity--2242662b-d581-4864-8696-fff719dc0500",
+            "spec_version": "2.1",
+            "name": "Stolen Laptop",
+            "description": "Someone stole a laptop",
+            "extensions": {
+                "extension-definition--ef765651-680c-498d-9894-99799f2fa126": {
+                    "extension_type": "property-extension",
+                    "investigation_status": "closed",
+                    "determination": "successful-attempt",
+                    "detection_methods": ["user-report"],
+                    "incident_types": ["loss-of-control"],
+                    "defender_activities": [
+                        {
+                            "activity_type": "discovery",
+                            "description": "User alerted security",
+                            "timestamp": "2020-10-15T01:01:01.000Z"
+                        },
+                        {
+                            "activity_type": "updated-inventory",
+                            "timestamp": "2020-10-19T02:12:23.000Z"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "type": "incident",
+            "id": "incident--d9ce8926-717f-4ef5-a81f-df9002aa17d2",
+            "created": "2020-10-19T02:15:01.000Z",
+            "modified":"2020-10-19T03:12:23.000Z",
+            "created_by_ref": "identity--2242662b-d581-4864-8696-fff719dc0500",
+            "spec_version": "2.1",
+            "name": "Stolen Laptop",
+            "description": "Someone stole a laptop",
+            "extensions": {
+                "extension-definition--ef765651-680c-498d-9894-99799f2fa126": {
+                    "extension_type": "property-extension",
+                    "investigation_status": "closed",
+                    "determination": "confirmed",
+                    "detection_methods": ["user-report"],
+                    "incident_types": ["loss-of-control"],
+                    "defender_activities": [
+                        {
+                            "activity_type": "discovery",
+                            "description": "User alerted security",
+                            "timestamp": "2020-10-19T02:15:01.000Z"
+                        },
+                        {
+                            "activity_type": "closed",
+                            "description": "Determined this was a duplicate of another ticket",
+                            "timestamp": "2020-10-19T03:12:23.000Z"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--0d98c5dd-22a7-4316-89d0-bb7c0338ef0f",
+            "created": "2020-10-19T03:12:23.000Z",
+            "modified": "2020-10-19T03:12:23.000Z",
+            "relationship_type": "duplicate-of",
+            "source_ref": "incident--d9ce8926-717f-4ef5-a81f-df9002aa17d2",
+            "target_ref": "incident--bf319a69-abcb-447b-bab4-eaa54316020c"
+        }
+    ]
+}
