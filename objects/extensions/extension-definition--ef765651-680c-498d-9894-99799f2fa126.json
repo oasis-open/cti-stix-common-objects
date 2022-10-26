@@ -9,10 +9,10 @@
       "name": "Incident Core Extension",
       "description": "A core extension of the Incident object to allow core details of the Incident to be shared while tracking major details tied to the incident's timeline.  Multiple Incidents can be tied together via relationships if a higher degree of fidelity is needed across phases.",
       "created": "2020-10-19T20:51:00.000Z",
-      "modified": "2022-05-23T16:00:00.000Z",
+      "modified": "2022-10-26T08:05:00.000Z",
       "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
       "schema": "https://github.com/oasis-open/cti-stix-common-objects/tree/master/extension-definition-specifications/incident-core",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "extension_types": [ "property-extension" ]
     }
   ]

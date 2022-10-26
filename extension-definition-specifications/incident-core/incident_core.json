@@ -422,6 +422,7 @@
                         "enum": [
                             "blocked"
                             , "failed-attempt"
+                            , "ongoing"
                             , "successful-attempt"
                             , "unknown"
                         ]

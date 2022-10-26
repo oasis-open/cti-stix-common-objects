@@ -45,7 +45,7 @@
                 "extension-definition--ef765651-680c-498d-9894-99799f2fa126": {
                     "extension_type": "property-extension",
                     "investigation_status": "closed",
-                    "determination": "confirmed",
+                    "determination": "successful-attempt",
                     "detection_methods": ["user-report"],
                     "incident_types": ["loss-of-control"],
                     "defender_activities": [
