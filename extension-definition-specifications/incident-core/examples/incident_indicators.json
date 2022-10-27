@@ -26,13 +26,29 @@
                             "outcome": "successful-attempt",
                             "pattern_ref": "attack-pattern--2b742742-28c3-4e1b-bab7-8350d6300fa7",
                             "description": "A phishing email with a malicious link was delivered.  When the user went to this link it put a dropper on their computer.",
+                            "kill_chain_phases": [
+                                {
+                                    "kill_chain_name": "lockheed-martin-cyber-kill-chain",
+                                    "phase_name": "delivery"
+                                }
+                            ],
                             "sequence_start": 1,
                             "sequence_end": 1,
                             "observed_refs": ["file--9704eca1-8efd-542c-a626-77d7cbcfe49f"]
                         },
                         {
                             "outcome": "successful-attempt",
-                            "description": "The dropper verified it had internet access by checking google and then downloaded second stage tooling.",
+                            "description": "The dropper verified it had internet access by checking google and then downloaded and installed second stage tooling.",
+                            "kill_chain_phases": [
+                                {
+                                    "kill_chain_name": "lockheed-martin-cyber-kill-chain",
+                                    "phase_name": "delivery"
+                                },
+                                {
+                                    "kill_chain_name": "lockheed-martin-cyber-kill-chain",
+                                    "phase_name": "installation"
+                                }
+                            ],
                             "sequence_start": 2,
                             "sequence_end": 2,
                             "observed_refs": ["domain-name--160f66e8-85b8-55b0-b81e-b0e7454f179d", "url--fef943a6-8bba-5237-af37-03a6f2ae58f5", "domain-name--430fdb3b-be9f-53fe-891c-955952b7a570"]
@@ -40,6 +56,12 @@
                         {
                             "outcome": "blocked",
                             "description": "The second stage tooling attempted to spread laterally, but firewall rules prevented it from doing so to other workstations.",
+                            "kill_chain_phases": [
+                                {
+                                    "kill_chain_name": "lockheed-martin-cyber-kill-chain",
+                                    "phase_name": "delivery"
+                                }
+                            ],
                             "sequence_start": 3,
                             "sequence_end": 4,
                             "observed_refs": ["file--6a597e24-1209-5e8f-819c-1addce1bb314"]
@@ -47,6 +69,12 @@
                         {
                             "outcome": "successful-attempt",
                             "description": "One of the second stage tools was able to communicate with an ICS sensor device and destroyed it.",
+                            "kill_chain_phases": [
+                                {
+                                    "kill_chain_name": "lockheed-martin-cyber-kill-chain",
+                                    "phase_name": "action-on-objectives"
+                                }
+                            ],
                             "sequence_start": 3,
                             "sequence_end": 4,
                             "impacted_refs": ["ipv4-addr--b7c7aace-c5f3-463e-bb63-4de6cb5e8995"]
@@ -125,12 +153,6 @@
             "value": "www.google.com"
         },
         {
-            "type": "domain-name",
-            "spec_version": "2.1",
-            "id": "domain-name--160f66e8-85b8-55b0-b81e-b0e7454f179d", 
-            "value": "www.google.com"
-        },
-        {
             "type": "ipv4-addr",
             "spec_version": "2.1",
             "id": "ipv4-addr--b7c7aace-c5f3-463e-bb63-4de6cb5e8995",
@@ -161,16 +183,16 @@
             "type": "infrastructure",
             "spec_version": "2.1",
             "id": "infrastructure--3c916d6e-b629-468e-9b6c-fd08a5c447ba",
-            "infrastructure_types": ["command-and-control"],
+            "infrastructure_types": ["delivery"],
             "kill_chain_phases": [
                 {
                     "kill_chain_name": "lockheed-martin-cyber-kill-chain",
-                    "phase_name": "command-and-control"
+                    "phase_name": "delivery"
                 }
             ],
             "created": "2022-05-06T16:24:19.081292Z",
             "modified": "2022-05-06T16:24:19.081292Z",
-            "name": "Fake C2 Network Infrastructure"
+            "name": "Fake Delivery Network Infrastructure"
         },
         {
             "type": "indicator",
