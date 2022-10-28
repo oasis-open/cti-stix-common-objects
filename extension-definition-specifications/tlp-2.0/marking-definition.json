@@ -103,7 +103,7 @@
           "created",
 	  "extensions"
       ]
-    },
+    }
   ],
   "definitions": {
     "tlp_clear": {
