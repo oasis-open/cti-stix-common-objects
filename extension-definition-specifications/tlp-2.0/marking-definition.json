@@ -94,8 +94,16 @@
         {
           "$ref": "#/definitions/tlp_red"
         }
+      ],
+      "required": [
+          "id",
+          "type",
+	  "name",
+          "spec_version",
+          "created",
+	  "extensions"
       ]
-    }
+    },
   ],
   "definitions": {
     "tlp_clear": {
@@ -140,6 +148,9 @@
               "additionalProperties": false
             }
           },
+	  "required": [
+	     "extension-definition--60a3c5c5-0d10-413e-aab3-9e08dde9e88d"
+	  ],
           "additionalProperties": false
         }
       }
