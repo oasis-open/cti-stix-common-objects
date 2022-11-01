@@ -422,9 +422,18 @@
                         "enum": [
                             "blocked"
                             , "failed-attempt"
+                            , "ongoing"
                             , "successful-attempt"
                             , "unknown"
                         ]
+                    },
+                    "kill_chain_phases": {
+                        "type": "array",
+                        "description": "The kill chain phase(s) to which this attacker activity corresponds",
+                        "minItems": 1,
+                        "items": {
+                            "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/master/schemas/common/kill-chain-phase.json"
+                        }
                     },
                     "pattern_ref": {
                         "type": "string",
