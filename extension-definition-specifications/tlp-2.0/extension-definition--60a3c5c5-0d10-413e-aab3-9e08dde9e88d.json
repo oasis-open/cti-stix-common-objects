@@ -4,25 +4,9 @@
   "title": "tlp2.0-marking-definition-extension",
   "description": "This marking extension was created to apply TLP2.0 data markings",
   "type": "object",
-  "oneOf": [
-    {
-      "not": {
-        "properties": {
-          "extensions": {
-            "type": "object",
-            "properties": {
-              "extension-definition--60a3c5c5-0d10-413e-aab3-9e08dde9e88d": {
-                "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/extension.json"
-              }
-            },
-            "required": [
-              "extension-definition--60a3c5c5-0d10-413e-aab3-9e08dde9e88d"
-            ]
-          }
-        }
-      }
-    },
-    {
+
+
+
       "properties": {
         "type": {
           "type": "string",
@@ -102,9 +86,7 @@
           "spec_version",
           "created",
 	  "extensions"
-      ]
-    }
-  ],
+      ],
   "definitions": {
     "tlp_clear": {
       "description": "The marking-definition object representing Traffic Light Protocol (TLP) Clear.",
