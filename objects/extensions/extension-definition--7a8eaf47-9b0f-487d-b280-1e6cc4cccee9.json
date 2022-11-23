@@ -9,9 +9,9 @@
                 "property-extension"
             ],
             "id": "extension-definition--7a8eaf47-9b0f-487d-b280-1e6cc4cccee9",
-            "modified": "2021-12-01T16:19:51.601791Z",
+            "modified": "2022-11-22T13:30:51.000000Z",
             "name": "Extension to support STIX 1.x Incident",
-            "schema": "https://github.com/oasis-open/cti-stix-common-objects/tree/main/extension-definition-specifications/stix1-incident/",
+            "schema": "https://github.com/oasis-open/cti-stix-common-objects/tree/main/extension-definition-specifications/stix-1x/",
             "spec_version": "2.1",
             "type": "extension-definition",
             "version": "1.0.0"
