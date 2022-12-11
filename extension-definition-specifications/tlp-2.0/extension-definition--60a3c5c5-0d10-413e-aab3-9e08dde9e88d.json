@@ -1,0 +1,322 @@
+{
+  "$id": "tlp2.0.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "tlp2.0-marking-definition-extension",
+  "description": "This marking extension was created to apply TLP2.0 data markings",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "The type of this object, which MUST be the literal `marking-definition`.",
+      "enum": [
+        "marking-definition"
+      ]
+    },
+    "spec_version": {
+      "type": "string",
+      "enum": [
+        "2.1"
+      ],
+      "description": "The version of the STIX specification used to represent this object."
+    },
+    "created_by_ref": {
+      "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
+      "description": "The created_by_ref property specifies the ID of the identity object that describes the entity that created this Marking Definition."
+    },
+    "created": {
+      "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/timestamp.json",
+      "description": "The created property represents the time at which the first version of this Marking Definition object was created."
+    },
+    "external_references": {
+      "type": "array",
+      "description": "A list of external references which refers to non-STIX information.",
+      "items": {
+        "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/external-reference.json"
+      },
+      "minItems": 1
+    },
+    "object_marking_refs": {
+      "type": "array",
+      "description": "The object_marking_refs property specifies a list of IDs of marking-definition objects that apply to this Marking Definition.",
+      "items": {
+        "allOf": [
+          {
+            "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json"
+          },
+          {
+            "pattern": "^marking-definition--"
+          }
+        ]
+      },
+      "minItems": 1
+    },
+    "granular_markings": {
+      "type": "array",
+      "description": "The granular_markings property specifies a list of granular markings applied to this object.",
+      "items": {
+        "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/granular-marking.json"
+      },
+      "minItems": 1
+    }
+  },
+  "oneOf": [
+    {
+      "$ref": "#/definitions/tlp_clear"
+    },
+    {
+      "$ref": "#/definitions/tlp_green"
+    },
+    {
+      "$ref": "#/definitions/tlp_amber"
+    },
+    {
+      "$ref": "#/definitions/tlp_amber_strict"
+    },
+    {
+      "$ref": "#/definitions/tlp_red"
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "name",
+    "spec_version",
+    "created",
+    "extensions"
+  ],
+  "definitions": {
+    "tlp_clear": {
+      "description": "The marking-definition object representing Traffic Light Protocol (TLP) Clear.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "enum": [
+            "marking-definition--94868c89-83c2-464b-929b-a1a8aa3c8487"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "TLP:CLEAR"
+          ]
+        },
+        "extensions": {
+          "type": "object",
+          "properties": {
+            "extension-definition--60a3c5c5-0d10-413e-aab3-9e08dde9e88d": {
+              "type": "object",
+              "properties": {
+                "extension_type": {
+                  "type": "string",
+                  "description": "Defined by STIX 2.1 extension definition rules from 'extension-type-enum'.",
+                  "enum": [
+                    "property-extension"
+                  ]
+                },
+                "tlp_2_0": {
+                  "type": "string",
+                  "enum": [
+                    "clear"
+                  ]
+                }
+              },
+              "required": [
+                "extension_type",
+                "tlp_2_0"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "extension-definition--60a3c5c5-0d10-413e-aab3-9e08dde9e88d"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "tlp_green": {
+      "description": "The marking-definition object representing Traffic Light Protocol (TLP) Green.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "enum": [
+            "marking-definition--bab4a63c-aed9-4cf5-a766-dfca5abac2bb"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "TLP:GREEN"
+          ]
+        },
+        "extensions": {
+          "type": "object",
+          "properties": {
+            "extension-definition--60a3c5c5-0d10-413e-aab3-9e08dde9e88d": {
+              "type": "object",
+              "properties": {
+                "extension_type": {
+                  "type": "string",
+                  "description": "Defined by STIX 2.1 extension definition rules from 'extension-type-enum'.",
+                  "enum": [
+                    "property-extension"
+                  ]
+                },
+                "tlp_2_0": {
+                  "type": "string",
+                  "enum": [
+                    "green"
+                  ]
+                }
+              },
+              "required": [
+                "extension_type",
+                "tlp_2_0"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    },
+    "tlp_amber": {
+      "description": "The marking-definition object representing Traffic Light Protocol (TLP) Amber.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "enum": [
+            "marking-definition--55d920b0-5e8b-4f79-9ee9-91f868d9b421"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "TLP:AMBER"
+          ]
+        },
+        "extensions": {
+          "type": "object",
+          "properties": {
+            "extension-definition--60a3c5c5-0d10-413e-aab3-9e08dde9e88d": {
+              "type": "object",
+              "properties": {
+                "extension_type": {
+                  "type": "string",
+                  "description": "Defined by STIX 2.1 extension definition rules from 'extension-type-enum'.",
+                  "enum": [
+                    "property-extension"
+                  ]
+                },
+                "tlp_2_0": {
+                  "type": "string",
+                  "enum": [
+                    "amber"
+                  ]
+                }
+              },
+              "required": [
+                "extension_type",
+                "tlp_2_0"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    },
+    "tlp_amber_strict": {
+      "description": "The marking-definition object representing Traffic Light Protocol (TLP) Amber+Strict.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "enum": [
+            "marking-definition--939a9414-2ddd-4d32-a0cd-375ea402b003"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "TLP:AMBER+STRICT"
+          ]
+        },
+        "extensions": {
+          "type": "object",
+          "properties": {
+            "extension-definition--60a3c5c5-0d10-413e-aab3-9e08dde9e88d": {
+              "type": "object",
+              "properties": {
+                "extension_type": {
+                  "type": "string",
+                  "description": "Defined by STIX 2.1 extension definition rules from 'extension-type-enum'.",
+                  "enum": [
+                    "property-extension"
+                  ]
+                },
+                "tlp_2_0": {
+                  "type": "string",
+                  "enum": [
+                    "amber+strict"
+                  ]
+                }
+              },
+              "required": [
+                "extension_type",
+                "tlp_2_0"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    },
+    "tlp_red": {
+      "description": "The marking-definition object representing Traffic Light Protocol (TLP) Red.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "enum": [
+            "marking-definition--e828b379-4e03-4974-9ac4-e53a884c97c1"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "TLP:RED"
+          ]
+        },
+        "extensions": {
+          "type": "object",
+          "properties": {
+            "extension-definition--60a3c5c5-0d10-413e-aab3-9e08dde9e88d": {
+              "type": "object",
+              "properties": {
+                "extension_type": {
+                  "type": "string",
+                  "description": "Defined by STIX 2.1 extension definition rules from 'extension-type-enum'.",
+                  "enum": [
+                    "property-extension"
+                  ]
+                },
+                "tlp_2_0": {
+                  "type": "string",
+                  "enum": [
+                    "red"
+                  ]
+                }
+              },
+              "required": [
+                "extension_type",
+                "tlp_2_0"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+    "type": "bundle",
+    "id": "bundle--d6e3c0b4-f916-4d15-a01f-e3761c5f48ac",
+    "objects": [
+        { 
+            "type": "marking-definition", 
+            "spec_version": "2.1", 
+            "id": "marking-definition--939a9414-2ddd-4d32-a0cd-375ea402b003", 
+            "created": "2022-10-01T00:00:00.000Z", 
+            "name": "TLP:AMBER+STRICT",
+            "extensions": {
+                "extension-definition--60a3c5c5-0d10-413e-aab3-9e08dde9e88d": {
+                        "extension_type": "property-extension",
+                        "tlp_2_0" : "amber+strict"
+                }
+            }
+        }
+    ]
+}
+
