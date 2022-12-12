@@ -17,45 +17,7 @@
               "type": "object",
               "allOf": [
                 {
-                    "properties": {
-			"extension_type": {
-			    "type": "string",
-			    "enum": [
-				"property-extension"
-			    ]
-			},
-			"likely_impact" {
-			    "description": "Specifies the likely potential impact within the relevant context if this Indicator were to occur. This is typically local to an Indicator consumer and not typically shared. This field includes a Description of the likely potential impact within the relevant context if this Indicator were to occur and a Confidence held in the accuracy of this assertion. If the extension-definition is being used, then it is required",
-			    "type": "object",
-			    "$ref": "#/definitions/likely-impact-statement-type"
-			}
-		    }
-		    "definitions": {
-			"likely-impact-statement-type": {
-			    "type": "object"
-			    "properties": {
-				"description": {
-				    "description": "This property contains a prose description of the likely impact.",
-				    "type": "string"
-				},
-				"confidence": {
-				    "description": "See confidence common property definition in section 3.2 of the STIX 2.1 specification."
-				    "type": "integer"
-				},
-				"value": {
-				    "description": "This property contains the rationale for an original classification determination."
-				    "type": "string"
-				}
-			    },
-			    "required": {
-				"description",
-				"value"
-			    }
-			}
-		    }
-	    	    "required": [
-			"extension_type",
-			"likely_impact"
+
 			
 			
 			
