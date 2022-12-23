@@ -53,7 +53,7 @@
       "description": "Specifies knowledge of whether the Incident involved a compromise of security properties. The values for this property SHOULD come from the security-compromise-ov open vocabulary."
     },
     "status": {
-      "$ref": "string",
+      "type": "string",
       "description": "The values for this property SHOULD come from the incident-status-ov open vocabulary."
     },
     "victim_refs": {
