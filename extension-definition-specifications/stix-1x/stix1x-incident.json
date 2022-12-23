@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/rpiazza/cti-stix-common-objects/blob/stix-1x/extension-definition-specifications/stix-1x/stix1x-incident.json",
+  "$id": "https://raw.githubusercontent.com/rpiazza/cti-stix-common-objects/stix-1x/extension-definition-specifications/stix-1x/stix1x-incident.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "stix1x-incident-extension-schema",
   "description": "This is the wrapper for the incident extension is used by the stix-elevator",

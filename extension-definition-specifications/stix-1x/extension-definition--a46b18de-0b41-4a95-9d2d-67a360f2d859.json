@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/rpiazza/cti-stix-common-objects/blob/stix-1x/extension-definition-specifications/stix-1x/extension-definition--a46b18de-0b41-4a95-9d2d-67a360f2d859.json",
+  "$id": "https://raw.githubusercontent.com/rpiazza/cti-stix-common-objects/stix-1x/extension-definition-specifications/stix-1x/extension-definition--a46b18de-0b41-4a95-9d2d-67a360f2d859.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "stix1x-course-of-action-extension-schema-wrapper",
   "description": "This is the wrapper for the course-of-action extension is used by the stix-elevator",

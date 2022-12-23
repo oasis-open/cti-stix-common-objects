@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/rpiazza/cti-stix-common-objects/blob/stix-1x/extension-definition-specifications/stix-1x/extension-definition--7c8ca481-f0e9-4389-94f5-90df472eb01d.json",
+  "$id": "https://raw.githubusercontent.com/rpiazza/cti-stix-common-objects/stix-1x/extension-definition-specifications/stix-1x/extension-definition--7c8ca481-f0e9-4389-94f5-90df472eb01d.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "stix1x-indicator-extension-schema",
   "description": "This is the wrapper for the indicator extension is used by the stix-elevator",
