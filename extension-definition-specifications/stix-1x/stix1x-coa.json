@@ -1,0 +1,45 @@
+{
+	"$id": "https://raw.githubusercontent.com/rpiazza/cti-stix-common-objects/blob/stix-1x/extension-definition-specifications/stix-1x/stix1x-coa.json",
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "stix1x-incident-extension-schema",
+	"description": "This is the wrapper for the coa extension is used by the stix-elevator",
+	"type": "object",
+	"properties": {
+		"extension_type": {
+			"type": "string",
+			"enum": [
+				"property-extension"
+			]
+		},
+		"stage": {
+			"type": "string",
+			"description": ""
+		},
+		"objective": {
+			"type": "string",
+			"description": ""
+		},
+		"paramter_expression": {
+			"type": "string",
+			"description": ""
+		},
+		"impact": {
+			"type": "object",
+			"$ref": "hml-statement-type.json",
+			"description": ""
+		},
+		"cost": {
+			"type": "object",
+			"$ref": "hml-statement-type.json",
+			"description": ""
+		},
+		"efficacy": {
+			"type": "object",
+			"$ref": "hml-statement-type.json",
+			"description": ""
+		}
+	},
+	"required": [
+		"extension_type"
+	]
+}
