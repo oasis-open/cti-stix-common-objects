@@ -1,0 +1,16 @@
+{
+    "id": "bundle--fb2658e2-e067-41db-bc41-265dc8d3351e",
+    "objects": [
+	{
+	    "created": "2020-12-22T00:00:00.000000Z",
+	    "definition": {
+		"statement": "Copyright 2020-22 - The MITRE Corporation, Inc."
+	    },
+	    "definition_type": "statement",
+	    "id": "marking-definition--3cd55916-d34b-4747-a8e0-dedec14b711b",
+	    "spec_version": "2.1",
+	    "type": "marking-definition"
+	}
+    ],
+    "type": "bundle"
+}
