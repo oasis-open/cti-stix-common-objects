@@ -34,11 +34,18 @@
                     "email_addresses": [
                         {
                             "email_address_ref": "email-addr--06029cc1-105d-5495-9fc5-3d252dd7af76",
-                            "email_address_type": "work"
+                            "digital_contact_type": "work"
                         },
                         {
                             "email_address_ref": "email-addr--78b946aa-91ab-5ce8-829b-4d078a8ecc00",
-                            "email_address_type": "organizational"
+                            "digital_contact_type": "organizational"
+                        }
+                    ],
+                    "social_media_accounts": [
+                        {
+                            "user_account_ref": "user-account--7aa68be3-1d4d-5b0f-8c26-8410085e5741",
+                            "digital_contact_type": "personal",
+                            "description": "Contact Contacterson's personal social media account"
                         }
                     ]
                 }
@@ -55,6 +62,13 @@
             "spec_version": "2.1",
             "id": "email-addr--78b946aa-91ab-5ce8-829b-4d078a8ecc00",
             "value": "support.desk@fakeincident.com"
+        },
+        {
+            "type": "user-account",
+            "spec_version": "2.1",
+            "id": "user-account--7aa68be3-1d4d-5b0f-8c26-8410085e5741",
+            "account_login": "contact.contacterson",
+            "account_type": "fake service"
         }
     ]
 }

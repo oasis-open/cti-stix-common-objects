@@ -48,7 +48,7 @@
             "additionalProperties": false,
             "items": {
                 "type": "object",
-                "required": ["email_address_ref", "email_address_type"],
+                "required": ["email_address_ref", "digital_contact_type"],
                 "properties": {
                     "email_address_ref": {
                         "type": "string",
@@ -56,13 +56,39 @@
                         "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
                         "pattern": "^email-addr--"
                     },
-                    "email_address_type": {
+                    "digital_contact_type": {
                         "type": "string",
-                        "description": "The type of email that address is used for.  This SHOULD be drawn from email-contact-ov."
+                        "description": "The type of email that address is used for.  This SHOULD be drawn from digital-contact-ov."
                     },
                     "description": {
                         "type": "string",
                         "description": "An additional description for the email and its purpose"
+                    }
+                }
+            }
+        },
+        "social_media_accounts": {
+            "type": "array",
+            "description": "A list of contact number objects that contain the phone and fax numbers.",
+            "minItems": 1,
+            "additionalProperties": false,
+            "items": {
+                "type": "object",
+                "required": ["user_account_ref", "digital_contact_type"],
+                "properties": {
+                    "user_account_ref": {
+                        "type": "string",
+                        "description": "A reference to the social media account itself",
+                        "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
+                        "pattern": "^user-account--"
+                    },
+                    "digital_contact_type": {
+                        "type": "string",
+                        "description": "The type of social media account that relates to.  This SHOULD be drawn from digital-contact-ov."
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "An additional description for the social media account and its purpose"
                     }
                 }
             }
