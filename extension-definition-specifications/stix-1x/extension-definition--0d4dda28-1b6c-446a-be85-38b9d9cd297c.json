@@ -1,0 +1,32 @@
+{
+  "$id": "https://raw.githubusercontent.com/rpiazza/cti-stix-common-objects/stix-1x/extension-definition-specifications/stix-1x/extension-definition--0d4dda28-1b6c-446a-be85-38b9d9cd297c.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "stix1x-email-message-extension-schema-wrapper",
+  "description": "This is the wrapper for the email-message extension is used by the stix-elevator",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/observables/email-message.json"
+    },
+    {
+      "properties": {
+        "extensions": {
+          "type": "object",
+          "properties": {
+            "extension-definition--0d4dda28-1b6c-446a-be85-38b9d9cd297c": {
+              "type": "object",
+              "allOf": [
+                {
+                  "$ref": "stix1x-email-message.json"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "required": [
+        "extensions"
+      ]
+    }
+  ]
+}

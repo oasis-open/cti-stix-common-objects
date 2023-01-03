@@ -1,0 +1,58 @@
+{
+	"$id": "http://raw.githubusercontent.com/rpiazza/cti-stix-common-objects/stix-1x/extension-definition-specifications/stix-1x/intended-effect-statement-type.json",
+	"$schema": "http://json-schema.org/draft/2020-12/schema#",
+	"title": "intended-effect-statement-type",
+	"description": "Represents the STIX 1.x statement type which uses a intended-effect-ov as the value",
+	"type": "object",
+	"properties": {
+		"description": {
+			"description": "This property contains a prose description of the statement.",
+			"type": "string"
+		},
+		"confidence": {
+			"description": "See confidence common property definition in section 3.2 of the STIX 2.1 specification.",
+			"type": "integer"
+		},
+		"value": {
+			"description": "This property contains the intended effect.",
+			"$ref": "#/definitions/intended-effect-ov"
+		}
+	},
+	"required": [
+		"description",
+		"value"
+	],
+        "additionalProperties": false,
+        "definitions": {
+	    "intended-effect-ov": {
+		"type": "string",
+		"enum": [
+		    "advantage",
+		    "advantage-economic",
+		    "advantage-military",
+		    "advantage-political",
+		    "theft",
+		    "intellectual-property-theft",
+		    "credential-theft",
+		    "identity-theft",
+		    "proprietary-information-theft",
+		    "account-takeover",
+		    "brand-damage",
+		    "competitive-advantage",
+		    "degradation-of-service",
+		    "denial-and-deception",
+		    "destruction",
+		    "disruption",
+		    "embarrassment",
+		    "exposure",
+		    "extortion",
+		    "fraud",
+		    "harassment",
+		    "ics-control",
+		    "traffic-diversion",
+		    "unauthorized-access"
+
+		]
+	    }
+	}
+}

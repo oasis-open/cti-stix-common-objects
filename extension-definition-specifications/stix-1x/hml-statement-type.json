@@ -15,11 +15,24 @@
 		},
 		"value": {
 			"description": "This property contains the level of the statement’s subject.",
-			"type": "string"
+			"$ref": "#/definitions/high-medium-low-ov"
 		}
 	},
 	"required": [
 		"description",
 		"value"
-	]
+	],
+        "additionalProperties": false,
+        "definitions": {
+	    "high-medium-low-ov": {
+		"type": "string",
+		"enum": [
+		    "high",
+		    "medium",
+		    "low",
+		    "none",
+		    "unknown"
+		]
+	    }
+	}
 }

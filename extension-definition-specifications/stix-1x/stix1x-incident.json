@@ -65,7 +65,7 @@
       "minItems": 1
     },
     "intended_effects": {
-      "$ref": "#/definitions/intended-effect-statement",
+      "$ref": "intended-effect-statement.json",
       "description": ""
     },
     "time_of_first_malicious_action": {
@@ -110,27 +110,6 @@
     "extension_type"
   ],
   "definitions": {
-    "intended-effect-statement": {
-      "type": "object",
-      "properties": {
-        "description": {
-          "description": "This property contains a prose description of the intended effect.",
-          "type": "string"
-        },
-        "confidence": {
-          "description": "See confidence common property definition in section 3.2 of the STIX 2.1 specification.",
-          "type": "integer"
-        },
-        "value": {
-          "description": "This property contains the intended effect. The values for this property SHOULD come from the intended-effect-ov open vocabulary.",
-          "type": "string"
-        }
-      },
-      "additionalProperties": false,
-      "required": [
-        "value"
-      ]
-    },
     "discovery_method-ov": {
       "type": "string",
       "enum": [
@@ -166,35 +145,6 @@
         "closed",
         "rejected",
         "deleted"
-      ]
-    },
-    "intended-effect-ov": {
-      "type": "string",
-      "enum": [
-        "advantage",
-        "advantage-economic",
-        "advantage-military",
-        "advantage-political",
-        "theft",
-        "intellectual-property-theft",
-        "credential-theft",
-        "identity-theft",
-        "proprietary-information-theft",
-        "account-takeover",
-        "brand-damage",
-        "competitive-advantage",
-        "degradation-of-service",
-        "denial-and-deception",
-        "destruction",
-        "disruption",
-        "embarrassment",
-        "exposure",
-        "extortion",
-        "fraud",
-        "harassment",
-        "ics-control",
-        "traffic-diversion",
-        "unauthorized-access"
       ]
     },
     "security-compromise-ov": {
