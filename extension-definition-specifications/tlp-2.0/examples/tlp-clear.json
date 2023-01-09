@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--dcf8154d-27b3-4856-94eb-29fbda777116",
+    "objects": [
+        { 
+	    "type": "marking-definition", 
+	    "spec_version": "2.1", 
+	    "id": "marking-definition--94868c89-83c2-464b-929b-a1a8aa3c8487", 
+	    "created": "2022-10-01T00:00:00.000Z", 
+	    "name": "TLP:CLEAR",
+	    "extensions": {
+		"extension-definition--60a3c5c5-0d10-413e-aab3-9e08dde9e88d": {
+			"extension_type": "property-extension",
+			"tlp_2_0" : "clear"
+		}
+	    }
+	}
+    ]
+}

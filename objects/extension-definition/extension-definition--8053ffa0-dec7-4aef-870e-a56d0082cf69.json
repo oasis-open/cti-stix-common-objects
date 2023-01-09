@@ -1,0 +1,18 @@
+{
+    "id": "bundle--aafed172-b07b-43ea-9e00-94cb3aa5b212",
+    "objects": [{
+        "id": "extension-definition--8053ffa0-dec7-4aef-870e-a56d0082cf69",
+        "type": "extension-definition",
+        "spec_version": "2.1",
+        "name": "Malware Artifact Extension",
+        "description": "This schema creates a new property to indicate whether a malware artifact is safe.",
+        "created": "2022-10-25T09:00:00.000000Z",
+        "modified": "2022-10-25T09:00:00.000000Z",
+        "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+        "schema": "https://github.com/oasis-open/cti-stix-common-objects/tree/main/extension-definition-specifications/malware-artifact/",
+        "version": "1.0.0",
+        "extension_types": ["toplevel-property-extension"],
+        "extension_properties": ["is_safe"]
+    }],
+    "type": "bundle"
+}

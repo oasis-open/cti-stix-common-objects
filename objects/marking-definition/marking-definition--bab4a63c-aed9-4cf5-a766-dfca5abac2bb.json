@@ -1,0 +1,19 @@
+{
+    "type": "bundle",
+    "id": "bundle--ef1047f3-d819-42e6-bba1-ea87a9b400a0",
+    "objects": [
+        { 
+	    "type": "marking-definition", 
+	    "spec_version": "2.1", 
+	    "id": "marking-definition--bab4a63c-aed9-4cf5-a766-dfca5abac2bb", 
+	    "created": "2022-10-01T00:00:00.000Z", 
+	    "name": "TLP:GREEN",
+	    "extensions": {
+		"extension-definition--60a3c5c5-0d10-413e-aab3-9e08dde9e88d": {
+			"extension_type": "property-extension",
+			"tlp_2_0" : "green"
+		}
+	    }
+	}
+    ]
+}
