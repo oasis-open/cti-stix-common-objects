@@ -14,12 +14,8 @@
           "type": "object",
           "properties": {
             "extension-definition--3a65884d-005a-4290-8335-cb2d778a83ce": {
-              "type": "object",
-              "allOf": [
-                {
-                  "$ref": "isa-acs-3-0.json"
-                }
-              ]
+		"type": "object",
+		"$ref": "isa-acs-3-0.json"
             }
           }
         }
