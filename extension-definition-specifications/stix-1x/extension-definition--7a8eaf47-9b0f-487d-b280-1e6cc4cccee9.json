@@ -15,11 +15,7 @@
           "properties": {
             "extension-definition--7a8eaf47-9b0f-487d-b280-1e6cc4cccee9": {
               "type": "object",
-              "allOf": [
-                {
-                  "$ref": "stix1x-incident.json"
-                }
-              ]
+              "$ref": "stix1x-incident.json"
             }
           }
         }

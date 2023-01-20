@@ -14,12 +14,8 @@
           "type": "object",
           "properties": {
             "extension-definition--d83fce45-ef58-4c6c-a3f4-1fbc32e98c6e": {
-              "type": "object",
-              "allOf": [
-                {
-                  "$ref": "stix1x-campaign.json"
-                }
-              ]
+		"type": "object",
+		"$ref": "stix1x-campaign.json"
             }
           }
         }

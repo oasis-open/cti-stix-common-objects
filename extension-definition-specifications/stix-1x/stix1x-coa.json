@@ -12,8 +12,8 @@
 		    ]
 		},
 		"stage": {
-		    "$ref": "#/definitions/"
-		    "description": ""
+		    "type": "string",
+		    "description": "open vocab, suggested values in #/deinitions/coa-stage-ov"
 		    
 		},
 		"objective": {
@@ -50,7 +50,7 @@
 		"enum": [
 		    "remedy",
 		    "response"
-		]
+		],
 		"description": ""
 		    
 	    }

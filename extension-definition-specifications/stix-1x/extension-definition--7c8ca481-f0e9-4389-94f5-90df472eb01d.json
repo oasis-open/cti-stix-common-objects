@@ -14,12 +14,8 @@
           "type": "object",
           "properties": {
             "extension-definition--7c8ca481-f0e9-4389-94f5-90df472eb01d": {
-              "type": "object",
-              "allOf": [
-                {
-                    "$ref": "stix1x-indicator.json"
-                }
-              ]
+		"type": "object",
+		"$ref": "stix1x-indicator.json"
             }
           }
         }

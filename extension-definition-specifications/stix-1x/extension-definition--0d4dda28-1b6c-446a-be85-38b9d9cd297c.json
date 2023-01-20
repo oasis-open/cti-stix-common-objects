@@ -15,11 +15,7 @@
           "properties": {
             "extension-definition--0d4dda28-1b6c-446a-be85-38b9d9cd297c": {
               "type": "object",
-              "allOf": [
-                {
-                  "$ref": "stix1x-email-message.json"
-                }
-              ]
+              "$ref": "stix1x-email-message.json"
             }
           }
         }

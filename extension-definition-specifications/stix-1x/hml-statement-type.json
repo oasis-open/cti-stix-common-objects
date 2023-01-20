@@ -18,10 +18,6 @@
 			"$ref": "#/definitions/high-medium-low-ov"
 		}
 	},
-	"required": [
-		"description",
-		"value"
-	],
         "additionalProperties": false,
         "definitions": {
 	    "high-medium-low-ov": {
