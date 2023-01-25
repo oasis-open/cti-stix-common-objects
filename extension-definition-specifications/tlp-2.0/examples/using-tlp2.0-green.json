@@ -1,35 +1,36 @@
 {
-  "id": "bundle--161f8ade-b67d-11e3-b8af-f01faf20d111",
-  "objects": [
-    {
-      "created": "2022-10-27T13:49:54.326Z",
-      "id": "identity--1621d4d4-b67d-11e3-9670-f01faf20d111",
-      "modified": "2022-10-27T13:49:54.326Z",
-      "name": "Adversary Bravo",
-      "spec_version": "2.1",
-      "type": "identity"
-    },
-    {
-      "created": "2022-10-27T13:49:54.326Z",
-      "id": "threat-actor--9a8a0d25-7636-429b-a99e-b2a73cd0f11f",
-      "modified": "2022-10-27T13:49:54.326Z",
-      "name": "Adversary Bravo",
-      "sophistication": "unknown",
-      "spec_version": "2.1",
-      "type": "threat-actor"
-    },
-    {
-      "created": "2022-101-27T13:49:54.326Z",
-      "id": "relationship--1621d4d4-b67d-11e3-9670-f01faf20d111",
-      "modified": "2022-10-27T13:49:54.326Z",
-      "object_marking_refs": [
-        "marking-definition--bab4a63c-aed9-4cf5-a766-dfca5abac2bb"
-      ],
-      "relationship_type": "attributed-to",
-      "source_ref": "threat-actor--9a8a0d25-7636-429b-a99e-b2a73cd0f11f",
-      "spec_version": "2.1",
-      "target_ref": "identity--1621d4d4-b67d-11e3-9670-f01faf20d111",
-      "type": "relationship"
-    }
-  ]
+    "id": "bundle--161f8ade-b67d-41e3-b8af-f01faf20d111",
+    "type": "bundle",
+    "objects": [
+	{
+	    "created": "2022-10-27T13:49:54.326Z",
+	    "id": "identity--1621d4d4-b67d-41e3-9670-f01faf20d111",
+	    "modified": "2022-10-27T13:49:54.326Z",
+	    "name": "Adversary Bravo",
+	    "spec_version": "2.1",
+	    "type": "identity"
+	},
+	{
+	    "created": "2022-10-27T13:49:54.326Z",
+	    "id": "threat-actor--9a8a0d25-7636-429b-a99e-b2a73cd0f11f",
+	    "modified": "2022-10-27T13:49:54.326Z",
+	    "name": "Adversary Bravo",
+	    "sophistication": "advanced",
+	    "spec_version": "2.1",
+	    "type": "threat-actor"
+	},
+	{
+	    "created": "2022-10-27T13:49:54.326Z",
+	    "id": "relationship--1621d4d4-b67d-41e3-9670-f01faf20d111",
+	    "modified": "2022-10-27T13:49:54.326Z",
+	    "object_marking_refs": [
+		"marking-definition--bab4a63c-aed9-4cf5-a766-dfca5abac2bb"
+	    ],
+	    "relationship_type": "attributed-to",
+	    "source_ref": "threat-actor--9a8a0d25-7636-429b-a99e-b2a73cd0f11f",
+	    "spec_version": "2.1",
+	    "target_ref": "identity--1621d4d4-b67d-41e3-9670-f01faf20d111",
+	    "type": "relationship"
+	}
+    ]
 }
