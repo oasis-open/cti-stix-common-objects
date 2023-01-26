@@ -1,5 +1,5 @@
 {
-    "$id": "https://raw.githubusercontent.com/rpiazza/cti-stix-common-objects/stix-1x/extension-definition-specifications/tlp-2.0/extension-definition--60a3c5c5-0d10-413e-aab3-9e08dde9e88d.json",
+  "$id": "https://raw.githubusercontent.com/rpiazza/cti-stix-common-objects/stix-1x/extension-definition-specifications/tlp-2.0/extension-definition--60a3c5c5-0d10-413e-aab3-9e08dde9e88d.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "tlp2.0-marking-definition-extension",
   "description": "This marking extension was created to apply TLP2.0 data markings",
