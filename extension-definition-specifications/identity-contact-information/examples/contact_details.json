@@ -1,0 +1,74 @@
+{
+    "type": "bundle",
+    "id": "bundle--7d9ba979-6e72-47e8-9a48-a28c42206307",
+    "objects": [
+        {
+            "type": "identity",
+            "id": "identity--0594861f-ebbd-413f-b810-6bcf9a3d8604",
+            "created": "2022-05-06T01:01:01.000Z",
+            "modified": "2022-12-16T01:01:01.000Z",
+            "spec_version": "2.1",
+            "name": "Contact Contacterson",
+            "description": "A point of contact for the incident.",
+            "identity_class": "individual",
+            "roles": [
+                "security-point-of-contact"
+            ],
+            "contact_information": "123-456-7890 / contact.contacterson@fakeincident.com",
+            "extensions": {
+                "extension-definition--66e2492a-bbd3-4be6-88f5-cc91a017a498": {
+                    "extension_type": "property-extension",
+                    "first_name": "Contact",
+                    "middle_name": "Anderson",
+                    "last_name": "Contacterson",
+                    "contact_numbers": [
+                        {
+                            "contact_number": "123-456-7890",
+                            "contact_number_type": "work-phone"
+                        },
+                        {
+                            "contact_number": "123-456-7891",
+                            "contact_number_type": "work-fax"
+                        }
+                    ],
+                    "email_addresses": [
+                        {
+                            "email_address_ref": "email-addr--06029cc1-105d-5495-9fc5-3d252dd7af76",
+                            "digital_contact_type": "work"
+                        },
+                        {
+                            "email_address_ref": "email-addr--78b946aa-91ab-5ce8-829b-4d078a8ecc00",
+                            "digital_contact_type": "organizational"
+                        }
+                    ],
+                    "social_media_accounts": [
+                        {
+                            "user_account_ref": "user-account--7aa68be3-1d4d-5b0f-8c26-8410085e5741",
+                            "digital_contact_type": "personal",
+                            "description": "Contact Contacterson's personal social media account"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "type": "email-addr",
+            "spec_version": "2.1",
+            "id": "email-addr--06029cc1-105d-5495-9fc5-3d252dd7af76",
+            "value": "contact.contacterson@fakeincident.com"
+        },
+        {
+            "type": "email-addr",
+            "spec_version": "2.1",
+            "id": "email-addr--78b946aa-91ab-5ce8-829b-4d078a8ecc00",
+            "value": "support.desk@fakeincident.com"
+        },
+        {
+            "type": "user-account",
+            "spec_version": "2.1",
+            "id": "user-account--7aa68be3-1d4d-5b0f-8c26-8410085e5741",
+            "account_login": "contact.contacterson",
+            "account_type": "fake service"
+        }
+    ]
+}
