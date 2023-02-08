@@ -6,21 +6,22 @@
 	"type": "object",
 	"properties": {
 		"description": {
-			"description": "This property contains a prose description of the statement.",
-			"type": "string"
+		    "description": "This property contains a prose description of the statement.",
+		    "type": "string"
 		},
 		"confidence": {
-			"description": "See confidence common property definition in section 3.2 of the STIX 2.1 specification.",
-			"type": "integer"
+		    "description": "See confidence common property definition in section 3.2 of the STIX 2.1 specification.",
+		    "type": "integer"
 		},
 		"value": {
-			"description": "This property contains the intended effect.",
-			"$ref": "#/definitions/intended-effect-ov"
+		    "description": "This property contains the intended effect. It SHOULD be one of the values from intended-effect-ov",
+		    "type": "string"
+			
 		}
 	},
 	"required": [
-		"description",
-		"value"
+	    "description",
+	    "value"
 	],
         "additionalProperties": false,
         "definitions": {

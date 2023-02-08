@@ -1,0 +1,30 @@
+{
+	"$id": "https://raw.githubusercontent.com/rpiazza/cti-stix-common-objects/stix-1x/extension-definition-specifications/stix-1x/stix1x-network-socketjson",
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "stix1x-indicator-extension-schema",
+	"description": "This is the wrapper for the network-traffic/network-socket extension is used by the stix-elevator",
+	"type": "object",
+	"properties": {
+		"extension_type": {
+			"type": "string",
+			"enum": [
+				"property-extension"
+			]
+		},
+		"protocol_family": {
+			"description": "Specifies the communication domain (PF_*) of the socket",
+			"type": "string"
+		},
+	        "local_address": {
+			"description": "Specifies the IP address and port for the socket on the local machine",
+			"type": "string"
+		},
+	        "remote_address": {
+			"description": "Specifies the IP address and port for the socket on the remote machine",
+			"type": "string"
+		}
+	},
+	"required": [
+	    "extension_type"
+	]
+}

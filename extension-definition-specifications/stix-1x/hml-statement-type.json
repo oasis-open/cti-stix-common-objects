@@ -14,8 +14,8 @@
 			"type": "integer"
 		},
 		"value": {
-			"description": "This property contains the level of the statement’s subject.",
-			"$ref": "#/definitions/high-medium-low-ov"
+			"description": "This property contains the level of the statement’s subject. It SHOULD be one of the values from high-medium-low-ov",
+		    "type": string
 		}
 	},
         "additionalProperties": false,
