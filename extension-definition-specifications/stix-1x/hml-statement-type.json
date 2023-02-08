@@ -15,7 +15,7 @@
 		},
 		"value": {
 			"description": "This property contains the level of the statement’s subject. It SHOULD be one of the values from high-medium-low-ov",
-		    "type": string
+		    "type": "string"
 		}
 	},
         "additionalProperties": false,
