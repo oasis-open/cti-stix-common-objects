@@ -5,18 +5,18 @@
 	"description": "Represents the STIX 1.x statement type with high/medium/low as the value",
 	"type": "object",
 	"properties": {
-		"description": {
-			"description": "This property contains a prose description of the statement.",
-			"type": "string"
-		},
-		"confidence": {
-			"description": "See confidence common property definition in section 3.2 of the STIX 2.1 specification.",
-			"type": "integer"
-		},
-		"value": {
-			"description": "This property contains the level of the statement’s subject. It SHOULD be one of the values from high-medium-low-ov",
-		    "type": "string"
-		}
+	    "description": {
+		"description": "This property contains a prose description of the statement.",
+		"type": "string"
+	    },
+	    "confidence": {
+		"description": "See confidence common property definition in section 3.2 of the STIX 2.1 specification.",
+		"type": "integer"
+	    },
+	    "value": {
+		"description": "This property contains the level of the statement’s subject. It SHOULD be one of the values from high-medium-low-ov",
+		"type": "string"
+	    }
 	},
         "additionalProperties": false,
         "definitions": {
