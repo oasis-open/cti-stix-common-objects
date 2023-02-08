@@ -20,7 +20,11 @@
 		    "type": "string",
 		    "description": ""
 		},
-		"paramter_expression": {
+	    	"objective_confidence": {
+		    "type": "string",
+		    "description": ""
+		},
+		"parameter_expression": {
 		    "type": "string",
 		    "description": ""
 		},
