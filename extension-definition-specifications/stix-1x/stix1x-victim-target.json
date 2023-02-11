@@ -16,16 +16,15 @@
 		    "items": {
 			"type": "string"
                     },
-		    "minItems": 1
+		    "minItems": 1,
 		    "description": "This property characterizes a type of systems that are targeted. It SHOULD come from system-type-ov."
-		    
 		},
 	        "targeted_information": {
 		    "type": "array",
 		    "items": {
 			"type": "string"
                     },
-		    "minItems": 1
+		    "minItems": 1,
 		    "description": "This property characterizes a type of information that is targeted. It SHOULD come from information-type-ov."
 		    
 		}
