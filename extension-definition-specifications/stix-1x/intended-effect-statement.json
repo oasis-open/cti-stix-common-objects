@@ -19,10 +19,6 @@
 			
 		}
 	},
-	"required": [
-	    "description",
-	    "value"
-	],
         "additionalProperties": false,
         "definitions": {
 	    "intended-effect-ov": {
