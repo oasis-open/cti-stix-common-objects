@@ -27,7 +27,14 @@
 		    "minItems": 1,
 		    "description": "This property characterizes a type of information that is targeted. It SHOULD come from information-type-ov."
 		    
-		}
+		},
+	    "intended_effects": {
+		"type": "array",
+		"items": {
+		    "$ref": "intended-effect-statement.json"
+		},
+		"minItems": 1
+	    }
 	},
         "additionalProperties": false,
 	"required": [
@@ -79,7 +86,7 @@
 		    "Information Assets - Intellectual Property",	
 		    "Information Assets - Mobile Phone Contacts",	
 		    "Information Assets - User Credentials",	
-		    "Authentication Cookies",
+		    "Authentication Cookies"
 	    	],
 		"description": "from https://stixproject.github.io/data-model/1.2/stixVocabs/InformationTypeVocab-1.0/"
 		    

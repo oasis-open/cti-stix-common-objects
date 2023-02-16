@@ -1,7 +1,7 @@
 {
-	"$id": "http://raw.githubusercontent.com/rpiazza/cti-stix-common-objects/stix-1x/extension-definition-specifications/stix-1x/intended-effect-statement-type.json",
+	"$id": "http://raw.githubusercontent.com/rpiazza/cti-stix-common-objects/stix-1x/extension-definition-specifications/stix-1x/intended-effect-statement.json",
 	"$schema": "http://json-schema.org/draft/2020-12/schema#",
-	"title": "intended-effect-statement-type",
+	"title": "intended-effect-statement",
 	"description": "Represents the STIX 1.x statement type which uses a intended-effect-ov as the value",
 	"type": "object",
 	"properties": {

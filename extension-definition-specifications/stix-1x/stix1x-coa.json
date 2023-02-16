@@ -2,7 +2,7 @@
 	"$id": "https://raw.githubusercontent.com/rpiazza/cti-stix-common-objects/stix-1x/extension-definition-specifications/stix-1x/stix1x-coa.json",
 	"$schema": "http://json-schema.org/draft-07/schema#",
 	"title": "stix1x-coa-extension-schema",
-	"description": "This is the wrapper for the coa extension is used by the stix-elevator",
+	"description": "This is the coa extension schema is used by the stix-elevator",
 	"type": "object",
 	"properties": {
 		"extension_type": {
@@ -30,17 +30,17 @@
 		},
 		"impact": {
 		    "type": "object",
-		    "$ref": "hml-statement-type.json",
+		    "$ref": "hml-statement.json",
 		    "description": ""
 		},
 		"cost": {
 		    "type": "object",
-		    "$ref": "hml-statement-type.json",
+		    "$ref": "hml-statement.json",
 		    "description": ""
 		},
 		"efficacy": {
 		    "type": "object",
-		    "$ref": "hml-statement-type.json",
+		    "$ref": "hml-statement.json",
 		    "description": ""
 		}
 	},

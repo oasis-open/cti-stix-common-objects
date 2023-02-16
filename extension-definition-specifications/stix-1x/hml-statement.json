@@ -1,7 +1,7 @@
 {
-  "$id": "http://raw.githubusercontent.com/rpiazza/cti-stix-common-objects/stix-1x/extension-definition-specifications/stix-1x/hml-statement-type.json",
+  "$id": "http://raw.githubusercontent.com/rpiazza/cti-stix-common-objects/stix-1x/extension-definition-specifications/stix-1x/hml-statement.json",
   "$schema": "http://json-schema.org/draft/2020-12/schema#",
-  "title": "hml-statement-type",
+  "title": "hml-statement",
   "description": "Represents the STIX 1.x statement type with high/medium/low as the value",
   "type": "object",
   "properties": {
