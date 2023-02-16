@@ -2,7 +2,7 @@
 	"$id": "https://raw.githubusercontent.com/rpiazza/cti-stix-common-objects/stix-1x/extension-definition-specifications/stix-1x/stix1x-indicator.json",
 	"$schema": "http://json-schema.org/draft-07/schema#",
 	"title": "stix1x-indicator-extension-schema",
-	"description": "This is the indicator extension schema is used by the stix-elevator",
+	"description": "This is the indicator extension schema used by the stix-elevator",
 	"type": "object",
 	"properties": {
 		"extension_type": {

@@ -15,7 +15,7 @@
           "properties": {
             "extension-definition--5efa53f9-cf17-4867-bb4f-4cd2ac055e7c": {
 		"type": "object",
-		"$ref": "stix1x-ttp.json"
+		"$ref": "stix1x-malware.json"
             }
           }
         }
