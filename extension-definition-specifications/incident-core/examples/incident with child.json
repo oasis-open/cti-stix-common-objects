@@ -21,18 +21,25 @@
                     "defender_activities": [
                         {
                             "activity_type": "discovery",
+                            "outcome": "successful",
                             "description": "User alerted security",
-                            "timestamp": "2020-10-15T06:00:00.000Z",
-                            "timestamp_fidelity": "day"
+                            "start_time": "2020-10-15T06:00:00.000Z",
+                            "start_time_fidelity": "day",
+                            "end_time": "2020-10-15T06:00:00.000Z",
+                            "end_time_fidelity": "day"
                         },
                         {
                             "activity_type": "updated-inventory",
-                            "timestamp": "2020-10-19T06:00:00.000Z",
-                            "timestamp_fidelity": "day"
+                            "outcome": "successful",
+                            "start_time": "2020-10-19T06:00:00.000Z",
+                            "start_time_fidelity": "day",
+                            "end_time": "2020-10-19T06:00:00.000Z",
+                            "end_time_fidelity": "day"
                         },
                         {
                             "activity_type": "flagged-spill-incident",
-                            "timestamp": "2020-10-19T02:12:23.000Z"
+                            "outcome": "successful",
+                            "end_time": "2020-10-19T02:12:23.000Z"
                         }
                     ]
                 }

@@ -20,8 +20,10 @@
                     "defender_activities": [
                         {
                             "activity_type": "discovery",
+                            "outcome": "successful",
                             "description": "An alert was triggered",
-                            "timestamp": "2020-10-15T01:01:01.000Z"
+                            "start_time": "2020-10-15T01:01:01.000Z",
+                            "end_time": "2020-10-15T01:01:01.000Z"
                         }
                     ],
                     "attacker_activities": [

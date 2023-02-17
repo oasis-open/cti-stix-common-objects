@@ -20,34 +20,38 @@
                     "defender_activities": [
                         {
                             "activity_type": "discovery",
+                            "outcome": "successful",
                             "description": "A server admin found a strange account",
-                            "timestamp": "2020-10-15T01:01:01.000Z"
+                            "start_time": "2020-10-15T01:01:01.000Z",
+                            "end_time": "2020-10-15T01:01:01.000Z",
+                            "sequence_start": 5,
+                            "sequence_end": 5
                         }
                     ],
                     "attacker_activities": [
                         {
-                            "outcome": "successful-attempt",
+                            "outcome": "successful",
                             "pattern_ref": "attack-pattern--d742a578-d70e-4d0e-96a6-02a9c30204e6",
                             "description": "Drive-by compromise of a trusted domain was believed to deliver malware, but it is unclear when it was activated",
                             "sequence_start": 1,
                             "sequence_end": 1
                         },
                         {
-                            "outcome": "successful-attempt",
+                            "outcome": "successful",
                             "pattern_ref": "attack-pattern--6aac77c4-eaf2-4366-8c13-ce50ab951f38",
                             "description": "A phishing campaign was attachments was used to attempt to deliver malicious PDFs.  The malware may have already been active by the time a user clicks on this however as it started before the drive by, but also ended after it.",
                             "sequence_start": 1,
                             "sequence_end": 3
                         },
                         {
-                            "outcome": "successful-attempt",
+                            "outcome": "successful",
                             "pattern_ref": "attack-pattern--51dea151-0898-4a45-967c-3ebee0420484",
                             "description": "Remote desktop protocol was used to access domain controller",
                             "sequence_start": 3,
                             "sequence_end": 3
                         },
                         {
-                            "outcome": "successful-attempt",
+                            "outcome": "successful",
                             "pattern_ref": "attack-pattern--7610cada-1499-41a4-b3dd-46467b68d177",
                             "description": "A domain account was created to allow remote access using normal means by the attacker",
                             "end_time": "2020-10-15T00:01:32.700Z",

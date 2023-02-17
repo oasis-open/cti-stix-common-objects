@@ -21,12 +21,20 @@
                     "defender_activities": [
                         {
                             "activity_type": "discovery",
+                            "outcome": "successful",
                             "description": "User alerted security",
-                            "timestamp": "2020-10-15T01:01:01.000Z"
+                            "start_time": "2020-10-15T01:00:00.000Z",
+                            "start_time_fidelity": "hour",
+                            "end_time": "2020-10-15T01:00:00.000Z",
+                            "end_time_fidelity": "hour"
                         },
                         {
                             "activity_type": "updated-inventory",
-                            "timestamp": "2020-10-19T02:12:23.000Z"
+                            "outcome": "successful",
+                            "start_time": "2020-10-19T02:00:00.000Z",
+                            "start_time_fidelity": "hour",
+                            "end_time": "2020-10-19T02:00:00.000Z",
+                            "end_time_fidelity": "hour"
                         }
                     ]
                 }
@@ -51,13 +59,19 @@
                     "defender_activities": [
                         {
                             "activity_type": "discovery",
+                            "outcome": "successful",
                             "description": "User alerted security",
-                            "timestamp": "2020-10-19T02:15:01.000Z"
+                            "start_time": "2020-10-19T02:00:00.000Z",
+                            "start_time_fidelity": "hour",
+                            "end_time": "2020-10-19T02:00:00.000Z",
+                            "end_time_fidelity": "hour"
                         },
                         {
                             "activity_type": "closed",
+                            "outcome": "successful",
                             "description": "Determined this was a duplicate of another ticket",
-                            "timestamp": "2020-10-19T03:12:23.000Z"
+                            "start_time": "2020-10-19T03:12:23.000Z",
+                            "end_time": "2020-10-19T03:12:23.000Z"
                         }
                     ]
                 }

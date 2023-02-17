@@ -23,7 +23,7 @@
                     ],
                     "attacker_activities": [
                         {
-                            "outcome": "successful-attempt",
+                            "outcome": "successful",
                             "pattern_ref": "attack-pattern--2b742742-28c3-4e1b-bab7-8350d6300fa7",
                             "description": "A phishing email with a malicious link was delivered.  When the user went to this link it put a dropper on their computer.",
                             "kill_chain_phases": [
@@ -34,10 +34,10 @@
                             ],
                             "sequence_start": 1,
                             "sequence_end": 1,
-                            "observed_refs": ["file--9704eca1-8efd-542c-a626-77d7cbcfe49f"]
+                            "observed_refs": ["file--9704eca1-8efd-542c-a626-77d7cbcfe49f", "indicator--878492d0-9802-4854-88f3-bd433ae54d4d"]
                         },
                         {
-                            "outcome": "successful-attempt",
+                            "outcome": "successful",
                             "description": "The dropper verified it had internet access by checking google and then downloaded and installed second stage tooling.",
                             "kill_chain_phases": [
                                 {
@@ -64,10 +64,10 @@
                             ],
                             "sequence_start": 3,
                             "sequence_end": 4,
-                            "observed_refs": ["file--6a597e24-1209-5e8f-819c-1addce1bb314"]
+                            "observed_refs": ["file--6a597e24-1209-5e8f-819c-1addce1bb314", "indicator--2149c5c5-2917-4f89-958f-e34eab7a315c"]
                         },
                         {
-                            "outcome": "successful-attempt",
+                            "outcome": "successful",
                             "description": "One of the second stage tools was able to communicate with an ICS sensor device and destroyed it.",
                             "kill_chain_phases": [
                                 {
@@ -83,32 +83,49 @@
                     "defender_activities": [
                         {
                             "activity_type": "discovery",
+                            "outcome": "successful",
                             "description": "The assembly line experienced a shutdown due to a device failing.  This was determined to be a sensor failure.",
-                            "timestamp": "2022-05-01T07:00:00Z",
-                            "timestamp_fidelity": "day"
+                            "start_time": "2022-05-01T07:00:00Z",
+                            "start_time_fidelity": "day",
+                            "end_time": "2022-05-01T07:00:00Z",
+                            "end_time_fidelity": "day"
                         },
                         {
                             "activity_type": "declared",
+                            "outcome": "successful",
                             "description": "Investigations into the sensor found that its controller was behaving strangely and it was believed to be due to a problem with the code",
-                            "timestamp": "2022-05-01T07:00:00Z",
-                            "timestamp_fidelity": "day"
+                            "start_time": "2022-05-01T07:00:00Z",
+                            "start_time_fidelity": "day",
+                            "end_time": "2022-05-01T07:00:00Z",
+                            "end_time_fidelity": "day"
                         },
                         {
                             "activity_type": "escalated",
+                            "outcome": "successful",
                             "description": "The cause of the error was traced to malware on the system and an investigation began",
-                            "timestamp": "2022-05-02T07:00:00Z",
-                            "timestamp_fidelity": "day"
+                            "start_time": "2022-05-02T07:00:00Z",
+                            "start_time_fidelity": "day",
+                            "end_time": "2022-05-02T07:00:00Z",
+                            "end_time_fidelity": "day"
                         },
                         {
                             "activity_type": "reported",
+                            "outcome": "successful",
                             "object_ref": "course-of-action--8bb544ff-0499-4ee3-b683-305b8b0955a3",
-                            "identity_refs": ["identity--e0ee62af-7b13-4345-ad42-11950850cabe"],
+                            "identity_refs": ["identity--7a164253-fbfd-420b-9316-79f5d3dff51f"],
                             "description": "Law enforcement was contacted regarding the incident",
-                            "timestamp": "2022-05-02T07:00:00Z",
-                            "timestamp_fidelity": "day"
+                            "start_time": "2022-05-02T07:00:00Z",
+                            "start_time_fidelity": "day",
+                            "end_time": "2022-05-02T07:00:00Z",
+                            "end_time_fidelity": "day"
                         }
                     ],
-                    "availability_impact": 65,
+                    "availability_impacts": [
+                        {
+                            "availability_impact": 65,
+                            "impacted_refs": ["infrastructure--8faf3522-88a2-4402-b5c1-0d7ecb1a767f"]
+                        }
+                    ],
                     "physical_impacts": [
                         {
                             "impact_type": "damaged-nonfunctional",
@@ -349,6 +366,16 @@
             "relationship_type": "member-of",
             "source_ref": "identity--e0ee62af-7b13-4345-ad42-11950850cabe",
             "target_ref": "identity--7a164253-fbfd-420b-9316-79f5d3dff51f"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--05298766-27ed-4390-ae32-eb4a94bf5947",
+            "created": "2022-05-06T01:01:01.000Z",
+            "modified": "2022-05-06T01:01:01.000Z",
+            "relationship_type": "contact-for",
+            "source_ref": "identity--e0ee62af-7b13-4345-ad42-11950850cabe",
+            "target_ref": "incident--a089c631-4392-48e5-8d55-7d1999ca9395"
         }
     ]
 }

@@ -24,7 +24,7 @@
                     ],
                     "attacker_activities": [
                         {
-                            "outcome": "successful-attempt",
+                            "outcome": "successful",
                             "pattern_ref": "attack-pattern--7ad205e1-02b2-42a2-b425-a5bf96b48046",
                             "description": "A theif stole the encrypted laptop from a table at a coffee shop while it was unlocked",
                             "sequence_start": 1,
@@ -35,31 +35,52 @@
                     ],
                     "defender_activities": [
                         {
+                            "activity_type": "implemented-control",
+                            "outcome": "unknown",
+                            "description": "The laptop was encrypted, but it is unclear if this is actually preventing the thief from exacting information as the device was unlocked.",
+                            "object_ref": "course-of-action--a6c2ef7e-5b34-4113-a440-d2e33e79197e"
+                        },
+                        {
                             "activity_type": "discovery",
+                            "outcome": "successful",
+                            "description": "Security was alerting the theft of equipment"
+                        },
+                        {
+                            "activity_type": "discovery",
+                            "outcome": "successful",
                             "description": "Security was alerting the theft of equipment",
-                            "timestamp": "2020-10-15T01:01:01.000Z"
+                            "start_time": "2020-10-15T01:01:01.000Z",
+                            "end_time": "2020-10-15T01:01:01.000Z"
                         },
                         {
                             "activity_type": "declared",
+                            "outcome": "successful",
                             "description": "The laptop was determined to have PII so a potential breach was declared",
-                            "timestamp": "2020-10-16T15:01:10.000Z"
+                            "start_time": "2020-10-16T15:01:10.000Z",
+                            "end_time": "2020-10-16T15:01:10.000Z"
                         },
                         {
                             "activity_type": "escalated",
+                            "outcome": "successful",
                             "description": "Found the laptop contained 123,456 records and was unlocked when stolen so this data has a high probability of being exposed",
-                            "timestamp": "2020-10-16T15:01:10.000Z"
+                            "start_time": "2020-10-16T15:01:10.000Z",
+                            "end_time": "2020-10-16T15:01:10.000Z"
                         },
                         {
                             "activity_type": "reported",
+                            "outcome": "successful",
                             "object_ref": "course-of-action--8bb544ff-0499-4ee3-b683-305b8b0955a3",
                             "identity_refs": ["identity--e0ee62af-7b13-4345-ad42-11950850cabe"],
                             "description": "Police were contacted regarding the theft of the laptop and are working with the coffee shop to identify the using security footage",
-                            "timestamp": "2020-10-16T15:01:10.000Z"
+                            "start_time": "2020-10-16T15:01:10.000Z",
+                            "end_time": "2020-10-16T15:01:10.000Z"
                         },
                         {
                             "activity_type": "reported",
+                            "outcome": "successful",
                             "description": "PII Breach report was filed per regulations",
-                            "timestamp": "2020-10-16T15:02:23.000Z"
+                            "start_time": "2020-10-16T15:02:23.000Z",
+                            "end_time": "2020-10-16T15:02:23.000Z"
                         }
                     ],
                     "confidentiality_impacts": [
@@ -69,7 +90,12 @@
                             "record_count": 123456
                         }
                     ],
-                    "availability_impact": 0,
+                    "availability_impacts": [
+                        {
+                            "availability_impact": 0,
+                            "labels": ["overall"]
+                        }
+                    ],
                     "integrity_impacts": [
                         {
                             "alteration": "none"
@@ -125,18 +151,6 @@
             "spec_version": "2.1",
             "name": "Encrypt Portable Devices",
             "description": "Encrypt all portable devices to protect them in case of loss of control."
-        },
-        {
-            "type": "relationship",
-            "spec_version": "2.1",
-            "labels": ["successful"],
-            "id": "relationship--acd3e17e-73dc-4f42-ab16-dc63ddbb6fdd",
-            "created": "2020-10-19T01:01:01.000Z",
-            "modified": "2020-10-19T01:01:01.000Z",
-            "relationship_type": "for-mitigation-of",
-            "source_ref": "course-of-action--a6c2ef7e-5b34-4113-a440-d2e33e79197e",
-            "target_ref": "incident--63c6e23e-7994-4536-acad-4309a7069540",
-            "description": "The laptop was encrypted, but it is unclear if this is actually preventing the thief from exacting information as the device was unlocked."
         },
         {
             "type": "course-of-action",

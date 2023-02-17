@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema",
     "$id": "https://raw.githubusercontent.com/oasis-open/cti-stix-common-objects/main/extension-definition-specifications/incident-core/incident_core.json",
-    "title": "DC3 Incident Core Extension",
+    "title": "Incident Core Extension",
     "description": "A core extension of the Incident object to allow core details of the Incident to be shared while tracking major details tied to the incident's timeline.  Multiple Incidents can be tied together via relationships if a higher degree of fidelity is needed across phases.",
     "type": "object",
     "required": [
@@ -82,18 +82,50 @@
         "recoverability": {
             "$ref": "#/definitions/Recoverability"
         },
-        "availability_impact": {
-            "type": "integer",
+        "availability_impacts": {
+            "type": "array",
             "description": "The availability / functional impact of the incident on operations",
-            "minimum": 0,
-            "maximum": 100
+            "minItems": 1,
+            "items": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/Impact_Common_Properties"
+                    }
+                ],
+                "unevaluatedProperties": false,
+                "required": ["availability_impact"],
+                "properties": {
+                    "availability_impact": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 100
+                    },
+                    "recoverability": {
+                        "$ref": "#/definitions/Recoverability"
+                    }
+                }
+            }
         },
         "external_impacts": {
             "type": "array",
             "description": "The scope of impact outside of the direct organization",
             "minItems": 1,
             "items": {
-                "type": "string"
+                "type": "object",
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/Impact_Common_Properties"
+                    }
+                ],
+                "unevaluatedProperties": false,
+                "required": ["impact_type"],
+                "properties": {
+                    "impact_type": {
+                        "type": "string",
+                        "minLength": 1
+                    }
+                }
             },
             "$comment": "This will be an open vocabulary including: 'national-security', 'foreign-relations', 'economic', 'public-confidence', 'civil-liberties', 'public-health'"
         },
@@ -105,8 +137,13 @@
                 "oneOf": [
                     {
                         "type": "object",
-                        "additionalProperties": false,
+                        "unevaluatedProperties": false,
                         "required": ["information_type", "loss_type"],
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/Impact_Common_Properties"
+                            }
+                        ],
                         "properties": {
                             "information_type": {
                                 "type": "string",
@@ -118,18 +155,8 @@
                                     "confirmed-loss"
                                     , "contained"
                                     , "exploited-loss"
-                                    , "none"
                                     , "suspected-loss"
                                 ]
-                            },
-                            "impacted_refs": {
-                                "type": "array",
-                                "description": "A list of all assets or infrastructure impacted by this activity.  This can relate directly to SCOs, but can also reference Infrastructure or other SDOs.",
-                                "minItems": 1,
-                                "items": {
-                                    "type": "string",
-                                    "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json"
-                                }
                             },
                             "record_count": {
                                 "type": "integer",
@@ -140,21 +167,36 @@
                                 "type": "integer",
                                 "description": "The amount of data that was compromised in bytes",
                                 "minimum": 0
-                            },
-                            "description": {
-                                "type": "string",
-                                "description": "An optional narative that further describes this impact"
                             }
                         }
                     },
                     {
                         "type": "object",
-                        "additionalProperties": false,
+                        "unevaluatedProperties": false,
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/Impact_Common_Properties"
+                            }
+                        ],
                         "required": ["loss_type"],
                         "properties": {
+                            "information_type": {
+                                "type": "string",
+                                "description": "The type of data that had its confidentiality compromised"
+                            },
                             "loss_type": {
                                 "type": "string",
                                 "const": "none"
+                            },
+                            "record_count": {
+                                "type": "integer",
+                                "description": "The number of records of this type that were compromised",
+                                "minimum": 0
+                            },
+                            "record_size": {
+                                "type": "integer",
+                                "description": "The amount of data that was compromised in bytes",
+                                "minimum": 0
                             }
                         }
                     }
@@ -169,7 +211,12 @@
                 "oneOf": [
                     {
                         "type": "object",
-                        "additionalProperties": false,
+                        "unevaluatedProperties": false,
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/Impact_Common_Properties"
+                            }
+                        ],
                         "required": ["information_type", "alteration"],
                         "properties": {
                             "information_type": {
@@ -185,17 +232,7 @@
                                     , "partial-modification"
                                     , "full-destruction"
                                     , "full-modification"
-                                    , "none"
                                 ]
-                            },
-                            "impacted_refs": {
-                                "type": "array",
-                                "description": "A list of all assets or infrastructure impacted by this activity.  This can relate directly to SCOs, but can also reference Infrastructure or other SDOs.",
-                                "minItems": 1,
-                                "items": {
-                                    "type": "string",
-                                    "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json"
-                                }
                             },
                             "recoverability": {
                                 "$ref": "#/definitions/Recoverability"
@@ -209,22 +246,40 @@
                                 "type": "integer",
                                 "description": "The amount of data that was compromised in bytes",
                                 "minimum": 0
-                            },
-                            "description": {
-                                "type": "string",
-                                "description": "An optional narative that further describes this impact"
                             }
                         }
                     },
                     {
                         "type": "object",
-                        "additionalProperties": false,
+                        "unevaluatedProperties": false,
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/Impact_Common_Properties"
+                            }
+                        ],
                         "required": ["alteration"],
                         "properties": {
+                            "information_type": {
+                                "type": "string",
+                                "description": "The type of information that had its integrity compromised.  This can include control systems and other processes that can result in virtual or physical impacts."
+                            },
                             "alteration": {
                                 "type": "string",
                                 "description": "The type of information that had its integrity compromised.  This can include control systems and other processes that can result in virtual or physical impacts.",
                                 "const": "none"
+                            },
+                            "recoverability": {
+                                "$ref": "#/definitions/Recoverability"
+                            },
+                            "record_count": {
+                                "type": "integer",
+                                "description": "The number of records of this type that were compromised",
+                                "minimum": 0
+                            },
+                            "record_size": {
+                                "type": "integer",
+                                "description": "The amount of data that was compromised in bytes",
+                                "minimum": 0
                             }
                         }
                     }
@@ -236,8 +291,13 @@
             "description": "A list of monetary impacts for the incident",
             "items": {
                 "type": "object",
-                "additionalProperties": false,
+                "unevaluatedProperties": false,
                 "required": ["variety"],
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/Impact_Common_Properties"
+                    }
+                ],
                 "oneOf": [
                     {
                         "not": {
@@ -252,12 +312,6 @@
                     }
                 ],
                 "properties": {
-                    "criticality": {
-                        "type": "integer",
-                        "description": "The criticality of this particular impact",
-                        "minimum": 0,
-                        "maximum": 100
-                    },
                     "variety": {
                         "type": "string",
                         "description": "The variety of the impact"
@@ -275,9 +329,6 @@
                         "type": "number",
                         "description": "The lower bound estimate using the currency listed for the monetary damage caused by this impact",
                         "minimum": 0
-                    },
-                    "description": {
-                        "type": "string"
                     }
                 }
             }
@@ -290,8 +341,13 @@
                 "oneOf": [
                     {
                         "type": "object",
-                        "additionalProperties": false,
                         "required": ["asset_type", "impact_type"],
+                        "unevaluatedProperties": false,
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/Impact_Common_Properties"
+                            }
+                        ],
                         "properties": {
                             "asset_type": {
                                 "type": "string",
@@ -303,36 +359,33 @@
                                     "damaged-functional"
                                     , "damaged-nonfunctional"
                                     , "destruction"
-                                    , "none"
                                 ]
-                            },
-                            "impacted_refs": {
-                                "type": "array",
-                                "description": "A list of all assets or infrastructure impacted by this activity.  This can relate directly to SCOs, but can also reference Infrastructure or other SDOs.",
-                                "minItems": 1,
-                                "items": {
-                                    "type": "string",
-                                    "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json"
-                                }
                             },
                             "recoverability": {
                                 "$ref": "#/definitions/Recoverability"
-                            },
-                            "description": {
-                                "type": "string",
-                                "description": "An optional narative that further describes this impact"
                             }
                         }
                     },
                     {
                         "type": "object",
-                        "additionalProperties": false,
+                        "unevaluatedProperties": false,
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/Impact_Common_Properties"
+                            }
+                        ],
                         "required": ["impact_type"],
                         "properties": {
-                            "alteration": {
+                            "impact_type": {
                                 "type": "string",
-                                "description": "The level of damage from the incident.",
                                 "const": "none"
+                            },
+                            "asset_type": {
+                                "type": "string",
+                                "description": "The type of asset that was affected by this impact."
+                            },
+                            "recoverability": {
+                                "$ref": "#/definitions/Recoverability"
                             }
                         }
                     }
@@ -346,9 +399,14 @@
                 "type": "object",
                 "required": [
                     "activity_type"
-                    , "timestamp"
+                    , "outcome"
                 ],
-                "additionalProperties": false,
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/Activity_Common_Properties"
+                    }
+                ],
+                "unevaluatedProperties": false,
                 "properties": {
                     "object_ref": {
                         "type": "string",
@@ -368,33 +426,6 @@
                             "type": "string",
                             "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json"
                         }
-                    },
-                    "impacted_refs": {
-                        "type": "array",
-                        "description": "A list of all assets or infrastructure impacted by this activity.  This can relate directly to SCOs, but can also reference Infrastructure or other SDOs.",
-                        "minItems": 1,
-                        "items": {
-                            "type": "string",
-                            "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json"
-                        }
-                    },
-                    "is_projection": {
-                        "type": "boolean",
-                        "description": "If this is a projection of when a future event will occur for example when recovery will be completed.",
-                        "default": "false"
-                    },
-                    "description": {
-                        "type": "string",
-                        "description": "A description of the activity that occurred."
-                    },
-                    "timestamp": {
-                        "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/timestamp.json",
-                        "description": "When this activity occurred"
-                    },
-                    "timestamp_fidelity": {
-                        "type": "string",
-                        "description": "The maximum degree of fidelity provided by the timestamp.  When set to day for example the timestamp 2021-02-01T04:00:00Z should only be read to be accurate to Februrary 1st 2021 for a day starting at 4:00:00Z and not at that exact hour minute or second within that 24 hour period.",
-                        "enum": ["second", "minute", "hour", "day", "month", "year"]
                     }
                 },
                 "$comment": "This was included as an array instead of a series of external relationships because course of action is optional, and will often not be included.  As such it allows defenders to provide timestamps of when they performed general actions without needing to provide an explicit course of action object.  Many events including detection also do not fit the standard Course of Action use case so it is unclear if this would be the desired long-term behavior."
@@ -406,26 +437,16 @@
             "items": {
                 "type": "object",
                 "required": ["outcome"],
-                "additionalProperties": false,
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/Activity_Common_Properties"
+                    }
+                ],
+                "unevaluatedProperties": false,
                 "properties": {
-                    "description": {
-                        "type": "string",
-                        "description": "A description of adversary activity that occurred and in what sequence.  Sequence information defined by the sequence_start and sequence_end properties, not the position in the array.  This allows for indeterminate sequences to be recorded."
-                    },
                     "goal": {
                         "type": "string",
                         "description": "The attack's assumed objective when performing this activity"
-                    },
-                    "outcome": {
-                        "type": "string",
-                        "description": "The outcome of a particular attacker activity",
-                        "enum": [
-                            "blocked"
-                            , "failed-attempt"
-                            , "ongoing"
-                            , "successful-attempt"
-                            , "unknown"
-                        ]
                     },
                     "kill_chain_phases": {
                         "type": "array",
@@ -439,43 +460,6 @@
                         "type": "string",
                         "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
                         "pattern": "^attack-pattern--"
-                    },
-                    "start_time": {
-                        "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/timestamp.json",
-                        "description": "The date the activity was first recorded.  If this is not present it is assumed to be unknown."
-                    },
-                    "start_time_fidelity": {
-                        "type": "string",
-                        "description": "The maximum degree of fidelity provided by the start_time.  When set to 'month' for example the timestamp 2021-02-01T04:00:00Z should only be read to be accurate to Februrary 2021 not a specific day within the month.",
-                        "enum": ["second", "minute", "hour", "day", "month", "year"]
-                    },
-                    "end_time": {
-                        "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/timestamp.json",
-                        "description": "The date the activity was last recorded.  If this is not present it is assumed to be unknown."
-                    },
-                    "end_time_fidelity": {
-                        "type": "string",
-                        "description": "The maximum degree of fidelity provided by the end_time.  When set to 'hour' for example the timestamp 2021-02-01T04:00:00Z should only be read to be accurate to Februrary 1st 2021 between 04:00:00Z (inclusive) and 05:00:00Z (exclusive).",
-                        "enum": ["second", "minute", "hour", "day", "month", "year"]
-                    },
-                    "sequence_start": {
-                        "type": "number",
-                        "description": "An optional sequence number starting at 0 that shows the earlier point in an attack that this activity is believed to have occurred relative to other attacker activities.  This cannot be greater than sequence_end, but the two can be equal.",
-                        "minimum": 0
-                    },
-                    "sequence_end": {
-                        "type": "number",
-                        "description": "An optional sequence number starting at 0 that shows the lastest point in an attack that this activity is believed to have occurred relative to other attacker activities.  This cannot be less than sequence_start, but the two can be equal.",
-                        "minimum": 0
-                    },
-                    "impacted_refs": {
-                        "type": "array",
-                        "description": "A list of all assets or infrastructure impacted by this activity.  This can relate directly to SCOs, but can also reference Infrastructure or other SDOs.",
-                        "minItems": 1,
-                        "items": {
-                            "type": "string",
-                            "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json"
-                        }
                     },
                     "observed_refs": {
                         "type": "array",
@@ -521,6 +505,98 @@
                 "not-recoverable"
             ],
             "$comment": "This is a closed vocabulary: non-applicable is an addition to what is found on https://us-cert.cisa.gov/incident-notification-guidelines for Incident reports that do not have associated recover costs.  For example a phishing email that was detected successfully."
+        },
+        "Impact_Common_Properties": {
+            "type": "object",
+            "properties": {
+                "criticality": {
+                    "type": "integer",
+                    "description": "The criticality of this particular impact",
+                    "minimum": 0,
+                    "maximum": 100
+                },
+                "description": {
+                    "type": "string",
+                    "description": "An optional narative that further describes this impact"
+                },
+                "impacted_refs": {
+                    "type": "array",
+                    "description": "A list of all assets or infrastructure impacted by this activity.  This can relate directly to SCOs, but can also reference Infrastructure or other SDOs.",
+                    "minItems": 1,
+                    "items": {
+                        "type": "string",
+                        "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json"
+                    }
+                },
+                "labels": {
+                    "type": "array",
+                    "description": "The labels property specifies a set of terms used to describe this impact. The terms are user-defined or trust-group defined and their meaning is outside the scope of this specification and MAY be ignored.",
+                    "minItems": 1,
+                    "items": {
+                        "type": "string",
+                        "minLength": 1
+                    }
+                }
+            }
+        },
+        "Activity_Common_Properties": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "A description of the activity that occurred."
+                },
+                "impacted_refs": {
+                    "type": "array",
+                    "description": "A list of all assets or infrastructure impacted by this activity.  This can relate directly to SCOs, but can also reference Infrastructure or other SDOs.",
+                    "minItems": 1,
+                    "items": {
+                        "type": "string",
+                        "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json"
+                    }
+                },
+                "outcome": {
+                    "type": "string",
+                    "description": "The outcome of a particular attacker activity",
+                    "enum": [
+                        "blocked"
+                        , "failed"
+                        , "occurred"
+                        , "ongoing"
+                        , "pending"
+                        , "successful"
+                        , "unknown"
+                    ]
+                },
+                "start_time": {
+                    "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/timestamp.json",
+                    "description": "The date the activity was first recorded.  If this is not present it is assumed to be unknown."
+                },
+                "start_time_fidelity": {
+                    "type": "string",
+                    "description": "The maximum degree of fidelity provided by the start_time.  When set to 'month' for example the timestamp 2021-02-01T04:00:00Z should only be read to be accurate to Februrary 2021 not a specific day within the month.",
+                    "enum": ["second", "minute", "hour", "day", "month", "year"]
+                },
+                "end_time": {
+                    "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/timestamp.json",
+                    "description": "The date the activity was last recorded.  If this is not present it is assumed to be unknown."
+                },
+                "end_time_fidelity": {
+                    "type": "string",
+                    "description": "The maximum degree of fidelity provided by the end_time.  When set to 'hour' for example the timestamp 2021-02-01T04:00:00Z should only be read to be accurate to Februrary 1st 2021 between 04:00:00Z (inclusive) and 05:00:00Z (exclusive).",
+                    "enum": ["second", "minute", "hour", "day", "month", "year"]
+                },
+                "sequence_start": {
+                    "type": "number",
+                    "description": "An optional sequence number starting at 0 that shows the earliest point this activity is believed to have occurred relative to other attacker and defender activities.  This cannot be greater than sequence_end, but the two can be equal.",
+                    "minimum": 0
+                },
+                "sequence_end": {
+                    "type": "number",
+                    "description": "An optional sequence number starting at 0 that shows the lastest point this activity is believed to have occurred relative to other attacker and defender activities.  This cannot be less than sequence_start, but the two can be equal.",
+                    "minimum": 0
+                }
+            }
         }
     }
 }

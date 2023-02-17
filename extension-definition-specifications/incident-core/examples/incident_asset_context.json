@@ -7,7 +7,7 @@
         "created_by_ref": "identity--2242662b-d581-4864-8696-fff719dc0500",
         "spec_version": "2.1",
         "name": "Exchange Server Compromise",
-        "description": "An Exchange server was compromised",
+        "description": "An Exchange server was compromised containing protected health information",
         "external_references": [
             {
                 "source_name": "Special Internal System 32",
@@ -23,18 +23,34 @@
                 "defender_activities": [
                     {
                         "activity_type": "discovery",
+                        "outcome": "successful",
                         "object_ref": "playbook--6b74199d-42a6-43a1-99cb-75d52207a778",
-                        "timestamp": "2021-02-15T01:01:01.000Z"
+                        "start_time": "2021-02-15T01:01:01.000Z",
+                        "end_time": "2021-02-15T01:01:01.000Z"
+                    },
+                    {
+                        "activity_type": "recovery",
+                        "outcome": "pending",
+                        "object_ref": "course-of-action--45b98e3a-3800-49eb-b353-e56def4b6084",
+                        "impacted_refs": ["infrastructure--1c69a97c-bcfa-4674-b3a2-bfb8f797b7e5"],
+                        "description": "Per advice of security team it will be easier to start from a new server instead of cleaning the existing one.  The timeline for this is still pending."
                     }
                 ],
                 "detection_methods": ["automated-tool"],
                 "incident_types": ["unauthorized-release"],
                 "criticality": 93,
-                "availability_impact": 50,
+                "availability_impacts": [
+                    {
+                        "availability_impact": 50,
+                        "labels": ["overall"],
+                        "impacted_refs": ["infrastructure--1c69a97c-bcfa-4674-b3a2-bfb8f797b7e5"]
+                    }
+                ],
                 "confidentiality_impacts": [
                     {
                         "information_type": "phi",
-                        "loss_type": "suspected-loss"
+                        "loss_type": "suspected-loss",
+                        "impacted_refs": ["infrastructure--1c69a97c-bcfa-4674-b3a2-bfb8f797b7e5"]
                     }
                 ]
             }
@@ -110,27 +126,6 @@
         "relationship_type": "targets",
         "source_ref": "incident--200de3e1-6545-4d21-80b0-ded3570ec7d8",
         "target_ref": "identity--a52b3918-1819-454b-8e6a-42cf18a06c0b"
-    },
-    {
-        "type": "relationship",
-        "spec_version": "2.1",
-        "labels": ["planned"],
-        "id": "relationship--c1f8ab4b-d3cd-4c30-93cd-d60f174560db",
-        "created": "2020-10-19T01:01:01.000Z",
-        "modified": "2020-10-19T01:01:01.000Z",
-        "relationship_type": "mitigates",
-        "source_ref": "course-of-action--45b98e3a-3800-49eb-b353-e56def4b6084",
-        "target_ref": "incident--200de3e1-6545-4d21-80b0-ded3570ec7d8"
-    },
-    {
-        "type": "relationship",
-        "spec_version": "2.1",
-        "id": "relationship--6a0d7534-39ac-4a04-aab7-7774db1a57d6",
-        "created": "2020-10-19T01:01:01.000Z",
-        "modified": "2020-10-19T01:01:01.000Z",
-        "relationship_type": "impacts",
-        "source_ref": "incident--200de3e1-6545-4d21-80b0-ded3570ec7d8",
-        "target_ref": "infrastructure--1c69a97c-bcfa-4674-b3a2-bfb8f797b7e5"
     },
     {
         "type": "relationship",
