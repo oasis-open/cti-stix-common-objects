@@ -16,22 +16,32 @@
                 "defender_activities": [
                     {
                         "activity_type": "discovery",
-                        "timestamp": "2020-10-15T01:01:01.000Z"
+                        "outcome": "successful",
+                        "start_time": "2020-10-15T01:01:01.000Z",
+                        "end_time": "2020-10-15T01:01:01.000Z"
                     },
                     {
                         "activity_type": "reported",
-                        "timestamp": "2020-10-17T04:42:00.000Z"
+                        "outcome": "successful",
+                        "start_time": "2020-10-17T04:42:00.000Z",
+                        "end_time": "2020-10-17T04:42:00.000Z"
                     },
                     {
                         "activity_type": "recovery-started",
-                        "is_projection": true,
-                        "timestamp": "2030-01-01T04:42:00.000Z"
+                        "outcome": "pending",
+                        "start_time": "2030-01-01T04:42:00.000Z",
+                        "end_time": "2030-01-01T04:42:00.000Z"
                     }
                 ],
                 "detection_methods": ["user-reporting", "message-from-attacker"],
                 "incident_types": ["unauthorized-release", "destruction"],
                 "criticality": 90,
-                "availability_impact": 0,
+                "availability_impacts": [
+                    {
+                        "availability_impact": 0,
+                        "labels": ["overall"]
+                    }
+                ],
                 "confidentiality_impacts": [
                     {
                         "information_type": "pii",
