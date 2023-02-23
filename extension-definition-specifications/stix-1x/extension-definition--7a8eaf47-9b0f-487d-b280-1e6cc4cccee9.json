@@ -2,7 +2,7 @@
   "$id": "https://raw.githubusercontent.com/rpiazza/cti-stix-common-objects/stix-1x/extension-definition-specifications/stix-1x/extension-definition--7a8eaf47-9b0f-487d-b280-1e6cc4cccee9.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "stix1x-incident-extension-schema-wrapper",
-  "description": "This is the wrapper for the incident extension is used by the stix-elevator",
+  "description": "This is the wrapper for the incident extension used by the stix-elevator",
   "type": "object",
   "allOf": [
     {

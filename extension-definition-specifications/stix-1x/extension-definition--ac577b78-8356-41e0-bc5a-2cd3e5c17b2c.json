@@ -1,0 +1,28 @@
+{
+  "$id": "https://raw.githubusercontent.com/rpiazza/cti-stix-common-objects/stix-1x/extension-definition-specifications/stix-1x/extension-definition--ac577b78-8356-41e0-bc5a-2cd3e5c17b2c.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "stix1x-vulnerability-extension-schema-wrapper",
+  "description": "This is the wrapper for the vulnerability extension used by the stix-elevator",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/sdos/vulnerability.json"
+    },
+    {
+      "properties": {
+        "extensions": {
+          "type": "object",
+          "properties": {
+            "extension-definition--ac577b78-8356-41e0-bc5a-2cd3e5c17b2c": {
+              "type": "object",
+              "$ref": "stix1x-vulnerability.json"
+            }
+          }
+        }
+      },
+      "required": [
+        "extensions"
+      ]
+    }
+  ]
+}

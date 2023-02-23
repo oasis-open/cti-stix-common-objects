@@ -13,6 +13,7 @@
 		},
 		"version": {
 		    "type": "string"
+		    "description": "specifies the archiver version used to create archive file"
 		}
 	},
 	"required": [
