@@ -1,15 +1,15 @@
 {
-    "id": "bundle--999364d1-93c2-4efc-b52b-07208b5ee388",
+    "id": "bundle--82219473-ff7e-4185-8be6-c58aab7bce99",
     "objects": [
 	{
-	    "id": "extension-definition--a46b18de-0b41-4a95-9d2d-67a360f2d859",
+	    "id": "extension-definition--5efa53f9-cf17-4867-bb4f-4cd2ac055e7c",
 	    "type": "extension-definition",
 	    "spec_version": "2.1",
-	    "name": "Extension to support STIX 1.x Course of Action",
-	    "description": "This schema adds STIX 1.x Course of Action properties not present in the STIX 2.1 Course of Action stub object",
+	    "name": "Extension to support STIX 1.x Malware Instances",
+	    "description": "This schema adds STIX 1.x TTP properties not present in the STIX 2.1 Malware object",  # noqa
 	    "created": "2020-12-22T00:00:00.000000Z",
-	    "modified": "2022-12-12T00:00:00.000000Z",
-	    "created_by_ref":"identity--659e8342-f720-4d0d-b193-6a04fdfbb401",
+	    "modified": "2022-12-22T00:00:00.000000Z",
+	    "created_by_ref": "identity--659e8342-f720-4d0d-b193-6a04fdfbb401",
 	    "object_marking_refs": [
 		"marking-definition--3cd55916-d34b-4747-a8e0-dedec14b711b"
 	    ],
@@ -17,6 +17,7 @@
 	    "version": "1.0.0",
 	    "extension_types": ["property-extension"]
 	}
+
     ],
     "type": "bundle"
 }

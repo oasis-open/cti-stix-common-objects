@@ -1,15 +1,15 @@
 {
-    "id": "bundle--999364d1-93c2-4efc-b52b-07208b5ee388",
+    "id": "bundle--32d9a193-2d98-46b6-872a-c516b382dc1d",
     "objects": [
 	{
-	    "id": "extension-definition--a46b18de-0b41-4a95-9d2d-67a360f2d859",
+	    "id": "extension-definition--ac577b78-8356-41e0-bc5a-2cd3e5c17b2c",
 	    "type": "extension-definition",
 	    "spec_version": "2.1",
-	    "name": "Extension to support STIX 1.x Course of Action",
-	    "description": "This schema adds STIX 1.x Course of Action properties not present in the STIX 2.1 Course of Action stub object",
+	    "name": "Extension to support STIX 1.x Vulnerabilities",
+	    "description": "This schema adds two properties to a STIX object",
 	    "created": "2020-12-22T00:00:00.000000Z",
-	    "modified": "2022-12-12T00:00:00.000000Z",
-	    "created_by_ref":"identity--659e8342-f720-4d0d-b193-6a04fdfbb401",
+	    "modified": "2022-12-22T00:00:00.000000Z",
+	    "created_by_ref": "identity--659e8342-f720-4d0d-b193-6a04fdfbb401",      
 	    "object_marking_refs": [
 		"marking-definition--3cd55916-d34b-4747-a8e0-dedec14b711b"
 	    ],

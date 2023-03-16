@@ -13,35 +13,35 @@
 		},
 		"stage": {
 		    "type": "string",
-		    "description": "open vocab, suggested values in #/deinitions/coa-stage-ov"
+		    "description": "open vocab, suggested values in #/definitions/coa-stage-ov"
 		    
 		},
 		"objective": {
 		    "type": "string",
-		    "description": ""
+		    "description": "Characterizes the objective of this CourseOfAction"
 		},
 	    	"objective_confidence": {
 		    "type": "string",
-		    "description": ""
+		    "description": "Characterizes the level of confidence held in the applicability of this course of action for its targeted objective."
 		},
 		"parameter_expression": {
 		    "type": "string",
-		    "description": ""
+		    "description": "This property enables the specification of technical parameters to this course of action expressed as a STIX pattern"
 		},
 		"impact": {
 		    "type": "object",
 		    "$ref": "hml-statement.json",
-		    "description": ""
+		    "description": "This property characterizes the estimated impact of applying this course of action."
 		},
 		"cost": {
 		    "type": "object",
 		    "$ref": "hml-statement.json",
-		    "description": ""
+		    "description": "This property characterizes the estimated cost for applying this course of action"
 		},
 		"efficacy": {
 		    "type": "object",
 		    "$ref": "hml-statement.json",
-		    "description": ""
+		    "description": "This property characterizes the effectiveness of this course of action in achieving its targeted objective"
 		}
 	},
         "additionalProperties": false,
@@ -55,7 +55,7 @@
 		    "remedy",
 		    "response"
 		],
-		"description": ""
+		"description": "Specifies what stage in the cyber threat management lifecycle this course of action is relevant to (e.g. remedy or response)."
 		    
 	    }
 	}

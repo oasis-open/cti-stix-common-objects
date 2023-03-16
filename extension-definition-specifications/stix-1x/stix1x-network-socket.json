@@ -12,19 +12,47 @@
 			]
 		},
 		"protocol_family": {
-			"description": "Specifies the communication domain (PF_*) of the socket",
-			"type": "string"
-		},
-	        "local_address": {
-			"description": "Specifies the IP address and port for the socket on the local machine",
-			"type": "string"
-		},
-	        "remote_address": {
-			"description": "Specifies the IP address and port for the socket on the remote machine",
-			"type": "string"
+			"description": "Specifies the communication domain (PF_*) of the socket. Values MUST come from #/definitions/communication-domain-enum",
+			"$ref": "#/definitions/communication-domain-enum"
 		}
 	},
+        "additionalProperties": false,
 	"required": [
 	    "extension_type"
-	]
+	],
+        "definitions": {
+            "communication-domain-enum": {
+		"type": "string",
+		"enum": [
+		    "PF_LOCAL",	
+		    "PF_UNIX",	
+		    "PF_FILE",	
+		    "PF_INET",		
+		    "PF_AX25",		
+		    "PF_IPX",	
+		    "PF_INET6",	
+		    "PF_APPLETALK",	
+		    "PF_NETROM",	
+		    "PF_BRIDGE",	
+		    "PF_ATMPVC",	
+		    "PF_X25",	
+		    "PF_ROSE",	
+		    "PF_DECnet",	
+		    "PF_NETBEUI",	
+		    "PF_SECURITY",	
+		    "PF_KEY",	
+		    "PF_NETLINK",	
+		    "PF_ROUTE",	
+		    "PF_PACKET",	
+		    "PF_ASH",	
+		    "PF_ECONET",	
+		    "PF_ATMSVC",	
+		    "PF_SNA",	
+		    "PF_IRDA",	
+		    "PF_PPPOX",	
+		    "PF_WANPIPE",	
+		    "PF_BLUETOOTH"
+		]
+	    }
+	}
 }

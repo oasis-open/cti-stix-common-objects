@@ -1,14 +1,14 @@
 {
-    "id": "bundle--999364d1-93c2-4efc-b52b-07208b5ee388",
+    "id": "bundle--c56a2bb4-fad4-4825-9431-78adff488378",
     "objects": [
 	{
-	    "id": "extension-definition--a46b18de-0b41-4a95-9d2d-67a360f2d859",
+	    "id": "extension-definition--db4b5429-6927-4d0c-a194-4695f05c629a",
 	    "type": "extension-definition",
 	    "spec_version": "2.1",
-	    "name": "Extension to support STIX 1.x Course of Action",
-	    "description": "This schema adds STIX 1.x Course of Action properties not present in the STIX 2.1 Course of Action stub object",
+	    "name": "Extension to support STIX 1.x/CybOX 2.1 archive-file",
+	    "description": "This schema adds STIX 1.x/CybOX 2.1 archive-file properties not present in the STIX 2.1 archive-file object", # noqa
 	    "created": "2020-12-22T00:00:00.000000Z",
-	    "modified": "2022-12-12T00:00:00.000000Z",
+	    "modified": "2022-12-22T00:00:00.000000Z",
 	    "created_by_ref":"identity--659e8342-f720-4d0d-b193-6a04fdfbb401",
 	    "object_marking_refs": [
 		"marking-definition--3cd55916-d34b-4747-a8e0-dedec14b711b"
