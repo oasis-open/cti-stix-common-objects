@@ -1,0 +1,28 @@
+{
+  "$id": "https://raw.githubusercontent.com/rpiazza/cti-stix-common-objects/stix-1x/extension-definition-specifications/stix-1x/extension-definition--8f0b8ed7-c7ad-4650-babe-c4c45cac4a0b.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "stix1x-identity-as-victim-target-schema",
+  "description": "This is the wrapper for the identity as victim target indicator extension used by the stix-elevator",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/sdos/identity.json"
+    },
+    {
+      "properties": {
+        "extensions": {
+          "type": "object",
+          "properties": {
+            "extension-definition--8f0b8ed7-c7ad-4650-babe-c4c45cac4a0b": {
+		"type": "object",
+		"$ref": "stix1x-victim-target.json"
+            }
+          }
+        }
+      },
+      "required": [
+        "extensions"
+      ]
+    }
+  ]
+}

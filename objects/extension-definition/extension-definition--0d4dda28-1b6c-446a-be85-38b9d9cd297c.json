@@ -1,0 +1,22 @@
+{
+    "id": "bundle--d28beb9b-eb40-4efa-be50-92696f154c68",
+    "objects": [
+	{
+	    "id": "extension-definition--0d4dda28-1b6c-446a-be85-38b9d9cd297c",
+	    "type": "extension-definition",
+	    "spec_version": "2.1",
+	    "name": "Extension to support STIX 1.x email-message",
+	    "description": "This schema adds STIX 1.x Email Message properties not present in the STIX 2.1 Email Message object",
+	    "created": "2020-12-22T00:00:00.000000Z",
+	    "modified": "2022-11-22T13:30:51.000000Z ",
+	    "created_by_ref":"identity--659e8342-f720-4d0d-b193-6a04fdfbb401",
+	    "object_marking_refs": [
+		"marking-definition--3cd55916-d34b-4747-a8e0-dedec14b711b"
+	    ],
+	    "schema": "https://github.com/oasis-open/cti-stix-common-objects/tree/main/extension-definition-specifications/stix-1x/",
+	    "version": "1.0.0",
+	    "extension_types": ["property-extension"]
+	}
+    ],
+    "type": "bundle"
+}

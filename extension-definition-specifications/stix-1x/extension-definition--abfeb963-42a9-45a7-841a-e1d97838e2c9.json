@@ -1,0 +1,28 @@
+{
+  "$id": "https://raw.githubusercontent.com/rpiazza/cti-stix-common-objects/stix-1x/extension-definition-specifications/stix-1x/extension-definition--abfeb963-42a9-45a7-841a-e1d97838e2c9.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "stix1x-attack-pattern-extension-schema",
+  "description": "This is the wrapper for the attack-pattern extension used by the stix-elevator",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/sdos/attack-pattern.json"
+    },
+    {
+      "properties": {
+        "extensions": {
+          "type": "object",
+          "properties": {
+            "extension-definition--abfeb963-42a9-45a7-841a-e1d97838e2c9": {
+		"type": "object",
+		"$ref": "stix1x-attack-pattern.json"
+            }
+          }
+        }
+      },
+      "required": [
+        "extensions"
+      ]
+    }
+  ]
+}

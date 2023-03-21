@@ -1,0 +1,58 @@
+{
+	"$id": "https://raw.githubusercontent.com/rpiazza/cti-stix-common-objects/stix-1x/extension-definition-specifications/stix-1x/stix1x-network-socket.json",
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "stix1x-network-socket-extension-schema",
+	"description": "This is the wrapper for the network-traffic/network-socket extension is used by the stix-elevator",
+	"type": "object",
+	"properties": {
+		"extension_type": {
+			"type": "string",
+			"enum": [
+				"property-extension"
+			]
+		},
+		"protocol_family": {
+			"description": "Specifies the communication domain (PF_*) of the socket. Values MUST come from #/definitions/communication-domain-enum",
+			"$ref": "#/definitions/communication-domain-enum"
+		}
+	},
+        "additionalProperties": false,
+	"required": [
+	    "extension_type"
+	],
+        "definitions": {
+            "communication-domain-enum": {
+		"type": "string",
+		"enum": [
+		    "PF_LOCAL",	
+		    "PF_UNIX",	
+		    "PF_FILE",	
+		    "PF_INET",		
+		    "PF_AX25",		
+		    "PF_IPX",	
+		    "PF_INET6",	
+		    "PF_APPLETALK",	
+		    "PF_NETROM",	
+		    "PF_BRIDGE",	
+		    "PF_ATMPVC",	
+		    "PF_X25",	
+		    "PF_ROSE",	
+		    "PF_DECnet",	
+		    "PF_NETBEUI",	
+		    "PF_SECURITY",	
+		    "PF_KEY",	
+		    "PF_NETLINK",	
+		    "PF_ROUTE",	
+		    "PF_PACKET",	
+		    "PF_ASH",	
+		    "PF_ECONET",	
+		    "PF_ATMSVC",	
+		    "PF_SNA",	
+		    "PF_IRDA",	
+		    "PF_PPPOX",	
+		    "PF_WANPIPE",	
+		    "PF_BLUETOOTH"
+		]
+	    }
+	}
+}

@@ -1,0 +1,36 @@
+{
+  "$id": "http://raw.githubusercontent.com/rpiazza/cti-stix-common-objects/stix-1x/extension-definition-specifications/stix-1x/hml-statement.json",
+  "$schema": "http://json-schema.org/draft/2020-12/schema#",
+  "title": "hml-statement",
+  "description": "Represents the STIX 1.x statement type with high/medium/low as the value",
+  "type": "object",
+  "properties": {
+    "description": {
+      "description": "This property contains a prose description of the statement.",
+      "type": "string"
+    },
+    "confidence": {
+      "description": "See confidence common property definition in section 3.2 of the STIX 2.1 specification.",
+	"type": "integer",
+	"mimimum": 0,
+	"maximum": 100
+    },
+    "value": {
+      "description": "This property contains the level of the statement’s subject. It SHOULD be one of the values from high-medium-low-ov",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "high-medium-low-ov": {
+      "type": "string",
+      "enum": [
+        "high",
+        "medium",
+        "low",
+        "none",
+        "unknown"
+      ]
+    }
+  }
+}

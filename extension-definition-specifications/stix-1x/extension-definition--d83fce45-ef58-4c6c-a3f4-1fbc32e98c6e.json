@@ -1,0 +1,28 @@
+{
+  "$id": "https://raw.githubusercontent.com/rpiazza/cti-stix-common-objects/stix-1x/extension-definition-specifications/stix-1x/extension-definition--d83fce45-ef58-4c6c-a3f4-1fbc32e98c6e.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "stix1x-campaign-extension-schema-wrapper",
+  "description": "This is the wrapper for the campaign extension used by the stix-elevator",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/sdos/campaign.json"
+    },
+    {
+      "properties": {
+        "extensions": {
+          "type": "object",
+          "properties": {
+            "extension-definition--d83fce45-ef58-4c6c-a3f4-1fbc32e98c6e": {
+		"type": "object",
+		"$ref": "stix1x-campaign.json"
+            }
+          }
+        }
+      },
+      "required": [
+        "extensions"
+      ]
+    }
+  ]
+}

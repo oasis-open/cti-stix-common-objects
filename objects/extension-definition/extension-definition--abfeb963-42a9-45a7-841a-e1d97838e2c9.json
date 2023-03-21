@@ -1,0 +1,22 @@
+{
+    "id": "bundle--0b638116-027d-4dee-9661-03f6b6503881",
+    "objects": [
+	{
+	    "id": "extension-definition--abfeb963-42a9-45a7-841a-e1d97838e2c9",
+	    "type": "extension-definition",
+	    "spec_version": "2.1",
+	    "name": "Extension to support STIX 1.x Attack Pattern",
+	    "description": "This schema adds STIX 1.x TTP properties not present in the STIX 2.1 Attack Pattern object",  # noqa
+	    "created": "2020-12-22T00:00:00.000000Z",
+	    "modified": "2022-12-22T00:00:00.000000Z",
+	    "created_by_ref": "identity--659e8342-f720-4d0d-b193-6a04fdfbb401",
+	    "object_marking_refs": [
+		"marking-definition--3cd55916-d34b-4747-a8e0-dedec14b711b"
+	    ],
+	    "schema": "https://github.com/oasis-open/cti-stix-common-objects/tree/main/extension-definition-specifications/stix-1x",
+	    "version": "1.0.0",
+	    "extension_types": ["property-extension"]
+	}
+    ],
+    "type": "bundle"
+}

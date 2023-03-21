@@ -1,0 +1,24 @@
+{
+	"$id": "https://raw.githubusercontent.com/rpiazza/cti-stix-common-objects/stix-1x/extension-definition-specifications/stix-1x/stix1x-indicator.json",
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "stix1x-indicator-extension-schema",
+	"description": "This is the indicator extension schema used by the stix-elevator",
+	"type": "object",
+	"properties": {
+		"extension_type": {
+			"type": "string",
+			"enum": [
+				"property-extension"
+			]
+		},
+		"likely_impact": {
+			"description": "Specifies the likely potential impact within the relevant context if this Indicator were to occur. This is typically local to an Indicator consumer and not typically shared. This field includes a Description of the likely potential impact within the relevant context if this Indicator were to occur and a Confidence held in the accuracy of this assertion. If the extension-definition is being used, then it is required",
+			"type": "object",
+			"$ref": "hml-statement.json"
+		}
+	},
+	"required": [
+		"extension_type",
+		"likely_impact"
+	]
+}

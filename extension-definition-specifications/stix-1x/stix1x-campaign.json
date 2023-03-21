@@ -1,0 +1,40 @@
+{
+  "$id": "https://raw.githubusercontent.com/rpiazza/cti-stix-common-objects/stix-1x/extension-definition-specifications/stix-1x/stix1x-campaign.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "stix1x-campaign-extension-schema",
+  "description": "This is the campaign extension schema used by the stix-elevator",
+  "type": "object",
+  "properties": {
+    "extension_type": {
+      "type": "string",
+      "enum": [
+        "property-extension"
+      ]
+    },
+    "intended_effects": {
+      "type": "array",
+      "items": {
+        "$ref": "intended-effect-statement.json"
+      },
+      "minItems": 1
+    },
+    "status": {
+      "type": "string",
+      "description": "The status of this Campaign. It SHOULD be one of the values from campaign-status-ov"
+    }
+  },
+  "required": [
+    "extension_type"
+  ],
+  "additionalProperties": false,
+  "definitions": {
+    "campaign-status-ov": {
+      "type": "string",
+      "enum": [
+        "future",
+        "historic",
+        "ongoing"
+      ]
+    }
+  }
+}

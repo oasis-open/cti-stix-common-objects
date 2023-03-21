@@ -1,0 +1,23 @@
+{
+    "id": "bundle--5239a337-851a-41a0-bff1-de10da4df723",
+    "objects": [
+	{
+	    "id": "extension-definition--005e229c-fffc-42b0-a912-84671ab2829d",
+	    "type": "extension-definition",
+	    "spec_version": "2.1",
+	    "name": "Extension to support STIX 1.x/CybOX 2.1 Network Sockets",
+	    "description": "This schema adds STIX 1.x/CybOX 2.1 Network Sockets properties not present in the STIX 2.1 Network Traffic object", # noqa
+	    "created": "2020-12-22T00:00:00.000000Z",
+	    "modified": "2020-12-22T00:00:00.000000Z",
+	    "created_by_ref": "identity--659e8342-f720-4d0d-b193-6a04fdfbb401",
+	    "object_marking_refs": [
+		"marking-definition--3cd55916-d34b-4747-a8e0-dedec14b711b"
+	    ],
+	    "schema": "https://github.com/oasis-open/cti-stix-common-objects/tree/main/extension-definition-specifications/stix-1x",
+	    "version": "1.0.0",
+	    "extension_types": ["property-extension"]
+
+	}
+    ],
+    "type": "bundle"
+}

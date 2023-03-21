@@ -1,0 +1,22 @@
+{
+    "id": "bundle--c6057d0b-d62f-4605-a521-b3c76f444b20",
+    "objects": [
+	{
+	    "id": "extension-definition--d83fce45-ef58-4c6c-a3f4-1fbc32e98c6e",
+	    "type": "extension-definition",
+	    "spec_version": "2.1",
+	    "name": "Extension to support STIX 1.x Campaigns",
+	    "description": "This schema adds STIX 1.x Campaigns properties not present in the STIX 2.1 Campaigns object",
+	    "created": "2020-12-22T00:00:00.000000Z",
+	    "modified": "2022-12-12T00:00:00.000000Z",
+	    "created_by_ref":"identity--659e8342-f720-4d0d-b193-6a04fdfbb401",
+	    "object_marking_refs": [
+		"marking-definition--3cd55916-d34b-4747-a8e0-dedec14b711b"
+	    ],
+	    "schema": "https://github.com/oasis-open/cti-stix-common-objects/tree/main/extension-definition-specifications/stix-1x",
+	    "version": "1.0.0",
+	    "extension_types": ["property-extension"]
+	}
+    ],
+    "type": "bundle"
+}

@@ -1,0 +1,95 @@
+{
+	"$id": "https://raw.githubusercontent.com/rpiazza/cti-stix-common-objects/stix-1x/extension-definition-specifications/stix-1x/stix1x-victim-target.json",
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "stix1x-coa-extension-schema",
+	"description": "This is the identity as victim target indicator extension is used by the stix-elevator",
+	"type": "object",
+	"properties": {
+		"extension_type": {
+		    "type": "string",
+		    "enum": [
+			"property-extension"
+		    ]
+		},
+		"targeted_systems": {
+		    "type": "array",
+		    "items": {
+			"type": "string"
+                    },
+		    "minItems": 1,
+		    "description": "This property characterizes a type of systems that are targeted. It SHOULD come from system-type-ov."
+		},
+	        "targeted_information": {
+		    "type": "array",
+		    "items": {
+			"type": "string"
+                    },
+		    "minItems": 1,
+		    "description": "This property characterizes a type of information that is targeted. It SHOULD come from information-type-ov."
+		    
+		},
+	    "intended_effects": {
+		"type": "array",
+		"items": {
+		    "$ref": "intended-effect-statement.json"
+		},
+		"minItems": 1
+	    }
+	},
+        "additionalProperties": false,
+	"required": [
+	    "extension_type"
+	],
+        "definitions": {
+            "system-type-ov": {
+		"type": "string",
+		"enum": [
+		    "Enterprise Systems",	
+		    "Enterprise Systems - Application Layer",
+		    "Enterprise Systems - Database Layer",	
+		    "Enterprise Systems - Enterprise Technologies and Support Infrastructure",	
+		    "Enterprise Systems - Network Systems",	
+		    "Enterprise Systems - Networking Devices",	
+		    "Enterprise Systems - Web Layer",	
+		    "Enterprise Systems - VoIP",	
+		    "Industrial Control Systems",	
+		    "Industrial Control Systems - Equipment Under Control",	
+		    "Industrial Control Systems - Operations Management",	
+		    "Industrial Control Systems - Safety, Protection and Local Control",	
+		    "Industrial Control Systems - Supervisory Control",	
+		    "Mobile Systems",	
+		    "Mobile Systems - Mobile Operating Systems",	
+		    "Mobile Systems - Near Field Communications",	
+		    "Mobile Systems - Mobile Devices",
+		    "Third-Party Services",	
+		    "Third-Party Services - Application Stores",	
+		    "Third-Party Services - Cloud Services",	
+		    "Third-Party Services - Security Vendors",	
+		    "Third-Party Services - Social Media",	
+		    "Third-Party Services - Software Update",	
+		    "Users",	
+		    "Users - Application And Software",	
+		    "Users - Workstation",	
+		    "Users - Removable Media"
+		],
+		"description": "from https://stixproject.github.io/data-model/1.2/stixVocabs/SystemTypeVocab-1.0/."
+		    
+	    },
+	    "information-type-ov": {
+		"type": "string",
+		"enum": [
+		    "Information Assets",	
+		    "Information Assets - Corporate Employee Information",	
+		    "Information Assets - Customer PII",	
+		    "Information Assets - Email Lists / Archives",	
+		    "Information Assets - Financial Data",	
+		    "Information Assets - Intellectual Property",	
+		    "Information Assets - Mobile Phone Contacts",	
+		    "Information Assets - User Credentials",	
+		    "Authentication Cookies"
+	    	],
+		"description": "from https://stixproject.github.io/data-model/1.2/stixVocabs/InformationTypeVocab-1.0/"
+		    
+	    }
+	}
+}
