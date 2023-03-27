@@ -1,5 +1,5 @@
 {
-	"$id": "https://raw.githubusercontent.com/rpiazza/cti-stix-common-objects/stix-1x/extension-definition-specifications/stix-1x/stix1x-network-socket.json",
+	"$id": "https://raw.githubusercontent.com/open-oasis/cti-stix-common-objects/main/extension-definition-specifications/stix-1x/stix1x-network-socket.json",
 	"$schema": "http://json-schema.org/draft-07/schema#",
 	"title": "stix1x-network-socket-extension-schema",
 	"description": "This is the wrapper for the network-traffic/network-socket extension is used by the stix-elevator",

@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/rpiazza/cti-stix-common-objects/stix-1x/extension-definition-specifications/stix-1x/extension-definition--6f6973cb-70be-40cb-b1ac-15ed78cebe56.json",
+  "$id": "https://raw.githubusercontent.com/oasis-open/cti-stix-common-objects/main/extension-definition-specifications/stix-1x/extension-definition--6f6973cb-70be-40cb-b1ac-15ed78cebe56.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "stix1x-icmp-header-extension-schema",
   "description": "This is the wrapper for the icmp-header extension used by the stix-elevator",

@@ -1,5 +1,5 @@
 {
-	"$id": "https://raw.githubusercontent.com/rpiazza/cti-stix-common-objects/stix-1x/extension-definition-specifications/stix-1x/stix1x-archive-file.json",
+	"$id": "https://raw.githubusercontent.com/open-oasis/cti-stix-common-objects/main/extension-definition-specifications/stix-1x/stix1x-archive-file.json",
 	"$schema": "http://json-schema.org/draft-07/schema#",
 	"title": "stix1x-archive-file-extension-schema",
 	"description": "This is  the archive-file extension schema used by the stix-elevator",
