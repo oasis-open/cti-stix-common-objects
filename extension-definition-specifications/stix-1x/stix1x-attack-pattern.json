@@ -1,5 +1,5 @@
 {
-	"$id": "https://raw.githubusercontent.com/open-oasis/cti-stix-common-objects/main/extension-definition-specifications/stix-1x/stix1x-attack-pattern.json",
+	"$id": "https://raw.githubusercontent.com/oasis-open/cti-stix-common-objects/main/extension-definition-specifications/stix-1x/stix1x-attack-pattern.json",
 	"$schema": "http://json-schema.org/draft-07/schema#",
 	"title": "stix1x-attack-pattern-extension-schema",
 	"description": "This is the wrapper for the attack-pattern extension is used by the stix-elevator",
