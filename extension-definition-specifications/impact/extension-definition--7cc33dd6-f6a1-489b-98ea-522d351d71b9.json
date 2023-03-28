@@ -1,0 +1,358 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://raw.githubusercontent.com/oasis-open/cti-stix-common-objects/main/extension-definition-specifications/incident-core/incident_core.json",
+    "title": "Impact",
+    "description": "An extension for tracking the impact of incidents.",
+    "type": "object",
+    "required": [
+        "impact_details",
+        "incident_ref"
+    ],
+    "unevaluatedProperties": false,
+    "allOf": [
+        {
+            "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/core.json"
+        },
+        {
+            "properties": {
+                "extensions": {
+                    "type": "object",
+                    "description": "STIX extensions.",
+                    "additionalProperties": true,
+                    "properties": {
+                        "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                                "extension_type": {
+                                    "type": "string",
+                                    "const": "new-sdo"
+                                }
+                            }
+                        }
+                    }
+                },
+                "activity_refs": {
+                    "type": "array",
+                    "description": "A list of all activities that had a direct effect on this impact. This must relate to an incident-activity.",
+                    "minItems": 1,
+                    "items": {
+                        "type": "string",
+                        "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json"
+                    }
+                },
+                "criticality": {
+                    "type": "integer",
+                    "description": "The criticality of this particular impact",
+                    "minimum": 0,
+                    "maximum": 100
+                },
+                "description": {
+                    "type": "string",
+                    "description": "An optional narative that further describes this impact"
+                },
+                "impacted_entity_counts": {
+                    "description": "A dictionary of entities that were impacted by the incident where the key is the entity type and the value is the number of entities of that type which were impacted.  In most cases these should be understood to be estiamtes.",
+                    "patternProperties": {
+                        "^[a-z\\-]+": {
+                            "type": "integer",
+                            "description": "Key names MUST be lower case and separated by dashes.  Common values include 'individuals', 'organizations', 'business-units', 'facilities', 'information-systems'",
+                            "minimum": 0
+                        }
+                    }
+                },
+                "impacted_refs": {
+                    "type": "array",
+                    "description": "A list of all assets or infrastructure impacted by this activity.  This can relate directly to SCOs, but can also reference Infrastructure or other SDOs.",
+                    "minItems": 1,
+                    "items": {
+                        "type": "string",
+                        "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json"
+                    }
+                },
+                "recoverability": {
+                    "type": "string",
+                    "description": "The scope of impact required to recover from an incident",
+                    "enum": [
+                        "not-applicable",
+                        "regular",
+                        "supplemented",
+                        "extended",
+                        "not-recoverable"
+                    ],
+                    "$comment": "This is a closed vocabulary: non-applicable is an addition to what is found on https://us-cert.cisa.gov/incident-notification-guidelines for Incident reports that do not have associated recover costs.  For example a phishing email that was detected successfully."
+                },
+                "impact_details": {
+                    "type": "object",
+                    "required": [
+                        "impact_category"
+                    ],
+                    "oneOf": [
+                        {
+                            "required": ["availability_impact"],
+                            "additionalProperties": false,
+                            "properties": {
+                                "impact_category": {
+                                    "type": "string",
+                                    "enum": ["availability"]
+                                },
+                                "availability_impact": {
+                                    "type": "integer",
+                                    "minimum": 0,
+                                    "maximum": 100
+                                }
+                            }
+                        },
+                        {
+                            "additionalProperties": false,
+                            "anyOf": [
+                                {
+                                    "required": [
+                                        "information_type",
+                                        "loss_type"
+                                    ]
+                                },
+                                {
+                                    "required": [
+                                        "loss_type"
+                                    ],
+                                    "properties": {
+                                        "loss_type": {
+                                            "const": "none"
+                                        }
+                                    }
+                                }
+                            ],
+                            "properties": {
+                                "impact_category": {
+                                    "type": "string",
+                                    "enum": ["confidentiality"]
+                                },
+                                "information_type": {
+                                    "type": "string",
+                                    "description": "The type of data that had its confidentiality compromised"
+                                },
+                                "loss_type": {
+                                    "type": "string",
+                                    "enum": [
+                                        "confirmed-loss",
+                                        "contained",
+                                        "exploited-loss",
+                                        "suspected-loss",
+                                        "none"
+                                    ]
+                                },
+                                "record_count": {
+                                    "type": "integer",
+                                    "description": "The number of records of this type that were compromised",
+                                    "minimum": 0
+                                },
+                                "record_size": {
+                                    "type": "integer",
+                                    "description": "The amount of data that was compromised in bytes",
+                                    "minimum": 0
+                                }
+                            }
+                        },
+                        {
+                            "required": [
+                                "impact_type"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                                "impact_type": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "impact_category": {
+                                    "type": "string",
+                                    "enum": ["external"]
+                                }
+                            }
+                        },
+                        {
+                            "anyOf": [
+                                {
+                                    "required": [
+                                        "information_type",
+                                        "alteration"
+                                    ]
+                                },
+                                {
+                                    "required": [
+                                        "alteration"
+                                    ],
+                                    "properties": {
+                                        "loss_type": {
+                                            "const": "none"
+                                        }
+                                    }
+                                }
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                                "impact_category": {
+                                    "type": "string",
+                                    "enum": ["integrity"]
+                                },
+                                "information_type": {
+                                    "type": "string",
+                                    "description": "The type of information that had its integrity compromised.  This can include control systems and other processes that can result in virtual or physical impacts."
+                                },
+                                "alteration": {
+                                    "type": "string",
+                                    "description": "The type of information that had its integrity compromised.  This can include control systems and other processes that can result in virtual or physical impacts.",
+                                    "enum": [
+                                        "potential-destruction"
+                                        , "potential-modification"
+                                        , "partial-destruction"
+                                        , "partial-modification"
+                                        , "full-destruction"
+                                        , "full-modification"
+                                        , "none"
+                                    ]
+                                    
+                                },
+                                "record_count": {
+                                    "type": "integer",
+                                    "description": "The number of records of this type that were compromised",
+                                    "minimum": 0
+                                },
+                                "record_size": {
+                                    "type": "integer",
+                                    "description": "The amount of data that was compromised in bytes",
+                                    "minimum": 0
+                                }
+                            }
+                        },
+                        {
+                            "required": [],
+                            "additionalProperties": false,
+                            "allOf": [
+                                {
+                                    "properties": {
+                                        "impact_category": {
+                                            "type": "string",
+                                            "const": "monetary"
+                                        }
+                                    }
+                                },
+                                {
+                                    "oneOf": [
+                                        {
+                                            "not": {
+                                                "anyOf": [
+                                                    {
+                                                        "required": [
+                                                            "min_amount"
+                                                        ]
+                                                    },
+                                                    {
+                                                        "required": [
+                                                            "max_amount"
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "required": [
+                                                "currency",
+                                                "min_amount",
+                                                "max_amount"
+                                            ]
+                                        }
+                                    ],
+                                    "properties": {
+                                        "variety": {
+                                            "type": "string",
+                                            "description": "The variety of the impact"
+                                        },
+                                        "currency": {
+                                            "type": "string",
+                                            "description": "The currency that amount_min and amount_max are measured in"
+                                        },
+                                        "max_amount": {
+                                            "type": "number",
+                                            "description": "The lower bound estimate using the currency listed for the monetary damage caused by this impact",
+                                            "minimum": 0
+                                        },
+                                        "min_amount": {
+                                            "type": "number",
+                                            "description": "The lower bound estimate using the currency listed for the monetary damage caused by this impact",
+                                            "minimum": 0
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "additionalProperties": false,
+                            "anyOf": [
+                                {
+                                    "required": [
+                                        "asset_type",
+                                        "impact_type"
+                                    ]
+                                },
+                                {
+                                    "required": [
+                                        "impact_type"
+                                    ],
+                                    "properties": {
+                                        "impact_type": {
+                                            "type": "string",
+                                            "const": "none"
+                                        }
+                                    }
+                                }
+                            ],
+                            "properties": {
+                                "properties": {
+                                    "impact_category": {
+                                        "type": "string",
+                                        "const": "physical"
+                                    }
+                                },
+                                "asset_type": {
+                                    "type": "string",
+                                    "description": "The type of asset that was affected by this impact."
+                                },
+                                "impact_type": {
+                                    "type": "string",
+                                    "enum": [
+                                        "damaged-functional",
+                                        "damaged-nonfunctional",
+                                        "destruction",
+                                        "none"
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "definitions": {
+        "Traceability_Impact": {
+            "unevaluatedProperties": false,
+            "required": ["traceability_impact"],
+            "properties": {
+                "traceability_impact": {
+                    "type": "string",
+                    "description": "The level of forensic or other traces left by the incident in order to enable auditing and accountability",
+                    "enum": [
+                        "accountability-lost"
+                        , "partial-accountability"
+                        , "provable-accountability"
+                    ]
+                },
+                "impact_category": {
+                    "type": "string",
+                    "const": "traceability"
+                }
+            }
+        }
+    }
+}

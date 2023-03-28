@@ -1,0 +1,1082 @@
+:stylesheet: stix.css
+:stylesdir: ../../asciidoc-shared
+:toc: macro
+:nofooter:
+
+= [stixtitle]*Impact Extension Version 1.0 for STIX^TM^ Version 2.1*
+
+[.stix-doc-information-heading]#Draft#
+
+[.stix-doc-information-heading]#10 May 2023#
+
+[.stix-doc-information-heading]
+Editors:
+[.stix-indent]
+- IMG - Incident Mini Group
+
+
+[.stix-doc-information-heading]
+Additional artifacts:
+[.stix-indent]
+.This prose specification is one component of a Work Product that also includes:
+
+- STIX™ Version 2.1 - OS
+- Incident Activity Extension Version 1.0 for STIX^TM^ Version 2.1
+- Incident Core Extension Version 2.0 for STIX^TM^ Version 2.1
+
+
+[.stix-doc-information-heading]
+Related work:
+
+[.stix-indent]
+.This specification replaces or supersedes: +
+
+N/A
+
+toc::[]
+
+[.stix-doc-information-heading]*Abstract:*
+
+STIX 2.1 currently provides no means of sharing information about the impact of incidents.
+In the 1.0 version of the core incident extension these details were embedded into the Incident SDO.
+Based on the various implementation efforts it was determined that it would be best to split this information into a separate SDO.
+Doing so allows for easier sharing of information using TAXII as datamarkings can be safely applied to each impact so that native filtering capabilities can be used to limit disemination of sensitive information reducing reauthoring requirements that were present in the 1.0 version of the core incident extension.
+
+
+This extension is intended to be pair with both the Incident Activity and Incident extensions to allow for in depth information sharing.
+This extension uses the ID `extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9`.
+
+
+== 1. Impacts in STIX
+
+Incident objects represent events that have occurred and require further consideration or investigation.
+The Incident object should have sufficient properties to represent the current state of the Incident with respect to impact to the enterprise.
+For example, an incident may (or may not) have an impact that justifies the cost of immediate remediation or mitigation.
+
+The incident core extension exists to allow a whole lifecycle approach for Incident response, reporting and tracking throughout its entire lifecycle while also allowing this information to be easily queried against at scale by systems that exchange STIX 2.1 Incident data.
+
+== 2. Impact Extension
+
+[width="100%",cols="100%",stripes=odd]
+|===
+^|[stixtr]*Required Common Properties*
+|*created*,
+*id*,
+*modified*,
+*spec_version*,
+*type*
+
+^|[stixtr]*Optional Common Properties*
+
+|*created_by_ref*,
+*revoked*,
+*labels*,
+*confidence*,
+*lang*,
+*external_references*,
+*object_marking_refs*,
+*granular_markings*,
+*extensions*
+
+^|[stixtr]*Not Applicable Common Properties*
+
+|*defanged*
+
+^|[stixtr]*Incident Activity Object Specific Properties*
+
+|*impact_details*,
+*incident_ref*
+|===
+
+|===
+^|[stixtr]*Property Name* ^|[stixtr]*Type* ^|[stixtr]*Description*
+
+|*impact_details* (required)
+|[stixtype]#<impact detail object>#
+|Details related to the specific type of impact.  These *MUST* comply with the rules defined by for impact detail objects, and *SHOULD* come from one of the standard types of impact detail objects defined in this document.
+
+|*incident_ref* (required)
+|[stixtype]#identifier# 
+|The Incident object that this impact applies to.
+This **MUST** relate to an incident.
+
+|*type* (required)
+|[stixtype]#string#
+|The value of this property *MUST* be set to [stixliteral]#impact#.
+
+|*activity_refs* (optional)
+|[stixtype]#list# of type [stixtype]#identifier# 
+|A list of all activities that had a direct effect on this impact.
+This must relate to an incident-activity.
+
+|*criticality* (optional)
+|[stixtype]#integer#
+|The criticality of this impact. This value *MUST* be between 0 to 100.
+This can be translated into qualitative values as described in Appendix A.
+
+|*description* (optional)
+|[stixtype]#string# 
+|Additional details about this impact
+
+|*impacted_entity_counts* (optional)
+|[stixtype]#entity-count#
+|An optional listing of the entity types that were impacted and how many of each were affected.
+
+If this field is not present it should be assumed that this information is not being shared, not that there were no impacted entities.
+
+|*impacted_refs* (optional)
+|[stixtype]#list# of type [stixtype]#identifier# 
+|A list of all impacted entities or infrastructure. This can relate directly to Infrastructure, SCOs, and other SDOs.
+
+|*recoverability* (optional)
+|[stixtype]#recoverability-enum#
+|The recoverability of this particular integrity impact with respect to feasibility and required time and resources.
+
+The values of this property *MUST* come from the [stixtype]#recoverability-enum# enumeration
+
+|===
+
+<<<
+
+=== 2.1 Entity Count Type
+
+*Type Name:* [stixtype]#entity-count#
+
+The Entity Count type represents the count of one or more entity types.
+The name of each entity type *MUST* be specified as a key in the dictionary and *MUST* identify the count of the entity that corresponds to the value.
+Each key *SHOULD* come from [stixtype]#identity-class-ov#.
+This value *MUST* be an [stixtype]#integer# that is equal to or greater than zero.
+
+*Examples:*
+
+_100 individuals_
+[source,json]
+----
+{
+    "individual": 100
+}
+----
+
+_1000 systems, 10 organizations, 1 sector_
+----
+{
+    "organization": 10,
+    "sector": 1
+    "system": 1000
+}
+----
+
+_0 individuals_
+
+----
+{
+    "individual": 0
+}
+----
+
+<<<
+
+== 3.0 Impact Details
+
+The Impact SDO has a required field that *MUST* be populated by an object that has a minimum of two properties at least one of which *MUST* be *impact_category* of type [stixtype]#string# with a fixed value determined by the impact detail object that is used.
+
+The same *impact_category* MUST not be used by different impact detail objects.
+The following is a list of impact detail objects that *SHOULD* be used.
+
+=== 3.1 Impact Detail: Availability
+
+[width="100%",cols="37%,23%,40%",options="header",]
+|===
+^|[stixtr]*Property Name*
+^|[stixtr]*Type* 
+^|[stixtr]*Description*
+
+|*impact_category* (required)
+|[stixtype]#string#
+|The value of this property *MUST* be [stixliteral]#availability#
+
+|*availability_impact* (required)
+|[stixtype]#integer#
+|The availability / functional impact of the incident on the objects referenced in impacted_refs. 
+
+This value *MUST* be between 0 to 100. This can be translated into qualitative values as described in Appendix B.
+
+|===
+
+<<<
+
+=== 3.2 Impact Detail: Confidentiality
+
+[width="100%",cols="37%,23%,40%",options="header",]
+|===
+^|[stixtr]*Property Name*
+^|[stixtr]*Type* 
+^|[stixtr]*Description*
+
+|*impact_category* (required)
+|[stixtype]#string#
+|The value of this property *MUST* be [stixliteral]#confidentiality#
+
+|*information_type* (optional)
+|[stixtype]#open-vocab#
+|The type of information that had its confidentiality compromised. This can include control systems and other processes that can result in virtual or physical impacts.
+
+This *SHOULD* be drawn from [stixtype]#information-type-ov#.
+
+This value *MUST* be included if the loss_type is not none. Including an entry with loss_type of none and no information_type indicates that no information had its confidentiality impacted by this incident.
+
+|*loss_type* (required)
+|[stixtype]#incident-confidentiality-loss-enum#
+|The type of loss that occurred to the relevant information
+
+|*record_count* (optional)
+|[stixtype]#integer#
+|The number of records of this type that were compromised. The value of this property *MUST* not be negative.
+
+|*record_size* (optional)
+|[stixtype]#integer#
+|The amount of data that was compromised in bytes. The value of this property *MUST* not be negative.
+|===
+
+<<<
+
+=== 3.3 Impact Detail: External
+
+[width="100%",cols="37%,23%,40%",options="header",]
+|===
+^|[stixtr]*Property Name*
+^|[stixtr]*Type* 
+^|[stixtr]*Description*
+
+|*impact_category* (required)
+|[stixtype]#string#
+|The value of this property *MUST* be [stixliteral]#external#
+
+|*impact_type* (required)
+|[stixtype]#open-vocab# 
+|The type of impact outside of the direct organization that should be drawn from [stixtype]#external-impact-ov#.
+|===
+
+<<<
+
+=== 3.4 Impact Detail: Integrity
+
+*Type Name:* [stixtype]#integrity-impact#
+
+[width="100%",cols="37%,23%,40%",options="header",]
+|===
+^|[stixtr]*Property Name*
+^|[stixtr]*Type* 
+^|[stixtr]*Description*
+
+|*impact_category* (required)
+|[stixtype]#string#
+|The value of this property *MUST* be [stixliteral]#integrity#
+
+|*alteration* (required)
+|[stixtype]#integrity-alteration-enum#
+|The type of alteration performed against the information_type.
+
+The values of this property *MUST* come from the [stixtype]#integrity-alteration-enum# enumeration.
+
+|*information_type* (optional)
+|[stixtype]#open-vocab#
+|The type of information that had its integrity compromised.
+This can include control systems and other processes that can result in virtual or physical impacts.
+
+This *SHOULD* be drawn from [stixtype]#information-type-ov#.
+
+This value *MUST* be included if the alternation is not none.
+Including an entry that with an alteration of none and no information_type indicates that no information had its integrity impacted by this incident.
+
+|*record_count* (optional)
+|[stixtype]#integer#
+|The number of records of this type that were compromised. The value of this property *MUST* not be negative.
+
+|*record_size* (optional)
+|[stixtype]#integer#
+|The amount of data that was compromised in bytes. The value of this property *MUST* not be negative.
+
+|===
+
+<<<
+
+=== 3.5 Impact Detail: Monetary
+
+[width="100%",cols="37%,23%,40%",options="header",]
+|===
+^|[stixtr]*Property Name*
+^|[stixtr]*Type* 
+^|[stixtr]*Description*
+
+|*impact_category* (required)
+|[stixtype]#string#
+|The value of this property *MUST* be [stixliteral]#monetary#
+
+|*variety* (required)
+|[stixtype]#open-vocab#
+|The variety of this monetary impact.
+
+The values of this property *SHOULD* come from the [stixtype]#monetary-impact-type-ov#.
+
+|*currency* (optional)
+|[stixtype]#string#|
+The currency that the max_amount and min_amount fields use.
+This *SHOULD* be an ISO 4217 alpha currency code or the official currency code for the relevant cryptocurrency.
+
+This value *MUST* be included if the *min_amount* is included.
+
+|*max_amount* (optional)
+|[stixtype]#number#
+|The maximum damage estimate of this type in the provided currency.
+This value *MUST* be greater than zero.
+
+This value *MUST* be included if the *min_amount* is included.
+
+|*min_amount* (optional)
+|[stixtype]#number#
+|The minimum damage estimate of this type in the provided currency.
+This value *MUST* be greater than zero.
+
+This value *MUST* be included if the *max_amount* is included.
+
+|===
+
+<<<
+
+=== 3.6 Impact Detail: Physical
+
+[width="100%",cols="37%,23%,40%",options="header",]
+|===
+^|[stixtr]*Property Name*
+^|[stixtr]*Type* 
+^|[stixtr]*Description*
+
+|*impact_category* (required)
+|[stixtype]#string#
+|The value of this property *MUST* be [stixliteral]#physical#
+
+|*impact_type* (required)
+|[stixtype]#physical-impact-enum#
+|The type of physical impact that has occurred.
+
+The values of this property *MUST* come from the [stixtype]#physical-impact-enum#
+enumeration.
+
+|*asset_type* (optional)
+|[stixtype]#open-vocab#
+|The type or property or system that was affected by this impact.
+
+This *SHOULD* be drawn from [stixtype]#asset-type-ov#.
+
+This value *MUST* be included if the *impact_type* is not none.
+Including an entry with an *impact_type* of none and no asset_type indicates that no physical damage was caused by this incident.
+
+|===
+
+<<<
+
+=== 3.7 Impact Detail: Traceability
+
+[width="100%",cols="37%,23%,40%",options="header",]
+|===
+^|[stixtr]*Property Name*
+^|[stixtr]*Type* 
+^|[stixtr]*Description*
+
+|*impact_category* (required)
+|[stixtype]#string#
+|The value of this property *MUST* be [stixliteral]#traceability#
+
+|*traceability_impact* (required)
+|[stixtype]#traceability-enum#
+|The impact of this incident on a system or organization's ability to perform audits or provide non-repudiation.
+
+The values of this property *MUST* come from the [stixtype]#traceability-enum# enumeration
+
+|===
+
+<<<
+
+== 4. Vocabularies
+
+=== 4.1 Asset Type Vocabulary
+
+*Type Name:* [stixtype]#asset-type-ov#
+
+[width="100%",cols="37%,63%",options="header",]
+|===
+^|[stixtr]*Vocabulary Value* 
+^|[stixtr]*Description*
+
+|[stixliteral]#building-doors#
+|Doors within buildings or structures.
+
+|[stixliteral]#building-windows#
+|The exterior or interior windows of buildings or structures.
+
+|[stixliteral]#buildings#
+|Entire buildings or structures.
+
+|[stixliteral]#computers-mobile#
+|Mobile devices such as smartphones.
+
+|[stixliteral]#computers-personal#
+|Workstations or laptops owned by an organization.
+
+|[stixliteral]#computers-server#
+|Servers owned by an organization.
+
+|[stixliteral]#environment#
+|Land, environment or the ability of either to support humans or wildlife.
+
+|[stixliteral]#ics-actuator#
+|Actuator for industrial control systems.
+
+|[stixliteral]#ics-engineering-workstation#
+|Engineering workstation for industrial
+control systems.
+
+|[stixliteral]#ics-historian#
+|Historian for industrial control systems.
+
+|[stixliteral]#ics-hmi#
+|Human machine interfaces for industrial control systems.
+
+|[stixliteral]#ics-other#
+|Other Industrial control systems.
+
+|[stixliteral]#ics-plc#
+|Programmable logic controller for industrial control systems.
+
+|[stixliteral]#ics-safety-system#
+|Safety system for industrial control systems.
+
+|[stixliteral]#ics-sensor#
+|Sensor for industrial control systems.
+
+|[stixliteral]#inventory#
+|Stocks of goods to be sold or consumed.
+
+|[stixliteral]#network-device#
+|Switches, routers, and wireless communication towers.
+
+|[stixliteral]#private-infrastructure#
+|Privately owned infrastructure such as roads,
+plumbing, railways, pipelines and electrical infrastructure.
+
+|[stixliteral]#public-infrastructure#
+|Publicly owned infrastructure such as roads, plumbing, railways, pipelines and electrical infrastructure.
+
+|[stixliteral]#security-containers#
+|Safes or other security containers.
+
+|[stixliteral]#vehicles#
+|Vehicles of various types including cars, trains, and planes.
+|===
+
+<<<
+
+=== 4.2 External Impact Vocabulary
+
+*Type Name:* [stixtype]#external-impact-ov#
+
+[width="100%",cols="31%,69%",options="header",]
+|===
+^|[stixtr]*Vocabulary Value* 
+^|[stixtr]*Description*
+
+|[stixliteral]#economic#
+|This incident is expected to have national or international economic impacts.
+
+|[stixliteral]#emergency-services#
+|This incident impacts emergency services.
+
+|[stixliteral]#foreign-relations#
+|This incident impacts international politics.
+
+|[stixliteral]#national-security#
+|This incident impacts the national security of one or more nations.
+
+|[stixliteral]#public-confidence#
+|This incident impacts the confidence in public or private institutions.
+
+|[stixliteral]#public-health#
+|This incident impacts the public health of one or more nations.
+
+|[stixliteral]#public-safety#
+|This incident impacts the public safety of individuals in one or more nations.
+|===
+
+<<<
+
+=== 4.3 Information Type Vocabulary
+
+*Type Name:* [stixtype]#information-type-ov#
+
+[width="100%",cols="31%,69%",options="header",]
+|===
+^|[stixtr]*Vocabulary Value* 
+^|[stixtr]*Description*
+
+|[stixliteral]#classified-material#
+|Data classified based on relevant government authorities.
+
+|[stixliteral]#communication#
+|Communication records including emails, chats and instant messages.
+
+|[stixliteral]#credentials-admin#
+|Administrative credential data.
+
+|[stixliteral]#credentials-user#
+|User credential data.
+
+|[stixliteral]#financial#
+|Financial records including purchasing activity and planned activities.
+
+|[stixliteral]#legal#
+|Legal records that are not yet public including contracts under negotiation and documents protected under legal privilege.
+
+|[stixliteral]#payment#
+|Payment information.
+
+|[stixliteral]#phi#
+|Protected Health Information.
+
+|[stixliteral]#pii#
+|Personally Identifiable Information.
+
+|[stixliteral]#proprietary#
+|Proprietary information e.g., intellectual property.
+|===
+
+<<<
+
+=== 4.4 Monetary Impact Type Vocabulary
+
+*Type Name:* [stixtype]#monetary-impact-type-ov#
+
+[width="100%",cols="31%,69%",options="header",]
+|===
+^|[stixtr]*Vocabulary Value* 
+^|[stixtr]*Description*
+
+|[stixliteral]#asset-and-fraud#
+|Losses incurred due to loss of assets or fraud.
+
+|[stixliteral]#brand-damage#
+|Losses incurred due to reputational or brand damage.
+
+|[stixliteral]#business-disruption#
+|Losses incurred due to business disruptions.
+
+|[stixliteral]#competitive-advantage#
+|Losses incurred due to theft of intellectual property, techniques or other capabilities that grant an advantage in the field.
+
+|[stixliteral]#legal-and-regulatory#
+|Losses incurred due to legal or regulatory actions in response to the incident.
+
+|[stixliteral]#operating-costs#
+|Losses incurred due to additional operating costs that have been incurred due to the incident.
+
+|[stixliteral]#ransom-demand#
+|The demanded amount of ransom to be paid. When this is selected the demand amount should be listed as the *max_amount* and the *min_amount* should be 0.
+
+|[stixliteral]#ransom-payment#
+|An actual payment of a ransom.
+
+|[stixliteral]#response-and-recovery#
+|Losses incurred due to response and recovery efforts for the incident.
+
+|[stixliteral]#uncategorized#
+|Losses incurred that have not been categorized yet.
+|===
+
+<<<
+
+== 5. Enumerations
+
+=== 5.1 Incident Confidentiality Loss Enumeration
+
+*Type Name*: [stixtype]#incident-confidentiality-loss-enum#
+
+[width="100%",cols="27%,73%",options="header",]
+|===
+^|[stixtr]*Vocabulary Value* 
+^|[stixtr]*Description*
+
+|[stixliteral]#confirmed-loss#
+|Information has been exfiltrated and is now available
+to the attacker, but it is unknown if it has been misused.
+
+|[stixliteral]#contained#
+|Information's confidentiality was compromised, but the spill
+was within an environment that allowed it to be effectively contained.
+
+For example: a sensitive data spill occurred within a controlled network
+allowing it to be resolved before information exited the organization.
+
+|[stixliteral]#exploited-loss#
+|Information has been exfiltrated and has been actively misused by the attacker.
+
+|[stixliteral]#none#
+|This information type was not compromised based on the investigation that was performed.
+This option should be used to affirmatively supply this information when necessary.
+
+|[stixliteral]#suspected-loss#
+|It is suspected but not confirmed that the attacker may have gained access to this information.
+|===
+
+<<<
+
+=== 5.2 Integrity Alteration Enumeration
+
+*Type Name*: [stixtype]#integrity-alteration-enum#
+
+[width="100%",cols="37%,63%",options="header",]
+|===
+^|[stixtr]*Vocabulary Value* 
+^|[stixtr]*Description*
+
+|[stixliteral]#potential-destruction#
+|Information may have been destroyed within the system.
+
+|[stixliteral]#potential-modification#
+|Information may have been modified within the system.
+
+|[stixliteral]#partial-destruction#
+|Some data of this type has been destroyed, but sufficient data remains to allow partial functionality.
+
+|[stixliteral]#partial-modification#
+|Some data in the system has been modified, but the remaining data is of an acceptable level of integrity for operations to continue.
+
+|[stixliteral]#full-destruction#
+|Sufficient data of this type was destroyed to render the system inoperable until recovery can be completed.
+
+|[stixliteral]#full-modification#
+|Sufficient data of this type was modified to render the system inoperable until recovery can be completed.
+
+|[stixliteral]#none#
+|There is no evidence of destruction or modification of this data type in the system.
+|===
+
+<<<
+
+=== 5.3 Physical Impact Enumeration
+
+*Type Name*: [stixtype]#physical-impact-enum#
+
+[width="100%",cols="30%,70%",options="header",]
+|===
+^|[stixtr]*Vocabulary Value* 
+^|[stixtr]*Description*
+
+|[stixliteral]#damaged-functional#
+|The property, asset or system was damaged but still remains functional and repair may be possible.
+
+|[stixliteral]#damaged-nonfunctional#
+|The property, asset or system was damaged and does not remain functional, but repair may be possible.
+
+|[stixliteral]#destruction#
+|The property, asset or system was destroyed, cannot be repaired and no longer functions.
+
+In some cases destroyed assets can be rebuilt, but doing so involves a similar amount of effort as the original construction.
+
+|[stixliteral]#none#
+|No damage or destruction has occurred.
+
+|[stixliteral]#unknown#
+|The degree of damage has not been determined yet.
+|===
+
+<<<
+
+=== 5.4 Recoverability Enumeration
+
+*Type Name*: [stixtype]#recoverability-enum#
+
+[width="100%",cols="24%,76%",options="header",]
+|===
+^|[stixtr]*Vocabulary Value* 
+^|[stixtr]*Description*
+
+|[stixliteral]#extended#
+|Time to recovery is unpredictable; additional resources and outside help are necessary.
+
+|[stixliteral]#not-applicable#
+|No recovery is necessary.
+
+|[stixliteral]#not-recoverable#
+|Recovery from the incident is not possible.
+
+|[stixliteral]#regular#
+|Time to recovery is predictable with existing resources.
+
+|[stixliteral]#supplemented#
+|Time to recovery is predictable with additional
+resources.
+|===
+
+<<<
+
+=== 5.5 Traceability Enumeration
+
+*Type Name*: [stixtype]#traceability-enum#
+
+[width="100%",cols="31%,69%",options="header",]
+|===
+^|[stixtr]*Vocabulary Value* 
+^|[stixtr]*Description*
+|[stixliteral]#accountability-lost#
+|Traces used to retrieve accountability are lost or do not exist.
+
+|[stixliteral]#partial-accountability#
+|Traces are present, but insufficient to have provable accountability.
+
+|[stixliteral]#provable-accountability#
+|Accountability can be ensured from the traces that are present.
+|===
+
+<<<
+
+== 6.0 Relationships
+
+[width="100%",cols="24%,23%,20%,33%",options="header",]
+|===
+4+^|[stixtr]*Common Relationships*
+4+|[stixrelationship]#derived-from#,
+[stixrelationship]#duplicate-of#,
+[stixrelationship]#related-to#
+
+|*Source*
+|*Type* 
+|*Target* 
+|*Description*
+
+4+^|*Reverse Relationships*
+
+|===
+
+<<<
+
+== Appendix A. Incident Criticality Mapping
+
+This appendix defines mappings for criticality scales to be used by the criticality property.
+A value of "Not Specified" in the table below means that the criticality property is not present.
+
+[width="100%",cols="38%,35%,27%",options="header",]
+|===
+|[stixtr]*5 Qualitative*
+|[stixtr]*STIX Criticality Value* 
+|[stixtr]*Range of Values*
+|Not Specified
+|Not Specified 
+|N/A
+|False Positive
+|0 
+|0
+|Low
+|15 
+|1-29
+|Moderate
+|40 
+|30-49
+|High
+|70 
+|50-89
+|Extreme
+|95 
+|90-100
+|===
+
+[width="100%",cols="38%,34%,28%",options="header",]
+|===
+|[stixtr]*Major / Minor*
+|[stixtr]*STIX Criticality Value* 
+|[stixtr]*Range of Values*
+|Not Specified
+|Not Specified 
+|N/A
+|None
+|0 
+|0
+|Minor
+|25 
+|1-49
+|Major
+|75 
+|50-100
+|===
+
+[width="100%",cols="38%,34%,28%",options="header",]
+|===
+|[stixtr]*Major / Minor / Critical*
+|[stixtr]*STIX Criticality Value* 
+|[stixtr]*Range of Values*
+|Not Specified
+|Not Specified 
+|N/A
+|None
+|0 
+|0
+|Minor
+|25 
+|1-49
+|Major
+|70 
+|50-89
+|Critical
+|95 
+|90-100
+|===
+
+[width="100%",cols="38%,34%,28%",options="header",]
+|===
+|[stixtr]*None, Low, High, Extreme*
+|[stixtr]*STIX Criticality Value* 
+|[stixtr]*Range of Values*
+|Not Specified
+|Not Specified 
+|N/A
+|None
+|0 
+|0
+|Low
+|20 
+|1-39
+|High
+|65 
+|40-89
+|Extreme
+|95 
+|90-100
+|===
+
+[width="100%",cols="38%,34%,28%",options="header",]
+|===
+|[stixtr]*VERIS*
+|[stixtr]*STIX Criticality Value* 
+|[stixtr]*Range of Values*
+|Unknown
+|Not Specified 
+|N/A
+|Insignificant
+|10 
+|0-19
+|Distracting
+|35 
+|20-49
+|Painful
+|60 
+|50-69
+|Damaging
+|80 
+|70-90
+|Catastrophic
+|95 
+|90-100
+|===
+
+<<<
+
+[width="100%",cols="37%,35%,28%",options="header",]
+|===
+|[stixtr]*0 to 10*
+|[stixtr]*STIX Criticality Value* 
+|[stixtr]*Range of Values*
+|Not Specified
+|Not Specified 
+|N/A
+|0
+|0 
+|0-4
+|1
+|10 
+|5-14
+|2
+|20 
+|15-24
+|3
+|30 
+|25-34
+|4
+|40 
+|35-44
+|5
+|50 
+|45-54
+|6
+|60 
+|55-64
+|7
+|70 
+|65-74
+|8
+|80 
+|75-84
+|9
+|90 
+|85-94
+|10
+|100 
+|95-100
+|===
+
+<<<
+
+== Appendix B. Incident Availability Impact Mapping
+
+This appendix defines mappings for availability and functional scales to be used by the availability impact property.
+A value of "Not Specified" in the table below means that the criticality property is not present.
+
+[width="100%",cols="51%,27%,22%",options="header",]
+|===
+|[stixtr]*US-CERT*
+|[stixtr]*STIX Criticality Value* 
+|[stixtr]*Range of Values*
+|Not Specified
+|Not Specified 
+|N/A
+|No Impact
+|0 
+|0
+|No Impact to Services
+|5 
+|1-9
+|Minimal Impact to Non-Critical Services
+|15 
+|10-19
+|Minimal Impact to Critical Services
+|30 
+|20-39
+|Significant Impact to Non-Critical Services
+|50 
+|40-59
+|Denial of Non-Critical Services
+|65 
+|60-69
+|Significant Impact to Critical Services
+|75 
+|70-79
+|Denial of Critical Services / Loss of Control
+|90 
+|80-100
+|===
+
+[width="100%",cols="37%,35%,28%",options="header",]
+|===
+|[stixtr]*Simple Qualitative*
+|[stixtr]*STIX Criticality Value* 
+|[stixtr]*Range of Values*
+|Not Specified
+|Not Specified 
+|N/A
+|None
+|0 
+|0
+|Minimal
+|20 
+|1-39
+|Significant
+|50 
+|40-59
+|Denial
+|75 
+|60-89
+|Loss of Control
+|95 
+|90-100
+|===
+
+<<<
+
+[width="100%",cols="37%,35%,28%",options="header",]
+|===
+|[stixtr]*0 to 10*
+|[stixtr]*STIX Criticality Value* 
+|[stixtr]*Range of Values*
+|Not Specified
+|Not Specified 
+|N/A
+|0
+|0 
+|0-4
+|1
+|10 
+|5-14
+|2
+|20 
+|15-24
+|3
+|30 
+|25-34
+|4
+|40 
+|35-44
+|5
+|50 
+|45-54
+|6
+|60 
+|55-64
+|7
+|70 
+|65-74
+|8
+|80 
+|75-84
+|9
+|90 
+|85-94
+|10
+|100 
+|95-100
+|===
+
+<<<
+
+== Appendix C. Acknowledgements
+
+*Primary Editor*
+
+Jeffrey Mates, US Department of Defense (DoD)
+
+*Contributors*
+
+The following individuals were members of the OASIS CTI Technical Committee and contributed time and effort to ensure that this extension would be possible.
+Their contributions are gratefully acknowledged:
+
+* Alexandre Cabrol Perales, Sopra Steria Group
+* Ben Ottoman, Cyber Threat Intelligence Network, Inc. (CTIN)
+* Christian Hunt, Copado
+* Christopher Robinson, Cyber Threat Intelligence Network, Inc. (CTIN)
+* David Kemp, National Security Agency (NSA)
+* Duncan Sparrell, sFractal Consulting LLC
+* Emily Ratliff, IBM
+* Jane Ginn, Cyber Threat Intelligence Network, Inc. (CTIN)
+* Jason Keirstead, IBM
+* Jeremy Berthelet, Sopra Steria Group
+* Keven Ates, US Federal Bureau of Investigation
+* Margaux Quittelier, Sopra Steria Group
+* Michael Rosa, National Security Agency (NSA)
+* Richard Piazza, MITRE Corporation
+* Rob Coderre, Accenture
+* Robert Keith, Accenture
+* Ryan Hohimer, DarkLight, Inc.
+* Scott Robertson, Kaiser Permanente
+* Trey Darley, CCB/CERT.be
+* Vasileios Mavroeidis, University of Oslo
+
+<<<
+
+== Appendix D. Revision History
+
+[width="100%",cols="18%,16%,23%,43%",options="header",]
+|===
+^|[stixtr]*Revision* ^|[stixtr]*Date* ^|[stixtr]*Editor* ^|[stixtr]*Changes Made*
+|01
+|TBD
+|Incident Mini Group
+|Initial Version
+
+|===

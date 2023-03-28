@@ -61,3 +61,10 @@ Temporary Items
 .apdisk
 
 test/
+temp/
+
+
+# Temporary files
+extension-definition-specifications/*/*.html
+extension-definition-specifications/*/*.pdf
+extension-definition-specifications/*/~*.docx

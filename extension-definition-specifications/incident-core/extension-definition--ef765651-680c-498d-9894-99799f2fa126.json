@@ -392,87 +392,6 @@
                 ]
             }
         },
-        "defender_activities": {
-            "type": "array",
-            "description": "Points in time relevant to the lifecycle of this incident, such as when it was first detected or when the activity first appeared.  Since each entry is a timestamp when recording events with a start end date they should be marked with '-started' or '-completed' as suffixes",
-            "items": {
-                "type": "object",
-                "required": [
-                    "activity_type"
-                    , "outcome"
-                ],
-                "allOf": [
-                    {
-                        "$ref": "#/definitions/Activity_Common_Properties"
-                    }
-                ],
-                "unevaluatedProperties": false,
-                "properties": {
-                    "object_ref": {
-                        "type": "string",
-                        "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
-                        "description": "A reference to a course-of-action, playbook or similar detailed explanation of what was done"
-                    },
-                    "activity_type": {
-                        "type": "string",
-                        "description": "A general type for the timestamp for higher level rollups",
-                        "$comment": "Open-Vocab including: 'recovery', 'detected', 'declared', 'escalated'"
-                    },
-                    "identity_refs": {
-                        "type": "array",
-                        "description": "A list of all identities involved in this activity.  For example a report provided to specific individuals or organizations.",
-                        "minItems": 1,
-                        "items": {
-                            "type": "string",
-                            "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json"
-                        }
-                    }
-                },
-                "$comment": "This was included as an array instead of a series of external relationships because course of action is optional, and will often not be included.  As such it allows defenders to provide timestamps of when they performed general actions without needing to provide an explicit course of action object.  Many events including detection also do not fit the standard Course of Action use case so it is unclear if this would be the desired long-term behavior."
-            }
-        },
-        "attacker_activities": {
-            "type": "array",
-            "description": "A list of attacker focused activities associated with the Incident including information about when these occurred.",
-            "items": {
-                "type": "object",
-                "required": ["outcome"],
-                "allOf": [
-                    {
-                        "$ref": "#/definitions/Activity_Common_Properties"
-                    }
-                ],
-                "unevaluatedProperties": false,
-                "properties": {
-                    "goal": {
-                        "type": "string",
-                        "description": "The attack's assumed objective when performing this activity"
-                    },
-                    "kill_chain_phases": {
-                        "type": "array",
-                        "description": "The kill chain phase(s) to which this attacker activity corresponds",
-                        "minItems": 1,
-                        "items": {
-                            "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/master/schemas/common/kill-chain-phase.json"
-                        }
-                    },
-                    "pattern_ref": {
-                        "type": "string",
-                        "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
-                        "pattern": "^attack-pattern--"
-                    },
-                    "observed_refs": {
-                        "type": "array",
-                        "description": "A list of all observed data that was part of this attacker activity.  This can relate directly to SCOs, but can also reference Sightings, Observables, and Indicators.",
-                        "minItems": 1,
-                        "items": {
-                            "type": "string",
-                            "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json"
-                        }
-                    }
-                }
-            }
-        },
         "impacted_entity_counts": {
             "description": "A dictionary of entities that were impacted by the incident where the key is the entity type and the value is the number of entities of that type which were impacted.  In most cases these should be understood to be estiamtes.",
             "patternProperties": {
@@ -483,14 +402,34 @@
                 }
             }
         },
-        "traceability": {
-            "type": "string",
-            "description": "The level of forensic or other traces left by the incident in order to enable auditing and accountability",
-            "enum": [
-                "accountability-lost"
-                , "partial-accountability"
-                , "provable-accountability"
-            ]
+        "traceability_impacts": {
+            "type": "array",
+            "description": "Physical damage caused by this incident.",
+            "minItems": 1,
+            "items": {
+                "type": "object",
+                "unevaluatedProperties": false,
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/Impact_Common_Properties"
+                    }
+                ],
+                "required": ["traceability_impact"],
+                "properties": {
+                    "traceability_impact": {
+                        "type": "string",
+                        "description": "The level of forensic or other traces left by the incident in order to enable auditing and accountability",
+                        "enum": [
+                            "accountability-lost"
+                            , "partial-accountability"
+                            , "provable-accountability"
+                        ]
+                    },
+                    "recoverability": {
+                        "$ref": "#/definitions/Recoverability"
+                    }
+                }
+            }
         }
     },
     "definitions": {
@@ -509,6 +448,15 @@
         "Impact_Common_Properties": {
             "type": "object",
             "properties": {
+                "activity_refs": {
+                    "type": "array",
+                    "description": "A list of all activities that had a direct effect on this impact. This must relate to an incident-activity.",
+                    "minItems": 1,
+                    "items": {
+                        "type": "string",
+                        "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json"
+                    }
+                },
                 "criticality": {
                     "type": "integer",
                     "description": "The criticality of this particular impact",
@@ -536,65 +484,6 @@
                         "type": "string",
                         "minLength": 1
                     }
-                }
-            }
-        },
-        "Activity_Common_Properties": {
-            "type": "object",
-            "properties": {
-                "description": {
-                    "type": "string",
-                    "description": "A description of the activity that occurred."
-                },
-                "impacted_refs": {
-                    "type": "array",
-                    "description": "A list of all assets or infrastructure impacted by this activity.  This can relate directly to SCOs, but can also reference Infrastructure or other SDOs.",
-                    "minItems": 1,
-                    "items": {
-                        "type": "string",
-                        "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json"
-                    }
-                },
-                "outcome": {
-                    "type": "string",
-                    "description": "The outcome of a particular attacker activity",
-                    "enum": [
-                        "blocked"
-                        , "failed"
-                        , "occurred"
-                        , "ongoing"
-                        , "pending"
-                        , "successful"
-                        , "unknown"
-                    ]
-                },
-                "start_time": {
-                    "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/timestamp.json",
-                    "description": "The date the activity was first recorded.  If this is not present it is assumed to be unknown."
-                },
-                "start_time_fidelity": {
-                    "type": "string",
-                    "description": "The maximum degree of fidelity provided by the start_time.  When set to 'month' for example the timestamp 2021-02-01T04:00:00Z should only be read to be accurate to Februrary 2021 not a specific day within the month.",
-                    "enum": ["second", "minute", "hour", "day", "month", "year"]
-                },
-                "end_time": {
-                    "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/timestamp.json",
-                    "description": "The date the activity was last recorded.  If this is not present it is assumed to be unknown."
-                },
-                "end_time_fidelity": {
-                    "type": "string",
-                    "description": "The maximum degree of fidelity provided by the end_time.  When set to 'hour' for example the timestamp 2021-02-01T04:00:00Z should only be read to be accurate to Februrary 1st 2021 between 04:00:00Z (inclusive) and 05:00:00Z (exclusive).",
-                    "enum": ["second", "minute", "hour", "day", "month", "year"]
-                },
-                "sequence_start": {
-                    "type": "number",
-                    "description": "An optional sequence number starting at 0 that shows the earliest point this activity is believed to have occurred relative to other attacker and defender activities.  This cannot be greater than sequence_end, but the two can be equal.",
-                    "minimum": 0
-                },
-                "sequence_end": {
-                    "type": "number",
-                    "description": "An optional sequence number starting at 0 that shows the lastest point this activity is believed to have occurred relative to other attacker and defender activities.  This cannot be less than sequence_start, but the two can be equal.",
-                    "minimum": 0
                 }
             }
         }
