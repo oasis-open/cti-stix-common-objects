@@ -4,23 +4,22 @@
     "objects": [
         {
             "type": "impact",
+            "impact_category": "confidentiality",
             "id": "impact--b689f0bb-d290-4961-87ad-a40289a67d83",
             "created": "2023-04-07T20:00:00.0002Z",
             "modified": "2023-04-07T20:00:00.0002Z",
             "spec_version": "2.1",
-            "impact_details": {
-                "information_type": "pii",
-                "impact_category": "confidentiality",
-                "loss_type": "suspected-loss",
-                "record_count": 123456
-            },
-            "incident_ref": "incident--63c6e23e-7994-4536-acad-4309a7069540",
             "impacted_entity_counts": {
                 "individual": 123456
             },
             "extensions": {
                 "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
                     "extension_type": "new-sdo"
+                },
+                "confidentiality": {
+                    "information_type": "pii",
+                    "loss_type": "suspected-loss",
+                    "record_count": 123456
                 }
             }
         }

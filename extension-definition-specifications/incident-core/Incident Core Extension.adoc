@@ -21,8 +21,8 @@ Additional artifacts:
 .This prose specification is one component of a Work Product that also includes:
 
 - STIX™ Version 2.1 - OS
-- Impact Extension Version 1.0 for STIX^TM^ Version 2.1
-- Incident Activity Extension Version 1.0 for STIX^TM^ Version 2.1
+- Impact Extension Version 1.0 for STIX^TM^ Version 1.0
+- Incident Activity Extension Version 1.0 for STIX^TM^ Version 1.0
 
 
 [.stix-doc-information-heading]
@@ -83,6 +83,11 @@ The values of this property *MUST* come from the [stixtype]#incident-determinati
 
 The values of this property *MUST* come from the [stixtype]#incident-investigation-ov# enumeration.
 
+|*activities* (optional)
+|[stixtype]#list# of type [stixtype]#activity-sequence#
+|A list of activities that this activity was composed of.
+The object is defined in Incident Activity Extension Version 1.0 for STIX^TM^ Version 1.0.
+
 |*criticality* (optional)
 |[stixtype]#integer#
  
@@ -94,11 +99,21 @@ This value *MUST* be between 0 to 100. This can be translated into qualitative v
 |A list of strings containing what was used to detect the activity, e.g., commercial tool names, techniques associated with proprietary solutions, human review, external sources, or other methods.
 This should draw from the [stixtype]#detection-methods-ov#.
 
+|*impact_refs* (optional)
+|[stixtype]#list# of type [stixtype]#impact#
+|A list of impacts of this incident.
+It *MUST* contain references to one or more Impact objects.
+
+The objects referenced in this list *MUST* be of type [stixtype]#impact#
+
 |*impacted_entity_counts* (optional)
 |[stixtype]#entity-count#
-|An optional listing of the entity types that were impacted and how many of each were affected.
+|An optional listing of the entity types that were impacted by the incident, and how many of each type were affected.
+Individual impacts may also record more detailed counts as appropriate.
 
 If this field is not present it should be assumed that this information is not being shared, not that there were no impacted entities.
+
+The object is defined in Impact Extension Version 1.0 for STIX^TM^ Version 1.0
 
 |*incident_types* (optional)
 |[stixtype]#list# of type [stixtype]#open-vocab#
@@ -121,44 +136,7 @@ enumeration.
 
 <<<
 
-=== 2.1 Entity Count Type
-
-*Type Name:* [stixtype]#entity-count#
-
-The Entity Count type represents the count of one or more entity types.
-The name of each entity type *MUST* be specified as a key in the dictionary and *MUST* identify the count of the entity that corresponds to the value. Each key *SHOULD* come from [stixtype]#identity-class-ov#.
-This value *MUST* be an [stixtype]#integer# that is equal to or greater than zero.
-
-*Examples:*
-
-_100 individuals_
-[source,json]
-----
-{
-    "individual": 100
-}
-----
-
-_1000 systems, 10 organizations, 1 sector_
-----
-{
-    "organization": 10,
-    "sector": 1
-    "system": 1000
-}
-----
-
-_0 individuals_
-
-----
-{
-    "individual": 0
-}
-----
-
-<<<
-
-=== 2.2 Incident Score Object Type
+=== 2.1 Incident Score Object Type
 
 *Type Name:* [stixtype]#incident-score#
 
@@ -266,6 +244,9 @@ Incidents of this *SHOULD* have an integrity impact, but organizations may choos
 
 |[stixliteral]#major#
 |The incident is classified as major based on the internal criteria within the organization or due to external reporting requirements.
+
+|[stixliteral]#ransomware#
+|This incident involved malware that encrypted data with a demand that a ransom is paid to regain access to it.
 
 |[stixliteral]#supply-chain-customer#
 |This incident used a vendor further up in the supply chain where the target was a customer.

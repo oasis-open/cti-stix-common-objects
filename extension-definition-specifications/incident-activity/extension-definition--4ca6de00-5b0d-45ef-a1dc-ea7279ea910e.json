@@ -48,12 +48,18 @@
                 },
                 "activity_category": {
                     "type": "string",
-                    "description": "A general type for the timestamp for higher level rollups",
-                    "$comment": "Open-Vocab including: 'recovery', 'detected', 'declared', 'escalated'"
+                    "description": "If this activity was performed by the attacker, defender, or simply took place.",
+                    "enum": [
+                        "attacker",
+                        "defender",
+                        "natural",
+                        "other",
+                        "unknown"
+                    ]
                 },
                 "activity_type": {
                     "type": "string",
-                    "description": "A general type for the timestamp for higher level rollups",
+                    "description": "A general type for the timestamp for higher level rollup",
                     "$comment": "Open-Vocab including: 'recovery', 'detected', 'declared', 'escalated'"
                 },
                 "impacted_refs": {
@@ -96,6 +102,27 @@
                     "description": "The maximum degree of fidelity provided by the end_time.  When set to 'hour' for example the timestamp 2021-02-01T04:00:00Z should only be read to be accurate to Februrary 1st 2021 between 04:00:00Z (inclusive) and 05:00:00Z (exclusive).",
                     "enum": ["second", "minute", "hour", "day", "month", "year"]
                 },
+                "sub_activities": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "$ref": "#/definitions/Activity_Sequence"
+                    }
+                }
+            }
+        }
+    ],
+    "definitions": {
+        "Activity_Sequence": {
+            "type": "object",
+            "required": ["activity_id"],
+            "additionalProperties": false,
+            "properties": {
+                "activity_ref": {
+                    "type": "string",
+                    "pattern": "^incident-activity--",
+                    "description": "The activity that ocurred at this point in the sequence"
+                },
                 "sequence_start": {
                     "type": "number",
                     "description": "An optional sequence number starting at 0 that shows the earliest point this activity is believed to have occurred relative to other attacker and defender activities.  This cannot be greater than sequence_end, but the two can be equal.",
@@ -108,5 +135,5 @@
                 }
             }
         }
-    ]
+    }
 }

@@ -127,34 +127,6 @@ accurate up to the number of decimals it includes.
 |[stixtype]#string#
 |The assumed objective of this activity.
 
-|*parent_ref* (optional)
-|[stixtype]#identifier#
-|The incident, incident-activity, or other SDO that this activity was a part of.
-
-When this refers to another incident-activity object it indicates that
-this activity is a part of the parent activity.
-
-|*sequence_end* (optional)
-|[stixtype]#integer#
-|An optional sequence number starting at 0 that shows the last point in
-an activity is believed to have occurred relative to other activities
-that have the same [stixtype]*parent_ref*.
-
-This *MUST NOT* be used if a [stixtype]*parent_ref* is not included.
-
-This *MUST NOT* be less than the [stixtype]*sequence_start* value, but the two can
-be equal.
-
-|*sequence_start* (optional)
-|[stixtype]#integer#
-|An optional sequence number starting at 0 that shows the earliest point
-this activity is believed to have occurred relative to other activities
-that have the same [stixtype]*parent_ref*.
-
-This *MUST NOT* be used if a [stixtype]*parent_ref* is not included.
-
-This *MUST NOT* exceed the [stixtype]*sequence_end* value, but the two can be equal.
-
 |*start_time* (optional)
 |[stixtype]#timestamp#
 |The date and time the activity was first recorded. If this is not
@@ -169,6 +141,42 @@ This property *SHOULD* be populated.
 
 If no value is provided the timestamp should be considered to be
 accurate up to the number of decimals it includes.
+
+|*sub_activities* (optional)
+|[stixtype]#list# of type [stixtype]#activity-sequence#
+|A list of sub-activities that this activity was composed of.
+|===
+
+<<<
+
+=== 2.1 Activity-Sequence Object Type
+
+*Type Name:* [stixtype]#activity-sequence#
+
+[width="100%",cols="37%,23%,40%",options="header",]
+|===
+^|[stixtr]*Property Name*
+^|[stixtr]*Type* 
+^|[stixtr]*Description*
+
+|*activity_ref* (required)
+|[stixtype]#identifier# 
+|This property specifies the activity that ocurred at this point in the sequence.
+
+The object referenced *MUST* be of type [stixtype]#incident-activity#.
+
+|*sequence_end* (optional)
+|[stixtype]#integer#
+|An optional sequence number starting at 0 that shows the last point in an activity is believed to have occurred relative to other [stixtype]#activity-sequence# entries in the same list.
+
+This *MUST NOT* be less than the [stixtype]*sequence_start* value, but the two can
+be equal.
+
+|*sequence_start* (optional)
+|[stixtype]#integer#
+|An optional sequence number starting at 0 that shows the earliest point this activity is believed to have occurred relative to other [stixtype]#activity-sequence# entries in the same list.
+
+This *MUST NOT* exceed the [stixtype]*sequence_end* value, but the two can be equal.
 |===
 
 <<<

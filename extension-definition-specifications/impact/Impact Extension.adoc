@@ -40,7 +40,7 @@ toc::[]
 STIX 2.1 currently provides no means of sharing information about the impact of incidents.
 In the 1.0 version of the core incident extension these details were embedded into the Incident SDO.
 Based on the various implementation efforts it was determined that it would be best to split this information into a separate SDO.
-Doing so allows for easier sharing of information using TAXII as datamarkings can be safely applied to each impact so that native filtering capabilities can be used to limit disemination of sensitive information reducing reauthoring requirements that were present in the 1.0 version of the core incident extension.
+Doing so allows for easier sharing of information using TAXII as data markings can be safely applied to each impact so that native filtering capabilities can be used to limit dissemination of sensitive information reducing re-authoring requirements that were present in the 1.0 version of the core incident extension.
 
 
 This extension is intended to be pair with both the Incident Activity and Incident extensions to allow for in depth information sharing.
@@ -84,16 +84,17 @@ The incident core extension exists to allow a whole lifecycle approach for Incid
 
 ^|[stixtr]*Incident Activity Object Specific Properties*
 
-|*impact_details*,
+|*impact_category*,
 *incident_ref*
 |===
 
 |===
 ^|[stixtr]*Property Name* ^|[stixtr]*Type* ^|[stixtr]*Description*
 
-|*impact_details* (required)
-|[stixtype]#<impact detail object>#
-|Details related to the specific type of impact.  These *MUST* comply with the rules defined by for impact detail objects, and *SHOULD* come from one of the standard types of impact detail objects defined in this document.
+|*impact_category* (required)
+|[stixtype]#string#
+|The category of impact this applies to.
+This *MUST* match an extension that provides greater and *SHOULD* come from the extensions listed in section 3 of this document.
 
 |*incident_ref* (required)
 |[stixtype]#identifier# 
@@ -176,24 +177,22 @@ _0 individuals_
 
 <<<
 
-== 3.0 Impact Details
+== 3.0 Impact Extensions
 
-The Impact SDO has a required field that *MUST* be populated by an object that has a minimum of two properties at least one of which *MUST* be *impact_category* of type [stixtype]#string# with a fixed value determined by the impact detail object that is used.
+The Impact SDO is currently an extension, but as there are many specific types of impacts with their own unique properties it emulates the File SCO through the use of STIX Extensions to provide the granular details of specific categories of impacts.
+As such every Impact *MUST* have an extension that has the same value of the *impact_category*.
+This allows consumers to quickly validate their ability to process this category of impact and then load all of its specific details.
 
-The same *impact_category* MUST not be used by different impact detail objects.
+Producers *SHOULD* use one of the extensions  not be used by different impact detail objects.
 The following is a list of impact detail objects that *SHOULD* be used.
 
-=== 3.1 Impact Detail: Availability
+=== 3.1 Impact Availability Extension 
 
 [width="100%",cols="37%,23%,40%",options="header",]
 |===
 ^|[stixtr]*Property Name*
 ^|[stixtr]*Type* 
 ^|[stixtr]*Description*
-
-|*impact_category* (required)
-|[stixtype]#string#
-|The value of this property *MUST* be [stixliteral]#availability#
 
 |*availability_impact* (required)
 |[stixtype]#integer#
@@ -205,17 +204,13 @@ This value *MUST* be between 0 to 100. This can be translated into qualitative v
 
 <<<
 
-=== 3.2 Impact Detail: Confidentiality
+=== 3.2 Confidentiality Impact Extension
 
 [width="100%",cols="37%,23%,40%",options="header",]
 |===
 ^|[stixtr]*Property Name*
 ^|[stixtr]*Type* 
 ^|[stixtr]*Description*
-
-|*impact_category* (required)
-|[stixtype]#string#
-|The value of this property *MUST* be [stixliteral]#confidentiality#
 
 |*information_type* (optional)
 |[stixtype]#open-vocab#
@@ -240,17 +235,13 @@ This value *MUST* be included if the loss_type is not none. Including an entry w
 
 <<<
 
-=== 3.3 Impact Detail: External
+=== 3.3 External Impact Extension
 
 [width="100%",cols="37%,23%,40%",options="header",]
 |===
 ^|[stixtr]*Property Name*
 ^|[stixtr]*Type* 
 ^|[stixtr]*Description*
-
-|*impact_category* (required)
-|[stixtype]#string#
-|The value of this property *MUST* be [stixliteral]#external#
 
 |*impact_type* (required)
 |[stixtype]#open-vocab# 
@@ -259,7 +250,7 @@ This value *MUST* be included if the loss_type is not none. Including an entry w
 
 <<<
 
-=== 3.4 Impact Detail: Integrity
+=== 3.4 Integrity Impact Extension
 
 *Type Name:* [stixtype]#integrity-impact#
 
@@ -268,10 +259,6 @@ This value *MUST* be included if the loss_type is not none. Including an entry w
 ^|[stixtr]*Property Name*
 ^|[stixtr]*Type* 
 ^|[stixtr]*Description*
-
-|*impact_category* (required)
-|[stixtype]#string#
-|The value of this property *MUST* be [stixliteral]#integrity#
 
 |*alteration* (required)
 |[stixtype]#integrity-alteration-enum#
@@ -301,17 +288,13 @@ Including an entry that with an alteration of none and no information_type indic
 
 <<<
 
-=== 3.5 Impact Detail: Monetary
+=== 3.5 Monetary Impact Extension
 
 [width="100%",cols="37%,23%,40%",options="header",]
 |===
 ^|[stixtr]*Property Name*
 ^|[stixtr]*Type* 
 ^|[stixtr]*Description*
-
-|*impact_category* (required)
-|[stixtype]#string#
-|The value of this property *MUST* be [stixliteral]#monetary#
 
 |*variety* (required)
 |[stixtype]#open-vocab#
@@ -344,17 +327,13 @@ This value *MUST* be included if the *max_amount* is included.
 
 <<<
 
-=== 3.6 Impact Detail: Physical
+=== 3.6 Physical Impact Extension
 
 [width="100%",cols="37%,23%,40%",options="header",]
 |===
 ^|[stixtr]*Property Name*
 ^|[stixtr]*Type* 
 ^|[stixtr]*Description*
-
-|*impact_category* (required)
-|[stixtype]#string#
-|The value of this property *MUST* be [stixliteral]#physical#
 
 |*impact_type* (required)
 |[stixtype]#physical-impact-enum#
@@ -376,17 +355,13 @@ Including an entry with an *impact_type* of none and no asset_type indicates tha
 
 <<<
 
-=== 3.7 Impact Detail: Traceability
+=== 3.7 Traceability Impact Extension
 
 [width="100%",cols="37%,23%,40%",options="header",]
 |===
 ^|[stixtr]*Property Name*
 ^|[stixtr]*Type* 
 ^|[stixtr]*Description*
-
-|*impact_category* (required)
-|[stixtype]#string#
-|The value of this property *MUST* be [stixliteral]#traceability#
 
 |*traceability_impact* (required)
 |[stixtype]#traceability-enum#
