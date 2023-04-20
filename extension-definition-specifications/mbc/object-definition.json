@@ -1,0 +1,26 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://raw.githubusercontent.com/oasis-open/cti-stix-common-objects/main/extension-definition-specifications/mbc/object-definition.json",
+    "title": "object-definition",
+    "properties": {
+	"source_name": {
+	    "type": "string",
+	    "enum": [
+		"mitre-mbc"
+	    ]
+	},
+	"external_id": {
+	    "type": "string",
+	    "pattern": "^(B|C|E|F|T|OB|OC)\\d{4}(\\.\\d{3})?$",
+	    "description": "The external_id property MUST be formatted as MBC id (e.g., B0030, C0061)."
+	},
+	"description": {
+	    "type": "string",
+	    "description": "The description property SHOULD be a textual description of the behavior and MAY include citations to references defined in the external_references property"
+	},
+	"url": {
+	    "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/url-regex.json",
+	    "description": "A URL reference to an external resource."
+	}
+    }
+}
