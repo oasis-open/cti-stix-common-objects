@@ -1,0 +1,29 @@
+{
+    "type": "malware-objective",
+    "spec_version": "2.1",
+    "id": "malware-objective--a6de0a96-50b6-441f-8e62-06eb6db84183",
+    "created_by_ref": "identity--ecaecc75-d8fd-4eec-bc5a-9cb815ba728d",
+    "created": "2019-08-01T00:00:00.000Z",
+    "modified": "2022-10-31T00:00:00.000Z",
+    "name": "Anti-Behavioral Analysis",
+    "obj_defn": {
+        "source_name": "mitre-mbc",
+        "description": "Behaviors that prevent, obstruct, or evade...[REF-0005]...<snip>",
+        "url": "https://github.com/MBCProject/mbc-markdown<snip>/anti-behavioral-analysis",
+        "external_id": "OB0001"
+    },
+    "external_references": [
+        {
+            "source_name": "Unprotect Project",
+            "external_id": "REF-0004",
+            "description": "A database about malware self-defense and protection.",
+            "url": "https://search.unprotect.it/map"
+        },
+        {
+            "source_name": "InDepthUnpacking",
+            "external_id": "REF-0005",
+            "description": "Course content for teaching malware anti-analysis <snip>",
+            "url": "https://github.com/knowmalware/InDepthUnpacking"
+        }
+    ]
+}

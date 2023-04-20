@@ -15,7 +15,7 @@
 		    "properties": {
 			"extension-definition--8e9e338f-c9ee-4d4f-8cac-85b4dcfdf3c1": {
 			    "type": "object", 
-			    "$ref": "mbc-malware.json"
+			    "$ref": "https://raw.githubusercontent.com/rpiazza/cti-stix-common-objects/mbc_objects/extension-definition-specifications/mbc/mbc-malware.json"
 			}
 		    },
 		    "required": ["extension-definition--8e9e338f-c9ee-4d4f-8cac-85b4dcfdf3c1"]
