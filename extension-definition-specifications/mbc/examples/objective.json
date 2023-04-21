@@ -9,7 +9,7 @@
     "obj_defn": {
         "source_name": "mitre-mbc",
         "description": "Behaviors that prevent, obstruct, or evade...[REF-0005]...<snip>",
-        "url": "https://github.com/MBCProject/mbc-markdown<snip>/anti-behavioral-analysis",
+        "url": "https://github.com/MBCProject/mbc-markdown/anti-behavioral-analysis",
         "external_id": "OB0001"
     },
     "external_references": [

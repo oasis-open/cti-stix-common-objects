@@ -17,7 +17,7 @@
     "has_detection": "true",
     "external_references": [
       {
-         "source_name": "lordnoteworthy",
+         "source_name": "repo",
          "external_id": "REF-0002",
          "url": "https://github.com/LordNoteworthy/al-khaser"
       }

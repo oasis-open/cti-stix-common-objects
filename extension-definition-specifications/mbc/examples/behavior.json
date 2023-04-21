@@ -34,17 +34,17 @@
         }],
         "external_references": [
             {
-                "source_name": "cisco",
+                "source_name": "blog post",
                 "external_id": "REF-0001",
 		"url": "https://blogs.cisco.com/security/talos/rombertik"
             },
             {
-                "source_name": "lordnoteworthy",
+                "source_name": "repo",
                 "external_id": "REF-0002",
                 "url": "https://github.com/LordNoteworthy/al-khaser"
             },
             {
-                "source_name": "capa",
+                "source_name": "analysis output",
                 "external_id": "REF-0003",
                 "url": "https://github.com/capa-rules/...check-for-sandbox-and-av-modules.yml"
             },
