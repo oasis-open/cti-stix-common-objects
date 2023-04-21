@@ -100,7 +100,7 @@ This value *MUST* be between 0 to 100. This can be translated into qualitative v
 This should draw from the [stixtype]#detection-methods-ov#.
 
 |*impact_refs* (optional)
-|[stixtype]#list# of type [stixtype]#impact#
+|[stixtype]#list# of type [stixtype]#identifier#
 |A list of impacts of this incident.
 It *MUST* contain references to one or more Impact objects.
 
@@ -422,7 +422,7 @@ A value of "Not Specified" in the table below means that the criticality propert
 |Moderate
 |40 
 |30-49
-|High#
+|High
 |70 
 |50-89
 |Extreme
@@ -510,7 +510,7 @@ A value of "Not Specified" in the table below means that the criticality propert
 |Painful
 |60 
 |50-69
-|Damaging#
+|Damaging
 |80 
 |70-90
 |Catastrophic

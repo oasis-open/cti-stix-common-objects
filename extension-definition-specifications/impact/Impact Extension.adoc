@@ -96,11 +96,6 @@ The incident core extension exists to allow a whole lifecycle approach for Incid
 |The category of impact this applies to.
 This *MUST* match an extension that provides greater and *SHOULD* come from the extensions listed in section 3 of this document.
 
-|*incident_ref* (required)
-|[stixtype]#identifier# 
-|The Incident object that this impact applies to.
-This **MUST** relate to an incident.
-
 |*type* (required)
 |[stixtype]#string#
 |The value of this property *MUST* be set to [stixliteral]#impact#.

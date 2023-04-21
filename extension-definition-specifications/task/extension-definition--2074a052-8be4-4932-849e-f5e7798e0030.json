@@ -1,28 +1,34 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "https://raw.githubusercontent.com/oasis-open/cti-stix-common-objects/main/extension-definition-specifications/incident-core/incident_core.json",
-    "title": "Incident Activity",
-    "description": "An extension for recording activity in STIX.",
+    "$id": "https://raw.githubusercontent.com/oasis-open/cti-stix-common-objects/main/extension-definition-specifications/task/extension-definition--2074a052-8be4-4932-849e-f5e7798e0030.json",
+    "title": "Task",
+    "description": "An extension for recording tasks in STIX.",
     "type": "object",
     "required": [
         "extensions"
-        , "activity_category"
         , "outcome"
         , "type"
     ],
-    "unevaluatedProperties": false,
     "allOf": [
         {
             "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/core.json"
         },
         {
+            "additionalProperties": false,
             "properties": {
+                "created": {},
+                "modified": {},
+                "spec_version": {},
+                "labels": {},
+                "name": {
+                    "type": "string"
+                },
                 "extensions": {
                     "type": "object",
                     "description": "STIX extensions.",
                     "additionalProperties": true,
                     "properties": {
-                        "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                        "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
                             "type": "object",
                             "additionalProperties": false,
                             "properties": {
@@ -36,48 +42,27 @@
                 },
                 "type": {
                     "type": "string",
-                    "const": "incident-activity"
+                    "const": "task"
                 },
                 "id": {
                     "type": "string",
-                    "pattern": "^incident-activity--"
+                    "pattern": "^task--"
                 },
                 "description": {
                     "type": "string",
                     "description": "A description of the activity that occurred."
                 },
-                "activity_category": {
-                    "type": "string",
-                    "description": "If this activity was performed by the attacker, defender, or simply took place.",
-                    "enum": [
-                        "attacker",
-                        "defender",
-                        "natural",
-                        "other",
-                        "unknown"
-                    ]
-                },
-                "activity_type": {
+                "task_type": {
                     "type": "string",
                     "description": "A general type for the timestamp for higher level rollup",
                     "$comment": "Open-Vocab including: 'recovery', 'detected', 'declared', 'escalated'"
-                },
-                "impacted_refs": {
-                    "type": "array",
-                    "description": "A list of all assets or infrastructure impacted by this activity.  This can relate directly to SCOs, but can also reference Infrastructure or other SDOs.",
-                    "minItems": 1,
-                    "items": {
-                        "type": "string",
-                        "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json"
-                    }
                 },
                 "outcome": {
                     "type": "string",
                     "description": "The outcome of a particular attacker activity",
                     "enum": [
-                        "blocked"
+                        "cancelled"
                         , "failed"
-                        , "occurred"
                         , "ongoing"
                         , "pending"
                         , "successful"
@@ -102,26 +87,42 @@
                     "description": "The maximum degree of fidelity provided by the end_time.  When set to 'hour' for example the timestamp 2021-02-01T04:00:00Z should only be read to be accurate to Februrary 1st 2021 between 04:00:00Z (inclusive) and 05:00:00Z (exclusive).",
                     "enum": ["second", "minute", "hour", "day", "month", "year"]
                 },
-                "sub_activities": {
+                "error": {
+                    "type": "string",
+                    "description": "Details about any failures or deviations that occurred in the task."
+                },
+                "priority": {
+                    "type": "integer",
+                    "description": "How important this task is on a scale of 0 to 100.",
+                    "minimum": 0,
+                    "maximum": 100
+                },
+                "template_refs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json"
+                    }
+                },
+                "subtasks": {
                     "type": "array",
                     "minItems": 1,
                     "items": {
-                        "$ref": "#/definitions/Activity_Sequence"
+                        "$ref": "#/definitions/Task_Sequence"
                     }
                 }
             }
         }
     ],
     "definitions": {
-        "Activity_Sequence": {
+        "Task_Sequence": {
             "type": "object",
-            "required": ["activity_id"],
+            "required": ["task_ref"],
             "additionalProperties": false,
             "properties": {
-                "activity_ref": {
-                    "type": "string",
-                    "pattern": "^incident-activity--",
-                    "description": "The activity that ocurred at this point in the sequence"
+                "task_ref": {
+                    "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
+                    "pattern": "^task--",                    
+                    "description": "The task that ocurred at this point in the sequence"
                 },
                 "sequence_start": {
                     "type": "number",
