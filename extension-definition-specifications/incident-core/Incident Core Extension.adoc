@@ -85,8 +85,7 @@ The values of this property *MUST* come from the [stixtype]#incident-investigati
 
 |*activities* (optional)
 |[stixtype]#list# of type [stixtype]#activity-sequence#
-|A list of activities that this activity was composed of.
-The object is defined in Incident Activity Extension Version 1.0 for STIX^TM^ Version 1.0.
+|A list of activities that this activity was composed of [stixtype]#event-sequence# or [stixtype]#task-sequence# objects.
 
 |*criticality* (optional)
 |[stixtype]#integer#
@@ -270,6 +269,40 @@ organizations may choose to not share the details of these impacts.
 
 |[stixliteral]#unauthorized-use#
 |The usage of information that falls outside of official purposes
+
+|[stixliteral]#known-malware#
+|This incident involves a known type of malware.
+
+|[stixliteral]##
+|
+
+|[stixliteral]##
+|
+
+|[stixliteral]##
+|
+
+|[stixliteral]##
+|
+
+|[stixliteral]##
+|
+
+|[stixliteral]##
+|
+
+|[stixliteral]##
+|
+
+|[stixliteral]##
+|
+
+|[stixliteral]##
+|
+
+|[stixliteral]##
+|
+
 |===
 
 <<<

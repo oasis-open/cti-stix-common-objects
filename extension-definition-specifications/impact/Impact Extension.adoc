@@ -85,7 +85,15 @@ The incident core extension exists to allow a whole lifecycle approach for Incid
 ^|[stixtr]*Incident Activity Object Specific Properties*
 
 |*impact_category*,
-*incident_ref*
+*criticality*,
+*description*,
+*end_time*,
+*end_time_fidelity*,
+*impacted_entity_counts*,
+*impacted_refs*,
+*recoverability*,
+*start_time*,
+*start_time_fidelity*,
 |===
 
 |===
@@ -100,11 +108,6 @@ This *MUST* match an extension that provides greater and *SHOULD* come from the 
 |[stixtype]#string#
 |The value of this property *MUST* be set to [stixliteral]#impact#.
 
-|*activity_refs* (optional)
-|[stixtype]#list# of type [stixtype]#identifier# 
-|A list of all activities that had a direct effect on this impact.
-This must relate to an incident-activity.
-
 |*criticality* (optional)
 |[stixtype]#integer#
 |The criticality of this impact. This value *MUST* be between 0 to 100.
@@ -113,6 +116,19 @@ This can be translated into qualitative values as described in Appendix A.
 |*description* (optional)
 |[stixtype]#string# 
 |Additional details about this impact
+
+|*end_time* (optional)
+|[stixtype]#timestamp#
+|The date and time the impact was last recorded.
+
+This property *SHOULD* be populated.
+
+|*end_time_fidelity* (optional)
+|[stixtype]#timestamp-fidelity-enum#
+|The level of fidelity that the end_time is recorded in.
+This value *MUST* come from [stixtype]#timestamp-fidelity-enum#.
+
+If the *superseded_by_ref* property is included this *MUST* be included.
 
 |*impacted_entity_counts* (optional)
 |[stixtype]#entity-count#
@@ -129,6 +145,28 @@ If this field is not present it should be assumed that this information is not b
 |The recoverability of this particular integrity impact with respect to feasibility and required time and resources.
 
 The values of this property *MUST* come from the [stixtype]#recoverability-enum# enumeration
+
+|*start_time* (optional)
+|[stixtype]#timestamp#
+|The date and time the impact was first recorded.
+
+This property *SHOULD* be populated.
+
+|*start_time_fidelity* (optional)
+|[stixtype]#timestamp-fidelity-enum#
+|The level of fidelity that the start_time is recorded in.
+This value *MUST* come from [stixtype]#timestamp-fidelity-enum#.
+
+If no value is provided the timestamp should be considered to be
+accurate up to the number of decimals it includes.
+
+|*superseded_by_ref* (optional)
+|[stixtype]#identifier# 
+|The referenced [stixtype]#impact# supersedes this one at the *end_time* for the current impact.
+This allows capturing how the severity of this impact changes over time.
+
+When populated the impact *MUST* have an *end_time*.
+It also *MUST* reference an [stixtype]#impact# of the same as *impact_category*.
 
 |===
 
@@ -723,7 +761,42 @@ resources.
 |*Target* 
 |*Description*
 
-4+^|*Reverse Relationships*
+|===
+
+[width="100%",cols="23%,20%,24%,33%",options="header",]
+|===
+4+^|[stixtr]*Reverse Relationships*
+
+|*Source* |*Type* |*Target* |*Description*
+// |[stixtype]*event* 
+// |[stixrelationship]#caused#
+// |[stixtype]*impact* 
+// |The event was the primary cause of the impact.
+
+// |[stixtype]*event* 
+// |[stixrelationship]#contributed-to#
+// |[stixtype]*impact* 
+// |The event contributed to an impact or made it worse, but was not the primary cause.
+
+// |[stixtype]*event* 
+// |[stixrelationship]#mitigated#
+// |[stixtype]*impact* 
+// |The event mitigated, but did not resolve the impact.
+
+// |[stixtype]*event* 
+// |[stixrelationship]#resolved#
+// |[stixtype]*impact* 
+// |The event resolved the impact.
+
+// |[stixtype]*task* 
+// |[stixrelationship]#mitigated#
+// |[stixtype]*impact* 
+// |The task mitigated, but did not resolve the impact.
+
+// |[stixtype]*task* 
+// |[stixrelationship]#resolved#
+// |[stixtype]*impact* 
+// |The task resolved the impact.
 
 |===
 

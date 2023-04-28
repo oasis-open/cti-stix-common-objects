@@ -1,6 +1,0 @@
-:stylesheet: stix.css
-:stylesdir: ../asciidoc-shared
-:toc: macro
-
-== Incident Activity
-== Incident Core

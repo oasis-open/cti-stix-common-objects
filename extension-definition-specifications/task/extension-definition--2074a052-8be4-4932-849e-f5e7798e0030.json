@@ -48,6 +48,35 @@
                     "type": "string",
                     "pattern": "^task--"
                 },
+                "changed_objects": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": ["state_change_type"],
+                        "anyOf": [
+                            {
+                                "required": ["initial_ref"]
+                            },
+                            {
+                                "required": ["result_ref"]
+                            }
+                        ],
+                        "properties": {
+                            "state_change_type": {
+                                "type": "string",
+                                "description": "How this activity influenced the change in state"
+                            },
+                            "initial_ref": {
+                                "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json"
+                            },
+                            "result_ref": {
+                                "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json"
+                            }
+                        }
+                    }
+                },
                 "description": {
                     "type": "string",
                     "description": "A description of the activity that occurred."
@@ -96,12 +125,6 @@
                     "description": "How important this task is on a scale of 0 to 100.",
                     "minimum": 0,
                     "maximum": 100
-                },
-                "template_refs": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json"
-                    }
                 },
                 "subtasks": {
                     "type": "array",

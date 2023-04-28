@@ -113,15 +113,29 @@
     "definitions": {
         "Activity_Sequence": {
             "type": "object",
-            "required": ["activity_id"],
             "additionalProperties": false,
-            "properties": {
-                "activity_ref": {
-                    "type": "string",
-                    "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
-                    "pattern": "^incident-activity--",
-                    "description": "The activity that ocurred at this point in the sequence"
+            "oneOf": [
+                {
+                    "required": ["event_ref"],
+                    "event_ref": {
+                        "type": "string",
+                        "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
+                        "pattern": "^event--",
+                        "description": "The event that ocurred at this point in the sequence"
+                    }
                 },
+                {
+                    "required": ["task_ref"],
+                    "task_ref": {
+                        "type": "string",
+                        "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
+                        "pattern": "^task--",
+                        "description": "The task that ocurred at this point in the sequence"
+                    }
+                }
+            ],
+            "properties": {
+                
                 "sequence_start": {
                     "type": "number",
                     "description": "An optional sequence number starting at 0 that shows the earliest point this activity is believed to have occurred relative to other attacker and defender activities.  This cannot be greater than sequence_end, but the two can be equal.",

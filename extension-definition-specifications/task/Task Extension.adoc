@@ -87,6 +87,7 @@ If no STIX object exists this can be captured as an external reference.
 ^|[stixtr]*Task Object Specific Properties*
 
 |*task_type*,
+*changed_objects*,
 *description*,
 *end_time*,
 *end_time_fidelity*,
@@ -111,6 +112,11 @@ If no STIX object exists this can be captured as an external reference.
 |*type* (required)
 |[stixtype]#string#
 |The value of this property *MUST* be set to [stixliteral]#task#.
+
+|*changed_objects* (optional)
+|[stixtype]#list# of type [stixtype]#state-change#
+|A list of changes that this task has caused.
+This is typically used to indicate how an task has affected impacts.
 
 |*task_type* (optional)
 |[stixtype]#open-vocabulary#
@@ -170,10 +176,6 @@ accurate up to the number of decimals it includes.
 |*subtasks* (optional)
 |[stixtype]#list# of type [stixtype]#task-sequence#
 |A list of sub-tasks that this task was composed of.
-
-|*template_refs* (optional)
-|[stixtype]#list# of type [stixtype]#identifier# 
-|An optional list of references to playbooks, courses of action, or other reference material that caused this task to be created.
 
 |===
 
@@ -382,7 +384,7 @@ activity.
 |A task was performed that created an indicator.
 
 |[stixtype]*task*
-|[stixrelationship]#impacts#
+|[stixrelationship]#ed#
 |[stixtype]*infrastructure*, +
 <All STIX Cyber-observable Objects>
 |The task impacts infrastructure or other resources that are identified by cyber-observable objects.

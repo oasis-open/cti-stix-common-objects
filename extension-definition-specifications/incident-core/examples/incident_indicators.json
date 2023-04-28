@@ -21,129 +21,502 @@
                         , "denial-of-service"
                         , "major"
                     ],
-                    "attacker_activities": [
+                    "activities": [
                         {
-                            "outcome": "successful",
-                            "pattern_ref": "attack-pattern--2b742742-28c3-4e1b-bab7-8350d6300fa7",
-                            "description": "A phishing email with a malicious link was delivered.  When the user went to this link it put a dropper on their computer.",
-                            "kill_chain_phases": [
-                                {
-                                    "kill_chain_name": "lockheed-martin-cyber-kill-chain",
-                                    "phase_name": "delivery"
-                                }
-                            ],
                             "sequence_start": 1,
                             "sequence_end": 1,
-                            "observed_refs": ["file--9704eca1-8efd-542c-a626-77d7cbcfe49f", "indicator--878492d0-9802-4854-88f3-bd433ae54d4d"]
+                            "event_ref": "event--6e7ec24e-e3b2-498e-afb4-e14eab67b5d4"
                         },
                         {
-                            "outcome": "successful",
-                            "description": "The dropper verified it had internet access by checking google and then downloaded and installed second stage tooling.",
-                            "kill_chain_phases": [
-                                {
-                                    "kill_chain_name": "lockheed-martin-cyber-kill-chain",
-                                    "phase_name": "delivery"
-                                },
-                                {
-                                    "kill_chain_name": "lockheed-martin-cyber-kill-chain",
-                                    "phase_name": "installation"
-                                }
-                            ],
                             "sequence_start": 2,
                             "sequence_end": 2,
-                            "observed_refs": ["domain-name--160f66e8-85b8-55b0-b81e-b0e7454f179d", "url--fef943a6-8bba-5237-af37-03a6f2ae58f5", "domain-name--430fdb3b-be9f-53fe-891c-955952b7a570"]
+                            "event_ref": "event--e1d9744a-9c23-45fa-adee-59d739dfb620"
                         },
                         {
-                            "outcome": "blocked",
-                            "description": "The second stage tooling attempted to spread laterally, but firewall rules prevented it from doing so to other workstations.",
-                            "kill_chain_phases": [
-                                {
-                                    "kill_chain_name": "lockheed-martin-cyber-kill-chain",
-                                    "phase_name": "delivery"
-                                }
-                            ],
                             "sequence_start": 3,
                             "sequence_end": 4,
-                            "observed_refs": ["file--6a597e24-1209-5e8f-819c-1addce1bb314", "indicator--2149c5c5-2917-4f89-958f-e34eab7a315c"]
+                            "event_ref": "event--612c5cd9-689c-4bc0-83b2-cd956f812cf9"
                         },
                         {
-                            "outcome": "successful",
-                            "description": "One of the second stage tools was able to communicate with an ICS sensor device and destroyed it.",
-                            "kill_chain_phases": [
-                                {
-                                    "kill_chain_name": "lockheed-martin-cyber-kill-chain",
-                                    "phase_name": "action-on-objectives"
-                                }
-                            ],
                             "sequence_start": 3,
                             "sequence_end": 4,
-                            "impacted_refs": ["ipv4-addr--b7c7aace-c5f3-463e-bb63-4de6cb5e8995"]
-                        }
-                    ],
-                    "defender_activities": [
-                        {
-                            "activity_type": "discovery",
-                            "outcome": "successful",
-                            "description": "The assembly line experienced a shutdown due to a device failing.  This was determined to be a sensor failure.",
-                            "start_time": "2022-05-01T07:00:00Z",
-                            "start_time_fidelity": "day",
-                            "end_time": "2022-05-01T07:00:00Z",
-                            "end_time_fidelity": "day"
+                            "event_ref": "event--747f4f6b-175f-4843-bde2-1b3218bf5ff0"
                         },
                         {
-                            "activity_type": "declared",
-                            "outcome": "successful",
-                            "description": "Investigations into the sensor found that its controller was behaving strangely and it was believed to be due to a problem with the code",
-                            "start_time": "2022-05-01T07:00:00Z",
-                            "start_time_fidelity": "day",
-                            "end_time": "2022-05-01T07:00:00Z",
-                            "end_time_fidelity": "day"
+                            "sequence_start": 5,
+                            "sequence_end": 5,
+                            "event_ref": "task--fd5f04a8-877f-42a3-a25d-ddfe2001a6e1"
                         },
                         {
-                            "activity_type": "escalated",
-                            "outcome": "successful",
-                            "description": "The cause of the error was traced to malware on the system and an investigation began",
-                            "start_time": "2022-05-02T07:00:00Z",
-                            "start_time_fidelity": "day",
-                            "end_time": "2022-05-02T07:00:00Z",
-                            "end_time_fidelity": "day"
+                            "sequence_start": 6,
+                            "sequence_end": 6,
+                            "event_ref": "task--7a998b82-389d-4d9c-b5ca-40aa34680c0a"
                         },
                         {
-                            "activity_type": "reported",
-                            "outcome": "successful",
-                            "object_ref": "course-of-action--8bb544ff-0499-4ee3-b683-305b8b0955a3",
-                            "identity_refs": ["identity--7a164253-fbfd-420b-9316-79f5d3dff51f"],
-                            "description": "Law enforcement was contacted regarding the incident",
-                            "start_time": "2022-05-02T07:00:00Z",
-                            "start_time_fidelity": "day",
-                            "end_time": "2022-05-02T07:00:00Z",
-                            "end_time_fidelity": "day"
-                        }
-                    ],
-                    "availability_impacts": [
+                            "sequence_start": 7,
+                            "sequence_end": 7,
+                            "event_ref": "task--7c99eec2-5873-4d02-a286-b1cfcbb33cbc"
+                        },
                         {
-                            "availability_impact": 65,
-                            "impacted_refs": ["infrastructure--8faf3522-88a2-4402-b5c1-0d7ecb1a767f"]
-                        }
-                    ],
-                    "physical_impacts": [
+                            "sequence_start": 8,
+                            "sequence_end": 8,
+                            "event_ref": "task--1b44203f-dbfb-4399-a02d-6b71f04ccfb7"
+                        },
                         {
-                            "impact_type": "damaged-nonfunctional",
-                            "description": "A series of commands were given to cause a sensor to lose callibration in a manner that requires it to be replaced",
-                            "asset_type": "ics-sensor",
-                            "recoverability": "supplemented",
-                            "impacted_refs": ["infrastructure--8faf3522-88a2-4402-b5c1-0d7ecb1a767f"]
-                        }
+                            "event_ref": "task--d6853763-b5b3-4f5e-b031-bcb111a3d7a1",
+                            "sequence_start": 6
+                        }                   
                     ],
-                    "monetary_impacts": [
-                        {
-                            "variety": "business-disruption",
-                            "currency": "usd",
-                            "description": "Each day of downtime is estimated at 10k USD and the outage is still ongoing",
-                            "min_amount": 10000,
-                            "max_amount": 100000
-                        }
+                    "impact_refs": [
+                        "impact--8a8c50a3-c57f-4440-9fde-ff4d14da03d3",
+                        "impact--1032f48b-28d1-451f-970e-78b736db8e13",
+                        "impact--272641bb-4e62-4ebe-ae96-2d254554db03"
                     ]
+                }
+            }
+        },
+        {
+            "type": "impact",
+            "id": "impact--8a8c50a3-c57f-4440-9fde-ff4d14da03d3",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified":"2022-05-06T01:01:01.002Z",
+            "spec_version": "2.1",
+            "impacted_refs": ["infrastructure--8faf3522-88a2-4402-b5c1-0d7ecb1a767f"],
+            "impact_category": "availability",
+            "end_time": "2022-05-07T04:00:00.002Z",
+            "end_time_fidelity": "day",
+            "succeeded_by_ref": "impact--e36d4f80-85cf-4672-966c-0cfcfa8b7733",
+            "extensions": {
+                "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+                    "extension_type": "new-sdo"
+                },
+                "availability": {
+                    "availability_impact": 75
+                }
+            }
+        },
+        {
+            "type": "impact",
+            "id": "impact--e36d4f80-85cf-4672-966c-0cfcfa8b7733",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified":"2022-05-06T01:01:01.002Z",
+            "spec_version": "2.1",
+            "impacted_refs": ["infrastructure--8faf3522-88a2-4402-b5c1-0d7ecb1a767f"],
+            "impact_category": "availability",
+            "start_time": "2022-05-07T04:00:00.002Z",
+            "start_time_fidelity": "day",
+            "extensions": {
+                "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+                    "extension_type": "new-sdo"
+                },
+                "availability": {
+                    "availability_impact": 50
+                }
+            }
+        },
+        {
+            "type": "impact",
+            "id": "impact--272641bb-4e62-4ebe-ae96-2d254554db03",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified":"2022-05-06T01:01:01.002Z",
+            "spec_version": "2.1",
+            "description": "Each day of downtime is estimated at 10k USD and the outage is still ongoing",
+            "impact_category": "monetary",
+            "extensions": {
+                "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+                    "extension_type": "new-sdo"
+                },
+                "monetary": {
+                    "variety": "business-disruption",
+                    "currency": "usd",
+                    "min_amount": 10000,
+                    "max_amount": 100000
+                }
+            }
+        },
+        {
+            "type": "impact",
+            "id": "impact--1032f48b-28d1-451f-970e-78b736db8e13",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified":"2022-05-06T01:01:01.002Z",
+            "spec_version": "2.1",
+            "description": "A series of commands were given to cause a sensor to lose callibration in a manner that requires it to be replaced",
+            "recoverability": "supplemented",
+            "impacted_refs": ["infrastructure--8faf3522-88a2-4402-b5c1-0d7ecb1a767f"],
+            "impact_category": "physical",
+            "extensions": {
+                "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+                    "extension_type": "new-sdo"
+                },
+                "physical": {
+                    "asset_type": "ics-sensor",
+                    "impact_type": "damaged-nonfunctional"
+                }
+            }
+        },
+        {
+            "type": "event",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified":"2022-05-06T01:01:01.002Z",
+            "spec_version": "2.1",
+            "status": "occurred",
+            "id": "event--6e7ec24e-e3b2-498e-afb4-e14eab67b5d4",
+            "pattern_refs": ["attack-pattern--2b742742-28c3-4e1b-bab7-8350d6300fa7"],
+            "description": "A phishing email with a malicious link was delivered.  When the user went to this link it put a dropper on their computer.",
+            "sighting_refs": ["sighting--f0747539-929a-46b8-bc54-dc96e876a679"],
+            "extensions": {
+                "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--f0747539-929a-46b8-bc54-dc96e876a679",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified": "2022-05-06T01:01:01.002Z",
+            "sighting_of_ref": "indicator--878492d0-9802-4854-88f3-bd433ae54d4d",
+            "observed_data_refs": ["observed-data--acf58246-e394-4e56-bd64-a49fa66eb906"]
+        },
+        {
+            "type": "observed-data",
+            "spec_version": "2.1",
+            "id": "observed-data--acf58246-e394-4e56-bd64-a49fa66eb906",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified": "2022-05-06T01:01:01.002Z",
+            "first_observed": "2022-05-01T01:01:01Z",
+            "last_observed": "2022-05-06T01:01:01Z",
+            "number_observed": 1,
+            "object_refs": ["file--9704eca1-8efd-542c-a626-77d7cbcfe49f"]
+        },
+        {
+            "type": "event",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified":"2022-05-06T01:01:01.002Z",
+            "spec_version": "2.1",
+            "status": "occurred",
+            "event_types": ["successful"],
+            "description": "The dropper verified it had internet access by checking google and then downloaded and installed second stage tooling.",
+            "id": "event--e1d9744a-9c23-45fa-adee-59d739dfb620",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "lockheed-martin-cyber-kill-chain",
+                    "phase_name": "delivery"
+                },
+                {
+                    "kill_chain_name": "lockheed-martin-cyber-kill-chain",
+                    "phase_name": "installation"
+                }
+            ],
+            "sighting_refs": ["sighting--f0747539-929a-46b8-bc54-dc96e876a679"],
+            "extensions": {
+                "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--f0747539-929a-46b8-bc54-dc96e876a679",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified": "2022-05-06T01:01:01.002Z",
+            "sighting_of_ref": "event--e1d9744a-9c23-45fa-adee-59d739dfb620",
+            "observed_data_refs": [
+                "observed-data--a9875e85-8b68-4a05-b77e-1520f639ff6a",
+                "observed-data--56dec100-fb01-4188-bc62-730b9797502f",
+                "observed-data--f0f043eb-05c5-490f-b7fe-13c27969deab"
+            ]
+        },
+        {
+            "type": "observed-data",
+            "spec_version": "2.1",
+            "id": "observed-data--a9875e85-8b68-4a05-b77e-1520f639ff6a",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified": "2022-05-06T01:01:01.002Z",
+            "first_observed": "2022-05-01T01:01:01Z",
+            "last_observed": "2022-05-06T01:01:01Z",
+            "number_observed": 1,
+            "object_refs": ["domain-name--160f66e8-85b8-55b0-b81e-b0e7454f179d"]
+        },
+        {
+            "type": "observed-data",
+            "spec_version": "2.1",
+            "id": "observed-data--56dec100-fb01-4188-bc62-730b9797502f",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified": "2022-05-06T01:01:01.002Z",
+            "first_observed": "2022-05-01T01:01:01Z",
+            "last_observed": "2022-05-06T01:01:01Z",
+            "number_observed": 1,
+            "object_refs": ["url--fef943a6-8bba-5237-af37-03a6f2ae58f5"]
+        },
+        {
+            "type": "observed-data",
+            "spec_version": "2.1",
+            "id": "observed-data--f0f043eb-05c5-490f-b7fe-13c27969deab",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified": "2022-05-06T01:01:01.002Z",
+            "first_observed": "2022-05-01T01:01:01Z",
+            "last_observed": "2022-05-06T01:01:01Z",
+            "number_observed": 1,
+            "object_refs": ["domain-name--430fdb3b-be9f-53fe-891c-955952b7a570"]
+        },
+        {
+            "type": "event",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified":"2022-05-06T01:01:01.002Z",
+            "spec_version": "2.1",
+            "status": "occurred",
+            "event_types": ["blocked"],
+            "id": "event--612c5cd9-689c-4bc0-83b2-cd956f812cf9",
+            "description": "The second stage tooling attempted to spread laterally, but firewall rules prevented it from doing so to other workstations.",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "lockheed-martin-cyber-kill-chain",
+                    "phase_name": "delivery"
+                }
+            ],
+            "sighting_refs": ["sighting--e54ffcaf-040b-4bb1-9a13-c086f5c5d97a"],
+            "extensions": {
+                "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--e54ffcaf-040b-4bb1-9a13-c086f5c5d97a",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified": "2022-05-06T01:01:01.002Z",
+            "sighting_of_ref": "indicator--2149c5c5-2917-4f89-958f-e34eab7a315c",
+            "observed_data_refs": ["observed-data--714832b4-33ae-47ae-80a7-01c64eaa9dca"]
+        },
+        {
+            "type": "observed-data",
+            "spec_version": "2.1",
+            "id": "observed-data--714832b4-33ae-47ae-80a7-01c64eaa9dca",
+            "first_observed": "2022-05-01T01:01:01Z",
+            "last_observed": "2022-05-06T01:01:01Z",
+            "number_observed": 1,
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified": "2022-05-06T01:01:01.002Z",
+            "object_refs": ["file--6a597e24-1209-5e8f-819c-1addce1bb314"]
+        },
+        {
+            "type": "event",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified":"2022-05-06T01:01:01.002Z",
+            "spec_version": "2.1",
+            "status": "occurred",
+            "event_types": ["successful"],
+            "id": "event--747f4f6b-175f-4843-bde2-1b3218bf5ff0",
+            "description": "One of the second stage tools was able to communicate with an ICS sensor device and destroyed it.",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "lockheed-martin-cyber-kill-chain",
+                    "phase_name": "action-on-objectives"
+                }
+            ],
+            "changed_objects": [
+                {
+                    "state_change_type": "caused",
+                    "result_ref": "impact--8a8c50a3-c57f-4440-9fde-ff4d14da03d3"
+                },
+                {
+                    "state_change_type": "caused",
+                    "result_ref": "impact--1032f48b-28d1-451f-970e-78b736db8e13"
+                },
+                {
+                    "state_change_type": "caused",
+                    "result_ref": "impact--272641bb-4e62-4ebe-ae96-2d254554db03"
+                }
+            ],
+            "extensions": {
+                "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified":"2022-05-06T01:01:01.002Z",
+            "spec_version": "2.1",
+            "task_type": "discovery",
+            "id": "task--fd5f04a8-877f-42a3-a25d-ddfe2001a6e1",
+            "outcome": "successful",
+            "description": "The assembly line experienced a shutdown due to a device failing.  This was determined to be a sensor failure.",
+            "start_time": "2022-05-01T07:00:00Z",
+            "start_time_fidelity": "day",
+            "end_time": "2022-05-01T07:00:00Z",
+            "end_time_fidelity": "day",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified":"2022-05-06T01:01:01.002Z",
+            "spec_version": "2.1",
+            "task_type": "declared",
+            "id": "task--7a998b82-389d-4d9c-b5ca-40aa34680c0a",
+            "outcome": "successful",
+            "description": "Investigations into the sensor found that its controller was behaving strangely and it was believed to be due to a problem with the code",
+            "start_time": "2022-05-01T07:00:00Z",
+            "start_time_fidelity": "day",
+            "end_time": "2022-05-01T07:00:00Z",
+            "end_time_fidelity": "day",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified":"2022-05-06T01:01:01.002Z",
+            "spec_version": "2.1",
+            "task_type": "escalated",
+            "id": "task--7c99eec2-5873-4d02-a286-b1cfcbb33cbc",
+            "outcome": "successful",
+            "description": "The cause of the error was traced to malware on the system and an investigation began",
+            "start_time": "2022-05-02T07:00:00Z",
+            "start_time_fidelity": "day",
+            "end_time": "2022-05-02T07:00:00Z",
+            "end_time_fidelity": "day",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified":"2022-05-06T01:01:01.002Z",
+            "spec_version": "2.1",
+            "task_type": "escalated",
+            "id": "task--7c99eec2-5873-4d02-a286-b1cfcbb33cbc",
+            "outcome": "successful",
+            "description": "The cause of the error was traced to malware on the system and an investigation began",
+            "start_time": "2022-05-02T07:00:00Z",
+            "start_time_fidelity": "day",
+            "end_time": "2022-05-02T07:00:00Z",
+            "end_time_fidelity": "day",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified":"2022-05-06T01:01:01.002Z",
+            "spec_version": "2.1",
+            "task_type": "reported",
+            "id": "task--1b44203f-dbfb-4399-a02d-6b71f04ccfb7",
+            "outcome": "successful",
+            "description": "Law enforcement was contacted regarding the incident",
+            "start_time": "2022-05-02T07:00:00Z",
+            "start_time_fidelity": "day",
+            "end_time": "2022-05-02T07:00:00Z",
+            "end_time_fidelity": "day",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified":"2022-05-06T01:01:01.002Z",
+            "spec_version": "2.1",
+            "task_type": "recovery",
+            "id": "task--d6853763-b5b3-4f5e-b031-bcb111a3d7a1",
+            "outcome": "ongoing",
+            "priority": 75,
+            "description": "Began formal recovery",
+            "start_time": "2022-05-02T07:00:00Z",
+            "start_time_fidelity": "day",
+            "end_time": "2022-05-02T07:00:00Z",
+            "end_time_fidelity": "day",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified":"2022-05-06T01:01:01.002Z",
+            "spec_version": "2.1",
+            "task_type": "recovery",
+            "id": "task--d6853763-b5b3-4f5e-b031-bcb111a3d7a1",
+            "outcome": "ongoing",
+            "description": "Assembled team and began recovery",
+            "start_time": "2022-05-02T07:00:00Z",
+            "start_time_fidelity": "day",
+            "subtasks": [
+                {
+                    "task_ref": "task--05bf660d-52b9-4249-a75d-ada224dd1261"
+                },
+                {
+                    "task_ref": "task--6aa81489-8137-46e0-84f1-ebcae2e001e8"
+                }
+            ],
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified":"2022-05-06T01:01:01.002Z",
+            "spec_version": "2.1",
+            "task_type": "recovery",
+            "id": "task--05bf660d-52b9-4249-a75d-ada224dd1261",
+            "outcome": "ongoing",
+            "priority": 75,
+            "end_time": "2022-06-05T04:00:00Z",
+            "end_time_fidelity": "day",
+            "description": "Parts on order from vendor expect by 2022-06-05",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified":"2022-05-06T01:01:01.002Z",
+            "spec_version": "2.1",
+            "task_type": "recovery",
+            "id": "task--6aa81489-8137-46e0-84f1-ebcae2e001e8",
+            "outcome": "successful",
+            "priority": 50,
+            "description": "Removed the damaged system from the assembly line so that manual processes can be used pending the parts shipment",
+            "changed_objects": [
+                {
+                    "state_change_type": "mitigated",
+                    "initial_ref": "impact--8a8c50a3-c57f-4440-9fde-ff4d14da03d3",
+                    "result_ref": "impact--e36d4f80-85cf-4672-966c-0cfcfa8b7733"
+                }
+            ],
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
                 }
             }
         },
@@ -234,6 +607,12 @@
             "indicator_types": [
                 "malicious-activity"
             ],
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "lockheed-martin-cyber-kill-chain",
+                    "phase_name": "delivery"
+                }
+            ],
             "pattern": "[file:hashes.MD5='acbd18db4cc2f85cedef654fccc4a4d8']",
             "pattern_type": "stix",
             "pattern_version": "2.1",
@@ -247,6 +626,12 @@
             "modified": "2022-05-06T16:10:57.324018Z",
             "indicator_types": [
                 "malicious-activity"
+            ],
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "lockheed-martin-cyber-kill-chain",
+                    "phase_name": "delivery"
+                }
             ],
             "pattern": "[file:hashes.MD5='9e742d0eebff3d5ef8bcf55f243e76f4']",
             "pattern_type": "stix",
@@ -376,6 +761,91 @@
             "relationship_type": "contact-for",
             "source_ref": "identity--e0ee62af-7b13-4345-ad42-11950850cabe",
             "target_ref": "incident--a089c631-4392-48e5-8d55-7d1999ca9395"
-        }
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--a5916e8a-0e0a-412a-b2b0-7e1ae1626a2d",
+            "created": "2022-05-06T01:01:01.000Z",
+            "modified": "2022-05-06T01:01:01.000Z",
+            "relationship_type": "contact-for",
+            "source_ref": "identity--7a164253-fbfd-420b-9316-79f5d3dff51f",
+            "target_ref": "task--1b44203f-dbfb-4399-a02d-6b71f04ccfb7"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--a4095aa9-217b-44be-bee3-966447b486dc",
+            "created": "2022-05-06T01:01:01.000Z",
+            "modified": "2022-05-06T01:01:01.000Z",
+            "relationship_type": "uses",
+            "source_ref": "task--1b44203f-dbfb-4399-a02d-6b71f04ccfb7",
+            "target_ref": "course-of-action--8bb544ff-0499-4ee3-b683-305b8b0955a3"
+        },
+        {
+            "type": "report",
+            "spec_version": "2.1",
+            "id": "report--f66c52bc-cb78-4657-894f-a4c2902b1c30",
+            "created": "2022-05-06T01:01:01.001Z",
+            "modified": "2022-05-06T01:01:01.001Z",
+            "name": "Incident Indicators Example",
+            "published": "2022-05-06T01:01:01Z",
+            "labels": [
+                "unpublished"
+            ],
+            "object_refs": [
+                "incident--a089c631-4392-48e5-8d55-7d1999ca9395",
+                "impact--8a8c50a3-c57f-4440-9fde-ff4d14da03d3",
+                "impact--e36d4f80-85cf-4672-966c-0cfcfa8b7733",
+                "impact--272641bb-4e62-4ebe-ae96-2d254554db03",
+                "impact--1032f48b-28d1-451f-970e-78b736db8e13",
+                "event--6e7ec24e-e3b2-498e-afb4-e14eab67b5d4",
+                "sighting--f0747539-929a-46b8-bc54-dc96e876a679",
+                "observed-data--acf58246-e394-4e56-bd64-a49fa66eb906",
+                "event--e1d9744a-9c23-45fa-adee-59d739dfb620",
+                "sighting--f0747539-929a-46b8-bc54-dc96e876a679",
+                "observed-data--a9875e85-8b68-4a05-b77e-1520f639ff6a",
+                "observed-data--56dec100-fb01-4188-bc62-730b9797502f",
+                "observed-data--f0f043eb-05c5-490f-b7fe-13c27969deab",
+                "event--612c5cd9-689c-4bc0-83b2-cd956f812cf9",
+                "sighting--e54ffcaf-040b-4bb1-9a13-c086f5c5d97a",
+                "observed-data--714832b4-33ae-47ae-80a7-01c64eaa9dca",
+                "event--747f4f6b-175f-4843-bde2-1b3218bf5ff0",
+                "task--fd5f04a8-877f-42a3-a25d-ddfe2001a6e1",
+                "task--7a998b82-389d-4d9c-b5ca-40aa34680c0a",
+                "task--7c99eec2-5873-4d02-a286-b1cfcbb33cbc",
+                "task--7c99eec2-5873-4d02-a286-b1cfcbb33cbc",
+                "task--1b44203f-dbfb-4399-a02d-6b71f04ccfb7",
+                "task--d6853763-b5b3-4f5e-b031-bcb111a3d7a1",
+                "task--d6853763-b5b3-4f5e-b031-bcb111a3d7a1",
+                "task--05bf660d-52b9-4249-a75d-ada224dd1261",
+                "task--6aa81489-8137-46e0-84f1-ebcae2e001e8",
+                "file--9704eca1-8efd-542c-a626-77d7cbcfe49f",
+                "file--6a597e24-1209-5e8f-819c-1addce1bb314",
+                "domain-name--160f66e8-85b8-55b0-b81e-b0e7454f179d",
+                "ipv4-addr--b7c7aace-c5f3-463e-bb63-4de6cb5e8995",
+                "url--fef943a6-8bba-5237-af37-03a6f2ae58f5",
+                "domain-name--430fdb3b-be9f-53fe-891c-955952b7a570",
+                "infrastructure--8faf3522-88a2-4402-b5c1-0d7ecb1a767f",
+                "infrastructure--3c916d6e-b629-468e-9b6c-fd08a5c447ba",
+                "indicator--5c28b384-08df-43e9-a140-394ef40fa055",
+                "indicator--878492d0-9802-4854-88f3-bd433ae54d4d",
+                "indicator--2149c5c5-2917-4f89-958f-e34eab7a315c",
+                "relationship--dddcb3d1-0e56-4170-97e2-eb79da432cbb",
+                "relationship--01a931ed-fd06-4f02-b8ac-4550ae5fd00e",
+                "relationship--3ae1b648-fd3f-4172-80a2-f9cd8b97e3e5",
+                "relationship--76dc8fc7-9eca-475e-9201-387f1b6fa3a6",
+                "relationship--42a77500-2c87-44f5-90d3-9a80505ee31b",
+                "identity--0594861f-ebbd-413f-b810-6bcf9a3d8604",
+                "course-of-action--8bb544ff-0499-4ee3-b683-305b8b0955a3",
+                "relationship--8ee45c2e-3382-4300-b34f-7c89398dee80",
+                "identity--e0ee62af-7b13-4345-ad42-11950850cabe",
+                "identity--7a164253-fbfd-420b-9316-79f5d3dff51f",
+                "relationship--05298766-27ed-4390-ae32-eb4a94bf5947",
+                "relationship--05298766-27ed-4390-ae32-eb4a94bf5947",
+                "relationship--a5916e8a-0e0a-412a-b2b0-7e1ae1626a2d",
+                "relationship--a4095aa9-217b-44be-bee3-966447b486dc"
+            ]
+        }        
     ]
 }

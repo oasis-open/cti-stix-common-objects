@@ -29,6 +29,8 @@ Additional artifacts:
 [.stix-doc-information-heading]
 Related work:
 
+- https://www.misp-project.org/taxonomies.html
+
 [.stix-indent]
 .This specification replaces or supersedes: +
 
@@ -80,12 +82,15 @@ Events often take place prior to an incident being declared, and events with imp
 
 ^|[stixtr]*Event Object Specific Properties*
 
-|*description*,
+|*changed_objects*,
+*description*,
 *end_time*,
 *end_time_fidelity*,
+*event_types*,
 *goal*,
+*kill_chain_phases*
 *name*,
-*outcome*,
+*status*,
 *pattern_refs*,
 *sighting_refs*,
 *start_time*,
@@ -96,13 +101,18 @@ Events often take place prior to an incident being declared, and events with imp
 |===
 ^|[stixtr]*Property Name* ^|[stixtr]*Type* ^|[stixtr]*Description*
 
-|*outcome* (required)
-|[stixtype]#event-outcome-enum#
-|The outcome of the event.
+|*status* (required)
+|[stixtype]#event-status-enum#
+|The current status of the event.
 
 |*type* (required)
 |[stixtype]#string#
 |The value of this property *MUST* be set to [stixliteral]#event#.
+
+|*changed_objects* (optional)
+|[stixtype]#list# of type [stixtype]#state-change#
+|A list of changes that this event has caused.
+This is typically used to indicate how an event has affected impacts.
 
 |*description* (optional)
 |[stixtype]#string#
@@ -119,10 +129,19 @@ This value *MUST* come from [stixtype]#timestamp-fidelity-enum#.
 
 If no value is provided the timestamp should be considered to be accurate up to the number of decimals it includes.
 
+|*event_types* (optional)
+|[stixtype]#list# of type [stixtype]#open-vocabulary#
+|High level types for the event in order to enable aggregation and summaries.
+This should be drawn from event-type-ov.
+
 |*goal* (optional)
 |[stixtype]#string#
 |The assumed objective of this event.
 Not all events have goals.
+
+|*kill_chain_phases* (optional)
+|[stixtype]#list# of type [stixtype]#kill-chain-phase#
+|The kill chain phase(s) to which this event corresponds.
 
 |*name* (optional)
 |[stixtype]#string#
@@ -191,30 +210,287 @@ This *MUST NOT* be less than the [stixtype]*sequence_start* value, but the two c
 This *MUST NOT* exceed the [stixtype]*sequence_end* value, but the two can be equal.
 |===
 
+
+=== 2.2 State Change Object Type
+
+*Type Name:* [stixtype]#state-change#
+
+The *initial_ref* or *result_ref* *MUST* be populated.
+
+[width="100%",cols="37%,23%,40%",options="header",]
+|===
+^|[stixtr]*Property Name*
+^|[stixtr]*Type* 
+^|[stixtr]*Description*
+
+|*state_change_type* (required)
+|[stixtype]#open-vocabulary# 
+|How this activity influenced the change in state between the *initial_ref* and *result_ref*.
+
+This *SHOULD* be drawn from [stixtype]#state-change-type-ov#.
+
+|*initial_ref* (optional)
+|[stixtype]#identifier#
+|The initial object state that this event affected.
+
+If the *result_ref* is not populated then this *MUST* be populated.
+If there is no result state this typically means that this event removed or resolved the initial object.
+For example, an event or task resolved a network outage.
+
+If both are present this indicates a transition between these states.
+For example, a confidentiality impact was made worse as the information was shared further.
+
+If the *result_ref* is populated this *MUST* reference the same type of SDO.
+
+|*result_ref* (optional)
+|[stixtype]#identifier#
+|The final state that this event influenced.
+
+If the *initial_ref* is not populated then this *MUST* be populated.
+If there is no initial state it typically means that this event caused or created the result.
+For example, an event causing a network outage.
+
+If the *initial_ref* is populated this *MUST* reference the same type of SDO.
+
+|===
+
 <<<
 
-=== 3.1 Event Outcome Enumeration
+== 3. Vocabularies
 
-*Type Name*: [stixtype]#event-outcome-enum#
+=== 3.1 Event Type Vocabulary
+
+*Type Name*: [stixtype]#event-type-ov#
+
+[width="100%",cols="31%,69%",options="header",]
+|===
+^|[stixtr]*Vocabulary Value* ^|[stixtr]*Description*
+
+|[stixliteral]#aggregation-information-phishing-schemes#
+|Collecting data obtained through phishing attacks on web pages, email accounts, etc...
+
+|[stixliteral]#benign#
+|The event was neither dangerous nor malicious and was not suspected to be malicious or dangerous.
+
+|[stixliteral]#blocked#
+|The event was suspected to be malicious and was blocked.
+
+|[stixliteral]#brute-force-attempt#
+|Unsuccessful login attempt by using sequential credentials for gaining access to the system.
+
+|[stixliteral]#c&c-server-hosting#
+|Web page disseminating one or various types of malware.
+
+|[stixliteral]#confirmed#
+|The event was confirmed to be tied to an incident and response is underway.
+
+|[stixliteral]#connection-malware-port#
+|System attempting to gain access to a port normally linked to a specific type of malware.
+
+|[stixliteral]#connection-malware-system#
+|System attempting to gain access to an IP address or URL normally linked to a specific type of malware, e.g. C&C or a distribution page for components linked to a specific botnet.
+
+|[stixliteral]#content-forbidden-by-law#
+|Distribution or sharing of illegal content such as child pornography, racism, xenophobia, etc...
+
+|[stixliteral]#control-system-bypass#
+|Unauthorized access to a system or component by bypassing an access control system in place.
+
+|[stixliteral]#copyrighted-content#
+|Distribution or sharing of content protected by copyright and related rights.
+
+|[stixliteral]#data-exfiltration#
+|Unauthorized access to and sharing of a specific set of information.
+
+|[stixliteral]#deferred#
+|The event is deferred due to resource constraints, information types or external reasons.
+
+|[stixliteral]#deletion-information#
+|Unauthorized deleting of a specific set of information.
+
+|[stixliteral]#dictionary-attack-attempt#
+|Unsuccessful login attempt by using system access credentials previously loaded into a dictionary.
+
+|[stixliteral]#discarded#
+|The event was discarded due to resource constraints, information types or external reasons.
+
+|[stixliteral]#disruption-data-transmission#
+|Logical and physical activities aimed at causing damage to information or at preventing its transmission among systems.
+
+|[stixliteral]#dissemination-malware-email#
+|Malware attached to a message or email message containing link to malicious URL.
+
+|[stixliteral]#dissemination-phishing-emails#
+|Mass emailing aimed at collecting data for phishing purposes with regard to the victims.
+
+|[stixliteral]#dns-zone-transfer#
+|Transfer of a specific DNS zone.
+
+|[stixliteral]#duplicate#
+|This event is a duplicate of another event.
+A relationship should be created between this event and the event it duplicates.
+
+|[stixliteral]#email-flooding#
+|Sending an unusually large quantity of email messages.
+
+|[stixliteral]#exploit#
+|Successful use of a tool exploiting a specific vulnerability of the system.
+
+|[stixliteral]#exploit-attempt#
+|Unsuccessful use of a tool exploiting a specific vulnerability of the system.
+
+|[stixliteral]#exploit-framework-exhausting-resources#
+|Various sources using specially designed software to affect the normal functioning of a specific service, by exploiting a vulnerability.
+
+|[stixliteral]#exploit-tool-exhausting-resources#
+|One single source using specially designed software to affect the normal functioning of a specific service, by exploiting a vulnerability.
+
+|[stixliteral]#failed#
+|The event failed its suspected goal.
+
+|[stixliteral]#file-inclusion#
+|Inclusion of files into a system under attack with the use of file inclusion techniques.
+
+|[stixliteral]#file-inclusion-attempt#
+|Unsuccessful attempt to include files in the system under attack by using file inclusion techniques.
+
+|[stixliteral]#hosting-malware-webpage#
+| Web page disseminating one or various types of malware.
+
+|[stixliteral]#hosting-phishing-sites#
+|Hosting web sites for phishing purposes.
+
+|[stixliteral]#illegitimate-use-name#
+|Using the name of an institution without permission to do so.
+
+|[stixliteral]#illegitimate-use-resources#
+|Use of institutional resources for purposes other than those intended.
+
+|[stixliteral]#infected-by-known-malware#
+|The presence of any of the types of malware was detected in a system.
+
+|[stixliteral]#insufficient-data#
+|Not enough data is available to assess this event.
+
+|[stixliteral]#modification-information#
+|Unauthorized changes to a specific set of information.
+
+|[stixliteral]#misconfiguration#
+|A false positive where this event was triggered by a misconfiguration. 
+
+|[stixliteral]#natural#
+|The event was due to natural causes such as an earthquake or hurricane.
+
+|[stixliteral]#network-scanning#
+|Scanning a network aimed at identifying systems which are active in the same network.
+
+|[stixliteral]#packet-flood#
+|Mass mailing of requests (network packets, emails, etc...) from various sources to a specific service, aimed at affecting its normal functioning.
+
+|[stixliteral]#password-cracking-attempt#
+|Attempt to acquire access credentials by breaking the protective cryptographic keys.
+
+|[stixliteral]#refuted#
+|The event was previously suspected to have achieved a goal, but this has since been refuted.
+
+|[stixliteral]#scan-probe#
+|Event was triggered based on scanning activity
+
+|[stixliteral]#silently-discarded#
+|The event was silently discarded due to resource constraints, information types or external reasons.
+
+|[stixliteral]#spam#
+|Sending an email message that was unsolicited or unwanted by the recipient.
+
+|[stixliteral]#sql-injection#
+|Manipulation or reading of information contained in a database by using the SQL injection technique.
+
+|[stixliteral]#sql-injection-attempt#
+|Unsuccessful attempt to manipulate or read the information of a database by using the SQL injection technique.
+
+|[stixliteral]#succesful#
+|The event is believed to have succeeded in its goal.
+
+|[stixliteral]#system-probe#
+|Single system scan searching for open ports or services using these ports for responding.
+
+|[stixliteral]#theft-access-credentials#
+|Unauthorized access to a system or component by using stolen access credentials.
+
+|[stixliteral]#unauthorized-access-information#
+|Unauthorized access to a set of information.
+
+|[stixliteral]#unauthorized-access-system#
+|Unauthorized access to a system or component.
+
+|[stixliteral]#undetermined#
+|Field aimed at the classification of unprocessed events, which have remained undetermined from the beginning.
+
+|[stixliteral]#unintentional#
+|The event was due to unintentional activity.
+
+|[stixliteral]#unspecified#
+|Other unlisted events.
+
+|[stixliteral]#vandalism#
+|Logical and physical activities which – although they are not aimed at causing damage to information or at preventing its transmission among systems – have this effect.
+
+|[stixliteral]#wiretapping#
+|Logical or physical interception of communications.
+
+|[stixliteral]#worm-spreading#
+|System infected by a worm trying to infect other systems.
+
+|[stixliteral]#xss#
+|Attacks performed with the use of cross-site scripting techniques.
+
+|[stixliteral]#xss-attempt#
+|Unsuccessful attempts to perform attacks by using cross-site scripting techniques.
+
+|===
+
+<<<
+
+=== 3.2 State Change Type Vocabulary
+
+*Type Name*: [stixtype]#state-change-type-ov#
+
+[width="100%",cols="31%,69%",options="header",]
+|===
+^|[stixtr]*Vocabulary Value* ^|[stixtr]*Description*
+
+|[stixliteral]#caused#
+|This task or event is the primary cause of the resulting object.
+
+|[stixliteral]#contributed-to#
+|This task or event is a contributing factor to the result occurring.
+
+|[stixliteral]#mitigated#
+|This task or event lessened the severity of the initial object.
+
+|[stixliteral]#resolved#
+|This task or event resolved the initial object.
+
+|===
+<<<
+== 4. Enumerations
+
+=== 4.1 Event Status Enumeration
+
+*Type Name*: [stixtype]#event-status-enum#
 
 [width="100%",cols="28%,72%",options="header",]
 |===
 ^|[stixtr]*Vocabulary Value* ^|[stixtr]*Description*
-|[stixliteral]#blocked#
-|The event was blocked from having its intended effect by pre-emptive measures.
-
-Attacker activities can be blocked by solutions such as rate limiting or spam filters.
 
 |[stixliteral]#ongoing#
 |The event is still occurring.
 
-|[stixliteral]#no-effect#
-|The event had no effect, but not due to any affirmative defense.
-
-For example: running a VisualBasic script failed because it was on a Linux machine.
-
 |[stixliteral]#occurred#
 |The event took and is no longer ongoing.
+
+|[stixliteral]#not-occurred#
+|The event did not take place, but it was previously expected to.
 
 |[stixliteral]#pending#
 |The event has not yet been started or observed, but it is projected or otherwise planned. 
@@ -222,18 +498,13 @@ For example: running a VisualBasic script failed because it was on a Linux machi
 Pending activity may never occur as various factors can cause it to be blocked or not attempted.
 As such any time or sequence values for pending activities should be treated as an estimation or projection that is subject to change.
 
-|[stixliteral]#prevented#
-|The event was prevented from taking place.
-
-For example: A public threat was announced, but the individuals who would have performed it were arrested prior to taking action.
-
-|[stixliteral]#unknown#
-|The outcome of the event is not yet known.
+|[stixliteral]#undetermined#
+|The status of the event has not been determined or is not shareable.
 |===
 
 <<<
 
-=== 3.2 Timestamp Fidelity Enumeration
+=== 4.2 Timestamp Fidelity Enumeration
 
 *Type Name*: [stixtype]#timestamp-fidelity-enum#
 
@@ -269,9 +540,9 @@ Hours and minutes should be understood to establish the timezone for the activit
 
 <<<
 
-== 4.0 Relationships
+== 5.0 Relationships
 
-[width="100%",cols="27%,16%,24%,33%",options="header",]
+[width="100%",cols="23%,20%,24%,33%",options="header",]
 |===
 4+^|[stixtr]*Common Relationships*
 4+|[stixrelationship]#derived-from#,
@@ -287,7 +558,7 @@ Hours and minutes should be understood to establish the timezone for the activit
 For example a dropper running allowed a ransomware tool to be downloaded and run.
 
 |[stixtype]*event*
-|[stixrelationship]#impacts#
+|[stixrelationship]#impacted#
 |[stixtype]*infrastructure*, +
 <All STIX Cyber-observable Objects>
 |The event impacts infrastructure or other resources that are identified by cyber-observable objects.
@@ -307,7 +578,7 @@ If this can be shared a Sighting it should be instead of using this method.
 
 <<<
 
-[width="100%",cols="27%,16%,24%,33%",options="header",]
+[width="100%",cols="23%,20%,24%,33%",options="header",]
 |===
 4+^|[stixtr]*Reverse Relationships*
 

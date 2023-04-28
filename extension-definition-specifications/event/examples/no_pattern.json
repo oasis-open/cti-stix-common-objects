@@ -8,7 +8,7 @@
             "created": "2023-04-07T20:00:00.0002Z",
             "modified": "2023-04-07T20:00:00.0002Z",
             "outcome": "occurred",
-            "labels": ["no-pattern"],
+            "labels": ["no-pattern", "accidental"],
             "description": "A user accidentally emailed sensitive files to a reporter because their name was similar to an employee in their division",
             "start_time": "2023-04-07T13:00:00.000Z",
             "start_time_fidelity": "hour",
