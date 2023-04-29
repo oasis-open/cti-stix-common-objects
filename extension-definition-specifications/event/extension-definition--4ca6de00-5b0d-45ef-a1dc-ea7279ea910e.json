@@ -37,6 +37,7 @@
                 "modified": {},
                 "spec_version": {},
                 "labels": {},
+                "external_references": {},
                 "type": {
                     "type": "string",
                     "const": "event"
@@ -56,14 +57,6 @@
                 "name": {
                     "type": "string",
                     "minLength": 1
-                },
-                "kill_chain_phases": {
-                    "type": "array",
-                    "description": "The kill chain phase(s) to which this event corresponds to",
-                    "minItems": 1,
-                    "items": {
-                        "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/master/schemas/common/kill-chain-phase.json"
-                    }
                 },
                 "changed_objects": {
                     "type": "array",

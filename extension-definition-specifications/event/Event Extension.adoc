@@ -88,7 +88,6 @@ Events often take place prior to an incident being declared, and events with imp
 *end_time_fidelity*,
 *event_types*,
 *goal*,
-*kill_chain_phases*
 *name*,
 *status*,
 *pattern_refs*,
@@ -138,10 +137,6 @@ This should be drawn from event-type-ov.
 |[stixtype]#string#
 |The assumed objective of this event.
 Not all events have goals.
-
-|*kill_chain_phases* (optional)
-|[stixtype]#list# of type [stixtype]#kill-chain-phase#
-|The kill chain phase(s) to which this event corresponds.
 
 |*name* (optional)
 |[stixtype]#string#
@@ -465,8 +460,18 @@ A relationship should be created between this event and the event it duplicates.
 |[stixliteral]#contributed-to#
 |This task or event is a contributing factor to the result occurring.
 
+|[stixliteral]#input#
+|This task or event took in a group as an input for automated or playbook activities.
+
+If this is selected *initial_ref* MUST be populated.
+
 |[stixliteral]#mitigated#
 |This task or event lessened the severity of the initial object.
+
+|[stixliteral]#output#
+|This task or event produced a group as an output as part of automated or playbook activities.
+
+If this is selected *result_ref* MUST be populated.
 
 |[stixliteral]#resolved#
 |This task or event resolved the initial object.

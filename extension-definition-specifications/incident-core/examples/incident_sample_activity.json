@@ -17,50 +17,289 @@
                     "determination": "successful-attempt",
                     "investigation_status": "open",
                     "detection_methods": ["human-review"],
-                    "defender_activities": [
+                    "activities": [
                         {
-                            "activity_type": "discovery",
-                            "outcome": "successful",
-                            "description": "A server admin found a strange account",
-                            "start_time": "2020-10-15T01:01:01.000Z",
-                            "end_time": "2020-10-15T01:01:01.000Z",
-                            "sequence_start": 5,
-                            "sequence_end": 5
-                        }
-                    ],
-                    "attacker_activities": [
-                        {
-                            "outcome": "successful",
-                            "pattern_ref": "attack-pattern--d742a578-d70e-4d0e-96a6-02a9c30204e6",
-                            "description": "Drive-by compromise of a trusted domain was believed to deliver malware, but it is unclear when it was activated",
+                            "event_ref": "event--fa107730-c44b-403b-8673-387180fed6f8",
                             "sequence_start": 1,
                             "sequence_end": 1
                         },
                         {
-                            "outcome": "successful",
-                            "pattern_ref": "attack-pattern--6aac77c4-eaf2-4366-8c13-ce50ab951f38",
-                            "description": "A phishing campaign was attachments was used to attempt to deliver malicious PDFs.  The malware may have already been active by the time a user clicks on this however as it started before the drive by, but also ended after it.",
+                            "event_ref": "event--44728578-a89c-41de-b934-17fec1bd30d7",
                             "sequence_start": 1,
                             "sequence_end": 3
                         },
                         {
-                            "outcome": "successful",
-                            "pattern_ref": "attack-pattern--51dea151-0898-4a45-967c-3ebee0420484",
-                            "description": "Remote desktop protocol was used to access domain controller",
+                            "event_ref": "event--dbe72493-1326-4e25-ad04-99c805a51939",
                             "sequence_start": 3,
                             "sequence_end": 3
                         },
                         {
-                            "outcome": "successful",
-                            "pattern_ref": "attack-pattern--7610cada-1499-41a4-b3dd-46467b68d177",
-                            "description": "A domain account was created to allow remote access using normal means by the attacker",
-                            "end_time": "2020-10-15T00:01:32.700Z",
+                            "event_ref": "event--774d7ae5-3efc-40e6-8d9d-63ca9904bfad",
                             "sequence_start": 4,
                             "sequence_end": 4
+                        },
+                        {
+                            "task_ref": "task--2d254737-fbf8-4969-adb3-80ac5c293f57",
+                            "sequence_start": 5,
+                            "sequence_end": 5
+                        },
+                        {
+                            "task_ref": "task--b0f2c730-7f0b-4ca9-895f-e41b9cf39949",
+                            "sequence_start": 6,
+                            "sequence_end": 6
                         }
                     ]
                 }
             }
+        },
+        {
+            "type": "event",
+            "id": "event--fa107730-c44b-403b-8673-387180fed6f8",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified": "2020-10-19T01:01:01.000Z",
+            "spec_version": "2.1",
+            "name": "Initial Compromise",
+            "status": "occurred",
+            "pattern_refs": ["attack-pattern--d742a578-d70e-4d0e-96a6-02a9c30204e6"],
+            "description": "Drive-by compromise of a trusted domain was believed to deliver malware, but it is unclear when it was activated",
+            "extensions": {
+                "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "event",
+            "id": "event--44728578-a89c-41de-b934-17fec1bd30d7",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified": "2020-10-19T01:01:01.000Z",
+            "spec_version": "2.1",
+            "name": "Phishing emails to multiple users",
+            "status": "occurred",
+            "pattern_refs": ["attack-pattern--6aac77c4-eaf2-4366-8c13-ce50ab951f38"],
+            "description": "A phishing campaign was attachments was used to attempt to deliver malicious PDFs.  The malware may have already been active by the time a user clicks on this however as it started before the drive by, but also ended after it.",
+            "extensions": {
+                "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "event",
+            "id": "event--dbe72493-1326-4e25-ad04-99c805a51939",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified": "2020-10-19T01:01:01.000Z",
+            "spec_version": "2.1",
+            "name": "RDP to domain controller",
+            "status": "occurred",
+            "pattern_refs": ["attack-pattern--51dea151-0898-4a45-967c-3ebee0420484"],
+            "description": "Remote desktop protocol was used to access domain controller",
+            "extensions": {
+                "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "event",
+            "id": "event--774d7ae5-3efc-40e6-8d9d-63ca9904bfad",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified": "2020-10-19T01:01:01.000Z",
+            "spec_version": "2.1",
+            "name": "Create account",
+            "status": "occurred",
+            "pattern_refs": ["attack-pattern--7610cada-1499-41a4-b3dd-46467b68d177"],
+            "description": "A domain account was created to allow remote access using normal means by the attacker",
+            "end_time": "2020-10-15T00:01:32.700Z",
+            "extensions": {
+                "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "id": "task--2d254737-fbf8-4969-adb3-80ac5c293f57",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified":"2020-10-19T01:01:01.000Z",
+            "spec_version": "2.1",
+            "task_type": "discovery",
+            "outcome": "successful",
+            "description": "A server admin found a strange account",
+            "start_time": "2020-10-15T01:01:01.000Z",
+            "end_time": "2020-10-15T01:01:01.000Z",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "id": "task--b0f2c730-7f0b-4ca9-895f-e41b9cf39949",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified":"2020-10-19T01:01:01.000Z",
+            "spec_version": "2.1",
+            "task_type": "hunt",
+            "outcome": "ongoing",
+            "external_references": [
+                {
+                    "source_name": "internal-playbooks",
+                    "external_id": "playbook--a361b0e4-d81b-43f7-ba45-a131aa3b8080"
+                }
+            ],
+            "description": "Began executing playbook",
+            "start_time": "2020-10-15T01:01:01.000Z",
+            "subtasks": [
+                {
+                    "task_ref": "task--9ceb67a5-5c5e-4d2c-8fa1-044c91445e49",
+                    "sequence_start": 1,
+                    "sequence_end": 1
+                },
+                {
+                    "task_ref": "task--4d8c9945-cbaa-41d5-b98b-e620f7b7b7e5",
+                    "sequence_start": 2,
+                    "sequence_end": 2
+                },
+                {
+                    "task_ref": "task--caa55f5d-cf7f-4f34-a48b-62c0bf9e9e1d",
+                    "sequence_start": 3,
+                    "sequence_end": 3
+                }
+            ],
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "id": "task--9ceb67a5-5c5e-4d2c-8fa1-044c91445e49",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified":"2020-10-19T01:01:01.000Z",
+            "spec_version": "2.1",
+            "task_type": "automated",
+            "name": "get new accounts",
+            "outcome": "successful",
+            "external_references": [
+                {
+                    "source_name": "internal-playbooks",
+                    "external_id": "playbook--a361b0e4-d81b-43f7-ba45-a131aa3b8080"
+                },
+                {
+                    "source_name": "playbook-step",
+                    "external_id": "action--e984e66e-e92b-4ba1-b7a7-a319aa5c58cd"
+                }
+            ],
+            "changed_objects": [
+                {
+                    "state_change_type": "output",
+                    "result_ref": "grouping--5ae578cf-5884-45f4-a1bf-1998af828ccc"
+                }
+            ],
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "user-account",
+            "spec_version": "2.1",
+            "id": "user-account--a5549db1-1a61-5905-ad16-3cc14b35cd22",
+            "account_login": "arasda332",
+            "account_type": "windows-domain",
+            "is_privileged": true,
+            "credential_last_changed": "2020-10-14T16:32:22Z"
+        },
+        {
+            "type": "grouping",
+            "spec_version": "2.1",
+            "id": "grouping--5ae578cf-5884-45f4-a1bf-1998af828ccc",
+            "created": "2023-04-28T23:35:32.099185Z",
+            "modified": "2023-04-28T23:35:32.099185Z",
+            "context": "suspicious-activity",
+            "object_refs": [
+                "user-account--a5549db1-1a61-5905-ad16-3cc14b35cd22"
+            ]
+        },
+        {
+            "type": "task",
+            "id": "task--4d8c9945-cbaa-41d5-b98b-e620f7b7b7e5",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified":"2020-10-19T01:01:01.000Z",
+            "spec_version": "2.1",
+            "task_type": "automated",
+            "name": "Get System Logins",
+            "outcome": "failed",
+            "error": "No results found",
+            "external_references": [
+                {
+                    "source_name": "internal-playbook",
+                    "external_id": "playbook--a361b0e4-d81b-43f7-ba45-a131aa3b8080"
+                },
+                {
+                    "source_name": "playbook-step",
+                    "external_id": "action--22275b08-2ec5-4575-8064-44669b876c3f"
+                }
+            ],
+            "changed_objects": [
+                {
+                    "state_change_type": "input",
+                    "initial_ref": "grouping--5ae578cf-5884-45f4-a1bf-1998af828ccc"
+                }
+            ],
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "id": "task--caa55f5d-cf7f-4f34-a48b-62c0bf9e9e1d",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified":"2020-10-19T01:01:01.000Z",
+            "spec_version": "2.1",
+            "task_type": "automated",
+            "name": "User Review",
+            "outcome": "ongoing",
+            "external_references": [
+                {
+                    "source_name": "internal-playbooks",
+                    "external_id": "playbook--a361b0e4-d81b-43f7-ba45-a131aa3b8080"
+                },
+                {
+                    "source_name": "playbook-step",
+                    "external_id": "action--7b3e9410-e809-4548-90a2-af160c722d58"
+                }
+            ],
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--74b3e039-1b18-4cb4-b605-260302a761e7",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified": "2020-10-19T01:01:01.000Z",
+            "relationship_type": "followed-by",
+            "source_ref": "task--9ceb67a5-5c5e-4d2c-8fa1-044c91445e49",
+            "target_ref": "task--4d8c9945-cbaa-41d5-b98b-e620f7b7b7e5"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--20b79b53-ce5e-47e6-863c-6129340c4d79",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified": "2020-10-19T01:01:01.000Z",
+            "relationship_type": "errored-to",
+            "source_ref": "task--4d8c9945-cbaa-41d5-b98b-e620f7b7b7e5",
+            "target_ref": "task--caa55f5d-cf7f-4f34-a48b-62c0bf9e9e1d"
         }
     ]
 }

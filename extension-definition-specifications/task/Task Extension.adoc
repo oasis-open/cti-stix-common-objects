@@ -121,7 +121,7 @@ This is typically used to indicate how an task has affected impacts.
 |*task_type* (optional)
 |[stixtype]#open-vocabulary#
 |A high level type for the task in order to enable aggregation and summaries.
-This should be drawn from task-type-ov.
+This should be drawn from [stixtype]#task-type-ov#.
 
 |*description* (optional)
 |[stixtype]#string#
@@ -224,6 +224,9 @@ This *MUST NOT* exceed the [stixtype]*sequence_end* value, but the two can be eq
 |[stixliteral]#administrative#
 |Perform an administrative action such as the introduction or change of a policy.
 
+|[stixliteral]#attribution#
+|Perform an administrative action such as the introduction or change of a policy.
+
 |[stixliteral]#containment#
 |The containment phase of incident response
 
@@ -254,6 +257,16 @@ in place within the environment.
 
 |[stixliteral]#implemented-control#
 |Implemented a security control within the environment.
+
+|[stixliteral]#playbook-execution#
+|Executing an automated playbook.
+If the playbook is stored outside of STIX it should be included as an [stixtype]#external-reference#.
+
+|[stixliteral]#playbook-step-execution#
+|Executing a step in an automated playbook.
+If the playbook is stored outside of STIX both the playbook and step stored in separate [stixtype]#external-reference# objects.
+
+If playbook steps feed each other information that is designed to be passed as STIX it *SHOULD* be referenced as a [stixtype]#group# as either the *initial_ref* or *result_ref* of a [stixtype]#state-change#.
 
 |[stixliteral]#recovery#
 |The recovery phase of incident response.
@@ -384,7 +397,7 @@ activity.
 |A task was performed that created an indicator.
 
 |[stixtype]*task*
-|[stixrelationship]#ed#
+|[stixrelationship]#impacted#
 |[stixtype]*infrastructure*, +
 <All STIX Cyber-observable Objects>
 |The task impacts infrastructure or other resources that are identified by cyber-observable objects.
@@ -393,6 +406,16 @@ activity.
 |[stixrelationship]#located-at#
 |[stixtype]*location*
 |The task occurred at a specific location or locations.
+
+|[stixtype]*task*
+|[stixrelationship]#errored-to#
+|[stixtype]*task*
+|A task follows this one because of an error / if statement in a playbook.
+
+|[stixtype]*task*
+|[stixrelationship]#followed-by#
+|[stixtype]*task*
+|A task follows this one in the normal chain of execution.
 
 |===
 

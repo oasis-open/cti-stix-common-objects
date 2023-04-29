@@ -273,17 +273,14 @@ organizations may choose to not share the details of these impacts.
 |[stixliteral]#known-malware#
 |This incident involves a known type of malware.
 
-|[stixliteral]##
-|
+|[stixliteral]#unattributed#
+|This incident has not been attributed, but is believed to be related to an Intrusion Set.
 
-|[stixliteral]##
-|
+|[stixliteral]#no-apt#
+|It is not believed that this incident involved an advanced persistent threat.
 
-|[stixliteral]##
-|
-
-|[stixliteral]##
-|
+|[stixliteral]#unknown-apt#
+|This incident is believed to involve an APT but is unknown.
 
 |[stixliteral]##
 |

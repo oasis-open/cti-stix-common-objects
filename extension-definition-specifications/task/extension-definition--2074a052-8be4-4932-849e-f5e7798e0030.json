@@ -20,6 +20,7 @@
                 "modified": {},
                 "spec_version": {},
                 "labels": {},
+                "external_references": {},
                 "name": {
                     "type": "string"
                 },

@@ -85,7 +85,7 @@
             "impact_category": "availability",
             "end_time": "2022-05-07T04:00:00.002Z",
             "end_time_fidelity": "day",
-            "succeeded_by_ref": "impact--e36d4f80-85cf-4672-966c-0cfcfa8b7733",
+            "superseded_by_ref": "impact--e36d4f80-85cf-4672-966c-0cfcfa8b7733",
             "extensions": {
                 "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
                     "extension_type": "new-sdo"
@@ -199,16 +199,6 @@
             "event_types": ["successful"],
             "description": "The dropper verified it had internet access by checking google and then downloaded and installed second stage tooling.",
             "id": "event--e1d9744a-9c23-45fa-adee-59d739dfb620",
-            "kill_chain_phases": [
-                {
-                    "kill_chain_name": "lockheed-martin-cyber-kill-chain",
-                    "phase_name": "delivery"
-                },
-                {
-                    "kill_chain_name": "lockheed-martin-cyber-kill-chain",
-                    "phase_name": "installation"
-                }
-            ],
             "sighting_refs": ["sighting--0770b1ac-6b85-41cb-a0c4-2b71b9e76182"],
             "pattern_refs": [
                 "attack-pattern--e6919abc-99f9-4c6c-95a5-14761e7b2add"
