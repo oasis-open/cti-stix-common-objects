@@ -258,6 +258,9 @@ in place within the environment.
 |[stixliteral]#implemented-control#
 |Implemented a security control within the environment.
 
+|[stixliteral]#negotiation#
+|Negotiation of a deal or payment amount.
+
 |[stixliteral]#playbook-execution#
 |Executing an automated playbook.
 If the playbook is stored outside of STIX it should be included as an [stixtype]#external-reference#.

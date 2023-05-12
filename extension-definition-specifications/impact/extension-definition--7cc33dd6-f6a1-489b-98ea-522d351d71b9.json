@@ -235,7 +235,7 @@
                             }
                         },
                         "monetary": {
-                            "required": [],
+                            "required": ["variety"],
                             "additionalProperties": false,
                             "oneOf": [
                                 {
@@ -259,6 +259,36 @@
                                         "currency",
                                         "min_amount",
                                         "max_amount"
+                                    ],
+                                    "not": {
+                                        "anyOf": [
+                                            {
+                                                "required": ["conversion_rate"]
+                                            },
+                                            {
+                                                "required": ["currency_actual"]
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "required": [
+                                        "currency",
+                                        "min_amount",
+                                        "max_amount",
+                                        "currency_actual"
+                                    ],
+                                    "not": {
+                                        "required": ["conversion_rate"]
+                                    }
+                                },
+                                {
+                                    "required": [
+                                        "currency",
+                                        "min_amount",
+                                        "max_amount",
+                                        "conversion_rate",
+                                        "currency_actual"
                                     ]
                                 }
                             ],
@@ -270,6 +300,14 @@
                                 "currency": {
                                     "type": "string",
                                     "description": "The currency that amount_min and amount_max are measured in"
+                                },
+                                "currency_actual": {
+                                    "type": "string",
+                                    "description": "The currency that the impact actually used.  For ransom demands this should be the currency of the demand."
+                                },
+                                "conversion_rate": {
+                                    "type": "number",
+                                    "minimum": 0
                                 },
                                 "max_amount": {
                                     "type": "number",

@@ -39,9 +39,8 @@ toc::[]
 
 STIX 2.1 currently provides no means of sharing information about the impact of incidents.
 In the 1.0 version of the core incident extension these details were embedded into the Incident SDO.
-Based on the various implementation efforts it was determined that it would be best to split this information into a separate SDO.
+Based on the various implementation efforts it was determined that it would be best to split this information into a separate SDOs.
 Doing so allows for easier sharing of information using TAXII as data markings can be safely applied to each impact so that native filtering capabilities can be used to limit dissemination of sensitive information reducing re-authoring requirements that were present in the 1.0 version of the core incident extension.
-
 
 This extension is intended to be pair with both the Incident Activity and Incident extensions to allow for in depth information sharing.
 This extension uses the ID `extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9`.
@@ -335,12 +334,31 @@ Including an entry that with an alteration of none and no information_type indic
 
 The values of this property *SHOULD* come from the [stixtype]#monetary-impact-type-ov#.
 
+|*conversion_rate* (optional)
+|[stixtype]#number#
+|The conversion rate between *currency* and *currency_actual*.
+This *MUST* not be included if currency_actual is not included.
+This *MUST* be included if currency_actual is included.
+This value *MUST* be greater than zero.
+
+This value *MUST* be included if the *min_amount* is included.
+
 |*currency* (optional)
 |[stixtype]#string#|
 The currency that the max_amount and min_amount fields use.
 This *SHOULD* be an ISO 4217 alpha currency code or the official currency code for the relevant cryptocurrency.
+This *SHOULD* match an organizations own primary currency, or for government reporting the currency requested by that government for these reports.
 
 This value *MUST* be included if the *min_amount* is included.
+
+|*currency_actual* (optional)
+|[stixtype]#string#|
+The currency that the impact actually used.
+For ransom demands this should be the currency of the demand.
+If this is not included it should be assumed to be the same value as *currency*.
+
+If this is included then *currency* *MUST* be included.
+This *SHOULD* be an ISO 4217 alpha currency code or the official currency code for the relevant cryptocurrency.
 
 |*max_amount* (optional)
 |[stixtype]#number#
