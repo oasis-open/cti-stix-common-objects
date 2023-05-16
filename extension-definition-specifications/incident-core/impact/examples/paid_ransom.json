@@ -21,6 +21,7 @@
                     "max_amount": 14413.05,
                     "variety": "ransom-demand",
                     "conversion_rate": 0.0000346907836994945,
+                    "conversion_time": "2023-05-02T20:00:00.0002Z",
                     "currency_actual": "btc"
                 }
             }
@@ -45,6 +46,7 @@
                     "max_amount": 10000,
                     "variety": "ransom-payment",
                     "conversion_rate": 0.0000346907836994945,
+                    "conversion_time": "2023-05-02T20:00:00.0002Z",
                     "currency_actual": "btc"
                 }
             }

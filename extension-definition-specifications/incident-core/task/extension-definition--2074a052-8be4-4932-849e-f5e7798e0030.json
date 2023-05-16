@@ -140,23 +140,52 @@
     "definitions": {
         "Task_Sequence": {
             "type": "object",
-            "required": ["task_ref"],
             "additionalProperties": false,
+            "required": ["activity_ref"],
             "properties": {
-                "task_ref": {
+                "activity_ref": {
+                    "type": "string",
                     "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
-                    "pattern": "^task--",                    
-                    "description": "The task that ocurred at this point in the sequence"
+                    "pattern": "^(task)--",
+                    "description": "The event or task"
                 },
-                "sequence_start": {
-                    "type": "number",
-                    "description": "An optional sequence number starting at 0 that shows the earliest point this activity is believed to have occurred relative to other attacker and defender activities.  This cannot be greater than sequence_end, but the two can be equal.",
-                    "minimum": 0
-                },
-                "sequence_end": {
-                    "type": "number",
-                    "description": "An optional sequence number starting at 0 that shows the lastest point this activity is believed to have occurred relative to other attacker and defender activities.  This cannot be less than sequence_start, but the two can be equal.",
-                    "minimum": 0
+                "next_steps": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                            "condition_type",
+                            "step_ref",
+                            "transition_type"
+                        ],
+                        "properties": {
+                            "condition_type": {
+                                "type": "string",
+                                "enum": [
+                                    "optional",
+                                    "required",
+                                    "unknown"
+                                ]
+                            },
+                            "step_ref": {
+                                "type": "string",
+                                "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
+                                "pattern": "^(event|task)--"
+                            },
+                            "transition_type": {
+                                "type": "string",
+                                "description": "What end-state causes the target to begin",
+                                "enum": [
+                                    "completion",
+                                    "failure",
+                                    "success",
+                                    "unknown"
+                                ]
+                            }
+                        }
+                    }
                 }
             }
         }

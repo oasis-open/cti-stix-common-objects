@@ -12,7 +12,7 @@
       "modified": "2022-10-27T15:09:00.000Z",
       "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
       "schema": "https://github.com/oasis-open/cti-stix-common-objects/tree/main/extension-definition-specifications/incident-core",
-      "version": "1.2.0",
+      "version": "2.0.0",
       "extension_types": [ "property-extension" ]
     }
   ]

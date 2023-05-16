@@ -23,48 +23,90 @@
                     ],
                     "activities": [
                         {
-                            "sequence_start": 1,
-                            "sequence_end": 1,
-                            "event_ref": "event--6e7ec24e-e3b2-498e-afb4-e14eab67b5d4"
+                            "activity_ref": "event--6e7ec24e-e3b2-498e-afb4-e14eab67b5d4",
+                            "next_steps": [
+                                {
+                                    "step_ref": "event--e1d9744a-9c23-45fa-adee-59d739dfb620",
+                                    "condition_type": "required",
+                                    "transition_type": "completion"
+                                }
+                            ]
                         },
                         {
-                            "sequence_start": 2,
-                            "sequence_end": 2,
-                            "event_ref": "event--e1d9744a-9c23-45fa-adee-59d739dfb620"
+                            "activity_ref": "event--e1d9744a-9c23-45fa-adee-59d739dfb620",
+                            "next_steps": [
+                                {
+                                    "step_ref": "event--612c5cd9-689c-4bc0-83b2-cd956f812cf9",
+                                    "condition_type": "required",
+                                    "transition_type": "completion"
+                                },
+                                {
+                                    "step_ref": "event--747f4f6b-175f-4843-bde2-1b3218bf5ff0",
+                                    "condition_type": "required",
+                                    "transition_type": "completion"
+                                }
+                            ]
                         },
                         {
-                            "sequence_start": 3,
-                            "sequence_end": 4,
-                            "event_ref": "event--612c5cd9-689c-4bc0-83b2-cd956f812cf9"
+                            "activity_ref": "event--612c5cd9-689c-4bc0-83b2-cd956f812cf9",
+                            "next_steps": [
+                                {
+                                    "step_ref": "task--fd5f04a8-877f-42a3-a25d-ddfe2001a6e1",
+                                    "condition_type": "unknown",
+                                    "transition_type": "completion"
+                                }
+                            ]
                         },
                         {
-                            "sequence_start": 3,
-                            "sequence_end": 4,
-                            "event_ref": "event--747f4f6b-175f-4843-bde2-1b3218bf5ff0"
+                            "activity_ref": "event--747f4f6b-175f-4843-bde2-1b3218bf5ff0",
+                            "next_steps": [
+                                {
+                                    "step_ref": "task--fd5f04a8-877f-42a3-a25d-ddfe2001a6e1",
+                                    "condition_type": "unknown",
+                                    "transition_type": "completion"
+                                }
+                            ]
                         },
                         {
-                            "sequence_start": 5,
-                            "sequence_end": 5,
-                            "event_ref": "task--fd5f04a8-877f-42a3-a25d-ddfe2001a6e1"
+                            "activity_ref": "task--fd5f04a8-877f-42a3-a25d-ddfe2001a6e1",
+                            "next_steps": [
+                                {
+                                    "step_ref": "task--7a998b82-389d-4d9c-b5ca-40aa34680c0a",
+                                    "condition_type": "required",
+                                    "transition_type": "completion"
+                                },
+                                {
+                                    "step_ref": "task--d6853763-b5b3-4f5e-b031-bcb111a3d7a1",
+                                    "condition_type": "required",
+                                    "transition_type": "completion"
+                                }
+                            ]
                         },
                         {
-                            "sequence_start": 6,
-                            "sequence_end": 6,
-                            "event_ref": "task--7a998b82-389d-4d9c-b5ca-40aa34680c0a"
+                            "activity_ref": "task--7a998b82-389d-4d9c-b5ca-40aa34680c0a",
+                            "next_steps": [
+                                {
+                                    "step_ref": "task--7c99eec2-5873-4d02-a286-b1cfcbb33cbc",
+                                    "condition_type": "required",
+                                    "transition_type": "completion"
+                                }
+                            ]
                         },
                         {
-                            "sequence_start": 7,
-                            "sequence_end": 7,
-                            "event_ref": "task--7c99eec2-5873-4d02-a286-b1cfcbb33cbc"
+                            "activity_ref": "task--7c99eec2-5873-4d02-a286-b1cfcbb33cbc",
+                            "next_steps": [
+                                {
+                                    "step_ref": "task--1b44203f-dbfb-4399-a02d-6b71f04ccfb7",
+                                    "condition_type": "required",
+                                    "transition_type": "completion"
+                                }
+                            ]
                         },
                         {
-                            "sequence_start": 8,
-                            "sequence_end": 8,
-                            "event_ref": "task--1b44203f-dbfb-4399-a02d-6b71f04ccfb7"
+                            "activity_ref": "task--1b44203f-dbfb-4399-a02d-6b71f04ccfb7"
                         },
                         {
-                            "event_ref": "task--d6853763-b5b3-4f5e-b031-bcb111a3d7a1",
-                            "sequence_start": 6
+                            "activity_ref": "task--d6853763-b5b3-4f5e-b031-bcb111a3d7a1"
                         }                   
                     ],
                     "impact_refs": [
@@ -450,10 +492,10 @@
             "start_time_fidelity": "day",
             "subtasks": [
                 {
-                    "task_ref": "task--05bf660d-52b9-4249-a75d-ada224dd1261"
+                    "activity_ref": "task--05bf660d-52b9-4249-a75d-ada224dd1261"
                 },
                 {
-                    "task_ref": "task--6aa81489-8137-46e0-84f1-ebcae2e001e8"
+                    "activity_ref": "task--6aa81489-8137-46e0-84f1-ebcae2e001e8"
                 }
             ],
             "extensions": {

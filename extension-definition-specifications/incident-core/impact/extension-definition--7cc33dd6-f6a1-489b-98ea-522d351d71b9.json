@@ -288,7 +288,8 @@
                                         "min_amount",
                                         "max_amount",
                                         "conversion_rate",
-                                        "currency_actual"
+                                        "currency_actual",
+                                        "conversion_time"
                                     ]
                                 }
                             ],
@@ -308,6 +309,10 @@
                                 "conversion_rate": {
                                     "type": "number",
                                     "minimum": 0
+                                },
+                                "conversion_time": {
+                                    "description": "When the conversion rate between the actual currency and the amount currency was queried",
+                                    "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/timestamp.json"
                                 },
                                 "max_amount": {
                                     "type": "number",

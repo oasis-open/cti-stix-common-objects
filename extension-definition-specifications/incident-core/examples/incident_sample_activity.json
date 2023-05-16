@@ -5,8 +5,8 @@
         {
             "type": "incident",
             "id": "incident--2242662b-d581-4864-8696-fff719dc0500",
-            "created": "2020-10-19T01:01:01.000Z",
-            "modified":"2020-10-19T01:01:01.000Z",
+            "created": "2020-10-19T01:01:01.002Z",
+            "modified":"2020-10-19T01:01:01.002Z",
             "created_by_ref": "identity--2242662b-d581-4864-8696-fff719dc0500",
             "spec_version": "2.1",
             "name": "Sample Incident 1",
@@ -19,34 +19,50 @@
                     "detection_methods": ["human-review"],
                     "activities": [
                         {
-                            "event_ref": "event--fa107730-c44b-403b-8673-387180fed6f8",
-                            "sequence_start": 1,
-                            "sequence_end": 1
+                            "activity_ref": "event--fa107730-c44b-403b-8673-387180fed6f8",
+                            "next_steps": [
+                                {
+                                    "step_ref": "event--dbe72493-1326-4e25-ad04-99c805a51939",
+                                    "condition_type": "unknown",
+                                    "transition_type": "success"
+                                }
+                            ]
                         },
                         {
-                            "event_ref": "event--44728578-a89c-41de-b934-17fec1bd30d7",
-                            "sequence_start": 1,
-                            "sequence_end": 3
+                            "activity_ref": "event--44728578-a89c-41de-b934-17fec1bd30d7",
+                            "next_steps": [
+                                {
+                                    "step_ref": "event--dbe72493-1326-4e25-ad04-99c805a51939",
+                                    "condition_type": "optional",
+                                    "transition_type": "unknown"
+                                }
+                            ]
                         },
                         {
-                            "event_ref": "event--dbe72493-1326-4e25-ad04-99c805a51939",
-                            "sequence_start": 3,
-                            "sequence_end": 3
+                            "activity_ref": "event--dbe72493-1326-4e25-ad04-99c805a51939",
+                            "next_steps": [
+                                {
+                                    "step_ref": "event--774d7ae5-3efc-40e6-8d9d-63ca9904bfad",
+                                    "condition_type": "required",
+                                    "transition_type": "success"
+                                }
+                            ]
                         },
                         {
-                            "event_ref": "event--774d7ae5-3efc-40e6-8d9d-63ca9904bfad",
-                            "sequence_start": 4,
-                            "sequence_end": 4
+                            "activity_ref": "event--774d7ae5-3efc-40e6-8d9d-63ca9904bfad"
                         },
                         {
-                            "task_ref": "task--2d254737-fbf8-4969-adb3-80ac5c293f57",
-                            "sequence_start": 5,
-                            "sequence_end": 5
+                            "activity_ref": "task--2d254737-fbf8-4969-adb3-80ac5c293f57",
+                            "next_steps": [
+                                {
+                                    "step_ref": "task--b0f2c730-7f0b-4ca9-895f-e41b9cf39949",
+                                    "condition_type": "required",
+                                    "transition_type": "completion"
+                                }
+                            ]
                         },
                         {
-                            "task_ref": "task--b0f2c730-7f0b-4ca9-895f-e41b9cf39949",
-                            "sequence_start": 6,
-                            "sequence_end": 6
+                            "activity_ref": "task--b0f2c730-7f0b-4ca9-895f-e41b9cf39949"
                         }
                     ]
                 }
@@ -140,7 +156,7 @@
             "created": "2020-10-19T01:01:01.000Z",
             "modified":"2020-10-19T01:01:01.000Z",
             "spec_version": "2.1",
-            "task_type": "hunt",
+            "task_type": "playbook-execution",
             "outcome": "ongoing",
             "external_references": [
                 {
@@ -152,19 +168,27 @@
             "start_time": "2020-10-15T01:01:01.000Z",
             "subtasks": [
                 {
-                    "task_ref": "task--9ceb67a5-5c5e-4d2c-8fa1-044c91445e49",
-                    "sequence_start": 1,
-                    "sequence_end": 1
+                    "activity_ref": "task--9ceb67a5-5c5e-4d2c-8fa1-044c91445e49",
+                    "next_steps": [
+                        {
+                            "step_ref": "task--4d8c9945-cbaa-41d5-b98b-e620f7b7b7e5",
+                            "condition_type": "required",
+                            "transition_type": "success"
+                        }
+                    ]
                 },
                 {
-                    "task_ref": "task--4d8c9945-cbaa-41d5-b98b-e620f7b7b7e5",
-                    "sequence_start": 2,
-                    "sequence_end": 2
+                    "activity_ref": "task--4d8c9945-cbaa-41d5-b98b-e620f7b7b7e5",
+                    "next_steps": [
+                        {
+                            "step_ref": "task--caa55f5d-cf7f-4f34-a48b-62c0bf9e9e1d",
+                            "condition_type": "optional",
+                            "transition_type": "failure"
+                        }
+                    ]
                 },
                 {
-                    "task_ref": "task--caa55f5d-cf7f-4f34-a48b-62c0bf9e9e1d",
-                    "sequence_start": 3,
-                    "sequence_end": 3
+                    "activity_ref": "task--caa55f5d-cf7f-4f34-a48b-62c0bf9e9e1d"
                 }
             ],
             "extensions": {
@@ -179,7 +203,7 @@
             "created": "2020-10-19T01:01:01.000Z",
             "modified":"2020-10-19T01:01:01.000Z",
             "spec_version": "2.1",
-            "task_type": "automated",
+            "task_type": "playbook-step-execution",
             "name": "get new accounts",
             "outcome": "successful",
             "external_references": [
@@ -230,7 +254,7 @@
             "created": "2020-10-19T01:01:01.000Z",
             "modified":"2020-10-19T01:01:01.000Z",
             "spec_version": "2.1",
-            "task_type": "automated",
+            "task_type": "playbook-step-execution",
             "name": "Get System Logins",
             "outcome": "failed",
             "error": "No results found",
@@ -262,7 +286,7 @@
             "created": "2020-10-19T01:01:01.000Z",
             "modified":"2020-10-19T01:01:01.000Z",
             "spec_version": "2.1",
-            "task_type": "automated",
+            "task_type": "playbook-step-execution",
             "name": "User Review",
             "outcome": "ongoing",
             "external_references": [
@@ -280,26 +304,6 @@
                     "extension_type": "new-sdo"
                 }
             }
-        },
-        {
-            "type": "relationship",
-            "spec_version": "2.1",
-            "id": "relationship--74b3e039-1b18-4cb4-b605-260302a761e7",
-            "created": "2020-10-19T01:01:01.000Z",
-            "modified": "2020-10-19T01:01:01.000Z",
-            "relationship_type": "followed-by",
-            "source_ref": "task--9ceb67a5-5c5e-4d2c-8fa1-044c91445e49",
-            "target_ref": "task--4d8c9945-cbaa-41d5-b98b-e620f7b7b7e5"
-        },
-        {
-            "type": "relationship",
-            "spec_version": "2.1",
-            "id": "relationship--20b79b53-ce5e-47e6-863c-6129340c4d79",
-            "created": "2020-10-19T01:01:01.000Z",
-            "modified": "2020-10-19T01:01:01.000Z",
-            "relationship_type": "errored-to",
-            "source_ref": "task--4d8c9945-cbaa-41d5-b98b-e620f7b7b7e5",
-            "target_ref": "task--caa55f5d-cf7f-4f34-a48b-62c0bf9e9e1d"
         }
     ]
 }
