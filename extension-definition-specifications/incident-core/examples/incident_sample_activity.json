@@ -17,52 +17,54 @@
                     "determination": "successful-attempt",
                     "investigation_status": "open",
                     "detection_methods": ["human-review"],
-                    "activities": [
+                    "events": [
                         {
-                            "activity_ref": "event--fa107730-c44b-403b-8673-387180fed6f8",
+                            "event_ref": "event--fa107730-c44b-403b-8673-387180fed6f8",
                             "next_steps": [
                                 {
-                                    "step_ref": "event--dbe72493-1326-4e25-ad04-99c805a51939",
+                                    "event_ref": "event--dbe72493-1326-4e25-ad04-99c805a51939",
                                     "condition_type": "unknown",
                                     "transition_type": "success"
                                 }
                             ]
                         },
                         {
-                            "activity_ref": "event--44728578-a89c-41de-b934-17fec1bd30d7",
+                            "event_ref": "event--44728578-a89c-41de-b934-17fec1bd30d7",
                             "next_steps": [
                                 {
-                                    "step_ref": "event--dbe72493-1326-4e25-ad04-99c805a51939",
+                                    "event_ref": "event--dbe72493-1326-4e25-ad04-99c805a51939",
                                     "condition_type": "optional",
                                     "transition_type": "unknown"
                                 }
                             ]
                         },
                         {
-                            "activity_ref": "event--dbe72493-1326-4e25-ad04-99c805a51939",
+                            "event_ref": "event--dbe72493-1326-4e25-ad04-99c805a51939",
                             "next_steps": [
                                 {
-                                    "step_ref": "event--774d7ae5-3efc-40e6-8d9d-63ca9904bfad",
+                                    "event_ref": "event--774d7ae5-3efc-40e6-8d9d-63ca9904bfad",
                                     "condition_type": "required",
                                     "transition_type": "success"
                                 }
                             ]
                         },
                         {
-                            "activity_ref": "event--774d7ae5-3efc-40e6-8d9d-63ca9904bfad"
-                        },
+                            "event_ref": "event--774d7ae5-3efc-40e6-8d9d-63ca9904bfad"
+                        }
+                    ],
+                    "tasks": [
                         {
-                            "activity_ref": "task--2d254737-fbf8-4969-adb3-80ac5c293f57",
+                            "task_ref": "task--2d254737-fbf8-4969-adb3-80ac5c293f57",
                             "next_steps": [
                                 {
-                                    "step_ref": "task--b0f2c730-7f0b-4ca9-895f-e41b9cf39949",
+                                    "task_ref": "task--b0f2c730-7f0b-4ca9-895f-e41b9cf39949",
                                     "condition_type": "required",
                                     "transition_type": "completion"
                                 }
                             ]
                         },
                         {
-                            "activity_ref": "task--b0f2c730-7f0b-4ca9-895f-e41b9cf39949"
+                            "task_ref": "task--b0f2c730-7f0b-4ca9-895f-e41b9cf39949"
                         }
                     ]
                 }
@@ -76,13 +78,21 @@
             "spec_version": "2.1",
             "name": "Initial Compromise",
             "status": "occurred",
-            "pattern_refs": ["attack-pattern--d742a578-d70e-4d0e-96a6-02a9c30204e6"],
+            "sighting_refs": ["sighting--55183679-1f1d-4824-af63-72ec2ef855a0"],
             "description": "Drive-by compromise of a trusted domain was believed to deliver malware, but it is unclear when it was activated",
             "extensions": {
                 "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
                     "extension_type": "new-sdo"
                 }
             }
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--55183679-1f1d-4824-af63-72ec2ef855a0",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified": "2020-10-19T01:01:01.000Z",
+            "sighting_of_ref": "attack-pattern--d742a578-d70e-4d0e-96a6-02a9c30204e6"
         },
         {
             "type": "event",
@@ -92,13 +102,21 @@
             "spec_version": "2.1",
             "name": "Phishing emails to multiple users",
             "status": "occurred",
-            "pattern_refs": ["attack-pattern--6aac77c4-eaf2-4366-8c13-ce50ab951f38"],
+            "sighting_refs": ["sighting--9af0cfab-2dfe-448d-a4e3-85ae0af3149c"],
             "description": "A phishing campaign was attachments was used to attempt to deliver malicious PDFs.  The malware may have already been active by the time a user clicks on this however as it started before the drive by, but also ended after it.",
             "extensions": {
                 "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
                     "extension_type": "new-sdo"
                 }
             }
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--9af0cfab-2dfe-448d-a4e3-85ae0af3149c",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified": "2020-10-19T01:01:01.000Z",
+            "sighting_of_ref": "attack-pattern--6aac77c4-eaf2-4366-8c13-ce50ab951f38"
         },
         {
             "type": "event",
@@ -108,13 +126,21 @@
             "spec_version": "2.1",
             "name": "RDP to domain controller",
             "status": "occurred",
-            "pattern_refs": ["attack-pattern--51dea151-0898-4a45-967c-3ebee0420484"],
+            "sighting_refs": ["sighting--784ccd72-98fa-41e5-bc37-20659e0e9397"],
             "description": "Remote desktop protocol was used to access domain controller",
             "extensions": {
                 "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
                     "extension_type": "new-sdo"
                 }
             }
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--784ccd72-98fa-41e5-bc37-20659e0e9397",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified": "2020-10-19T01:01:01.000Z",
+            "sighting_of_ref": "attack-pattern--51dea151-0898-4a45-967c-3ebee0420484"
         },
         {
             "type": "event",
@@ -124,7 +150,7 @@
             "spec_version": "2.1",
             "name": "Create account",
             "status": "occurred",
-            "pattern_refs": ["attack-pattern--7610cada-1499-41a4-b3dd-46467b68d177"],
+            "sighting_refs": ["sighting--b99e60f4-12ec-4ab6-88a2-de95405e7a5c"],
             "description": "A domain account was created to allow remote access using normal means by the attacker",
             "end_time": "2020-10-15T00:01:32.700Z",
             "extensions": {
@@ -132,6 +158,15 @@
                     "extension_type": "new-sdo"
                 }
             }
+        },
+        {
+
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--b99e60f4-12ec-4ab6-88a2-de95405e7a5c",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified": "2020-10-19T01:01:01.000Z",
+            "sighting_of_ref": "attack-pattern--7610cada-1499-41a4-b3dd-46467b68d177"
         },
         {
             "type": "task",
@@ -168,27 +203,27 @@
             "start_time": "2020-10-15T01:01:01.000Z",
             "subtasks": [
                 {
-                    "activity_ref": "task--9ceb67a5-5c5e-4d2c-8fa1-044c91445e49",
+                    "task_ref": "task--9ceb67a5-5c5e-4d2c-8fa1-044c91445e49",
                     "next_steps": [
                         {
-                            "step_ref": "task--4d8c9945-cbaa-41d5-b98b-e620f7b7b7e5",
+                            "task_ref": "task--4d8c9945-cbaa-41d5-b98b-e620f7b7b7e5",
                             "condition_type": "required",
                             "transition_type": "success"
                         }
                     ]
                 },
                 {
-                    "activity_ref": "task--4d8c9945-cbaa-41d5-b98b-e620f7b7b7e5",
+                    "task_ref": "task--4d8c9945-cbaa-41d5-b98b-e620f7b7b7e5",
                     "next_steps": [
                         {
-                            "step_ref": "task--caa55f5d-cf7f-4f34-a48b-62c0bf9e9e1d",
+                            "task_ref": "task--caa55f5d-cf7f-4f34-a48b-62c0bf9e9e1d",
                             "condition_type": "optional",
                             "transition_type": "failure"
                         }
                     ]
                 },
                 {
-                    "activity_ref": "task--caa55f5d-cf7f-4f34-a48b-62c0bf9e9e1d"
+                    "task_ref": "task--caa55f5d-cf7f-4f34-a48b-62c0bf9e9e1d"
                 }
             ],
             "extensions": {

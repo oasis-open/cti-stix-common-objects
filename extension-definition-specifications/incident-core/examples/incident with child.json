@@ -5,8 +5,8 @@
         {
             "type": "incident",
             "id": "incident--11c4461e-25d8-47f1-bccf-a965ddca8e8f",
-            "created": "2020-10-19T01:01:01.000Z",
-            "modified":"2020-10-19T02:12:23.000Z",
+            "created": "2020-10-19T01:01:01.001Z",
+            "modified":"2020-10-19T02:12:23.001Z",
             "created_by_ref": "identity--2242662b-d581-4864-8696-fff719dc0500",
             "spec_version": "2.1",
             "name": "Stolen Laptop",
@@ -18,18 +18,20 @@
                     "determination": "successful-attempt",
                     "detection_methods": ["user-report"],
                     "incident_types": ["loss-of-control"],
-                    "activities": [
+                    "events": [
                         {
-                            "activity_ref": "event--84ede1e8-aa78-4c63-98cd-02f4387fc1ec"
+                            "event_ref": "event--84ede1e8-aa78-4c63-98cd-02f4387fc1ec"
+                        }
+                    ],
+                    "tasks": [
+                        {
+                            "task_ref": "task--0c98dd11-f288-409d-8e1c-4b3da7b9b199"
                         },
                         {
-                            "activity_ref": "task--0c98dd11-f288-409d-8e1c-4b3da7b9b199"
+                            "task_ref": "task--c8e4c361-3e83-43ae-aab0-440815e3a033"
                         },
                         {
-                            "activity_ref": "task--c8e4c361-3e83-43ae-aab0-440815e3a033"
-                        },
-                        {
-                            "activity_ref": "task--094803be-3898-412d-ace0-8d667bf9272f"
+                            "task_ref": "task--094803be-3898-412d-ace0-8d667bf9272f"
                         }
                     ]
                 }
@@ -109,8 +111,8 @@
         {
             "type": "incident",
             "id": "incident--0f74f95b-7ca1-4225-bfd6-ca1369c1847f",
-            "created": "2020-10-19T02:12:23.000Z",
-            "modified":"2020-10-19T02:12:23.000Z",
+            "created": "2020-10-19T02:12:23.001Z",
+            "modified":"2020-10-19T02:12:23.001Z",
             "created_by_ref": "identity--2242662b-d581-4864-8696-fff719dc0500",
             "spec_version": "2.1",
             "name": "Determine if Stolen Laptop had PHI",

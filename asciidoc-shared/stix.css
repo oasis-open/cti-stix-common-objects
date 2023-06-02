@@ -431,10 +431,21 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 	background:#F9F2F4;
 	font-weight: normal;
 }
+
+/* Needed to keep styling when we include links to type definitions */
+.stixtype > a{
+	font-family:Consolas;
+	color:#C7254E;
+	background:#F9F2F4;
+	font-weight: normal;
+	text-decoration: none;
+}
+
 .stixliteral{
 	font-family:Consolas;
 	color:#073763;
 	background:#CFE2F3;
+	text-decoration: none;
 }
 .stixrelationship{
 	font-family:Consolas;

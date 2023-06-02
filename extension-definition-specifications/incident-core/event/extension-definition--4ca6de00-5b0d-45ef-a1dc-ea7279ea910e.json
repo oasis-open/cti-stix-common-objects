@@ -95,12 +95,6 @@
                     "type": "string",
                     "description": "A description of the activity that occurred."
                 },
-                "pattern_refs": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json"
-                    }
-                },
                 "status": {
                     "type": "string",
                     "description": "The outcome of a particular attacker activity",
@@ -151,13 +145,13 @@
         "Event_Sequence": {
             "type": "object",
             "additionalProperties": false,
-            "required": ["activity_ref"],
+            "required": ["event_ref"],
             "properties": {
-                "activity_ref": {
+                "event_ref": {
                     "type": "string",
                     "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
                     "pattern": "^event--",
-                    "description": "The event or task"
+                    "description": "The event"
                 },
                 "next_steps": {
                     "type": "array",
@@ -167,7 +161,7 @@
                         "additionalProperties": false,
                         "required": [
                             "condition_type",
-                            "step_ref",
+                            "event_ref",
                             "transition_type"
                         ],
                         "properties": {
@@ -179,10 +173,10 @@
                                     "unknown"
                                 ]
                             },
-                            "step_ref": {
+                            "event_ref": {
                                 "type": "string",
                                 "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
-                                "pattern": "^(event|task)--"
+                                "pattern": "^event--"
                             },
                             "transition_type": {
                                 "type": "string",

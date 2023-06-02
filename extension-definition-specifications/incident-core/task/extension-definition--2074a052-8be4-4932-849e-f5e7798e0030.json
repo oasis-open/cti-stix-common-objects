@@ -141,13 +141,13 @@
         "Task_Sequence": {
             "type": "object",
             "additionalProperties": false,
-            "required": ["activity_ref"],
+            "required": ["task_ref"],
             "properties": {
-                "activity_ref": {
+                "task_ref": {
                     "type": "string",
                     "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
-                    "pattern": "^(task)--",
-                    "description": "The event or task"
+                    "pattern": "^task--",
+                    "description": "The task"
                 },
                 "next_steps": {
                     "type": "array",
@@ -157,7 +157,7 @@
                         "additionalProperties": false,
                         "required": [
                             "condition_type",
-                            "step_ref",
+                            "task_ref",
                             "transition_type"
                         ],
                         "properties": {
@@ -169,7 +169,7 @@
                                     "unknown"
                                 ]
                             },
-                            "step_ref": {
+                            "task_ref": {
                                 "type": "string",
                                 "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
                                 "pattern": "^(event|task)--"
