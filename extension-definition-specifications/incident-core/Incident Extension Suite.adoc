@@ -792,7 +792,7 @@ The values of this property *MUST* come from the [stixtype]#<<traceability-enum,
 
 ^|[stixtr]*Task Object Specific Properties*
 
-|*task_type*,
+|*task_types*,
 *changed_objects*,
 *description*,
 *end_time*,
@@ -824,9 +824,9 @@ The values of this property *MUST* come from the [stixtype]#<<traceability-enum,
 |A list of changes that this task has caused.
 This is typically used to indicate how an task has affected impacts.
 
-|*task_type* (optional)
-|[stixtype]#{open_vocab_url}[open-vocabulary]#
-|A high level type for the task in order to enable aggregation and summaries.
+|*task_types* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#{open_vocab_url}[open-vocabulary]#
+|A list of high level types for the task in order to enable aggregation and summaries.
 This should be drawn from [stixtype]#<<task-type-ov,task-type-ov>>#.
 
 |*description* (optional)

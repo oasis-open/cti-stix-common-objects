@@ -174,7 +174,7 @@
             "created": "2020-10-19T01:01:01.000Z",
             "modified":"2020-10-19T01:01:01.000Z",
             "spec_version": "2.1",
-            "task_type": "discovery",
+            "task_types": ["discovery"],
             "outcome": "successful",
             "description": "A server admin found a strange account",
             "start_time": "2020-10-15T01:01:01.000Z",
@@ -191,7 +191,7 @@
             "created": "2020-10-19T01:01:01.000Z",
             "modified":"2020-10-19T01:01:01.000Z",
             "spec_version": "2.1",
-            "task_type": "playbook-execution",
+            "task_types": ["playbook-execution"],
             "outcome": "ongoing",
             "external_references": [
                 {
@@ -238,7 +238,7 @@
             "created": "2020-10-19T01:01:01.000Z",
             "modified":"2020-10-19T01:01:01.000Z",
             "spec_version": "2.1",
-            "task_type": "playbook-step-execution",
+            "task_types": ["playbook-step-execution"],
             "name": "get new accounts",
             "outcome": "successful",
             "external_references": [
@@ -289,7 +289,7 @@
             "created": "2020-10-19T01:01:01.000Z",
             "modified":"2020-10-19T01:01:01.000Z",
             "spec_version": "2.1",
-            "task_type": "playbook-step-execution",
+            "task_types": ["playbook-step-execution"],
             "name": "Get System Logins",
             "outcome": "failed",
             "error": "No results found",
@@ -321,7 +321,7 @@
             "created": "2020-10-19T01:01:01.000Z",
             "modified":"2020-10-19T01:01:01.000Z",
             "spec_version": "2.1",
-            "task_type": "playbook-step-execution",
+            "task_types": ["playbook-step-execution"],
             "name": "User Review",
             "outcome": "ongoing",
             "external_references": [
@@ -339,6 +339,233 @@
                     "extension_type": "new-sdo"
                 }
             }
+        },
+        {
+            "x_mitre_platforms": [
+                "Windows",
+                "macOS",
+                "Linux"
+            ],
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "attack-pattern--7610cada-1499-41a4-b3dd-46467b68d177",
+            "type": "attack-pattern",
+            "created": "2020-01-28T14:05:17.825Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "T1136.002",
+                    "url": "https://attack.mitre.org/techniques/T1136/002"
+                },
+                {
+                    "source_name": "Microsoft User Creation Event",
+                    "description": "Lich, B., Miroshnikov, A. (2017, April 5). 4720(S): A user account was created. Retrieved June 30, 2017.",
+                    "url": "https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4720"
+                }
+            ],
+            "modified": "2021-04-29T14:49:39.188Z",
+            "name": "Domain Account",
+            "description": "Adversaries may create a domain account to maintain access to victim systems. Domain accounts are those managed by Active Directory Domain Services where access and permissions are configured across systems and services that are part of that domain. Domain accounts can cover user, administrator, and service accounts. With a sufficient level of access, the <code>net user /add /domain</code> command can be used to create a domain account.\n\nSuch accounts may be used to establish secondary credentialed access that do not require persistent remote access tools to be deployed on the system.",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "mitre-attack",
+                    "phase_name": "persistence"
+                }
+            ],
+            "x_mitre_detection": "Monitor for processes and command-line parameters associated with domain account creation, such as <code>net user /add /domain</code>. Collect data on account creation within a network. Event ID 4720 is generated when a user account is created on a Windows domain controller. (Citation: Microsoft User Creation Event) Perform regular audits of domain accounts to detect suspicious accounts that may have been created by an adversary.",
+            "x_mitre_is_subtechnique": true,
+            "x_mitre_version": "1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "x_mitre_data_sources": [
+                "Process: Process Creation",
+                "User Account: User Account Creation",
+                "Command: Command Execution"
+            ],
+            "x_mitre_permissions_required": [
+                "Administrator"
+            ],
+            "spec_version": "2.1",
+            "x_mitre_attack_spec_version": "2.1.0"
+        },
+        {
+            "x_mitre_platforms": [
+                "Windows",
+                "macOS",
+                "Linux"
+            ],
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "attack-pattern--6aac77c4-eaf2-4366-8c13-ce50ab951f38",
+            "type": "attack-pattern",
+            "created": "2018-04-18T17:59:24.739Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "revoked": true,
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1193",
+                    "external_id": "T1193"
+                },
+                {
+                    "external_id": "CAPEC-163",
+                    "source_name": "capec",
+                    "url": "https://capec.mitre.org/data/definitions/163.html"
+                }
+            ],
+            "modified": "2022-04-25T14:00:00.188Z",
+            "name": "Spearphishing Attachment",
+            "description": "Spearphishing attachment is a specific variant of spearphishing. Spearphishing attachment is different from other forms of spearphishing in that it employs the use of malware attached to an email. All forms of spearphishing are electronically delivered social engineering targeted at a specific individual, company, or industry. In this scenario, adversaries attach a file to the spearphishing email and usually rely upon [User Execution](https://attack.mitre.org/techniques/T1204) to gain execution.\n\nThere are many options for the attachment such as Microsoft Office documents, executables, PDFs, or archived files. Upon opening the attachment (and potentially clicking past protections), the adversary's payload exploits a vulnerability or directly executes on the user's system. The text of the spearphishing email usually tries to give a plausible reason why the file should be opened, and may explain how to bypass system protections in order to do so. The email may also contain instructions on how to decrypt an attachment, such as a zip file password, in order to evade email boundary defenses. Adversaries frequently manipulate file extensions and icons in order to make attached executables appear to be document files, or files exploiting one application appear to be a file for a different one.",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "mitre-attack",
+                    "phase_name": "initial-access"
+                }
+            ],
+            "x_mitre_detection": "Network intrusion detection systems and email gateways can be used to detect spearphishing with malicious attachments in transit. Detonation chambers may also be used to identify malicious attachments. Solutions can be signature and behavior based, but adversaries may construct attachments in a way to avoid these systems.\n\nAnti-virus can potentially detect malicious documents and attachments as they're scanned to be stored on the email server or on the user's computer. Endpoint sensing or network sensing can potentially detect malicious events once the attachment is opened (such as a Microsoft Word document or PDF reaching out to the internet or spawning Powershell.exe) for techniques such as [Exploitation for Client Execution](https://attack.mitre.org/techniques/T1203) and [Scripting](https://attack.mitre.org/techniques/T1064).",
+            "x_mitre_version": "1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "x_mitre_is_subtechnique": false,
+            "spec_version": "2.1",
+            "x_mitre_attack_spec_version": "2.1.0"
+        },
+        {
+            "x_mitre_platforms": [
+                "Windows"
+            ],
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "x_mitre_contributors": [
+                "Matthew Demaske, Adaptforward"
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "attack-pattern--51dea151-0898-4a45-967c-3ebee0420484",
+            "type": "attack-pattern",
+            "created": "2017-05-31T21:30:59.769Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "revoked": true,
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "T1076",
+                    "url": "https://attack.mitre.org/techniques/T1076"
+                },
+                {
+                    "external_id": "CAPEC-555",
+                    "source_name": "capec",
+                    "url": "https://capec.mitre.org/data/definitions/555.html"
+                },
+                {
+                    "url": "https://technet.microsoft.com/en-us/windowsserver/ee236407.aspx",
+                    "description": "Microsoft. (n.d.). Remote Desktop Services. Retrieved June 1, 2016.",
+                    "source_name": "TechNet Remote Desktop Services"
+                },
+                {
+                    "url": "http://blog.crowdstrike.com/adversary-tricks-crowdstrike-treats/",
+                    "description": "Alperovitch, D. (2014, October 31). Malware-Free Intrusions. Retrieved November 4, 2014.",
+                    "source_name": "Alperovitch Malware"
+                },
+                {
+                    "url": "http://www.korznikov.com/2017/03/0-day-or-feature-privilege-escalation.html",
+                    "description": "Korznikov, A. (2017, March 17). Passwordless RDP Session Hijacking Feature All Windows versions. Retrieved December 11, 2017.",
+                    "source_name": "RDP Hijacking Korznikov"
+                },
+                {
+                    "url": "https://medium.com/@networksecurity/rdp-hijacking-how-to-hijack-rds-and-remoteapp-sessions-transparently-to-move-through-an-da2a1e73a5f6",
+                    "description": "Beaumont, K. (2017, March 19). RDP hijacking\u200a\u2014\u200ahow to hijack RDS and RemoteApp sessions transparently to move through an organisation. Retrieved December 11, 2017.",
+                    "source_name": "RDP Hijacking Medium"
+                },
+                {
+                    "url": "https://github.com/nccgroup/redsnarf",
+                    "description": "NCC Group PLC. (2016, November 1). Kali Redsnarf. Retrieved December 11, 2017.",
+                    "source_name": "Kali Redsnarf"
+                }
+            ],
+            "modified": "2022-04-25T14:00:00.188Z",
+            "name": "Remote Desktop Protocol",
+            "description": "Remote desktop is a common feature in operating systems. It allows a user to log into an interactive session with a system desktop graphical user interface on a remote system. Microsoft refers to its implementation of the Remote Desktop Protocol (RDP) as Remote Desktop Services (RDS). (Citation: TechNet Remote Desktop Services) There are other implementations and third-party tools that provide graphical access [Remote Services](https://attack.mitre.org/techniques/T1021) similar to RDS.\n\nAdversaries may connect to a remote system over RDP/RDS to expand access if the service is enabled and allows access to accounts with known credentials. Adversaries will likely use Credential Access techniques to acquire credentials to use with RDP. Adversaries may also use RDP in conjunction with the [Accessibility Features](https://attack.mitre.org/techniques/T1015) technique for Persistence. (Citation: Alperovitch Malware)\n\nAdversaries may also perform RDP session hijacking which involves stealing a legitimate user's remote session. Typically, a user is notified when someone else is trying to steal their session and prompted with a question. With System permissions and using Terminal Services Console, <code>c:\\windows\\system32\\tscon.exe [session number to be stolen]</code>, an adversary can hijack a session without the need for credentials or prompts to the user. (Citation: RDP Hijacking Korznikov) This can be done remotely or locally and with active or disconnected sessions. (Citation: RDP Hijacking Medium) It can also lead to [Remote System Discovery](https://attack.mitre.org/techniques/T1018) and Privilege Escalation by stealing a Domain Admin or higher privileged account session. All of this can be done by using native Windows commands, but it has also been added as a feature in RedSnarf. (Citation: Kali Redsnarf)",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "mitre-attack",
+                    "phase_name": "lateral-movement"
+                }
+            ],
+            "x_mitre_detection": "Use of RDP may be legitimate, depending on the network environment and how it is used. Other factors, such as access patterns and activity that occurs after a remote login, may indicate suspicious or malicious behavior with RDP. Monitor for user accounts logged into systems they would not normally access or access patterns to multiple systems over a relatively short period of time.\n\nAlso, set up process monitoring for <code>tscon.exe</code> usage and monitor service creation that uses <code>cmd.exe /k</code> or <code>cmd.exe /c</code> in its arguments to prevent RDP session hijacking.",
+            "x_mitre_version": "1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "x_mitre_permissions_required": [
+                "Remote Desktop Users",
+                "User"
+            ],
+            "x_mitre_system_requirements": [
+                "RDP service enabled, account in the Remote Desktop Users group."
+            ],
+            "x_mitre_is_subtechnique": false,
+            "spec_version": "2.1",
+            "x_mitre_attack_spec_version": "2.1.0"
+        },
+        {
+            "x_mitre_platforms": [
+                "Windows",
+                "macOS",
+                "Linux"
+            ],
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "attack-pattern--7610cada-1499-41a4-b3dd-46467b68d177",
+            "type": "attack-pattern",
+            "created": "2020-01-28T14:05:17.825Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "T1136.002",
+                    "url": "https://attack.mitre.org/techniques/T1136/002"
+                },
+                {
+                    "source_name": "Microsoft User Creation Event",
+                    "description": "Lich, B., Miroshnikov, A. (2017, April 5). 4720(S): A user account was created. Retrieved June 30, 2017.",
+                    "url": "https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4720"
+                }
+            ],
+            "modified": "2021-04-29T14:49:39.188Z",
+            "name": "Domain Account",
+            "description": "Adversaries may create a domain account to maintain access to victim systems. Domain accounts are those managed by Active Directory Domain Services where access and permissions are configured across systems and services that are part of that domain. Domain accounts can cover user, administrator, and service accounts. With a sufficient level of access, the <code>net user /add /domain</code> command can be used to create a domain account.\n\nSuch accounts may be used to establish secondary credentialed access that do not require persistent remote access tools to be deployed on the system.",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "mitre-attack",
+                    "phase_name": "persistence"
+                }
+            ],
+            "x_mitre_detection": "Monitor for processes and command-line parameters associated with domain account creation, such as <code>net user /add /domain</code>. Collect data on account creation within a network. Event ID 4720 is generated when a user account is created on a Windows domain controller. (Citation: Microsoft User Creation Event) Perform regular audits of domain accounts to detect suspicious accounts that may have been created by an adversary.",
+            "x_mitre_is_subtechnique": true,
+            "x_mitre_version": "1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "x_mitre_data_sources": [
+                "Process: Process Creation",
+                "User Account: User Account Creation",
+                "Command: Command Execution"
+            ],
+            "x_mitre_permissions_required": [
+                "Administrator"
+            ],
+            "spec_version": "2.1",
+            "x_mitre_attack_spec_version": "2.1.0"
         }
     ]
 }

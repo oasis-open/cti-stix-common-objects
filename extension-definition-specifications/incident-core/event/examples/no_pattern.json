@@ -7,7 +7,7 @@
             "id": "event--be02572e-8cdc-4200-91fe-09455dd90f46",
             "created": "2023-04-07T20:00:00.0002Z",
             "modified": "2023-04-07T20:00:00.0002Z",
-            "outcome": "occurred",
+            "status": "occurred",
             "labels": ["no-pattern", "accidental"],
             "description": "A user accidentally emailed sensitive files to a reporter because their name was similar to an employee in their division",
             "start_time": "2023-04-07T13:00:00.000Z",

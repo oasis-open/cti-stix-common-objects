@@ -61,7 +61,7 @@
             "end_time": "2023-05-02T17:54:01.0000Z",
             "name": "Negotiated Ransomware Payment",
             "description": "Update mail server from version 8.2 to 8.3.",
-            "task_type": "negotiation",
+            "task_types": ["negotiation"],
             "spec_version": "2.1",
             "changed_objects": [
                 {

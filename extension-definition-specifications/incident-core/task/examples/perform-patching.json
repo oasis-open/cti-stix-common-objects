@@ -10,7 +10,7 @@
             "outcome": "pending",
             "name": "Patch Mail Server",
             "description": "Update mail server from version 8.2 to 8.3.",
-            "task_type": "routine-updates",
+            "task_types": ["routine-updates"],
             "priority": 30,
             "spec_version": "2.1",
             "extensions": {

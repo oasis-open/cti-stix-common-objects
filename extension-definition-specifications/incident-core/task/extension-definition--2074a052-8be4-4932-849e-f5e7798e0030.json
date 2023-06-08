@@ -27,6 +27,7 @@
                 "extensions": {
                     "type": "object",
                     "description": "STIX extensions.",
+                    "required": ["extension-definition--2074a052-8be4-4932-849e-f5e7798e0030"],
                     "additionalProperties": true,
                     "properties": {
                         "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
@@ -82,10 +83,14 @@
                     "type": "string",
                     "description": "A description of the activity that occurred."
                 },
-                "task_type": {
-                    "type": "string",
-                    "description": "A general type for the timestamp for higher level rollup",
-                    "$comment": "Open-Vocab including: 'recovery', 'detected', 'declared', 'escalated'"
+                "task_types": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "type": "string",
+                        "description": "A general type for the timestamp for higher level rollup",
+                        "$comment": "Open-Vocab including: 'recovery', 'detected', 'declared', 'escalated'"
+                    }
                 },
                 "outcome": {
                     "type": "string",

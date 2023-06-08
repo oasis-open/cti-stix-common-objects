@@ -7,17 +7,25 @@
             "id": "event--fd4d3e71-c3e9-4a87-bbab-401a956fd877",
             "created": "2023-04-07T20:00:00.0002Z",
             "modified": "2023-04-07T20:00:00.0002Z",
-            "outcome": "occurred",
+            "status": "occurred",
             "description": "Port scanning detected on 7 systems",
             "start_time": "2023-04-07T00:00:00.000Z",
             "end_time": "2023-04-07T00:32:00.000Z",
             "spec_version": "2.1",
-            "pattern_refs": ["attack-pattern--67073dde-d720-45ae-83da-b12d5e73ca3b"],
+            "sighting_refs": ["sighting--a3774a4f-fe68-45f0-a6f8-caf401ce4c97"],
             "extensions": {
                 "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
                     "extension_type": "new-sdo"
                 }
             }
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--a3774a4f-fe68-45f0-a6f8-caf401ce4c97",
+            "created": "2023-04-07T20:00:00.0002Z",
+            "modified": "2023-04-07T20:00:00.0002Z",
+            "sighting_of_ref": "attack-pattern--67073dde-d720-45ae-83da-b12d5e73ca3b"
         },
         {
             "x_mitre_platforms": [
