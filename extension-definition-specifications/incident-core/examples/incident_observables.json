@@ -1,0 +1,120 @@
+{
+    "type": "bundle",
+    "id": "bundle--b72fa03b-d1e0-4f34-81f0-f60e7f019818",
+    "objects": [
+        {
+            "type": "incident",
+            "id": "incident--1a074418-9248-4a21-9918-a79d0f1dbc5b",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified":"2020-10-19T01:01:01.000Z",
+            "created_by_ref": "identity--2242662b-d581-4864-8696-fff719dc0500",
+            "spec_version": "2.1",
+            "name": "Sample Incident with Cyber-Observables",
+            "description": "We blocked an email with a potentially malicious attachment but haven't had time to look to determine if Indicators should be generated from these or not",
+            "extensions": {
+                "extension-definition--ef765651-680c-498d-9894-99799f2fa126": {
+                    "extension_type": "property-extension",
+                    "investigation_status": "new",
+                    "determination": "suspected",
+                    "detection_methods": ["email-filter"],
+                    "tasks": [
+                        {
+                            "task_ref": "task--93892778-2fd4-4d5e-b2fb-e2defecab0d3"
+                        }
+                    ],
+                    "events": [
+                        {
+                            "event_ref": "event--6e7ec24e-e3b2-498e-afb4-e14eab67b5d4"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified": "2020-10-19T01:01:01.000Z",
+            "spec_version": "2.1",
+            "id": "task--93892778-2fd4-4d5e-b2fb-e2defecab0d3",
+            "task_types": ["discovery"],
+            "outcome": "successful",
+            "description": "An alert was triggered",
+            "start_time": "2020-10-15T01:01:01.000Z",
+            "end_time": "2020-10-15T01:01:01.000Z",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "event",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified":"2020-10-19T01:01:01.000Z",
+            "spec_version": "2.1",
+            "status": "occurred",
+            "id": "event--6e7ec24e-e3b2-498e-afb4-e14eab67b5d4",
+            "outcome": "blocked",
+            "description": "Email with a malicious attachment",
+            "sighting_refs": ["sighting--b5d18fae-3a04-4891-84db-fe64a99bc16c"],
+            "observed_refs": [
+                "file--9432f4c7-8cd0-4ed4-a18e-c06fa6175db3"
+                , "email-addr--5e61397b-9c38-4a14-9232-b9f76254b1c1"
+            ],
+            "extensions": {
+                "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--b5d18fae-3a04-4891-84db-fe64a99bc16c",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified":"2020-10-19T01:01:01.000Z",
+            "sighting_of_ref": "attack-pattern--6aac77c4-eaf2-4366-8c13-ce50ab951f38",
+            "observed_data_refs": ["observed-data--d2f2530d-8bfa-4417-9849-caad1f4f6b84"]
+        },
+        {
+            "type": "file",
+            "id": "file--9432f4c7-8cd0-4ed4-a18e-c06fa6175db3",
+            "hashes": {
+                "MD5": "695e8ac9ec11d25239acea8ec4ac903c",
+                "SHA-256": "93e8dc07b5231a83d07a866cf0a843aeb2115383bdb0b4b9696b1b43bf581437"
+            }
+        },
+        {
+            "type": "email-addr",
+            "id": "email-addr--5e61397b-9c38-4a14-9232-b9f76254b1c1",
+            "value": "malicious_sender.49@fakemail.com"
+        },
+        {
+            "type": "email-message",
+            "spec_version": "2.1",
+            "id": "email-message--982aca4a-3710-4b1e-ab50-bef5734d3b53",
+            "is_multipart": true,
+            "sender_ref": "email-addr--5e61397b-9c38-4a14-9232-b9f76254b1c1",
+            "body_multipart": [
+                {
+                    "body_raw_ref": "file--9432f4c7-8cd0-4ed4-a18e-c06fa6175db3"
+                }
+            ]
+        },
+        {
+            "type": "observed-data",
+            "spec_version": "2.1",
+            "id": "observed-data--d2f2530d-8bfa-4417-9849-caad1f4f6b84",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified": "2020-10-19T01:01:01.000Z",
+            "first_observed": "2020-10-15T01:01:01Z",
+            "last_observed": "2020-10-15T01:01:01Z",
+            "number_observed": 1,
+            "object_refs": [
+                "email-addr--5e61397b-9c38-4a14-9232-b9f76254b1c1",
+                "email-message--982aca4a-3710-4b1e-ab50-bef5734d3b53",
+                "file--9432f4c7-8cd0-4ed4-a18e-c06fa6175db3"
+            ]
+        }
+    ]
+}

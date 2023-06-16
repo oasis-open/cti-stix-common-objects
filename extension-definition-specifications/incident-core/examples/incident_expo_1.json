@@ -1,0 +1,362 @@
+{
+    "type": "bundle",
+    "id": "bundle--b72fa03b-d1e0-4f34-81f0-f60e7f019818",
+    "objects": [
+        {
+            "type": "marking-definition",
+            "spec_version": "2.1",
+            "id": "marking-definition--f81f633d-3017-4678-a914-fe82dfc4b42c",
+            "created": "2022-09-15T01:37:47.004Z",
+            "definition_type": "statement",
+            "definition": {
+                "statement": "A fake marking that indicates data which is internal to the Wakandan Expo's systems and not necessarily shared externally"
+            }
+        },
+        {
+            "type": "marking-definition",
+            "spec_version": "2.1",
+            "id": "marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f",
+            "created": "2022-09-15T01:37:47.004Z",
+            "definition_type": "statement",
+            "definition": {
+                "statement": "A fake marking that indicates data is shared with the Wakandan government as part of the incident response process"
+            }
+        },
+        {
+            "type": "identity",
+            "spec_version": "2.1",
+            "id": "identity--2564429b-7d7f-4c0e-bb39-7423657e0e83",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T01:37:47.004Z",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "name": "Wakandan Expo",
+            "external_references": [
+                {
+                    "source_name": "wakandan-business-identifier",
+                    "external_id": "H5213.2124"
+                }
+            ],
+            "roles": [
+                "event-organizer"
+            ],
+            "identity_class": "organization",
+            "sectors": [
+                "technology"
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--117eac30-b47a-4b7c-8ce7-6c34ed506417",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T01:37:47.004Z",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "relationship_type": "impacts",
+            "source_ref": "incident--fad5bbd5-90d1-42ee-97c9-d558c5180baa",
+            "target_ref": "identity--2564429b-7d7f-4c0e-bb39-7423657e0e83"
+        },
+        {
+            "type": "identity",
+            "spec_version": "2.1",
+            "id": "identity--3236af02-75b5-47f8-831a-50aa3e39fbf8",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T01:37:47.004Z",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "name": "Proj Manager",
+            "description": "Incident response manager for the Wakandan Expo",
+            "identity_class": "individual"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--f98f35f8-433c-4b0f-8404-079aecbab3a1",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T01:37:47.004Z",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "relationship_type": "employed-at",
+            "source_ref": "identity--3236af02-75b5-47f8-831a-50aa3e39fbf8",
+            "target_ref": "identity--2564429b-7d7f-4c0e-bb39-7423657e0e83"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--acac1efa-a699-4426-bea0-b26cf8bbab23",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T01:37:47.004Z",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "relationship_type": "contact-for",
+            "source_ref": "identity--3236af02-75b5-47f8-831a-50aa3e39fbf8",
+            "target_ref": "incident--fad5bbd5-90d1-42ee-97c9-d558c5180baa"
+        },
+        {
+            "type": "incident",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T01:37:47.004Z",
+            "id": "incident--fad5bbd5-90d1-42ee-97c9-d558c5180baa",
+            "spec_version": "2.1",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "name": "WKI-20220915-004",
+            "external_references": [
+                {
+                    "source_name": "wakandan national incident database",
+                    "external_id": "WKI-20220915-004"
+                },
+                {
+                    "source_name": "wk expo id",
+                    "external_id": "IT-2312"
+                }
+            ],
+            "description": "The Wakandan International Technology expo suffered a major disruption in a keynote presentation by Stark Enterprises.",
+            "extensions": {
+                "extension-definition--ef765651-680c-498d-9894-99799f2fa126": {
+                    "extension_type": "property-extension",
+                    "determination": "successful-attempt",
+                    "investigation_status": "open",
+                    "criticality": 90,
+                    "detection_methods": ["system-outage"],
+                    "impacted_entity_counts": {
+                        "computers-mobile": 2000,
+                        "computers-personal": 1000,
+                        "computers-server": 232,
+                        "domain-controller": 7,
+                        "network-device": 3252
+                    },
+                    "incident_types": [
+                        "denial-of-service",
+                        "unattributed"
+                    ],
+                    "impact_refs": [
+                        "impact--7a5806e4-0f37-4c48-9a50-7301bff4b195",
+                        "impact--d16ffd9c-4d83-46d5-b6ac-626ada44458c"
+                    ],
+                    "events": [
+                        {
+                            "event_ref": "event--90d6dde5-acb6-4a8e-b1d2-72f548a64839"
+                        }
+                    ],
+                    "tasks": [
+                        {
+                            "task_ref": "task--a45aaed9-6504-4f95-982e-78508726eb5a"
+                        },
+                        {
+                            "task_ref": "task--c9bbe53b-58f2-43a8-b68e-160ea57e61b8"
+                        },
+                        {
+                            "task_ref": "task--f5896140-d53d-4fe8-b1a8-06728dbfdc49"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "type": "impact",
+            "id": "impact--7a5806e4-0f37-4c48-9a50-7301bff4b195",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T01:37:47.004Z",
+            "spec_version": "2.1",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "description": "All servers shutdown,wireless tied to these went down,all displays went down.",
+            "impact_category": "availability",
+            "start_time": "2022-09-14T14:57:00.000Z",
+            "start_time_fidelity": "minute",
+            "end_time": "2022-09-14T17:00:00.000Z",
+            "end_time_fidelity": "hour",
+            "superseded_by_ref": "impact--d16ffd9c-4d83-46d5-b6ac-626ada44458c",
+            "extensions": {
+                "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+                    "extension_type": "new-sdo"
+                },
+                "availability": {
+                    "availability_impact": 90
+                }
+            }
+        },
+        {
+            "type": "impact",
+            "id": "impact--d16ffd9c-4d83-46d5-b6ac-626ada44458c",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T01:37:47.004Z",
+            "spec_version": "2.1",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "description": "After bypass mode all servers still shutdown, but wireless and displays are now up in a limited capacity.",
+            "impact_category": "availability",
+            "start_time": "2022-09-14T17:00:00.000Z",
+            "start_time_fidelity": "hour",
+            "extensions": {
+                "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+                    "extension_type": "new-sdo"
+                },
+                "availability": {
+                    "availability_impact": 75
+                }
+            }
+        },
+        {
+            "type": "event",
+            "id": "event--90d6dde5-acb6-4a8e-b1d2-72f548a64839",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T01:37:47.004Z",
+            "spec_version": "2.1",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "name": "Keynote Shutdown",
+            "description": "All computers and displays cutoff one minute into the keynote on day two of four of the conference by a Stark Industry's representative.",
+            "status": "occurred",
+            "event_types": ["denial-of-service"],
+            "start_time": "2022-09-14T14:57:00.000Z",
+            "start_time_fidelity": "minute",
+            "end_time": "2022-09-14T17:00:00.000Z",
+            "end_time_fidelity": "hour",
+            "changed_objects": [
+                {
+                    "state_change_type": "caused",
+                    "result_ref": "impact--7a5806e4-0f37-4c48-9a50-7301bff4b195"
+                }
+            ],
+            "extensions": {
+                "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T01:37:47.004Z",
+            "spec_version": "2.1",
+            "id": "task--a45aaed9-6504-4f95-982e-78508726eb5a",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "name": "Temporary Workaround",
+            "description": "Set basic services including Wi-Fi and TVs to bypass dead gatekeeper machines.",
+            "task_types": ["mitigation"],
+            "outcome": "ongoing",
+            "start_time": "2022-09-14T17:00:00.000Z",
+            "start_time_fidelity": "hour",
+            "changed_objects": [
+                {
+                    "state_change_type": "mitigated",
+                    "initial_ref": "impact--7a5806e4-0f37-4c48-9a50-7301bff4b195",
+                    "result_ref": "impact--d16ffd9c-4d83-46d5-b6ac-626ada44458c"
+                }
+            ],
+            "subtasks": [
+                {
+                    "task_ref": "task--f5ea62cf-bcbb-47cd-bc52-42cadd1afbeb",
+                    "next_steps": [
+                        {
+                            "task_ref": "task--88f6cf01-c575-425e-a304-d842edb91bfa",
+                            "condition_type": "required",
+                            "transition_type": "completion"
+                        }
+                    ]
+                },
+                {
+                    "task_ref": "task--88f6cf01-c575-425e-a304-d842edb91bfa"
+                }
+            ],
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T01:37:47.004Z",
+            "spec_version": "2.1",
+            "id": "task--f5ea62cf-bcbb-47cd-bc52-42cadd1afbeb",
+            "object_marking_refs": ["marking-definition--f81f633d-3017-4678-a914-fe82dfc4b42c"],
+            "name": "Start Bypass",
+            "outcome": "successful",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T01:37:47.004Z",
+            "spec_version": "2.1",
+            "id": "task--88f6cf01-c575-425e-a304-d842edb91bfa",
+            "object_marking_refs": ["marking-definition--f81f633d-3017-4678-a914-fe82dfc4b42c"],
+            "name": "Stop Bypass",
+            "outcome": "pending",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T01:37:47.004Z",
+            "spec_version": "2.1",
+            "id": "task--c9bbe53b-58f2-43a8-b68e-160ea57e61b8",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "name": "Rebuild Domain Controllers",
+            "description": "Attempted to rebuild domain controllers",
+            "outcome": "failed",
+            "start_time": "2022-09-14T16:00:00.000Z",
+            "start_time_fidelity": "hour",
+            "end_time": "2022-09-14T18:00:00.000Z",
+            "end_time_fidelity": "hour",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T01:37:47.004Z",
+            "spec_version": "2.1",
+            "id": "task--f5896140-d53d-4fe8-b1a8-06728dbfdc49",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "task_types": ["reported"],
+            "name": "Reported",
+            "outcome": "successful",
+            "start_time": "2022-09-15T01:00:00.000Z",
+            "start_time_fidelity": "hour",
+            "end_time": "2022-09-15T01:00:00.000Z",
+            "end_time_fidelity": "hour",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "report",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T01:37:47.004Z",
+            "spec_version": "2.1",
+            "id": "report--b1fd9214-67cf-4953-a461-6ca9ee1b75c3",
+            "name": "WKI-20220915-004",
+            "description": "This is a fake report for example purposes only",
+            "report_types": ["incident"],
+            "published": "2022-09-15T01:37:47.004Z",
+            "object_refs": [
+                "event--90d6dde5-acb6-4a8e-b1d2-72f548a64839",
+                "identity--2564429b-7d7f-4c0e-bb39-7423657e0e83",
+                "identity--3236af02-75b5-47f8-831a-50aa3e39fbf8",
+                "impact--7a5806e4-0f37-4c48-9a50-7301bff4b195",
+                "impact--d16ffd9c-4d83-46d5-b6ac-626ada44458c",
+                "incident--fad5bbd5-90d1-42ee-97c9-d558c5180baa",
+                "marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f",
+                "marking-definition--f81f633d-3017-4678-a914-fe82dfc4b42c",
+                "relationship--117eac30-b47a-4b7c-8ce7-6c34ed506417",
+                "relationship--acac1efa-a699-4426-bea0-b26cf8bbab23",
+                "relationship--f98f35f8-433c-4b0f-8404-079aecbab3a1",
+                "task--88f6cf01-c575-425e-a304-d842edb91bfa",
+                "task--a45aaed9-6504-4f95-982e-78508726eb5a",
+                "task--c9bbe53b-58f2-43a8-b68e-160ea57e61b8",
+                "task--f5896140-d53d-4fe8-b1a8-06728dbfdc49",
+                "task--f5ea62cf-bcbb-47cd-bc52-42cadd1afbeb"
+            ]
+        }
+    ]
+}

@@ -1,7 +1,7 @@
 [
     {
         "type": "incident",
-        "id": "incident--2242662b-d581-4864-8696-fff719dc0500",
+        "id": "incident--0326db0c-17b6-42f7-8dd7-c0cd8de1f169",
         "created": "2020-10-19T01:01:01.000Z",
         "modified":"2020-10-19T01:01:01.000Z",
         "created_by_ref": "identity--2242662b-d581-4864-8696-fff719dc0500",
@@ -13,62 +13,183 @@
                 "extension_type": "property-extension",
                 "determination": "successful-attempt",
                 "investigation_status": "open",
-                "defender_activities": [
+                "tasks": [
                     {
-                        "activity_type": "discovery",
-                        "outcome": "successful",
-                        "start_time": "2020-10-15T01:01:01.000Z",
-                        "end_time": "2020-10-15T01:01:01.000Z"
+                        "task_ref": "task--83d0d800-e66f-4b30-9748-d079e41e3483"
                     },
                     {
-                        "activity_type": "reported",
-                        "outcome": "successful",
-                        "start_time": "2020-10-17T04:42:00.000Z",
-                        "end_time": "2020-10-17T04:42:00.000Z"
+                        "task_ref": "task--7586c149-484c-48ef-ab2c-4bc70c3638f3"
                     },
                     {
-                        "activity_type": "recovery-started",
-                        "outcome": "pending",
-                        "start_time": "2030-01-01T04:42:00.000Z",
-                        "end_time": "2030-01-01T04:42:00.000Z"
+                        "task_ref": "task--397d5f8b-467f-4621-a11e-519d7c731652"
                     }
+                ],
+                "impact_refs": [
+                    "impact--726dfff2-e3a9-45b5-b903-ed22f5962d44",
+                    "impact--eed46d06-b173-478a-bf4c-395da2a45b0d",
+                    "impact--afc34cbf-2b4b-4436-9616-fc683421e8cc",
+                    "impact--f714f169-1443-4498-9fe2-92f19c1ff480",
+                    "impact--8a14d5c2-0dd5-4e7b-b84b-f6fcad0929cd",
+                    "impact--84f234da-7065-4f01-a557-6904c22e806e"
                 ],
                 "detection_methods": ["user-reporting", "message-from-attacker"],
                 "incident_types": ["unauthorized-release", "destruction"],
                 "criticality": 90,
-                "availability_impacts": [
-                    {
-                        "availability_impact": 0,
-                        "labels": ["overall"]
-                    }
-                ],
-                "confidentiality_impacts": [
-                    {
-                        "information_type": "pii",
-                        "loss_type": "confirmed-loss",
-                        "impacted_refs": ["infrastructure--3f515010-494d-4bd2-94be-12f285e1f19e"]
-                    }, 
-                    {
-                        "information_type": "phi",
-                        "loss_type": "confirmed-loss",
-                        "record_size": 124000,
-                        "impacted_refs": ["infrastructure--3f515010-494d-4bd2-94be-12f285e1f19e"]
-                    }
-                ],
-                "integrity_impacts": [
-                    {
-                        "information_type": "system-data",
-                        "alteration": "full-destruction",
-                        "impacted_refs": ["infrastructure--d17635b3-0165-43f6-9409-34e11df070be"],
-                        "recoverability": "regular"
-                    }, 
-                    {
-                        "information_type": "phi",
-                        "alteration": "none"
-                    }
-                ],
-                "recoverability": "regular",
-                "traceability": "accountability-lost"
+                "recoverability": "regular"
+            }
+        }
+    },
+    {
+        "type": "task",
+        "created": "2020-10-19T01:01:01.000Z",
+        "modified": "2020-10-19T01:01:01.000Z",
+        "spec_version": "2.1",
+        "id": "task--83d0d800-e66f-4b30-9748-d079e41e3483",
+        "task_types": ["discovery"],
+        "outcome": "successful",
+        "start_time": "2020-10-15T01:01:01.000Z",
+        "end_time": "2020-10-15T01:01:01.000Z",
+        "extensions": {
+            "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                "extension_type": "new-sdo"
+            }
+        }
+    },
+    {
+        "type": "task",
+        "created": "2020-10-19T01:01:01.000Z",
+        "modified": "2020-10-19T01:01:01.000Z",
+        "spec_version": "2.1",
+        "id": "task--7586c149-484c-48ef-ab2c-4bc70c3638f3",
+        "task_types": ["reported"],
+        "outcome": "successful",
+        "start_time": "2020-10-17T04:42:00.000Z",
+        "end_time": "2020-10-17T04:42:00.000Z",
+        "extensions": {
+            "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                "extension_type": "new-sdo"
+            }
+        }
+    },
+    {
+        "type": "task",
+        "created": "2020-10-19T01:01:01.000Z",
+        "modified": "2020-10-19T01:01:01.000Z",
+        "spec_version": "2.1",
+        "id": "task--397d5f8b-467f-4621-a11e-519d7c731652",
+        "task_types": ["recovery-started"],
+        "outcome": "pending",
+        "start_time": "2030-01-01T04:42:00.000Z",
+        "end_time": "2030-01-01T04:42:00.000Z",
+        "extensions": {
+            "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                "extension_type": "new-sdo"
+            }
+        }
+    },
+    {
+        "type": "impact",
+        "id": "impact--eed46d06-b173-478a-bf4c-395da2a45b0d",
+        "labels": ["overall"],
+        "created": "2020-10-19T01:01:01.000Z",
+        "modified": "2020-10-19T01:01:01.000Z",
+        "spec_version": "2.1",
+        "impact_category": "availability",
+        "extensions": {
+            "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+                "extension_type": "new-sdo"
+            },
+            "availability": {
+                "availability_impact": 0
+            }
+        }
+    },
+    {
+        "type": "impact",
+        "id": "impact--afc34cbf-2b4b-4436-9616-fc683421e8cc",
+        "created": "2020-10-19T01:01:01.000Z",
+        "modified": "2020-10-19T01:01:01.000Z",
+        "spec_version": "2.1",
+        "impact_category": "confidentiality",
+        "impacted_refs": ["infrastructure--3f515010-494d-4bd2-94be-12f285e1f19e"],
+        "extensions": {
+            "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+                "extension_type": "new-sdo"
+            },
+            "confidentiality": {
+                "information_type": "pii",
+                "loss_type": "confirmed-loss"
+            }
+        }
+    },
+    {
+        "type": "impact",
+        "id": "impact--f714f169-1443-4498-9fe2-92f19c1ff480",
+        "created": "2020-10-19T01:01:01.000Z",
+        "modified": "2020-10-19T01:01:01.000Z",
+        "spec_version": "2.1",
+        "impact_category": "confidentiality",
+        "impacted_refs": ["infrastructure--3f515010-494d-4bd2-94be-12f285e1f19e"],
+        "extensions": {
+            "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+                "extension_type": "new-sdo"
+            },
+            "confidentiality": {
+                "information_type": "phi",
+                "loss_type": "confirmed-loss",
+                "record_size": 124000
+            }
+        }
+    },
+    {
+        "type": "impact",
+        "id": "impact--8a14d5c2-0dd5-4e7b-b84b-f6fcad0929cd",
+        "created": "2020-10-19T01:01:01.000Z",
+        "modified": "2020-10-19T01:01:01.000Z",
+        "spec_version": "2.1",
+        "impact_category": "integrity",
+        "impacted_refs": ["infrastructure--d17635b3-0165-43f6-9409-34e11df070be"],
+        "recoverability": "regular",
+        "extensions": {
+            "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+                "extension_type": "new-sdo"
+            },
+            "integrity": {
+                "information_type": "system-data",
+                "alteration": "full-destruction"
+            }
+        }
+    },
+    {
+        "type": "impact",
+        "id": "impact--84f234da-7065-4f01-a557-6904c22e806e",
+        "created": "2020-10-19T01:01:01.000Z",
+        "modified": "2020-10-19T01:01:01.000Z",
+        "spec_version": "2.1",
+        "impact_category": "integrity",
+        "extensions": {
+            "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+                "extension_type": "new-sdo"
+            },
+            "integrity": {
+                "information_type": "phi",
+                "alteration": "none"
+            }
+        }
+    },
+    {
+        "type": "impact",
+        "id": "impact--726dfff2-e3a9-45b5-b903-ed22f5962d44",
+        "created": "2020-10-19T01:01:01.000Z",
+        "modified": "2020-10-19T01:01:01.000Z",
+        "spec_version": "2.1",
+        "impact_category": "traceability",
+        "extensions": {
+            "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+                "extension_type": "new-sdo"
+            },
+            "traceability": {
+                "traceability_impact": "accountability-lost"
             }
         }
     },
@@ -125,17 +246,17 @@
         "created": "2020-10-19T01:01:01.000Z",
         "modified": "2020-10-19T01:01:01.000Z",
         "relationship_type": "targets",
-        "source_ref": "incident--2242662b-d581-4864-8696-fff719dc0500",
+        "source_ref": "incident--0326db0c-17b6-42f7-8dd7-c0cd8de1f169",
         "target_ref": "identity--a52b3918-1819-454b-8e6a-42cf18a06c0b"
     },
     {
         "type": "relationship",
         "spec_version": "2.1",
-        "id": "relationship--fd3aa181-2ad6-4822-821d-b7e4dd42c19d",
+        "id": "relationship--38b0ec42-e898-4b1a-b7f8-aa30aef22a16",
         "created": "2020-10-19T01:01:01.000Z",
         "modified": "2020-10-19T01:01:01.000Z",
         "relationship_type": "attributed-to",
-        "source_ref": "incident--2242662b-d581-4864-8696-fff719dc0500",
+        "source_ref": "incident--0326db0c-17b6-42f7-8dd7-c0cd8de1f169",
         "target_ref": "threat-actor--8e2e2d2b-17d4-4cbf-938f-98ee46b3cd3f"
     }
 ]

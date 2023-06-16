@@ -214,7 +214,8 @@
             "id": "sighting--f771469d-bd11-4e7a-b1f8-9a732b77db23",
             "created": "2022-05-06T01:01:01.002Z",
             "modified": "2022-05-06T01:01:01.002Z",
-            "sighting_of_ref": "attack-pattern--2b742742-28c3-4e1b-bab7-8350d6300fa7"
+            "sighting_of_ref": "attack-pattern--2b742742-28c3-4e1b-bab7-8350d6300fa7",
+            "observed_data_refs": ["observed-data--acf58246-e394-4e56-bd64-a49fa66eb906"]
         },
         {
             "type": "observed-data",

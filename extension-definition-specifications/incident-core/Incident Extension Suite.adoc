@@ -4,10 +4,16 @@
 :toclevels: 4
 :nofooter:
 
+// Citations
+:europol_event_url: https://www.misp-project.org/taxonomies.html#_europol_event
+:europol_incident_url: https://www.misp-project.org/taxonomies.html#_europol_incident
+:dns_abuse_url: https://www.misp-project.org/galaxy.html#_first_dns_abuse_techniques_matrix
+
 // Vocabularies from the STIX 2.1 specification
 :identity_class_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_be1dktvcmyu
 
 // Types from the STIX 2.1 specification
+:boolean_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_7s76li5u5yid
 :external_reference_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_72bcfr3t79jx
 :int_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_k1goo4u2qjpb
 :identifier_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_64yvzeku5a5c
@@ -16,6 +22,7 @@
 :open_vocab_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_bnnxah80y7by
 :string_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_uxyhzmv0vpyc
 :timestamp_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_9w329aiwpu1y
+
 
 // Objects from the STIX 2.1 specification
 :attack_pattern_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_axjijf603msy
@@ -314,7 +321,7 @@ If no value is provided the timestamp should be considered to be accurate up to 
 |*event_types* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{open_vocab_url}[open-vocabulary]#
 |High level types for the event in order to enable aggregation and summaries.
-This should be drawn from event-type-ov.
+This should be drawn from [stixtype]#<<event-type-ov,event-type-ov>>#.
 
 |*goal* (optional)
 |[stixtype]#{string_url}[string]#
@@ -351,7 +358,6 @@ accurate up to the number of decimals it includes.
 |*subevents* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#<<event-entry,event-entry>>#
 |A list of sub-events tied to this event.
-This list *MUST* not contain cycles.
 |===
 
 <<<
@@ -555,7 +561,7 @@ This allows consumers to quickly validate their ability to process this category
 Producers *SHOULD* use one of the extensions  not be used by different impact detail objects.
 The following is a list of impact detail objects that *SHOULD* be used.
 
-===== 2.3.2.1. Impact Availability Extension 
+===== 2.3.2.1. Availability Impact Extension 
 
 [width="100%",cols="37%,23%,40%",options="header",]
 |===
@@ -596,11 +602,11 @@ This value *MUST* be included if the loss_type is not none. Including an entry w
 
 |*record_count* (optional)
 |[stixtype]#{int_url}[integer]#
-|The number of records of this type that were compromised. The value of this property *MUST* not be negative.
+|The number of records of this type that were compromised. The value of this property *MUST NOT* be negative.
 
 |*record_size* (optional)
 |[stixtype]#{int_url}[integer]#
-|The amount of data that was compromised in bytes. The value of this property *MUST* not be negative.
+|The amount of data that was compromised in bytes. The value of this property *MUST NOT* be negative.
 |===
 
 ===== 2.3.2.3. External Impact Extension
@@ -646,11 +652,11 @@ Including an entry that with an alteration of none and no information_type indic
 
 |*record_count* (optional)
 |[stixtype]#{int_url}[integer]#
-|The number of records of this type that were compromised. The value of this property *MUST* not be negative.
+|The number of records of this type that were compromised. The value of this property *MUST NOT* be negative.
 
 |*record_size* (optional)
 |[stixtype]#{int_url}[integer]#
-|The amount of data that was compromised in bytes. The value of this property *MUST* not be negative.
+|The amount of data that was compromised in bytes. The value of this property *MUST NOT* be negative.
 
 |===
 
@@ -673,7 +679,7 @@ The values of this property *SHOULD* come from the [stixtype]#<<monetary-impact-
 |*conversion_rate* (optional)
 |[stixtype]#{number_url}[number]#
 |The conversion rate between *currency* and *currency_actual*.
-This *MUST* not be included if currency_actual is not included.
+This *MUST NOT* be included if currency_actual is not included.
 This *MUST* be included if currency_actual is included.
 This value *MUST* be greater than zero.
 
@@ -882,7 +888,6 @@ accurate up to the number of decimals it includes.
 |*subtasks* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#<<task-entry,task-entry>>#
 |A list of subtasks tied to this task.
-This list *MUST* not contain cycles.
 |===
 
 <<<
@@ -890,6 +895,10 @@ This list *MUST* not contain cycles.
 ==== 2.4.1. Relationships
 
 // tag::task-relationships[]
+
+When creating sequences of [stixtype]#<<task,tasks>># these *SHOULD NOT* be shared using relationship objects.
+These *SHOULD* be shared within an [stixtype]#{incident_url}[incident]# or [stixtype]#<<task,task>># as part of the list of *tasks* or *subtasks* respectively.
+Using these embedded relationships ensure that an incomplete sequence cannot be shared accidentally to avoid potential confusion or misunderstandings when processing STIX data.
 
 [width="100%",cols="27%,16%,24%,33%",options="header",]
 |===
@@ -1071,7 +1080,6 @@ As these are always stored in an array of steps within an array of activity entr
 |The identity of the event that is described by this entry.
 
 This reference *MUST* be included as an *event_ref* within the parent array of [stixtype]#<<event-entry,event-entry>># objects.
-Within this array there *MUST NOT* be any cyclical references.
 
 |*condition_type* (required)
 |[stixtype]#<<activity-condition-enum,activity-condition-enum>>#
@@ -1082,6 +1090,14 @@ If it is optional, or if it is unknown.
 |[stixtype]#<<activity-transition-enum,activity-transition-enum>>#
 |What state the referenced step depends on.
 If it is performed upon success, failure, simple completion, or if it is unknown.
+
+|*sequence_start* (optional)
+|[stixtype]#{boolean_url}[boolean]#
+|If this is a start of a sequence chain.
+All sequences of tasks *MUST* begin with at least one entry where *sequence_start* is set to [stixliteral]#true#.
+If a cycle exists with multiple entries with sequence_start* set to [stixliteral]#true# then all of these are equally valid start points.
+
+Default value is [stixliteral]#true#.
 
 |===
 
@@ -1178,6 +1194,14 @@ If the *initial_ref* is populated this *MUST* reference the same type of SDO.
 |The identity of the task that is described by this entry.
 This *MUST* reference a [stixtype]#<<task,task>>#.
 
+|*sequence_start* (optional)
+|[stixtype]#{boolean_url}[boolean]#
+|If this is a start of a sequence chain.
+All sequences of tasks *MUST* begin with at least one entry where *sequence_start* is set to [stixliteral]#true#.
+If a cycle exists with multiple entries with sequence_start* set to [stixliteral]#true# then all of these are equally valid start points.
+
+Default value is [stixliteral]#true#.
+
 |===
 
 [[task-sequence-entry]]
@@ -1204,7 +1228,6 @@ If it is optional, or if it is unknown.
 |The identity of the event that is described by this entry.
 
 This reference *MUST* be included as an *task_ref* within the parent array of [stixtype]#<<task-entry,task-entry>># objects.
-Within this array there *MUST* not be any cyclical references.
 
 |*transition_type* (required)
 |[stixtype]#<<activity-transition-enum,activity-transition-enum>>#
@@ -1250,7 +1273,7 @@ If it is performed upon success, failure, simple completion, or if it is unknown
 |Land, environment or the ability of either to support humans or wildlife.
 
 |[stixliteral]#ics-actuator#
-|Actuator for industrial control systems.
+|Actuator forindustrial control systems.
 
 |[stixliteral]#ics-engineering-workstation#
 |Engineering workstation for industrial
@@ -1328,6 +1351,16 @@ If this option is used it is generally useful to also include a separate entry f
 [[event-type-ov]]
 === 4.3. Event Type Vocabulary
 
+This vocabulary draws for numerous sources including heavily from MISP taxonomies.
+
+These include:
+
+1. {dns_abuse_url}[FIRST DNS Abuse Techniques Matrix]
+2. {europol_event_url}[Europol type of events taxonomy].
+3. {europol_incident_url}[Europol type of incidents taxonomy]
+4. NIST 800-61
+
+
 *Type Name:* [stixtype]#event-type-ov#
 
 [width="100%",cols="31%,69%",options="header",]
@@ -1404,8 +1437,33 @@ Incidents of this *SHOULD* have an integrity impact, but organizations may choos
 |[stixliteral]#dissemination-phishing-emails#
 |Mass emailing aimed at collecting data for phishing purposes with regard to the victims.
 
+|[stixliteral]#dns-cache-poisoning#
+|DNS cache poisoning - also known as DNS spoofing, is a type of cyber attack in which an attacker corrupts a DNS resolver's cache by injecting false DNS records, causing the resolver to records controlled by the attacker.
+
+|[stixliteral]#dns-local-resolver-hijacking#
+|Consumer Premise Equipment (CPE), such as home routers, often provide DNS recursion on the local network. If the CPE device is compromised, the attacker can change the recursive resolver behavior; for example, by changing responses.
+
+|[stixliteral]#dns-spoofing-registered#
+|In a context where a domain name is expected (such as the From header in mail or a URL in a web page or message body), supplying a domain name not controlled by the attacker and that is in fact controlled by or registered to a legitimate registrant.
+
+|[stixliteral]#dns-rebinding#
+|DNS rebinding - a type of attack where a malicious website directs a client to a local network address, allowing the attacker to bypass the same-origin policy and gain access to the victim's local resources.
+
+|[stixliteral]#dns-server-compromise#
+|Attacker gains administrative privileges on an open recursive DNS server, authoritative DNS server, organizational recursive DNS server, or ISP-operated recursive DNS server.
+
+|[stixliteral]#dns-spoofing-unregistered#
+|In a context where a domain name is expected (such as the From header in mail or a URL in a web page or message body), supplying a domain name not controlled by the attacker and that is not controlled by or registered to a legitimate registrant.
+
+|[stixliteral]#dns-stub-resolver-hijacking#
+|The attacker compromises the Operating System of a computer or a phone with malicious code that intercepts and responds to DNS queries with rogue or malicious responses.
+
 |[stixliteral]#dns-zone-transfer#
 |Transfer of a specific DNS zone.
+
+|[stixliteral]#domain-name-compromise#
+|The wrongfully taking control of a domain name from the rightful name holder.
+Compromised domains can be used for different kinds of malicious activity like sending spam or phishing, for distributing malware or as botnet command and control.
 
 |[stixliteral]#duplicate#
 |This event is a duplicate of another event.
@@ -1462,6 +1520,9 @@ A relationship should be created between this event and the event it duplicates.
 |[stixliteral]#known-malware#
 |This incident involves a known type of malware.
 Events and incidents *SHOULD* be related to a Malware object, but organizations may choose not to share the details on this malware.
+
+|[stixliteral]#lame-delegations#
+|Lame delegations occur as a result of expired name server domains allowing attackers to take control of the domain resolution by re-registering this expired name server domain.
 
 |[stixliteral]#major#
 |The incident is classified as major based on the internal criteria within the organization or due to external reporting requirements.
@@ -2479,6 +2540,7 @@ The following individuals were members of the OASIS CTI Technical Committee and 
 Their contributions are gratefully acknowledged:
 
 * Alexandre Cabrol Perales, Sopra Steria Group
+* Alexandre Dulaunoy, CIRCL
 * Ben Ottoman, Cyber Threat Intelligence Network, Inc. (CTIN)
 * Christian Hunt, Copado
 * Christopher Robinson, Cyber Threat Intelligence Network, Inc. (CTIN)
@@ -2490,12 +2552,16 @@ Their contributions are gratefully acknowledged:
 * Jane Ginn, Cyber Threat Intelligence Network, Inc. (CTIN)
 * Jason Keirstead, IBM
 * Jeremy Berthelet, Sopra Steria Group
+* Jonathan Matkowsky, Microsoft
 * Keven Ates, US Federal Bureau of Investigation
 * Kirk Dunkelberger, Peraton
+* Leszek Adamiak, IBM
 * Margaux Quittelier, Sopra Steria Group
 * Marlon Taylor, DHS Cybersecurity and Infrastructure Security Agency (CISA)
+* Mateusz Zych, University of Oslo
 * Michael Rosa, National Security Agency (NSA)
-* Qem Lumi
+* Patrick Maroney, AT&T
+* Qem Lumi, Northrop Grumman
 * Richard Piazza, MITRE Corporation
 * Rob Coderre, Accenture
 * Robert Keith, Accenture

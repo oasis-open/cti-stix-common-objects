@@ -4,6 +4,7 @@
     "title": "Event",
     "description": "An extension for recording events in STIX.",
     "type": "object",
+    "unevaluatedProperties": false,
     "required": [
         "extensions"
         , "status"
@@ -14,7 +15,6 @@
             "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/core.json"
         },
         {
-            "additionalProperties": false,
             "properties": {
                 "extensions": {
                     "type": "object",
@@ -152,6 +152,11 @@
                     "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
                     "pattern": "^event--",
                     "description": "The event"
+                },
+                "sequence_start": {
+                    "type": "boolean",
+                    "description": "If this event is the start of a sequence.",
+                    "default": true
                 },
                 "next_steps": {
                     "type": "array",
