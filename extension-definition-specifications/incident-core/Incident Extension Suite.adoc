@@ -897,7 +897,7 @@ accurate up to the number of decimals it includes.
 // tag::task-relationships[]
 
 When creating sequences of [stixtype]#<<task,tasks>># these *SHOULD NOT* be shared using relationship objects.
-These *SHOULD* be shared within an [stixtype]#{incident_url}[incident]# or [stixtype]#<<task,task>># as part of the list of *tasks* or *subtasks* respectively.
+Sequences *SHOULD* be shared within an [stixtype]#{incident_url}[incident]# or [stixtype]#<<task,task>># as part of the list of *tasks* or *subtasks* respectively.
 Using these embedded relationships ensure that an incomplete sequence cannot be shared accidentally to avoid potential confusion or misunderstandings when processing STIX data.
 
 [width="100%",cols="27%,16%,24%,33%",options="header",]
@@ -1905,6 +1905,9 @@ in place within the environment.
 
 |[stixliteral]#implemented-control#
 |Implemented a security control within the environment.
+
+|[stixliteral]#investigation#
+|Performed an investigation into an event or incident.
 
 |[stixliteral]#negotiation#
 |Negotiation of a deal or payment amount.

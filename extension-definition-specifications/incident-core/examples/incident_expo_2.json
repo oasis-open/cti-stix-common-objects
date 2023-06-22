@@ -1,6 +1,6 @@
 {
     "type": "bundle",
-    "id": "bundle--b72fa03b-d1e0-4f34-81f0-f60e7f019818",
+    "id": "bundle--7172fb43-3a73-44ef-ad59-47bed3cc822d",
     "objects": [
         {
             "type": "marking-definition",
@@ -166,7 +166,8 @@
                             ]
                         },
                         {
-                            "event_ref": "event--05385116-81a8-4212-82b5-9f57dd832fb5"
+                            "event_ref": "event--05385116-81a8-4212-82b5-9f57dd832fb5",
+                            "sequence_start": false
                         }
                     ],
                     "tasks": [
@@ -188,6 +189,7 @@
                         },
                         {
                             "task_ref": "task--6ef78c95-3b5d-4b8d-88c7-a90625cf7a5d",
+                            "sequence_start": false,
                             "next_steps": [
                                 {
                                     "task_ref": "task--993a1e68-8b5c-4f0e-aef7-75c31b85df3e",
@@ -208,9 +210,10 @@
                         },
                         {
                             "task_ref": "task--980ddd0f-5863-4464-b12e-105e6255eef1",
+                            "sequence_start": false,
                             "next_steps": [
                                 {
-                                    "task_ref": "task--993a1e68-8b5c-4f0e-aef7-75c31b85df3e",
+                                    "task_ref": "task--6998596d-28f5-4670-af86-3bc168df1854",
                                     "condition_type": "optional",
                                     "transition_type": "success"
                                 }
@@ -218,6 +221,7 @@
                         },
                         {
                             "task_ref": "task--993a1e68-8b5c-4f0e-aef7-75c31b85df3e",
+                            "sequence_start": false,
                             "next_steps": [
                                 {
                                     "task_ref": "task--6998596d-28f5-4670-af86-3bc168df1854",
@@ -227,7 +231,8 @@
                             ]
                         },
                         {
-                            "task_ref": "task--6998596d-28f5-4670-af86-3bc168df1854"
+                            "task_ref": "task--6998596d-28f5-4670-af86-3bc168df1854",
+                            "sequence_start": false
                         },
                         {
                             "task_ref": "task--e0accba2-08cd-41fe-b31a-fab30267b222"
@@ -437,7 +442,8 @@
                     ]
                 },
                 {
-                    "task_ref": "task--88f6cf01-c575-425e-a304-d842edb91bfa"
+                    "task_ref": "task--88f6cf01-c575-425e-a304-d842edb91bfa",
+                    "sequence_start": false
                 }
             ],
             "extensions": {
