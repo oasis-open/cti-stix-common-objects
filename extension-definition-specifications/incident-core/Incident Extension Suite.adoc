@@ -382,10 +382,10 @@ accurate up to the number of decimals it includes.
 For example a dropper running allowed a ransomware tool to be downloaded and run.
 
 |[stixtype]#<<event,event>>#
-|[stixrelationship]#impacted#
+|[stixrelationship]#impacts#
 |[stixtype]#{infrastructure_url}[infrastructure]#, +
 <All STIX Cyber-observable Objects>
-|The event impacts infrastructure or other resources that are identified by cyber-observable objects.
+|An event has an impact on specific infrastructure.
 
 |[stixtype]#<<event,event>>#
 |[stixrelationship]#located-at#
@@ -935,10 +935,10 @@ Using these embedded relationships ensure that an incomplete sequence cannot be 
 |A task was performed that created an indicator.
 
 |[stixtype]#<<task,task>>#
-|[stixrelationship]#impacted#
+|[stixrelationship]#impacts#
 |[stixtype]#{infrastructure_url}[infrastructure]#, +
 <All STIX Cyber-observable Objects>
-|The task impacts infrastructure or other resources that are identified by cyber-observable objects.
+|A task has an impact on specific infrastructure.
 
 |[stixtype]#<<task,task>>#
 |[stixrelationship]#located-at#
@@ -1007,7 +1007,7 @@ Using these embedded relationships ensure that an incomplete sequence cannot be 
 
 The Entity Count type represents the count of one or more entity types.
 The name of each entity type *MUST* be specified as a key in the dictionary and *MUST* identify the count of the entity that corresponds to the value.
-Each key *SHOULD* come from [stixtype]#{identity_class_url}[identity-class-ov]#.
+Each key *SHOULD* come from [stixtype]#<<entity-type-ov,entity-type-ov>>#.
 This value *MUST* be an [stixtype]#{int_url}[integer]# that is equal to or greater than zero.
 
 *Examples:*
@@ -1059,6 +1059,14 @@ This *MUST* reference [stixtype]#<<event,event>>#.
 |[stixtype]#{list_url}[list]# of type [stixtype]#<<event-sequence-entry,event-sequence-entry>>#
 |A list of event sequences that describes the current event flows into the next one.
 
+|*sequence_start* (optional)
+|[stixtype]#{boolean_url}[boolean]#
+|If this is a start of a sequence chain.
+All sequences of tasks *MUST* begin with at least one entry where *sequence_start* is set to [stixliteral]#true#.
+If a cycle exists with multiple entries with sequence_start* set to [stixliteral]#true# then all of these are equally valid start points.
+
+Default value is [stixliteral]#true#.
+
 |===
 
 [[event-sequence-entry]]
@@ -1090,14 +1098,6 @@ If it is optional, or if it is unknown.
 |[stixtype]#<<activity-transition-enum,activity-transition-enum>>#
 |What state the referenced step depends on.
 If it is performed upon success, failure, simple completion, or if it is unknown.
-
-|*sequence_start* (optional)
-|[stixtype]#{boolean_url}[boolean]#
-|If this is a start of a sequence chain.
-All sequences of tasks *MUST* begin with at least one entry where *sequence_start* is set to [stixliteral]#true#.
-If a cycle exists with multiple entries with sequence_start* set to [stixliteral]#true# then all of these are equally valid start points.
-
-Default value is [stixliteral]#true#.
 
 |===
 
@@ -1273,7 +1273,7 @@ If it is performed upon success, failure, simple completion, or if it is unknown
 |Land, environment or the ability of either to support humans or wildlife.
 
 |[stixliteral]#ics-actuator#
-|Actuator forindustrial control systems.
+|Actuator for industrial control systems.
 
 |[stixliteral]#ics-engineering-workstation#
 |Engineering workstation for industrial
@@ -1359,8 +1359,77 @@ This can be combined with other methods including [stixliteral]#automated-tool# 
 
 <<<
 
+[[entity-type-ov]]
+=== 4.3. Entity Type Vocabulary
+
+*Type Name:* [stixtype]#entity-type-ov#
+
+[width="100%",cols="31%,69%",options="header",]
+|===
+^|[stixtr]*Vocabulary Value* 
+^|[stixtr]*Description*
+
+|[stixliteral]#computers-mobile#
+|Mobile devices such as smartphones.
+
+|[stixliteral]#computers-personal#
+|Workstations or laptops owned by an organization.
+
+|[stixliteral]#computers-server#
+|Servers owned by an organization.
+
+|[stixliteral]#domain-controller#
+|A windows domain controller.
+
+|[stixliteral]#group#
+|An informal collection of people, without formal governance, such as a distributed hacker group.
+
+|[stixliteral]#ics-actuator#
+|Actuator for industrial control systems.
+
+|[stixliteral]#ics-engineering-workstation#
+|Engineering workstation for industrial
+control systems.
+
+|[stixliteral]#ics-historian#
+|Historian for industrial control systems.
+
+|[stixliteral]#ics-hmi#
+|Human machine interfaces for industrial control systems.
+
+|[stixliteral]#ics-other#
+|Other Industrial control systems.
+
+|[stixliteral]#ics-plc#
+|Programmable logic controller for industrial control systems.
+
+|[stixliteral]#ics-safety-system#
+|Safety system for industrial control systems.
+
+|[stixliteral]#ics-sensor#
+|Sensor for industrial control systems.
+
+|[stixliteral]#individual#
+|A single person.
+
+|[stixliteral]#network-device#
+|Switches, routers, and wireless communication towers.
+
+|[stixliteral]#organization#
+|A formal organization of people, with governance, such as a company or country.
+
+|[stixliteral]#system#
+|A computer system, such as a SIEM.
+
+|[stixliteral]#vehicles#
+|Vehicles of various types including cars, trains, and planes.
+
+|===
+
+<<<
+
 [[event-type-ov]]
-=== 4.3. Event Type Vocabulary
+=== 4.4. Event Type Vocabulary
 
 This vocabulary draws for numerous sources including heavily from MISP taxonomies.
 
@@ -1369,7 +1438,7 @@ These include:
 1. {dns_abuse_url}[FIRST DNS Abuse Techniques Matrix]
 2. {europol_event_url}[Europol type of events taxonomy].
 3. {europol_incident_url}[Europol type of incidents taxonomy]
-4. NIST 800-61
+4. NIST 800-61 Rev. 2
 
 
 *Type Name:* [stixtype]#event-type-ov#
@@ -1547,6 +1616,9 @@ Events and incidents *SHOULD* be related to a Malware object, but organizations 
 |[stixliteral]#natural#
 |The event was due to natural causes such as an earthquake or hurricane.
 
+|[stixliteral]#negotiation#
+|Negotiation of a deal or payment amount.
+
 |[stixliteral]#network-scanning#
 |Scanning a network aimed at identifying systems which are active in the same network.
 
@@ -1559,8 +1631,14 @@ Events and incidents *SHOULD* be related to a Malware object, but organizations 
 |[stixliteral]#password-cracking-attempt#
 |Attempt to acquire access credentials by breaking the protective cryptographic keys.
 
+|[stixliteral]#policy-violation#
+|The event or incident was a violation of organizational or regulatory policy.
+
 |[stixliteral]#ransomware#
 |This incident involved malware that encrypted data with a demand that a ransom is paid to regain access to it.
+
+|[stixliteral]#ransomware-payment#
+|The event or incident associated with actually paying a ransom.
 
 |[stixliteral]#refuted#
 |The event was previously suspected to have achieved a goal, but this has since been refuted.
@@ -1632,7 +1710,7 @@ organizations may choose to not share the details of these impacts.
 |Other unlisted events.
 
 |[stixliteral]#vandalism#
-|Logical and physical activities which – although they are not aimed at causing damage to information or at preventing its transmission among systems – have this effect.
+|Logical and physical activities which - although they are not aimed at causing damage to information or at preventing its transmission among systems - have this effect.
 
 |[stixliteral]#wiretapping#
 |Logical or physical interception of communications.
@@ -1651,7 +1729,7 @@ organizations may choose to not share the details of these impacts.
 <<<
 
 [[external-impact-ov]]
-=== 4.4. External Impact Vocabulary
+=== 4.5. External Impact Vocabulary
 
 *Type Name:* [stixtype]#external-impact-ov#
 
@@ -1683,7 +1761,7 @@ organizations may choose to not share the details of these impacts.
 |===
 
 [[incident-investigation-ov]]
-=== 4.5. Incident Investigation Open Vocabulary
+=== 4.6. Incident Investigation Open Vocabulary
 
 *Type Name:* [stixtype]#incident-investigation-ov#
 
@@ -1707,7 +1785,7 @@ In these cases, it is appropriate to mark an initial Incident as closed if the r
 <<<
 
 [[information-type-ov]]
-=== 4.6. Information Type Vocabulary
+=== 4.7. Information Type Vocabulary
 
 *Type Name:* [stixtype]#information-type-ov#
 
@@ -1750,7 +1828,7 @@ In these cases, it is appropriate to mark an initial Incident as closed if the r
 <<<
 
 [[monetary-impact-type-ov]]
-=== 4.7. Monetary Impact Type Vocabulary
+=== 4.8. Monetary Impact Type Vocabulary
 
 *Type Name:* [stixtype]#monetary-impact-type-ov#
 
@@ -1792,7 +1870,7 @@ In these cases, it is appropriate to mark an initial Incident as closed if the r
 
 <<<
 
-=== 4.8. State Change Object Type
+=== 4.9. State Change Object Type
 
 *Type Name:* [stixtype]#state-change#
 
@@ -1838,7 +1916,7 @@ If the *initial_ref* is populated this *MUST* reference the same type of SDO.
 <<<
 
 [[state-change-type-ov]]
-=== 4.9. State Change Type Vocabulary
+=== 4.10. State Change Type Vocabulary
 
 *Type Name:* [stixtype]#state-change-type-ov#
 
@@ -1873,7 +1951,7 @@ If this is selected *result_ref* MUST be populated.
 <<<
 
 [[task-type-ov]]
-=== 4.10. Task Type Vocabulary
+=== 4.11. Task Type Vocabulary
 
 *Type Name:* [stixtype]#task-type-ov#
 
@@ -1932,6 +2010,9 @@ If the playbook is stored outside of STIX it should be included as an [stixtype]
 If the playbook is stored outside of STIX both the playbook and step stored in separate [stixtype]#{external_reference_url}[external-reference]# objects.
 
 If playbook steps feed each other information that is designed to be passed as STIX it *SHOULD* be referenced as a [stixtype]#{grouping_url}[grouping]# as either the *initial_ref* or *result_ref* of a [stixtype]#<<state-change,state-change>>#.
+
+|[stixliteral]#ransom-payment#
+|An actual payment of a ransom.
 
 |[stixliteral]#recovery#
 |The recovery phase of incident response.
@@ -2063,21 +2144,18 @@ This option should be used to affirmatively supply this information when necessa
 ^|[stixtr]*Description*
 
 |[stixliteral]#blocked#
-|The incident had no impact due to pre-emptive measures including rate limiting or spam filters.
+|The incident had no or minimal impact due to pre-emptive measures including rate limiting or spam filters.
 
-|[stixliteral]#successful-attempt#
-|An incident has been determined to have caused at least some harm.
+|[stixliteral]#confirmed#
+|An incident has been determined to have caused at least some harm or violated a policy.
 
 |[stixliteral]#failed-attempt#
-|The incident had no impact but not due to any affirmative defense for example a password guesser failed but was also not rate limited.
+|The incident had no or minimal impact but not due to any affirmative defense for example a password guesser failed but was also not rate limited.
 
 |[stixliteral]#false-positive#
 |An incident was determined to have been triggered by a false alert and no action including automatically performed automated actions were needed to remediate the issue.
 
 This should not be used when an incident was flagged correctly, but is of no importance. For findings of that nature low-value should be used.
-
-|[stixliteral]#low-value#
-|An incident that has been deemed to be sufficiently unimportant for human intervention or may otherwise be considered noise.
 
 |[stixliteral]#suspected#
 |An incident is suspected, but not yet confirmed.
@@ -2565,6 +2643,7 @@ Their contributions are gratefully acknowledged:
 * Emily Ratliff, IBM
 * Jane Ginn, Cyber Threat Intelligence Network, Inc. (CTIN)
 * Jason Keirstead, IBM
+* Jean-Philippe Salles, Filigran
 * Jeremy Berthelet, Sopra Steria Group
 * Jonathan Matkowsky, Microsoft
 * Keven Ates, US Federal Bureau of Investigation

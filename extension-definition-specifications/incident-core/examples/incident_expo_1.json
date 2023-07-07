@@ -110,7 +110,7 @@
             "extensions": {
                 "extension-definition--ef765651-680c-498d-9894-99799f2fa126": {
                     "extension_type": "property-extension",
-                    "determination": "successful-attempt",
+                    "determination": "confirmed",
                     "investigation_status": "open",
                     "criticality": 90,
                     "detection_methods": ["system-outage"],

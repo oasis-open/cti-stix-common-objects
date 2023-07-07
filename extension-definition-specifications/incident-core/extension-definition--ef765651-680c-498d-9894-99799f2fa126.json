@@ -70,10 +70,9 @@
                                     "description": "If the incident has been confirmed or is suspected.  If it is determined to be benign it is considered a false-positive.",
                                     "enum": [
                                         "blocked"
+                                        , "confirmed"
                                         , "failed-attempt"
                                         , "false-positive"
-                                        , "low-value"
-                                        , "successful-attempt"
                                         , "suspected"
                                     ]
                                 },
