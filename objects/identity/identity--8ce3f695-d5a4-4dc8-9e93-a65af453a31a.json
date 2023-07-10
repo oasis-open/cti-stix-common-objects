@@ -2,14 +2,17 @@
     "id": "bundle--72f08673-5737-4de1-8c4f-4275cfc06b59",
     "objects": [
         {
-            "created": "2021-03-13T20:09:20.8889Z",
-            "description": "OASIS is a global community of experts who drive the creation and adoption of open standards promoting interoperability, innovation, and freedom of choice.",
-            "id": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
-            "identity_class": "organization",
-            "modified": "2021-12-01T16:19:51.601791Z",
-            "name": "OASIS",
+            "type": "identity",
             "spec_version": "2.1",
-            "type": "identity"
+            "id": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+            "created": "2021-03-13T20:09:20.8889Z",
+            "modified": "2023-06-20T10:00:00.000Z",
+            "name": "OASIS Open",
+            "description": "OASIS is a global community of experts who drive the creation and adoption of open standards promoting interoperability, innovation, and freedom of choice.",
+            "roles": [ "Standards Developing Organization (SDO)" ],
+            "identity_class": "organization",
+            "sectors": [ "non-profit" ],
+            "contact_information": "info@oasis-open.org"
         }
     ],
     "type": "bundle"
