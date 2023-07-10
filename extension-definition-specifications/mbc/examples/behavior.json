@@ -2,7 +2,7 @@
         "type": "malware-behavior",
         "spec_version": "2.1",
         "id": "malware-behavior--7fd7253f-274e-4156-be58-7ac900fc221a",
-        "created_by_ref": "identity--ecaecc75-d8fd-4eec-bc5a-9cb815ba728d",
+        "created_by_ref": "identity--b73c59c1-8560-449a-b8d0-c2ce0533c5bf",
         "created": "2019-08-01T00:00:00.000Z",
         "modified": "2022-11-21T00:00:00.000Z",
         "name": "Sandbox Detection",
