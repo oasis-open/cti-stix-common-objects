@@ -44,7 +44,7 @@
 
 [.stix-doc-information-heading]#Draft#
 
-[.stix-doc-information-heading]#26 March 2023#
+[.stix-doc-information-heading]#10 July 2023#
 
 [.stix-doc-information-heading]
 Editors:
@@ -2713,8 +2713,8 @@ Added [stixliteral]#ransom-demand# and [stixliteral]#ransom-payment# to [stixtyp
 
 
 |04
-|
-|
-|<TBD>
+|2023-07-10
+|Incident Mini Group
+|Version 2.0
 
 |===
