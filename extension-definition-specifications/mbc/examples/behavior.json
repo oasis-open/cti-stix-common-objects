@@ -9,7 +9,7 @@
         "obj_defn": {
             "source_name": "mitre-mbc",
             "description": "Detects whether the malware instance is being executed <snip>",
-            "url": "https://github.com/MBCProject/mbc-markdown <snip> /sandbox-detection.md",
+            "url": "https://github.com/MBCProject/mbc-markdown/sandbox-detection.md",
             "external_id": "B0007"
         },
         "obj_version": "2.0",
@@ -43,8 +43,8 @@
 		"description": "B. Baker and A. Chiu, \"Threat Spotlight: Rombertik - Gazing Past the Smoke, Mirrors, and Trapdoors,\" Cisco Threat Research, blog, May 4, 2013 [Online]."
             },
             {
-		"source_name": "lordnoteworthy"
-		"url": "https://github.com/LordNoteworthy/al-khaser"
+		"source_name": "lordnoteworthy",
+		"url": "https://github.com/LordNoteworthy/al-khaser",
 		"description": "A. Faouzi (LordNoteworthy), \"README.md,\" Al-Khaser v0.81. Accessed Apr. 29, 2023 [Online]."
             }
         ],
