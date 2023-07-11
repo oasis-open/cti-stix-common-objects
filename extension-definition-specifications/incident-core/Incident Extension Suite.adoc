@@ -76,24 +76,26 @@ toc::[]
 The current STIX 2.1 Incident object exists as a stub in the hopes that future work would allow STIX Incidents to be more fully fleshed out using extensions, and that in time a set of core features could be defined to be migrated into a future version of the Incident object or the community could arrive at the consensus to continue to use these extensions.
 
 In the 1.0 version of the core incident extension information on impact, events, and tasks were embedded within the Incident itself, however this was found to have limitations.
-As such a 2.0 version of this extension has been created in order to separate these components into independent SDOs to allow for expression using both external and embedded relationships.
+As such a 2.0 version of this extension has been created in order to separate these components into independent SDOs to more complex incidents to be accurately modeled.
 
-These extensions are allow tracking incidents across their life cycle where Events are first flagged for investigation resulting in [stixtype]#{incident_url}[incidents]# with [stixtype]#<<task,tasks>># being worked to resolve these.
-Incidents have impacts that change over time as these [stixtype]#<<event,events>># are determined to have [stixtype]#<<impact,impacts>># which are in turn mitigated and potentially resolved by [stixtype]#<<task,tasks>># performed as part of the incident response process.
-Both [stixtype]#<<event,events>># and [stixtype]#<<task,tasks>># can exist independently of [stixtype]#{incident_url}[incidents]# and in most workflows will occur prior to an incident being declared.
+These extensions allow tracking incidents across their life cycle where Events are first flagged for investigation resulting in [stixtype]#{incident_url}[incidents]# with [stixtype]#<<task,tasks>># being worked to resolve these.
+Incidents have [stixtype]#<<impact,impacts>># that change over time.
+[stixtype]#<<event,Events>># can cause or influence these [stixtype]#<<impact,impacts>># which are in turn mitigated and potentially resolved by [stixtype]#<<task,tasks>># performed as part of the incident response process.
+Both [stixtype]#<<event,events>># and [stixtype]#<<task,tasks>># can exist independent of [stixtype]#{incident_url}[incidents]# and in most workflows will occur prior to an incident being declared.
 
 
 == 1. Incidents in STIX
 
-Incident objects represent cases composed of events and tasks which can have impacts.
+Incident objects represent cases composed of [stixtype]#<<event,events>># and [stixtype]#<<task,tasks>># as well as actual or potential [stixtype]#<<impact,impacts>>#.
 An Incident SDO can be created prior to a formal determination that the incident has an impact as a way to logically track case work in an attempt to investigate events or lower level alerts.
-The Incident object should have sufficient properties to represent the current state of the incident or investigation while serving as an anchor point to record both activities related to the and the impact to the enterprise.
+
+The Incident object should have sufficient properties to represent the current state of the incident or investigation while serving as an anchor point to record both related activities and the impact to an organization.
 
 == 2. Extensions
 
 === 2.1. Incident Core
 
-The properties and additional types within the Incident Core Extension are defined below. As this is not a top-level object, fields such as identifier are not present.
+The properties and additional types within the Incident Core Extension are defined below. As this is not a top-level object, fields such as identifier are not present.  This extension *MUST* use [stixliteral]#extension-definition--ef765651-680c-498d-9894-99799f2fa126# as its extension ID.
 
 <<<
 
@@ -127,7 +129,7 @@ The values of this property *MUST* come from the [stixtype]#<<incident-investiga
 |[stixtype]#{int_url}[integer]#
  
 |The criticality of the incident.
-This value *MUST* be between 0 to 100. This can be translated into qualitative values as described in Appendix B.
+This value *MUST* be between 0 to 100. This can be translated into qualitative values as described in <<appendix-b,Appendix B>>.
 
 |*detection_methods* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{open_vocab_url}[open-vocab]#
@@ -152,13 +154,11 @@ Individual impacts may also record more detailed counts as appropriate.
 
 If this field is not present it should be assumed that this information is not being shared, not that there were no impacted entities.
 
-The object is defined in Impact Extension Version 1.0 for STIX^TM^ Version 1.0
-
 |*incident_types* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{open_vocab_url}[open-vocab]#
 |This property uses an Open Vocabulary that specifies the type of incident that occurred, if applicable.
 
-This is an open vocabulary and values SHOULD come from the [stixtype]#<<event-type-ov,event-type-ov>>#.
+This is an open vocabulary and values *SHOULD* come from the [stixtype]#<<event-type-ov,event-type-ov>>#.
 
 |*recoverability* (optional)
 |[stixtype]#<<recoverability-enum,recoverability-enum>>#
@@ -486,7 +486,7 @@ This *MUST* match an extension that provides greater and *SHOULD* come from the 
 |*criticality* (optional)
 |[stixtype]#{int_url}[integer]#
 |The criticality of this impact. This value *MUST* be between 0 to 100.
-This can be translated into qualitative values as described in Appendix B.
+This can be translated into qualitative values as described in <<appendix-b,Appendix B>>.
 
 |*description* (optional)
 |[stixtype]#{string_url}[string]# 
@@ -558,8 +558,7 @@ The Impact SDO is currently an extension, but as there are many specific types o
 As such every Impact *MUST* have an extension that has the same value of the *impact_category*.
 This allows consumers to quickly validate their ability to process this category of impact and then load all of its specific details.
 
-Producers *SHOULD* use one of the extensions  not be used by different impact detail objects.
-The following is a list of impact detail objects that *SHOULD* be used.
+Producers *SHOULD* use one of these extensions.
 
 ===== 2.3.2.1. Availability Impact Extension 
 
@@ -574,7 +573,7 @@ The following is a list of impact detail objects that *SHOULD* be used.
 |The availability / functional impact of the incident on the objects referenced in *impacted_refs*. 
 If no objects are referenced it should be treated as the overall availability impact for the [stixtype]#{incident_url}[incident]# that references it.
 
-This value *MUST* be between 0 to 100. This can be translated into qualitative values as described in Appendix A.
+This value *MUST* be between 0 to 100. This can be translated into qualitative values as described in <<appendix-a,Appendix A>>.
 
 |===
 
@@ -868,7 +867,7 @@ This is primarily used when recording victim notifications.
 |*priority* (optional)
 |[stixtype]#{int_url}[integer]#
 |The priority or importance of the task.
-This value *MUST* be between 0 to 100. This can be translated into qualitative values as described in Appendix B.
+This value *MUST* be between 0 to 100. This can be translated into qualitative values as described in <<appendix-b,Appendix B>>.
 
 |*start_time* (optional)
 |[stixtype]#{timestamp_url}[timestamp]#
@@ -1012,25 +1011,27 @@ This value *MUST* be an [stixtype]#{int_url}[integer]# that is equal to or great
 
 *Examples:*
 
-_100 individuals_
+_100 individuals, 70 employees, 30 customers_
 [source,json]
 ----
 {
-    "individual": 100
+    "individual": 100,
+    "employee": 70,
+    "customer-individual": 30
 }
 ----
 
-_1000 systems, 10 organizations, 1 sector_
+_1000 systems, 10 organizations_
+[source,json]
 ----
 {
     "organization": 10,
-    "sector": 1
     "system": 1000
 }
 ----
 
 _0 individuals_
-
+[source,json]
 ----
 {
     "individual": 0
@@ -1062,8 +1063,9 @@ This *MUST* reference [stixtype]#<<event,event>>#.
 |*sequence_start* (optional)
 |[stixtype]#{boolean_url}[boolean]#
 |If this is a start of a sequence chain.
-All sequences of tasks *MUST* begin with at least one entry where *sequence_start* is set to [stixliteral]#true#.
-If a cycle exists with multiple entries with sequence_start* set to [stixliteral]#true# then all of these are equally valid start points.
+
+All sequences of events *MUST* begin with at least one entry where *sequence_start* is set to [stixliteral]#true#.
+If a cycle exists with multiple entries with *sequence_start* set to [stixliteral]#true# then all of these are equally valid start points.
 
 Default value is [stixliteral]#true#.
 
@@ -1072,8 +1074,8 @@ Default value is [stixliteral]#true#.
 [[event-sequence-entry]]
 === 3.3. Event Sequence Object Type
 
-Event sequences entries stored references to a subsequent step for an event entry.
-As these are always stored in an array of steps within an array of activity entries validation rules for *event_ref* *MUST* be performed against the entire array of activity entries.
+Event sequence entries store references to subsequent steps for an event entry.
+As these are always stored in an array of steps within an array of event entries validation rules for *event_ref* *MUST* be performed against the entire array of event entries.
 
 *Type Name:* [stixtype]#event-sequence-entry#
 
@@ -1185,20 +1187,21 @@ If the *initial_ref* is populated this *MUST* reference the same type of SDO.
 ^|[stixtr]*Type* 
 ^|[stixtr]*Description*
 
-|*next_steps* (optional)
-|[stixtype]#{list_url}[list]# of type [stixtype]#<<task-sequence-entry,task-sequence-entry>>#
-|A list of task sequences that describes the current task flows into the next one.
-
 |*task_ref* (required)
 |[stixtype]#{identifier_url}[identifier]# 
 |The identity of the task that is described by this entry.
 This *MUST* reference a [stixtype]#<<task,task>>#.
 
+|*next_steps* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#<<task-sequence-entry,task-sequence-entry>>#
+|A list of task sequences that describes the current task flows into the next one.
+
 |*sequence_start* (optional)
 |[stixtype]#{boolean_url}[boolean]#
 |If this is a start of a sequence chain.
+
 All sequences of tasks *MUST* begin with at least one entry where *sequence_start* is set to [stixliteral]#true#.
-If a cycle exists with multiple entries with sequence_start* set to [stixliteral]#true# then all of these are equally valid start points.
+If a cycle exists with multiple entries with *sequence_start* set to [stixliteral]#true# then all of these are equally valid start points.
 
 Default value is [stixliteral]#true#.
 
@@ -1207,7 +1210,7 @@ Default value is [stixliteral]#true#.
 [[task-sequence-entry]]
 === 3.7. Task Sequence Object Type
 
-Task sequence entries store references to a subsequent step for an task entry.
+Task sequence entries store references to subsequent steps for a task entry.
 As these are always stored in an array of steps within an array of task entries validation rules for *task_ref* *MUST* be performed against the entire array of task entries.
 
 *Type Name:* [stixtype]#task-sequence-entry#
@@ -1378,8 +1381,21 @@ This can be combined with other methods including [stixliteral]#automated-tool# 
 |[stixliteral]#computers-server#
 |Servers owned by an organization.
 
+|[stixliteral]#customer#
+|An customer or client.
+This can be an individual or organization.
+
+|[stixliteral]#customer-individual#
+|An customer or client that represents an individual.
+
+|[stixliteral]#customer-organization#
+|An customer or client that represents a business or other organization.
+
 |[stixliteral]#domain-controller#
 |A windows domain controller.
+
+|[stixliteral]#employee#
+|An employee of an organization.
 
 |[stixliteral]#group#
 |An informal collection of people, without formal governance, such as a distributed hacker group.
@@ -1823,6 +1839,10 @@ In these cases, it is appropriate to mark an initial Incident as closed if the r
 
 |[stixliteral]#proprietary#
 |Proprietary information e.g., intellectual property.
+
+|[stixliteral]#system#
+|Information necessary to keep a system operational.
+The destruction or encryption of this data can cause availability impacts.
 |===
 
 <<<
@@ -2343,7 +2363,7 @@ Hours and minutes should be understood to establish the timezone for the activit
 include::tables/incident_relationship_summary.adoc[]
 
 <<<
-
+[[appendix-a]]
 == Appendix A. Incident Availability Impact Mapping
 
 This appendix defines mappings for availability and functional scales to be used by the availability impact property.
@@ -2454,7 +2474,7 @@ A value of "Not Specified" in the table below means that the criticality propert
 |===
 
 <<<
-
+[[appendix-b]]
 == Appendix B. Incident Criticality Mapping
 
 This appendix defines mappings for criticality scales to be used by the criticality property.

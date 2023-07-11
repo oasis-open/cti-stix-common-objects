@@ -2590,6 +2590,17 @@
             "spec_version": "2.1"
         },
         {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--f58965d6-90fd-48bf-a91c-fcb655aacb56",
+            "created": "2022-11-17T09:27:57.156Z",
+            "modified": "2022-11-17T09:27:57.156Z",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "relationship_type": "related-to",
+            "source_ref": "report--51aebafa-5bad-4e64-b400-95440e877c31",
+            "target_ref": "incident--fad5bbd5-90d1-42ee-97c9-d558c5180baa"
+        },
+        {
             "type": "report",
             "created": "2022-11-17T09:27:57.156Z",
             "modified": "2022-11-17T09:27:57.156Z",
@@ -2650,6 +2661,7 @@
                 "relationship--9d62fd01-9a23-446e-9d57-b4912767b57d",
                 "relationship--acac1efa-a699-4426-bea0-b26cf8bbab23",
                 "relationship--b704b7f7-e5c3-4413-85e3-62cc4aa7445f",
+                "relationship--f58965d6-90fd-48bf-a91c-fcb655aacb56",
                 "relationship--f98f35f8-433c-4b0f-8404-079aecbab3a1",
                 "sighting--17524b99-ef9b-4cd7-ab32-902144c86dc5",
                 "sighting--204d56d9-bc1f-4f62-ade7-c6afcdefd5c0",

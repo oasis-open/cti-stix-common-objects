@@ -330,6 +330,17 @@
             }
         },
         {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--6cedfcb1-4df5-4639-ba29-d84192cf14cd",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T01:37:47.004Z",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "relationship_type": "related-to",
+            "source_ref": "report--b1fd9214-67cf-4953-a461-6ca9ee1b75c3",
+            "target_ref": "incident--fad5bbd5-90d1-42ee-97c9-d558c5180baa"
+        },
+        {
             "type": "report",
             "created": "2022-09-15T01:37:47.004Z",
             "modified": "2022-09-15T01:37:47.004Z",
@@ -338,6 +349,7 @@
             "name": "WKI-20220915-004",
             "description": "This is a fake report for example purposes only",
             "report_types": ["incident"],
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
             "published": "2022-09-15T01:37:47.004Z",
             "object_refs": [
                 "event--90d6dde5-acb6-4a8e-b1d2-72f548a64839",
@@ -350,6 +362,7 @@
                 "marking-definition--f81f633d-3017-4678-a914-fe82dfc4b42c",
                 "relationship--117eac30-b47a-4b7c-8ce7-6c34ed506417",
                 "relationship--acac1efa-a699-4426-bea0-b26cf8bbab23",
+                "relationship--6cedfcb1-4df5-4639-ba29-d84192cf14cd",
                 "relationship--f98f35f8-433c-4b0f-8404-079aecbab3a1",
                 "task--88f6cf01-c575-425e-a304-d842edb91bfa",
                 "task--a45aaed9-6504-4f95-982e-78508726eb5a",

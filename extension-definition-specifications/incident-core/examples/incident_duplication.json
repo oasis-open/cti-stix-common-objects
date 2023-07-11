@@ -119,6 +119,35 @@
             "relationship_type": "duplicate-of",
             "source_ref": "incident--d9ce8926-717f-4ef5-a81f-df9002aa17d2",
             "target_ref": "incident--bf319a69-abcb-447b-bab4-eaa54316020c"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--35e5dedf-11a1-4f82-b910-7a7646f14890",
+            "created": "2020-10-19T03:12:23.000Z",
+            "modified": "2020-10-19T03:12:23.000Z",
+            "relationship_type": "related-to",
+            "source_ref": "report--25405dde-90e5-49e9-9adb-b8bfbdec3cfb",
+            "target_ref": "incident--d9ce8926-717f-4ef5-a81f-df9002aa17d2"
+        },
+        {
+            "type": "report",
+            "created": "2020-10-19T03:12:23.000Z",
+            "modified": "2020-10-19T03:12:23.000Z",
+            "spec_version": "2.1",
+            "id": "report--25405dde-90e5-49e9-9adb-b8bfbdec3cfb",
+            "name": "Duplicate Incident Report",
+            "report_types": ["incident"],
+            "published": "2020-10-19T03:12:23.000Z",
+            "object_refs": [
+                "incident--bf319a69-abcb-447b-bab4-eaa54316020c",
+                "incident--d9ce8926-717f-4ef5-a81f-df9002aa17d2",
+                "relationship--0d98c5dd-22a7-4316-89d0-bb7c0338ef0f",
+                "relationship--35e5dedf-11a1-4f82-b910-7a7646f14890",
+                "task--6d6c1a2b-6a9b-4f2a-aa23-961f42acfc83",
+                "task--85ddc2d5-4d9f-4639-9365-9aa38631f0b7",
+                "task--aae16dc7-4ca9-4652-8d1b-10e6f1f8334f"
+            ]
         }
     ]
 }

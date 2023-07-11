@@ -652,6 +652,17 @@
             }
         },
         {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--04448e7f-efd3-4cd5-9f22-519c6641b9ee",
+            "created": "2022-09-15T13:22:53.231Z",
+            "modified": "2022-09-15T13:22:53.231Z",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "relationship_type": "related-to",
+            "source_ref": "report--93d14df4-b353-4727-aaa8-16fe317d7f0a",
+            "target_ref": "incident--fad5bbd5-90d1-42ee-97c9-d558c5180baa"
+        },
+        {
             "type": "report",
             "created": "2022-09-15T13:22:53.231Z",
             "modified": "2022-09-15T13:22:53.231Z",
@@ -677,6 +688,7 @@
                 "malware--0099bc44-f289-418d-be8e-d9149d324b27",
                 "marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f",
                 "marking-definition--f81f633d-3017-4678-a914-fe82dfc4b42c",
+                "relationship--04448e7f-efd3-4cd5-9f22-519c6641b9ee",
                 "relationship--117eac30-b47a-4b7c-8ce7-6c34ed506417",
                 "relationship--6467bc28-f3e6-486e-bf1f-256f673aea26",
                 "relationship--acac1efa-a699-4426-bea0-b26cf8bbab23",

@@ -2322,6 +2322,17 @@
             "spec_version": "2.1"
         },
         {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--adb23e5b-5bf1-4e80-8550-a5f36af0017c",
+            "created": "2022-09-16T01:38:27.921Z",
+            "modified": "2022-09-16T01:38:27.921Z",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "relationship_type": "related-to",
+            "source_ref": "report--2e8ff743-f550-430d-a8a0-74efa84accb0",
+            "target_ref": "incident--fad5bbd5-90d1-42ee-97c9-d558c5180baa"
+        },
+        {
             "type": "report",
             "created": "2022-09-16T01:38:27.921Z",
             "modified": "2022-09-16T01:38:27.921Z",
@@ -2375,6 +2386,7 @@
                 "relationship--117eac30-b47a-4b7c-8ce7-6c34ed506417",
                 "relationship--6467bc28-f3e6-486e-bf1f-256f673aea26",
                 "relationship--acac1efa-a699-4426-bea0-b26cf8bbab23",
+                "relationship--adb23e5b-5bf1-4e80-8550-a5f36af0017c",
                 "relationship--b704b7f7-e5c3-4413-85e3-62cc4aa7445f",
                 "relationship--f98f35f8-433c-4b0f-8404-079aecbab3a1",
                 "sighting--17524b99-ef9b-4cd7-ab32-902144c86dc5",
