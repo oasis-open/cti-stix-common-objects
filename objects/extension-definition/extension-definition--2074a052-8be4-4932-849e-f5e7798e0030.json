@@ -1,0 +1,19 @@
+{
+  "type": "bundle",
+  "id": "bundle--2b3046e6-4979-4599-ae90-ce277e4d7e9f",
+  "objects": [
+    {
+      "id": "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030",
+      "type": "extension-definition",
+      "spec_version": "2.1",
+      "name": "Task Extension",
+      "description": "Tasks primarily record defender activities performed in response to events and incidents.  They can also be used to track generic tasks outside of the incident response process.",
+      "created": "2023-05-16T21:24:16.596743Z",
+      "modified": "2023-05-16T21:24:16.596743Z",
+      "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+      "schema": "https://github.com/oasis-open/cti-stix-common-objects/tree/main/extension-definition-specifications/incident-core/task",
+      "version": "1.0.0",
+      "extension_types": [ "new-sdo" ]
+    }
+  ]
+}

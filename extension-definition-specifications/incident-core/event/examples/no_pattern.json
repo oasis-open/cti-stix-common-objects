@@ -1,0 +1,25 @@
+{
+    "type": "bundle",
+    "id": "bundle--6bb0c592-fe54-4d34-9a93-b7ce621fba04",
+    "objects": [
+        {
+            "type": "event",
+            "id": "event--be02572e-8cdc-4200-91fe-09455dd90f46",
+            "created": "2023-04-07T20:00:00.0002Z",
+            "modified": "2023-04-07T20:00:00.0002Z",
+            "status": "occurred",
+            "labels": ["no-pattern", "accidental"],
+            "description": "A user accidentally emailed sensitive files to a reporter because their name was similar to an employee in their division",
+            "start_time": "2023-04-07T13:00:00.000Z",
+            "start_time_fidelity": "hour",
+            "end_time": "2023-04-07T13:00:00.000Z",
+            "end_time_fidelity": "hour",
+            "spec_version": "2.1",
+            "extensions": {
+                "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        }
+    ]
+}

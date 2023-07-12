@@ -1,0 +1,19 @@
+{
+  "type": "bundle",
+  "id": "bundle--30b2e611-2ad3-4952-8aea-c84f4cef67e0",
+  "objects": [
+    {
+      "id": "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9",
+      "type": "extension-definition",
+      "spec_version": "2.1",
+      "name": "Impact Extension",
+      "description": "Impact SDOs store the impacts of incidents or activities while allowing tracking how these changed over time.",
+      "created": "2023-05-16T21:01:53.607242Z",
+      "modified": "2023-05-16T21:01:53.607242Z",
+      "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+      "schema": "https://github.com/oasis-open/cti-stix-common-objects/tree/main/extension-definition-specifications/incident-core/impact",
+      "version": "1.0.0",
+      "extension_types": [ "new-sdo" ]
+    }
+  ]
+}

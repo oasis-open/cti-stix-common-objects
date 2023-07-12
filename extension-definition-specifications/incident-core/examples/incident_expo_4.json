@@ -1,0 +1,2704 @@
+{
+    "type": "bundle",
+    "id": "bundle--4f2118a9-8fa9-479e-b845-d8cb3357fcf3",
+    "objects": [
+        {
+            "type": "marking-definition",
+            "spec_version": "2.1",
+            "id": "marking-definition--f81f633d-3017-4678-a914-fe82dfc4b42c",
+            "created": "2022-09-15T01:37:47.004Z",
+            "definition_type": "statement",
+            "definition": {
+                "statement": "A fake marking that indicates data which is internal to the Wakandan Expo's systems and not necessarily shared externally"
+            }
+        },
+        {
+            "type": "marking-definition",
+            "spec_version": "2.1",
+            "id": "marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f",
+            "created": "2022-09-15T01:37:47.004Z",
+            "definition_type": "statement",
+            "definition": {
+                "statement": "A fake marking that indicates data is shared with the Wakandan government as part of the incident response process"
+            }
+        },
+        {
+            "type": "threat-actor",
+            "spec_version": "2.1",
+            "id": "threat-actor--519674b4-41f1-4574-8e1d-650a3ebd1c8a",
+            "created": "2022-09-16T01:38:27.921Z",
+            "modified": "2022-09-16T01:38:27.921Z",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "name": "Hydra",
+            "description": "A fake intrusion set that frequently loses and replaces heads"
+        },
+        {
+            "type": "threat-actor",
+            "spec_version": "2.1",
+            "id": "threat-actor--18b4ba18-950e-41c9-aba4-67e2f50da3fa",
+            "created": "2022-11-17T09:27:57.156Z",
+            "modified": "2022-11-17T09:27:57.156Z",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "name": "Dr. Doom",
+            "description": "A fake intrusion set that is run by a person with metal grafted to their skin and a hatred of someone named Richards"
+        },
+        {
+            "type": "identity",
+            "spec_version": "2.1",
+            "id": "identity--2564429b-7d7f-4c0e-bb39-7423657e0e83",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T01:37:47.004Z",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "name": "Wakandan Expo",
+            "external_references": [
+                {
+                    "source_name": "wakandan-business-identifier",
+                    "external_id": "H5213.2124"
+                }
+            ],
+            "roles": [
+                "event-organizer"
+            ],
+            "identity_class": "organization",
+            "sectors": [
+                "technology"
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--117eac30-b47a-4b7c-8ce7-6c34ed506417",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T01:37:47.004Z",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "relationship_type": "impacts",
+            "source_ref": "incident--fad5bbd5-90d1-42ee-97c9-d558c5180baa",
+            "target_ref": "identity--2564429b-7d7f-4c0e-bb39-7423657e0e83"
+        },
+        {
+            "type": "identity",
+            "spec_version": "2.1",
+            "id": "identity--3236af02-75b5-47f8-831a-50aa3e39fbf8",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T01:37:47.004Z",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "name": "Proj Manager",
+            "description": "Incident response manager for the Wakandan Expo",
+            "identity_class": "individual"
+        },
+        {
+            "type": "identity",
+            "spec_version": "2.1",
+            "id": "identity--684319e1-d91b-4241-9632-4e21ca03e995",
+            "created": "2022-09-15T13:22:53.231Z",
+            "modified": "2022-09-15T13:22:53.231Z",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "name": "Shuri IT",
+            "description": "Security Response vendor",
+            "identity_class": "organization"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--f98f35f8-433c-4b0f-8404-079aecbab3a1",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T01:37:47.004Z",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "relationship_type": "employed-at",
+            "source_ref": "identity--3236af02-75b5-47f8-831a-50aa3e39fbf8",
+            "target_ref": "identity--2564429b-7d7f-4c0e-bb39-7423657e0e83"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--acac1efa-a699-4426-bea0-b26cf8bbab23",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T01:37:47.004Z",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "relationship_type": "contact-for",
+            "source_ref": "identity--3236af02-75b5-47f8-831a-50aa3e39fbf8",
+            "target_ref": "incident--fad5bbd5-90d1-42ee-97c9-d558c5180baa"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--6467bc28-f3e6-486e-bf1f-256f673aea26",
+            "created": "2022-09-15T13:22:53.231Z",
+            "modified": "2022-09-15T13:22:53.231Z",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "relationship_type": "contact-for",
+            "source_ref": "identity--684319e1-d91b-4241-9632-4e21ca03e995",
+            "target_ref": "task--1e5701fe-569a-41d4-8014-bfbb07b2c82e"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--b704b7f7-e5c3-4413-85e3-62cc4aa7445f",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-11-17T09:27:57.156Z",
+            "revoked": true,
+            "confidence": 30,
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "relationship_type": "attributed-to",
+            "source_ref": "incident--fad5bbd5-90d1-42ee-97c9-d558c5180baa",
+            "target_ref": "threat-actor--519674b4-41f1-4574-8e1d-650a3ebd1c8a"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--9d62fd01-9a23-446e-9d57-b4912767b57d",
+            "created": "2022-11-17T09:27:57.156Z",
+            "modified": "2022-11-17T09:27:57.156Z",
+            "confidence": 50,
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "relationship_type": "attributed-to",
+            "source_ref": "incident--fad5bbd5-90d1-42ee-97c9-d558c5180baa",
+            "target_ref": "threat-actor--18b4ba18-950e-41c9-aba4-67e2f50da3fa"
+        },
+        {
+            "type": "incident",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-11-17T09:27:57.156Z",
+            "id": "incident--fad5bbd5-90d1-42ee-97c9-d558c5180baa",
+            "spec_version": "2.1",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "name": "WKI-20220915-004",
+            "external_references": [
+                {
+                    "source_name": "wakandan national incident database",
+                    "external_id": "WKI-20220915-004"
+                },
+                {
+                    "source_name": "wk expo id",
+                    "external_id": "IT-2312"
+                }
+            ],
+            "description": "The Wakandan International Technology expo suffered a major disruption in a keynote presentation by Stark Enterprises.",
+            "extensions": {
+                "extension-definition--ef765651-680c-498d-9894-99799f2fa126": {
+                    "extension_type": "property-extension",
+                    "determination": "confirmed",
+                    "investigation_status": "open",
+                    "criticality": 90,
+                    "detection_methods": ["system-outage"],
+                    "impacted_entity_counts": {
+                        "computers-mobile": 2000,
+                        "computers-personal": 1000,
+                        "computers-server": 232,
+                        "domain-controller": 7,
+                        "network-device": 3252
+                    },
+                    "incident_types": [
+                        "denial-of-service",
+                        "data-exfiltration"
+                    ],
+                    "impact_refs": [
+                        "impact--7a5806e4-0f37-4c48-9a50-7301bff4b195",
+                        "impact--d16ffd9c-4d83-46d5-b6ac-626ada44458c",
+                        "impact--e335ce90-039a-49d3-a843-013019c0a074",
+                        "impact--6359dec6-d597-466a-bf50-6ed59cdec053",
+                        "impact--e86d8503-becf-4647-a909-9c13661d1f2c",
+                        "impact--bdda2bfc-3634-418c-b50c-a1bc2232ea48"
+                    ],
+                    "events": [
+                        {
+                            "event_ref": "event--0d2fc33a-9871-4e1e-8471-23b92b06b8f8",
+                            "next_steps": [
+                                {
+                                    "event_ref": "event--403bce56-2e26-468e-a8a0-636f91903498",
+                                    "condition_type": "required",
+                                    "transition_type": "success"
+                                }
+                            ]
+                        },
+                        {
+                            "event_ref": "event--403bce56-2e26-468e-a8a0-636f91903498",
+                            "sequence_start": false,
+                            "next_steps": [
+                                {
+                                    "event_ref": "event--71c21ab1-053d-4455-ac41-90b3bc5e5a1f",
+                                    "condition_type": "required",
+                                    "transition_type": "success"
+                                }
+                            ]
+                        },
+                        {
+                            "event_ref": "event--71c21ab1-053d-4455-ac41-90b3bc5e5a1f",
+                            "sequence_start": false,
+                            "next_steps": [
+                                {
+                                    "event_ref": "event--90d6dde5-acb6-4a8e-b1d2-72f548a64839",
+                                    "condition_type": "required",
+                                    "transition_type": "success"
+                                }
+                            ]
+                        },
+                        {
+                            "event_ref": "event--90d6dde5-acb6-4a8e-b1d2-72f548a64839",
+                            "sequence_start": false,
+                            "next_steps": [
+                                {
+                                    "event_ref": "event--05385116-81a8-4212-82b5-9f57dd832fb5",
+                                    "condition_type": "required",
+                                    "transition_type": "success"
+                                }
+                            ]
+                        },
+                        {
+                            "event_ref": "event--05385116-81a8-4212-82b5-9f57dd832fb5",
+                            "sequence_start": false
+                        },
+                        {
+                            "event_ref": "event--cc91fde8-5665-46f6-9434-1529bdea8d3f"
+                        }
+                    ],
+                    "tasks": [
+                        {
+                            "task_ref": "task--a45aaed9-6504-4f95-982e-78508726eb5a"
+                        },
+                        {
+                            "task_ref": "task--c9bbe53b-58f2-43a8-b68e-160ea57e61b8",
+                            "next_steps": [
+                                {
+                                    "task_ref": "task--6ef78c95-3b5d-4b8d-88c7-a90625cf7a5d",
+                                    "condition_type": "optional",
+                                    "transition_type": "failure"
+                                }
+                            ]
+                        },
+                        {
+                            "task_ref": "task--f5896140-d53d-4fe8-b1a8-06728dbfdc49",
+                            "next_steps": [
+                                {
+                                    "task_ref": "task--e0accba2-08cd-41fe-b31a-fab30267b222",
+                                    "condition_type": "required",
+                                    "transition_type": "success"
+                                }
+                            ]
+                        },
+                        {
+                            "task_ref": "task--6ef78c95-3b5d-4b8d-88c7-a90625cf7a5d",
+                            "sequence_start": false,
+                            "next_steps": [
+                                {
+                                    "task_ref": "task--993a1e68-8b5c-4f0e-aef7-75c31b85df3e",
+                                    "condition_type": "required",
+                                    "transition_type": "success"
+                                }
+                            ]
+                        },
+                        {
+                            "task_ref": "task--1e5701fe-569a-41d4-8014-bfbb07b2c82e",
+                            "next_steps": [
+                                {
+                                    "task_ref": "task--980ddd0f-5863-4464-b12e-105e6255eef1",
+                                    "condition_type": "required",
+                                    "transition_type": "success"
+                                }
+                            ]
+                        },
+                        {
+                            "task_ref": "task--980ddd0f-5863-4464-b12e-105e6255eef1",
+                            "sequence_start": false,
+                            "next_steps": [
+                                {
+                                    "task_ref": "task--6998596d-28f5-4670-af86-3bc168df1854",
+                                    "condition_type": "optional",
+                                    "transition_type": "success"
+                                }
+                            ]
+                        },
+                        {
+                            "task_ref": "task--993a1e68-8b5c-4f0e-aef7-75c31b85df3e",
+                            "sequence_start": false,
+                            "next_steps": [
+                                {
+                                    "task_ref": "task--6998596d-28f5-4670-af86-3bc168df1854",
+                                    "condition_type": "required",
+                                    "transition_type": "success"
+                                }
+                            ]
+                        },
+                        {
+                            "task_ref": "task--6998596d-28f5-4670-af86-3bc168df1854",
+                            "sequence_start": false,
+                            "next_steps": [
+                                {
+                                    "task_ref": "task--5e0ce2e7-d603-4c5b-bcde-ded2821c0c8a",
+                                    "condition_type": "required",
+                                    "transition_type": "success"
+                                }
+                            ]
+                        },
+                        {
+                            "task_ref": "task--e0accba2-08cd-41fe-b31a-fab30267b222",
+                            "sequence_start": false,
+                            "next_steps": [
+                                {
+                                    "task_ref": "task--583b5df2-4665-4595-9a10-ed8ddbc18c0f",
+                                    "condition_type": "required",
+                                    "transition_type": "completion"
+                                }
+                            ]
+                        },
+                        {
+                            "task_ref": "task--c2e19028-58ba-4052-87e9-8d26fa1265af",
+                            "sequence_start": true
+                        },
+                        {
+                            "task_ref": "task--5e0ce2e7-d603-4c5b-bcde-ded2821c0c8a",
+                            "sequence_start": false,
+                            "next_steps": [
+                                {
+                                    "task_ref": "task--88f6cf01-c575-425e-a304-d842edb91bfa",
+                                    "condition_type": "required",
+                                    "transition_type": "success"
+                                }
+                            ]
+                        },
+                        {
+                            "task_ref": "task--88f6cf01-c575-425e-a304-d842edb91bfa",
+                            "sequence_start": false
+                        },
+                        {
+                            "task_ref": "task--583b5df2-4665-4595-9a10-ed8ddbc18c0f",
+                            "sequence_start": false
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "type": "impact",
+            "id": "impact--6359dec6-d597-466a-bf50-6ed59cdec053",
+            "created": "2022-09-15T13:22:53.231Z",
+            "modified": "2022-09-15T13:22:53.231Z",
+            "spec_version": "2.1",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "description": "Due to the highly diverse nature of this Expo and official sponsorship from the Wakandan government it may impact foreign relations",
+            "impact_category": "external",
+            "extensions": {
+                "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+                    "extension_type": "new-sdo"
+                },
+                "external": {
+                    "impact_type": "foreign-relations"
+                }
+            }
+        },
+        {
+            "type": "impact",
+            "id": "impact--e86d8503-becf-4647-a909-9c13661d1f2c",
+            "created": "2022-09-15T13:22:53.231Z",
+            "modified": "2022-09-15T13:22:53.231Z",
+            "spec_version": "2.1",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "description": "Due to the public nature of this incident it may impact public relations",
+            "impact_category": "monetary",
+            "extensions": {
+                "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+                    "extension_type": "new-sdo"
+                },
+                "monetary": {
+                    "variety": "brand-damage"
+                }
+            }
+        },
+        {
+            "type": "impact",
+            "id": "impact--7a5806e4-0f37-4c48-9a50-7301bff4b195",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T01:37:47.004Z",
+            "spec_version": "2.1",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "description": "All servers shutdown,wireless tied to these went down,all displays went down.",
+            "impact_category": "availability",
+            "start_time": "2022-09-14T14:57:00.000Z",
+            "start_time_fidelity": "minute",
+            "end_time": "2022-09-14T17:00:00.000Z",
+            "end_time_fidelity": "hour",
+            "superseded_by_ref": "impact--d16ffd9c-4d83-46d5-b6ac-626ada44458c",
+            "extensions": {
+                "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+                    "extension_type": "new-sdo"
+                },
+                "availability": {
+                    "availability_impact": 90
+                }
+            }
+        },
+        {
+            "type": "impact",
+            "id": "impact--d16ffd9c-4d83-46d5-b6ac-626ada44458c",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T13:22:53.231Z",
+            "spec_version": "2.1",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "description": "After bypass mode all servers still shutdown, but wireless and displays are now up in a limited capacity.",
+            "impact_category": "availability",
+            "start_time": "2022-09-14T17:00:00.000Z",
+            "start_time_fidelity": "hour",
+            "end_time": "2022-09-15T10:00:00.000Z",
+            "end_time_fidelity": "hour",
+            "superseded_by_ref": "impact--e335ce90-039a-49d3-a843-013019c0a074",
+            "extensions": {
+                "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+                    "extension_type": "new-sdo"
+                },
+                "availability": {
+                    "availability_impact": 75
+                }
+            }
+        },
+        {
+            "type": "impact",
+            "id": "impact--e335ce90-039a-49d3-a843-013019c0a074",
+            "created": "2022-09-15T13:22:53.231Z",
+            "modified": "2022-09-15T13:22:53.231Z",
+            "spec_version": "2.1",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "description": "Started to bring back up domain controllers and began to add wireless systems back into a managed mode.",
+            "impact_category": "availability",
+            "start_time": "2022-09-15T10:00:00.000Z",
+            "start_time_fidelity": "hour",
+            "end_time": "2022-09-15T21:00:00.000Z",
+            "end_time_fidelity": "hour",
+            "extensions": {
+                "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+                    "extension_type": "new-sdo"
+                },
+                "availability": {
+                    "availability_impact": 30
+                }
+            }
+        },
+        {
+            "type": "impact",
+            "id": "impact--bdda2bfc-3634-418c-b50c-a1bc2232ea48",
+            "created": "2022-11-17T09:27:57.156Z",
+            "modified": "2022-11-17T09:27:57.156Z",
+            "spec_version": "2.1",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "description": "The user credential data for external systems may have been stolen through a man-in-the-middle attack performed while wireless services were operating in a disconnected mode without monitoring.",
+            "impact_category": "confidentiality",
+            "start_time": "2022-09-14T17:00:00.000Z",
+            "start_time_fidelity": "hour",
+            "extensions": {
+                "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+                    "extension_type": "new-sdo"
+                },
+                "confidentiality": {
+                    "information_type": "credentials-user",
+                    "loss_type": "confirmed-loss"
+                }
+            }
+        },
+        {
+            "type": "event",
+            "id": "event--0d2fc33a-9871-4e1e-8471-23b92b06b8f8",
+            "created": "2022-09-16T01:12:18.951Z",
+            "modified": "2022-09-16T01:12:18.951Z",
+            "spec_version": "2.1",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "name": "Delivery",
+            "description": "Multiple emails were found with malicious Word documents attached, but it is unclear exactly which one(s) were executed to cause the incident.",
+            "status": "occurred",
+            "event_types": ["delivery-phishing", "successful"],
+            "sighting_refs": ["sighting--4d051911-6275-4ec0-bf10-2b87348b8877"],
+            "goal": "Initial delivery",
+            "start_time": "2022-09-02T22:00:00.000Z",
+            "start_time_fidelity": "day",
+            "end_time": "2022-09-04T22:00:00.000Z",
+            "end_time_fidelity": "day",
+            "extensions": {
+                "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--4d051911-6275-4ec0-bf10-2b87348b8877",
+            "created": "2022-09-16T01:12:18.951Z",
+            "modified": "2022-09-16T01:12:18.951Z",
+            "sighting_of_ref": "attack-pattern--a62a8db3-f23a-4d8f-afd6-9dbc77e7813b"
+        },
+        {
+            "type": "event",
+            "id": "event--403bce56-2e26-468e-a8a0-636f91903498",
+            "created": "2022-09-16T01:12:18.951Z",
+            "modified": "2022-09-16T01:12:18.951Z",
+            "spec_version": "2.1",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "name": "Exploitation via Word Macro",
+            "description": "Analysis found that when opened Word spawns a number of processes to laterally move through the network",
+            "status": "occurred",
+            "event_types": ["compromised-system", "successful"],
+            "sighting_refs": ["sighting--efdd4445-1f92-4650-8cc8-1427a2df80f3"],
+            "goal": "Initial delivery",
+            "start_time": "2022-09-02T22:00:00.000Z",
+            "start_time_fidelity": "day",
+            "end_time": "2022-09-04T22:00:00.000Z",
+            "end_time_fidelity": "day",
+            "extensions": {
+                "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "event",
+            "id": "event--cc91fde8-5665-46f6-9434-1529bdea8d3f",
+            "created": "2022-11-17T09:27:57.156Z",
+            "modified": "2022-11-17T09:27:57.156Z",
+            "spec_version": "2.1",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "name": "Data Theft",
+            "description": "Credentials for presenter and visitor systems were stolen while in bypass mode.",
+            "status": "occurred",
+            "event_types": ["wiretapping", "successful"],
+            "sighting_refs": ["sighting--8cf4c5a9-7a99-4121-8800-9a1164553f5e", "sighting--7c5938a9-7e0f-496a-a21a-af7bf80d938c"],
+            "goal": "Credential theft for future activities in other environments.",
+            "start_time": "2022-09-14T17:00:00.000Z",
+            "start_time_fidelity": "day",
+            "end_time": "2022-09-15T21:00:00.000Z",
+            "end_time_fidelity": "day",
+            "changed_objects": [
+                {
+                    "state_change_type": "caused",
+                    "result_ref": "impact--bdda2bfc-3634-418c-b50c-a1bc2232ea48"
+                }
+            ],
+            "extensions": {
+                "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--496959de-5516-43f5-90a3-d2521e62f878",
+            "created": "2022-11-17T09:27:57.156Z",
+            "modified": "2022-11-17T09:27:57.156Z",
+            "relationship_type": "related-to",
+            "source_ref": "task--a45aaed9-6504-4f95-982e-78508726eb5a",
+            "target_ref": "event--cc91fde8-5665-46f6-9434-1529bdea8d3f"
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--8cf4c5a9-7a99-4121-8800-9a1164553f5e",
+            "created": "2022-11-17T09:27:57.156Z",
+            "modified": "2022-11-17T09:27:57.156Z",
+            "sighting_of_ref": "attack-pattern--bb5a00de-e086-4859-a231-fa793f6797e2"
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--7c5938a9-7e0f-496a-a21a-af7bf80d938c",
+            "created": "2022-11-17T09:27:57.156Z",
+            "modified": "2022-11-17T09:27:57.156Z",
+            "sighting_of_ref": "attack-pattern--035bb001-ab69-4a0b-9f6c-2de8b09e1b9d"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--7298d793-a0b2-4385-8dfb-5f24a1099a8a",
+            "created": "2022-09-16T01:12:18.951Z",
+            "modified": "2022-09-16T01:12:18.951Z",
+            "name": "Exploitation of Word Macro",
+            "description": "If a user is convinced to enable macros on a Word document it can allow malicious code to be run or installed."
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--efdd4445-1f92-4650-8cc8-1427a2df80f3",
+            "created": "2022-09-16T01:12:18.951Z",
+            "modified": "2022-09-16T01:12:18.951Z",
+            "sighting_of_ref": "attack-pattern--7298d793-a0b2-4385-8dfb-5f24a1099a8a"
+        },
+        {
+            "type": "malware",
+            "spec_version": "2.1",
+            "id": "malware--0099bc44-f289-418d-be8e-d9149d324b27",
+            "created": "2022-09-15T13:22:53.231Z",
+            "modified": "2022-09-15T13:22:53.231Z",
+            "name": "ExpoOfficeSwitch",
+            "is_family": false
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--17524b99-ef9b-4cd7-ab32-902144c86dc5",
+            "created": "2022-09-16T01:12:18.951Z",
+            "modified": "2022-09-16T01:12:18.951Z",
+            "sighting_of_ref": "malware--0099bc44-f289-418d-be8e-d9149d324b27"
+        },
+        {
+            "type": "event",
+            "id": "event--71c21ab1-053d-4455-ac41-90b3bc5e5a1f",
+            "created": "2022-09-16T01:12:18.951Z",
+            "modified": "2022-09-16T01:12:18.951Z",
+            "spec_version": "2.1",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "name": "Lateral Movement",
+            "description": "Analysis found that when opened Word spawns a number of processes to laterally move through the network",
+            "status": "occurred",
+            "event_types": ["compromised-system", "successful"],
+            "sighting_refs": ["sighting--17524b99-ef9b-4cd7-ab32-902144c86dc5"],
+            "goal": "Lateral Movement and Entrenchment",
+            "start_time": "2022-09-02T22:00:00.000Z",
+            "start_time_fidelity": "day",
+            "end_time": "2022-09-13T22:00:00.000Z",
+            "end_time_fidelity": "day",
+            "subevents": [
+                {
+                    "event_ref": "event--4054c4eb-8794-4d7e-a2c7-7bb4dd9c1fbf",
+                    "sequence_start": true,
+                    "next_steps": [
+                        {
+                            "event_ref": "event--7366ca2b-45af-4112-b352-4e0acc4ee22b",
+                            "transition_type": "success",
+                            "condition_type": "required"
+                        }
+                    ]
+                },
+                {
+                    "event_ref": "event--7366ca2b-45af-4112-b352-4e0acc4ee22b",
+                    "sequence_start": false,
+                    "next_steps": [
+                        {
+                            "event_ref": "event--4054c4eb-8794-4d7e-a2c7-7bb4dd9c1fbf",
+                            "transition_type": "success",
+                            "condition_type": "required"
+                        },
+                        {
+                            "event_ref": "event--c53aef43-05b1-4e09-8f61-73ac307eb36a",
+                            "transition_type": "success",
+                            "condition_type": "required"
+                        }
+                    ]
+                },
+                {
+                    "event_ref": "event--c53aef43-05b1-4e09-8f61-73ac307eb36a",
+                    "sequence_start": false
+                }
+            ],
+            "extensions": {
+                "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "event",
+            "id": "event--4054c4eb-8794-4d7e-a2c7-7bb4dd9c1fbf",
+            "created": "2022-09-16T01:12:18.951Z",
+            "modified": "2022-09-16T01:12:18.951Z",
+            "spec_version": "2.1",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "name": "Credential Theft",
+            "description": "Tooling ran to extract credentials from LSASS and web browsers ",
+            "status": "occurred",
+            "event_types": ["compromised-system", "successful"],
+            "sighting_refs": [
+                "sighting--97d35f94-a869-4206-81af-4951a78b8773",
+                "sighting--45a0ea3a-8b8d-4e45-a79c-8e73d1882e70"
+            ],
+            "goal": "Lateral Movement and Entrenchment",
+            "start_time": "2022-09-02T22:00:00.000Z",
+            "start_time_fidelity": "day",
+            "end_time": "2022-09-13T22:00:00.000Z",
+            "end_time_fidelity": "day",
+            "extensions": {
+                "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--97d35f94-a869-4206-81af-4951a78b8773",
+            "created": "2022-09-16T01:12:18.951Z",
+            "modified": "2022-09-16T01:12:18.951Z",
+            "sighting_of_ref": "attack-pattern--58a3e6aa-4453-4cc8-a51f-4befe80b31a8"
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--45a0ea3a-8b8d-4e45-a79c-8e73d1882e70",
+            "created": "2022-09-16T01:12:18.951Z",
+            "modified": "2022-09-16T01:12:18.951Z",
+            "sighting_of_ref": "attack-pattern--65f2d882-3f41-4d48-8a06-29af77ec9f90"
+        },
+        {
+            "type": "event",
+            "id": "event--7366ca2b-45af-4112-b352-4e0acc4ee22b",
+            "created": "2022-09-16T01:12:18.951Z",
+            "modified": "2022-09-16T01:12:18.951Z",
+            "spec_version": "2.1",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "name": "Human Control",
+            "description": "There was evidence of human control of the lateral movement of this worm as logs indicated it was most active during the normal operating hours of Hydra.",
+            "status": "occurred",
+            "event_types": ["compromised-system", "successful"],
+            "sighting_refs": [
+                "sighting--c5741bb0-abb3-4a52-b3e3-a24f2c07834b",
+                "sighting--bd571262-a666-41cf-a995-dc2859d9775c",
+                "sighting--5a592445-795f-44cd-96ce-5a0829ec7309",
+                "sighting--fd123a72-325c-4946-a816-905dd835ca72",
+                "sighting--f75289d0-ac26-4925-9c77-327b7499b674",
+                "sighting--36181039-d157-428d-a31a-d79e57b421cd"
+            ],
+            "goal": "Lateral Movement and Entrenchment",
+            "start_time": "2022-09-02T22:00:00.000Z",
+            "start_time_fidelity": "day",
+            "end_time": "2022-09-13T22:00:00.000Z",
+            "end_time_fidelity": "day",
+            "extensions": {
+                "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "event",
+            "id": "event--c53aef43-05b1-4e09-8f61-73ac307eb36a",
+            "created": "2022-09-16T01:12:18.951Z",
+            "modified": "2022-09-16T01:12:18.951Z",
+            "spec_version": "2.1",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "name": "Obfuscation",
+            "description": "Logs are cleared after prior commands have been run.",
+            "status": "occurred",
+            "event_types": ["successful"],
+            "sighting_refs": ["sighting--cee7ef3f-afc5-4c6d-8bfa-351dc5fc03ba"],
+            "goal": "Hide activity",
+            "start_time": "2022-09-02T22:00:00.000Z",
+            "start_time_fidelity": "day",
+            "end_time": "2022-09-13T22:00:00.000Z",
+            "end_time_fidelity": "day",
+            "extensions": {
+                "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--cee7ef3f-afc5-4c6d-8bfa-351dc5fc03ba",
+            "created": "2022-09-16T01:12:18.951Z",
+            "modified": "2022-09-16T01:12:18.951Z",
+            "sighting_of_ref": "attack-pattern--6495ae23-3ab4-43c5-a94f-5638a2c31fd2"
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--c5741bb0-abb3-4a52-b3e3-a24f2c07834b",
+            "created": "2022-09-16T01:12:18.951Z",
+            "modified": "2022-09-16T01:12:18.951Z",
+            "sighting_of_ref": "attack-pattern--bf90d72c-c00b-45e3-b3aa-68560560d4c5"
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--bd571262-a666-41cf-a995-dc2859d9775c",
+            "created": "2022-09-16T01:12:18.951Z",
+            "modified": "2022-09-16T01:12:18.951Z",
+            "sighting_of_ref": "attack-pattern--4f9ca633-15c5-463c-9724-bdcd54fde541"
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--5a592445-795f-44cd-96ce-5a0829ec7309",
+            "created": "2022-09-16T01:12:18.951Z",
+            "modified": "2022-09-16T01:12:18.951Z",
+            "sighting_of_ref": "attack-pattern--e358d692-23c0-4a31-9eb6-ecc13a8d7735"
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--fd123a72-325c-4946-a816-905dd835ca72",
+            "created": "2022-09-16T01:12:18.951Z",
+            "modified": "2022-09-16T01:12:18.951Z",
+            "sighting_of_ref": "attack-pattern--707399d6-ab3e-4963-9315-d9d3818cd6a0"
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--f75289d0-ac26-4925-9c77-327b7499b674",
+            "created": "2022-09-16T01:12:18.951Z",
+            "modified": "2022-09-16T01:12:18.951Z",
+            "sighting_of_ref": "attack-pattern--01a5a209-b94c-450b-b7f9-946497d91055"
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--36181039-d157-428d-a31a-d79e57b421cd",
+            "created": "2022-09-16T01:12:18.951Z",
+            "modified": "2022-09-16T01:12:18.951Z",
+            "sighting_of_ref": "attack-pattern--f1951e8a-500e-4a26-8803-76d95c4554b4"
+        },
+        {
+            "type": "event",
+            "id": "event--90d6dde5-acb6-4a8e-b1d2-72f548a64839",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T13:22:53.231Z",
+            "spec_version": "2.1",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "name": "Server Shutdown",
+            "description": "All servers including domain controllers were shutdown prior to a keynote by a Stark Industry's representative.",
+            "status": "occurred",
+            "event_types": ["denial-of-service"],
+            "sighting_refs": ["sighting--b5d18fae-3a04-4891-84db-fe64a99bc16c"],
+            "start_time": "2022-09-14T14:57:00.000Z",
+            "start_time_fidelity": "minute",
+            "end_time": "2022-09-15T10:00:00.000Z",
+            "end_time_fidelity": "hour",
+            "subevents": [
+                {
+                    "event_ref": "event--20cfb071-a62f-4f94-a188-96d39af43a8c",
+                    "next_steps": [
+                        {
+                            "event_ref": "event--875dbd12-ed65-44c8-924b-e28354cbc2f5",
+                            "transition_type": "success",
+                            "condition_type": "required"
+                        }
+                    ]
+                },
+                {
+                    "event_ref": "event--219d4b8d-6665-4aee-9387-dc1a475e2996",
+                    "next_steps": [
+                        {
+                            "event_ref": "event--875dbd12-ed65-44c8-924b-e28354cbc2f5",
+                            "transition_type": "success",
+                            "condition_type": "required"
+                        }
+                    ]
+                },
+                {
+                    "event_ref": "event--875dbd12-ed65-44c8-924b-e28354cbc2f5",
+                    "sequence_start": false,
+                    "next_steps": [
+                        {
+                            "event_ref": "event--2cf8b0a6-76d0-4d76-b015-f7c4c741b0fa",
+                            "transition_type": "success",
+                            "condition_type": "required"
+                        }
+                    ]
+                },
+                {
+                    "event_ref": "event--2cf8b0a6-76d0-4d76-b015-f7c4c741b0fa",
+                    "sequence_start": false
+                }
+            ],
+            "extensions": {
+                "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "event",
+            "id": "event--20cfb071-a62f-4f94-a188-96d39af43a8c",
+            "created": "2022-09-16T01:12:18.951Z",
+            "modified": "2022-09-16T01:12:18.951Z",
+            "spec_version": "2.1",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "name": "Stop Services",
+            "status": "occurred",
+            "event_types": ["successful"],
+            "sighting_refs": ["sighting--8fd61762-e5dc-4b8c-a26a-f4fe8df88413"],
+            "start_time": "2022-09-14T14:57:00.000Z",
+            "start_time_fidelity": "day",
+            "end_time": "2022-09-15T10:00:00.000Z",
+            "end_time_fidelity": "day",
+            "extensions": {
+                "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--8fd61762-e5dc-4b8c-a26a-f4fe8df88413",
+            "created": "2022-09-16T01:12:18.951Z",
+            "modified": "2022-09-16T01:12:18.951Z",
+            "sighting_of_ref": "attack-pattern--20fb2507-d71c-455d-9b6d-6104461cf26b"
+        },
+        {
+            "type": "event",
+            "id": "event--219d4b8d-6665-4aee-9387-dc1a475e2996",
+            "created": "2022-09-16T01:12:18.951Z",
+            "modified": "2022-09-16T01:12:18.951Z",
+            "spec_version": "2.1",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "name": "Data Destruction",
+            "status": "occurred",
+            "event_types": ["successful"],
+            "sighting_refs": [
+                "sighting--204d56d9-bc1f-4f62-ade7-c6afcdefd5c0",
+                "sighting--8efa8c26-ceb5-4dfa-ab67-14dd7a68ce9d"
+            ],
+            "start_time": "2022-09-14T14:57:00.000Z",
+            "start_time_fidelity": "day",
+            "end_time": "2022-09-15T10:00:00.000Z",
+            "end_time_fidelity": "day",
+            "extensions": {
+                "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--204d56d9-bc1f-4f62-ade7-c6afcdefd5c0",
+            "created": "2022-09-16T01:12:18.951Z",
+            "modified": "2022-09-16T01:12:18.951Z",
+            "sighting_of_ref": "attack-pattern--d45a3d09-b3cf-48f4-9f0f-f521ee5cb05c"
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--8efa8c26-ceb5-4dfa-ab67-14dd7a68ce9d",
+            "created": "2022-09-16T01:12:18.951Z",
+            "modified": "2022-09-16T01:12:18.951Z",
+            "sighting_of_ref": "attack-pattern--f5d8eed6-48a9-4cdf-a3d7-d1ffa99c3d2a"
+        },
+        {
+            "type": "event",
+            "id": "event--875dbd12-ed65-44c8-924b-e28354cbc2f5",
+            "created": "2022-09-16T01:12:18.951Z",
+            "modified": "2022-09-16T01:12:18.951Z",
+            "spec_version": "2.1",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "name": "Obfuscation",
+            "status": "occurred",
+            "event_types": ["successful"],
+            "sighting_refs": ["sighting--64fec75d-44df-4704-ad38-d137e50b6956"],
+            "start_time": "2022-09-14T14:57:00.000Z",
+            "start_time_fidelity": "day",
+            "end_time": "2022-09-15T10:00:00.000Z",
+            "end_time_fidelity": "day",
+            "extensions": {
+                "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--64fec75d-44df-4704-ad38-d137e50b6956",
+            "created": "2022-09-16T01:12:18.951Z",
+            "modified": "2022-09-16T01:12:18.951Z",
+            "sighting_of_ref": "attack-pattern--6495ae23-3ab4-43c5-a94f-5638a2c31fd2"
+        },
+        {
+            "type": "event",
+            "id": "event--2cf8b0a6-76d0-4d76-b015-f7c4c741b0fa",
+            "created": "2022-09-16T01:12:18.951Z",
+            "modified": "2022-09-16T01:12:18.951Z",
+            "spec_version": "2.1",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "name": "Shutdown",
+            "status": "occurred",
+            "event_types": ["successful"],
+            "sighting_refs": ["sighting--da673e80-e92c-45e2-ad11-f14869b2db28"],
+            "start_time": "2022-09-14T14:57:00.000Z",
+            "start_time_fidelity": "day",
+            "end_time": "2022-09-15T10:00:00.000Z",
+            "end_time_fidelity": "day",
+            "extensions": {
+                "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--da673e80-e92c-45e2-ad11-f14869b2db28",
+            "created": "2022-09-16T01:12:18.951Z",
+            "modified": "2022-09-16T01:12:18.951Z",
+            "sighting_of_ref": "attack-pattern--ff73aa03-0090-4464-83ac-f89e233c02bc"
+        },
+        {
+            "type": "event",
+            "id": "event--05385116-81a8-4212-82b5-9f57dd832fb5",
+            "created": "2022-09-15T13:22:53.231Z",
+            "modified": "2022-09-15T13:22:53.231Z",
+            "spec_version": "2.1",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "name": "Wireless and Display Shutdown",
+            "description": "All wireless and displays were rendered inoperable due to loss of contact with servers and domain controllers.  This pushed back the conference keynote by 2 hours while wireless and displays were put into a bypass mode.",
+            "status": "occurred",
+            "event_types": ["denial-of-service"],
+            "start_time": "2022-09-14T14:57:00.000Z",
+            "start_time_fidelity": "minute",
+            "end_time": "2022-09-14T17:00:00.000Z",
+            "end_time_fidelity": "hour",
+            "changed_objects": [
+                {
+                    "state_change_type": "caused",
+                    "result_ref": "impact--7a5806e4-0f37-4c48-9a50-7301bff4b195"
+                }
+            ],
+            "extensions": {
+                "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T01:37:47.004Z",
+            "spec_version": "2.1",
+            "id": "task--a45aaed9-6504-4f95-982e-78508726eb5a",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "name": "Temporary Workaround",
+            "description": "Set basic services including Wi-Fi and TVs to bypass dead gatekeeper machines.",
+            "task_types": ["mitigation"],
+            "outcome": "ongoing",
+            "start_time": "2022-09-14T17:00:00.000Z",
+            "start_time_fidelity": "hour",
+            "changed_objects": [
+                {
+                    "state_change_type": "mitigated",
+                    "initial_ref": "impact--7a5806e4-0f37-4c48-9a50-7301bff4b195",
+                    "result_ref": "impact--d16ffd9c-4d83-46d5-b6ac-626ada44458c"
+                }
+            ],
+            "subtasks": [
+                {
+                    "task_ref": "task--f5ea62cf-bcbb-47cd-bc52-42cadd1afbeb",
+                    "next_steps": [
+                        {
+                            "task_ref": "task--88f6cf01-c575-425e-a304-d842edb91bfa",
+                            "condition_type": "required",
+                            "transition_type": "completion"
+                        }
+                    ]
+                },
+                {
+                    "task_ref": "task--88f6cf01-c575-425e-a304-d842edb91bfa",
+                    "sequence_start": false
+                }
+            ],
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T01:37:47.004Z",
+            "spec_version": "2.1",
+            "id": "task--f5ea62cf-bcbb-47cd-bc52-42cadd1afbeb",
+            "object_marking_refs": ["marking-definition--f81f633d-3017-4678-a914-fe82dfc4b42c"],
+            "name": "Start Bypass",
+            "outcome": "successful",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T01:37:47.004Z",
+            "spec_version": "2.1",
+            "id": "task--88f6cf01-c575-425e-a304-d842edb91bfa",
+            "object_marking_refs": ["marking-definition--f81f633d-3017-4678-a914-fe82dfc4b42c"],
+            "name": "Stop Bypass",
+            "outcome": "successful",
+            "end_time": "2022-09-15T21:00:00.000Z",
+            "end_time_fidelity": "hour",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T01:37:47.004Z",
+            "spec_version": "2.1",
+            "id": "task--c9bbe53b-58f2-43a8-b68e-160ea57e61b8",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "name": "Rebuild Domain Controllers",
+            "description": "Attempted to rebuild domain controllers",
+            "outcome": "failed",
+            "start_time": "2022-09-14T16:00:00.000Z",
+            "start_time_fidelity": "hour",
+            "end_time": "2022-09-14T18:00:00.000Z",
+            "end_time_fidelity": "hour",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T01:37:47.004Z",
+            "spec_version": "2.1",
+            "id": "task--f5896140-d53d-4fe8-b1a8-06728dbfdc49",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "task_types": ["reported"],
+            "name": "Reported",
+            "outcome": "successful",
+            "start_time": "2022-09-15T01:00:00.000Z",
+            "start_time_fidelity": "hour",
+            "end_time": "2022-09-15T01:00:00.000Z",
+            "end_time_fidelity": "hour",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-09-15T13:22:53.231Z",
+            "modified": "2022-09-15T13:22:53.231Z",
+            "spec_version": "2.1",
+            "id": "task--6ef78c95-3b5d-4b8d-88c7-a90625cf7a5d",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "name": "Isolate Internet",
+            "description": "Cutoff all servers from internet and kept the wireless in bypass mode so that remediation actions could be taken without risk of C2 commands being run to interfere.",
+            "outcome": "successful",
+            "start_time": "2022-09-14T23:00:00.000Z",
+            "start_time_fidelity": "hour",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-09-15T13:22:53.231Z",
+            "modified": "2022-09-15T13:22:53.231Z",
+            "spec_version": "2.1",
+            "id": "task--1e5701fe-569a-41d4-8014-bfbb07b2c82e",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "task_types": ["external-outreach"],
+            "name": "External Outreach",
+            "description": "Reached out to Shuri IT for additional assistance",
+            "outcome": "successful",
+            "start_time": "2022-09-15T00:00:00.000Z",
+            "start_time_fidelity": "hour",
+            "end_time": "2022-09-15T00:00:00.000Z",
+            "end_time_fidelity": "hour",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-09-15T13:22:53.231Z",
+            "modified": "2022-09-15T13:22:53.231Z",
+            "spec_version": "2.1",
+            "id": "task--980ddd0f-5863-4464-b12e-105e6255eef1",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "task_types": ["external-support", "eradication"],
+            "name": "Received AV Signatures",
+            "description": "Received AV signatures based on images provided to run on all servers as part of recovery effort",
+            "outcome": "successful",
+            "start_time": "2022-09-15T04:00:00.000Z",
+            "start_time_fidelity": "hour",
+            "end_time": "2022-09-15T04:00:00.000Z",
+            "end_time_fidelity": "hour",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-09-15T13:22:53.231Z",
+            "modified": "2022-09-15T13:22:53.231Z",
+            "spec_version": "2.1",
+            "id": "task--993a1e68-8b5c-4f0e-aef7-75c31b85df3e",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "task_types": ["eradication"],
+            "name": "Password Resets Complete",
+            "description": "Completed reset of all administrator passwords",
+            "outcome": "successful",
+            "start_time": "2022-09-15T05:00:00.000Z",
+            "start_time_fidelity": "hour",
+            "end_time": "2022-09-15T05:00:00.000Z",
+            "end_time_fidelity": "hour",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-09-15T13:22:53.231Z",
+            "modified": "2022-09-15T13:22:53.231Z",
+            "spec_version": "2.1",
+            "id": "task--6998596d-28f5-4670-af86-3bc168df1854",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "task_types": ["recovery"],
+            "name": "First Server Restored in Offline Environment",
+            "description": "A minimal set of servers were restored to the IT environment",
+            "outcome": "successful",
+            "start_time": "2022-09-15T08:00:00.000Z",
+            "start_time_fidelity": "hour",
+            "end_time": "2022-09-15T08:00:00.000Z",
+            "end_time_fidelity": "hour",
+            "changed_objects": [
+                {
+                    "state_change_type": "mitigated",
+                    "initial_ref": "impact--d16ffd9c-4d83-46d5-b6ac-626ada44458c",
+                    "result_ref": "impact--e335ce90-039a-49d3-a843-013019c0a074"
+                }
+            ],
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-09-15T13:22:53.231Z",
+            "modified": "2022-09-15T13:22:53.231Z",
+            "spec_version": "2.1",
+            "id": "task--e0accba2-08cd-41fe-b31a-fab30267b222",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "task_types": ["reported"],
+            "name": "Mandatory Update",
+            "outcome": "successful",
+            "start_time": "2022-09-15T13:00:00.000Z",
+            "start_time_fidelity": "hour",
+            "end_time": "2022-09-15T13:00:00.000Z",
+            "end_time_fidelity": "hour",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-09-16T01:38:27.921Z",
+            "modified": "2022-09-16T01:38:27.921Z",
+            "spec_version": "2.1",
+            "id": "task--c2e19028-58ba-4052-87e9-8d26fa1265af",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "task_types": ["investigation"],
+            "name": "Root cause investigation",
+            "description": "Perform root cause investigation",
+            "outcome": "ongoing",
+            "start_time": "2022-09-15T11:00:00.000Z",
+            "start_time_fidelity": "hour",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-09-16T01:38:27.921Z",
+            "modified": "2022-09-16T01:38:27.921Z",
+            "spec_version": "2.1",
+            "id": "task--5e0ce2e7-d603-4c5b-bcde-ded2821c0c8a",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "task_types": ["investigation"],
+            "name": "IT systems restored",
+            "description": "Completed restore of IT systems",
+            "outcome": "successful",
+            "start_time": "2022-09-15T21:00:00.000Z",
+            "start_time_fidelity": "hour",
+            "end_time": "2022-09-15T21:00:00.000Z",
+            "end_time_fidelity": "hour",
+            "changed_objects": [
+                {
+                    "state_change_type": "resolved",
+                    "initial_ref": "impact--e335ce90-039a-49d3-a843-013019c0a074"
+                }
+            ],
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-09-16T01:38:27.921Z",
+            "modified": "2022-09-16T01:38:27.921Z",
+            "spec_version": "2.1",
+            "id": "task--583b5df2-4665-4595-9a10-ed8ddbc18c0f",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "task_types": ["reported"],
+            "name": "Final Mandatory Update",
+            "outcome": "successful",
+            "start_time": "2022-09-16T01:00:00.000Z",
+            "start_time_fidelity": "hour",
+            "end_time": "2022-09-16T01:00:00.000Z",
+            "end_time_fidelity": "hour",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "modified": "2023-05-09T14:00:00.188Z",
+            "name": "Windows Management Instrumentation",
+            "description": "Adversaries may abuse Windows Management Instrumentation (WMI) to execute malicious commands and payloads. WMI is an administration feature that provides a uniform environment to access Windows system components. The WMI service enables both local and remote access, though the latter is facilitated by [Remote Services](https://attack.mitre.org/techniques/T1021) such as [Distributed Component Object Model](https://attack.mitre.org/techniques/T1021/003) (DCOM) and [Windows Remote Management](https://attack.mitre.org/techniques/T1021/006) (WinRM).(Citation: MSDN WMI) Remote WMI over DCOM operates using port 135, whereas WMI over WinRM operates over port 5985 when using HTTP and 5986 for HTTPS.(Citation: MSDN WMI)(Citation: FireEye WMI 2015)\n\nAn adversary can use WMI to interact with local and remote systems and use it as a means to execute various behaviors, such as gathering information for Discovery as well as remote Execution of files as part of Lateral Movement. (Citation: FireEye WMI SANS 2015) (Citation: FireEye WMI 2015)",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "mitre-attack",
+                    "phase_name": "execution"
+                }
+            ],
+            "x_mitre_contributors": [
+                "@ionstorm"
+            ],
+            "x_mitre_deprecated": false,
+            "x_mitre_detection": "Monitor network traffic for WMI connections; the use of WMI in environments that do not typically use WMI may be suspect. Perform process monitoring to capture command-line arguments of \"wmic\" and detect commands that are used to perform remote behavior. (Citation: FireEye WMI 2015)",
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "x_mitre_is_subtechnique": false,
+            "x_mitre_platforms": [
+                "Windows"
+            ],
+            "x_mitre_version": "1.3",
+            "x_mitre_data_sources": [
+                "Process: Process Creation",
+                "Command: Command Execution",
+                "Network Traffic: Network Connection Creation"
+            ],
+            "x_mitre_remote_support": true,
+            "type": "attack-pattern",
+            "id": "attack-pattern--01a5a209-b94c-450b-b7f9-946497d91055",
+            "created": "2017-05-31T21:30:44.329Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "revoked": false,
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1047",
+                    "external_id": "T1047"
+                },
+                {
+                    "source_name": "FireEye WMI 2015",
+                    "description": "Ballenthin, W., et al. (2015). Windows Management Instrumentation (WMI) Offense, Defense, and Forensics. Retrieved March 30, 2016.",
+                    "url": "https://www.fireeye.com/content/dam/fireeye-www/global/en/current-threats/pdfs/wp-windows-management-instrumentation.pdf"
+                },
+                {
+                    "source_name": "FireEye WMI SANS 2015",
+                    "description": "Devon Kerr. (2015). There's Something About WMI. Retrieved May 4, 2020.",
+                    "url": "https://www.fireeye.com/content/dam/fireeye-www/services/pdfs/sans-dfir-2015.pdf"
+                },
+                {
+                    "source_name": "MSDN WMI",
+                    "description": "Microsoft. (n.d.). Windows Management Instrumentation. Retrieved April 27, 2016.",
+                    "url": "https://msdn.microsoft.com/en-us/library/aa394582.aspx"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "x_mitre_attack_spec_version": "3.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "spec_version": "2.1"
+        },
+        {
+            "modified": "2023-05-09T14:00:00.188Z",
+            "name": "SMB/Windows Admin Shares",
+            "description": "Adversaries may use [Valid Accounts](https://attack.mitre.org/techniques/T1078) to interact with a remote network share using Server Message Block (SMB). The adversary may then perform actions as the logged-on user.\n\nSMB is a file, printer, and serial port sharing protocol for Windows machines on the same network or domain. Adversaries may use SMB to interact with file shares, allowing them to move laterally throughout a network. Linux and macOS implementations of SMB typically use Samba.\n\nWindows systems have hidden network shares that are accessible only to administrators and provide the ability for remote file copy and other administrative functions. Example network shares include `C$`, `ADMIN$`, and `IPC$`. Adversaries may use this technique in conjunction with administrator-level [Valid Accounts](https://attack.mitre.org/techniques/T1078) to remotely access a networked system over SMB,(Citation: Wikipedia Server Message Block) to interact with systems using remote procedure calls (RPCs),(Citation: TechNet RPC) transfer files, and run transferred binaries through remote Execution. Example execution techniques that rely on authenticated sessions over SMB/RPC are [Scheduled Task/Job](https://attack.mitre.org/techniques/T1053), [Service Execution](https://attack.mitre.org/techniques/T1569/002), and [Windows Management Instrumentation](https://attack.mitre.org/techniques/T1047). Adversaries can also use NTLM hashes to access administrator shares on systems with [Pass the Hash](https://attack.mitre.org/techniques/T1550/002) and certain configuration and patch levels.(Citation: Microsoft Admin Shares)",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "mitre-attack",
+                    "phase_name": "lateral-movement"
+                }
+            ],
+            "x_mitre_deprecated": false,
+            "x_mitre_detection": "Ensure that proper logging of accounts used to log into systems is turned on and centrally collected. Windows logging is able to collect success/failure for accounts that may be used to move laterally and can be collected using tools such as Windows Event Forwarding. (Citation: Lateral Movement Payne)(Citation: Windows Event Forwarding Payne) Monitor remote login events and associated SMB activity for file transfers and remote process execution. Monitor the actions of remote users who connect to administrative shares. Monitor for use of tools and commands to connect to remote shares, such as [Net](https://attack.mitre.org/software/S0039), on the command-line interface and Discovery techniques that could be used to find remotely accessible systems.(Citation: Medium Detecting WMI Persistence)",
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "x_mitre_is_subtechnique": true,
+            "x_mitre_platforms": [
+                "Windows"
+            ],
+            "x_mitre_version": "1.1",
+            "x_mitre_data_sources": [
+                "Logon Session: Logon Session Creation",
+                "Network Traffic: Network Connection Creation",
+                "Network Traffic: Network Traffic Flow",
+                "Network Share: Network Share Access",
+                "Command: Command Execution"
+            ],
+            "x_mitre_system_requirements": [
+                "SMB enabled; Host/network firewalls not blocking SMB ports between source and destination; Use of domain account in administrator group on remote system or default system admin account."
+            ],
+            "type": "attack-pattern",
+            "id": "attack-pattern--4f9ca633-15c5-463c-9724-bdcd54fde541",
+            "created": "2020-02-11T18:25:28.212Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "revoked": false,
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1021/002",
+                    "external_id": "T1021.002"
+                },
+                {
+                    "source_name": "Medium Detecting WMI Persistence",
+                    "description": "French, D. (2018, October 9). Detecting & Removing an Attacker\u2019s WMI Persistence. Retrieved October 11, 2019.",
+                    "url": "https://medium.com/threatpunter/detecting-removing-wmi-persistence-60ccbb7dff96"
+                },
+                {
+                    "source_name": "TechNet RPC",
+                    "description": "Microsoft. (2003, March 28). What Is RPC?. Retrieved June 12, 2016.",
+                    "url": "https://technet.microsoft.com/en-us/library/cc787851.aspx"
+                },
+                {
+                    "source_name": "Microsoft Admin Shares",
+                    "description": "Microsoft. (n.d.). How to create and delete hidden or administrative shares on client computers. Retrieved November 20, 2014.",
+                    "url": "http://support.microsoft.com/kb/314984"
+                },
+                {
+                    "source_name": "Windows Event Forwarding Payne",
+                    "description": "Payne, J. (2015, November 23). Monitoring what matters - Windows Event Forwarding for everyone (even if you already have a SIEM.). Retrieved February 1, 2016.",
+                    "url": "https://docs.microsoft.com/en-us/archive/blogs/jepayne/monitoring-what-matters-windows-event-forwarding-for-everyone-even-if-you-already-have-a-siem"
+                },
+                {
+                    "source_name": "Lateral Movement Payne",
+                    "description": "Payne, J. (2015, November 26). Tracking Lateral Movement Part One - Special Groups and Specific Service Accounts. Retrieved February 1, 2016.",
+                    "url": "https://docs.microsoft.com/en-us/archive/blogs/jepayne/tracking-lateral-movement-part-one-special-groups-and-specific-service-accounts"
+                },
+                {
+                    "source_name": "Wikipedia Server Message Block",
+                    "description": "Wikipedia. (2017, December 16). Server Message Block. Retrieved December 21, 2017.",
+                    "url": "https://en.wikipedia.org/wiki/Server_Message_Block"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "x_mitre_attack_spec_version": "3.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "spec_version": "2.1"
+        },
+        {
+            "x_mitre_platforms": [
+                "Linux",
+                "macOS",
+                "Windows"
+            ],
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "x_mitre_contributors": [
+                "Ryan Benson, Exabeam",
+                "Barry Shteiman, Exabeam",
+                "Sylvain Gil, Exabeam",
+                "RedHuntLabs, @redhuntlabs"
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "attack-pattern--58a3e6aa-4453-4cc8-a51f-4befe80b31a8",
+            "type": "attack-pattern",
+            "created": "2020-02-12T18:57:36.041Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "T1555.003",
+                    "url": "https://attack.mitre.org/techniques/T1555/003"
+                },
+                {
+                    "source_name": "Talos Olympic Destroyer 2018",
+                    "url": "https://blog.talosintelligence.com/2018/02/olympic-destroyer.html",
+                    "description": "Mercer, W. and Rascagneres, P. (2018, February 12). Olympic Destroyer Takes Aim At Winter Olympics. Retrieved March 14, 2019."
+                },
+                {
+                    "source_name": "Microsoft CryptUnprotectData April 2018",
+                    "url": "https://docs.microsoft.com/en-us/windows/desktop/api/dpapi/nf-dpapi-cryptunprotectdata",
+                    "description": "Microsoft. (2018, April 12). CryptUnprotectData function. Retrieved June 18, 2019."
+                },
+                {
+                    "source_name": "Proofpoint Vega Credential Stealer May 2018",
+                    "url": "https://www.proofpoint.com/us/threat-insight/post/new-vega-stealer-shines-brightly-targeted-campaign",
+                    "description": "Proofpoint. (2018, May 10). New Vega Stealer shines brightly in targeted campaign . Retrieved June 18, 2019."
+                },
+                {
+                    "source_name": "FireEye HawkEye Malware July 2017",
+                    "url": "https://www.fireeye.com/blog/threat-research/2017/07/hawkeye-malware-distributed-in-phishing-campaign.html",
+                    "description": "Swapnil Patil, Yogesh Londhe. (2017, July 25). HawkEye Credential Theft Malware Distributed in Recent Phishing Campaign. Retrieved June 18, 2019."
+                },
+                {
+                    "source_name": "GitHub Mimikittenz July 2016",
+                    "url": "https://github.com/putterpanda/mimikittenz",
+                    "description": "Jamieson O'Reilly (putterpanda). (2016, July 4). mimikittenz. Retrieved June 20, 2019."
+                }
+            ],
+            "modified": "2022-05-11T14:00:00.188Z",
+            "name": "Credentials from Web Browsers",
+            "description": "Adversaries may acquire credentials from web browsers by reading files specific to the target browser.(Citation: Talos Olympic Destroyer 2018) Web browsers commonly save credentials such as website usernames and passwords so that they do not need to be entered manually in the future. Web browsers typically store the credentials in an encrypted format within a credential store; however, methods exist to extract plaintext credentials from web browsers.\n\nFor example, on Windows systems, encrypted credentials may be obtained from Google Chrome by reading a database file, <code>AppData\\Local\\Google\\Chrome\\User Data\\Default\\Login Data</code> and executing a SQL query: <code>SELECT action_url, username_value, password_value FROM logins;</code>. The plaintext password can then be obtained by passing the encrypted credentials to the Windows API function <code>CryptUnprotectData</code>, which uses the victim\u2019s cached logon credentials as the decryption key.(Citation: Microsoft CryptUnprotectData April 2018)\n \nAdversaries have executed similar procedures for common web browsers such as FireFox, Safari, Edge, etc.(Citation: Proofpoint Vega Credential Stealer May 2018)(Citation: FireEye HawkEye Malware July 2017) Windows stores Internet Explorer and Microsoft Edge credentials in Credential Lockers managed by the [Windows Credential Manager](https://attack.mitre.org/techniques/T1555/004).\n\nAdversaries may also acquire credentials by searching web browser process memory for patterns that commonly match credentials.(Citation: GitHub Mimikittenz July 2016)\n\nAfter acquiring credentials from web browsers, adversaries may attempt to recycle the credentials across different systems and/or accounts in order to expand access. This can result in significantly furthering an adversary's objective in cases where credentials gained from web browsers overlap with privileged accounts (e.g. domain administrator).",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "mitre-attack",
+                    "phase_name": "credential-access"
+                }
+            ],
+            "x_mitre_detection": "Identify web browser files that contain credentials such as Google Chrome\u2019s Login Data database file: <code>AppData\\Local\\Google\\Chrome\\User Data\\Default\\Login Data</code>. Monitor file read events of web browser files that contain credentials, especially when the reading process is unrelated to the subject web browser. Monitor process execution logs to include PowerShell Transcription focusing on those that perform a combination of behaviors including reading web browser process memory, utilizing regular expressions, and those that contain numerous keywords for common web applications (Gmail, Twitter, Office365, etc.).",
+            "x_mitre_is_subtechnique": true,
+            "x_mitre_version": "1.1",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "x_mitre_data_sources": [
+                "Process: Process Access",
+                "File: File Access",
+                "Process: OS API Execution",
+                "Command: Command Execution"
+            ],
+            "x_mitre_permissions_required": [
+                "User"
+            ],
+            "spec_version": "2.1",
+            "x_mitre_attack_spec_version": "2.1.0"
+        },
+        {
+            "modified": "2023-05-09T14:00:00.188Z",
+            "name": "Clear Windows Event Logs",
+            "description": "Adversaries may clear Windows Event Logs to hide the activity of an intrusion. Windows Event Logs are a record of a computer's alerts and notifications. There are three system-defined sources of events: System, Application, and Security, with five event types: Error, Warning, Information, Success Audit, and Failure Audit.\n\nThe event logs can be cleared with the following utility commands:\n\n* <code>wevtutil cl system</code>\n* <code>wevtutil cl application</code>\n* <code>wevtutil cl security</code>\n\nThese logs may also be cleared through other mechanisms, such as the event viewer GUI or [PowerShell](https://attack.mitre.org/techniques/T1059/001). For example, adversaries may use the PowerShell command <code>Remove-EventLog -LogName Security</code> to delete the Security EventLog and after reboot, disable future logging. Note: events may still be generated and logged in the .evtx file between the time the command is run and the reboot.(Citation: disable_win_evt_logging)",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "mitre-attack",
+                    "phase_name": "defense-evasion"
+                }
+            ],
+            "x_mitre_contributors": [
+                "Lucas Heiligenstein"
+            ],
+            "x_mitre_deprecated": false,
+            "x_mitre_detection": "Deleting Windows event logs (via native binaries (Citation: Microsoft wevtutil Oct 2017), API functions (Citation: Microsoft EventLog.Clear), or [PowerShell](https://attack.mitre.org/techniques/T1059/001) (Citation: Microsoft Clear-EventLog)) may also generate an alterable event (Event ID 1102: \"The audit log was cleared\").",
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "x_mitre_is_subtechnique": true,
+            "x_mitre_platforms": [
+                "Windows"
+            ],
+            "x_mitre_version": "1.2",
+            "x_mitre_data_sources": [
+                "Command: Command Execution",
+                "Process: OS API Execution",
+                "File: File Deletion"
+            ],
+            "x_mitre_defense_bypassed": [
+                "Anti Virus",
+                "Host Intrusion Prevention Systems",
+                "Log Analysis"
+            ],
+            "x_mitre_system_requirements": [
+                "Clearing the Windows event logs requires Administrator permissions"
+            ],
+            "type": "attack-pattern",
+            "id": "attack-pattern--6495ae23-3ab4-43c5-a94f-5638a2c31fd2",
+            "created": "2020-01-28T17:05:14.707Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "revoked": false,
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1070/001",
+                    "external_id": "T1070.001"
+                },
+                {
+                    "source_name": "disable_win_evt_logging",
+                    "description": "Heiligenstein, L. (n.d.). REP-25: Disable Windows Event Logging. Retrieved April 7, 2022.",
+                    "url": "https://ptylu.github.io/content/report/report.html?report=25"
+                },
+                {
+                    "source_name": "Microsoft Clear-EventLog",
+                    "description": "Microsoft. (n.d.). Clear-EventLog. Retrieved July 2, 2018.",
+                    "url": "https://docs.microsoft.com/powershell/module/microsoft.powershell.management/clear-eventlog"
+                },
+                {
+                    "source_name": "Microsoft EventLog.Clear",
+                    "description": "Microsoft. (n.d.). EventLog.Clear Method (). Retrieved July 2, 2018.",
+                    "url": "https://msdn.microsoft.com/library/system.diagnostics.eventlog.clear.aspx"
+                },
+                {
+                    "source_name": "Microsoft wevtutil Oct 2017",
+                    "description": "Plett, C. et al.. (2017, October 16). wevtutil. Retrieved July 2, 2018.",
+                    "url": "https://docs.microsoft.com/windows-server/administration/windows-commands/wevtutil"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "x_mitre_attack_spec_version": "3.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "spec_version": "2.1"
+        },
+        {
+            "modified": "2023-05-09T14:00:00.188Z",
+            "name": "LSASS Memory",
+            "description": "Adversaries may attempt to access credential material stored in the process memory of the Local Security Authority Subsystem Service (LSASS). After a user logs on, the system generates and stores a variety of credential materials in LSASS process memory. These credential materials can be harvested by an administrative user or SYSTEM and used to conduct [Lateral Movement](https://attack.mitre.org/tactics/TA0008) using [Use Alternate Authentication Material](https://attack.mitre.org/techniques/T1550).\n\nAs well as in-memory techniques, the LSASS process memory can be dumped from the target host and analyzed on a local system.\n\nFor example, on the target host use procdump:\n\n* <code>procdump -ma lsass.exe lsass_dump</code>\n\nLocally, mimikatz can be run using:\n\n* <code>sekurlsa::Minidump lsassdump.dmp</code>\n* <code>sekurlsa::logonPasswords</code>\n\nBuilt-in Windows tools such as comsvcs.dll can also be used:\n\n* <code>rundll32.exe C:\\Windows\\System32\\comsvcs.dll MiniDump PID  lsass.dmp full</code>(Citation: Volexity Exchange Marauder March 2021)(Citation: Symantec Attacks Against Government Sector)\n\n\nWindows Security Support Provider (SSP) DLLs are loaded into LSASS process at system start. Once loaded into the LSA, SSP DLLs have access to encrypted and plaintext passwords that are stored in Windows, such as any logged-on user's Domain password or smart card PINs. The SSP configuration is stored in two Registry keys: <code>HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa\\Security Packages</code> and <code>HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa\\OSConfig\\Security Packages</code>. An adversary may modify these Registry keys to add new SSPs, which will be loaded the next time the system boots, or when the AddSecurityPackage Windows API function is called.(Citation: Graeber 2014)\n\nThe following SSPs can be used to access credentials:\n\n* Msv: Interactive logons, batch logons, and service logons are done through the MSV authentication package.\n* Wdigest: The Digest Authentication protocol is designed for use with Hypertext Transfer Protocol (HTTP) and Simple Authentication Security Layer (SASL) exchanges.(Citation: TechNet Blogs Credential Protection)\n* Kerberos: Preferred for mutual client-server domain authentication in Windows 2000 and later.\n* CredSSP:  Provides SSO and Network Level Authentication for Remote Desktop Services.(Citation: TechNet Blogs Credential Protection)\n",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "mitre-attack",
+                    "phase_name": "credential-access"
+                }
+            ],
+            "x_mitre_contributors": [
+                "Edward Millington",
+                "Ed Williams, Trustwave, SpiderLabs"
+            ],
+            "x_mitre_deprecated": false,
+            "x_mitre_detection": "Monitor for unexpected processes interacting with LSASS.exe.(Citation: Medium Detecting Attempts to Steal Passwords from Memory) Common credential dumpers such as Mimikatz access LSASS.exe by opening the process, locating the LSA secrets key, and decrypting the sections in memory where credential details are stored. Credential dumpers may also use methods for reflective [Process Injection](https://attack.mitre.org/techniques/T1055) to reduce potential indicators of malicious activity.\n\nOn Windows 8.1 and Windows Server 2012 R2, monitor Windows Logs for LSASS.exe creation to verify that LSASS started as a protected process.\n\nMonitor processes and command-line arguments for program execution that may be indicative of credential dumping. Remote access tools may contain built-in features or incorporate existing tools like Mimikatz. PowerShell scripts also exist that contain credential dumping functionality, such as PowerSploit's Invoke-Mimikatz module,(Citation: Powersploit) which may require additional logging features to be configured in the operating system to collect necessary information for analysis.",
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "x_mitre_is_subtechnique": true,
+            "x_mitre_platforms": [
+                "Windows"
+            ],
+            "x_mitre_version": "1.2",
+            "x_mitre_data_sources": [
+                "Process: Process Creation",
+                "Command: Command Execution",
+                "Process: Process Access",
+                "Process: OS API Execution"
+            ],
+            "type": "attack-pattern",
+            "id": "attack-pattern--65f2d882-3f41-4d48-8a06-29af77ec9f90",
+            "created": "2020-02-11T18:41:44.783Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "revoked": false,
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1003/001",
+                    "external_id": "T1003.001"
+                },
+                {
+                    "source_name": "Medium Detecting Attempts to Steal Passwords from Memory",
+                    "description": "French, D. (2018, October 2). Detecting Attempts to Steal Passwords from Memory. Retrieved October 11, 2019.",
+                    "url": "https://medium.com/threatpunter/detecting-attempts-to-steal-passwords-from-memory-558f16dce4ea"
+                },
+                {
+                    "source_name": "Graeber 2014",
+                    "description": "Graeber, M. (2014, October). Analysis of Malicious Security Support Provider DLLs. Retrieved March 1, 2017.",
+                    "url": "http://docplayer.net/20839173-Analysis-of-malicious-security-support-provider-dlls.html"
+                },
+                {
+                    "source_name": "Volexity Exchange Marauder March 2021",
+                    "description": "Gruzweig, J. et al. (2021, March 2). Operation Exchange Marauder: Active Exploitation of Multiple Zero-Day Microsoft Exchange Vulnerabilities. Retrieved March 3, 2021.",
+                    "url": "https://www.volexity.com/blog/2021/03/02/active-exploitation-of-microsoft-exchange-zero-day-vulnerabilities/"
+                },
+                {
+                    "source_name": "Powersploit",
+                    "description": "PowerSploit. (n.d.). Retrieved December 4, 2014.",
+                    "url": "https://github.com/mattifestation/PowerSploit"
+                },
+                {
+                    "source_name": "Symantec Attacks Against Government Sector",
+                    "description": "Symantec. (2021, June 10). Attacks Against the Government Sector. Retrieved September 28, 2021.",
+                    "url": "https://symantec.broadcom.com/hubfs/Attacks-Against-Government-Sector.pdf"
+                },
+                {
+                    "source_name": "TechNet Blogs Credential Protection",
+                    "description": "Wilson, B. (2016, April 18). The Importance of KB2871997 and KB2928120 for Credential Protection. Retrieved April 11, 2018.",
+                    "url": "https://blogs.technet.microsoft.com/askpfeplat/2016/04/18/the-importance-of-kb2871997-and-kb2928120-for-credential-protection/"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "x_mitre_attack_spec_version": "3.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "spec_version": "2.1"
+        },
+        {
+            "modified": "2023-05-09T14:00:00.188Z",
+            "name": "System Network Configuration Discovery",
+            "description": "Adversaries may look for details about the network configuration and settings, such as IP and/or MAC addresses, of systems they access or through information discovery of remote systems. Several operating system administration utilities exist that can be used to gather this information. Examples include [Arp](https://attack.mitre.org/software/S0099), [ipconfig](https://attack.mitre.org/software/S0100)/[ifconfig](https://attack.mitre.org/software/S0101), [nbtstat](https://attack.mitre.org/software/S0102), and [route](https://attack.mitre.org/software/S0103).\n\nAdversaries may also leverage a [Network Device CLI](https://attack.mitre.org/techniques/T1059/008) on network devices to gather information about configurations and settings, such as IP addresses of configured interfaces and static/dynamic routes (e.g. <code>show ip route</code>, <code>show ip interface</code>).(Citation: US-CERT-TA18-106A)(Citation: Mandiant APT41 Global Intrusion )\n\nAdversaries may use the information from [System Network Configuration Discovery](https://attack.mitre.org/techniques/T1016) during automated discovery to shape follow-on behaviors, including determining certain access within the target network and what actions to do next. ",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "mitre-attack",
+                    "phase_name": "discovery"
+                }
+            ],
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_contributors": [
+                "Austin Clark, @c2defense"
+            ],
+            "x_mitre_deprecated": false,
+            "x_mitre_detection": "System and network discovery techniques normally occur throughout an operation as an adversary learns the environment. Data and events should not be viewed in isolation, but as part of a chain of behavior that could lead to other activities, such as Lateral Movement, based on the information obtained.\n\nMonitor processes and command-line arguments for actions that could be taken to gather system and network information. Remote access tools with built-in features may interact directly with the Windows API to gather information. Further, {{LinkById|T1059.008} commands may also be used to gather system and network information with built-in features native to the network device platform.  Monitor CLI activity for unexpected or unauthorized use  commands being run by non-standard users from non-standard locations.  Information may also be acquired through Windows system management tools such as [Windows Management Instrumentation](https://attack.mitre.org/techniques/T1047) and [PowerShell](https://attack.mitre.org/techniques/T1059/001).",
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "x_mitre_is_subtechnique": false,
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "x_mitre_platforms": [
+                "Linux",
+                "macOS",
+                "Windows",
+                "Network"
+            ],
+            "x_mitre_version": "1.5",
+            "x_mitre_data_sources": [
+                "Process: OS API Execution",
+                "Command: Command Execution",
+                "Process: Process Creation",
+                "Script: Script Execution"
+            ],
+            "type": "attack-pattern",
+            "id": "attack-pattern--707399d6-ab3e-4963-9315-d9d3818cd6a0",
+            "created": "2017-05-31T21:30:27.342Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "revoked": false,
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1016",
+                    "external_id": "T1016"
+                },
+                {
+                    "source_name": "Mandiant APT41 Global Intrusion ",
+                    "description": "Gyler, C.,Perez D.,Jones, S.,Miller, S.. (2021, February 25). This is Not a Test: APT41 Initiates Global Intrusion Campaign Using Multiple Exploits. Retrieved February 17, 2022.",
+                    "url": "https://www.mandiant.com/resources/apt41-initiates-global-intrusion-campaign-using-multiple-exploits"
+                },
+                {
+                    "source_name": "US-CERT-TA18-106A",
+                    "description": "US-CERT. (2018, April 20). Alert (TA18-106A) Russian State-Sponsored Cyber Actors Targeting Network Infrastructure Devices. Retrieved October 19, 2020.",
+                    "url": "https://www.us-cert.gov/ncas/alerts/TA18-106A"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "spec_version": "2.1"
+        },
+        {
+            "modified": "2023-05-09T14:00:00.188Z",
+            "name": "Phishing",
+            "description": "Adversaries may send phishing messages to gain access to victim systems. All forms of phishing are electronically delivered social engineering. Phishing can be targeted, known as spearphishing. In spearphishing, a specific individual, company, or industry will be targeted by the adversary. More generally, adversaries can conduct non-targeted phishing, such as in mass malware spam campaigns.\n\nAdversaries may send victims emails containing malicious attachments or links, typically to execute malicious code on victim systems. Phishing may also be conducted via third-party services, like social media platforms. Phishing may also involve social engineering techniques, such as posing as a trusted source, as well as evasive techniques such as removing or manipulating emails or metadata/headers from compromised accounts being abused to send messages (e.g., [Email Hiding Rules](https://attack.mitre.org/techniques/T1564/008)).(Citation: Microsoft OAuth Spam 2022)(Citation: Palo Alto Unit 42 VBA Infostealer 2014) Another way to accomplish this is by forging or spoofing(Citation: Proofpoint-spoof) the identity of the sender which can be used to fool both the human recipient as well as automated security tools.(Citation: cyberproof-double-bounce) \n\nVictims may also receive phishing messages that instruct them to call a phone number where they are directed to visit a malicious URL, download malware,(Citation: sygnia Luna Month)(Citation: CISA Remote Monitoring and Management Software) or install adversary-accessible remote management tools onto their computer (i.e., [User Execution](https://attack.mitre.org/techniques/T1204)).(Citation: Unit42 Luna Moth)",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "mitre-attack",
+                    "phase_name": "initial-access"
+                }
+            ],
+            "x_mitre_contributors": [
+                "Philip Winther",
+                "Ohad Zaidenberg, @ohad_mz",
+                "Liora Itkin",
+                "Liran Ravich, CardinalOps",
+                "Scott Cook, Capital One"
+            ],
+            "x_mitre_deprecated": false,
+            "x_mitre_detection": "Network intrusion detection systems and email gateways can be used to detect phishing with malicious attachments in transit. Detonation chambers may also be used to identify malicious attachments. Solutions can be signature and behavior based, but adversaries may construct attachments in a way to avoid these systems.\n\nFiltering based on DKIM+SPF or header analysis can help detect when the email sender is spoofed.(Citation: Microsoft Anti Spoofing)(Citation: ACSC Email Spoofing)\n\nURL inspection within email (including expanding shortened links) can help detect links leading to known malicious sites. Detonation chambers can be used to detect these links and either automatically go to these sites to determine if they're potentially malicious, or wait and capture the content if a user visits the link.\n\nBecause most common third-party services used for phishing via service leverage TLS encryption, SSL/TLS inspection is generally required to detect the initial communication/delivery. With SSL/TLS inspection intrusion detection signatures or other security gateway appliances may be able to detect malware.\n\nAnti-virus can potentially detect malicious documents and files that are downloaded on the user's computer. Many possible detections of follow-on behavior may take place once [User Execution](https://attack.mitre.org/techniques/T1204) occurs.",
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "x_mitre_is_subtechnique": false,
+            "x_mitre_platforms": [
+                "Linux",
+                "macOS",
+                "Windows",
+                "SaaS",
+                "Office 365",
+                "Google Workspace"
+            ],
+            "x_mitre_version": "2.3",
+            "x_mitre_data_sources": [
+                "Application Log: Application Log Content",
+                "File: File Creation",
+                "Network Traffic: Network Traffic Content",
+                "Network Traffic: Network Traffic Flow"
+            ],
+            "type": "attack-pattern",
+            "id": "attack-pattern--a62a8db3-f23a-4d8f-afd6-9dbc77e7813b",
+            "created": "2020-03-02T18:45:07.892Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "revoked": false,
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1566",
+                    "external_id": "T1566"
+                },
+                {
+                    "source_name": "ACSC Email Spoofing",
+                    "description": "Australian Cyber Security Centre. (2012, December). Mitigating Spoofed Emails Using Sender Policy Framework. Retrieved October 19, 2020.",
+                    "url": "https://www.cyber.gov.au/sites/default/files/2019-03/spoof_email_sender_policy_framework.pdf"
+                },
+                {
+                    "source_name": "CISA Remote Monitoring and Management Software",
+                    "description": "CISA. (n.d.). Protecting Against Malicious Use of Remote Monitoring and Management Software. Retrieved February 2, 2023.",
+                    "url": "https://www.cisa.gov/uscert/ncas/alerts/aa23-025a"
+                },
+                {
+                    "source_name": "cyberproof-double-bounce",
+                    "description": "Itkin, Liora. (2022, September 1). Double-bounced attacks with email spoofing . Retrieved February 24, 2023.",
+                    "url": "https://blog.cyberproof.com/blog/double-bounced-attacks-with-email-spoofing-2022-trends"
+                },
+                {
+                    "source_name": "Unit42 Luna Moth",
+                    "description": "Kristopher Russo. (n.d.). Luna Moth Callback Phishing Campaign. Retrieved February 2, 2023.",
+                    "url": "https://unit42.paloaltonetworks.com/luna-moth-callback-phishing/"
+                },
+                {
+                    "source_name": "Microsoft Anti Spoofing",
+                    "description": "Microsoft. (2020, October 13). Anti-spoofing protection in EOP. Retrieved October 19, 2020.",
+                    "url": "https://docs.microsoft.com/en-us/microsoft-365/security/office-365-security/anti-spoofing-protection?view=o365-worldwide"
+                },
+                {
+                    "source_name": "Microsoft OAuth Spam 2022",
+                    "description": "Microsoft. (2023, September 22). Malicious OAuth applications abuse cloud email services to spread spam. Retrieved March 13, 2023.",
+                    "url": "https://www.microsoft.com/en-us/security/blog/2022/09/22/malicious-oauth-applications-used-to-compromise-email-servers-and-spread-spam/"
+                },
+                {
+                    "source_name": "sygnia Luna Month",
+                    "description": "Oren Biderman, Tomer Lahiyani, Noam Lifshitz, Ori Porag. (n.d.). LUNA MOTH: THE THREAT ACTORS BEHIND RECENT FALSE SUBSCRIPTION SCAMS. Retrieved February 2, 2023.",
+                    "url": "https://blog.sygnia.co/luna-moth-false-subscription-scams"
+                },
+                {
+                    "source_name": "Proofpoint-spoof",
+                    "description": "Proofpoint. (n.d.). What Is Email Spoofing?. Retrieved February 24, 2023.",
+                    "url": "https://www.proofpoint.com/us/threat-reference/email-spoofing"
+                },
+                {
+                    "source_name": "Palo Alto Unit 42 VBA Infostealer 2014",
+                    "description": "Vicky Ray and Rob Downs. (2014, October 29). Examining a VBA-Initiated Infostealer Campaign. Retrieved March 13, 2023.",
+                    "url": "https://unit42.paloaltonetworks.com/examining-vba-initiated-infostealer-campaign/"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "x_mitre_attack_spec_version": "3.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "spec_version": "2.1"
+        },
+        {
+            "x_mitre_platforms": [
+                "Linux",
+                "macOS",
+                "Windows"
+            ],
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "type": "attack-pattern",
+            "id": "attack-pattern--bf90d72c-c00b-45e3-b3aa-68560560d4c5",
+            "created": "2020-03-11T21:01:00.959Z",
+            "x_mitre_version": "1.2",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "T1570",
+                    "url": "https://attack.mitre.org/techniques/T1570"
+                },
+                {
+                    "source_name": "Unit42 LockerGoga 2019",
+                    "url": "https://unit42.paloaltonetworks.com/born-this-way-origins-of-lockergoga/",
+                    "description": "Harbison, M. (2019, March 26). Born This Way? Origins of LockerGoga. Retrieved April 16, 2019."
+                }
+            ],
+            "x_mitre_deprecated": false,
+            "revoked": false,
+            "description": "Adversaries may transfer tools or other files between systems in a compromised environment. Once brought into the victim environment (i.e. [Ingress Tool Transfer](https://attack.mitre.org/techniques/T1105)) files may then be copied from one system to another to stage adversary tools or other files over the course of an operation. Adversaries may copy files between internal victim systems to support lateral movement using inherent file sharing protocols such as file sharing over [SMB/Windows Admin Shares](https://attack.mitre.org/techniques/T1021/002) to connected network shares or with authenticated connections via [Remote Desktop Protocol](https://attack.mitre.org/techniques/T1021/001).(Citation: Unit42 LockerGoga 2019)\n\nFiles can also be transferred using native or otherwise present tools on the victim system, such as scp, rsync, curl, sftp, and [ftp](https://attack.mitre.org/software/S0095).",
+            "modified": "2022-05-11T14:00:00.188Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "name": "Lateral Tool Transfer",
+            "x_mitre_detection": "Monitor for file creation and files transferred within a network using protocols such as SMB or FTP. Unusual processes with internal network connections creating files on-system may be suspicious. Consider monitoring for abnormal usage of utilities and command-line arguments that may be used in support of remote transfer of files. Considering monitoring for alike file hashes or characteristics (ex: filename) that are created on multiple hosts.",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "mitre-attack",
+                    "phase_name": "lateral-movement"
+                }
+            ],
+            "x_mitre_is_subtechnique": false,
+            "x_mitre_data_sources": [
+                "Network Traffic: Network Traffic Flow",
+                "Process: Process Creation",
+                "File: File Metadata",
+                "Network Traffic: Network Traffic Content",
+                "Named Pipe: Named Pipe Metadata",
+                "Network Share: Network Share Access",
+                "Command: Command Execution",
+                "File: File Creation"
+            ],
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "spec_version": "2.1"
+        },
+        {
+            "modified": "2023-05-09T14:00:00.188Z",
+            "name": "Remote System Discovery",
+            "description": "Adversaries may attempt to get a listing of other systems by IP address, hostname, or other logical identifier on a network that may be used for Lateral Movement from the current system. Functionality could exist within remote access tools to enable this, but utilities available on the operating system could also be used such as  [Ping](https://attack.mitre.org/software/S0097) or <code>net view</code> using [Net](https://attack.mitre.org/software/S0039).\n\nAdversaries may also analyze data from local host files (ex: <code>C:\\Windows\\System32\\Drivers\\etc\\hosts</code> or <code>/etc/hosts</code>) or other passive means (such as local [Arp](https://attack.mitre.org/software/S0099) cache entries) in order to discover the presence of remote systems in an environment.\n\nAdversaries may also target discovery of network infrastructure as well as leverage [Network Device CLI](https://attack.mitre.org/techniques/T1059/008) commands on network devices to gather detailed information about systems within a network (e.g. <code>show cdp neighbors</code>, <code>show arp</code>).(Citation: US-CERT-TA18-106A)(Citation: CISA AR21-126A FIVEHANDS May 2021)  \n",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "mitre-attack",
+                    "phase_name": "discovery"
+                }
+            ],
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_contributors": [
+                "Daniel Stepanic, Elastic",
+                "RedHuntLabs, @redhuntlabs",
+                "Austin Clark, @c2defense"
+            ],
+            "x_mitre_deprecated": false,
+            "x_mitre_detection": "System and network discovery techniques normally occur throughout an operation as an adversary learns the environment. Data and events should not be viewed in isolation, but as part of a chain of behavior that could lead to other activities, such as Lateral Movement, based on the information obtained.\n\nNormal, benign system and network events related to legitimate remote system discovery may be uncommon, depending on the environment and how they are used. Monitor processes and command-line arguments for actions that could be taken to gather system and network information. Remote access tools with built-in features may interact directly with the Windows API to gather information. Information may also be acquired through Windows system management tools such as [Windows Management Instrumentation](https://attack.mitre.org/techniques/T1047) and [PowerShell](https://attack.mitre.org/techniques/T1059/001).\n\nMonitor for processes that can be used to discover remote systems, such as <code>ping.exe</code> and <code>tracert.exe</code>, especially when executed in quick succession.(Citation: Elastic - Koadiac Detection with EQL)",
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "x_mitre_is_subtechnique": false,
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "x_mitre_platforms": [
+                "Linux",
+                "macOS",
+                "Windows",
+                "Network"
+            ],
+            "x_mitre_version": "3.4",
+            "x_mitre_data_sources": [
+                "Network Traffic: Network Connection Creation",
+                "Command: Command Execution",
+                "File: File Access",
+                "Process: Process Creation"
+            ],
+            "type": "attack-pattern",
+            "id": "attack-pattern--e358d692-23c0-4a31-9eb6-ecc13a8d7735",
+            "created": "2017-05-31T21:30:28.187Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "revoked": false,
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1018",
+                    "external_id": "T1018"
+                },
+                {
+                    "source_name": "CISA AR21-126A FIVEHANDS May 2021",
+                    "description": "CISA. (2021, May 6). Analysis Report (AR21-126A) FiveHands Ransomware. Retrieved June 7, 2021.",
+                    "url": "https://us-cert.cisa.gov/ncas/analysis-reports/ar21-126a"
+                },
+                {
+                    "source_name": "Elastic - Koadiac Detection with EQL",
+                    "description": "Stepanic, D.. (2020, January 13). Embracing offensive tooling: Building detections against Koadic using EQL. Retrieved November 30, 2020.",
+                    "url": "https://www.elastic.co/blog/embracing-offensive-tooling-building-detections-against-koadic-using-eql"
+                },
+                {
+                    "source_name": "US-CERT-TA18-106A",
+                    "description": "US-CERT. (2018, April 20). Alert (TA18-106A) Russian State-Sponsored Cyber Actors Targeting Network Infrastructure Devices. Retrieved October 19, 2020.",
+                    "url": "https://www.us-cert.gov/ncas/alerts/TA18-106A"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "spec_version": "2.1"
+        },
+        {
+            "x_mitre_platforms": [
+                "Windows"
+            ],
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "attack-pattern--f1951e8a-500e-4a26-8803-76d95c4554b4",
+            "type": "attack-pattern",
+            "created": "2020-03-10T18:33:36.159Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "T1569.002",
+                    "url": "https://attack.mitre.org/techniques/T1569/002"
+                },
+                {
+                    "source_name": "Microsoft Service Control Manager",
+                    "url": "https://docs.microsoft.com/windows/win32/services/service-control-manager",
+                    "description": "Microsoft. (2018, May 31). Service Control Manager. Retrieved March 28, 2020."
+                },
+                {
+                    "url": "https://technet.microsoft.com/en-us/sysinternals/bb897553.aspx",
+                    "description": "Russinovich, M. (2014, May 2). Windows Sysinternals PsExec v2.11. Retrieved May 13, 2015.",
+                    "source_name": "Russinovich Sysinternals"
+                }
+            ],
+            "modified": "2022-04-25T14:00:00.188Z",
+            "name": "Service Execution",
+            "description": "Adversaries may abuse the Windows service control manager to execute malicious commands or payloads. The Windows service control manager (<code>services.exe</code>) is an interface to manage and manipulate services.(Citation: Microsoft Service Control Manager) The service control manager is accessible to users via GUI components as well as system utilities such as <code>sc.exe</code> and [Net](https://attack.mitre.org/software/S0039).\n\n[PsExec](https://attack.mitre.org/software/S0029) can also be used to execute commands or payloads via a temporary Windows service created through the service control manager API.(Citation: Russinovich Sysinternals) Tools such as [PsExec](https://attack.mitre.org/software/S0029) and <code>sc.exe</code> can accept remote servers as arguments and may be used to conduct remote execution.\n\nAdversaries may leverage these mechanisms to execute malicious content. This can be done by either executing a new or modified service. This technique is the execution used in conjunction with [Windows Service](https://attack.mitre.org/techniques/T1543/003) during service persistence or privilege escalation.",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "mitre-attack",
+                    "phase_name": "execution"
+                }
+            ],
+            "x_mitre_detection": "Changes to service Registry entries and command line invocation of tools capable of modifying services that do not correlate with known software, patch cycles, etc., may be suspicious. If a service is used only to execute a binary or script and not to persist, then it will likely be changed back to its original form shortly after the service is restarted so the service is not left broken, as is the case with the common administrator tool [PsExec](https://attack.mitre.org/software/S0029).",
+            "x_mitre_is_subtechnique": true,
+            "x_mitre_version": "1.1",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "x_mitre_data_sources": [
+                "Process: Process Creation",
+                "Service: Service Creation",
+                "Command: Command Execution",
+                "Windows Registry: Windows Registry Key Modification"
+            ],
+            "x_mitre_permissions_required": [
+                "Administrator",
+                "SYSTEM"
+            ],
+            "x_mitre_remote_support": true,
+            "spec_version": "2.1",
+            "x_mitre_attack_spec_version": "2.1.0"
+        },
+        {
+            "x_mitre_platforms": [
+                "Windows",
+                "Linux",
+                "macOS"
+            ],
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "type": "attack-pattern",
+            "id": "attack-pattern--20fb2507-d71c-455d-9b6d-6104461cf26b",
+            "created": "2019-03-29T19:00:55.901Z",
+            "x_mitre_version": "1.2",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "T1489",
+                    "url": "https://attack.mitre.org/techniques/T1489"
+                },
+                {
+                    "source_name": "SecureWorks WannaCry Analysis",
+                    "url": "https://www.secureworks.com/research/wcry-ransomware-analysis",
+                    "description": "Counter Threat Unit Research Team. (2017, May 18). WCry Ransomware Analysis. Retrieved March 26, 2019."
+                },
+                {
+                    "source_name": "Talos Olympic Destroyer 2018",
+                    "url": "https://blog.talosintelligence.com/2018/02/olympic-destroyer.html",
+                    "description": "Mercer, W. and Rascagneres, P. (2018, February 12). Olympic Destroyer Takes Aim At Winter Olympics. Retrieved March 14, 2019."
+                },
+                {
+                    "source_name": "Novetta Blockbuster",
+                    "url": "https://web.archive.org/web/20160226161828/https://www.operationblockbuster.com/wp-content/uploads/2016/02/Operation-Blockbuster-Report.pdf",
+                    "description": "Novetta Threat Research Group. (2016, February 24). Operation Blockbuster: Unraveling the Long Thread of the Sony Attack. Retrieved February 25, 2016."
+                }
+            ],
+            "x_mitre_deprecated": false,
+            "revoked": false,
+            "description": "Adversaries may stop or disable services on a system to render those services unavailable to legitimate users. Stopping critical services or processes can inhibit or stop response to an incident or aid in the adversary's overall objectives to cause damage to the environment.(Citation: Talos Olympic Destroyer 2018)(Citation: Novetta Blockbuster) \n\nAdversaries may accomplish this by disabling individual services of high importance to an organization, such as <code>MSExchangeIS</code>, which will make Exchange content inaccessible (Citation: Novetta Blockbuster). In some cases, adversaries may stop or disable many or all services to render systems unusable.(Citation: Talos Olympic Destroyer 2018) Services or processes may not allow for modification of their data stores while running. Adversaries may stop services or processes in order to conduct [Data Destruction](https://attack.mitre.org/techniques/T1485) or [Data Encrypted for Impact](https://attack.mitre.org/techniques/T1486) on the data stores of services like Exchange and SQL Server.(Citation: SecureWorks WannaCry Analysis)",
+            "modified": "2022-11-08T14:00:00.188Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "name": "Service Stop",
+            "x_mitre_detection": "Monitor processes and command-line arguments to see if critical processes are terminated or stop running.\n\nMonitor for edits for modifications to services and startup programs that correspond to services of high importance. Look for changes to services that do not correlate with known software, patch cycles, etc. Windows service information is stored in the Registry at <code>HKLM\\SYSTEM\\CurrentControlSet\\Services</code>. Systemd service unit files are stored within the /etc/systemd/system, /usr/lib/systemd/system/, and /home/.config/systemd/user/ directories, as well as associated symbolic links.\n\nAlterations to the service binary path or the service startup type changed to disabled may be suspicious.\n\nRemote access tools with built-in features may interact directly with the Windows API to perform these functions outside of typical system utilities. For example, <code>ChangeServiceConfigW</code> may be used by an adversary to prevent services from starting.(Citation: Talos Olympic Destroyer 2018)",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "mitre-attack",
+                    "phase_name": "impact"
+                }
+            ],
+            "x_mitre_is_subtechnique": false,
+            "x_mitre_data_sources": [
+                "Process: Process Termination",
+                "Process: OS API Execution",
+                "Command: Command Execution",
+                "Service: Service Metadata",
+                "Windows Registry: Windows Registry Key Modification",
+                "File: File Modification",
+                "Process: Process Creation"
+            ],
+            "x_mitre_impact_type": [
+                "Availability"
+            ],
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "spec_version": "2.1"
+        },
+        {
+            "x_mitre_platforms": [
+                "Windows",
+                "IaaS",
+                "Linux",
+                "macOS"
+            ],
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "x_mitre_contributors": [
+                "Brent Murphy, Elastic",
+                "David French, Elastic",
+                "Syed Ummar Farooqh, McAfee",
+                "Prasad Somasamudram, McAfee",
+                "Sekhar Sarukkai, McAfee",
+                "Varonis Threat Labs"
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "attack-pattern--d45a3d09-b3cf-48f4-9f0f-f521ee5cb05c",
+            "type": "attack-pattern",
+            "created": "2019-03-14T18:47:17.701Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "T1485",
+                    "url": "https://attack.mitre.org/techniques/T1485"
+                },
+                {
+                    "description": "Symantec. (2012, August 16). The Shamoon Attacks. Retrieved March 14, 2019.",
+                    "url": "https://www.symantec.com/connect/blogs/shamoon-attacks",
+                    "source_name": "Symantec Shamoon 2012"
+                },
+                {
+                    "url": "https://www.fireeye.com/blog/threat-research/2016/11/fireeye_respondsto.html",
+                    "description": "FireEye. (2016, November 30). FireEye Responds to Wave of Destructive Cyber Attacks in Gulf Region. Retrieved January 11, 2017.",
+                    "source_name": "FireEye Shamoon Nov 2016"
+                },
+                {
+                    "url": "http://researchcenter.paloaltonetworks.com/2016/11/unit42-shamoon-2-return-disttrack-wiper/",
+                    "description": "Falcone, R.. (2016, November 30). Shamoon 2: Return of the Disttrack Wiper. Retrieved January 11, 2017.",
+                    "source_name": "Palo Alto Shamoon Nov 2016"
+                },
+                {
+                    "source_name": "Kaspersky StoneDrill 2017",
+                    "url": "https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2018/03/07180722/Report_Shamoon_StoneDrill_final.pdf",
+                    "description": "Kaspersky Lab. (2017, March 7). From Shamoon to StoneDrill: Wipers attacking Saudi organizations and beyond. Retrieved March 14, 2019."
+                },
+                {
+                    "description": "Falcone, R. (2018, December 13). Shamoon 3 Targets Oil and Gas Organization. Retrieved March 14, 2019.",
+                    "url": "https://unit42.paloaltonetworks.com/shamoon-3-targets-oil-gas-organization/",
+                    "source_name": "Unit 42 Shamoon3 2018"
+                },
+                {
+                    "source_name": "Talos Olympic Destroyer 2018",
+                    "url": "https://blog.talosintelligence.com/2018/02/olympic-destroyer.html",
+                    "description": "Mercer, W. and Rascagneres, P. (2018, February 12). Olympic Destroyer Takes Aim At Winter Olympics. Retrieved March 14, 2019."
+                },
+                {
+                    "source_name": "Data Destruction - Threat Post",
+                    "url": "https://threatpost.com/hacker-puts-hosting-service-code-spaces-out-of-business/106761/",
+                    "description": "Mimoso, M.. (2014, June 18). Hacker Puts Hosting Service Code Spaces Out of Business. Retrieved December 15, 2020."
+                },
+                {
+                    "source_name": "DOJ  - Cisco Insider",
+                    "url": "https://www.justice.gov/usao-ndca/pr/san-jose-man-pleads-guilty-damaging-cisco-s-network",
+                    "description": "DOJ. (2020, August 26). San Jose Man Pleads Guilty To Damaging Cisco\u2019s Network. Retrieved December 15, 2020."
+                }
+            ],
+            "modified": "2022-04-25T14:00:00.188Z",
+            "name": "Data Destruction",
+            "description": "Adversaries may destroy data and files on specific systems or in large numbers on a network to interrupt availability to systems, services, and network resources. Data destruction is likely to render stored data irrecoverable by forensic techniques through overwriting files or data on local and remote drives.(Citation: Symantec Shamoon 2012)(Citation: FireEye Shamoon Nov 2016)(Citation: Palo Alto Shamoon Nov 2016)(Citation: Kaspersky StoneDrill 2017)(Citation: Unit 42 Shamoon3 2018)(Citation: Talos Olympic Destroyer 2018) Common operating system file deletion commands such as <code>del</code> and <code>rm</code> often only remove pointers to files without wiping the contents of the files themselves, making the files recoverable by proper forensic methodology. This behavior is distinct from [Disk Content Wipe](https://attack.mitre.org/techniques/T1561/001) and [Disk Structure Wipe](https://attack.mitre.org/techniques/T1561/002) because individual files are destroyed rather than sections of a storage disk or the disk's logical structure.\n\nAdversaries may attempt to overwrite files and directories with randomly generated data to make it irrecoverable.(Citation: Kaspersky StoneDrill 2017)(Citation: Unit 42 Shamoon3 2018) In some cases politically oriented image files have been used to overwrite data.(Citation: FireEye Shamoon Nov 2016)(Citation: Palo Alto Shamoon Nov 2016)(Citation: Kaspersky StoneDrill 2017)\n\nTo maximize impact on the target organization in operations where network-wide availability interruption is the goal, malware designed for destroying data may have worm-like features to propagate across a network by leveraging additional techniques like [Valid Accounts](https://attack.mitre.org/techniques/T1078), [OS Credential Dumping](https://attack.mitre.org/techniques/T1003), and [SMB/Windows Admin Shares](https://attack.mitre.org/techniques/T1021/002).(Citation: Symantec Shamoon 2012)(Citation: FireEye Shamoon Nov 2016)(Citation: Palo Alto Shamoon Nov 2016)(Citation: Kaspersky StoneDrill 2017)(Citation: Talos Olympic Destroyer 2018).\n\nIn cloud environments, adversaries may leverage access to delete cloud storage, cloud storage accounts, machine images, and other infrastructure crucial to operations to damage an organization or their customers.(Citation: Data Destruction - Threat Post)(Citation: DOJ  - Cisco Insider)",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "mitre-attack",
+                    "phase_name": "impact"
+                }
+            ],
+            "x_mitre_detection": "Use process monitoring to monitor the execution and command-line parameters of binaries that could be involved in data destruction activity, such as [SDelete](https://attack.mitre.org/software/S0195). Monitor for the creation of suspicious files as well as high unusual file modification activity. In particular, look for large quantities of file modifications in user directories and under <code>C:\\Windows\\System32\\</code>.\n\nIn cloud environments, the occurrence of anomalous high-volume deletion events, such as the <code>DeleteDBCluster</code> and <code>DeleteGlobalCluster</code> events in AWS, or a high quantity of data deletion events, such as <code>DeleteBucket</code>, within a short period of time may indicate suspicious activity.",
+            "x_mitre_version": "1.1",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "x_mitre_data_sources": [
+                "File: File Modification",
+                "Image: Image Deletion",
+                "Process: Process Creation",
+                "File: File Deletion",
+                "Command: Command Execution",
+                "Instance: Instance Deletion",
+                "Snapshot: Snapshot Deletion",
+                "Volume: Volume Deletion",
+                "Cloud Storage: Cloud Storage Deletion"
+            ],
+            "x_mitre_impact_type": [
+                "Availability"
+            ],
+            "x_mitre_permissions_required": [
+                "User",
+                "Administrator",
+                "root",
+                "SYSTEM"
+            ],
+            "x_mitre_is_subtechnique": false,
+            "spec_version": "2.1",
+            "x_mitre_attack_spec_version": "2.1.0"
+        },
+        {
+            "modified": "2023-05-04T18:05:57.725Z",
+            "name": "Inhibit System Recovery",
+            "description": "Adversaries may delete or remove built-in data and turn off services designed to aid in the recovery of a corrupted system to prevent recovery.(Citation: Talos Olympic Destroyer 2018)(Citation: FireEye WannaCry 2017) This may deny access to available backups and recovery options.\n\nOperating systems may contain features that can help fix corrupted systems, such as a backup catalog, volume shadow copies, and automatic repair features. Adversaries may disable or delete system recovery features to augment the effects of [Data Destruction](https://attack.mitre.org/techniques/T1485) and [Data Encrypted for Impact](https://attack.mitre.org/techniques/T1486).(Citation: Talos Olympic Destroyer 2018)(Citation: FireEye WannaCry 2017) Furthermore, adversaries may disable recovery notifications, then corrupt backups.(Citation: disable_notif_synology_ransom)\n\nA number of native Windows utilities have been used by adversaries to disable or delete system recovery features:\n\n* <code>vssadmin.exe</code> can be used to delete all volume shadow copies on a system - <code>vssadmin.exe delete shadows /all /quiet</code>\n* [Windows Management Instrumentation](https://attack.mitre.org/techniques/T1047) can be used to delete volume shadow copies - <code>wmic shadowcopy delete</code>\n* <code>wbadmin.exe</code> can be used to delete the Windows Backup Catalog - <code>wbadmin.exe delete catalog -quiet</code>\n* <code>bcdedit.exe</code> can be used to disable automatic Windows recovery features by modifying boot configuration data - <code>bcdedit.exe /set {default} bootstatuspolicy ignoreallfailures & bcdedit /set {default} recoveryenabled no</code>\n* <code>REAgentC.exe</code> can be used to disable Windows Recovery Environment (WinRE) repair/recovery options of an infected system\n\nOn network devices, adversaries may leverage [Disk Wipe](https://attack.mitre.org/techniques/T1561) to delete backup firmware images and reformat the file system, then [System Shutdown/Reboot](https://attack.mitre.org/techniques/T1529) to reload the device. Together this activity may leave network devices completely inoperable and inhibit recovery operations.\n\nAdversaries may also delete \u201conline\u201d backups that are connected to their network \u2013 whether via network storage media or through folders that sync to cloud services.(Citation: ZDNet Ransomware Backups 2020) In cloud environments, adversaries may disable versioning and backup policies and delete snapshots, machine images, and prior versions of objects designed to be used in disaster recovery scenarios.(Citation: Dark Reading Code Spaces Cyber Attack)(Citation: Rhino Security Labs AWS S3 Ransomware)",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "mitre-attack",
+                    "phase_name": "impact"
+                }
+            ],
+            "x_mitre_contributors": [
+                "Yonatan Gotlib, Deep Instinct",
+                "Austin Clark, @c2defense",
+                "Pallavi Sivakumaran, WithSecure"
+            ],
+            "x_mitre_deprecated": false,
+            "x_mitre_detection": "Use process monitoring to monitor the execution and command line parameters of binaries involved in inhibiting system recovery, such as vssadmin, wbadmin, bcdedit and REAgentC. The Windows event logs, ex. Event ID 524 indicating a system catalog was deleted, may contain entries associated with suspicious activity.\n\nMonitor the status of services involved in system recovery. Monitor the registry for changes associated with system recovery features (ex: the creation of <code>HKEY_CURRENT_USER\\Software\\Policies\\Microsoft\\PreviousVersions\\DisableLocalPage</code>).\n\nFor network infrastructure devices, collect AAA logging to monitor for `erase`, `format`, and `reload` commands being run in succession.",
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "x_mitre_is_subtechnique": false,
+            "x_mitre_platforms": [
+                "Windows",
+                "macOS",
+                "Linux",
+                "Network",
+                "IaaS"
+            ],
+            "x_mitre_version": "1.2",
+            "x_mitre_data_sources": [
+                "Process: Process Creation",
+                "Command: Command Execution",
+                "Snapshot: Snapshot Deletion",
+                "Windows Registry: Windows Registry Key Modification",
+                "Cloud Storage: Cloud Storage Deletion",
+                "Service: Service Metadata",
+                "File: File Deletion"
+            ],
+            "x_mitre_impact_type": [
+                "Availability"
+            ],
+            "type": "attack-pattern",
+            "id": "attack-pattern--f5d8eed6-48a9-4cdf-a3d7-d1ffa99c3d2a",
+            "created": "2019-04-02T13:54:43.136Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "revoked": false,
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1490",
+                    "external_id": "T1490"
+                },
+                {
+                    "source_name": "Dark Reading Code Spaces Cyber Attack",
+                    "description": " Brian Prince. (2014, June 20). Code Hosting Service Shuts Down After Cyber Attack. Retrieved March 21, 2023.",
+                    "url": "https://www.darkreading.com/attacks-breaches/code-hosting-service-shuts-down-after-cyber-attack"
+                },
+                {
+                    "source_name": "FireEye WannaCry 2017",
+                    "description": "Berry, A., Homan, J., and Eitzman, R. (2017, May 23). WannaCry Malware Profile. Retrieved March 15, 2019.",
+                    "url": "https://www.fireeye.com/blog/threat-research/2017/05/wannacry-malware-profile.html"
+                },
+                {
+                    "source_name": "Talos Olympic Destroyer 2018",
+                    "description": "Mercer, W. and Rascagneres, P. (2018, February 12). Olympic Destroyer Takes Aim At Winter Olympics. Retrieved March 14, 2019.",
+                    "url": "https://blog.talosintelligence.com/2018/02/olympic-destroyer.html"
+                },
+                {
+                    "source_name": "Rhino Security Labs AWS S3 Ransomware",
+                    "description": "Spencer Gietzen. (n.d.). AWS Simple Storage Service S3 Ransomware Part 2: Prevention and Defense. Retrieved March 21, 2023.",
+                    "url": "https://rhinosecuritylabs.com/aws/s3-ransomware-part-2-prevention-and-defense/"
+                },
+                {
+                    "source_name": "ZDNet Ransomware Backups 2020",
+                    "description": "Steve Ranger. (2020, February 27). Ransomware victims thought their backups were safe. They were wrong. Retrieved March 21, 2023.",
+                    "url": "https://www.zdnet.com/article/ransomware-victims-thought-their-backups-were-safe-they-were-wrong/"
+                },
+                {
+                    "source_name": "disable_notif_synology_ransom",
+                    "description": "TheDFIRReport. (2022, March 1). Disabling notifications on Synology servers before ransom. Retrieved October 19, 2022.",
+                    "url": "https://twitter.com/TheDFIRReport/status/1498657590259109894"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "x_mitre_attack_spec_version": "3.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "spec_version": "2.1"
+        },
+        {
+            "modified": "2023-05-09T14:00:00.188Z",
+            "name": "System Shutdown/Reboot",
+            "description": "Adversaries may shutdown/reboot systems to interrupt access to, or aid in the destruction of, those systems. Operating systems may contain commands to initiate a shutdown/reboot of a machine or network device. In some cases, these commands may also be used to initiate a shutdown/reboot of a remote computer or network device via [Network Device CLI](https://attack.mitre.org/techniques/T1059/008) (e.g. <code>reload</code>).(Citation: Microsoft Shutdown Oct 2017)(Citation: alert_TA18_106A)\n\nShutting down or rebooting systems may disrupt access to computer resources for legitimate users while also impeding incident response/recovery.\n\nAdversaries may attempt to shutdown/reboot a system after impacting it in other ways, such as [Disk Structure Wipe](https://attack.mitre.org/techniques/T1561/002) or [Inhibit System Recovery](https://attack.mitre.org/techniques/T1490), to hasten the intended effects on system availability.(Citation: Talos Nyetya June 2017)(Citation: Talos Olympic Destroyer 2018)",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "mitre-attack",
+                    "phase_name": "impact"
+                }
+            ],
+            "x_mitre_contributors": [
+                "Austin Clark, @c2defense",
+                "Hubert Mank"
+            ],
+            "x_mitre_deprecated": false,
+            "x_mitre_detection": "Use process monitoring to monitor the execution and command line parameters of binaries involved in shutting down or rebooting systems. Windows event logs may also designate activity associated with a shutdown/reboot, ex. Event ID 1074 and 6006. Unexpected or unauthorized commands from network cli on network devices may also be associated with shutdown/reboot, e.g. the <code>reload</code> command.",
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "x_mitre_is_subtechnique": false,
+            "x_mitre_platforms": [
+                "Linux",
+                "macOS",
+                "Windows",
+                "Network"
+            ],
+            "x_mitre_version": "1.3",
+            "x_mitre_data_sources": [
+                "Sensor Health: Host Status",
+                "Process: Process Creation",
+                "Command: Command Execution"
+            ],
+            "x_mitre_impact_type": [
+                "Availability"
+            ],
+            "type": "attack-pattern",
+            "id": "attack-pattern--ff73aa03-0090-4464-83ac-f89e233c02bc",
+            "created": "2019-10-04T20:42:28.541Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "revoked": false,
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1529",
+                    "external_id": "T1529"
+                },
+                {
+                    "source_name": "Talos Nyetya June 2017",
+                    "description": "Chiu, A. (2016, June 27). New Ransomware Variant \"Nyetya\" Compromises Systems Worldwide. Retrieved March 26, 2019.",
+                    "url": "https://blog.talosintelligence.com/2017/06/worldwide-ransomware-variant.html"
+                },
+                {
+                    "source_name": "alert_TA18_106A",
+                    "description": "CISA. (2018, April 20). Russian State-Sponsored Cyber Actors Targeting Network Infrastructure Devices. Retrieved February 14, 2022.",
+                    "url": "https://www.cisa.gov/uscert/ncas/alerts/TA18-106A"
+                },
+                {
+                    "source_name": "Talos Olympic Destroyer 2018",
+                    "description": "Mercer, W. and Rascagneres, P. (2018, February 12). Olympic Destroyer Takes Aim At Winter Olympics. Retrieved March 14, 2019.",
+                    "url": "https://blog.talosintelligence.com/2018/02/olympic-destroyer.html"
+                },
+                {
+                    "source_name": "Microsoft Shutdown Oct 2017",
+                    "description": "Microsoft. (2017, October 15). Shutdown. Retrieved October 4, 2019.",
+                    "url": "https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/shutdown"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "x_mitre_attack_spec_version": "3.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "spec_version": "2.1"
+        },
+        {
+            "modified": "2023-05-09T14:00:00.188Z",
+            "name": "Adversary-in-the-Middle",
+            "description": "Adversaries may attempt to position themselves between two or more networked devices using an adversary-in-the-middle (AiTM) technique to support follow-on behaviors such as [Network Sniffing](https://attack.mitre.org/techniques/T1040) or [Transmitted Data Manipulation](https://attack.mitre.org/techniques/T1565/002). By abusing features of common networking protocols that can determine the flow of network traffic (e.g. ARP, DNS, LLMNR, etc.), adversaries may force a device to communicate through an adversary controlled system so they can collect information or perform additional actions.(Citation: Rapid7 MiTM Basics)\n\nFor example, adversaries may manipulate victim DNS settings to enable other malicious activities such as preventing/redirecting users from accessing legitimate sites and/or pushing additional malware.(Citation: ttint_rat)(Citation: dns_changer_trojans)(Citation: ad_blocker_with_miner) Adversaries may also manipulate DNS and leverage their position in order to intercept user credentials and session cookies.(Citation: volexity_0day_sophos_FW) [Downgrade Attack](https://attack.mitre.org/techniques/T1562/010)s can also be used to establish an AiTM position, such as by negotiating a less secure, deprecated, or weaker version of communication protocol (SSL/TLS) or encryption algorithm.(Citation: mitm_tls_downgrade_att)(Citation: taxonomy_downgrade_att_tls)(Citation: tlseminar_downgrade_att)\n\nAdversaries may also leverage the AiTM position to attempt to monitor and/or modify traffic, such as in [Transmitted Data Manipulation](https://attack.mitre.org/techniques/T1565/002). Adversaries can setup a position similar to AiTM to prevent traffic from flowing to the appropriate destination, potentially to [Impair Defenses](https://attack.mitre.org/techniques/T1562) and/or in support of a [Network Denial of Service](https://attack.mitre.org/techniques/T1498).",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "mitre-attack",
+                    "phase_name": "credential-access"
+                },
+                {
+                    "kill_chain_name": "mitre-attack",
+                    "phase_name": "collection"
+                }
+            ],
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_contributors": [
+                "Mayuresh Dani, Qualys",
+                "Daniil Yugoslavskiy, @yugoslavskiy, Atomic Threat Coverage project",
+                "NEC"
+            ],
+            "x_mitre_deprecated": false,
+            "x_mitre_detection": "Monitor network traffic for anomalies associated with known AiTM behavior. Consider monitoring for modifications to system configuration files involved in shaping network traffic flow.",
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "x_mitre_is_subtechnique": false,
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "x_mitre_platforms": [
+                "Windows",
+                "macOS",
+                "Linux",
+                "Network"
+            ],
+            "x_mitre_version": "2.2",
+            "x_mitre_data_sources": [
+                "Application Log: Application Log Content",
+                "Network Traffic: Network Traffic Content",
+                "Service: Service Creation",
+                "Windows Registry: Windows Registry Key Modification",
+                "Network Traffic: Network Traffic Flow"
+            ],
+            "type": "attack-pattern",
+            "id": "attack-pattern--035bb001-ab69-4a0b-9f6c-2de8b09e1b9d",
+            "created": "2020-02-11T19:07:12.114Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "revoked": false,
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1557",
+                    "external_id": "T1557"
+                },
+                {
+                    "source_name": "dns_changer_trojans",
+                    "description": "Abendan, O. (2012, June 14). How DNS Changer Trojans Direct Users to Threats. Retrieved October 28, 2021.",
+                    "url": "https://www.trendmicro.com/vinfo/us/threat-encyclopedia/web-attack/125/how-dns-changer-trojans-direct-users-to-threats"
+                },
+                {
+                    "source_name": "volexity_0day_sophos_FW",
+                    "description": "Adair, S., Lancaster, T., Volexity Threat Research. (2022, June 15). DriftingCloud: Zero-Day Sophos Firewall Exploitation and an Insidious Breach. Retrieved July 1, 2022.",
+                    "url": "https://www.volexity.com/blog/2022/06/15/driftingcloud-zero-day-sophos-firewall-exploitation-and-an-insidious-breach/"
+                },
+                {
+                    "source_name": "taxonomy_downgrade_att_tls",
+                    "description": "Alashwali, E. S., Rasmussen, K. (2019, January 26). What's in a Downgrade? A Taxonomy of Downgrade Attacks in the TLS Protocol and Application Protocols Using TLS. Retrieved December 7, 2021.",
+                    "url": "https://arxiv.org/abs/1809.05681"
+                },
+                {
+                    "source_name": "ad_blocker_with_miner",
+                    "description": "Kuzmenko, A.. (2021, March 10). Ad blocker with miner included. Retrieved October 28, 2021.",
+                    "url": "https://securelist.com/ad-blocker-with-miner-included/101105/"
+                },
+                {
+                    "source_name": "mitm_tls_downgrade_att",
+                    "description": "praetorian Editorial Team. (2014, August 19). Man-in-the-Middle TLS Protocol Downgrade Attack. Retrieved December 8, 2021.",
+                    "url": "https://www.praetorian.com/blog/man-in-the-middle-tls-ssl-protocol-downgrade-attack/"
+                },
+                {
+                    "source_name": "Rapid7 MiTM Basics",
+                    "description": "Rapid7. (n.d.). Man-in-the-Middle (MITM) Attacks. Retrieved March 2, 2020.",
+                    "url": "https://www.rapid7.com/fundamentals/man-in-the-middle-attacks/"
+                },
+                {
+                    "source_name": "tlseminar_downgrade_att",
+                    "description": "Team Cinnamon. (2017, February 3). Downgrade Attacks. Retrieved December 9, 2021.",
+                    "url": "https://tlseminar.github.io/downgrade-attacks/"
+                },
+                {
+                    "source_name": "ttint_rat",
+                    "description": "Tu, L. Ma, Y. Ye, G. (2020, October 1). Ttint: An IoT Remote Access Trojan spread through 2 0-day vulnerabilities. Retrieved October 28, 2021.",
+                    "url": "https://blog.netlab.360.com/ttint-an-iot-remote-control-trojan-spread-through-2-0-day-vulnerabilities/"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "spec_version": "2.1"
+        },
+        {
+            "modified": "2023-05-09T14:00:00.188Z",
+            "name": "Input Capture",
+            "description": "Adversaries may use methods of capturing user input to obtain credentials or collect information. During normal system usage, users often provide credentials to various different locations, such as login pages/portals or system dialog boxes. Input capture mechanisms may be transparent to the user (e.g. [Credential API Hooking](https://attack.mitre.org/techniques/T1056/004)) or rely on deceiving the user into providing input into what they believe to be a genuine service (e.g. [Web Portal Capture](https://attack.mitre.org/techniques/T1056/003)).",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "mitre-attack",
+                    "phase_name": "collection"
+                },
+                {
+                    "kill_chain_name": "mitre-attack",
+                    "phase_name": "credential-access"
+                }
+            ],
+            "x_mitre_contributors": [
+                "John Lambert, Microsoft Threat Intelligence Center"
+            ],
+            "x_mitre_detection": "Detection may vary depending on how input is captured but may include monitoring for certain Windows API calls (e.g. `SetWindowsHook`, `GetKeyState`, and `GetAsyncKeyState`)(Citation: Adventures of a Keystroke), monitoring for malicious instances of [Command and Scripting Interpreter](https://attack.mitre.org/techniques/T1059), and ensuring no unauthorized drivers or kernel modules that could indicate keylogging or API hooking are present.",
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "x_mitre_platforms": [
+                "Linux",
+                "macOS",
+                "Windows",
+                "Network"
+            ],
+            "x_mitre_version": "1.2",
+            "x_mitre_data_sources": [
+                "Driver: Driver Load",
+                "Process: Process Metadata",
+                "Process: Process Creation",
+                "File: File Modification",
+                "Windows Registry: Windows Registry Key Modification",
+                "Process: OS API Execution"
+            ],
+            "x_mitre_permissions_required": [
+                "Administrator",
+                "SYSTEM",
+                "root",
+                "User"
+            ],
+            "type": "attack-pattern",
+            "id": "attack-pattern--bb5a00de-e086-4859-a231-fa793f6797e2",
+            "created": "2017-05-31T21:30:48.323Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1056",
+                    "external_id": "T1056"
+                },
+                {
+                    "source_name": "Adventures of a Keystroke",
+                    "description": "Tinaztepe,  E. (n.d.). The Adventures of a Keystroke:  An in-depth look into keyloggers on Windows. Retrieved April 27, 2016.",
+                    "url": "http://opensecuritytraining.info/Keylogging_files/The%20Adventures%20of%20a%20Keystroke.pdf"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "x_mitre_attack_spec_version": "3.1.0",
+            "x_mitre_is_subtechnique": false,
+            "spec_version": "2.1"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--f58965d6-90fd-48bf-a91c-fcb655aacb56",
+            "created": "2022-11-17T09:27:57.156Z",
+            "modified": "2022-11-17T09:27:57.156Z",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "relationship_type": "related-to",
+            "source_ref": "report--51aebafa-5bad-4e64-b400-95440e877c31",
+            "target_ref": "incident--fad5bbd5-90d1-42ee-97c9-d558c5180baa"
+        },
+        {
+            "type": "report",
+            "created": "2022-11-17T09:27:57.156Z",
+            "modified": "2022-11-17T09:27:57.156Z",
+            "spec_version": "2.1",
+            "id": "report--51aebafa-5bad-4e64-b400-95440e877c31",
+            "name": "WKI-20220915-004 - Update 2",
+            "description": "This is a fake report for example purposes only",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "report_types": ["incident"],
+            "published": "2022-11-17T09:27:57.156Z",
+            "object_refs": [
+                "attack-pattern--01a5a209-b94c-450b-b7f9-946497d91055",
+                "attack-pattern--035bb001-ab69-4a0b-9f6c-2de8b09e1b9d",
+                "attack-pattern--20fb2507-d71c-455d-9b6d-6104461cf26b",
+                "attack-pattern--4f9ca633-15c5-463c-9724-bdcd54fde541",
+                "attack-pattern--58a3e6aa-4453-4cc8-a51f-4befe80b31a8",
+                "attack-pattern--6495ae23-3ab4-43c5-a94f-5638a2c31fd2",
+                "attack-pattern--65f2d882-3f41-4d48-8a06-29af77ec9f90",
+                "attack-pattern--707399d6-ab3e-4963-9315-d9d3818cd6a0",
+                "attack-pattern--7298d793-a0b2-4385-8dfb-5f24a1099a8a",
+                "attack-pattern--a62a8db3-f23a-4d8f-afd6-9dbc77e7813b",
+                "attack-pattern--bb5a00de-e086-4859-a231-fa793f6797e2",
+                "attack-pattern--bf90d72c-c00b-45e3-b3aa-68560560d4c5",
+                "attack-pattern--d45a3d09-b3cf-48f4-9f0f-f521ee5cb05c",
+                "attack-pattern--e358d692-23c0-4a31-9eb6-ecc13a8d7735",
+                "attack-pattern--f1951e8a-500e-4a26-8803-76d95c4554b4",
+                "attack-pattern--f5d8eed6-48a9-4cdf-a3d7-d1ffa99c3d2a",
+                "attack-pattern--ff73aa03-0090-4464-83ac-f89e233c02bc",
+                "event--05385116-81a8-4212-82b5-9f57dd832fb5",
+                "event--0d2fc33a-9871-4e1e-8471-23b92b06b8f8",
+                "event--20cfb071-a62f-4f94-a188-96d39af43a8c",
+                "event--219d4b8d-6665-4aee-9387-dc1a475e2996",
+                "event--2cf8b0a6-76d0-4d76-b015-f7c4c741b0fa",
+                "event--403bce56-2e26-468e-a8a0-636f91903498",
+                "event--4054c4eb-8794-4d7e-a2c7-7bb4dd9c1fbf",
+                "event--71c21ab1-053d-4455-ac41-90b3bc5e5a1f",
+                "event--7366ca2b-45af-4112-b352-4e0acc4ee22b",
+                "event--875dbd12-ed65-44c8-924b-e28354cbc2f5",
+                "event--90d6dde5-acb6-4a8e-b1d2-72f548a64839",
+                "event--c53aef43-05b1-4e09-8f61-73ac307eb36a",
+                "event--cc91fde8-5665-46f6-9434-1529bdea8d3f",
+                "identity--2564429b-7d7f-4c0e-bb39-7423657e0e83",
+                "identity--3236af02-75b5-47f8-831a-50aa3e39fbf8",
+                "identity--684319e1-d91b-4241-9632-4e21ca03e995",
+                "impact--6359dec6-d597-466a-bf50-6ed59cdec053",
+                "impact--7a5806e4-0f37-4c48-9a50-7301bff4b195",
+                "impact--bdda2bfc-3634-418c-b50c-a1bc2232ea48",
+                "impact--d16ffd9c-4d83-46d5-b6ac-626ada44458c",
+                "impact--e335ce90-039a-49d3-a843-013019c0a074",
+                "impact--e86d8503-becf-4647-a909-9c13661d1f2c",
+                "incident--fad5bbd5-90d1-42ee-97c9-d558c5180baa",
+                "malware--0099bc44-f289-418d-be8e-d9149d324b27",
+                "marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f",
+                "marking-definition--f81f633d-3017-4678-a914-fe82dfc4b42c",
+                "relationship--117eac30-b47a-4b7c-8ce7-6c34ed506417",
+                "relationship--496959de-5516-43f5-90a3-d2521e62f878",
+                "relationship--6467bc28-f3e6-486e-bf1f-256f673aea26",
+                "relationship--9d62fd01-9a23-446e-9d57-b4912767b57d",
+                "relationship--acac1efa-a699-4426-bea0-b26cf8bbab23",
+                "relationship--b704b7f7-e5c3-4413-85e3-62cc4aa7445f",
+                "relationship--f58965d6-90fd-48bf-a91c-fcb655aacb56",
+                "relationship--f98f35f8-433c-4b0f-8404-079aecbab3a1",
+                "sighting--17524b99-ef9b-4cd7-ab32-902144c86dc5",
+                "sighting--204d56d9-bc1f-4f62-ade7-c6afcdefd5c0",
+                "sighting--36181039-d157-428d-a31a-d79e57b421cd",
+                "sighting--45a0ea3a-8b8d-4e45-a79c-8e73d1882e70",
+                "sighting--4d051911-6275-4ec0-bf10-2b87348b8877",
+                "sighting--5a592445-795f-44cd-96ce-5a0829ec7309",
+                "sighting--64fec75d-44df-4704-ad38-d137e50b6956",
+                "sighting--7c5938a9-7e0f-496a-a21a-af7bf80d938c",
+                "sighting--8cf4c5a9-7a99-4121-8800-9a1164553f5e",
+                "sighting--8efa8c26-ceb5-4dfa-ab67-14dd7a68ce9d",
+                "sighting--8fd61762-e5dc-4b8c-a26a-f4fe8df88413",
+                "sighting--97d35f94-a869-4206-81af-4951a78b8773",
+                "sighting--bd571262-a666-41cf-a995-dc2859d9775c",
+                "sighting--c5741bb0-abb3-4a52-b3e3-a24f2c07834b",
+                "sighting--cee7ef3f-afc5-4c6d-8bfa-351dc5fc03ba",
+                "sighting--da673e80-e92c-45e2-ad11-f14869b2db28",
+                "sighting--efdd4445-1f92-4650-8cc8-1427a2df80f3",
+                "sighting--f75289d0-ac26-4925-9c77-327b7499b674",
+                "sighting--fd123a72-325c-4946-a816-905dd835ca72",
+                "task--1e5701fe-569a-41d4-8014-bfbb07b2c82e",
+                "task--583b5df2-4665-4595-9a10-ed8ddbc18c0f",
+                "task--5e0ce2e7-d603-4c5b-bcde-ded2821c0c8a",
+                "task--6998596d-28f5-4670-af86-3bc168df1854",
+                "task--6ef78c95-3b5d-4b8d-88c7-a90625cf7a5d",
+                "task--88f6cf01-c575-425e-a304-d842edb91bfa",
+                "task--980ddd0f-5863-4464-b12e-105e6255eef1",
+                "task--993a1e68-8b5c-4f0e-aef7-75c31b85df3e",
+                "task--a45aaed9-6504-4f95-982e-78508726eb5a",
+                "task--c2e19028-58ba-4052-87e9-8d26fa1265af",
+                "task--c9bbe53b-58f2-43a8-b68e-160ea57e61b8",
+                "task--e0accba2-08cd-41fe-b31a-fab30267b222",
+                "task--f5896140-d53d-4fe8-b1a8-06728dbfdc49",
+                "task--f5ea62cf-bcbb-47cd-bc52-42cadd1afbeb",
+                "threat-actor--18b4ba18-950e-41c9-aba4-67e2f50da3fa",
+                "threat-actor--519674b4-41f1-4574-8e1d-650a3ebd1c8a"
+            ]
+        }
+    ]
+}

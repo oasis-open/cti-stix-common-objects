@@ -17,42 +17,98 @@
         "extensions": {
             "extension-definition--ef765651-680c-498d-9894-99799f2fa126": {
                 "extension_type": "property-extension",
-                "determination": "successful-attempt",
+                "determination": "confirmed",
                 "investigation_status": "open",
                 "recoverability": "regular",
-                "defender_activities": [
-                    {
-                        "activity_type": "discovery",
-                        "outcome": "successful",
-                        "object_ref": "playbook--6b74199d-42a6-43a1-99cb-75d52207a778",
-                        "start_time": "2021-02-15T01:01:01.000Z",
-                        "end_time": "2021-02-15T01:01:01.000Z"
-                    },
-                    {
-                        "activity_type": "recovery",
-                        "outcome": "pending",
-                        "object_ref": "course-of-action--45b98e3a-3800-49eb-b353-e56def4b6084",
-                        "impacted_refs": ["infrastructure--1c69a97c-bcfa-4674-b3a2-bfb8f797b7e5"],
-                        "description": "Per advice of security team it will be easier to start from a new server instead of cleaning the existing one.  The timeline for this is still pending."
-                    }
-                ],
                 "detection_methods": ["automated-tool"],
                 "incident_types": ["unauthorized-release"],
                 "criticality": 93,
-                "availability_impacts": [
+                "tasks": [
                     {
-                        "availability_impact": 50,
-                        "labels": ["overall"],
-                        "impacted_refs": ["infrastructure--1c69a97c-bcfa-4674-b3a2-bfb8f797b7e5"]
+                        "task_ref": "task--b6e04f72-2414-4916-9d55-9f4c2520d76e"
+                    },
+                    {
+                        "task_ref": "task--8b2e8ed3-b199-453c-8510-ff1cb764832a"
                     }
                 ],
-                "confidentiality_impacts": [
-                    {
-                        "information_type": "phi",
-                        "loss_type": "suspected-loss",
-                        "impacted_refs": ["infrastructure--1c69a97c-bcfa-4674-b3a2-bfb8f797b7e5"]
-                    }
+                "impact_refs": [
+                    "impact--c946cc28-8c05-4770-82c4-4397f62f72b8",
+                    "impact--1fa6e10a-88f3-4498-8f2c-c914798f6be0"
                 ]
+            }
+        }
+    },
+    {
+        "type": "impact",
+        "id": "impact--c946cc28-8c05-4770-82c4-4397f62f72b8",
+        "created": "2020-10-19T01:01:01.000Z",
+        "modified": "2020-10-19T01:01:01.000Z",
+        "spec_version": "2.1",
+        "impact_category": "confidentiality",
+        "impacted_refs": ["infrastructure--1c69a97c-bcfa-4674-b3a2-bfb8f797b7e5"],
+        "extensions": {
+            "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+                "extension_type": "new-sdo"
+            },
+            "confidentiality": {
+                "information_type": "phi",
+                "loss_type": "suspected-loss"
+            }
+        }
+    },
+    {
+        "type": "impact",
+        "id": "impact--1fa6e10a-88f3-4498-8f2c-c914798f6be0",
+        "created": "2020-10-19T01:01:01.000Z",
+        "modified": "2020-10-19T01:01:01.000Z",
+        "spec_version": "2.1",
+        "impact_category": "availability",
+        "labels": ["overall"],
+        "impacted_refs": ["infrastructure--1c69a97c-bcfa-4674-b3a2-bfb8f797b7e5"],
+        "extensions": {
+            "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+                "extension_type": "new-sdo"
+            },
+            "availability": {
+                "availability_impact": 50
+            }
+        }
+    },
+    {
+        "type": "task",
+        "created": "2020-10-19T01:01:01.000Z",
+        "modified": "2020-10-19T01:01:01.000Z",
+        "spec_version": "2.1",
+        "id": "task--b6e04f72-2414-4916-9d55-9f4c2520d76e",
+        "task_types": ["discovery", "playbook-execution"],
+        "outcome": "successful",
+        "external_references": [
+            {
+                "source_name": "internal-playbooks",
+                "external_id": "playbook--6b74199d-42a6-43a1-99cb-75d52207a778"
+            }
+        ],
+        "start_time": "2021-02-15T01:01:01.000Z",
+        "end_time": "2021-02-15T01:01:01.000Z",
+        "extensions": {
+            "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                "extension_type": "new-sdo"
+            }
+        }
+    },
+    {
+        "type": "task",
+        "created": "2020-10-19T01:01:01.000Z",
+        "modified": "2020-10-19T01:01:01.000Z",
+        "spec_version": "2.1",
+        "id": "task--8b2e8ed3-b199-453c-8510-ff1cb764832a",
+        "impacted_refs": ["infrastructure--1c69a97c-bcfa-4674-b3a2-bfb8f797b7e5"],
+        "task_types": ["recovery"],
+        "description": "Per advice of security team it will be easier to start from a new server instead of cleaning the existing one.  The timeline for this is still pending.",
+        "outcome": "pending",
+        "extensions": {
+            "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                "extension_type": "new-sdo"
             }
         }
     },
@@ -120,6 +176,16 @@
     {
         "type": "relationship",
         "spec_version": "2.1",
+        "id": "relationship--447a7da1-c54f-4c3c-a967-c78819348984",
+        "created": "2021-03-26T01:01:01.000Z",
+        "modified": "2021-03-26T01:01:01.000Z",
+        "relationship_type": "used",
+        "source_ref": "task--8b2e8ed3-b199-453c-8510-ff1cb764832a",
+        "target_ref": "course-of-action--45b98e3a-3800-49eb-b353-e56def4b6084"
+    },
+    {
+        "type": "relationship",
+        "spec_version": "2.1",
         "id": "relationship--fd3aa181-2ad6-4822-821d-b7e4dd42c19d",
         "created": "2020-10-19T01:01:01.000Z",
         "modified": "2020-10-19T01:01:01.000Z",
@@ -140,7 +206,7 @@
     {
         "type": "relationship",
         "spec_version": "2.1",
-        "id": "relationship--e509fe36-6dcd-4b78-8bd2-60dd6788ab55",
+        "id": "relationship--a1d1b7d5-b25b-4163-ab43-49820fac905b",
         "created": "2020-10-19T01:01:01.000Z",
         "modified": "2020-10-19T01:01:01.000Z",
         "relationship_type": "has",

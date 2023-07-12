@@ -5,8 +5,8 @@
         {
             "type": "incident",
             "id": "incident--2242662b-d581-4864-8696-fff719dc0500",
-            "created": "2020-10-19T01:01:01.000Z",
-            "modified":"2020-10-19T01:01:01.000Z",
+            "created": "2020-10-19T01:01:01.002Z",
+            "modified":"2020-10-19T01:01:01.002Z",
             "created_by_ref": "identity--2242662b-d581-4864-8696-fff719dc0500",
             "spec_version": "2.1",
             "name": "Sample Incident 1",
@@ -14,53 +14,558 @@
             "extensions": {
                 "extension-definition--ef765651-680c-498d-9894-99799f2fa126": {
                     "extension_type": "property-extension",
-                    "determination": "successful-attempt",
+                    "determination": "confirmed",
                     "investigation_status": "open",
                     "detection_methods": ["human-review"],
-                    "defender_activities": [
+                    "events": [
                         {
-                            "activity_type": "discovery",
-                            "outcome": "successful",
-                            "description": "A server admin found a strange account",
-                            "start_time": "2020-10-15T01:01:01.000Z",
-                            "end_time": "2020-10-15T01:01:01.000Z",
-                            "sequence_start": 5,
-                            "sequence_end": 5
+                            "event_ref": "event--fa107730-c44b-403b-8673-387180fed6f8",
+                            "next_steps": [
+                                {
+                                    "event_ref": "event--dbe72493-1326-4e25-ad04-99c805a51939",
+                                    "condition_type": "unknown",
+                                    "transition_type": "success"
+                                }
+                            ]
+                        },
+                        {
+                            "event_ref": "event--44728578-a89c-41de-b934-17fec1bd30d7",
+                            "next_steps": [
+                                {
+                                    "event_ref": "event--dbe72493-1326-4e25-ad04-99c805a51939",
+                                    "condition_type": "optional",
+                                    "transition_type": "unknown"
+                                }
+                            ]
+                        },
+                        {
+                            "event_ref": "event--dbe72493-1326-4e25-ad04-99c805a51939",
+                            "next_steps": [
+                                {
+                                    "event_ref": "event--774d7ae5-3efc-40e6-8d9d-63ca9904bfad",
+                                    "condition_type": "required",
+                                    "transition_type": "success"
+                                }
+                            ]
+                        },
+                        {
+                            "event_ref": "event--774d7ae5-3efc-40e6-8d9d-63ca9904bfad"
                         }
                     ],
-                    "attacker_activities": [
+                    "tasks": [
                         {
-                            "outcome": "successful",
-                            "pattern_ref": "attack-pattern--d742a578-d70e-4d0e-96a6-02a9c30204e6",
-                            "description": "Drive-by compromise of a trusted domain was believed to deliver malware, but it is unclear when it was activated",
-                            "sequence_start": 1,
-                            "sequence_end": 1
+                            "task_ref": "task--2d254737-fbf8-4969-adb3-80ac5c293f57",
+                            "next_steps": [
+                                {
+                                    "task_ref": "task--b0f2c730-7f0b-4ca9-895f-e41b9cf39949",
+                                    "condition_type": "required",
+                                    "transition_type": "completion"
+                                }
+                            ]
                         },
                         {
-                            "outcome": "successful",
-                            "pattern_ref": "attack-pattern--6aac77c4-eaf2-4366-8c13-ce50ab951f38",
-                            "description": "A phishing campaign was attachments was used to attempt to deliver malicious PDFs.  The malware may have already been active by the time a user clicks on this however as it started before the drive by, but also ended after it.",
-                            "sequence_start": 1,
-                            "sequence_end": 3
-                        },
-                        {
-                            "outcome": "successful",
-                            "pattern_ref": "attack-pattern--51dea151-0898-4a45-967c-3ebee0420484",
-                            "description": "Remote desktop protocol was used to access domain controller",
-                            "sequence_start": 3,
-                            "sequence_end": 3
-                        },
-                        {
-                            "outcome": "successful",
-                            "pattern_ref": "attack-pattern--7610cada-1499-41a4-b3dd-46467b68d177",
-                            "description": "A domain account was created to allow remote access using normal means by the attacker",
-                            "end_time": "2020-10-15T00:01:32.700Z",
-                            "sequence_start": 4,
-                            "sequence_end": 4
+                            "task_ref": "task--b0f2c730-7f0b-4ca9-895f-e41b9cf39949"
                         }
                     ]
                 }
             }
+        },
+        {
+            "type": "event",
+            "id": "event--fa107730-c44b-403b-8673-387180fed6f8",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified": "2020-10-19T01:01:01.000Z",
+            "spec_version": "2.1",
+            "name": "Initial Compromise",
+            "status": "occurred",
+            "sighting_refs": ["sighting--55183679-1f1d-4824-af63-72ec2ef855a0"],
+            "description": "Drive-by compromise of a trusted domain was believed to deliver malware, but it is unclear when it was activated",
+            "extensions": {
+                "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--55183679-1f1d-4824-af63-72ec2ef855a0",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified": "2020-10-19T01:01:01.000Z",
+            "sighting_of_ref": "attack-pattern--d742a578-d70e-4d0e-96a6-02a9c30204e6"
+        },
+        {
+            "type": "event",
+            "id": "event--44728578-a89c-41de-b934-17fec1bd30d7",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified": "2020-10-19T01:01:01.000Z",
+            "spec_version": "2.1",
+            "name": "Phishing emails to multiple users",
+            "status": "occurred",
+            "sighting_refs": ["sighting--9af0cfab-2dfe-448d-a4e3-85ae0af3149c"],
+            "description": "A phishing campaign was attachments was used to attempt to deliver malicious PDFs.  The malware may have already been active by the time a user clicks on this however as it started before the drive by, but also ended after it.",
+            "extensions": {
+                "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--9af0cfab-2dfe-448d-a4e3-85ae0af3149c",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified": "2020-10-19T01:01:01.000Z",
+            "sighting_of_ref": "attack-pattern--6aac77c4-eaf2-4366-8c13-ce50ab951f38"
+        },
+        {
+            "type": "event",
+            "id": "event--dbe72493-1326-4e25-ad04-99c805a51939",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified": "2020-10-19T01:01:01.000Z",
+            "spec_version": "2.1",
+            "name": "RDP to domain controller",
+            "status": "occurred",
+            "sighting_refs": ["sighting--784ccd72-98fa-41e5-bc37-20659e0e9397"],
+            "description": "Remote desktop protocol was used to access domain controller",
+            "extensions": {
+                "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--784ccd72-98fa-41e5-bc37-20659e0e9397",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified": "2020-10-19T01:01:01.000Z",
+            "sighting_of_ref": "attack-pattern--51dea151-0898-4a45-967c-3ebee0420484"
+        },
+        {
+            "type": "event",
+            "id": "event--774d7ae5-3efc-40e6-8d9d-63ca9904bfad",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified": "2020-10-19T01:01:01.000Z",
+            "spec_version": "2.1",
+            "name": "Create account",
+            "status": "occurred",
+            "sighting_refs": ["sighting--b99e60f4-12ec-4ab6-88a2-de95405e7a5c"],
+            "description": "A domain account was created to allow remote access using normal means by the attacker",
+            "end_time": "2020-10-15T00:01:32.700Z",
+            "extensions": {
+                "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--b99e60f4-12ec-4ab6-88a2-de95405e7a5c",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified": "2020-10-19T01:01:01.000Z",
+            "sighting_of_ref": "attack-pattern--7610cada-1499-41a4-b3dd-46467b68d177"
+        },
+        {
+            "type": "task",
+            "id": "task--2d254737-fbf8-4969-adb3-80ac5c293f57",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified":"2020-10-19T01:01:01.000Z",
+            "spec_version": "2.1",
+            "task_types": ["discovery"],
+            "outcome": "successful",
+            "description": "A server admin found a strange account",
+            "start_time": "2020-10-15T01:01:01.000Z",
+            "end_time": "2020-10-15T01:01:01.000Z",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "id": "task--b0f2c730-7f0b-4ca9-895f-e41b9cf39949",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified":"2020-10-19T01:01:01.000Z",
+            "spec_version": "2.1",
+            "task_types": ["playbook-execution"],
+            "outcome": "ongoing",
+            "external_references": [
+                {
+                    "source_name": "internal-playbooks",
+                    "external_id": "playbook--a361b0e4-d81b-43f7-ba45-a131aa3b8080"
+                }
+            ],
+            "description": "Began executing playbook",
+            "start_time": "2020-10-15T01:01:01.000Z",
+            "subtasks": [
+                {
+                    "task_ref": "task--9ceb67a5-5c5e-4d2c-8fa1-044c91445e49",
+                    "next_steps": [
+                        {
+                            "task_ref": "task--4d8c9945-cbaa-41d5-b98b-e620f7b7b7e5",
+                            "condition_type": "required",
+                            "transition_type": "success"
+                        }
+                    ]
+                },
+                {
+                    "task_ref": "task--4d8c9945-cbaa-41d5-b98b-e620f7b7b7e5",
+                    "next_steps": [
+                        {
+                            "task_ref": "task--caa55f5d-cf7f-4f34-a48b-62c0bf9e9e1d",
+                            "condition_type": "optional",
+                            "transition_type": "failure"
+                        }
+                    ]
+                },
+                {
+                    "task_ref": "task--caa55f5d-cf7f-4f34-a48b-62c0bf9e9e1d"
+                }
+            ],
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "id": "task--9ceb67a5-5c5e-4d2c-8fa1-044c91445e49",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified":"2020-10-19T01:01:01.000Z",
+            "spec_version": "2.1",
+            "task_types": ["playbook-step-execution"],
+            "name": "get new accounts",
+            "outcome": "successful",
+            "external_references": [
+                {
+                    "source_name": "internal-playbooks",
+                    "external_id": "playbook--a361b0e4-d81b-43f7-ba45-a131aa3b8080"
+                },
+                {
+                    "source_name": "playbook-step",
+                    "external_id": "action--e984e66e-e92b-4ba1-b7a7-a319aa5c58cd"
+                }
+            ],
+            "changed_objects": [
+                {
+                    "state_change_type": "output",
+                    "result_ref": "grouping--5ae578cf-5884-45f4-a1bf-1998af828ccc"
+                }
+            ],
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "user-account",
+            "spec_version": "2.1",
+            "id": "user-account--a5549db1-1a61-5905-ad16-3cc14b35cd22",
+            "account_login": "arasda332",
+            "account_type": "windows-domain",
+            "is_privileged": true,
+            "credential_last_changed": "2020-10-14T16:32:22Z"
+        },
+        {
+            "type": "grouping",
+            "spec_version": "2.1",
+            "id": "grouping--5ae578cf-5884-45f4-a1bf-1998af828ccc",
+            "created": "2023-04-28T23:35:32.099185Z",
+            "modified": "2023-04-28T23:35:32.099185Z",
+            "context": "suspicious-activity",
+            "object_refs": [
+                "user-account--a5549db1-1a61-5905-ad16-3cc14b35cd22"
+            ]
+        },
+        {
+            "type": "task",
+            "id": "task--4d8c9945-cbaa-41d5-b98b-e620f7b7b7e5",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified":"2020-10-19T01:01:01.000Z",
+            "spec_version": "2.1",
+            "task_types": ["playbook-step-execution"],
+            "name": "Get System Logins",
+            "outcome": "failed",
+            "error": "No results found",
+            "external_references": [
+                {
+                    "source_name": "internal-playbook",
+                    "external_id": "playbook--a361b0e4-d81b-43f7-ba45-a131aa3b8080"
+                },
+                {
+                    "source_name": "playbook-step",
+                    "external_id": "action--22275b08-2ec5-4575-8064-44669b876c3f"
+                }
+            ],
+            "changed_objects": [
+                {
+                    "state_change_type": "input",
+                    "initial_ref": "grouping--5ae578cf-5884-45f4-a1bf-1998af828ccc"
+                }
+            ],
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "id": "task--caa55f5d-cf7f-4f34-a48b-62c0bf9e9e1d",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified":"2020-10-19T01:01:01.000Z",
+            "spec_version": "2.1",
+            "task_types": ["playbook-step-execution"],
+            "name": "User Review",
+            "outcome": "ongoing",
+            "external_references": [
+                {
+                    "source_name": "internal-playbooks",
+                    "external_id": "playbook--a361b0e4-d81b-43f7-ba45-a131aa3b8080"
+                },
+                {
+                    "source_name": "playbook-step",
+                    "external_id": "action--7b3e9410-e809-4548-90a2-af160c722d58"
+                }
+            ],
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "x_mitre_platforms": [
+                "Windows",
+                "macOS",
+                "Linux"
+            ],
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "attack-pattern--7610cada-1499-41a4-b3dd-46467b68d177",
+            "type": "attack-pattern",
+            "created": "2020-01-28T14:05:17.825Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "T1136.002",
+                    "url": "https://attack.mitre.org/techniques/T1136/002"
+                },
+                {
+                    "source_name": "Microsoft User Creation Event",
+                    "description": "Lich, B., Miroshnikov, A. (2017, April 5). 4720(S): A user account was created. Retrieved June 30, 2017.",
+                    "url": "https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4720"
+                }
+            ],
+            "modified": "2021-04-29T14:49:39.188Z",
+            "name": "Domain Account",
+            "description": "Adversaries may create a domain account to maintain access to victim systems. Domain accounts are those managed by Active Directory Domain Services where access and permissions are configured across systems and services that are part of that domain. Domain accounts can cover user, administrator, and service accounts. With a sufficient level of access, the <code>net user /add /domain</code> command can be used to create a domain account.\n\nSuch accounts may be used to establish secondary credentialed access that do not require persistent remote access tools to be deployed on the system.",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "mitre-attack",
+                    "phase_name": "persistence"
+                }
+            ],
+            "x_mitre_detection": "Monitor for processes and command-line parameters associated with domain account creation, such as <code>net user /add /domain</code>. Collect data on account creation within a network. Event ID 4720 is generated when a user account is created on a Windows domain controller. (Citation: Microsoft User Creation Event) Perform regular audits of domain accounts to detect suspicious accounts that may have been created by an adversary.",
+            "x_mitre_is_subtechnique": true,
+            "x_mitre_version": "1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "x_mitre_data_sources": [
+                "Process: Process Creation",
+                "User Account: User Account Creation",
+                "Command: Command Execution"
+            ],
+            "x_mitre_permissions_required": [
+                "Administrator"
+            ],
+            "spec_version": "2.1",
+            "x_mitre_attack_spec_version": "2.1.0"
+        },
+        {
+            "x_mitre_platforms": [
+                "Windows",
+                "macOS",
+                "Linux"
+            ],
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "attack-pattern--6aac77c4-eaf2-4366-8c13-ce50ab951f38",
+            "type": "attack-pattern",
+            "created": "2018-04-18T17:59:24.739Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "revoked": true,
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1193",
+                    "external_id": "T1193"
+                },
+                {
+                    "external_id": "CAPEC-163",
+                    "source_name": "capec",
+                    "url": "https://capec.mitre.org/data/definitions/163.html"
+                }
+            ],
+            "modified": "2022-04-25T14:00:00.188Z",
+            "name": "Spearphishing Attachment",
+            "description": "Spearphishing attachment is a specific variant of spearphishing. Spearphishing attachment is different from other forms of spearphishing in that it employs the use of malware attached to an email. All forms of spearphishing are electronically delivered social engineering targeted at a specific individual, company, or industry. In this scenario, adversaries attach a file to the spearphishing email and usually rely upon [User Execution](https://attack.mitre.org/techniques/T1204) to gain execution.\n\nThere are many options for the attachment such as Microsoft Office documents, executables, PDFs, or archived files. Upon opening the attachment (and potentially clicking past protections), the adversary's payload exploits a vulnerability or directly executes on the user's system. The text of the spearphishing email usually tries to give a plausible reason why the file should be opened, and may explain how to bypass system protections in order to do so. The email may also contain instructions on how to decrypt an attachment, such as a zip file password, in order to evade email boundary defenses. Adversaries frequently manipulate file extensions and icons in order to make attached executables appear to be document files, or files exploiting one application appear to be a file for a different one.",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "mitre-attack",
+                    "phase_name": "initial-access"
+                }
+            ],
+            "x_mitre_detection": "Network intrusion detection systems and email gateways can be used to detect spearphishing with malicious attachments in transit. Detonation chambers may also be used to identify malicious attachments. Solutions can be signature and behavior based, but adversaries may construct attachments in a way to avoid these systems.\n\nAnti-virus can potentially detect malicious documents and attachments as they're scanned to be stored on the email server or on the user's computer. Endpoint sensing or network sensing can potentially detect malicious events once the attachment is opened (such as a Microsoft Word document or PDF reaching out to the internet or spawning Powershell.exe) for techniques such as [Exploitation for Client Execution](https://attack.mitre.org/techniques/T1203) and [Scripting](https://attack.mitre.org/techniques/T1064).",
+            "x_mitre_version": "1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "x_mitre_is_subtechnique": false,
+            "spec_version": "2.1",
+            "x_mitre_attack_spec_version": "2.1.0"
+        },
+        {
+            "x_mitre_platforms": [
+                "Windows"
+            ],
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "x_mitre_contributors": [
+                "Matthew Demaske, Adaptforward"
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "attack-pattern--51dea151-0898-4a45-967c-3ebee0420484",
+            "type": "attack-pattern",
+            "created": "2017-05-31T21:30:59.769Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "revoked": true,
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "T1076",
+                    "url": "https://attack.mitre.org/techniques/T1076"
+                },
+                {
+                    "external_id": "CAPEC-555",
+                    "source_name": "capec",
+                    "url": "https://capec.mitre.org/data/definitions/555.html"
+                },
+                {
+                    "url": "https://technet.microsoft.com/en-us/windowsserver/ee236407.aspx",
+                    "description": "Microsoft. (n.d.). Remote Desktop Services. Retrieved June 1, 2016.",
+                    "source_name": "TechNet Remote Desktop Services"
+                },
+                {
+                    "url": "http://blog.crowdstrike.com/adversary-tricks-crowdstrike-treats/",
+                    "description": "Alperovitch, D. (2014, October 31). Malware-Free Intrusions. Retrieved November 4, 2014.",
+                    "source_name": "Alperovitch Malware"
+                },
+                {
+                    "url": "http://www.korznikov.com/2017/03/0-day-or-feature-privilege-escalation.html",
+                    "description": "Korznikov, A. (2017, March 17). Passwordless RDP Session Hijacking Feature All Windows versions. Retrieved December 11, 2017.",
+                    "source_name": "RDP Hijacking Korznikov"
+                },
+                {
+                    "url": "https://medium.com/@networksecurity/rdp-hijacking-how-to-hijack-rds-and-remoteapp-sessions-transparently-to-move-through-an-da2a1e73a5f6",
+                    "description": "Beaumont, K. (2017, March 19). RDP hijacking\u200a\u2014\u200ahow to hijack RDS and RemoteApp sessions transparently to move through an organisation. Retrieved December 11, 2017.",
+                    "source_name": "RDP Hijacking Medium"
+                },
+                {
+                    "url": "https://github.com/nccgroup/redsnarf",
+                    "description": "NCC Group PLC. (2016, November 1). Kali Redsnarf. Retrieved December 11, 2017.",
+                    "source_name": "Kali Redsnarf"
+                }
+            ],
+            "modified": "2022-04-25T14:00:00.188Z",
+            "name": "Remote Desktop Protocol",
+            "description": "Remote desktop is a common feature in operating systems. It allows a user to log into an interactive session with a system desktop graphical user interface on a remote system. Microsoft refers to its implementation of the Remote Desktop Protocol (RDP) as Remote Desktop Services (RDS). (Citation: TechNet Remote Desktop Services) There are other implementations and third-party tools that provide graphical access [Remote Services](https://attack.mitre.org/techniques/T1021) similar to RDS.\n\nAdversaries may connect to a remote system over RDP/RDS to expand access if the service is enabled and allows access to accounts with known credentials. Adversaries will likely use Credential Access techniques to acquire credentials to use with RDP. Adversaries may also use RDP in conjunction with the [Accessibility Features](https://attack.mitre.org/techniques/T1015) technique for Persistence. (Citation: Alperovitch Malware)\n\nAdversaries may also perform RDP session hijacking which involves stealing a legitimate user's remote session. Typically, a user is notified when someone else is trying to steal their session and prompted with a question. With System permissions and using Terminal Services Console, <code>c:\\windows\\system32\\tscon.exe [session number to be stolen]</code>, an adversary can hijack a session without the need for credentials or prompts to the user. (Citation: RDP Hijacking Korznikov) This can be done remotely or locally and with active or disconnected sessions. (Citation: RDP Hijacking Medium) It can also lead to [Remote System Discovery](https://attack.mitre.org/techniques/T1018) and Privilege Escalation by stealing a Domain Admin or higher privileged account session. All of this can be done by using native Windows commands, but it has also been added as a feature in RedSnarf. (Citation: Kali Redsnarf)",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "mitre-attack",
+                    "phase_name": "lateral-movement"
+                }
+            ],
+            "x_mitre_detection": "Use of RDP may be legitimate, depending on the network environment and how it is used. Other factors, such as access patterns and activity that occurs after a remote login, may indicate suspicious or malicious behavior with RDP. Monitor for user accounts logged into systems they would not normally access or access patterns to multiple systems over a relatively short period of time.\n\nAlso, set up process monitoring for <code>tscon.exe</code> usage and monitor service creation that uses <code>cmd.exe /k</code> or <code>cmd.exe /c</code> in its arguments to prevent RDP session hijacking.",
+            "x_mitre_version": "1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "x_mitre_permissions_required": [
+                "Remote Desktop Users",
+                "User"
+            ],
+            "x_mitre_system_requirements": [
+                "RDP service enabled, account in the Remote Desktop Users group."
+            ],
+            "x_mitre_is_subtechnique": false,
+            "spec_version": "2.1",
+            "x_mitre_attack_spec_version": "2.1.0"
+        },
+        {
+            "x_mitre_platforms": [
+                "Windows",
+                "macOS",
+                "Linux"
+            ],
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "attack-pattern--7610cada-1499-41a4-b3dd-46467b68d177",
+            "type": "attack-pattern",
+            "created": "2020-01-28T14:05:17.825Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "T1136.002",
+                    "url": "https://attack.mitre.org/techniques/T1136/002"
+                },
+                {
+                    "source_name": "Microsoft User Creation Event",
+                    "description": "Lich, B., Miroshnikov, A. (2017, April 5). 4720(S): A user account was created. Retrieved June 30, 2017.",
+                    "url": "https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4720"
+                }
+            ],
+            "modified": "2021-04-29T14:49:39.188Z",
+            "name": "Domain Account",
+            "description": "Adversaries may create a domain account to maintain access to victim systems. Domain accounts are those managed by Active Directory Domain Services where access and permissions are configured across systems and services that are part of that domain. Domain accounts can cover user, administrator, and service accounts. With a sufficient level of access, the <code>net user /add /domain</code> command can be used to create a domain account.\n\nSuch accounts may be used to establish secondary credentialed access that do not require persistent remote access tools to be deployed on the system.",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "mitre-attack",
+                    "phase_name": "persistence"
+                }
+            ],
+            "x_mitre_detection": "Monitor for processes and command-line parameters associated with domain account creation, such as <code>net user /add /domain</code>. Collect data on account creation within a network. Event ID 4720 is generated when a user account is created on a Windows domain controller. (Citation: Microsoft User Creation Event) Perform regular audits of domain accounts to detect suspicious accounts that may have been created by an adversary.",
+            "x_mitre_is_subtechnique": true,
+            "x_mitre_version": "1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "x_mitre_data_sources": [
+                "Process: Process Creation",
+                "User Account: User Account Creation",
+                "Command: Command Execution"
+            ],
+            "x_mitre_permissions_required": [
+                "Administrator"
+            ],
+            "spec_version": "2.1",
+            "x_mitre_attack_spec_version": "2.1.0"
         }
     ]
 }

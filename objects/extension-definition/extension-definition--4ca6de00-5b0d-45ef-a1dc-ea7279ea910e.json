@@ -1,0 +1,19 @@
+{
+  "type": "bundle",
+  "id": "bundle--2cb66f1c-60bc-4e4b-a30d-5edf66dce6f5",
+  "objects": [
+    {
+      "id": "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e",
+      "type": "extension-definition",
+      "spec_version": "2.1",
+      "name": "Event Extension",
+      "description": "Events store high level events that are not necessarily system level (these should be captured as separate SCOs) that can become tied to incidents.  Events can cause or alter impacts, and often exist prior to incidents being declared or officially tracked.",
+      "created": "2023-05-16T20:47:23.388576Z",
+      "modified": "2023-05-16T20:47:23.388576Z",
+      "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+      "schema": "https://github.com/oasis-open/cti-stix-common-objects/tree/main/extension-definition-specifications/incident-core/event",
+      "version": "1.0.0",
+      "extension_types": [ "new-sdo" ]
+    }
+  ]
+}
