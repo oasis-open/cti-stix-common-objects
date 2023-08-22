@@ -10,7 +10,7 @@
             "source_name": "unprotect-project",
             "description": "This is typical timing function which is used to measure <snip>",
             "url": "https://www.unprotect.it/technique/gettickcount/",
-            "external_id": "U0125, B000`.032"
+            "external_id": "U0125, B0001.032"
         },
         "labels": ["gettickcount"],
         "objective_refs": ["malware-objective--6a624a7a-ef64-46ce-b582-b963b7d6113f"],
