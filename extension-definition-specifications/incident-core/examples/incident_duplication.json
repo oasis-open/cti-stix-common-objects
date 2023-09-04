@@ -1,0 +1,153 @@
+{
+    "type": "bundle",
+    "id": "bundle--b72fa03b-d1e0-4f34-81f0-f60e7f019818",
+    "objects": [
+        {
+            "type": "incident",
+            "id": "incident--bf319a69-abcb-447b-bab4-eaa54316020c",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified":"2020-10-19T02:12:23.000Z",
+            "created_by_ref": "identity--2242662b-d581-4864-8696-fff719dc0500",
+            "spec_version": "2.1",
+            "name": "Stolen Laptop",
+            "description": "Someone stole a laptop",
+            "extensions": {
+                "extension-definition--ef765651-680c-498d-9894-99799f2fa126": {
+                    "extension_type": "property-extension",
+                    "investigation_status": "closed",
+                    "determination": "confirmed",
+                    "detection_methods": ["user-report"],
+                    "incident_types": ["loss-of-control"],
+                    "tasks": [
+                        {
+                            "task_ref": "task--6d6c1a2b-6a9b-4f2a-aa23-961f42acfc83"
+                        },
+                        {
+                            "task_ref": "task--aae16dc7-4ca9-4652-8d1b-10e6f1f8334f"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified": "2020-10-19T01:01:01.000Z",
+            "spec_version": "2.1",
+            "id": "task--6d6c1a2b-6a9b-4f2a-aa23-961f42acfc83",
+            "task_types": ["discovery"],
+            "description": "User alerted security",
+            "outcome": "successful",
+            "start_time": "2020-10-15T01:00:00.000Z",
+            "start_time_fidelity": "hour",
+            "end_time": "2020-10-15T01:00:00.000Z",
+            "end_time_fidelity": "hour",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified": "2020-10-19T01:01:01.000Z",
+            "spec_version": "2.1",
+            "id": "task--aae16dc7-4ca9-4652-8d1b-10e6f1f8334f",
+            "activity_types": ["updated-inventory"],
+            "outcome": "successful",
+            "start_time": "2020-10-19T02:00:00.000Z",
+            "start_time_fidelity": "hour",
+            "end_time": "2020-10-19T02:00:00.000Z",
+            "end_time_fidelity": "hour",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "incident",
+            "id": "incident--d9ce8926-717f-4ef5-a81f-df9002aa17d2",
+            "created": "2020-10-19T02:15:01.000Z",
+            "modified":"2020-10-19T03:12:23.000Z",
+            "created_by_ref": "identity--2242662b-d581-4864-8696-fff719dc0500",
+            "spec_version": "2.1",
+            "name": "Stolen Laptop",
+            "description": "Someone stole a laptop",
+            "extensions": {
+                "extension-definition--ef765651-680c-498d-9894-99799f2fa126": {
+                    "extension_type": "property-extension",
+                    "investigation_status": "closed",
+                    "determination": "confirmed",
+                    "detection_methods": ["user-report"],
+                    "incident_types": ["loss-of-control"],
+                    "tasks": [
+                        {
+                            "task_ref": "task--6d6c1a2b-6a9b-4f2a-aa23-961f42acfc83"
+                        },
+                        {
+                            "task_ref": "task--85ddc2d5-4d9f-4639-9365-9aa38631f0b7"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified": "2020-10-19T01:01:01.000Z",
+            "spec_version": "2.1",
+            "id": "task--85ddc2d5-4d9f-4639-9365-9aa38631f0b7",
+            "activity_types": ["closed"],
+            "outcome": "successful",
+            "description": "Determined this was a duplicate of another ticket",
+            "start_time": "2020-10-19T03:12:23.000Z",
+            "end_time": "2020-10-19T03:12:23.000Z",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--0d98c5dd-22a7-4316-89d0-bb7c0338ef0f",
+            "created": "2020-10-19T03:12:23.000Z",
+            "modified": "2020-10-19T03:12:23.000Z",
+            "relationship_type": "duplicate-of",
+            "source_ref": "incident--d9ce8926-717f-4ef5-a81f-df9002aa17d2",
+            "target_ref": "incident--bf319a69-abcb-447b-bab4-eaa54316020c"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--35e5dedf-11a1-4f82-b910-7a7646f14890",
+            "created": "2020-10-19T03:12:23.000Z",
+            "modified": "2020-10-19T03:12:23.000Z",
+            "relationship_type": "related-to",
+            "source_ref": "report--25405dde-90e5-49e9-9adb-b8bfbdec3cfb",
+            "target_ref": "incident--d9ce8926-717f-4ef5-a81f-df9002aa17d2"
+        },
+        {
+            "type": "report",
+            "created": "2020-10-19T03:12:23.000Z",
+            "modified": "2020-10-19T03:12:23.000Z",
+            "spec_version": "2.1",
+            "id": "report--25405dde-90e5-49e9-9adb-b8bfbdec3cfb",
+            "name": "Duplicate Incident Report",
+            "report_types": ["incident"],
+            "published": "2020-10-19T03:12:23.000Z",
+            "object_refs": [
+                "incident--bf319a69-abcb-447b-bab4-eaa54316020c",
+                "incident--d9ce8926-717f-4ef5-a81f-df9002aa17d2",
+                "relationship--0d98c5dd-22a7-4316-89d0-bb7c0338ef0f",
+                "relationship--35e5dedf-11a1-4f82-b910-7a7646f14890",
+                "task--6d6c1a2b-6a9b-4f2a-aa23-961f42acfc83",
+                "task--85ddc2d5-4d9f-4639-9365-9aa38631f0b7",
+                "task--aae16dc7-4ca9-4652-8d1b-10e6f1f8334f"
+            ]
+        }
+    ]
+}

@@ -14,136 +14,543 @@
                 "extension-definition--ef765651-680c-498d-9894-99799f2fa126": {
                     "extension_type": "property-extension",
                     "investigation_status": "open",
-                    "determination": "successful-attempt",
+                    "determination": "confirmed",
                     "detection_methods": ["user-reporting"],
                     "incident_types": [
                         "compromised-system"
                         , "denial-of-service"
                         , "major"
                     ],
-                    "attacker_activities": [
+                    "events": [
                         {
-                            "outcome": "successful",
-                            "pattern_ref": "attack-pattern--2b742742-28c3-4e1b-bab7-8350d6300fa7",
-                            "description": "A phishing email with a malicious link was delivered.  When the user went to this link it put a dropper on their computer.",
-                            "kill_chain_phases": [
+                            "event_ref": "event--6e7ec24e-e3b2-498e-afb4-e14eab67b5d4",
+                            "next_steps": [
                                 {
-                                    "kill_chain_name": "lockheed-martin-cyber-kill-chain",
-                                    "phase_name": "delivery"
+                                    "event_ref": "event--e1d9744a-9c23-45fa-adee-59d739dfb620",
+                                    "condition_type": "required",
+                                    "transition_type": "completion"
                                 }
-                            ],
-                            "sequence_start": 1,
-                            "sequence_end": 1,
-                            "observed_refs": ["file--9704eca1-8efd-542c-a626-77d7cbcfe49f", "indicator--878492d0-9802-4854-88f3-bd433ae54d4d"]
+                            ]
                         },
                         {
-                            "outcome": "successful",
-                            "description": "The dropper verified it had internet access by checking google and then downloaded and installed second stage tooling.",
-                            "kill_chain_phases": [
+                            "event_ref": "event--e1d9744a-9c23-45fa-adee-59d739dfb620",
+                            "next_steps": [
                                 {
-                                    "kill_chain_name": "lockheed-martin-cyber-kill-chain",
-                                    "phase_name": "delivery"
+                                    "event_ref": "event--612c5cd9-689c-4bc0-83b2-cd956f812cf9",
+                                    "condition_type": "required",
+                                    "transition_type": "completion"
                                 },
                                 {
-                                    "kill_chain_name": "lockheed-martin-cyber-kill-chain",
-                                    "phase_name": "installation"
+                                    "event_ref": "event--747f4f6b-175f-4843-bde2-1b3218bf5ff0",
+                                    "condition_type": "required",
+                                    "transition_type": "completion"
                                 }
-                            ],
-                            "sequence_start": 2,
-                            "sequence_end": 2,
-                            "observed_refs": ["domain-name--160f66e8-85b8-55b0-b81e-b0e7454f179d", "url--fef943a6-8bba-5237-af37-03a6f2ae58f5", "domain-name--430fdb3b-be9f-53fe-891c-955952b7a570"]
+                            ]
                         },
                         {
-                            "outcome": "blocked",
-                            "description": "The second stage tooling attempted to spread laterally, but firewall rules prevented it from doing so to other workstations.",
-                            "kill_chain_phases": [
+                            "event_ref": "event--612c5cd9-689c-4bc0-83b2-cd956f812cf9"
+                        },
+                        {
+                            "event_ref": "event--747f4f6b-175f-4843-bde2-1b3218bf5ff0"
+                        }
+                    ],
+                    "tasks": [
+                        {
+                            "task_ref": "task--fd5f04a8-877f-42a3-a25d-ddfe2001a6e1",
+                            "next_steps": [
                                 {
-                                    "kill_chain_name": "lockheed-martin-cyber-kill-chain",
-                                    "phase_name": "delivery"
-                                }
-                            ],
-                            "sequence_start": 3,
-                            "sequence_end": 4,
-                            "observed_refs": ["file--6a597e24-1209-5e8f-819c-1addce1bb314", "indicator--2149c5c5-2917-4f89-958f-e34eab7a315c"]
-                        },
-                        {
-                            "outcome": "successful",
-                            "description": "One of the second stage tools was able to communicate with an ICS sensor device and destroyed it.",
-                            "kill_chain_phases": [
+                                    "task_ref": "task--7a998b82-389d-4d9c-b5ca-40aa34680c0a",
+                                    "condition_type": "required",
+                                    "transition_type": "completion"
+                                },
                                 {
-                                    "kill_chain_name": "lockheed-martin-cyber-kill-chain",
-                                    "phase_name": "action-on-objectives"
+                                    "task_ref": "task--d6853763-b5b3-4f5e-b031-bcb111a3d7a1",
+                                    "condition_type": "required",
+                                    "transition_type": "completion"
                                 }
-                            ],
-                            "sequence_start": 3,
-                            "sequence_end": 4,
-                            "impacted_refs": ["ipv4-addr--b7c7aace-c5f3-463e-bb63-4de6cb5e8995"]
-                        }
-                    ],
-                    "defender_activities": [
-                        {
-                            "activity_type": "discovery",
-                            "outcome": "successful",
-                            "description": "The assembly line experienced a shutdown due to a device failing.  This was determined to be a sensor failure.",
-                            "start_time": "2022-05-01T07:00:00Z",
-                            "start_time_fidelity": "day",
-                            "end_time": "2022-05-01T07:00:00Z",
-                            "end_time_fidelity": "day"
+                            ]
                         },
                         {
-                            "activity_type": "declared",
-                            "outcome": "successful",
-                            "description": "Investigations into the sensor found that its controller was behaving strangely and it was believed to be due to a problem with the code",
-                            "start_time": "2022-05-01T07:00:00Z",
-                            "start_time_fidelity": "day",
-                            "end_time": "2022-05-01T07:00:00Z",
-                            "end_time_fidelity": "day"
+                            "task_ref": "task--7a998b82-389d-4d9c-b5ca-40aa34680c0a",
+                            "next_steps": [
+                                {
+                                    "task_ref": "task--7c99eec2-5873-4d02-a286-b1cfcbb33cbc",
+                                    "condition_type": "required",
+                                    "transition_type": "completion"
+                                }
+                            ]
                         },
                         {
-                            "activity_type": "escalated",
-                            "outcome": "successful",
-                            "description": "The cause of the error was traced to malware on the system and an investigation began",
-                            "start_time": "2022-05-02T07:00:00Z",
-                            "start_time_fidelity": "day",
-                            "end_time": "2022-05-02T07:00:00Z",
-                            "end_time_fidelity": "day"
+                            "task_ref": "task--7c99eec2-5873-4d02-a286-b1cfcbb33cbc",
+                            "next_steps": [
+                                {
+                                    "task_ref": "task--1b44203f-dbfb-4399-a02d-6b71f04ccfb7",
+                                    "condition_type": "required",
+                                    "transition_type": "completion"
+                                }
+                            ]
                         },
                         {
-                            "activity_type": "reported",
-                            "outcome": "successful",
-                            "object_ref": "course-of-action--8bb544ff-0499-4ee3-b683-305b8b0955a3",
-                            "identity_refs": ["identity--7a164253-fbfd-420b-9316-79f5d3dff51f"],
-                            "description": "Law enforcement was contacted regarding the incident",
-                            "start_time": "2022-05-02T07:00:00Z",
-                            "start_time_fidelity": "day",
-                            "end_time": "2022-05-02T07:00:00Z",
-                            "end_time_fidelity": "day"
-                        }
-                    ],
-                    "availability_impacts": [
+                            "task_ref": "task--1b44203f-dbfb-4399-a02d-6b71f04ccfb7"
+                        },
                         {
-                            "availability_impact": 65,
-                            "impacted_refs": ["infrastructure--8faf3522-88a2-4402-b5c1-0d7ecb1a767f"]
-                        }
+                            "task_ref": "task--d6853763-b5b3-4f5e-b031-bcb111a3d7a1"
+                        }                   
                     ],
-                    "physical_impacts": [
-                        {
-                            "impact_type": "damaged-nonfunctional",
-                            "description": "A series of commands were given to cause a sensor to lose callibration in a manner that requires it to be replaced",
-                            "asset_type": "ics-sensor",
-                            "recoverability": "supplemented",
-                            "impacted_refs": ["infrastructure--8faf3522-88a2-4402-b5c1-0d7ecb1a767f"]
-                        }
-                    ],
-                    "monetary_impacts": [
-                        {
-                            "variety": "business-disruption",
-                            "currency": "usd",
-                            "description": "Each day of downtime is estimated at 10k USD and the outage is still ongoing",
-                            "min_amount": 10000,
-                            "max_amount": 100000
-                        }
+                    "impact_refs": [
+                        "impact--8a8c50a3-c57f-4440-9fde-ff4d14da03d3",
+                        "impact--1032f48b-28d1-451f-970e-78b736db8e13",
+                        "impact--272641bb-4e62-4ebe-ae96-2d254554db03"
                     ]
+                }
+            }
+        },
+        {
+            "type": "impact",
+            "id": "impact--8a8c50a3-c57f-4440-9fde-ff4d14da03d3",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified":"2022-05-06T01:01:01.002Z",
+            "spec_version": "2.1",
+            "impacted_refs": ["infrastructure--8faf3522-88a2-4402-b5c1-0d7ecb1a767f"],
+            "impact_category": "availability",
+            "end_time": "2022-05-07T04:00:00.002Z",
+            "end_time_fidelity": "day",
+            "superseded_by_ref": "impact--e36d4f80-85cf-4672-966c-0cfcfa8b7733",
+            "extensions": {
+                "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+                    "extension_type": "new-sdo"
+                },
+                "availability": {
+                    "availability_impact": 75
+                }
+            }
+        },
+        {
+            "type": "impact",
+            "id": "impact--e36d4f80-85cf-4672-966c-0cfcfa8b7733",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified":"2022-05-06T01:01:01.002Z",
+            "spec_version": "2.1",
+            "impacted_refs": ["infrastructure--8faf3522-88a2-4402-b5c1-0d7ecb1a767f"],
+            "impact_category": "availability",
+            "start_time": "2022-05-07T04:00:00.002Z",
+            "start_time_fidelity": "day",
+            "extensions": {
+                "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+                    "extension_type": "new-sdo"
+                },
+                "availability": {
+                    "availability_impact": 50
+                }
+            }
+        },
+        {
+            "type": "impact",
+            "id": "impact--272641bb-4e62-4ebe-ae96-2d254554db03",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified":"2022-05-06T01:01:01.002Z",
+            "spec_version": "2.1",
+            "description": "Each day of downtime is estimated at 10k USD and the outage is still ongoing",
+            "impact_category": "monetary",
+            "extensions": {
+                "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+                    "extension_type": "new-sdo"
+                },
+                "monetary": {
+                    "variety": "business-disruption",
+                    "currency": "usd",
+                    "min_amount": 10000,
+                    "max_amount": 100000
+                }
+            }
+        },
+        {
+            "type": "impact",
+            "id": "impact--1032f48b-28d1-451f-970e-78b736db8e13",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified":"2022-05-06T01:01:01.002Z",
+            "spec_version": "2.1",
+            "description": "A series of commands were given to cause a sensor to lose callibration in a manner that requires it to be replaced",
+            "recoverability": "supplemented",
+            "impacted_refs": ["infrastructure--8faf3522-88a2-4402-b5c1-0d7ecb1a767f"],
+            "impact_category": "physical",
+            "extensions": {
+                "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+                    "extension_type": "new-sdo"
+                },
+                "physical": {
+                    "asset_type": "ics-sensor",
+                    "impact_type": "damaged-nonfunctional"
+                }
+            }
+        },
+        {
+            "type": "event",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified":"2022-05-06T01:01:01.002Z",
+            "spec_version": "2.1",
+            "status": "occurred",
+            "id": "event--6e7ec24e-e3b2-498e-afb4-e14eab67b5d4",
+            "description": "A phishing email with a malicious link was delivered.  When the user went to this link it put a dropper on their computer.",
+            "sighting_refs": ["sighting--f0747539-929a-46b8-bc54-dc96e876a679", "sighting--f771469d-bd11-4e7a-b1f8-9a732b77db23"],
+            "extensions": {
+                "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--f0747539-929a-46b8-bc54-dc96e876a679",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified": "2022-05-06T01:01:01.002Z",
+            "sighting_of_ref": "indicator--878492d0-9802-4854-88f3-bd433ae54d4d",
+            "observed_data_refs": ["observed-data--acf58246-e394-4e56-bd64-a49fa66eb906"]
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--f771469d-bd11-4e7a-b1f8-9a732b77db23",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified": "2022-05-06T01:01:01.002Z",
+            "sighting_of_ref": "attack-pattern--2b742742-28c3-4e1b-bab7-8350d6300fa7",
+            "observed_data_refs": ["observed-data--acf58246-e394-4e56-bd64-a49fa66eb906"]
+        },
+        {
+            "type": "observed-data",
+            "spec_version": "2.1",
+            "id": "observed-data--acf58246-e394-4e56-bd64-a49fa66eb906",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified": "2022-05-06T01:01:01.002Z",
+            "first_observed": "2022-05-01T01:01:01Z",
+            "last_observed": "2022-05-06T01:01:01Z",
+            "number_observed": 1,
+            "object_refs": ["file--9704eca1-8efd-542c-a626-77d7cbcfe49f"]
+        },
+        {
+            "type": "event",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified":"2022-05-06T01:01:01.002Z",
+            "spec_version": "2.1",
+            "status": "occurred",
+            "event_types": ["successful"],
+            "description": "The dropper verified it had internet access by checking google and then downloaded and installed second stage tooling.",
+            "id": "event--e1d9744a-9c23-45fa-adee-59d739dfb620",
+            "sighting_refs": ["sighting--0770b1ac-6b85-41cb-a0c4-2b71b9e76182"],
+            "extensions": {
+                "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--0770b1ac-6b85-41cb-a0c4-2b71b9e76182",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified": "2022-05-06T01:01:01.002Z",
+            "sighting_of_ref": "attack-pattern--e6919abc-99f9-4c6c-95a5-14761e7b2add",
+            "observed_data_refs": [
+                "observed-data--a9875e85-8b68-4a05-b77e-1520f639ff6a",
+                "observed-data--56dec100-fb01-4188-bc62-730b9797502f",
+                "observed-data--f0f043eb-05c5-490f-b7fe-13c27969deab"
+            ]
+        },
+        {
+            "type": "observed-data",
+            "spec_version": "2.1",
+            "id": "observed-data--a9875e85-8b68-4a05-b77e-1520f639ff6a",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified": "2022-05-06T01:01:01.002Z",
+            "first_observed": "2022-05-01T01:01:01Z",
+            "last_observed": "2022-05-06T01:01:01Z",
+            "number_observed": 1,
+            "object_refs": ["domain-name--160f66e8-85b8-55b0-b81e-b0e7454f179d"]
+        },
+        {
+            "type": "observed-data",
+            "spec_version": "2.1",
+            "id": "observed-data--56dec100-fb01-4188-bc62-730b9797502f",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified": "2022-05-06T01:01:01.002Z",
+            "first_observed": "2022-05-01T01:01:01Z",
+            "last_observed": "2022-05-06T01:01:01Z",
+            "number_observed": 1,
+            "object_refs": ["url--fef943a6-8bba-5237-af37-03a6f2ae58f5"]
+        },
+        {
+            "type": "observed-data",
+            "spec_version": "2.1",
+            "id": "observed-data--f0f043eb-05c5-490f-b7fe-13c27969deab",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified": "2022-05-06T01:01:01.002Z",
+            "first_observed": "2022-05-01T01:01:01Z",
+            "last_observed": "2022-05-06T01:01:01Z",
+            "number_observed": 1,
+            "object_refs": ["domain-name--430fdb3b-be9f-53fe-891c-955952b7a570"]
+        },
+        {
+            "type": "event",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified":"2022-05-06T01:01:01.002Z",
+            "spec_version": "2.1",
+            "status": "occurred",
+            "event_types": ["blocked"],
+            "id": "event--612c5cd9-689c-4bc0-83b2-cd956f812cf9",
+            "description": "The second stage tooling attempted to spread laterally, but firewall rules prevented it from doing so to other workstations.",
+            "sighting_refs": ["sighting--e54ffcaf-040b-4bb1-9a13-c086f5c5d97a", "sighting--428acd71-997e-4203-8c6b-d65e588a74de"],
+            "extensions": {
+                "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--e54ffcaf-040b-4bb1-9a13-c086f5c5d97a",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified": "2022-05-06T01:01:01.002Z",
+            "sighting_of_ref": "indicator--2149c5c5-2917-4f89-958f-e34eab7a315c",
+            "observed_data_refs": ["observed-data--714832b4-33ae-47ae-80a7-01c64eaa9dca"]
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--428acd71-997e-4203-8c6b-d65e588a74de",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified": "2022-05-06T01:01:01.002Z",
+            "sighting_of_ref": "attack-pattern--9db0cf3a-a3c9-4012-8268-123b9db6fd82",
+            "observed_data_refs": ["observed-data--714832b4-33ae-47ae-80a7-01c64eaa9dca"]
+        },
+        {
+            "type": "observed-data",
+            "spec_version": "2.1",
+            "id": "observed-data--714832b4-33ae-47ae-80a7-01c64eaa9dca",
+            "first_observed": "2022-05-01T01:01:01Z",
+            "last_observed": "2022-05-06T01:01:01Z",
+            "number_observed": 1,
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified": "2022-05-06T01:01:01.002Z",
+            "object_refs": ["file--6a597e24-1209-5e8f-819c-1addce1bb314"]
+        },
+        {
+            "type": "event",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified":"2022-05-06T01:01:01.002Z",
+            "spec_version": "2.1",
+            "status": "occurred",
+            "event_types": ["successful"],
+            "id": "event--747f4f6b-175f-4843-bde2-1b3218bf5ff0",
+            "description": "One of the second stage tools was able to communicate with an ICS sensor device and destroyed it.",
+            "sighting_refs": ["sighting--65375463-8ddd-4e53-bd14-e32d40e8e6cd"],
+            "changed_objects": [
+                {
+                    "state_change_type": "caused",
+                    "result_ref": "impact--8a8c50a3-c57f-4440-9fde-ff4d14da03d3"
+                },
+                {
+                    "state_change_type": "caused",
+                    "result_ref": "impact--1032f48b-28d1-451f-970e-78b736db8e13"
+                },
+                {
+                    "state_change_type": "caused",
+                    "result_ref": "impact--272641bb-4e62-4ebe-ae96-2d254554db03"
+                }
+            ],
+            "extensions": {
+                "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--65375463-8ddd-4e53-bd14-e32d40e8e6cd",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified": "2022-05-06T01:01:01.002Z",
+            "sighting_of_ref": "attack-pattern--83ebd22f-b401-4d59-8219-2294172cf916"
+        },
+        {
+            "type": "task",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified":"2022-05-06T01:01:01.002Z",
+            "spec_version": "2.1",
+            "task_types": ["discovery"],
+            "id": "task--fd5f04a8-877f-42a3-a25d-ddfe2001a6e1",
+            "outcome": "successful",
+            "description": "The assembly line experienced a shutdown due to a device failing.  This was determined to be a sensor failure.",
+            "start_time": "2022-05-01T07:00:00Z",
+            "start_time_fidelity": "day",
+            "end_time": "2022-05-01T07:00:00Z",
+            "end_time_fidelity": "day",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified":"2022-05-06T01:01:01.002Z",
+            "spec_version": "2.1",
+            "task_types": ["declared"],
+            "id": "task--7a998b82-389d-4d9c-b5ca-40aa34680c0a",
+            "outcome": "successful",
+            "description": "Investigations into the sensor found that its controller was behaving strangely and it was believed to be due to a problem with the code",
+            "start_time": "2022-05-01T07:00:00Z",
+            "start_time_fidelity": "day",
+            "end_time": "2022-05-01T07:00:00Z",
+            "end_time_fidelity": "day",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified":"2022-05-06T01:01:01.002Z",
+            "spec_version": "2.1",
+            "task_types": ["escalated"],
+            "id": "task--7c99eec2-5873-4d02-a286-b1cfcbb33cbc",
+            "outcome": "successful",
+            "description": "The cause of the error was traced to malware on the system and an investigation began",
+            "start_time": "2022-05-02T07:00:00Z",
+            "start_time_fidelity": "day",
+            "end_time": "2022-05-02T07:00:00Z",
+            "end_time_fidelity": "day",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified":"2022-05-06T01:01:01.002Z",
+            "spec_version": "2.1",
+            "task_types": ["escalated"],
+            "id": "task--7c99eec2-5873-4d02-a286-b1cfcbb33cbc",
+            "outcome": "successful",
+            "description": "The cause of the error was traced to malware on the system and an investigation began",
+            "start_time": "2022-05-02T07:00:00Z",
+            "start_time_fidelity": "day",
+            "end_time": "2022-05-02T07:00:00Z",
+            "end_time_fidelity": "day",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified":"2022-05-06T01:01:01.002Z",
+            "spec_version": "2.1",
+            "task_types": ["reported"],
+            "id": "task--1b44203f-dbfb-4399-a02d-6b71f04ccfb7",
+            "outcome": "successful",
+            "description": "Law enforcement was contacted regarding the incident",
+            "start_time": "2022-05-02T07:00:00Z",
+            "start_time_fidelity": "day",
+            "end_time": "2022-05-02T07:00:00Z",
+            "end_time_fidelity": "day",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified":"2022-05-06T01:01:01.002Z",
+            "spec_version": "2.1",
+            "task_types": ["recovery"],
+            "id": "task--d6853763-b5b3-4f5e-b031-bcb111a3d7a1",
+            "outcome": "ongoing",
+            "priority": 75,
+            "description": "Began formal recovery",
+            "start_time": "2022-05-02T07:00:00Z",
+            "start_time_fidelity": "day",
+            "end_time": "2022-05-02T07:00:00Z",
+            "end_time_fidelity": "day",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified":"2022-05-06T01:01:01.002Z",
+            "spec_version": "2.1",
+            "task_types": ["recovery"],
+            "id": "task--d6853763-b5b3-4f5e-b031-bcb111a3d7a1",
+            "outcome": "ongoing",
+            "description": "Assembled team and began recovery",
+            "start_time": "2022-05-02T07:00:00Z",
+            "start_time_fidelity": "day",
+            "subtasks": [
+                {
+                    "task_ref": "task--05bf660d-52b9-4249-a75d-ada224dd1261"
+                },
+                {
+                    "task_ref": "task--6aa81489-8137-46e0-84f1-ebcae2e001e8"
+                }
+            ],
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified":"2022-05-06T01:01:01.002Z",
+            "spec_version": "2.1",
+            "task_types": ["recovery"],
+            "id": "task--05bf660d-52b9-4249-a75d-ada224dd1261",
+            "outcome": "ongoing",
+            "priority": 75,
+            "end_time": "2022-06-05T04:00:00Z",
+            "end_time_fidelity": "day",
+            "description": "Parts on order from vendor expect by 2022-06-05",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-05-06T01:01:01.002Z",
+            "modified":"2022-05-06T01:01:01.002Z",
+            "spec_version": "2.1",
+            "task_types": ["recovery"],
+            "id": "task--6aa81489-8137-46e0-84f1-ebcae2e001e8",
+            "outcome": "successful",
+            "priority": 50,
+            "description": "Removed the damaged system from the assembly line so that manual processes can be used pending the parts shipment",
+            "changed_objects": [
+                {
+                    "state_change_type": "mitigated",
+                    "initial_ref": "impact--8a8c50a3-c57f-4440-9fde-ff4d14da03d3",
+                    "result_ref": "impact--e36d4f80-85cf-4672-966c-0cfcfa8b7733"
+                }
+            ],
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
                 }
             }
         },
@@ -234,6 +641,12 @@
             "indicator_types": [
                 "malicious-activity"
             ],
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "lockheed-martin-cyber-kill-chain",
+                    "phase_name": "delivery"
+                }
+            ],
             "pattern": "[file:hashes.MD5='acbd18db4cc2f85cedef654fccc4a4d8']",
             "pattern_type": "stix",
             "pattern_version": "2.1",
@@ -247,6 +660,12 @@
             "modified": "2022-05-06T16:10:57.324018Z",
             "indicator_types": [
                 "malicious-activity"
+            ],
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "lockheed-martin-cyber-kill-chain",
+                    "phase_name": "delivery"
+                }
             ],
             "pattern": "[file:hashes.MD5='9e742d0eebff3d5ef8bcf55f243e76f4']",
             "pattern_type": "stix",
@@ -376,6 +795,379 @@
             "relationship_type": "contact-for",
             "source_ref": "identity--e0ee62af-7b13-4345-ad42-11950850cabe",
             "target_ref": "incident--a089c631-4392-48e5-8d55-7d1999ca9395"
-        }
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--a5916e8a-0e0a-412a-b2b0-7e1ae1626a2d",
+            "created": "2022-05-06T01:01:01.000Z",
+            "modified": "2022-05-06T01:01:01.000Z",
+            "relationship_type": "contact-for",
+            "source_ref": "identity--7a164253-fbfd-420b-9316-79f5d3dff51f",
+            "target_ref": "task--1b44203f-dbfb-4399-a02d-6b71f04ccfb7"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--a4095aa9-217b-44be-bee3-966447b486dc",
+            "created": "2022-05-06T01:01:01.000Z",
+            "modified": "2022-05-06T01:01:01.000Z",
+            "relationship_type": "uses",
+            "source_ref": "task--1b44203f-dbfb-4399-a02d-6b71f04ccfb7",
+            "target_ref": "course-of-action--8bb544ff-0499-4ee3-b683-305b8b0955a3"
+        },
+        {
+            "modified": "2023-03-30T20:14:42.829Z",
+            "name": "Damage to Property",
+            "description": "Adversaries may cause damage and destruction of property to infrastructure, equipment, and the surrounding environment when attacking control systems. This technique may result in device and operational equipment breakdown, or represent tangential damage from other techniques used in an attack. Depending on the severity of physical damage and disruption caused to control processes and systems, this technique may result in [Loss of Safety](https://attack.mitre.org/techniques/T0880). Operations that result in [Loss of Control](https://attack.mitre.org/techniques/T0827) may also cause damage to property, which may be directly or indirectly motivated by an adversary seeking to cause impact in the form of [Loss of Productivity and Revenue](https://attack.mitre.org/techniques/T0828). \n\n\nThe German Federal Office for Information Security (BSI) reported a targeted attack on a steel mill under an incidents affecting business section of its 2014 IT Security Report. (Citation: BSI State of IT Security 2014)  These targeted attacks affected industrial operations and resulted in breakdowns of control system components and even entire installations. As a result of these breakdowns, massive impact and damage resulted from the uncontrolled shutdown of a blast furnace. \n\nA Polish student used a remote controller device to interface with the Lodz city tram system in Poland. (Citation: John Bill May 2017) (Citation: Shelley Smith February 2008) (Citation: Bruce Schneier January 2008) Using this remote, the student was able to capture and replay legitimate tram signals. This resulted in damage to impacted trams, people, and the surrounding property. Reportedly, four trams were derailed and were forced to make emergency stops. (Citation: Shelley Smith February 2008) Commands issued by the student may have also resulted in tram collisions, causing harm to those on board and the environment outside. (Citation: Bruce Schneier January 2008)",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "mitre-ics-attack",
+                    "phase_name": "impact"
+                }
+            ],
+            "x_mitre_deprecated": false,
+            "x_mitre_detection": "",
+            "x_mitre_domains": [
+                "ics-attack"
+            ],
+            "x_mitre_is_subtechnique": false,
+            "x_mitre_platforms": [
+                "None"
+            ],
+            "x_mitre_version": "1.1",
+            "type": "attack-pattern",
+            "id": "attack-pattern--83ebd22f-b401-4d59-8219-2294172cf916",
+            "created": "2020-05-21T17:43:26.506Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "revoked": false,
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T0879",
+                    "external_id": "T0879"
+                },
+                {
+                    "source_name": "Bruce Schneier January 2008",
+                    "description": "Bruce Schneier 2008, January 17 Hacking Polish Trams Retrieved. 2019/10/17 ",
+                    "url": "https://www.schneier.com/blog/archives/2008/01/hacking_the_pol.html"
+                },
+                {
+                    "source_name": "BSI State of IT Security 2014",
+                    "description": "Bundesamt fr Sicherheit in der Informationstechnik (BSI) (German Federal Office for Information Security) 2014 Die Lage der IT-Sicherheit in Deutschland 2014 (The State of IT Security in Germany) Retrieved. 2019/10/30 ",
+                    "url": "https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/Securitysituation/IT-Security-Situation-in-Germany-2014.pdf?__blob=publicationFile&v=3"
+                },
+                {
+                    "source_name": "John Bill May 2017",
+                    "description": "John Bill 2017, May 12 Hacked Cyber Security Railways Retrieved. 2019/10/17 ",
+                    "url": "https://www.londonreconnections.com/2017/hacked-cyber-security-railways/"
+                },
+                {
+                    "source_name": "Shelley Smith February 2008",
+                    "description": "Shelley Smith 2008, February 12 Teen Hacker in Poland Plays Trains and Derails City Tram System Retrieved. 2019/10/17 ",
+                    "url": "https://inhomelandsecurity.com/teen_hacker_in_poland_plays_tr/"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "x_mitre_attack_spec_version": "3.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "spec_version": "2.1"
+        },
+        {
+            "x_mitre_platforms": [
+                "Linux",
+                "Windows",
+                "macOS"
+            ],
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "x_mitre_contributors": [
+                "ExtraHop"
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "id": "attack-pattern--9db0cf3a-a3c9-4012-8268-123b9db6fd82",
+            "type": "attack-pattern",
+            "created": "2018-04-18T17:59:24.739Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "T1210",
+                    "url": "https://attack.mitre.org/techniques/T1210"
+                },
+                {
+                    "url": "https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-microsoft-windows-smb-server-could-allow-for-remote-code-execution/",
+                    "description": "CIS. (2017, May 15). Multiple Vulnerabilities in Microsoft Windows SMB Server Could Allow for Remote Code Execution. Retrieved April 3, 2018.",
+                    "source_name": "CIS Multiple SMB Vulnerabilities"
+                },
+                {
+                    "url": "https://nvd.nist.gov/vuln/detail/CVE-2017-0176",
+                    "description": "National Vulnerability Database. (2017, June 22). CVE-2017-0176 Detail. Retrieved April 3, 2018.",
+                    "source_name": "NVD CVE-2017-0176"
+                },
+                {
+                    "url": "https://nvd.nist.gov/vuln/detail/CVE-2016-6662",
+                    "description": "National Vulnerability Database. (2017, February 2). CVE-2016-6662 Detail. Retrieved April 3, 2018.",
+                    "source_name": "NVD CVE-2016-6662"
+                },
+                {
+                    "url": "https://nvd.nist.gov/vuln/detail/CVE-2014-7169",
+                    "description": "National Vulnerability Database. (2017, September 24). CVE-2014-7169 Detail. Retrieved April 3, 2018.",
+                    "source_name": "NVD CVE-2014-7169"
+                }
+            ],
+            "modified": "2022-05-11T14:00:00.188Z",
+            "name": "Exploitation of Remote Services",
+            "description": "Adversaries may exploit remote services to gain unauthorized access to internal systems once inside of a network. Exploitation of a software vulnerability occurs when an adversary takes advantage of a programming error in a program, service, or within the operating system software or kernel itself to execute adversary-controlled code.\u00a0A common goal for post-compromise exploitation of remote services is for lateral movement to enable access to a remote system.\n\nAn adversary may need to determine if the remote system is in a vulnerable state, which may be done through [Network Service Discovery](https://attack.mitre.org/techniques/T1046) or other Discovery methods looking for common, vulnerable software that may be deployed in the network, the lack of certain patches that may indicate vulnerabilities,  or security software that may be used to detect or contain remote exploitation. Servers are likely a high value target for lateral movement exploitation, but endpoint systems may also be at risk if they provide an advantage or access to additional resources.\n\nThere are several well-known vulnerabilities that exist in common services such as SMB (Citation: CIS Multiple SMB Vulnerabilities) and RDP (Citation: NVD CVE-2017-0176) as well as applications that may be used within internal networks such as MySQL (Citation: NVD CVE-2016-6662) and web server services.(Citation: NVD CVE-2014-7169)\n\nDepending on the permissions level of the vulnerable remote service an adversary may achieve [Exploitation for Privilege Escalation](https://attack.mitre.org/techniques/T1068) as a result of lateral movement exploitation as well.",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "mitre-attack",
+                    "phase_name": "lateral-movement"
+                }
+            ],
+            "x_mitre_detection": "Detecting software exploitation may be difficult depending on the tools available. Software exploits may not always succeed or may cause the exploited process to become unstable or crash. Also look for behavior on the endpoint system that might indicate successful compromise, such as abnormal behavior of the processes. This could include suspicious files written to disk, evidence of [Process Injection](https://attack.mitre.org/techniques/T1055) for attempts to hide execution, evidence of [Discovery](https://attack.mitre.org/tactics/TA0007), or other unusual network traffic that may indicate additional tools transferred to the system.",
+            "x_mitre_version": "1.1",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "x_mitre_data_sources": [
+                "Application Log: Application Log Content",
+                "Network Traffic: Network Traffic Content"
+            ],
+            "x_mitre_permissions_required": [
+                "User"
+            ],
+            "x_mitre_system_requirements": [
+                "Unpatched software or otherwise vulnerable target. Depending on the target and goal, the system and exploitable service may need to be remotely accessible from the internal network."
+            ],
+            "x_mitre_is_subtechnique": false,
+            "spec_version": "2.1",
+            "x_mitre_attack_spec_version": "2.1.0"
+        },
+        {
+            "x_mitre_platforms": [
+                "Linux",
+                "macOS",
+                "Windows"
+            ],
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "x_mitre_contributors": [
+                "John Page (aka hyp3rlinx), ApparitionSec"
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "type": "attack-pattern",
+            "id": "attack-pattern--e6919abc-99f9-4c6c-95a5-14761e7b2add",
+            "created": "2017-05-31T21:31:16.408Z",
+            "x_mitre_version": "2.1",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "T1105",
+                    "url": "https://attack.mitre.org/techniques/T1105"
+                },
+                {
+                    "source_name": "University of Birmingham C2",
+                    "url": "https://arxiv.org/ftp/arxiv/papers/1408/1408.1136.pdf",
+                    "description": "Gardiner, J.,  Cova, M., Nagaraja, S. (2014, February). Command & Control Understanding, Denying and Detecting. Retrieved April 20, 2016."
+                },
+                {
+                    "source_name": "t1105_lolbas",
+                    "url": "https://lolbas-project.github.io/#t1105",
+                    "description": "LOLBAS. (n.d.). LOLBAS Mapped to T1105. Retrieved March 11, 2022."
+                },
+                {
+                    "source_name": "PTSecurity Cobalt Dec 2016",
+                    "url": "https://www.ptsecurity.com/upload/corporate/ww-en/analytics/Cobalt-Snatch-eng.pdf",
+                    "description": "Positive Technologies. (2016, December 16). Cobalt Snatch. Retrieved October 9, 2018."
+                }
+            ],
+            "x_mitre_deprecated": false,
+            "revoked": false,
+            "description": "Adversaries may transfer tools or other files from an external system into a compromised environment. Tools or files may be copied from an external adversary-controlled system to the victim network through the command and control channel or through alternate protocols such as [ftp](https://attack.mitre.org/software/S0095). Once present, adversaries may also transfer/spread tools between victim devices within a compromised environment (i.e. [Lateral Tool Transfer](https://attack.mitre.org/techniques/T1570)). \n\nFiles can also be transferred using various [Web Service](https://attack.mitre.org/techniques/T1102)s as well as native or otherwise present tools on the victim system.(Citation: PTSecurity Cobalt Dec 2016)\n\nOn Windows, adversaries may use various utilities to download tools, such as `copy`, `finger`, and [PowerShell](https://attack.mitre.org/techniques/T1059/001) commands such as <code>IEX(New-Object Net.WebClient).downloadString()</code> and <code>Invoke-WebRequest</code>. On Linux and macOS systems, a variety of utilities also exist, such as `curl`, `scp`, `sftp`, `tftp`, `rsync`, `finger`, and `wget`.(Citation: t1105_lolbas)",
+            "modified": "2022-10-25T14:00:00.188Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "name": "Ingress Tool Transfer",
+            "x_mitre_detection": "Monitor for file creation and files transferred into the network. Unusual processes with external network connections creating files on-system may be suspicious. Use of utilities, such as [ftp](https://attack.mitre.org/software/S0095), that does not normally occur may also be suspicious.\n\nAnalyze network data for uncommon data flows (e.g., a client sending significantly more data than it receives from a server). Processes utilizing the network that do not normally have network communication or have never been seen before are suspicious. Specifically, for the finger utility on Windows and Linux systems, monitor command line or terminal execution for the finger command. Monitor network activity for TCP port 79, which is used by the finger utility, and Windows <code>netsh interface portproxy</code> modifications to well-known ports such as 80 and 443. Furthermore, monitor file system for the download/creation and execution of suspicious files, which may indicate adversary-downloaded payloads. Analyze packet contents to detect communications that do not follow the expected protocol behavior for the port that is being used.(Citation: University of Birmingham C2)",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "mitre-attack",
+                    "phase_name": "command-and-control"
+                }
+            ],
+            "x_mitre_is_subtechnique": false,
+            "x_mitre_data_sources": [
+                "Network Traffic: Network Connection Creation",
+                "Network Traffic: Network Traffic Flow",
+                "File: File Creation",
+                "Network Traffic: Network Traffic Content"
+            ],
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "spec_version": "2.1"
+        },
+        {
+            "modified": "2022-11-08T14:00:00.188Z",
+            "name": "Spearphishing Link",
+            "description": "Adversaries may send spearphishing emails with a malicious link in an attempt to gain access to victim systems. Spearphishing with a link is a specific variant of spearphishing. It is different from other forms of spearphishing in that it employs the use of links to download malware contained in email, instead of attaching malicious files to the email itself, to avoid defenses that may inspect email attachments. Spearphishing may also involve social engineering techniques, such as posing as a trusted source.\n\nAll forms of spearphishing are electronically delivered social engineering targeted at a specific individual, company, or industry. In this case, the malicious emails contain links. Generally, the links will be accompanied by social engineering text and require the user to actively click or copy and paste a URL into a browser, leveraging [User Execution](https://attack.mitre.org/techniques/T1204). The visited website may compromise the web browser using an exploit, or the user will be prompted to download applications, documents, zip files, or even executables depending on the pretext for the email in the first place. Adversaries may also include links that are intended to interact directly with an email reader, including embedded images intended to exploit the end system directly or verify the receipt of an email (i.e. web bugs/web beacons). Additionally, adversaries may use seemingly benign links that abuse special characters to mimic legitimate websites (known as an \"IDN homograph attack\").(Citation: CISA IDN ST05-016)\n\nAdversaries may also utilize links to perform consent phishing, typically with OAuth 2.0 request URLs that when accepted by the user provide permissions/access for malicious applications, allowing adversaries to  [Steal Application Access Token](https://attack.mitre.org/techniques/T1528)s.(Citation: Trend Micro Pawn Storm OAuth 2017) These stolen access tokens allow the adversary to perform various actions on behalf of the user via API calls. (Citation: Microsoft OAuth 2.0 Consent Phishing 2021)",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "mitre-attack",
+                    "phase_name": "initial-access"
+                }
+            ],
+            "x_mitre_detection": "URL inspection within email (including expanding shortened links) can help detect links leading to known malicious sites as well as links redirecting to adversary infrastructure based by upon suspicious OAuth patterns with unusual TLDs.(Citation: Microsoft OAuth 2.0 Consent Phishing 2021). Detonation chambers can be used to detect these links and either automatically go to these sites to determine if they're potentially malicious, or wait and capture the content if a user visits the link.\n\nFiltering based on DKIM+SPF or header analysis can help detect when the email sender is spoofed.(Citation: Microsoft Anti Spoofing)(Citation: ACSC Email Spoofing)\n\nBecause this technique usually involves user interaction on the endpoint, many of the possible detections take place once [User Execution](https://attack.mitre.org/techniques/T1204) occurs.",
+            "x_mitre_platforms": [
+                "Linux",
+                "macOS",
+                "Windows",
+                "Office 365",
+                "SaaS",
+                "Google Workspace"
+            ],
+            "x_mitre_is_subtechnique": true,
+            "x_mitre_deprecated": false,
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "x_mitre_version": "2.3",
+            "x_mitre_contributors": [
+                "Philip Winther",
+                "Shailesh Tiwary (Indian Army)",
+                "Mark Wee",
+                "Jeff Sakowicz, Microsoft Identity Developer Platform Services (IDPM Services)",
+                "Saisha Agrawal, Microsoft Threat Intelligent Center (MSTIC)",
+                "Kobi Haimovich, CardinalOps",
+                "Menachem Goldstein"
+            ],
+            "x_mitre_data_sources": [
+                "Application Log: Application Log Content",
+                "Network Traffic: Network Traffic Flow",
+                "Network Traffic: Network Traffic Content"
+            ],
+            "type": "attack-pattern",
+            "id": "attack-pattern--2b742742-28c3-4e1b-bab7-8350d6300fa7",
+            "created": "2020-03-02T19:15:44.182Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "revoked": false,
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1566/002",
+                    "external_id": "T1566.002"
+                },
+                {
+                    "source_name": "ACSC Email Spoofing",
+                    "description": "Australian Cyber Security Centre. (2012, December). Mitigating Spoofed Emails Using Sender Policy Framework. Retrieved October 19, 2020.",
+                    "url": "https://www.cyber.gov.au/sites/default/files/2019-03/spoof_email_sender_policy_framework.pdf"
+                },
+                {
+                    "source_name": "CISA IDN ST05-016",
+                    "description": "CISA. (2019, September 27). Security Tip (ST05-016): Understanding Internationalized Domain Names. Retrieved October 20, 2020.",
+                    "url": "https://us-cert.cisa.gov/ncas/tips/ST05-016"
+                },
+                {
+                    "source_name": "Trend Micro Pawn Storm OAuth 2017",
+                    "description": "Hacquebord, F.. (2017, April 25). Pawn Storm Abuses Open Authentication in Advanced Social Engineering Attacks. Retrieved October 4, 2019.",
+                    "url": "https://blog.trendmicro.com/trendlabs-security-intelligence/pawn-storm-abuses-open-authentication-advanced-social-engineering-attacks"
+                },
+                {
+                    "source_name": "Microsoft OAuth 2.0 Consent Phishing 2021",
+                    "description": "Microsoft 365 Defender Threat Intelligence Team. (2021, June 14). Microsoft delivers comprehensive solution to battle rise in consent phishing emails. Retrieved December 13, 2021.",
+                    "url": "https://www.microsoft.com/security/blog/2021/07/14/microsoft-delivers-comprehensive-solution-to-battle-rise-in-consent-phishing-emails/"
+                },
+                {
+                    "source_name": "Microsoft Anti Spoofing",
+                    "description": "Microsoft. (2020, October 13). Anti-spoofing protection in EOP. Retrieved October 19, 2020.",
+                    "url": "https://docs.microsoft.com/en-us/microsoft-365/security/office-365-security/anti-spoofing-protection?view=o365-worldwide"
+                },
+                {
+                    "source_name": "capec",
+                    "url": "https://capec.mitre.org/data/definitions/163.html",
+                    "external_id": "CAPEC-163"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "x_mitre_attack_spec_version": "2.1.0",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "spec_version": "2.1"
+        },
+        {
+            "type": "report",
+            "spec_version": "2.1",
+            "id": "report--f66c52bc-cb78-4657-894f-a4c2902b1c30",
+            "created": "2022-05-06T01:01:01.001Z",
+            "modified": "2022-05-06T01:01:01.001Z",
+            "name": "Incident Indicators Example",
+            "published": "2022-05-06T01:01:01Z",
+            "labels": [
+                "unpublished"
+            ],
+            "object_refs": [
+                "incident--a089c631-4392-48e5-8d55-7d1999ca9395",
+                "impact--8a8c50a3-c57f-4440-9fde-ff4d14da03d3",
+                "impact--e36d4f80-85cf-4672-966c-0cfcfa8b7733",
+                "impact--272641bb-4e62-4ebe-ae96-2d254554db03",
+                "impact--1032f48b-28d1-451f-970e-78b736db8e13",
+                "event--6e7ec24e-e3b2-498e-afb4-e14eab67b5d4",
+                "sighting--f0747539-929a-46b8-bc54-dc96e876a679",
+                "observed-data--acf58246-e394-4e56-bd64-a49fa66eb906",
+                "event--e1d9744a-9c23-45fa-adee-59d739dfb620",
+                "sighting--0770b1ac-6b85-41cb-a0c4-2b71b9e76182",
+                "observed-data--a9875e85-8b68-4a05-b77e-1520f639ff6a",
+                "observed-data--56dec100-fb01-4188-bc62-730b9797502f",
+                "observed-data--f0f043eb-05c5-490f-b7fe-13c27969deab",
+                "event--612c5cd9-689c-4bc0-83b2-cd956f812cf9",
+                "sighting--e54ffcaf-040b-4bb1-9a13-c086f5c5d97a",
+                "observed-data--714832b4-33ae-47ae-80a7-01c64eaa9dca",
+                "event--747f4f6b-175f-4843-bde2-1b3218bf5ff0",
+                "task--fd5f04a8-877f-42a3-a25d-ddfe2001a6e1",
+                "task--7a998b82-389d-4d9c-b5ca-40aa34680c0a",
+                "task--7c99eec2-5873-4d02-a286-b1cfcbb33cbc",
+                "task--7c99eec2-5873-4d02-a286-b1cfcbb33cbc",
+                "task--1b44203f-dbfb-4399-a02d-6b71f04ccfb7",
+                "task--d6853763-b5b3-4f5e-b031-bcb111a3d7a1",
+                "task--d6853763-b5b3-4f5e-b031-bcb111a3d7a1",
+                "task--05bf660d-52b9-4249-a75d-ada224dd1261",
+                "task--6aa81489-8137-46e0-84f1-ebcae2e001e8",
+                "file--9704eca1-8efd-542c-a626-77d7cbcfe49f",
+                "file--6a597e24-1209-5e8f-819c-1addce1bb314",
+                "domain-name--160f66e8-85b8-55b0-b81e-b0e7454f179d",
+                "ipv4-addr--b7c7aace-c5f3-463e-bb63-4de6cb5e8995",
+                "url--fef943a6-8bba-5237-af37-03a6f2ae58f5",
+                "domain-name--430fdb3b-be9f-53fe-891c-955952b7a570",
+                "infrastructure--8faf3522-88a2-4402-b5c1-0d7ecb1a767f",
+                "infrastructure--3c916d6e-b629-468e-9b6c-fd08a5c447ba",
+                "indicator--5c28b384-08df-43e9-a140-394ef40fa055",
+                "indicator--878492d0-9802-4854-88f3-bd433ae54d4d",
+                "indicator--2149c5c5-2917-4f89-958f-e34eab7a315c",
+                "relationship--dddcb3d1-0e56-4170-97e2-eb79da432cbb",
+                "relationship--01a931ed-fd06-4f02-b8ac-4550ae5fd00e",
+                "relationship--3ae1b648-fd3f-4172-80a2-f9cd8b97e3e5",
+                "relationship--76dc8fc7-9eca-475e-9201-387f1b6fa3a6",
+                "relationship--42a77500-2c87-44f5-90d3-9a80505ee31b",
+                "identity--0594861f-ebbd-413f-b810-6bcf9a3d8604",
+                "course-of-action--8bb544ff-0499-4ee3-b683-305b8b0955a3",
+                "relationship--8ee45c2e-3382-4300-b34f-7c89398dee80",
+                "identity--e0ee62af-7b13-4345-ad42-11950850cabe",
+                "identity--7a164253-fbfd-420b-9316-79f5d3dff51f",
+                "relationship--05298766-27ed-4390-ae32-eb4a94bf5947",
+                "relationship--05298766-27ed-4390-ae32-eb4a94bf5947",
+                "relationship--a5916e8a-0e0a-412a-b2b0-7e1ae1626a2d",
+                "relationship--a4095aa9-217b-44be-bee3-966447b486dc",
+                "attack-pattern--83ebd22f-b401-4d59-8219-2294172cf916",
+                "attack-pattern--9db0cf3a-a3c9-4012-8268-123b9db6fd82",
+                "attack-pattern--e6919abc-99f9-4c6c-95a5-14761e7b2add",
+                "attack-pattern--2b742742-28c3-4e1b-bab7-8350d6300fa7"
+            ]
+        }        
     ]
 }

@@ -1,0 +1,711 @@
+{
+    "type": "bundle",
+    "id": "bundle--7172fb43-3a73-44ef-ad59-47bed3cc822d",
+    "objects": [
+        {
+            "type": "marking-definition",
+            "spec_version": "2.1",
+            "id": "marking-definition--f81f633d-3017-4678-a914-fe82dfc4b42c",
+            "created": "2022-09-15T01:37:47.004Z",
+            "definition_type": "statement",
+            "definition": {
+                "statement": "A fake marking that indicates data which is internal to the Wakandan Expo's systems and not necessarily shared externally"
+            }
+        },
+        {
+            "type": "marking-definition",
+            "spec_version": "2.1",
+            "id": "marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f",
+            "created": "2022-09-15T01:37:47.004Z",
+            "definition_type": "statement",
+            "definition": {
+                "statement": "A fake marking that indicates data is shared with the Wakandan government as part of the incident response process"
+            }
+        },
+        {
+            "type": "identity",
+            "spec_version": "2.1",
+            "id": "identity--2564429b-7d7f-4c0e-bb39-7423657e0e83",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T01:37:47.004Z",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "name": "Wakandan Expo",
+            "external_references": [
+                {
+                    "source_name": "wakandan-business-identifier",
+                    "external_id": "H5213.2124"
+                }
+            ],
+            "roles": [
+                "event-organizer"
+            ],
+            "identity_class": "organization",
+            "sectors": [
+                "technology"
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--117eac30-b47a-4b7c-8ce7-6c34ed506417",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T01:37:47.004Z",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "relationship_type": "impacts",
+            "source_ref": "incident--fad5bbd5-90d1-42ee-97c9-d558c5180baa",
+            "target_ref": "identity--2564429b-7d7f-4c0e-bb39-7423657e0e83"
+        },
+        {
+            "type": "identity",
+            "spec_version": "2.1",
+            "id": "identity--3236af02-75b5-47f8-831a-50aa3e39fbf8",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T01:37:47.004Z",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "name": "Proj Manager",
+            "description": "Incident response manager for the Wakandan Expo",
+            "identity_class": "individual"
+        },
+        {
+            "type": "identity",
+            "spec_version": "2.1",
+            "id": "identity--684319e1-d91b-4241-9632-4e21ca03e995",
+            "created": "2022-09-15T13:22:53.231Z",
+            "modified": "2022-09-15T13:22:53.231Z",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "name": "Shuri IT",
+            "description": "Security Response vendor",
+            "identity_class": "organization"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--f98f35f8-433c-4b0f-8404-079aecbab3a1",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T01:37:47.004Z",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "relationship_type": "employed-at",
+            "source_ref": "identity--3236af02-75b5-47f8-831a-50aa3e39fbf8",
+            "target_ref": "identity--2564429b-7d7f-4c0e-bb39-7423657e0e83"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--acac1efa-a699-4426-bea0-b26cf8bbab23",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T01:37:47.004Z",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "relationship_type": "contact-for",
+            "source_ref": "identity--3236af02-75b5-47f8-831a-50aa3e39fbf8",
+            "target_ref": "incident--fad5bbd5-90d1-42ee-97c9-d558c5180baa"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--6467bc28-f3e6-486e-bf1f-256f673aea26",
+            "created": "2022-09-15T13:22:53.231Z",
+            "modified": "2022-09-15T13:22:53.231Z",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "relationship_type": "contact-for",
+            "source_ref": "identity--684319e1-d91b-4241-9632-4e21ca03e995",
+            "target_ref": "task--1e5701fe-569a-41d4-8014-bfbb07b2c82e"
+        },
+        {
+            "type": "incident",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T13:22:53.231Z",
+            "id": "incident--fad5bbd5-90d1-42ee-97c9-d558c5180baa",
+            "spec_version": "2.1",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "name": "WKI-20220915-004",
+            "external_references": [
+                {
+                    "source_name": "wakandan national incident database",
+                    "external_id": "WKI-20220915-004"
+                },
+                {
+                    "source_name": "wk expo id",
+                    "external_id": "IT-2312"
+                }
+            ],
+            "description": "The Wakandan International Technology expo suffered a major disruption in a keynote presentation by Stark Enterprises.",
+            "extensions": {
+                "extension-definition--ef765651-680c-498d-9894-99799f2fa126": {
+                    "extension_type": "property-extension",
+                    "determination": "confirmed",
+                    "investigation_status": "open",
+                    "criticality": 90,
+                    "detection_methods": ["system-outage"],
+                    "impacted_entity_counts": {
+                        "computers-mobile": 2000,
+                        "computers-personal": 1000,
+                        "computers-server": 232,
+                        "domain-controller": 7,
+                        "network-device": 3252
+                    },
+                    "incident_types": [
+                        "denial-of-service",
+                        "unknown-apt"
+                    ],
+                    "impact_refs": [
+                        "impact--7a5806e4-0f37-4c48-9a50-7301bff4b195",
+                        "impact--d16ffd9c-4d83-46d5-b6ac-626ada44458c",
+                        "impact--e335ce90-039a-49d3-a843-013019c0a074",
+                        "impact--6359dec6-d597-466a-bf50-6ed59cdec053",
+                        "impact--e86d8503-becf-4647-a909-9c13661d1f2c"
+                    ],
+                    "events": [
+                        {
+                            "event_ref": "event--90d6dde5-acb6-4a8e-b1d2-72f548a64839",
+                            "next_steps": [
+                                {
+                                    "event_ref": "event--05385116-81a8-4212-82b5-9f57dd832fb5",
+                                    "condition_type": "required",
+                                    "transition_type": "success"
+                                }
+                            ]
+                        },
+                        {
+                            "event_ref": "event--05385116-81a8-4212-82b5-9f57dd832fb5",
+                            "sequence_start": false
+                        }
+                    ],
+                    "tasks": [
+                        {
+                            "task_ref": "task--a45aaed9-6504-4f95-982e-78508726eb5a"
+                        },
+                        {
+                            "task_ref": "task--c9bbe53b-58f2-43a8-b68e-160ea57e61b8",
+                            "next_steps": [
+                                {
+                                    "task_ref": "task--6ef78c95-3b5d-4b8d-88c7-a90625cf7a5d",
+                                    "condition_type": "optional",
+                                    "transition_type": "failure"
+                                }
+                            ]
+                        },
+                        {
+                            "task_ref": "task--f5896140-d53d-4fe8-b1a8-06728dbfdc49"
+                        },
+                        {
+                            "task_ref": "task--6ef78c95-3b5d-4b8d-88c7-a90625cf7a5d",
+                            "sequence_start": false,
+                            "next_steps": [
+                                {
+                                    "task_ref": "task--993a1e68-8b5c-4f0e-aef7-75c31b85df3e",
+                                    "condition_type": "required",
+                                    "transition_type": "success"
+                                }
+                            ]
+                        },
+                        {
+                            "task_ref": "task--1e5701fe-569a-41d4-8014-bfbb07b2c82e",
+                            "next_steps": [
+                                {
+                                    "task_ref": "task--980ddd0f-5863-4464-b12e-105e6255eef1",
+                                    "condition_type": "required",
+                                    "transition_type": "success"
+                                }
+                            ]
+                        },
+                        {
+                            "task_ref": "task--980ddd0f-5863-4464-b12e-105e6255eef1",
+                            "sequence_start": false,
+                            "next_steps": [
+                                {
+                                    "task_ref": "task--6998596d-28f5-4670-af86-3bc168df1854",
+                                    "condition_type": "optional",
+                                    "transition_type": "success"
+                                }
+                            ]
+                        },
+                        {
+                            "task_ref": "task--993a1e68-8b5c-4f0e-aef7-75c31b85df3e",
+                            "sequence_start": false,
+                            "next_steps": [
+                                {
+                                    "task_ref": "task--6998596d-28f5-4670-af86-3bc168df1854",
+                                    "condition_type": "required",
+                                    "transition_type": "success"
+                                }
+                            ]
+                        },
+                        {
+                            "task_ref": "task--6998596d-28f5-4670-af86-3bc168df1854",
+                            "sequence_start": false
+                        },
+                        {
+                            "task_ref": "task--e0accba2-08cd-41fe-b31a-fab30267b222"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "type": "impact",
+            "id": "impact--6359dec6-d597-466a-bf50-6ed59cdec053",
+            "created": "2022-09-15T13:22:53.231Z",
+            "modified": "2022-09-15T13:22:53.231Z",
+            "spec_version": "2.1",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "description": "Due to the highly diverse nature of this Expo and official sponsorship from the Wakandan government it may impact foreign relations",
+            "impact_category": "external",
+            "extensions": {
+                "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+                    "extension_type": "new-sdo"
+                },
+                "external": {
+                    "impact_type": "foreign-relations"
+                }
+            }
+        },
+        {
+            "type": "impact",
+            "id": "impact--e86d8503-becf-4647-a909-9c13661d1f2c",
+            "created": "2022-09-15T13:22:53.231Z",
+            "modified": "2022-09-15T13:22:53.231Z",
+            "spec_version": "2.1",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "description": "Due to the public nature of this incident it may impact public relations",
+            "impact_category": "monetary",
+            "extensions": {
+                "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+                    "extension_type": "new-sdo"
+                },
+                "monetary": {
+                    "variety": "brand-damage"
+                }
+            }
+        },
+        {
+            "type": "impact",
+            "id": "impact--7a5806e4-0f37-4c48-9a50-7301bff4b195",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T01:37:47.004Z",
+            "spec_version": "2.1",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "description": "All servers shutdown,wireless tied to these went down,all displays went down.",
+            "impact_category": "availability",
+            "start_time": "2022-09-14T14:57:00.000Z",
+            "start_time_fidelity": "minute",
+            "end_time": "2022-09-14T17:00:00.000Z",
+            "end_time_fidelity": "hour",
+            "superseded_by_ref": "impact--d16ffd9c-4d83-46d5-b6ac-626ada44458c",
+            "extensions": {
+                "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+                    "extension_type": "new-sdo"
+                },
+                "availability": {
+                    "availability_impact": 90
+                }
+            }
+        },
+        {
+            "type": "impact",
+            "id": "impact--d16ffd9c-4d83-46d5-b6ac-626ada44458c",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T13:22:53.231Z",
+            "spec_version": "2.1",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "description": "After bypass mode all servers still shutdown, but wireless and displays are now up in a limited capacity.",
+            "impact_category": "availability",
+            "start_time": "2022-09-14T17:00:00.000Z",
+            "start_time_fidelity": "hour",
+            "end_time": "2022-09-15T10:00:00.000Z",
+            "end_time_fidelity": "hour",
+            "superseded_by_ref": "impact--e335ce90-039a-49d3-a843-013019c0a074",
+            "extensions": {
+                "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+                    "extension_type": "new-sdo"
+                },
+                "availability": {
+                    "availability_impact": 75
+                }
+            }
+        },
+        {
+            "type": "impact",
+            "id": "impact--e335ce90-039a-49d3-a843-013019c0a074",
+            "created": "2022-09-15T13:22:53.231Z",
+            "modified": "2022-09-15T13:22:53.231Z",
+            "spec_version": "2.1",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "description": "Started to bring back up domain controllers and began to add wireless systems back into a managed mode.",
+            "impact_category": "availability",
+            "start_time": "2022-09-15T10:00:00.000Z",
+            "start_time_fidelity": "hour",
+            "extensions": {
+                "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+                    "extension_type": "new-sdo"
+                },
+                "availability": {
+                    "availability_impact": 30
+                }
+            }
+        },
+        {
+            "type": "malware",
+            "spec_version": "2.1",
+            "id": "malware--0099bc44-f289-418d-be8e-d9149d324b27",
+            "sighting_refs": ["sighting--b5d18fae-3a04-4891-84db-fe64a99bc16c"],
+            "created": "2022-09-15T13:22:53.231Z",
+            "modified": "2022-09-15T13:22:53.231Z",
+            "name": "ExpoOfficeSwitch",
+            "is_family": false
+        },
+        {
+            "type": "event",
+            "id": "event--90d6dde5-acb6-4a8e-b1d2-72f548a64839",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T13:22:53.231Z",
+            "spec_version": "2.1",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "name": "Server Shutdown",
+            "description": "All servers including domain controllers were shutdown prior to a keynote by a Stark Industry's representative.",
+            "status": "occurred",
+            "event_types": ["denial-of-service"],
+            "sighting_refs": ["sighting--b5d18fae-3a04-4891-84db-fe64a99bc16c"],
+            "start_time": "2022-09-14T14:57:00.000Z",
+            "start_time_fidelity": "minute",
+            "end_time": "2022-09-15T10:00:00.000Z",
+            "end_time_fidelity": "hour",
+            "extensions": {
+                "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--b5d18fae-3a04-4891-84db-fe64a99bc16c",
+            "created": "2022-09-15T13:22:53.231Z",
+            "modified": "2022-09-15T13:22:53.231Z",
+            "sighting_of_ref": "malware--0099bc44-f289-418d-be8e-d9149d324b27"
+        },
+        {
+            "type": "event",
+            "id": "event--05385116-81a8-4212-82b5-9f57dd832fb5",
+            "created": "2022-09-15T13:22:53.231Z",
+            "modified": "2022-09-15T13:22:53.231Z",
+            "spec_version": "2.1",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "name": "Wireless and Display Shutdown",
+            "description": "All wireless and displays were rendered inoperable due to loss of contact with servers and domain controllers.  This pushed back the conference keynote by 2 hours while wireless and displays were put into a bypass mode.",
+            "status": "occurred",
+            "event_types": ["denial-of-service"],
+            "start_time": "2022-09-14T14:57:00.000Z",
+            "start_time_fidelity": "minute",
+            "end_time": "2022-09-14T17:00:00.000Z",
+            "end_time_fidelity": "hour",
+            "changed_objects": [
+                {
+                    "state_change_type": "caused",
+                    "result_ref": "impact--7a5806e4-0f37-4c48-9a50-7301bff4b195"
+                }
+            ],
+            "extensions": {
+                "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T01:37:47.004Z",
+            "spec_version": "2.1",
+            "id": "task--a45aaed9-6504-4f95-982e-78508726eb5a",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "name": "Temporary Workaround",
+            "description": "Set basic services including Wi-Fi and TVs to bypass dead gatekeeper machines.",
+            "task_types": ["mitigation"],
+            "outcome": "ongoing",
+            "start_time": "2022-09-14T17:00:00.000Z",
+            "start_time_fidelity": "hour",
+            "changed_objects": [
+                {
+                    "state_change_type": "mitigated",
+                    "initial_ref": "impact--7a5806e4-0f37-4c48-9a50-7301bff4b195",
+                    "result_ref": "impact--d16ffd9c-4d83-46d5-b6ac-626ada44458c"
+                }
+            ],
+            "subtasks": [
+                {
+                    "task_ref": "task--f5ea62cf-bcbb-47cd-bc52-42cadd1afbeb",
+                    "next_steps": [
+                        {
+                            "task_ref": "task--88f6cf01-c575-425e-a304-d842edb91bfa",
+                            "condition_type": "required",
+                            "transition_type": "completion"
+                        }
+                    ]
+                },
+                {
+                    "task_ref": "task--88f6cf01-c575-425e-a304-d842edb91bfa",
+                    "sequence_start": false
+                }
+            ],
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T01:37:47.004Z",
+            "spec_version": "2.1",
+            "id": "task--f5ea62cf-bcbb-47cd-bc52-42cadd1afbeb",
+            "object_marking_refs": ["marking-definition--f81f633d-3017-4678-a914-fe82dfc4b42c"],
+            "name": "Start Bypass",
+            "outcome": "successful",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T01:37:47.004Z",
+            "spec_version": "2.1",
+            "id": "task--88f6cf01-c575-425e-a304-d842edb91bfa",
+            "object_marking_refs": ["marking-definition--f81f633d-3017-4678-a914-fe82dfc4b42c"],
+            "name": "Stop Bypass",
+            "outcome": "pending",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T01:37:47.004Z",
+            "spec_version": "2.1",
+            "id": "task--c9bbe53b-58f2-43a8-b68e-160ea57e61b8",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "name": "Rebuild Domain Controllers",
+            "description": "Attempted to rebuild domain controllers",
+            "outcome": "failed",
+            "start_time": "2022-09-14T16:00:00.000Z",
+            "start_time_fidelity": "hour",
+            "end_time": "2022-09-14T18:00:00.000Z",
+            "end_time_fidelity": "hour",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-09-15T01:37:47.004Z",
+            "modified": "2022-09-15T01:37:47.004Z",
+            "spec_version": "2.1",
+            "id": "task--f5896140-d53d-4fe8-b1a8-06728dbfdc49",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "task_types": ["reported"],
+            "name": "Reported",
+            "outcome": "successful",
+            "start_time": "2022-09-15T01:00:00.000Z",
+            "start_time_fidelity": "hour",
+            "end_time": "2022-09-15T01:00:00.000Z",
+            "end_time_fidelity": "hour",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-09-15T13:22:53.231Z",
+            "modified": "2022-09-15T13:22:53.231Z",
+            "spec_version": "2.1",
+            "id": "task--6ef78c95-3b5d-4b8d-88c7-a90625cf7a5d",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "name": "Isolate Internet",
+            "description": "Cutoff all servers from internet and kept the wireless in bypass mode so that remediation actions could be taken without risk of C2 commands being run to interfere.",
+            "outcome": "successful",
+            "start_time": "2022-09-14T23:00:00.000Z",
+            "start_time_fidelity": "hour",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-09-15T13:22:53.231Z",
+            "modified": "2022-09-15T13:22:53.231Z",
+            "spec_version": "2.1",
+            "id": "task--1e5701fe-569a-41d4-8014-bfbb07b2c82e",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "task_types": ["external-outreach"],
+            "name": "External Outreach",
+            "description": "Reached out to Shuri IT for additional assistance",
+            "outcome": "successful",
+            "start_time": "2022-09-15T00:00:00.000Z",
+            "start_time_fidelity": "hour",
+            "end_time": "2022-09-15T00:00:00.000Z",
+            "end_time_fidelity": "hour",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-09-15T13:22:53.231Z",
+            "modified": "2022-09-15T13:22:53.231Z",
+            "spec_version": "2.1",
+            "id": "task--980ddd0f-5863-4464-b12e-105e6255eef1",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "task_types": ["external-support", "eradication"],
+            "name": "Received AV Signatures",
+            "description": "Received AV signatures based on images provided to run on all servers as part of recovery effort",
+            "outcome": "successful",
+            "start_time": "2022-09-15T04:00:00.000Z",
+            "start_time_fidelity": "hour",
+            "end_time": "2022-09-15T04:00:00.000Z",
+            "end_time_fidelity": "hour",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-09-15T13:22:53.231Z",
+            "modified": "2022-09-15T13:22:53.231Z",
+            "spec_version": "2.1",
+            "id": "task--993a1e68-8b5c-4f0e-aef7-75c31b85df3e",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "task_types": ["eradication"],
+            "name": "Password Resets Complete",
+            "description": "Completed reset of all administrator passwords",
+            "outcome": "successful",
+            "start_time": "2022-09-15T05:00:00.000Z",
+            "start_time_fidelity": "hour",
+            "end_time": "2022-09-15T05:00:00.000Z",
+            "end_time_fidelity": "hour",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-09-15T13:22:53.231Z",
+            "modified": "2022-09-15T13:22:53.231Z",
+            "spec_version": "2.1",
+            "id": "task--6998596d-28f5-4670-af86-3bc168df1854",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "task_types": ["recovery"],
+            "name": "First Server Restored in Offline Environment",
+            "description": "A minimal set of servers were restored to the IT environment",
+            "outcome": "successful",
+            "start_time": "2022-09-15T08:00:00.000Z",
+            "start_time_fidelity": "hour",
+            "end_time": "2022-09-15T08:00:00.000Z",
+            "end_time_fidelity": "hour",
+            "changed_objects": [
+                {
+                    "state_change_type": "mitigated",
+                    "initial_ref": "impact--d16ffd9c-4d83-46d5-b6ac-626ada44458c",
+                    "result_ref": "impact--e335ce90-039a-49d3-a843-013019c0a074"
+                }
+            ],
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2022-09-15T13:22:53.231Z",
+            "modified": "2022-09-15T13:22:53.231Z",
+            "spec_version": "2.1",
+            "id": "task--e0accba2-08cd-41fe-b31a-fab30267b222",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "task_types": ["reported"],
+            "name": "Mandatory Update",
+            "outcome": "successful",
+            "start_time": "2022-09-15T13:00:00.000Z",
+            "start_time_fidelity": "hour",
+            "end_time": "2022-09-15T13:00:00.000Z",
+            "end_time_fidelity": "hour",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--04448e7f-efd3-4cd5-9f22-519c6641b9ee",
+            "created": "2022-09-15T13:22:53.231Z",
+            "modified": "2022-09-15T13:22:53.231Z",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "relationship_type": "related-to",
+            "source_ref": "report--93d14df4-b353-4727-aaa8-16fe317d7f0a",
+            "target_ref": "incident--fad5bbd5-90d1-42ee-97c9-d558c5180baa"
+        },
+        {
+            "type": "report",
+            "created": "2022-09-15T13:22:53.231Z",
+            "modified": "2022-09-15T13:22:53.231Z",
+            "spec_version": "2.1",
+            "id": "report--93d14df4-b353-4727-aaa8-16fe317d7f0a",
+            "name": "WKI-20220915-004 - Update 1",
+            "description": "This is a fake report for example purposes only",
+            "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
+            "report_types": ["incident"],
+            "published": "2022-09-15T13:22:53.231Z",
+            "object_refs": [
+                "event--05385116-81a8-4212-82b5-9f57dd832fb5",
+                "event--90d6dde5-acb6-4a8e-b1d2-72f548a64839",
+                "identity--2564429b-7d7f-4c0e-bb39-7423657e0e83",
+                "identity--3236af02-75b5-47f8-831a-50aa3e39fbf8",
+                "identity--684319e1-d91b-4241-9632-4e21ca03e995",
+                "impact--6359dec6-d597-466a-bf50-6ed59cdec053",
+                "impact--7a5806e4-0f37-4c48-9a50-7301bff4b195",
+                "impact--d16ffd9c-4d83-46d5-b6ac-626ada44458c",
+                "impact--e335ce90-039a-49d3-a843-013019c0a074",
+                "impact--e86d8503-becf-4647-a909-9c13661d1f2c",
+                "incident--fad5bbd5-90d1-42ee-97c9-d558c5180baa",
+                "malware--0099bc44-f289-418d-be8e-d9149d324b27",
+                "marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f",
+                "marking-definition--f81f633d-3017-4678-a914-fe82dfc4b42c",
+                "relationship--04448e7f-efd3-4cd5-9f22-519c6641b9ee",
+                "relationship--117eac30-b47a-4b7c-8ce7-6c34ed506417",
+                "relationship--6467bc28-f3e6-486e-bf1f-256f673aea26",
+                "relationship--acac1efa-a699-4426-bea0-b26cf8bbab23",
+                "relationship--f98f35f8-433c-4b0f-8404-079aecbab3a1",
+                "sighting--b5d18fae-3a04-4891-84db-fe64a99bc16c",
+                "task--1e5701fe-569a-41d4-8014-bfbb07b2c82e",
+                "task--6998596d-28f5-4670-af86-3bc168df1854",
+                "task--6ef78c95-3b5d-4b8d-88c7-a90625cf7a5d",
+                "task--88f6cf01-c575-425e-a304-d842edb91bfa",
+                "task--980ddd0f-5863-4464-b12e-105e6255eef1",
+                "task--993a1e68-8b5c-4f0e-aef7-75c31b85df3e",
+                "task--a45aaed9-6504-4f95-982e-78508726eb5a",
+                "task--c9bbe53b-58f2-43a8-b68e-160ea57e61b8",
+                "task--e0accba2-08cd-41fe-b31a-fab30267b222",
+                "task--f5896140-d53d-4fe8-b1a8-06728dbfdc49",
+                "task--f5ea62cf-bcbb-47cd-bc52-42cadd1afbeb"
+            ]
+        }
+    ]
+}

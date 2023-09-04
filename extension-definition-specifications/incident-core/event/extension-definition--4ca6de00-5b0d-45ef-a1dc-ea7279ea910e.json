@@ -1,0 +1,202 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://raw.githubusercontent.com/oasis-open/cti-stix-common-objects/main/extension-definition-specifications/incident-core/incident_core.json",
+    "title": "Event",
+    "description": "An extension for recording events in STIX.",
+    "type": "object",
+    "unevaluatedProperties": false,
+    "required": [
+        "extensions"
+        , "status"
+        , "type"
+    ],
+    "allOf": [
+        {
+            "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/core.json"
+        },
+        {
+            "properties": {
+                "extensions": {
+                    "type": "object",
+                    "description": "STIX extensions.",
+                    "additionalProperties": true,
+                    "properties": {
+                        "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                                "extension_type": {
+                                    "type": "string",
+                                    "const": "new-sdo"
+                                }
+                            }
+                        }
+                    }
+                },
+                "created": {},
+                "modified": {},
+                "spec_version": {},
+                "labels": {},
+                "external_references": {},
+                "type": {
+                    "type": "string",
+                    "const": "event"
+                },
+                "id": {
+                    "type": "string",
+                    "pattern": "^event--"
+                },
+                "event_types": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "type": "string",
+                        "minLength": 1
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "changed_objects": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": ["state_change_type"],
+                        "anyOf": [
+                            {
+                                "required": ["initial_ref"]
+                            },
+                            {
+                                "required": ["result_ref"]
+                            }
+                        ],
+                        "properties": {
+                            "state_change_type": {
+                                "type": "string",
+                                "description": "How this activity influenced the change in state"
+                            },
+                            "initial_ref": {
+                                "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json"
+                            },
+                            "result_ref": {
+                                "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json"
+                            }
+                        }
+                    }
+                },
+                "goal": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description of the activity that occurred."
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The outcome of a particular attacker activity",
+                    "enum": [
+                        "ongoing"
+                        , "occurred"
+                        , "not-occurred"
+                        , "pending"
+                        , "undetermined"
+                    ]
+                },
+                "start_time": {
+                    "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/timestamp.json",
+                    "description": "The date the activity was first recorded.  If this is not present it is assumed to be unknown."
+                },
+                "start_time_fidelity": {
+                    "type": "string",
+                    "description": "The maximum degree of fidelity provided by the start_time.  When set to 'month' for example the timestamp 2021-02-01T04:00:00Z should only be read to be accurate to Februrary 2021 not a specific day within the month.",
+                    "enum": ["second", "minute", "hour", "day", "month", "year"]
+                },
+                "end_time": {
+                    "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/timestamp.json",
+                    "description": "The date the activity was last recorded.  If this is not present it is assumed to be unknown."
+                },
+                "end_time_fidelity": {
+                    "type": "string",
+                    "description": "The maximum degree of fidelity provided by the end_time.  When set to 'hour' for example the timestamp 2021-02-01T04:00:00Z should only be read to be accurate to Februrary 1st 2021 between 04:00:00Z (inclusive) and 05:00:00Z (exclusive).",
+                    "enum": ["second", "minute", "hour", "day", "month", "year"]
+                },
+                "sighting_refs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
+                        "pattern": "^sighting--"
+                    }
+                },
+                "subevents": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "$ref": "#/definitions/Event_Sequence"
+                    }
+                }
+            }
+        }
+    ],
+    "definitions": {
+        "Event_Sequence": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["event_ref"],
+            "properties": {
+                "event_ref": {
+                    "type": "string",
+                    "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
+                    "pattern": "^event--",
+                    "description": "The event"
+                },
+                "sequence_start": {
+                    "type": "boolean",
+                    "description": "If this event is the start of a sequence.",
+                    "default": true
+                },
+                "next_steps": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                            "condition_type",
+                            "event_ref",
+                            "transition_type"
+                        ],
+                        "properties": {
+                            "condition_type": {
+                                "type": "string",
+                                "enum": [
+                                    "optional",
+                                    "required",
+                                    "unknown"
+                                ]
+                            },
+                            "event_ref": {
+                                "type": "string",
+                                "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
+                                "pattern": "^event--"
+                            },
+                            "transition_type": {
+                                "type": "string",
+                                "description": "What end-state causes the target to begin",
+                                "enum": [
+                                    "completion",
+                                    "failure",
+                                    "success",
+                                    "unknown"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
