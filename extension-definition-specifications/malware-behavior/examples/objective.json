@@ -1,0 +1,33 @@
+{
+    "type": "malware-objective",
+    "spec_version": "2.1",
+    "id": "malware-objective--a6de0a96-50b6-441f-8e62-06eb6db84183",
+    "created_by_ref": "identity--b73c59c1-8560-449a-b8d0-c2ce0533c5bf",
+    "created": "2019-08-01T00:00:00.000Z",
+    "modified": "2022-10-31T00:00:00.000Z",
+    "name": "Anti-Behavioral Analysis",
+    "obj_defn": {
+        "source_name": "mitre-mbc",
+        "description": "Behaviors that prevent, obstruct, or evade",
+        "url": "https://github.com/MBCProject/mbc-markdown/anti-behavioral-analysis",
+        "external_id": "OB0001"
+    },
+    "external_references": [
+        {
+	    "source_name": "unprotect",
+	    "url": "https://unprotect.it",
+	    "description": "T. Roccia and J. Lesueur, Unprotect Project, Accessed Apr. 29, 2023. [Online]."
+        },
+        {
+	    "source_name": "poz",
+	    "url": "https://github.com/knowmalware/InDepthUnpacking",
+	    "description": "F. Poz, \"InDepthUnpacking,\" 2016. Accessed Apr. 29, 2023. [Online]."
+        }
+    ],
+    "extensions": {
+        "extension-definition--d57b7c9c-7fa6-436b-b82c-8e6f69cdc3d0" : {
+            "extension_type" : "new-sdo"
+        }
+    }
+
+}
