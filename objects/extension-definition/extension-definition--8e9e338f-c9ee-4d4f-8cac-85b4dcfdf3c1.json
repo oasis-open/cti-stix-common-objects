@@ -1,0 +1,20 @@
+{
+    "id": "bundle--cfb6a874-d869-41d9-9d42-d6fe74ccb15b",
+    "objects": [
+        {
+            "id": "extension-definition--8e9e338f-c9ee-4d4f-8cac-85b4dcfdf3c1",
+            "type": "extension-definition",
+            "spec_version": "2.1",
+            "name": "Malware Behavior Extension for the Malware Object",
+            "description": "An extension to the Malware object to support malware behaviors.",
+            "created": "2023-03-12T10:12:00.000Z",
+            "modified": "2023-03-12T10:12:00.000Z",
+            "created_by_ref": "identity--b73c59c1-8560-449a-b8d0-c2ce0533c5bf",
+            "schema": "https://raw.githubusercontent.com/oasis-open/cti-stix-common-objects/main/extension-definition-specifications/mbc/extension-definition--8e9e338f-c9ee-4d4f-8cac-85b4dcfdf3c1.json",
+            "version": "1.0.0",
+            "extension_types": [
+		"property-extension"
+            ]
+        }
+    ]
+}
