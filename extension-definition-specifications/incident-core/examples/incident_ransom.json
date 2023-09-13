@@ -1,0 +1,364 @@
+{
+    "type": "bundle",
+    "id": "bundle--f607171d-3b62-40ac-a00b-84b5afc44d5f",
+    "objects": [
+        {
+            "type": "incident",
+            "id": "incident--b754abee-6de5-4b4e-8125-8dab1ca199fe",
+            "created": "2023-05-02T20:00:00.0002Z",
+            "modified": "2023-05-02T20:00:00.0002Z",
+            "spec_version": "2.1",
+            "name": "Sample ransomware incident",
+            "description": "Received a ransom demand for 0.5 BTC that was negotiated and then paid",
+            "extensions": {
+                "extension-definition--ef765651-680c-498d-9894-99799f2fa126": {
+                    "extension_type": "property-extension",
+                    "determination": "confirmed",
+                    "investigation_status": "closed",
+                    "criticality": 70,
+                    "incident_types": [
+                        "ransomware"
+                    ],
+                    "impact_refs": [
+                        "impact--0c9511ac-e14b-4f48-9d49-54bfc93c9b34",
+                        "impact--dde347a5-e695-4b58-bc7e-00712abdc9a6",
+                        "impact--5cbcf7ba-b278-4fb3-aa86-99a73743db82",
+                        "impact--55b1aa48-a642-440a-b9ed-9996189803e1"
+                    ],
+                    "tasks": [
+                        {
+                            "task_ref": "task--8824b710-60eb-4e00-9e1e-e1b4a40c9a62"
+                        }
+                    ],
+                    "events": [
+                        {
+                            "event_ref": "event--da2f25a7-b5d2-47e7-806d-75a2d61cda9f",
+                            "next_steps": [
+                                {
+                                    "event_ref": "event--c2f7f70d-5022-43cb-b2e0-18ae0a172122",
+                                    "condition_type": "required",
+                                    "transition_type": "success"
+                                }
+                            ]
+                        },
+                        {
+                            "event_ref": "event--c2f7f70d-5022-43cb-b2e0-18ae0a172122",
+                            "sequence_start": false,
+                            "next_steps": [
+                                {
+                                    "event_ref": "event--28eb658d-7b0c-4d3a-946e-c417edbb44bd",
+                                    "condition_type": "required",
+                                    "transition_type": "success"
+                                }
+                            ]
+                        },
+                        {
+                            "event_ref": "event--28eb658d-7b0c-4d3a-946e-c417edbb44bd",
+                            "sequence_start": false
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "type": "impact",
+            "impact_category": "integrity",
+            "id": "impact--55b1aa48-a642-440a-b9ed-9996189803e1",
+            "created": "2023-05-02T20:00:00.0002Z",
+            "modified": "2023-05-02T20:00:00.0002Z",
+            "spec_version": "2.1",
+            "description": "Loss of integrity due to encryption.",
+            "extensions": {
+                "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+                    "extension_type": "new-sdo"
+                },
+                "integrity": {
+                    "information_type": "system",
+                    "alteration": "full-modification"
+                }
+            }
+        },
+        {
+            "type": "impact",
+            "impact_category": "monetary",
+            "id": "impact--0c9511ac-e14b-4f48-9d49-54bfc93c9b34",
+            "created": "2023-05-02T20:00:00.0002Z",
+            "modified": "2023-05-02T20:00:00.0002Z",
+            "spec_version": "2.1",
+            "description": "Received a ransom demand for 0.5 BTC.",
+            "end_time": "2023-05-02T15:13:11.0000Z",
+            "superseded_by_ref": "impact--dde347a5-e695-4b58-bc7e-00712abdc9a6",
+            "extensions": {
+                "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+                    "extension_type": "new-sdo"
+                },
+                "monetary": {
+                    "currency": "usd",
+                    "min_amount": 0,
+                    "max_amount": 14413.05,
+                    "variety": "ransom-demand",
+                    "conversion_rate": 0.0000346907836994945,
+                    "conversion_time": "2023-05-02T20:00:00.0002Z",
+                    "currency_actual": "btc"
+                }
+            }
+        },
+        {
+            "type": "impact",
+            "impact_category": "monetary",
+            "id": "impact--dde347a5-e695-4b58-bc7e-00712abdc9a6",
+            "created": "2023-05-02T20:00:00.0002Z",
+            "modified": "2023-05-02T20:00:00.0002Z",
+            "start_time": "2023-05-02T15:13:11.0000Z",
+            "end_time": "2023-05-02T17:13:15.0000Z",
+            "spec_version": "2.1",
+            "description": "Paid the ransom of $10,000 USD as roughly 0.346 BTC.",
+            "extensions": {
+                "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+                    "extension_type": "new-sdo"
+                },
+                "monetary": {
+                    "currency": "usd",
+                    "min_amount": 10000,
+                    "max_amount": 10000,
+                    "variety": "ransom-payment",
+                    "conversion_rate": 0.0000346907836994945,
+                    "conversion_time": "2023-05-02T20:00:00.0002Z",
+                    "currency_actual": "btc"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "id": "task--8824b710-60eb-4e00-9e1e-e1b4a40c9a62",
+            "created": "2023-05-02T20:00:00.0002Z",
+            "modified": "2023-05-02T20:00:00.0002Z",
+            "outcome": "successful",
+            "start_time": "2023-05-02T17:13:15.0000Z",
+            "end_time": "2023-05-02T17:54:01.0000Z",
+            "name": "Negotiated Ransomware Payment",
+            "description": "Update mail server from version 8.2 to 8.3.",
+            "task_types": [
+                "negotiation"
+            ],
+            "spec_version": "2.1",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "impact",
+            "spec_version": "2.1",
+            "id": "impact--5cbcf7ba-b278-4fb3-aa86-99a73743db82",
+            "created": "2023-05-02T20:00:00.0002Z",
+            "modified": "2023-05-02T20:00:00.0002Z",
+            "start_time": "2023-05-02T15:13:11.0000Z",
+            "end_time": "2023-05-02T17:13:15.0000Z",
+            "impact_category": "availability",
+            "extensions": {
+                "availability": {
+                    "availability_impact": 70
+                },
+                "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "event",
+            "spec_version": "2.1",
+            "id": "event--da2f25a7-b5d2-47e7-806d-75a2d61cda9f",
+            "created": "2023-05-02T20:00:00.0002Z",
+            "modified": "2023-05-02T20:00:00.0002Z",
+            "event_types": ["ransomware"],
+            "status": "occurred",
+            "name": "Ransomware encrypted server and provided a message to the system administrator when they logged in advising they contact evil@decryptyourstuff.zip",
+            "sighting_refs": ["sighting--4d051911-6275-4ec0-bf10-2b87348b8877"],
+            "extensions": {
+                "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "email-addr",
+            "spec_version": "2.1",
+            "id": "email-addr--872bd204-384b-548b-a2d2-24eee3b48fe8",
+            "value": "evil@decryptyourstuff.zip"
+        },
+        {
+            "type": "observed-data",
+            "spec_version": "2.1",
+            "id": "observed-data--c5749c43-eea3-4492-8656-ba3db320017a",
+            "created": "2022-09-16T01:12:18.951Z",
+            "modified": "2022-09-16T01:12:18.951Z",
+            "first_observed": "2023-05-02T15:13:11Z",
+            "last_observed": "2023-05-02T17:13:15Z",
+            "number_observed": 1,
+            "object_refs": [
+                "email-addr--872bd204-384b-548b-a2d2-24eee3b48fe8"
+            ]
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--4d051911-6275-4ec0-bf10-2b87348b8877",
+            "created": "2022-09-16T01:12:18.951Z",
+            "modified": "2022-09-16T01:12:18.951Z",
+            "sighting_of_ref": "attack-pattern--79999146-514b-4793-b0e1-4b82ebbf1122",
+            "observed_data_refs": ["observed-data--c5749c43-eea3-4492-8656-ba3db320017a"]
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--79999146-514b-4793-b0e1-4b82ebbf1122",
+            "created": "2023-05-02T20:00:00.0002Z",
+            "modified": "2023-05-02T20:00:00.0002Z",
+            "name": "Negotiation over Email",
+            "description": "Ransomware distributors provide an email address to contact them to begin negotiations for payment."
+        },
+        {
+            "type": "event",
+            "spec_version": "2.1",
+            "id": "event--c2f7f70d-5022-43cb-b2e0-18ae0a172122",
+            "created": "2023-05-02T20:00:00.0002Z",
+            "modified": "2023-05-02T20:00:00.0002Z",
+            "event_types": ["negotiation"],
+            "status": "occurred",
+            "name": "A negotiation took place using FakeApp",
+            "sighting_refs": ["sighting--e3d81ade-d1b0-4cf0-9450-02b08adb1564"],
+            "extensions": {
+                "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "user-account",
+            "spec_version": "2.1",
+            "id": "user-account--8692770d-34f4-5681-8628-810d62dbfcb6",
+            "account_login": "qrzTalker4514",
+            "account_type": "fake-app",
+            "display_name": "Ransom Service Desk"
+        },
+        {
+            "type": "observed-data",
+            "spec_version": "2.1",
+            "id": "observed-data--801636c1-7602-4c49-9a46-22f00b821acf",
+            "created": "2022-09-16T01:12:18.951Z",
+            "modified": "2022-09-16T01:12:18.951Z",
+            "first_observed": "2023-05-02T15:13:11Z",
+            "last_observed": "2023-05-02T17:13:15Z",
+            "number_observed": 1,
+            "object_refs": [
+                "user-account--8692770d-34f4-5681-8628-810d62dbfcb6"
+            ]
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--e3d81ade-d1b0-4cf0-9450-02b08adb1564",
+            "created": "2022-09-16T01:12:18.951Z",
+            "modified": "2022-09-16T01:12:18.951Z",
+            "sighting_of_ref": "attack-pattern--09a5e59c-2a1d-447e-b888-d10a01a68404",
+            "observed_data_refs": ["observed-data--801636c1-7602-4c49-9a46-22f00b821acf"]
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--09a5e59c-2a1d-447e-b888-d10a01a68404",
+            "created": "2023-05-02T20:00:00.0002Z",
+            "modified": "2023-05-02T20:00:00.0002Z",
+            "name": "Ransom Negotiation using Well Known App",
+            "description": "Ransomware distributors provide a user's account or channel to negotiate payment with in real time over a well known chat application."
+        },
+        {
+            "type": "event",
+            "spec_version": "2.1",
+            "id": "event--28eb658d-7b0c-4d3a-946e-c417edbb44bd",
+            "created": "2023-05-02T20:00:00.0002Z",
+            "modified": "2023-05-02T20:00:00.0002Z",
+            "event_types": ["ransomware-payment"],
+            "status": "occurred",
+            "name": "Ransom Payment",
+            "sighting_refs": ["sighting--0fdbad43-a520-447d-a750-37a253f4169e"],
+            "extensions": {
+                "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--0fdbad43-a520-447d-a750-37a253f4169e",
+            "created": "2022-09-16T01:12:18.951Z",
+            "modified": "2022-09-16T01:12:18.951Z",
+            "sighting_of_ref": "attack-pattern--51e7da0b-4d6d-4a4a-9a04-05c0bce06edb"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--51e7da0b-4d6d-4a4a-9a04-05c0bce06edb",
+            "created": "2023-05-02T20:00:00.0002Z",
+            "modified": "2023-05-02T20:00:00.0002Z",
+            "name": "Ransom Payment using Cryptocurrency",
+            "description": "Ransomware distributors provide a cryptocurrency address to accept a payment."
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--a845c206-b7e0-4869-a1f3-762889c21cc9",
+            "created": "2023-05-02T20:00:00.0002Z",
+            "modified": "2023-05-02T20:00:00.0002Z",
+            "source_ref": "task--8824b710-60eb-4e00-9e1e-e1b4a40c9a62",
+            "target_ref": "event--c2f7f70d-5022-43cb-b2e0-18ae0a172122",
+            "relationship_type": "related-to"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--449c26bb-06c5-49a1-8b0e-2916b4eed8db",
+            "created": "2023-05-02T20:00:00.0002Z",
+            "modified": "2023-05-02T20:00:00.0002Z",
+            "source_ref": "report--44ad868e-75c6-4f52-80d7-edd090bedc58",
+            "target_ref": "incident--b754abee-6de5-4b4e-8125-8dab1ca199fe",
+            "relationship_type": "related-to"
+        },
+        {
+            "type": "report",
+            "created": "2023-05-02T20:00:00.0002Z",
+            "modified": "2023-05-02T20:00:00.0002Z",
+            "spec_version": "2.1",
+            "id": "report--44ad868e-75c6-4f52-80d7-edd090bedc58",
+            "name": "Ransomware Incident Example",
+            "report_types": ["incident"],
+            "published": "2023-05-02T20:00:00.0002Z",
+            "object_refs": [
+                "attack-pattern--09a5e59c-2a1d-447e-b888-d10a01a68404",
+                "attack-pattern--51e7da0b-4d6d-4a4a-9a04-05c0bce06edb",
+                "attack-pattern--79999146-514b-4793-b0e1-4b82ebbf1122",
+                "email-addr--872bd204-384b-548b-a2d2-24eee3b48fe8",
+                "event--28eb658d-7b0c-4d3a-946e-c417edbb44bd",
+                "event--c2f7f70d-5022-43cb-b2e0-18ae0a172122",
+                "event--da2f25a7-b5d2-47e7-806d-75a2d61cda9f",
+                "impact--0c9511ac-e14b-4f48-9d49-54bfc93c9b34",
+                "impact--55b1aa48-a642-440a-b9ed-9996189803e1",
+                "impact--5cbcf7ba-b278-4fb3-aa86-99a73743db82",
+                "impact--dde347a5-e695-4b58-bc7e-00712abdc9a6",
+                "incident--b754abee-6de5-4b4e-8125-8dab1ca199fe",
+                "observed-data--801636c1-7602-4c49-9a46-22f00b821acf",
+                "observed-data--c5749c43-eea3-4492-8656-ba3db320017a",
+                "relationship--449c26bb-06c5-49a1-8b0e-2916b4eed8db",
+                "relationship--a845c206-b7e0-4869-a1f3-762889c21cc9",
+                "sighting--0fdbad43-a520-447d-a750-37a253f4169e",
+                "sighting--4d051911-6275-4ec0-bf10-2b87348b8877",
+                "sighting--e3d81ade-d1b0-4cf0-9450-02b08adb1564",
+                "task--8824b710-60eb-4e00-9e1e-e1b4a40c9a62",
+                "user-account--8692770d-34f4-5681-8628-810d62dbfcb6"
+            ]
+        }
+    ]
+}

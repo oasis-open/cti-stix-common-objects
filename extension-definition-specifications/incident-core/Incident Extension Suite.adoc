@@ -1,0 +1,2720 @@
+:stylesheet: stix.css
+:stylesdir: ../../asciidoc-shared
+:toc: macro
+:toclevels: 4
+:nofooter:
+
+// Citations
+:europol_event_url: https://www.misp-project.org/taxonomies.html#_europol_event
+:europol_incident_url: https://www.misp-project.org/taxonomies.html#_europol_incident
+:dns_abuse_url: https://www.misp-project.org/galaxy.html#_first_dns_abuse_techniques_matrix
+
+// Vocabularies from the STIX 2.1 specification
+:identity_class_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_be1dktvcmyu
+
+// Types from the STIX 2.1 specification
+:boolean_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_7s76li5u5yid
+:external_reference_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_72bcfr3t79jx
+:int_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_k1goo4u2qjpb
+:identifier_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_64yvzeku5a5c
+:list_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_9w329aiwpu1y
+:number_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_fu44u89stpb4
+:open_vocab_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_bnnxah80y7by
+:string_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_uxyhzmv0vpyc
+:timestamp_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_9w329aiwpu1y
+
+
+// Objects from the STIX 2.1 specification
+:attack_pattern_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_axjijf603msy
+:course_of_action_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_a925mpw39txn
+:campaign_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_pcpvfz4ik6d6
+:grouping_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_t56pn7elv6u7
+:identity_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_wh296fiwpklp
+:incident_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_sczfhw64pjxt
+:indicator_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_muftrcpnf89v
+:infrastructure_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_jo3k1o6lr9
+:intrusion_set_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_5ol9xlbbnrdn
+:location_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_th8nitr8jb4k
+:malware_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_s5l7katgbp09
+:sighting_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_a795guqsap3r
+:threat_actor_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_k017w16zutw
+:tool_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_z4voa9ndw8v
+
+= [stixtitle]*Incident Core Extension Version 2.0 for STIX^TM^ Version 2.1*
+
+[.stix-doc-information-heading]#Draft#
+
+[.stix-doc-information-heading]#10 July 2023#
+
+[.stix-doc-information-heading]
+Editors:
+[.stix-indent]
+- IMG - Incident Mini Group
+
+
+[.stix-doc-information-heading]
+Additional artifacts:
+[.stix-indent]
+.This prose specification is one component of a Work Product that also includes:
+
+- STIX™ Version 2.1 - OS
+
+[.stix-doc-information-heading]
+Related work:
+
+- https://www.misp-project.org/taxonomies.html
+
+[.stix-indent]
+.This specification replaces or supersedes: +
+
+- Incident Core Extension Version 1.0 for STIX^TM^ Version 2.1
+
+toc::[]
+
+[.stix-doc-information-heading]*Abstract:*
+
+The current STIX 2.1 Incident object exists as a stub in the hopes that future work would allow STIX Incidents to be more fully fleshed out using extensions, and that in time a set of core features could be defined to be migrated into a future version of the Incident object or the community could arrive at the consensus to continue to use these extensions.
+
+In the 1.0 version of the core incident extension information on impact, events, and tasks were embedded within the Incident itself, however this was found to have limitations.
+As such a 2.0 version of this extension has been created in order to separate these components into independent SDOs to more complex incidents to be accurately modeled.
+
+These extensions allow tracking incidents across their life cycle where Events are first flagged for investigation resulting in [stixtype]#{incident_url}[incidents]# with [stixtype]#<<task,tasks>># being worked to resolve these.
+Incidents have [stixtype]#<<impact,impacts>># that change over time.
+[stixtype]#<<event,Events>># can cause or influence these [stixtype]#<<impact,impacts>># which are in turn mitigated and potentially resolved by [stixtype]#<<task,tasks>># performed as part of the incident response process.
+Both [stixtype]#<<event,events>># and [stixtype]#<<task,tasks>># can exist independent of [stixtype]#{incident_url}[incidents]# and in most workflows will occur prior to an incident being declared.
+
+
+== 1. Incidents in STIX
+
+Incident objects represent cases composed of [stixtype]#<<event,events>># and [stixtype]#<<task,tasks>># as well as actual or potential [stixtype]#<<impact,impacts>>#.
+An Incident SDO can be created prior to a formal determination that the incident has an impact as a way to logically track case work in an attempt to investigate events or lower level alerts.
+
+The Incident object should have sufficient properties to represent the current state of the incident or investigation while serving as an anchor point to record both related activities and the impact to an organization.
+
+== 2. Extensions
+
+=== 2.1. Incident Core
+
+The properties and additional types within the Incident Core Extension are defined below. As this is not a top-level object, fields such as identifier are not present.  This extension *MUST* use [stixliteral]#extension-definition--ef765651-680c-498d-9894-99799f2fa126# as its extension ID.
+
+<<<
+
+[width="100%",cols="37%,23%,40%",options="header"]
+|===
+^|[stixtr]*Property Name*
+^|[stixtr]*Type*
+^|[stixtr]*Description*
+
+|*determination* (required)
+|[stixtype]#<<incident-determination-enum,incident-determination-enum>>#
+|A high level determination on the outcome of this incident.
+This *SHOULD* be suspected until enough information is available to provide a well researched result.
+
+Some automated tools may flag results as blocked or low-value automatically depending on the tool type or activity.
+A tool that blocks a series of phishing emails may create an incident with a blocked determination automatically.
+
+The values of this property *MUST* come from the [stixtype]#<<incident-determination-enum,incident-determination-enum>># enumeration.
+
+|*extension_type* (required)
+|[stixtype]#{string_url}[string]# 
+|The value of this property *MUST* be [stixliteral]#property-extension#
+
+|*investigation_status* (required)
+|[stixtype]#{open_vocab_url}[open-vocab]#
+|The current status of the incident investigation.
+
+The values of this property *MUST* come from the [stixtype]#<<incident-investigation-ov,incident-investigation-ov>># enumeration.
+
+|*criticality* (optional)
+|[stixtype]#{int_url}[integer]#
+ 
+|The criticality of the incident.
+This value *MUST* be between 0 to 100. This can be translated into qualitative values as described in <<appendix-b,Appendix B>>.
+
+|*detection_methods* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#{open_vocab_url}[open-vocab]#
+|A list of strings containing what was used to detect the activity, e.g., commercial tool names, techniques associated with proprietary solutions, human review, external sources, or other methods.
+This should draw from the [stixtype]#<<detection-methods-ov,detection-methods-ov>>#.
+
+|*events* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#<<event-entry,event-entry>>#
+|A list of events tied to this incident.
+
+|*impact_refs* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
+|A list of impacts of this incident.
+It *MUST* contain references to one or more Impact objects.
+
+The objects referenced in this list *MUST* be of type [stixtype]#<<impact,impact>>#
+
+|*impacted_entity_counts* (optional)
+|[stixtype]#<<entity-count,entity-count>>#
+|An optional listing of the entity types that were impacted by the incident, and how many of each type were affected.
+Individual impacts may also record more detailed counts as appropriate.
+
+If this field is not present it should be assumed that this information is not being shared, not that there were no impacted entities.
+
+|*incident_types* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#{open_vocab_url}[open-vocab]#
+|This property uses an Open Vocabulary that specifies the type of incident that occurred, if applicable.
+
+This is an open vocabulary and values *SHOULD* come from the [stixtype]#<<event-type-ov,event-type-ov>>#.
+
+|*recoverability* (optional)
+|[stixtype]#<<recoverability-enum,recoverability-enum>>#
+|The recoverability of this particular Incident with respect to feasibility and required time and resources.
+
+The values of this property *MUST* come from the [stixtype]#<<recoverability-enum,recoverability-enum>>#
+enumeration.
+
+|*scores* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#<<incident-score,incident-score>>#
+|A list of scores from various automated or manual mechanisms along with optional descriptions.
+
+|*tasks* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#<<task-entry,task-entry>>#
+|A list of tasks tied to this incident.
+
+|===
+
+==== 2.1.1. Relationships
+
+// tag::incident-relationships[]
+[width="100%",cols="24%,23%,20%,33%",options="header",]
+|===
+4+^|[stixtr]*Common Relationships*
+4+|[stixrelationship]#derived-from#,
+[stixrelationship]#duplicate-of#,
+[stixrelationship]#related-to#
+
+|*Source*
+|*Type* 
+|*Target* 
+|*Description*
+// relationships:start
+|[stixtype]#{incident_url}[incident]#
+|[stixrelationship]#led-to#
+|[stixtype]#{incident_url}[incident]#
+|One incident led to another.
+
+|[stixtype]#{incident_url}[incident]#
+|[stixrelationship]#impacts#
+|[stixtype]#{identity_url}[identity]#, +
+[stixtype]#{infrastructure_url}[infrastructure]#
+|An incident has an impact on the victim or specific infrastructure.
+
+|[stixtype]#{incident_url}[incident]#
+|[stixrelationship]#attributed-to#
+|[stixtype]#{intrusion_set_url}[intrusion-set]#, +
+[stixtype]#{threat_actor_url}[threat-actor]#
+|The incident has been attributed to the intrusion set or threat actor.
+
+|[stixtype]#{incident_url}[incident]#
+|[stixrelationship]#targets#
+|[stixtype]#{identity_url}[identity]#, +
+[stixtype]#{infrastructure_url}[infrastructure]#
+|An incident was targeted at the victim or specific infrastructure.
+
+|[stixtype]#{incident_url}[incident]#
+|[stixrelationship]#located-at#
+|[stixtype]#{location_url}[location]#
+|The incident occurred at a specific location or locations.
+// relationships:end
+4+^|*Reverse Relationships*
+// relationships:start
+|[stixtype]#{campaign_url}[campaign]#
+|[stixrelationship]#associated-with#
+|[stixtype]#{incident_url}[incident]#
+|The incident in question is part of the campaign that is associated with.
+
+|[stixtype]#{identity_url}[identity]#
+|[stixrelationship]#contact-for#
+|[stixtype]#{incident_url}[incident]#
+|An identity should be considered a point of contact for an incident.
+
+This can be used to supplement the created_by_ref in cases where external authorship would prevent using it for this purpose.
+
+|[stixtype]#{indicator_url}[indicator]#
+|[stixrelationship]#detected#
+|[stixtype]#{incident_url}[incident]#
+|An indicator was responsible for detecting the incident.
+// relationships:end
+|===
+// end::incident-relationships[]
+
+<<<
+[[event]]
+=== 2.2. Event
+
+[width="100%",cols="100%",stripes=odd]
+|===
+^|[stixtr]*Required Common Properties*
+|*created*,
+*id*,
+*modified*,
+*spec_version*,
+*type*
+
+^|[stixtr]*Optional Common Properties*
+
+|*created_by_ref*,
+*revoked*,
+*labels*,
+*confidence*,
+*lang*,
+*external_references*,
+*object_marking_refs*,
+*granular_markings*,
+*extensions*
+
+^|[stixtr]*Not Applicable Common Properties*
+
+|*defanged*
+
+^|[stixtr]*Event Object Specific Properties*
+
+|*changed_objects*,
+*description*,
+*end_time*,
+*end_time_fidelity*,
+*event_types*,
+*goal*,
+*name*,
+*status*,
+*sighting_refs*,
+*start_time*,
+*start_time_fidelity*,
+*subevents*
+|===
+
+|===
+^|[stixtr]*Property Name* ^|[stixtr]*Type* ^|[stixtr]*Description*
+
+|*status* (required)
+|[stixtype]#<<event-status-enum,event-status-enum>>#
+|The current status of the event.
+
+|*type* (required)
+|[stixtype]#{string_url}[string]#
+|The value of this property *MUST* be set to [stixliteral]#event#.
+
+|*changed_objects* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#<<state-change,state-change>>#
+|A list of changes that this event has caused.
+This is typically used to indicate how an event has affected impacts.
+
+|*description* (optional)
+|[stixtype]#{string_url}[string]#
+|A description of event that occurred.
+
+|*end_time* (optional)
+|[stixtype]#{timestamp_url}[timestamp]#
+|The date and time the event was last recorded. If this is not present it is assumed to be unknown.
+
+|*end_time_fidelity* (optional)
+|[stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>>#
+|The level of fidelity that the end_time is recorded in.
+This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>>#.
+
+If no value is provided the timestamp should be considered to be accurate up to the number of decimals it includes.
+
+|*event_types* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#{open_vocab_url}[open-vocabulary]#
+|High level types for the event in order to enable aggregation and summaries.
+This should be drawn from [stixtype]#<<event-type-ov,event-type-ov>>#.
+
+|*goal* (optional)
+|[stixtype]#{string_url}[string]#
+|The assumed objective of this event.
+Not all events have goals.
+
+|*name* (optional)
+|[stixtype]#{string_url}[string]#
+|An optional name for the event.
+
+|*sighting_refs* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
+|An optional list of [stixtype]#{sighting_url}[sighting]# objects that were related to this event.
+Sightings referenced in this *SHOULD* be based on [stixtype]#{attack_pattern_url}[attack-pattern]#, [stixtype]#{indicator_url}[indicator]#, or [stixtype]#{malware_url}[malware]# SDOs.
+
+In some cases observed data may be present, but no [stixtype]#{indicator_url}[indicator]# can be created.
+In these cases it is recommended to use an [stixtype]#{attack_pattern_url}[attack-pattern]# using the name or description of the behavior or rule that triggered the sighting.
+
+|*start_time* (optional)
+|[stixtype]#{timestamp_url}[timestamp]#
+|The date and time the event was first recorded. If this is not
+present it is assumed to be unknown.
+
+This property *SHOULD* be populated.
+
+|*start_time_fidelity* (optional)
+|[stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>>#
+|The level of fidelity that the start_time is recorded in. This value
+*MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>>#.
+
+If no value is provided the timestamp should be considered to be
+accurate up to the number of decimals it includes.
+
+|*subevents* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#<<event-entry,event-entry>>#
+|A list of sub-events tied to this event.
+|===
+
+<<<
+
+==== 2.2.1. Relationships
+
+// tag::event-relationships[]
+
+[width="100%",cols="23%,20%,24%,33%",options="header",]
+|===
+4+^|[stixtr]*Common Relationships*
+4+|[stixrelationship]#derived-from#,
+[stixrelationship]#duplicate-of#,
+[stixrelationship]#related-to#
+
+|*Source* |*Type* |*Target* |*Description*
+// relationships:start
+|[stixtype]#<<event,event>># 
+|[stixrelationship]#led-to#
+|[stixtype]#<<event,event>># 
+|One event led to another.
+For example a dropper running allowed a ransomware tool to be downloaded and run.
+
+|[stixtype]#<<event,event>>#
+|[stixrelationship]#impacts#
+|[stixtype]#{infrastructure_url}[infrastructure]#, +
+<All STIX Cyber-observable Objects>
+|An event has an impact on specific infrastructure.
+
+|[stixtype]#<<event,event>>#
+|[stixrelationship]#located-at#
+|[stixtype]#{location_url}[location]#
+|The event occurred at a specific location or locations.
+
+|[stixtype]#<<event,event>>#
+|[stixrelationship]#observed#
+|<All STIX Cyber-observable Objects>
+|STIX cyber-observables were observed as part of this event, but no information on when they are observed is being shared.
+
+If this can be shared a Sighting it should be instead of using this method.
+// relationships:end
+|===
+
+<<<
+
+[width="100%",cols="23%,20%,24%,33%",options="header",]
+|===
+4+^|[stixtr]*Reverse Relationships*
+
+|*Source* |*Type* |*Target* |*Description*
+// relationships:start
+|[stixtype]#{indicator_url}[indicator]#
+|[stixrelationship]#based-on#
+|[stixtype]#<<event,event>>#
+|An indicator is based on an event.
+
+|[stixtype]#{malware_url}[malware]#
+|[stixrelationship]#performed#
+|[stixtype]#<<event,event>>#
+|Malware performed a specific event.
+
+|[stixtype]#{tool_url}[tool]#
+|[stixrelationship]#performed#
+|[stixtype]#<<event,event>>#
+|A tool performed a specific event.
+// relationships:end
+|===
+
+// end::event-relationships[]
+
+<<<
+[[impact]]
+=== 2.3. Impact
+
+[width="100%",cols="100%",stripes=odd]
+|===
+^|[stixtr]*Required Common Properties*
+|*created*,
+*id*,
+*modified*,
+*spec_version*,
+*type*
+
+^|[stixtr]*Optional Common Properties*
+
+|*created_by_ref*,
+*revoked*,
+*labels*,
+*confidence*,
+*lang*,
+*external_references*,
+*object_marking_refs*,
+*granular_markings*,
+*extensions*
+
+^|[stixtr]*Not Applicable Common Properties*
+
+|*defanged*
+
+^|[stixtr]*Incident Activity Object Specific Properties*
+
+|*impact_category*,
+*criticality*,
+*description*,
+*end_time*,
+*end_time_fidelity*,
+*impacted_entity_counts*,
+*impacted_refs*,
+*recoverability*,
+*start_time*,
+*start_time_fidelity*,
+|===
+
+|===
+^|[stixtr]*Property Name* ^|[stixtr]*Type* ^|[stixtr]*Description*
+
+|*impact_category* (required)
+|[stixtype]#{string_url}[string]#
+|The category of impact this applies to.
+This *MUST* match an extension that provides greater and *SHOULD* come from the extensions listed in section 3 of this document.
+
+|*type* (required)
+|[stixtype]#{string_url}[string]#
+|The value of this property *MUST* be set to [stixliteral]#impact#.
+
+|*criticality* (optional)
+|[stixtype]#{int_url}[integer]#
+|The criticality of this impact. This value *MUST* be between 0 to 100.
+This can be translated into qualitative values as described in <<appendix-b,Appendix B>>.
+
+|*description* (optional)
+|[stixtype]#{string_url}[string]# 
+|Additional details about this impact
+
+|*end_time* (optional)
+|[stixtype]#{timestamp_url}[timestamp]#
+|The date and time the impact was last recorded.
+
+This property *SHOULD* be populated.
+
+|*end_time_fidelity* (optional)
+|[stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>>#
+|The level of fidelity that the end_time is recorded in.
+This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>>#.
+
+If the *superseded_by_ref* property is included this *MUST* be included.
+
+|*impacted_entity_counts* (optional)
+|[stixtype]#<<entity-count,entity-count>>#
+|An optional listing of the entity types that were impacted and how many of each were affected.
+
+If this field is not present it should be assumed that this information is not being shared, not that there were no impacted entities.
+
+|*impacted_refs* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]# 
+|A list of all impacted entities or infrastructure. This can relate directly to Infrastructure, SCOs, and other SDOs.
+
+|*recoverability* (optional)
+|[stixtype]#<<recoverability-enum,recoverability-enum>>#
+|The recoverability of this particular integrity impact with respect to feasibility and required time and resources.
+
+The values of this property *MUST* come from the [stixtype]#<<recoverability-enum,recoverability-enum>># enumeration
+
+|*start_time* (optional)
+|[stixtype]#{timestamp_url}[timestamp]#
+|The date and time the impact was first recorded.
+
+This property *SHOULD* be populated.
+
+|*start_time_fidelity* (optional)
+|[stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>>#
+|The level of fidelity that the start_time is recorded in.
+This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>>#.
+
+If no value is provided the timestamp should be considered to be
+accurate up to the number of decimals it includes.
+
+|*superseded_by_ref* (optional)
+|[stixtype]#{identifier_url}[identifier]# 
+|The referenced [stixtype]#<<impact,impact>># supersedes this one at the *end_time* for the current impact.
+This allows capturing how the severity of this impact changes over time.
+
+When populated the impact *MUST* have an *end_time*.
+It also *MUST* reference an [stixtype]#<<impact,impact>># of the same as *impact_category*.
+
+|===
+
+<<<
+
+==== 2.3.1. Relationships
+
+// tag::impact-relationships[]
+// end::impact-relationships[]
+
+==== 2.3.2. Extensions
+
+The Impact SDO is currently an extension, but as there are many specific types of impacts with their own unique properties it emulates the File SCO through the use of STIX Extensions to provide the granular details of specific categories of impacts.
+As such every Impact *MUST* have an extension that has the same value of the *impact_category*.
+This allows consumers to quickly validate their ability to process this category of impact and then load all of its specific details.
+
+Producers *SHOULD* use one of these extensions.
+
+===== 2.3.2.1. Availability Impact Extension 
+
+[width="100%",cols="37%,23%,40%",options="header",]
+|===
+^|[stixtr]*Property Name*
+^|[stixtr]*Type* 
+^|[stixtr]*Description*
+
+|*availability_impact* (required)
+|[stixtype]#{int_url}[integer]#
+|The availability / functional impact of the incident on the objects referenced in *impacted_refs*. 
+If no objects are referenced it should be treated as the overall availability impact for the [stixtype]#{incident_url}[incident]# that references it.
+
+This value *MUST* be between 0 to 100. This can be translated into qualitative values as described in <<appendix-a,Appendix A>>.
+
+|===
+
+<<<
+
+===== 2.3.2.2. Confidentiality Impact Extension
+
+[width="100%",cols="37%,23%,40%",options="header",]
+|===
+^|[stixtr]*Property Name*
+^|[stixtr]*Type* 
+^|[stixtr]*Description*
+
+|*information_type* (optional)
+|[stixtype]#{open_vocab_url}[open-vocab]#
+|The type of information that had its confidentiality compromised. This can include control systems and other processes that can result in virtual or physical impacts.
+
+This *SHOULD* be drawn from [stixtype]#<<information-type-ov,information-type-ov>>#.
+
+This value *MUST* be included if the loss_type is not none. Including an entry with loss_type of none and no information_type indicates that no information had its confidentiality impacted by this incident.
+
+|*loss_type* (required)
+|[stixtype]#<<incident-confidentiality-loss-enum,incident-confidentiality-loss-enum>>#
+|The type of loss that occurred to the relevant information
+
+|*record_count* (optional)
+|[stixtype]#{int_url}[integer]#
+|The number of records of this type that were compromised. The value of this property *MUST NOT* be negative.
+
+|*record_size* (optional)
+|[stixtype]#{int_url}[integer]#
+|The amount of data that was compromised in bytes. The value of this property *MUST NOT* be negative.
+|===
+
+===== 2.3.2.3. External Impact Extension
+
+[width="100%",cols="37%,23%,40%",options="header",]
+|===
+^|[stixtr]*Property Name*
+^|[stixtr]*Type* 
+^|[stixtr]*Description*
+
+|*impact_type* (required)
+|[stixtype]#{open_vocab_url}[open-vocab]# 
+|The type of impact outside of the direct organization that should be drawn from [stixtype]#<<external-impact-ov,external-impact-ov>>#.
+|===
+
+<<<
+
+===== 2.3.2.4. Integrity Impact Extension
+
+*Type Name:* [stixtype]#integrity-impact#
+
+[width="100%",cols="37%,23%,40%",options="header",]
+|===
+^|[stixtr]*Property Name*
+^|[stixtr]*Type* 
+^|[stixtr]*Description*
+
+|*alteration* (required)
+|[stixtype]#<<integrity-alteration-enum,integrity-alteration-enum>>#
+|The type of alteration performed against the information_type.
+
+The values of this property *MUST* come from the [stixtype]#<<integrity-alteration-enum,integrity-alteration-enum>># enumeration.
+
+|*information_type* (optional)
+|[stixtype]#{open_vocab_url}[open-vocab]#
+|The type of information that had its integrity compromised.
+This can include control systems and other processes that can result in virtual or physical impacts.
+
+This *SHOULD* be drawn from [stixtype]#<<information-type-ov,information-type-ov>>#.
+
+This value *MUST* be included if the alternation is not none.
+Including an entry that with an alteration of none and no information_type indicates that no information had its integrity impacted by this incident.
+
+|*record_count* (optional)
+|[stixtype]#{int_url}[integer]#
+|The number of records of this type that were compromised. The value of this property *MUST NOT* be negative.
+
+|*record_size* (optional)
+|[stixtype]#{int_url}[integer]#
+|The amount of data that was compromised in bytes. The value of this property *MUST NOT* be negative.
+
+|===
+
+<<<
+
+===== 2.3.2.5. Monetary Impact Extension
+
+[width="100%",cols="37%,23%,40%",options="header",]
+|===
+^|[stixtr]*Property Name*
+^|[stixtr]*Type* 
+^|[stixtr]*Description*
+
+|*variety* (required)
+|[stixtype]#{open_vocab_url}[open-vocab]#
+|The variety of this monetary impact.
+
+The values of this property *SHOULD* come from the [stixtype]#<<monetary-impact-type-ov,monetary-impact-type-ov>>#.
+
+|*conversion_rate* (optional)
+|[stixtype]#{number_url}[number]#
+|The conversion rate between *currency* and *currency_actual*.
+This *MUST NOT* be included if currency_actual is not included.
+This *MUST* be included if currency_actual is included.
+This value *MUST* be greater than zero.
+
+This value *MUST* be included if the *min_amount* is included.
+
+|*conversion_time* (optional)
+|[stixtype]#{timestamp_url}[timestamp]#
+|The timestamp when the *conversion_rate* was queried.
+This *MUST* be included if a *conversion_rate* is included.
+
+|*currency* (optional)
+|[stixtype]#{string_url}[string]#|
+The currency that the max_amount and min_amount fields use.
+This *SHOULD* be an ISO 4217 alpha currency code or the official currency code for the relevant cryptocurrency.
+This *SHOULD* match an organizations own primary currency, or for government reporting the currency requested by that government for these reports.
+
+This value *MUST* be included if the *min_amount* is included.
+
+|*currency_actual* (optional)
+|[stixtype]#{string_url}[string]#|
+The currency that the impact actually used.
+For ransom demands this should be the currency of the demand.
+If this is not included it should be assumed to be the same value as *currency*.
+
+If this is included then *currency* *MUST* be included.
+This *SHOULD* be an ISO 4217 alpha currency code or the official currency code for the relevant cryptocurrency.
+
+|*max_amount* (optional)
+|[stixtype]#{number_url}[number]#
+|The maximum damage estimate of this type in the provided currency.
+This value *MUST* be greater than zero.
+
+This value *MUST* be included if the *min_amount* is included.
+
+|*min_amount* (optional)
+|[stixtype]#{number_url}[number]#
+|The minimum damage estimate of this type in the provided currency.
+This value *MUST* be greater than zero.
+
+This value *MUST* be included if the *max_amount* is included.
+
+|===
+
+<<<
+
+===== 2.3.2.6. Physical Impact Extension
+
+[width="100%",cols="37%,23%,40%",options="header",]
+|===
+^|[stixtr]*Property Name*
+^|[stixtr]*Type* 
+^|[stixtr]*Description*
+
+|*impact_type* (required)
+|[stixtype]#<<physical-impact-enum,physical-impact-enum>>#
+|The type of physical impact that has occurred.
+
+The values of this property *MUST* come from the [stixtype]#<<physical-impact-enum,physical-impact-enum>>#
+enumeration.
+
+|*asset_type* (optional)
+|[stixtype]#{open_vocab_url}[open-vocab]#
+|The type or property or system that was affected by this impact.
+
+This *SHOULD* be drawn from [stixtype]#<<asset-type-ov,asset-type-ov>>#.
+
+This value *MUST* be included if the *impact_type* is not none.
+Including an entry with an *impact_type* of none and no asset_type indicates that no physical damage was caused by this incident.
+
+|===
+
+===== 2.3.2.7. Traceability Impact Extension
+
+[width="100%",cols="37%,23%,40%",options="header",]
+|===
+^|[stixtr]*Property Name*
+^|[stixtr]*Type* 
+^|[stixtr]*Description*
+
+|*traceability_impact* (required)
+|[stixtype]#<<traceability-enum,traceability-enum>>#
+|The impact of this incident on a system or organization's ability to perform audits or provide non-repudiation.
+
+The values of this property *MUST* come from the [stixtype]#<<traceability-enum,traceability-enum>># enumeration
+
+|===
+
+<<<
+[[task]]
+=== 2.4. Task
+
+[width="100%",cols="100%",stripes=odd]
+|===
+^|[stixtr]*Required Common Properties*
+|*created*,
+*id*,
+*modified*,
+*spec_version*,
+*type*
+
+^|[stixtr]*Optional Common Properties*
+
+|*created_by_ref*,
+*revoked*,
+*labels*,
+*confidence*,
+*lang*,
+*external_references*,
+*object_marking_refs*,
+*granular_markings*,
+*extensions*
+
+^|[stixtr]*Not Applicable Common Properties*
+
+|*defanged*
+
+^|[stixtr]*Task Object Specific Properties*
+
+|*task_types*,
+*changed_objects*,
+*description*,
+*end_time*,
+*end_time_fidelity*,
+*error*,
+*impact_entity_counts*,
+*name*,
+*outcome*,
+*priority*,
+*start_time*,
+*start_time_fidelity*,
+*subtasks*,
+*template_refs*
+|===
+
+|===
+^|[stixtr]*Property Name* ^|[stixtr]*Type* ^|[stixtr]*Description*
+
+|*outcome* (required)
+|[stixtype]#<<task-outcome-enum,task-outcome-enum>>#
+|The outcome of the task.
+
+|*type* (required)
+|[stixtype]#{string_url}[string]#
+|The value of this property *MUST* be set to [stixliteral]#task#.
+
+|*changed_objects* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#<<state-change,state-change>>#
+|A list of changes that this task has caused.
+This is typically used to indicate how an task has affected impacts.
+
+|*task_types* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#{open_vocab_url}[open-vocabulary]#
+|A list of high level types for the task in order to enable aggregation and summaries.
+This should be drawn from [stixtype]#<<task-type-ov,task-type-ov>>#.
+
+|*description* (optional)
+|[stixtype]#{string_url}[string]#
+|A description of task that occurred.
+
+|*end_time* (optional)
+|[stixtype]#{timestamp_url}[timestamp]#
+|The date and time the task was last recorded. If this is not present it is assumed to be unknown.
+
+|*end_time_fidelity* (optional)
+|[stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>>#
+|The level of fidelity that the end_time is recorded in.
+This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>>#.
+
+If no value is provided the timestamp should be considered to be
+accurate up to the number of decimals it includes.
+
+|*error* (optional)
+|[stixtype]#{string_url}[string]#
+|Details about any failures or deviations that occurred in the task.
+
+|*impacted_entity_counts* (optional)
+|[stixtype]#<<entity-count,entity-count>>#
+|An optional listing of the entity types that were impacted and how many of each were affected.
+
+This is primarily used when recording victim notifications.
+
+|*name* (optional)
+|[stixtype]#{string_url}[string]#
+|An optional name used to identify the task.
+
+|*priority* (optional)
+|[stixtype]#{int_url}[integer]#
+|The priority or importance of the task.
+This value *MUST* be between 0 to 100. This can be translated into qualitative values as described in <<appendix-b,Appendix B>>.
+
+|*start_time* (optional)
+|[stixtype]#{timestamp_url}[timestamp]#
+|The date and time the task was first recorded. If this is not
+present it is assumed to be unknown.
+
+This property *SHOULD* be populated.
+
+|*start_time_fidelity* (optional)
+|[stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>>#
+|The level of fidelity that the start_time is recorded in. This value
+*MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>>#.
+
+If no value is provided the timestamp should be considered to be
+accurate up to the number of decimals it includes.
+
+|*subtasks* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#<<task-entry,task-entry>>#
+|A list of subtasks tied to this task.
+|===
+
+<<<
+
+==== 2.4.1. Relationships
+
+// tag::task-relationships[]
+
+When creating sequences of [stixtype]#<<task,tasks>># these *SHOULD NOT* be shared using relationship objects.
+Sequences *SHOULD* be shared within an [stixtype]#{incident_url}[incident]# or [stixtype]#<<task,task>># as part of the list of *tasks* or *subtasks* respectively.
+Using these embedded relationships ensure that an incomplete sequence cannot be shared accidentally to avoid potential confusion or misunderstandings when processing STIX data.
+
+[width="100%",cols="27%,16%,24%,33%",options="header",]
+|===
+4+^|[stixtr]*Common Relationships*
+4+|[stixrelationship]#derived-from#,
+[stixrelationship]#duplicate-of#,
+[stixrelationship]#related-to#
+
+|*Source* |*Type* |*Target* |*Description*
+// relationships:start
+|[stixtype]#<<task,task>>#
+|[stixrelationship]#uses#
+|[stixtype]#{course_of_action_url}[course-of-action]#
+|An task uses a particular course of action.
+
+|[stixtype]#<<task,task>># 
+|[stixrelationship]#blocks#
+|[stixtype]#<<event,event>>#
+|A task was performed to block a potential event.
+
+|[stixtype]#<<task,task>># 
+|[stixrelationship]#causes#
+|[stixtype]#<<event,event>>#
+|A task was performed that caused an event, usually due to an error.
+
+|[stixtype]#<<task,task>>#
+|[stixrelationship]#detects#
+|[stixtype]#<<event,event>>#
+|A task was used to detect an event.
+
+|[stixtype]#<<task,task>>#
+|[stixrelationship]#creates#
+|[stixtype]#{indicator_url}[indicator]#
+|A task was performed that created an indicator.
+
+|[stixtype]#<<task,task>>#
+|[stixrelationship]#impacts#
+|[stixtype]#{infrastructure_url}[infrastructure]#, +
+<All STIX Cyber-observable Objects>
+|A task has an impact on specific infrastructure.
+
+|[stixtype]#<<task,task>>#
+|[stixrelationship]#located-at#
+|[stixtype]#{location_url}[location]#
+|The task occurred at a specific location or locations.
+
+|[stixtype]#<<task,task>>#
+|[stixrelationship]#errored-to#
+|[stixtype]#<<task,task>>#
+|A task follows this one because of an error / if statement in a playbook.
+
+|[stixtype]#<<task,task>>#
+|[stixrelationship]#followed-by#
+|[stixtype]#<<task,task>>#
+|A task follows this one in the normal chain of execution.
+// relationships:end
+|===
+
+<<<
+
+[width="100%",cols="27%,16%,24%,33%",options="header",]
+|===
+4+^|[stixtr]*Reverse Relationships*
+
+|*Source* |*Type* |*Target* |*Description*
+// relationships:start
+|[stixtype]#{identity_url}[identity]#
+|[stixrelationship]#assigned#
+|[stixtype]#<<task,task>>#
+|An identity has been assigned the task
+
+|[stixtype]#{identity_url}[identity]#
+|[stixrelationship]#contact-for#
+|[stixtype]#<<task,task>>#
+|An identity is a point of contact for this task.
+
+|[stixtype]#{identity_url}[identity]#
+|[stixrelationship]#participated-in#
+|[stixtype]#<<task,task>>#
+|An identity participated in a specific task, but as not the primary performer
+
+|[stixtype]#{identity_url}[identity]#
+|[stixrelationship]#performed#
+|[stixtype]#<<task,task>>#
+|An identity performed a specific task.
+
+|[stixtype]#{tool_url}[tool]#
+|[stixrelationship]#performed#
+|[stixtype]#<<task,task>>#
+|A tool performed a specific task.
+// relationships:end
+|===
+
+// end::task-relationships[]
+
+<<<
+
+== 3. Additional Sub-Objects Types
+
+<<<
+
+[[entity-count]]
+=== 3.1. Entity Count Type
+
+*Type Name:* [stixtype]#entity-count#
+
+The Entity Count type represents the count of one or more entity types.
+The name of each entity type *MUST* be specified as a key in the dictionary and *MUST* identify the count of the entity that corresponds to the value.
+Each key *SHOULD* come from [stixtype]#<<entity-type-ov,entity-type-ov>>#.
+This value *MUST* be an [stixtype]#{int_url}[integer]# that is equal to or greater than zero.
+
+*Examples:*
+
+_100 individuals, 70 employees, 30 customers_
+[source,json]
+----
+{
+    "individual": 100,
+    "employee": 70,
+    "customer-individual": 30
+}
+----
+
+_1000 systems, 10 organizations_
+[source,json]
+----
+{
+    "organization": 10,
+    "system": 1000
+}
+----
+
+_0 individuals_
+[source,json]
+----
+{
+    "individual": 0
+}
+----
+
+<<<
+
+[[event-entry]]
+=== 3.2. Event Entry Object Type
+
+*Type Name:* [stixtype]#event-entry#
+
+[width="100%",cols="37%,23%,40%",options="header",]
+|===
+^|[stixtr]*Property Name*
+^|[stixtr]*Type* 
+^|[stixtr]*Description*
+
+|*event_ref* (required)
+|[stixtype]#{identifier_url}[identifier]# 
+|The event that is described by this entry.
+This *MUST* reference [stixtype]#<<event,event>>#.
+
+|*next_steps* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#<<event-sequence-entry,event-sequence-entry>>#
+|A list of event sequences that describes the current event flows into the next one.
+
+|*sequence_start* (optional)
+|[stixtype]#{boolean_url}[boolean]#
+|If this is a start of a sequence chain.
+
+All sequences of events *MUST* begin with at least one entry where *sequence_start* is set to [stixliteral]#true#.
+If a cycle exists with multiple entries with *sequence_start* set to [stixliteral]#true# then all of these are equally valid start points.
+
+Default value is [stixliteral]#true#.
+
+|===
+
+[[event-sequence-entry]]
+=== 3.3. Event Sequence Object Type
+
+Event sequence entries store references to subsequent steps for an event entry.
+As these are always stored in an array of steps within an array of event entries validation rules for *event_ref* *MUST* be performed against the entire array of event entries.
+
+*Type Name:* [stixtype]#event-sequence-entry#
+
+[width="100%",cols="37%,23%,40%",options="header",]
+|===
+^|[stixtr]*Property Name*
+^|[stixtr]*Type* 
+^|[stixtr]*Description*
+
+|*event_ref* (required)
+|[stixtype]#{identifier_url}[identifier]# 
+|The identity of the event that is described by this entry.
+
+This reference *MUST* be included as an *event_ref* within the parent array of [stixtype]#<<event-entry,event-entry>># objects.
+
+|*condition_type* (required)
+|[stixtype]#<<activity-condition-enum,activity-condition-enum>>#
+|If the referenced step required the current one to be successful.
+If it is optional, or if it is unknown.
+
+|*transition_type* (required)
+|[stixtype]#<<activity-transition-enum,activity-transition-enum>>#
+|What state the referenced step depends on.
+If it is performed upon success, failure, simple completion, or if it is unknown.
+
+|===
+
+<<<
+
+[[incident-score]]
+=== 3.4. Incident Score Object Type
+
+*Type Name:* [stixtype]#incident-score#
+[width="100%",cols="37%,23%,40%",options="header",]
+|===
+^|[stixtr]*Property Name*
+^|[stixtr]*Type* 
+^|[stixtr]*Description*
+
+|*name* (required)
+|[stixtype]#{string_url}[string]# 
+|The name of the score. This is normally a system or process name or some combination of these such as [Tool Name] Automated Exposure Score.
+
+|*value* (required)
+|[stixtype]#{number_url}[number]# 
+|The numeric score.
+
+|*description* (optional)
+|[stixtype]#{string_url}[string]# 
+|An optional description about how this score was calculated at for systems that provide these.
+|===
+
+<<<
+
+[[state-change]]
+=== 3.5. State Change Object Type
+
+*Type Name:* [stixtype]#state-change#
+
+The *initial_ref* or *result_ref* *MUST* be populated.
+
+[width="100%",cols="37%,23%,40%",options="header",]
+|===
+^|[stixtr]*Property Name*
+^|[stixtr]*Type* 
+^|[stixtr]*Description*
+
+|*state_change_type* (required)
+|[stixtype]#{open_vocab_url}[open-vocabulary]# 
+|How this activity influenced the change in state between the *initial_ref* and *result_ref*.
+
+This *SHOULD* be drawn from [stixtype]#<<state-change-type-ov,state-change-type-ov>>#.
+
+|*initial_ref* (optional)
+|[stixtype]#{identifier_url}[identifier]#
+|The initial object state that this event affected.
+
+If the *result_ref* is not populated then this *MUST* be populated.
+If there is no result state this typically means that this event removed or resolved the initial object.
+For example, an event or task resolved a network outage.
+
+If both are present this indicates a transition between these states.
+For example, a confidentiality impact was made worse as the information was shared further.
+
+If the *result_ref* is populated this *MUST* reference the same type of SDO.
+
+|*result_ref* (optional)
+|[stixtype]#{identifier_url}[identifier]#
+|The final state that this event influenced.
+
+If the *initial_ref* is not populated then this *MUST* be populated.
+If there is no initial state it typically means that this event caused or created the result.
+For example, an event causing a network outage.
+
+If the *initial_ref* is populated this *MUST* reference the same type of SDO.
+
+|===
+
+<<<
+
+[[task-entry]]
+=== 3.6. Task Entry Object Type
+
+*Type Name:* [stixtype]#task-entry#
+
+[width="100%",cols="37%,23%,40%",options="header",]
+|===
+^|[stixtr]*Property Name*
+^|[stixtr]*Type* 
+^|[stixtr]*Description*
+
+|*task_ref* (required)
+|[stixtype]#{identifier_url}[identifier]# 
+|The identity of the task that is described by this entry.
+This *MUST* reference a [stixtype]#<<task,task>>#.
+
+|*next_steps* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#<<task-sequence-entry,task-sequence-entry>>#
+|A list of task sequences that describes the current task flows into the next one.
+
+|*sequence_start* (optional)
+|[stixtype]#{boolean_url}[boolean]#
+|If this is a start of a sequence chain.
+
+All sequences of tasks *MUST* begin with at least one entry where *sequence_start* is set to [stixliteral]#true#.
+If a cycle exists with multiple entries with *sequence_start* set to [stixliteral]#true# then all of these are equally valid start points.
+
+Default value is [stixliteral]#true#.
+
+|===
+
+[[task-sequence-entry]]
+=== 3.7. Task Sequence Object Type
+
+Task sequence entries store references to subsequent steps for a task entry.
+As these are always stored in an array of steps within an array of task entries validation rules for *task_ref* *MUST* be performed against the entire array of task entries.
+
+*Type Name:* [stixtype]#task-sequence-entry#
+
+[width="100%",cols="37%,23%,40%",options="header",]
+|===
+^|[stixtr]*Property Name*
+^|[stixtr]*Type* 
+^|[stixtr]*Description*
+
+|*condition_type* (required)
+|[stixtype]#<<activity-condition-enum,activity-condition-enum>>#
+|If the referenced step required the current one to be successful.
+If it is optional, or if it is unknown.
+
+|*task_ref* (required)
+|[stixtype]#{identifier_url}[identifier]# 
+|The identity of the event that is described by this entry.
+
+This reference *MUST* be included as an *task_ref* within the parent array of [stixtype]#<<task-entry,task-entry>># objects.
+
+|*transition_type* (required)
+|[stixtype]#<<activity-transition-enum,activity-transition-enum>>#
+|What state the referenced step depends on.
+If it is performed upon success, failure, simple completion, or if it is unknown.
+
+|===
+
+<<<
+
+== 4. Vocabularies
+
+[[asset-type-ov]]
+
+=== 4.1. Asset Type Vocabulary
+
+*Type Name:* [stixtype]#asset-type-ov#
+
+[width="100%",cols="37%,63%",options="header",]
+|===
+^|[stixtr]*Vocabulary Value* 
+^|[stixtr]*Description*
+
+|[stixliteral]#building-doors#
+|Doors within buildings or structures.
+
+|[stixliteral]#building-windows#
+|The exterior or interior windows of buildings or structures.
+
+|[stixliteral]#buildings#
+|Entire buildings or structures.
+
+|[stixliteral]#computers-mobile#
+|Mobile devices such as smartphones.
+
+|[stixliteral]#computers-personal#
+|Workstations or laptops owned by an organization.
+
+|[stixliteral]#computers-server#
+|Servers owned by an organization.
+
+|[stixliteral]#environment#
+|Land, environment or the ability of either to support humans or wildlife.
+
+|[stixliteral]#ics-actuator#
+|Actuator for industrial control systems.
+
+|[stixliteral]#ics-engineering-workstation#
+|Engineering workstation for industrial
+control systems.
+
+|[stixliteral]#ics-historian#
+|Historian for industrial control systems.
+
+|[stixliteral]#ics-hmi#
+|Human machine interfaces for industrial control systems.
+
+|[stixliteral]#ics-other#
+|Other Industrial control systems.
+
+|[stixliteral]#ics-plc#
+|Programmable logic controller for industrial control systems.
+
+|[stixliteral]#ics-safety-system#
+|Safety system for industrial control systems.
+
+|[stixliteral]#ics-sensor#
+|Sensor for industrial control systems.
+
+|[stixliteral]#inventory#
+|Stocks of goods to be sold or consumed.
+
+|[stixliteral]#network-device#
+|Switches, routers, and wireless communication towers.
+
+|[stixliteral]#private-infrastructure#
+|Privately owned infrastructure such as roads,
+plumbing, railways, pipelines and electrical infrastructure.
+
+|[stixliteral]#public-infrastructure#
+|Publicly owned infrastructure such as roads, plumbing, railways, pipelines and electrical infrastructure.
+
+|[stixliteral]#security-containers#
+|Safes or other security containers.
+
+|[stixliteral]#vehicles#
+|Vehicles of various types including cars, trains, and planes.
+|===
+
+<<<
+
+[[detection-methods-ov]]
+=== 4.2. Detection Methods Vocabulary
+
+*Type Name:* [stixtype]#detection-methods-ov#
+
+[width="100%",cols="31%,69%",options="header",]
+|===
+^|[stixtr]*Vocabulary Value* 
+^|[stixtr]*Description*
+
+|[stixliteral]#automated-tool#
+|An incident is detected by an automated tool.
+If this option is used it is generally useful to also include a separate entry for the tool itself.
+
+|[stixliteral]#commercial-solution#
+|A commercial tool or provider detected this incident.
+This can be combined with other methods including [stixliteral]#automated-tool# to allow greater fidelity.
+
+|[stixliteral]#external-notification#
+|An external entity detected this incident and notified the impacted organization.
+
+|[stixliteral]#human-review#
+|An incident is detected by human threat hunting.
+
+|[stixliteral]#message-from-attacker#
+|Notification comes from a message provided by the attacker including email, a note left of a message or popup message.
+
+|[stixliteral]#propriety-solution#
+|An internally developed tool or process detected this incident.
+This can be combined with other methods including [stixliteral]#automated-tool# to allow greater fidelity.
+
+|[stixliteral]#system-outage#
+|An incident is detected because a system is no longer available.
+
+|[stixliteral]#user-reporting#
+|One or more users report an incident.
+|===
+
+<<<
+
+[[entity-type-ov]]
+=== 4.3. Entity Type Vocabulary
+
+*Type Name:* [stixtype]#entity-type-ov#
+
+[width="100%",cols="31%,69%",options="header",]
+|===
+^|[stixtr]*Vocabulary Value* 
+^|[stixtr]*Description*
+
+|[stixliteral]#computers-mobile#
+|Mobile devices such as smartphones.
+
+|[stixliteral]#computers-personal#
+|Workstations or laptops owned by an organization.
+
+|[stixliteral]#computers-server#
+|Servers owned by an organization.
+
+|[stixliteral]#customer#
+|An customer or client.
+This can be an individual or organization.
+
+|[stixliteral]#customer-individual#
+|An customer or client that represents an individual.
+
+|[stixliteral]#customer-organization#
+|An customer or client that represents a business or other organization.
+
+|[stixliteral]#domain-controller#
+|A windows domain controller.
+
+|[stixliteral]#employee#
+|An employee of an organization.
+
+|[stixliteral]#group#
+|An informal collection of people, without formal governance, such as a distributed hacker group.
+
+|[stixliteral]#ics-actuator#
+|Actuator for industrial control systems.
+
+|[stixliteral]#ics-engineering-workstation#
+|Engineering workstation for industrial
+control systems.
+
+|[stixliteral]#ics-historian#
+|Historian for industrial control systems.
+
+|[stixliteral]#ics-hmi#
+|Human machine interfaces for industrial control systems.
+
+|[stixliteral]#ics-other#
+|Other Industrial control systems.
+
+|[stixliteral]#ics-plc#
+|Programmable logic controller for industrial control systems.
+
+|[stixliteral]#ics-safety-system#
+|Safety system for industrial control systems.
+
+|[stixliteral]#ics-sensor#
+|Sensor for industrial control systems.
+
+|[stixliteral]#individual#
+|A single person.
+
+|[stixliteral]#network-device#
+|Switches, routers, and wireless communication towers.
+
+|[stixliteral]#organization#
+|A formal organization of people, with governance, such as a company or country.
+
+|[stixliteral]#system#
+|A computer system, such as a SIEM.
+
+|[stixliteral]#vehicles#
+|Vehicles of various types including cars, trains, and planes.
+
+|===
+
+<<<
+
+[[event-type-ov]]
+=== 4.4. Event Type Vocabulary
+
+This vocabulary draws for numerous sources including heavily from MISP taxonomies.
+
+These include:
+
+1. {dns_abuse_url}[FIRST DNS Abuse Techniques Matrix]
+2. {europol_event_url}[Europol type of events taxonomy].
+3. {europol_incident_url}[Europol type of incidents taxonomy]
+4. NIST 800-61 Rev. 2
+
+
+*Type Name:* [stixtype]#event-type-ov#
+
+[width="100%",cols="31%,69%",options="header",]
+|===
+^|[stixtr]*Vocabulary Value* ^|[stixtr]*Description*
+
+|[stixliteral]#aggregation-information-phishing-schemes#
+|Collecting data obtained through phishing attacks on web pages, email accounts, etc...
+
+|[stixliteral]#benign#
+|The event was neither dangerous nor malicious and was not suspected to be malicious or dangerous.
+
+|[stixliteral]#blocked#
+|The event was suspected to be malicious and was blocked.
+
+|[stixliteral]#brute-force-attempt#
+|Unsuccessful login attempt by using sequential credentials for gaining access to the system.
+
+|[stixliteral]#c&c-server-hosting#
+|Web page disseminating one or various types of malware.
+
+|[stixliteral]#compromised-system#
+|Attackers obtained control of a compromised system.
+
+|[stixliteral]#confirmed#
+|The event was confirmed to be tied to an incident and response is underway.
+
+|[stixliteral]#connection-malware-port#
+|System attempting to gain access to a port normally linked to a specific type of malware.
+
+|[stixliteral]#connection-malware-system#
+|System attempting to gain access to an IP address or URL normally linked to a specific type of malware, e.g. C&C or a distribution page for components linked to a specific botnet.
+
+|[stixliteral]#content-forbidden-by-law#
+|Distribution or sharing of illegal content such as child pornography, racism, xenophobia, etc...
+
+|[stixliteral]#control-system-bypass#
+|Unauthorized access to a system or component by bypassing an access control system in place.
+
+|[stixliteral]#copyrighted-content#
+|Distribution or sharing of content protected by copyright and related rights.
+
+|[stixliteral]#data-exfiltration#
+|Unauthorized access to and sharing of a specific set of information.
+
+|[stixliteral]#deferred#
+|The event is deferred due to resource constraints, information types or external reasons.
+
+|[stixliteral]#deletion-information#
+|Unauthorized deleting of a specific set of information.
+
+|[stixliteral]#denial-of-service#
+|The event or incident resulted in a loss of availability for a service or system.
+
+Incidents of this type *SHOULD* have an availability impact, but organizations may choose to not share the details of these impacts.
+
+|[stixliteral]#destruction#
+|The event or incident destroyed data or systems.
+
+Incidents of this *SHOULD* have an integrity impact, but organizations may choose to not share the details of these impacts.
+
+|[stixliteral]#dictionary-attack-attempt#
+|Unsuccessful login attempt by using system access credentials previously loaded into a dictionary.
+
+|[stixliteral]#discarded#
+|The event was discarded due to resource constraints, information types or external reasons.
+
+|[stixliteral]#disruption-data-transmission#
+|Logical and physical activities aimed at causing damage to information or at preventing its transmission among systems.
+
+|[stixliteral]#dissemination-malware-email#
+|Malware attached to a message or email message containing link to malicious URL.
+
+|[stixliteral]#dissemination-phishing-emails#
+|Mass emailing aimed at collecting data for phishing purposes with regard to the victims.
+
+|[stixliteral]#dns-cache-poisoning#
+|DNS cache poisoning - also known as DNS spoofing, is a type of cyber attack in which an attacker corrupts a DNS resolver's cache by injecting false DNS records, causing the resolver to records controlled by the attacker.
+
+|[stixliteral]#dns-local-resolver-hijacking#
+|Consumer Premise Equipment (CPE), such as home routers, often provide DNS recursion on the local network. If the CPE device is compromised, the attacker can change the recursive resolver behavior; for example, by changing responses.
+
+|[stixliteral]#dns-spoofing-registered#
+|In a context where a domain name is expected (such as the From header in mail or a URL in a web page or message body), supplying a domain name not controlled by the attacker and that is in fact controlled by or registered to a legitimate registrant.
+
+|[stixliteral]#dns-rebinding#
+|DNS rebinding - a type of attack where a malicious website directs a client to a local network address, allowing the attacker to bypass the same-origin policy and gain access to the victim's local resources.
+
+|[stixliteral]#dns-server-compromise#
+|Attacker gains administrative privileges on an open recursive DNS server, authoritative DNS server, organizational recursive DNS server, or ISP-operated recursive DNS server.
+
+|[stixliteral]#dns-spoofing-unregistered#
+|In a context where a domain name is expected (such as the From header in mail or a URL in a web page or message body), supplying a domain name not controlled by the attacker and that is not controlled by or registered to a legitimate registrant.
+
+|[stixliteral]#dns-stub-resolver-hijacking#
+|The attacker compromises the Operating System of a computer or a phone with malicious code that intercepts and responds to DNS queries with rogue or malicious responses.
+
+|[stixliteral]#dns-zone-transfer#
+|Transfer of a specific DNS zone.
+
+|[stixliteral]#domain-name-compromise#
+|The wrongfully taking control of a domain name from the rightful name holder.
+Compromised domains can be used for different kinds of malicious activity like sending spam or phishing, for distributing malware or as botnet command and control.
+
+|[stixliteral]#duplicate#
+|This event is a duplicate of another event.
+A relationship should be created between this event and the event it duplicates.
+
+|[stixliteral]#email-flooding#
+|Sending an unusually large quantity of email messages.
+
+|[stixliteral]#equipment-loss#
+|A loss of control of physical equipment that is not known to be theft.
+
+|[stixliteral]#equipment-theft#
+|Theft of equipment. In general this should be paired with equipment-loss.
+
+|[stixliteral]#exploit#
+|Successful use of a tool exploiting a specific vulnerability of the system.
+
+|[stixliteral]#exploit-attempt#
+|Unsuccessful use of a tool exploiting a specific vulnerability of the system.
+
+|[stixliteral]#exploit-framework-exhausting-resources#
+|Various sources using specially designed software to affect the normal functioning of a specific service, by exploiting a vulnerability.
+
+|[stixliteral]#exploit-tool-exhausting-resources#
+|One single source using specially designed software to affect the normal functioning of a specific service, by exploiting a vulnerability.
+
+|[stixliteral]#failed#
+|The event failed its suspected goal.
+
+|[stixliteral]#file-inclusion#
+|Inclusion of files into a system under attack with the use of file inclusion techniques.
+
+|[stixliteral]#file-inclusion-attempt#
+|Unsuccessful attempt to include files in the system under attack by using file inclusion techniques.
+
+|[stixliteral]#hosting-malware-webpage#
+| Web page disseminating one or various types of malware.
+
+|[stixliteral]#hosting-phishing-sites#
+|Hosting web sites for phishing purposes.
+
+|[stixliteral]#illegitimate-use-name#
+|Using the name of an institution without permission to do so.
+
+|[stixliteral]#illegitimate-use-resources#
+|Use of institutional resources for purposes other than those intended.
+
+|[stixliteral]#infected-by-known-malware#
+|The presence of any of the types of malware was detected in a system.
+
+|[stixliteral]#insufficient-data#
+|Not enough data is available to assess this event.
+
+|[stixliteral]#known-malware#
+|This incident involves a known type of malware.
+Events and incidents *SHOULD* be related to a Malware object, but organizations may choose not to share the details on this malware.
+
+|[stixliteral]#lame-delegations#
+|Lame delegations occur as a result of expired name server domains allowing attackers to take control of the domain resolution by re-registering this expired name server domain.
+
+|[stixliteral]#major#
+|The incident is classified as major based on the internal criteria within the organization or due to external reporting requirements.
+
+|[stixliteral]#modification-information#
+|Unauthorized changes to a specific set of information.
+
+|[stixliteral]#misconfiguration#
+|A false positive where this event was triggered by a misconfiguration. 
+
+|[stixliteral]#natural#
+|The event was due to natural causes such as an earthquake or hurricane.
+
+|[stixliteral]#negotiation#
+|Negotiation of a deal or payment amount.
+
+|[stixliteral]#network-scanning#
+|Scanning a network aimed at identifying systems which are active in the same network.
+
+|[stixliteral]#no-apt#
+|It is not believed that this incident involved an advanced persistent threat.
+
+|[stixliteral]#packet-flood#
+|Mass mailing of requests (network packets, emails, etc...) from various sources to a specific service, aimed at affecting its normal functioning.
+
+|[stixliteral]#password-cracking-attempt#
+|Attempt to acquire access credentials by breaking the protective cryptographic keys.
+
+|[stixliteral]#policy-violation#
+|The event or incident was a violation of organizational or regulatory policy.
+
+|[stixliteral]#ransomware#
+|This incident involved malware that encrypted data with a demand that a ransom is paid to regain access to it.
+
+|[stixliteral]#ransomware-payment#
+|The event or incident associated with actually paying a ransom.
+
+|[stixliteral]#refuted#
+|The event was previously suspected to have achieved a goal, but this has since been refuted.
+
+|[stixliteral]#scan-probe#
+|Event was triggered based on scanning activity
+
+|[stixliteral]#silently-discarded#
+|The event was silently discarded due to resource constraints, information types or external reasons.
+
+|[stixliteral]#supply-chain-customer#
+|This incident used a vendor further up in the supply chain where the target was a customer.
+
+|[stixliteral]#supply-chain-vendor#
+|This incident targeted a system or product that is supplied to others to enable further attacks.
+
+|[stixliteral]#spam#
+|Sending an email message that was unsolicited or unwanted by the recipient.
+
+|[stixliteral]#sql-injection#
+|Manipulation or reading of information contained in a database by using the SQL injection technique.
+
+|[stixliteral]#sql-injection-attempt#
+|Unsuccessful attempt to manipulate or read the information of a database by using the SQL injection technique.
+
+|[stixliteral]#successful#
+|The event is believed to have succeeded in its goal.
+
+|[stixliteral]#system-probe#
+|Single system scan searching for open ports or services using these ports for responding.
+
+|[stixliteral]#theft-access-credentials#
+|Unauthorized access to a system or component by using stolen access credentials.
+
+|[stixliteral]#unattributed#
+|This event or incident has not been attributed.
+It is unclear if it is tied to a specific advanced persistent threat group.
+
+|[stixliteral]#unauthorized-access-information#
+|Unauthorized access to a set of information.
+
+Incidents of this *SHOULD* have a confidentiality impact, but organizations may choose to not share the details of these impacts.
+
+|[stixliteral]#unauthorized-access-system#
+|Unauthorized access to a system or component.
+
+|[stixliteral]#unauthorized-equipment#
+|Usage of unauthorized devices as part of the incident
+
+|[stixliteral]#unauthorized-release#
+|The unauthorized release of information.
+
+Incidents of this *SHOULD* have a confidentiality impact, but
+organizations may choose to not share the details of these impacts.
+
+|[stixliteral]#unauthorized-use#
+|The usage of information that falls outside of official purposes
+
+|[stixliteral]#undetermined#
+|Field aimed at the classification of unprocessed events, which have remained undetermined from the beginning.
+
+|[stixliteral]#unintentional#
+|The event was due to unintentional activity.
+
+|[stixliteral]#unknown-apt#
+|This incident is believed to involve an advanced persistent threat, but the specific APT is unknown.
+
+|[stixliteral]#unspecified#
+|Other unlisted events.
+
+|[stixliteral]#vandalism#
+|Logical and physical activities which - although they are not aimed at causing damage to information or at preventing its transmission among systems - have this effect.
+
+|[stixliteral]#wiretapping#
+|Logical or physical interception of communications.
+
+|[stixliteral]#worm-spreading#
+|System infected by a worm trying to infect other systems.
+
+|[stixliteral]#xss#
+|Attacks performed with the use of cross-site scripting techniques.
+
+|[stixliteral]#xss-attempt#
+|Unsuccessful attempts to perform attacks by using cross-site scripting techniques.
+
+|===
+
+<<<
+
+[[external-impact-ov]]
+=== 4.5. External Impact Vocabulary
+
+*Type Name:* [stixtype]#external-impact-ov#
+
+[width="100%",cols="31%,69%",options="header",]
+|===
+^|[stixtr]*Vocabulary Value* 
+^|[stixtr]*Description*
+
+|[stixliteral]#economic#
+|This incident is expected to have national or international economic impacts.
+
+|[stixliteral]#emergency-services#
+|This incident impacts emergency services.
+
+|[stixliteral]#foreign-relations#
+|This incident impacts international politics.
+
+|[stixliteral]#national-security#
+|This incident impacts the national security of one or more nations.
+
+|[stixliteral]#public-confidence#
+|This incident impacts the confidence in public or private institutions.
+
+|[stixliteral]#public-health#
+|This incident impacts the public health of one or more nations.
+
+|[stixliteral]#public-safety#
+|This incident impacts the public safety of individuals in one or more nations.
+|===
+
+[[incident-investigation-ov]]
+=== 4.6. Incident Investigation Open Vocabulary
+
+*Type Name:* [stixtype]#incident-investigation-ov#
+
+[width="100%",cols="24%,76%",options="header",]
+|===
+^|[stixtr]*Vocabulary Value* 
+^|[stixtr]*Description*
+
+|[stixliteral]#closed#
+|All defender work on this incident has been concluded.
+In some cases, blue teams may make child Incidents of a closed Incident.
+In these cases, it is appropriate to mark an initial Incident as closed if the related child incidents that track this work are still open.
+
+|[stixliteral]#new#
+|A new incident that has not begun the formal workflow on the defender's network.
+
+|[stixliteral]#open#
+|An open incident that is currently being worked.
+|===
+
+<<<
+
+[[information-type-ov]]
+=== 4.7. Information Type Vocabulary
+
+*Type Name:* [stixtype]#information-type-ov#
+
+[width="100%",cols="31%,69%",options="header",]
+|===
+^|[stixtr]*Vocabulary Value* 
+^|[stixtr]*Description*
+
+|[stixliteral]#classified-material#
+|Data classified based on relevant government authorities.
+
+|[stixliteral]#communication#
+|Communication records including emails, chats and instant messages.
+
+|[stixliteral]#credentials-admin#
+|Administrative credential data.
+
+|[stixliteral]#credentials-user#
+|User credential data.
+
+|[stixliteral]#financial#
+|Financial records including purchasing activity and planned activities.
+
+|[stixliteral]#legal#
+|Legal records that are not yet public including contracts under negotiation and documents protected under legal privilege.
+
+|[stixliteral]#payment#
+|Payment information.
+
+|[stixliteral]#phi#
+|Protected Health Information.
+
+|[stixliteral]#pii#
+|Personally Identifiable Information.
+
+|[stixliteral]#proprietary#
+|Proprietary information e.g., intellectual property.
+
+|[stixliteral]#system#
+|Information necessary to keep a system operational.
+The destruction or encryption of this data can cause availability impacts.
+|===
+
+<<<
+
+[[monetary-impact-type-ov]]
+=== 4.8. Monetary Impact Type Vocabulary
+
+*Type Name:* [stixtype]#monetary-impact-type-ov#
+
+[width="100%",cols="31%,69%",options="header",]
+|===
+^|[stixtr]*Vocabulary Value* 
+^|[stixtr]*Description*
+
+|[stixliteral]#asset-and-fraud#
+|Losses incurred due to loss of assets or fraud.
+
+|[stixliteral]#brand-damage#
+|Losses incurred due to reputational or brand damage.
+
+|[stixliteral]#business-disruption#
+|Losses incurred due to business disruptions.
+
+|[stixliteral]#competitive-advantage#
+|Losses incurred due to theft of intellectual property, techniques or other capabilities that grant an advantage in the field.
+
+|[stixliteral]#legal-and-regulatory#
+|Losses incurred due to legal or regulatory actions in response to the incident.
+
+|[stixliteral]#operating-costs#
+|Losses incurred due to additional operating costs that have been incurred due to the incident.
+
+|[stixliteral]#ransom-demand#
+|The demanded amount of ransom to be paid. When this is selected the demand amount should be listed as the *max_amount* and the *min_amount* should be 0.
+
+|[stixliteral]#ransom-payment#
+|An actual payment of a ransom.
+
+|[stixliteral]#response-and-recovery#
+|Losses incurred due to response and recovery efforts for the incident.
+
+|[stixliteral]#uncategorized#
+|Losses incurred that have not been categorized yet.
+|===
+
+<<<
+
+=== 4.9. State Change Object Type
+
+*Type Name:* [stixtype]#state-change#
+
+The *initial_ref* or *result_ref* *MUST* be populated.
+
+[width="100%",cols="37%,23%,40%",options="header",]
+|===
+^|[stixtr]*Property Name*
+^|[stixtr]*Type* 
+^|[stixtr]*Description*
+
+|*state_change_type* (required)
+|[stixtype]#{open_vocab_url}[open-vocabulary]# 
+|How this activity influenced the change in state between the *initial_ref* and *result_ref*.
+
+This *SHOULD* be drawn from [stixtype]#<<state-change-type-ov,state-change-type-ov>>#.
+
+|*initial_ref* (optional)
+|[stixtype]#{identifier_url}[identifier]#
+|The initial object state that this event affected.
+
+If the *result_ref* is not populated then this *MUST* be populated.
+If there is no result state this typically means that this event removed or resolved the initial object.
+For example, an event or task resolved a network outage.
+
+If both are present this indicates a transition between these states.
+For example, a confidentiality impact was made worse as the information was shared further.
+
+If the *result_ref* is populated this *MUST* reference the same type of SDO.
+
+|*result_ref* (optional)
+|[stixtype]#{identifier_url}[identifier]#
+|The final state that this event influenced.
+
+If the *initial_ref* is not populated then this *MUST* be populated.
+If there is no initial state it typically means that this event caused or created the result.
+For example, an event causing a network outage.
+
+If the *initial_ref* is populated this *MUST* reference the same type of SDO.
+
+|===
+
+<<<
+
+[[state-change-type-ov]]
+=== 4.10. State Change Type Vocabulary
+
+*Type Name:* [stixtype]#state-change-type-ov#
+
+[width="100%",cols="31%,69%",options="header",]
+|===
+^|[stixtr]*Vocabulary Value* ^|[stixtr]*Description*
+
+|[stixliteral]#caused#
+|This task or event is the primary cause of the resulting object.
+
+|[stixliteral]#contributed-to#
+|This task or event is a contributing factor to the result occurring.
+
+|[stixliteral]#input#
+|This task or event took in a group as an input for automated or playbook activities.
+
+If this is selected *initial_ref* MUST be populated.
+
+|[stixliteral]#mitigated#
+|This task or event lessened the severity of the initial object.
+
+|[stixliteral]#output#
+|This task or event produced a group as an output as part of automated or playbook activities.
+
+If this is selected *result_ref* MUST be populated.
+
+|[stixliteral]#resolved#
+|This task or event resolved the initial object.
+
+|===
+
+<<<
+
+[[task-type-ov]]
+=== 4.11. Task Type Vocabulary
+
+*Type Name:* [stixtype]#task-type-ov#
+
+[width="100%",cols="31%,69%",options="header",]
+|===
+^|[stixtr]*Vocabulary Value* ^|[stixtr]*Description*
+|[stixliteral]#administrative#
+|Perform an administrative action such as the introduction or change of a policy.
+
+|[stixliteral]#attribution#
+|Perform an administrative action such as the introduction or change of a policy.
+
+|[stixliteral]#containment#
+|The containment phase of incident response
+
+|[stixliteral]#declared#
+|When this was officially declared an incident.
+
+|[stixliteral]#detected#
+|When the incident was detected.
+
+|[stixliteral]#eradication#
+|The eradication phase of incident response.
+
+|[stixliteral]#escalated#
+|When the incident was escalated to a major incident.
+
+|[stixliteral]#exercised-control#
+|Attempted to use a security control that was already
+in place within the environment.
+
+|[stixliteral]#external-intelligence#
+|Used external intelligence information.
+
+|[stixliteral]#external-outreach#
+|Reaching out to an external organization to gain support or information.
+
+|[stixliteral]#external-support#
+|Acquire support from an external organization.
+
+|[stixliteral]#implemented-control#
+|Implemented a security control within the environment.
+
+|[stixliteral]#investigation#
+|Performed an investigation into an event or incident.
+
+|[stixliteral]#negotiation#
+|Negotiation of a deal or payment amount.
+
+|[stixliteral]#playbook-execution#
+|Executing an automated playbook.
+If the playbook is stored outside of STIX it should be included as an [stixtype]#{external_reference_url}[external-reference]#.
+
+|[stixliteral]#playbook-step-execution#
+|Executing a step in an automated playbook.
+If the playbook is stored outside of STIX both the playbook and step stored in separate [stixtype]#{external_reference_url}[external-reference]# objects.
+
+If playbook steps feed each other information that is designed to be passed as STIX it *SHOULD* be referenced as a [stixtype]#{grouping_url}[grouping]# as either the *initial_ref* or *result_ref* of a [stixtype]#<<state-change,state-change>>#.
+
+|[stixliteral]#ransom-payment#
+|An actual payment of a ransom.
+
+|[stixliteral]#recovery#
+|The recovery phase of incident response.
+
+|[stixliteral]#reported#
+|When the incident was reported externally.
+
+|[stixliteral]#routine-updates#
+|Performed a routine update in the environment including patching.
+
+|[stixliteral]#victim-notification#
+|Notified victims, potentially impacted individuals or organizations about the incident.
+|===
+
+<<<
+
+== 5. Enumerations
+
+[[activity-condition-enum]]
+=== 5.1. Activity Condition Enumeration
+*Type Name:* [stixtype]#activity-condition-enum#
+
+|===
+^|[stixtr]*Vocabulary Value* ^|[stixtr]*Description*
+
+|[stixliteral]#optional#
+|The following event or task does not depend on the current one.
+
+|[stixliteral]#required#
+|The following event or task depends on the current one.
+
+|[stixliteral]#unknown#
+|It is unknown if the following event or task depends on the current one.
+|===
+
+[[activity-transition-enum]]
+=== 5.2. Activity Transition Enumeration
+*Type Name:* [stixtype]#activity-transition-enum#
+
+|===
+^|[stixtr]*Vocabulary Value* ^|[stixtr]*Description*
+
+|[stixliteral]#completion#
+|The following task executed when this one completed regardless of success or failure.
+
+|[stixliteral]#failure#
+|The following task executed when this one failed.
+
+|[stixliteral]#success#
+|The following task executed upon success.
+
+|[stixliteral]#unknown#
+|It is unknown what conditions cause the following task to execute only that it followed the current one.
+
+|===
+
+<<<
+
+[[event-status-enum]]
+=== 5.3. Event Status Enumeration
+
+*Type Name:* [stixtype]#event-status-enum#
+
+[width="100%",cols="28%,72%",options="header",]
+|===
+^|[stixtr]*Vocabulary Value* ^|[stixtr]*Description*
+
+|[stixliteral]#ongoing#
+|The event is still occurring.
+
+|[stixliteral]#occurred#
+|The event took and is no longer ongoing.
+
+|[stixliteral]#not-occurred#
+|The event did not take place, but it was previously expected to.
+
+|[stixliteral]#pending#
+|The event has not yet been started or observed, but it is projected or otherwise planned. 
+
+Pending activity may never occur as various factors can cause it to be blocked or not attempted.
+As such any time or sequence values for pending activities should be treated as an estimation or projection that is subject to change.
+
+|[stixliteral]#undetermined#
+|The status of the event has not been determined or is not shareable.
+|===
+
+[[incident-confidentiality-loss-enum]]
+=== 5.4. Incident Confidentiality Loss Enumeration
+
+*Type Name:* [stixtype]#incident-confidentiality-loss-enum#
+
+[width="100%",cols="27%,73%",options="header",]
+|===
+^|[stixtr]*Vocabulary Value* 
+^|[stixtr]*Description*
+
+|[stixliteral]#confirmed-loss#
+|Information has been exfiltrated and is now available
+to the attacker, but it is unknown if it has been misused.
+
+|[stixliteral]#contained#
+|Information's confidentiality was compromised, but the spill
+was within an environment that allowed it to be effectively contained.
+
+For example: a sensitive data spill occurred within a controlled network
+allowing it to be resolved before information exited the organization.
+
+|[stixliteral]#exploited-loss#
+|Information has been exfiltrated and has been actively misused by the attacker.
+
+|[stixliteral]#none#
+|This information type was not compromised based on the investigation that was performed.
+This option should be used to affirmatively supply this information when necessary.
+
+|[stixliteral]#suspected-loss#
+|It is suspected but not confirmed that the attacker may have gained access to this information.
+|===
+
+<<<
+
+[[incident-determination-enum]]
+=== 5.5. Incident Determination Enumeration
+
+*Type Name:* [stixtype]#incident-determination-enum#
+
+[width="100%",cols="28%,72%",options="header",]
+|===
+^|[stixtr]*Vocabulary Value* 
+^|[stixtr]*Description*
+
+|[stixliteral]#blocked#
+|The incident had no or minimal impact due to pre-emptive measures including rate limiting or spam filters.
+
+|[stixliteral]#confirmed#
+|An incident has been determined to have caused at least some harm or violated a policy.
+
+|[stixliteral]#failed-attempt#
+|The incident had no or minimal impact but not due to any affirmative defense for example a password guesser failed but was also not rate limited.
+
+|[stixliteral]#false-positive#
+|An incident was determined to have been triggered by a false alert and no action including automatically performed automated actions were needed to remediate the issue.
+
+This should not be used when an incident was flagged correctly, but is of no importance. For findings of that nature low-value should be used.
+
+|[stixliteral]#suspected#
+|An incident is suspected, but not yet confirmed.
+|===
+
+
+<<<
+
+[[integrity-alteration-enum]]
+=== 5.6. Integrity Alteration Enumeration
+
+*Type Name:* [stixtype]#integrity-alteration-enum#
+
+[width="100%",cols="37%,63%",options="header",]
+|===
+^|[stixtr]*Vocabulary Value* 
+^|[stixtr]*Description*
+
+|[stixliteral]#potential-destruction#
+|Information may have been destroyed within the system.
+
+|[stixliteral]#potential-modification#
+|Information may have been modified within the system.
+
+|[stixliteral]#partial-destruction#
+|Some data of this type has been destroyed, but sufficient data remains to allow partial functionality.
+
+|[stixliteral]#partial-modification#
+|Some data in the system has been modified, but the remaining data is of an acceptable level of integrity for operations to continue.
+
+|[stixliteral]#full-destruction#
+|Sufficient data of this type was destroyed to render the system inoperable until recovery can be completed.
+
+|[stixliteral]#full-modification#
+|Sufficient data of this type was modified to render the system inoperable until recovery can be completed.
+
+|[stixliteral]#none#
+|There is no evidence of destruction or modification of this data type in the system.
+|===
+
+[[physical-impact-enum]]
+=== 5.7. Physical Impact Enumeration
+
+*Type Name:* [stixtype]#physical-impact-enum#
+
+[width="100%",cols="30%,70%",options="header",]
+|===
+^|[stixtr]*Vocabulary Value* 
+^|[stixtr]*Description*
+
+|[stixliteral]#damaged-functional#
+|The property, asset or system was damaged but still remains functional and repair may be possible.
+
+|[stixliteral]#damaged-nonfunctional#
+|The property, asset or system was damaged and does not remain functional, but repair may be possible.
+
+|[stixliteral]#destruction#
+|The property, asset or system was destroyed, cannot be repaired and no longer functions.
+
+In some cases destroyed assets can be rebuilt, but doing so involves a similar amount of effort as the original construction.
+
+|[stixliteral]#none#
+|No damage or destruction has occurred.
+
+|[stixliteral]#unknown#
+|The degree of damage has not been determined yet.
+|===
+
+<<<
+
+[[recoverability-enum]]
+=== 5.8. Recoverability Enumeration
+
+*Type Name:* [stixtype]#recoverability-enum#
+
+[width="100%",cols="24%,76%",options="header",]
+|===
+^|[stixtr]*Vocabulary Value* 
+^|[stixtr]*Description*
+
+|[stixliteral]#extended#
+|Time to recovery is unpredictable; additional resources and outside help are necessary.
+
+|[stixliteral]#not-applicable#
+|No recovery is necessary.
+
+|[stixliteral]#not-recoverable#
+|Recovery from the incident is not possible.
+
+|[stixliteral]#regular#
+|Time to recovery is predictable with existing resources.
+
+|[stixliteral]#supplemented#
+|Time to recovery is predictable with additional
+resources.
+|===
+
+[[task-outcome-enum]]
+=== 5.9. Task Outcome Enumeration
+
+*Type Name:* [stixtype]#task-outcome-enum#
+
+[width="100%",cols="28%,72%",options="header",]
+|===
+^|[stixtr]*Vocabulary Value* ^|[stixtr]*Description*
+
+|[stixliteral]#cancelled#
+|The task was planned or started, but later cancelled or discarded.
+
+|[stixliteral]#failed#
+|The task has been completed, but failed.
+
+|[stixliteral]#ongoing#
+|The task is still taking place.
+
+|[stixliteral]#pending#
+|The task has not yet been started, but is currently planned. 
+
+|[stixliteral]#successful#
+|The task was completed successfully.
+
+|[stixliteral]#unknown#
+|The status of this task is currently unknown.
+|===
+
+<<<
+
+[[timestamp-fidelity-enum]]
+=== 5.10. Timestamp Fidelity Enumeration
+
+*Type Name:* [stixtype]#timestamp-fidelity-enum#
+
+[width="100%",cols="31%,69%",options="header",]
+|===
+^|[stixtr]*Vocabulary Value* ^|[stixtr]*Description*
+|[stixliteral]#day#
+|The associated timestamp should be considered to represent a time within the one day period starting with the provided timestamp.
+
+Hours and minutes should be understood to establish the timezone for this activity.
+
+|[stixliteral]#hour#
+|The associated timestamp should be considered to represent a time within the one hour period starting with the provided timestamp.
+
+|[stixliteral]#minute#
+|The associated timestamp should be considered to represent a time within the one minute period starting with the provided timestamp.
+
+|[stixliteral]#month#
+|The associated timestamp should be considered to represent a time within the one month period starting with the provided timestamp.
+
+Hours and minutes should be understood to establish the timezone for the activity.
+The day should always be listed as the first or the last day of the previous month if in a timezone that is offset before UTC.
+
+|[stixliteral]#second#
+|The associated timestamp should be considered to represent a time within the one second period starting with the provided timestamp.
+
+|[stixliteral]#year#
+|The associated timestamp should be considered to represent a time within the one year period starting with the provided timestamp.
+
+Hours and minutes should be understood to establish the timezone for the activity.
+
+|===
+
+[[traceability-enum]]
+=== 5.11. Timestamp Fidelity Enumeration
+*Type Name:* [stixtype]#traceability-enum#
+
+[width="100%",cols="31%,69%",options="header",]
+|===
+^|[stixtr]*Vocabulary Value* 
+^|[stixtr]*Description*
+|[stixliteral]#accountability-lost#
+|Traces used to retrieve accountability are lost or do not exist.
+
+|[stixliteral]#partial-accountability#
+|Traces are present, but insufficient to have provable accountability.
+
+|[stixliteral]#provable-accountability#
+|Accountability can be ensured from the traces that are present.
+|===
+
+<<<
+
+== 6. Relationship Summary Table
+
+include::tables/incident_relationship_summary.adoc[]
+
+<<<
+[[appendix-a]]
+== Appendix A. Incident Availability Impact Mapping
+
+This appendix defines mappings for availability and functional scales to be used by the availability impact property.
+A value of "Not Specified" in the table below means that the criticality property is not present.
+
+[width="100%",cols="51%,27%,22%",options="header",]
+|===
+|[stixtr]*US-CERT*
+|[stixtr]*STIX Criticality Value* 
+|[stixtr]*Range of Values*
+|Not Specified
+|Not Specified 
+|N/A
+|No Impact
+|0 
+|0
+|No Impact to Services
+|5 
+|1-9
+|Minimal Impact to Non-Critical Services
+|15 
+|10-19
+|Minimal Impact to Critical Services
+|30 
+|20-39
+|Significant Impact to Non-Critical Services
+|50 
+|40-59
+|Denial of Non-Critical Services
+|65 
+|60-69
+|Significant Impact to Critical Services
+|75 
+|70-79
+|Denial of Critical Services / Loss of Control
+|90 
+|80-100
+|===
+
+[width="100%",cols="37%,35%,28%",options="header",]
+|===
+|[stixtr]*Simple Qualitative*
+|[stixtr]*STIX Criticality Value* 
+|[stixtr]*Range of Values*
+|Not Specified
+|Not Specified 
+|N/A
+|None
+|0 
+|0
+|Minimal
+|20 
+|1-39
+|Significant
+|50 
+|40-59
+|Denial
+|75 
+|60-89
+|Loss of Control
+|95 
+|90-100
+|===
+
+<<<
+
+[width="100%",cols="37%,35%,28%",options="header",]
+|===
+|[stixtr]*0 to 10*
+|[stixtr]*STIX Criticality Value* 
+|[stixtr]*Range of Values*
+|Not Specified
+|Not Specified 
+|N/A
+|0
+|0 
+|0-4
+|1
+|10 
+|5-14
+|2
+|20 
+|15-24
+|3
+|30 
+|25-34
+|4
+|40 
+|35-44
+|5
+|50 
+|45-54
+|6
+|60 
+|55-64
+|7
+|70 
+|65-74
+|8
+|80 
+|75-84
+|9
+|90 
+|85-94
+|10
+|100 
+|95-100
+|===
+
+<<<
+[[appendix-b]]
+== Appendix B. Incident Criticality Mapping
+
+This appendix defines mappings for criticality scales to be used by the criticality property.
+A value of "Not Specified" in the table below means that the criticality property is not present.
+
+[width="100%",cols="38%,35%,27%",options="header",]
+|===
+|[stixtr]*5 Qualitative*
+|[stixtr]*STIX Criticality Value* 
+|[stixtr]*Range of Values*
+|Not Specified
+|Not Specified 
+|N/A
+|False Positive
+|0 
+|0
+|Low
+|15 
+|1-29
+|Moderate
+|40 
+|30-49
+|High
+|70 
+|50-89
+|Extreme
+|95 
+|90-100
+|===
+
+[width="100%",cols="38%,34%,28%",options="header",]
+|===
+|[stixtr]*Major / Minor*
+|[stixtr]*STIX Criticality Value* 
+|[stixtr]*Range of Values*
+|Not Specified
+|Not Specified 
+|N/A
+|None
+|0 
+|0
+|Minor
+|25 
+|1-49
+|Major
+|75 
+|50-100
+|===
+
+[width="100%",cols="38%,34%,28%",options="header",]
+|===
+|[stixtr]*Major / Minor / Critical*
+|[stixtr]*STIX Criticality Value* 
+|[stixtr]*Range of Values*
+|Not Specified
+|Not Specified 
+|N/A
+|None
+|0 
+|0
+|Minor
+|25 
+|1-49
+|Major
+|70 
+|50-89
+|Critical
+|95 
+|90-100
+|===
+
+[width="100%",cols="38%,34%,28%",options="header",]
+|===
+|[stixtr]*None, Low, High, Extreme*
+|[stixtr]*STIX Criticality Value* 
+|[stixtr]*Range of Values*
+|Not Specified
+|Not Specified 
+|N/A
+|None
+|0 
+|0
+|Low
+|20 
+|1-39
+|High
+|65 
+|40-89
+|Extreme
+|95 
+|90-100
+|===
+
+[width="100%",cols="38%,34%,28%",options="header",]
+|===
+|[stixtr]*VERIS*
+|[stixtr]*STIX Criticality Value* 
+|[stixtr]*Range of Values*
+|Unknown
+|Not Specified 
+|N/A
+|Insignificant
+|10 
+|0-19
+|Distracting
+|35 
+|20-49
+|Painful
+|60 
+|50-69
+|Damaging
+|80 
+|70-90
+|Catastrophic
+|95 
+|90-100
+|===
+
+<<<
+
+[width="100%",cols="37%,35%,28%",options="header",]
+|===
+|[stixtr]*0 to 10*
+|[stixtr]*STIX Criticality Value* 
+|[stixtr]*Range of Values*
+|Not Specified
+|Not Specified 
+|N/A
+|0
+|0 
+|0-4
+|1
+|10 
+|5-14
+|2
+|20 
+|15-24
+|3
+|30 
+|25-34
+|4
+|40 
+|35-44
+|5
+|50 
+|45-54
+|6
+|60 
+|55-64
+|7
+|70 
+|65-74
+|8
+|80 
+|75-84
+|9
+|90 
+|85-94
+|10
+|100 
+|95-100
+|===
+
+<<<
+
+== Appendix C. Acknowledgements
+
+*Primary Editor*
+
+Jeffrey Mates, US Department of Defense (DoD)
+
+*Contributors*
+
+The following individuals were members of the OASIS CTI Technical Committee and contributed time and effort to ensure that this extension would be possible.
+Their contributions are gratefully acknowledged:
+
+* Alexandre Cabrol Perales, Sopra Steria Group
+* Alexandre Dulaunoy, CIRCL
+* Ben Ottoman, Cyber Threat Intelligence Network, Inc. (CTIN)
+* Christian Hunt, Copado
+* Christopher Robinson, Cyber Threat Intelligence Network, Inc. (CTIN)
+* Christian Studer, CIRCL
+* David Kemp, National Security Agency (NSA)
+* Desiree Beck, MITRE Corporation
+* Duncan Sparrell, sFractal Consulting LLC
+* Emily Ratliff, IBM
+* Jane Ginn, Cyber Threat Intelligence Network, Inc. (CTIN)
+* Jason Keirstead, IBM
+* Jean-Philippe Salles, Filigran
+* Jeremy Berthelet, Sopra Steria Group
+* Jonathan Matkowsky, Microsoft
+* Keven Ates, US Federal Bureau of Investigation
+* Kirk Dunkelberger, Peraton
+* Leszek Adamiak, IBM
+* Margaux Quittelier, Sopra Steria Group
+* Marlon Taylor, DHS Cybersecurity and Infrastructure Security Agency (CISA)
+* Mateusz Zych, University of Oslo
+* Michael Rosa, National Security Agency (NSA)
+* Patrick Maroney, AT&T
+* Qem Lumi, Northrop Grumman
+* Richard Piazza, MITRE Corporation
+* Rob Coderre, Accenture
+* Robert Keith, Accenture
+* Ryan Hohimer, DarkLight, Inc.
+* Scott Robertson, Kaiser Permanente
+* Sean Carroll, National Security Agency
+* Stephen Campbell, Cyber Threat Intelligence Network, Inc. (CTIN)
+* Trey Darley, CCB/CERT.be
+* Vasileios Mavroeidis, University of Oslo
+
+<<<
+
+== Appendix D. Revision History
+
+[width="100%",cols="18%,16%,23%,43%",options="header",]
+|===
+^|[stixtr]*Revision* ^|[stixtr]*Date* ^|[stixtr]*Editor* ^|[stixtr]*Changes Made*
+|01
+|2022-05-23
+|Incident Mini Group
+|Initial Version
+
+|02
+|2022-10-27
+|Jeffrey Mates 
+|Added [stixliteral]#ongoing# to [stixtype]#activity-outcome-enum#.  Removed normative text for *attacker_activity*.*pattern_ref* that indicated a field that does not exist can be excluded if it is present.
+
+|03
+|2023-02-15
+|Jeffrey Mates 
+|Added labels and criticality to all impact types.  Made impacted_refs optional for availability impact.
+
+Replaced *availability_impact* with *availability_impacts* new guidance is to use scores for this in more granular *availability_impacts*.
+
+Added [stixliteral]#ransom-demand# and [stixliteral]#ransom-payment# to [stixtype]#<<monetary-impact-type-ov,monetary-impact-type-ov>>#.
+
+
+|04
+|2023-07-10
+|Incident Mini Group
+|Version 2.0
+
+|===

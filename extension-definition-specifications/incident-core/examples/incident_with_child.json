@@ -1,0 +1,140 @@
+{
+    "type": "bundle",
+    "id": "bundle--b72fa03b-d1e0-4f34-81f0-f60e7f019818",
+    "objects": [
+        {
+            "type": "incident",
+            "id": "incident--11c4461e-25d8-47f1-bccf-a965ddca8e8f",
+            "created": "2020-10-19T01:01:01.001Z",
+            "modified":"2020-10-19T02:12:23.001Z",
+            "created_by_ref": "identity--2242662b-d581-4864-8696-fff719dc0500",
+            "spec_version": "2.1",
+            "name": "Stolen Laptop",
+            "description": "Someone stole a laptop",
+            "extensions": {
+                "extension-definition--ef765651-680c-498d-9894-99799f2fa126": {
+                    "extension_type": "property-extension",
+                    "investigation_status": "closed",
+                    "determination": "confirmed",
+                    "detection_methods": ["user-report"],
+                    "incident_types": ["loss-of-control"],
+                    "events": [
+                        {
+                            "event_ref": "event--84ede1e8-aa78-4c63-98cd-02f4387fc1ec"
+                        }
+                    ],
+                    "tasks": [
+                        {
+                            "task_ref": "task--0c98dd11-f288-409d-8e1c-4b3da7b9b199"
+                        },
+                        {
+                            "task_ref": "task--c8e4c361-3e83-43ae-aab0-440815e3a033"
+                        },
+                        {
+                            "task_ref": "task--094803be-3898-412d-ace0-8d667bf9272f"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "type": "event",
+            "id": "event--84ede1e8-aa78-4c63-98cd-02f4387fc1ec",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified":"2020-10-19T02:12:23.000Z",
+            "spec_version": "2.1",
+            "name": "Theft",
+            "status": "occurred",
+            "description": "A laptop was stolen",
+            "start_time": "2020-10-15T06:00:00.000Z",
+            "start_time_fidelity": "day",
+            "end_time": "2020-10-15T06:00:00.000Z",
+            "end_time_fidelity": "day",
+            "extensions": {
+                "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "id": "task--0c98dd11-f288-409d-8e1c-4b3da7b9b199",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified":"2020-10-19T02:12:23.000Z",
+            "spec_version": "2.1",
+            "task_types": ["discovery"],
+            "outcome": "successful",
+            "description": "User alerted security",
+            "start_time": "2020-10-15T06:00:00.000Z",
+            "start_time_fidelity": "day",
+            "end_time": "2020-10-15T06:00:00.000Z",
+            "end_time_fidelity": "day",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "id": "task--c8e4c361-3e83-43ae-aab0-440815e3a033",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified":"2020-10-19T02:12:23.000Z",
+            "spec_version": "2.1",
+            "task_types": ["updated-inventory"],
+            "outcome": "successful",
+            "start_time": "2020-10-19T06:00:00.000Z",
+            "start_time_fidelity": "day",
+            "end_time": "2020-10-19T06:00:00.000Z",
+            "end_time_fidelity": "day",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "id": "task--094803be-3898-412d-ace0-8d667bf9272f",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified":"2020-10-19T02:12:23.000Z",
+            "spec_version": "2.1",
+            "task_types": ["flagged-spill-incident"],
+            "outcome": "successful",
+            "end_time": "2020-10-19T02:12:23.000Z",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "incident",
+            "id": "incident--0f74f95b-7ca1-4225-bfd6-ca1369c1847f",
+            "created": "2020-10-19T02:12:23.001Z",
+            "modified":"2020-10-19T02:12:23.001Z",
+            "created_by_ref": "identity--2242662b-d581-4864-8696-fff719dc0500",
+            "spec_version": "2.1",
+            "name": "Determine if Stolen Laptop had PHI",
+            "description": "A laptop was stolen that may have contained PHI.  Investigate and follow reporting rules as necessary.",
+            "extensions": {
+                "extension-definition--ef765651-680c-498d-9894-99799f2fa126": {
+                    "extension_type": "property-extension",
+                    "investigation_status": "new",
+                    "determination": "suspected",
+                    "detection_methods": ["user-report"]
+                }
+            }
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--0d98c5dd-22a7-4316-89d0-bb7c0338ef0f",
+            "created": "2020-10-19T02:12:23.000Z",
+            "modified": "2020-10-19T02:12:23.000Z",
+            "relationship_type": "led-to",
+            "source_ref": "incident--11c4461e-25d8-47f1-bccf-a965ddca8e8f",
+            "target_ref": "incident--0f74f95b-7ca1-4225-bfd6-ca1369c1847f"
+        }
+    ]
+}

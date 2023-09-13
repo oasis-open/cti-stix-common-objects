@@ -22,90 +22,236 @@
                         , "equipment-theft"
                         , "major"
                     ],
-                    "attacker_activities": [
+                    "events": [
                         {
-                            "outcome": "successful",
-                            "pattern_ref": "attack-pattern--7ad205e1-02b2-42a2-b425-a5bf96b48046",
-                            "description": "A theif stole the encrypted laptop from a table at a coffee shop while it was unlocked",
-                            "sequence_start": 1,
-                            "sequence_end": 1,
-                            "start_time": "2020-10-14T22:01:01.000Z",
-                            "end_time": "2020-10-14T23:01:01.000Z"
+                            "event_ref": "event--558107fe-70be-46cc-81ea-d825c5f8dc47"
                         }
                     ],
-                    "defender_activities": [
+                    "tasks": [
                         {
-                            "activity_type": "implemented-control",
-                            "outcome": "unknown",
-                            "description": "The laptop was encrypted, but it is unclear if this is actually preventing the thief from exacting information as the device was unlocked.",
-                            "object_ref": "course-of-action--a6c2ef7e-5b34-4113-a440-d2e33e79197e"
+                            "task_ref": "task--9cc91e80-f7e6-4dac-8178-e4f3e5d6516c"
                         },
                         {
-                            "activity_type": "discovery",
-                            "outcome": "successful",
-                            "description": "Security was alerting the theft of equipment"
+                            "task_ref": "task--8de0400e-bffd-429b-a3cc-0a8073ef0719"
                         },
                         {
-                            "activity_type": "discovery",
-                            "outcome": "successful",
-                            "description": "Security was alerting the theft of equipment",
-                            "start_time": "2020-10-15T01:01:01.000Z",
-                            "end_time": "2020-10-15T01:01:01.000Z"
+                            "task_ref": "task--723ce9ab-def7-4ba7-b33c-8703b373b722"
                         },
                         {
-                            "activity_type": "declared",
-                            "outcome": "successful",
-                            "description": "The laptop was determined to have PII so a potential breach was declared",
-                            "start_time": "2020-10-16T15:01:10.000Z",
-                            "end_time": "2020-10-16T15:01:10.000Z"
+                            "task_ref": "task--f02f5b09-068d-4665-830a-7a3631bebffe"
                         },
                         {
-                            "activity_type": "escalated",
-                            "outcome": "successful",
-                            "description": "Found the laptop contained 123,456 records and was unlocked when stolen so this data has a high probability of being exposed",
-                            "start_time": "2020-10-16T15:01:10.000Z",
-                            "end_time": "2020-10-16T15:01:10.000Z"
+                            "task_ref": "task--81a3c814-b2be-4fc9-b122-13d45f081720"
                         },
                         {
-                            "activity_type": "reported",
-                            "outcome": "successful",
-                            "object_ref": "course-of-action--8bb544ff-0499-4ee3-b683-305b8b0955a3",
-                            "identity_refs": ["identity--e0ee62af-7b13-4345-ad42-11950850cabe"],
-                            "description": "Police were contacted regarding the theft of the laptop and are working with the coffee shop to identify the using security footage",
-                            "start_time": "2020-10-16T15:01:10.000Z",
-                            "end_time": "2020-10-16T15:01:10.000Z"
+                            "task_ref": "task--83693cc3-7cc5-4368-ac71-c9b0d840f20d"
                         },
                         {
-                            "activity_type": "reported",
-                            "outcome": "successful",
-                            "description": "PII Breach report was filed per regulations",
-                            "start_time": "2020-10-16T15:02:23.000Z",
-                            "end_time": "2020-10-16T15:02:23.000Z"
+                            "task_ref": "task--c8c44b19-b1f5-4d40-ad43-23c686e5557b"
                         }
                     ],
-                    "confidentiality_impacts": [
-                        {
-                            "information_type": "pii",
-                            "loss_type": "suspected-loss",
-                            "record_count": 123456
-                        }
-                    ],
-                    "availability_impacts": [
-                        {
-                            "availability_impact": 0,
-                            "labels": ["overall"]
-                        }
-                    ],
-                    "integrity_impacts": [
-                        {
-                            "alteration": "none"
-                        }
+                    "impact_refs": [
+                        "impact--29d33f9d-a1a4-4d08-a48c-01a8f076331b",
+                        "impact--bb4e161d-3053-46e4-8496-3a00c3830037",
+                        "impact--a17c0f80-0d75-4f6a-863f-0097ec07fc84"
                     ],
                     "impacted_entity_counts": {
                         "individual": 123456
                     }
                 }
             }
+        },
+        {
+            "type": "impact",
+            "id": "impact--29d33f9d-a1a4-4d08-a48c-01a8f076331b",
+            "created": "2020-10-17T01:01:01.000Z",
+            "modified": "2020-10-17T01:01:01.000Z",
+            "spec_version": "2.1",
+            "impact_category": "confidentiality",
+            "extensions": {
+                "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+                    "extension_type": "new-sdo"
+                },
+                "confidentiality": {
+                    "information_type": "pii",
+                    "loss_type": "suspected-loss",
+                    "record_count": 123456
+                }
+            }
+        },
+        {
+            "type": "impact",
+            "id": "impact--bb4e161d-3053-46e4-8496-3a00c3830037",
+            "created": "2020-10-17T01:01:01.000Z",
+            "modified": "2020-10-17T01:01:01.000Z",
+            "spec_version": "2.1",
+            "impact_category": "availability",
+            "labels": ["overall"],
+            "extensions": {
+                "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+                    "extension_type": "new-sdo"
+                },
+                "availability": {
+                    "availability_impact": 0
+                }
+            }
+        },
+        {
+            "type": "impact",
+            "id": "impact--a17c0f80-0d75-4f6a-863f-0097ec07fc84",
+            "created": "2020-10-17T01:01:01.000Z",
+            "modified": "2020-10-17T01:01:01.000Z",
+            "spec_version": "2.1",
+            "impact_category": "integrity",
+            "extensions": {
+                "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+                    "extension_type": "new-sdo"
+                },
+                "integrity": {
+                    "alteration": "none"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2020-10-17T01:01:01.000Z",
+            "modified": "2020-10-17T01:01:01.000Z",
+            "spec_version": "2.1",
+            "id": "task--9cc91e80-f7e6-4dac-8178-e4f3e5d6516c",
+            "task_types": ["implemented-control"],
+            "outcome": "unknown",
+            "description": "The laptop was encrypted, but it is unclear if this is actually preventing the thief from exacting information as the device was unlocked.",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2020-10-17T01:01:01.000Z",
+            "modified": "2020-10-17T01:01:01.000Z",
+            "spec_version": "2.1",
+            "id": "task--8de0400e-bffd-429b-a3cc-0a8073ef0719",
+            "task_types": ["discovery"],
+            "outcome": "successful",
+            "description": "Security was alerting the theft of equipment",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2020-10-17T01:01:01.000Z",
+            "modified": "2020-10-17T01:01:01.000Z",
+            "spec_version": "2.1",
+            "id": "task--723ce9ab-def7-4ba7-b33c-8703b373b722",
+            "task_types": ["discovery"],
+            "outcome": "successful",
+            "description": "Security was alerting the theft of equipment",
+            "start_time": "2020-10-15T01:01:01.000Z",
+            "end_time": "2020-10-15T01:01:01.000Z",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2020-10-17T01:01:01.000Z",
+            "modified": "2020-10-17T01:01:01.000Z",
+            "spec_version": "2.1",
+            "id": "task--f02f5b09-068d-4665-830a-7a3631bebffe",
+            "task_types": ["declared"],
+            "outcome": "successful",
+            "description": "The laptop was determined to have PII so a potential breach was declared",
+            "start_time": "2020-10-16T15:01:10.000Z",
+            "end_time": "2020-10-16T15:01:10.000Z",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2020-10-17T01:01:01.000Z",
+            "modified": "2020-10-17T01:01:01.000Z",
+            "spec_version": "2.1",
+            "id": "task--81a3c814-b2be-4fc9-b122-13d45f081720",
+            "task_types": ["escalated"],
+            "outcome": "successful",
+            "description": "Found the laptop contained 123,456 records and was unlocked when stolen so this data has a high probability of being exposed",
+            "start_time": "2020-10-16T15:01:10.000Z",
+            "end_time": "2020-10-16T15:01:10.000Z",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2020-10-17T01:01:01.000Z",
+            "modified": "2020-10-17T01:01:01.000Z",
+            "spec_version": "2.1",
+            "id": "task--83693cc3-7cc5-4368-ac71-c9b0d840f20d",
+            "task_types": ["reported"],
+            "outcome": "successful",
+            "description": "Police were contacted regarding the theft of the laptop and are working with the coffee shop to identify the using security footage",
+            "start_time": "2020-10-16T15:01:10.000Z",
+            "end_time": "2020-10-16T15:01:10.000Z",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "task",
+            "created": "2020-10-17T01:01:01.000Z",
+            "modified": "2020-10-17T01:01:01.000Z",
+            "spec_version": "2.1",
+            "id": "task--c8c44b19-b1f5-4d40-ad43-23c686e5557b",
+            "task_types": ["reported"],
+            "outcome": "successful",
+            "description": "PII Breach report was filed per regulations",
+            "start_time": "2020-10-16T15:02:23.000Z",
+            "end_time": "2020-10-16T15:02:23.000Z",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "event",
+            "id": "event--558107fe-70be-46cc-81ea-d825c5f8dc47",
+            "created": "2020-10-17T01:01:01.000Z",
+            "modified": "2020-10-17T01:01:01.000Z",
+            "spec_version": "2.1",
+            "status": "occurred",
+            "event_types": ["successful"],
+            "sighting_refs": ["sighting--d9506e8e-fc4b-44ea-b154-afd5124d9e1d"],
+            "description": "A thief stole the encrypted laptop from a table at a coffee shop while it was unlocked",
+            "start_time": "2020-10-14T22:01:01.000Z",
+            "end_time": "2020-10-14T23:01:01.000Z",
+            "extensions": {
+                "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "sighting",
+            "spec_version": "2.1",
+            "id": "sighting--d9506e8e-fc4b-44ea-b154-afd5124d9e1d",
+            "created": "2020-10-17T01:01:01.000Z",
+            "modified":"2020-10-17T01:01:01.000Z",
+            "sighting_of_ref": "attack-pattern--7ad205e1-02b2-42a2-b425-a5bf96b48046"
         },
         {
             "type": "location",
@@ -217,6 +363,36 @@
             "relationship_type": "member-of",
             "source_ref": "identity--e0ee62af-7b13-4345-ad42-11950850cabe",
             "target_ref": "identity--7a164253-fbfd-420b-9316-79f5d3dff51f"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--fa74c4e4-a3c9-48d7-af3c-cdd8e2012d91",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified": "2020-10-19T01:01:01.000Z",
+            "relationship_type": "uses",
+            "source_ref": "task--9cc91e80-f7e6-4dac-8178-e4f3e5d6516c",
+            "target_ref": "course-of-action--a6c2ef7e-5b34-4113-a440-d2e33e79197e"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--7afc32a9-f39e-41ef-923e-6f12fde35083",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified": "2020-10-19T01:01:01.000Z",
+            "relationship_type": "uses",
+            "source_ref": "task--83693cc3-7cc5-4368-ac71-c9b0d840f20d",
+            "target_ref": "course-of-action--8bb544ff-0499-4ee3-b683-305b8b0955a3"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--d61253de-203c-47dc-8642-f5fdaf974f37",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified": "2020-10-19T01:01:01.000Z",
+            "relationship_type": "contact-for",
+            "source_ref": "identity--e0ee62af-7b13-4345-ad42-11950850cabe",
+            "target_ref": "task--83693cc3-7cc5-4368-ac71-c9b0d840f20d"
         }
     ]
 }

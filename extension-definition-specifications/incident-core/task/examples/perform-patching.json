@@ -1,0 +1,41 @@
+{
+    "type": "bundle",
+    "id": "bundle--e810adeb-c896-4759-89c4-f91431c121b8",
+    "objects": [
+        {
+            "type": "task",
+            "id": "task--fd4d3e71-c3e9-4a87-bbab-401a956fd877",
+            "created": "2023-04-07T20:00:00.0002Z",
+            "modified": "2023-04-07T20:00:00.0002Z",
+            "outcome": "pending",
+            "name": "Patch Mail Server",
+            "description": "Update mail server from version 8.2 to 8.3.",
+            "task_types": ["routine-updates"],
+            "priority": 30,
+            "spec_version": "2.1",
+            "extensions": {
+                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "infrastructure",
+            "spec_version": "2.1",
+            "id": "infrastructure--b3d480d4-e8ce-4584-9397-8ab6469a8359",
+            "created": "2023-04-07T20:00:00.0002Z",
+            "modified": "2023-04-07T20:00:00.0002Z",
+            "name": "Mail Server"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--b6d792a5-bfff-422e-9f54-0222d9ed788c",
+            "created": "2023-04-07T20:00:00.0002Z",
+            "modified": "2023-04-07T20:00:00.0002Z",
+            "relationship_type": "impacts",
+            "source_ref": "task--fd4d3e71-c3e9-4a87-bbab-401a956fd877",
+            "target_ref": "infrastructure--b3d480d4-e8ce-4584-9397-8ab6469a8359"
+        }
+    ]
+}
