@@ -1,0 +1,57 @@
+{
+        "type": "malware-behavior",
+        "spec_version": "2.1",
+        "id": "malware-behavior--7fd7253f-274e-4156-be58-7ac900fc221a",
+        "created_by_ref": "identity--b73c59c1-8560-449a-b8d0-c2ce0533c5bf",
+        "created": "2019-08-01T00:00:00.000Z",
+        "modified": "2022-11-21T00:00:00.000Z",
+        "name": "Sandbox Detection",
+        "obj_defn": {
+            "source_name": "mitre-mbc",
+            "description": "Detects whether the malware instance is being executed <snip>",
+            "url": "https://github.com/MBCProject/mbc-markdown/sandbox-detection.md",
+            "external_id": "B0007"
+        },
+        "obj_version": "2.0",
+        "related_object_refs": [
+            "attack-pattern--29be378d-262d-4e99-b00d-852d573628e6",
+            "attack-pattern--6ffad4be-bfe0-424f-abde-4d9a84a800ad",
+            "attack-pattern--91541e7e-b969-40c6-bbd8-1b5352ec2938"
+        ],
+        "tags": [{"Anti-Analysis-Type": "Detection"}],
+        "objective_refs": ["malware-objective--a6de0a96-50b6-441f-8e62-06eb6db84183"],
+        "detection_rules": [
+	    {
+		"rule_type": "capa",
+		"rule_name": "check for sandbox and av modules",
+		"url": "https://github.com/capa-rules...check-for-sandbox-and-av-modules.yml",
+		"api_fncs": ["GetModuleHandle"],
+		"detect_ref": "malware-method--5650472c-6f90-44c3-8944-f763507e9220"
+	    }
+	],
+        "snippets": [
+	    {
+		"snippet": "push ebx, \n add esp, \n 0FFFFFEF4h, \n xor ebx, \n ebx <snip>",
+		"language": "asm",
+		"exemplify_ref": "malware-method--5650472c-6f90-44c3-8944-f763507e9220"
+            }
+	],
+        "external_references": [
+            {
+		"source_name": "cisco",
+		"url": "https://blogs.cisco.com/security/talos/rombertik",
+		"description": "B. Baker and A. Chiu, \"Threat Spotlight: Rombertik - Gazing Past the Smoke, Mirrors, and Trapdoors,\" Cisco Threat Research, blog, May 4, 2013 [Online]."
+            },
+            {
+		"source_name": "lordnoteworthy",
+		"url": "https://github.com/LordNoteworthy/al-khaser",
+		"description": "A. Faouzi (LordNoteworthy), \"README.md,\" Al-Khaser v0.81. Accessed Apr. 29, 2023 [Online]."
+            }
+        ],
+        "extensions": {
+            "extension-definition--d57b7c9c-7fa6-436b-b82c-8e6f69cdc3d0" : {
+		"extension_type" : "new-sdo"
+            }
+	}
+
+}

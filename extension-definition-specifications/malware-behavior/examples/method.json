@@ -1,0 +1,21 @@
+{
+    "type": "malware-method",
+    "spec_version": "2.1",
+    "id": "malware-method--5650472c-6f90-44c3-8944-f763507e9220",
+    "created_by_ref": "identity--b73c59c1-8560-449a-b8d0-c2ce0533c5bf",
+    "created": "2023-02-01T10:49:59.000Z",
+    "modified": "2023-02-01T10:49:59.000Z",
+    "obj_id": "B0007.005",
+    "name": "Product Key/ID Testing",
+    "obj_defn": {
+        "source_name": "mitre-mbc",
+        "obj_id": "B0007.005",
+        "description": "Checking for a particular product key/ID associated..."
+    },
+    "behavior_ref": "malware-behavior--7fd7253f-274e-4156-be58-7ac900fc221a",
+    "extensions": {
+        "extension-definition--d57b7c9c-7fa6-436b-b82c-8e6f69cdc3d0" : {
+            "extension_type" : "new-sdo"
+        }
+    }
+}
