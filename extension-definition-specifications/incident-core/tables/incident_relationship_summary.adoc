@@ -33,14 +33,6 @@
 |[stixtype]#<<event,event>>#
 
 |[stixtype]#<<task,task>>#
-|[stixrelationship]#errored-to#
-|[stixtype]#<<task,task>>#
-
-|[stixtype]#<<task,task>>#
-|[stixrelationship]#followed-by#
-|[stixtype]#<<task,task>>#
-
-|[stixtype]#<<task,task>>#
 |[stixrelationship]#impacts#
 |[stixtype]#{infrastructure_url}[infrastructure]#
 
