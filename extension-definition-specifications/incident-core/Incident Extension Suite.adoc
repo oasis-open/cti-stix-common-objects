@@ -44,7 +44,7 @@
 
 [.stix-doc-information-heading]#Draft#
 
-[.stix-doc-information-heading]#10 July 2023#
+[.stix-doc-information-heading]#10 October 2023#
 
 [.stix-doc-information-heading]
 Editors:
@@ -108,7 +108,7 @@ The properties and additional types within the Incident Core Extension are defin
 |*determination* (required)
 |[stixtype]#<<incident-determination-enum,incident-determination-enum>>#
 |A high level determination on the outcome of this incident.
-This *SHOULD* be suspected until enough information is available to provide a well researched result.
+This *SHOULD* be [stixliteral]#suspected# until enough information is available to provide a well researched result.
 
 Some automated tools may flag results as blocked or low-value automatically depending on the tool type or activity.
 A tool that blocks a series of phishing emails may create an incident with a blocked determination automatically.
@@ -143,16 +143,15 @@ This should draw from the [stixtype]#<<detection-methods-ov,detection-methods-ov
 |*impact_refs* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
 |A list of impacts of this incident.
-It *MUST* contain references to one or more Impact objects.
-
-The objects referenced in this list *MUST* be of type [stixtype]#<<impact,impact>>#
+All objects referenced in this list *MUST* be of type [stixtype]#<<impact,impact>>#
 
 |*impacted_entity_counts* (optional)
 |[stixtype]#<<entity-count,entity-count>>#
 |An optional listing of the entity types that were impacted by the incident, and how many of each type were affected.
 Individual impacts may also record more detailed counts as appropriate.
 
-If this field is not present it should be assumed that this information is not being shared, not that there were no impacted entities.
+If this property is not present it should be assumed that this information is not being shared, not that there were no impacted entities.
+To affirmatively state no entities of a given class were impacted they should be included with the number of entities affected by it set to [stixliteral]#0#.
 
 |*incident_types* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{open_vocab_url}[open-vocab]#
@@ -379,7 +378,8 @@ accurate up to the number of decimals it includes.
 |[stixrelationship]#led-to#
 |[stixtype]#<<event,event>># 
 |One event led to another.
-For example a dropper running allowed a ransomware tool to be downloaded and run.
+
+For example, a dropper running allowed a ransomware tool to be downloaded and run.
 
 |[stixtype]#<<event,event>>#
 |[stixrelationship]#impacts#
@@ -392,12 +392,6 @@ For example a dropper running allowed a ransomware tool to be downloaded and run
 |[stixtype]#{location_url}[location]#
 |The event occurred at a specific location or locations.
 
-|[stixtype]#<<event,event>>#
-|[stixrelationship]#observed#
-|<All STIX Cyber-observable Objects>
-|STIX cyber-observables were observed as part of this event, but no information on when they are observed is being shared.
-
-If this can be shared a Sighting it should be instead of using this method.
 // relationships:end
 |===
 
@@ -496,14 +490,14 @@ This can be translated into qualitative values as described in <<appendix-b,Appe
 |[stixtype]#{timestamp_url}[timestamp]#
 |The date and time the impact was last recorded.
 
-This property *SHOULD* be populated.
+This property *SHOULD* be populated if the impact is resolved or mitigated.
+
+If the *superseded_by_ref* property is included this *MUST* be included.
 
 |*end_time_fidelity* (optional)
 |[stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>>#
 |The level of fidelity that the end_time is recorded in.
 This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>>#.
-
-If the *superseded_by_ref* property is included this *MUST* be included.
 
 |*impacted_entity_counts* (optional)
 |[stixtype]#<<entity-count,entity-count>>#
@@ -944,15 +938,6 @@ Using these embedded relationships ensure that an incomplete sequence cannot be 
 |[stixtype]#{location_url}[location]#
 |The task occurred at a specific location or locations.
 
-|[stixtype]#<<task,task>>#
-|[stixrelationship]#errored-to#
-|[stixtype]#<<task,task>>#
-|A task follows this one because of an error / if statement in a playbook.
-
-|[stixtype]#<<task,task>>#
-|[stixrelationship]#followed-by#
-|[stixtype]#<<task,task>>#
-|A task follows this one in the normal chain of execution.
 // relationships:end
 |===
 
@@ -1890,53 +1875,8 @@ The destruction or encryption of this data can cause availability impacts.
 
 <<<
 
-=== 4.9. State Change Object Type
-
-*Type Name:* [stixtype]#state-change#
-
-The *initial_ref* or *result_ref* *MUST* be populated.
-
-[width="100%",cols="37%,23%,40%",options="header",]
-|===
-^|[stixtr]*Property Name*
-^|[stixtr]*Type* 
-^|[stixtr]*Description*
-
-|*state_change_type* (required)
-|[stixtype]#{open_vocab_url}[open-vocabulary]# 
-|How this activity influenced the change in state between the *initial_ref* and *result_ref*.
-
-This *SHOULD* be drawn from [stixtype]#<<state-change-type-ov,state-change-type-ov>>#.
-
-|*initial_ref* (optional)
-|[stixtype]#{identifier_url}[identifier]#
-|The initial object state that this event affected.
-
-If the *result_ref* is not populated then this *MUST* be populated.
-If there is no result state this typically means that this event removed or resolved the initial object.
-For example, an event or task resolved a network outage.
-
-If both are present this indicates a transition between these states.
-For example, a confidentiality impact was made worse as the information was shared further.
-
-If the *result_ref* is populated this *MUST* reference the same type of SDO.
-
-|*result_ref* (optional)
-|[stixtype]#{identifier_url}[identifier]#
-|The final state that this event influenced.
-
-If the *initial_ref* is not populated then this *MUST* be populated.
-If there is no initial state it typically means that this event caused or created the result.
-For example, an event causing a network outage.
-
-If the *initial_ref* is populated this *MUST* reference the same type of SDO.
-
-|===
-
-<<<
-
 [[state-change-type-ov]]
-=== 4.10. State Change Type Vocabulary
+=== 4.9. State Change Type Vocabulary
 
 *Type Name:* [stixtype]#state-change-type-ov#
 
@@ -1971,7 +1911,7 @@ If this is selected *result_ref* MUST be populated.
 <<<
 
 [[task-type-ov]]
-=== 4.11. Task Type Vocabulary
+=== 4.10. Task Type Vocabulary
 
 *Type Name:* [stixtype]#task-type-ov#
 
@@ -2716,5 +2656,10 @@ Added [stixliteral]#ransom-demand# and [stixliteral]#ransom-payment# to [stixtyp
 |2023-07-10
 |Incident Mini Group
 |Version 2.0
+
+|05
+|2023-10-10
+|Richard Piazza and Jeffrey Mates
+|Multiple editorial fixes, removing copy paste errors and obsolete relationships.
 
 |===
