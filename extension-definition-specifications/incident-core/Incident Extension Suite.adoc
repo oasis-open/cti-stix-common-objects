@@ -108,7 +108,7 @@ The properties and additional types within the Incident Core Extension are defin
 |*determination* (required)
 |[stixtype]#<<incident-determination-enum,incident-determination-enum>>#
 |A high level determination on the outcome of this incident.
-This *SHOULD* be [stixliteral]#suspected# until enough information is available to provide a well researched result.
+The value of this property *SHOULD* be [stixliteral]#suspected# until enough information is available to provide a well researched result.
 
 Some automated tools may flag results as blocked or low-value automatically depending on the tool type or activity.
 A tool that blocks a series of phishing emails may create an incident with a blocked determination automatically.
@@ -134,7 +134,7 @@ This value *MUST* be between 0 to 100. This can be translated into qualitative v
 |*detection_methods* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{open_vocab_url}[open-vocab]#
 |A list of strings containing what was used to detect the activity, e.g., commercial tool names, techniques associated with proprietary solutions, human review, external sources, or other methods.
-These values *SHOULD* be selected from the [stixtype]#<<detection-methods-ov,detection-methods-ov>>#.
+These values *SHOULD* be selected from the [stixtype]#<<detection-methods-ov,detection-methods-ov>># open vocabulary.
 
 |*events* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#<<event-entry,event-entry>>#
@@ -157,13 +157,13 @@ To affirmatively state no entities of a given class were impacted they should be
 |[stixtype]#{list_url}[list]# of type [stixtype]#{open_vocab_url}[open-vocab]#
 |This property uses an Open Vocabulary that specifies the type of incident that occurred, if applicable.
 
-The values of this property values *SHOULD* come from the [stixtype]#<<event-type-ov,event-type-ov>>#.
+The values of this property *SHOULD* come from the [stixtype]#<<event-type-ov,event-type-ov>># open vocabulary.
 
 |*recoverability* (optional)
 |[stixtype]#<<recoverability-enum,recoverability-enum>>#
 |The recoverability of this particular Incident with respect to feasibility and required time and resources.
 
-The values of this property *MUST* come from the [stixtype]#<<recoverability-enum,recoverability-enum>>#
+The value of this property *MUST* come from the [stixtype]#<<recoverability-enum,recoverability-enum>>#
 enumeration.
 
 |*scores* (optional)
@@ -291,6 +291,9 @@ This new sdo extension *MUST* use [stixliteral]#extension-definition--4ca6de00-5
 |[stixtype]#<<event-status-enum,event-status-enum>>#
 |The current status of the event.
 
+The values of this property *MUST* come from the [stixtype]#<<event-status-enum,event-status-enum>>#
+enumeration.
+
 |*type* (required)
 |[stixtype]#{string_url}[string]#
 |The value of this property *MUST* be set to [stixliteral]#event#.
@@ -320,7 +323,7 @@ If no value is provided the timestamp should be considered to be accurate up to 
 |*event_types* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{open_vocab_url}[open-vocabulary]#
 |High level types for the event in order to enable aggregation and summaries.
-This should be drawn from [stixtype]#<<event-type-ov,event-type-ov>>#.
+The value of this property *SHOULD* come from the [stixtype]#<<event-type-ov,event-type-ov>># open vocabulary.
 
 |*goal* (optional)
 |[stixtype]#{string_url}[string]#
@@ -516,7 +519,7 @@ If this property is not present it should be assumed that this information is no
 |[stixtype]#<<recoverability-enum,recoverability-enum>>#
 |The recoverability of this particular impact with respect to feasibility and required time and resources.
 
-The values of this property *MUST* come from the [stixtype]#<<recoverability-enum,recoverability-enum>># enumeration
+The value of this property *MUST* come from the [stixtype]#<<recoverability-enum,recoverability-enum>># enumeration.
 
 |*start_time* (optional)
 |[stixtype]#{timestamp_url}[timestamp]#
@@ -527,7 +530,7 @@ This property *SHOULD* be populated.
 |*start_time_fidelity* (optional)
 |[stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>>#
 |The level of fidelity that the start_time is recorded in.
-This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>> enumeration#.
+This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>># enumeration.
 
 If no value is provided the timestamp should be considered to be
 accurate up to the number of decimals it includes.
@@ -588,13 +591,15 @@ This value *MUST* be between 0 to 100. This can be translated into qualitative v
 |[stixtype]#{open_vocab_url}[open-vocab]#
 |The type of information that had its confidentiality compromised. This can include control systems and other processes that can result in virtual or physical impacts.
 
-This *SHOULD* be drawn from [stixtype]#<<information-type-ov,information-type-ov>> open vocabulary#.
+The value of this property *SHOULD* come from the [stixtype]#<<information-type-ov,information-type-ov>> open vocabulary#.
 
 This value *MUST* be included if the loss_type is not none. Including an entry with loss_type of none and no information_type indicates that no information had its confidentiality impacted by this incident.
 
 |*loss_type* (required)
 |[stixtype]#<<incident-confidentiality-loss-enum,incident-confidentiality-loss-enum>>#
 |The type of loss that occurred to the relevant information
+
+The values of this property *MUST* come from the [stixtype]#<<incident-confidentiality-loss-enum,incident-confidentiality-loss-enum>># enumeration.
 
 |*record_count* (optional)
 |[stixtype]#{int_url}[integer]#
@@ -615,7 +620,9 @@ This value *MUST* be included if the loss_type is not none. Including an entry w
 
 |*impact_type* (required)
 |[stixtype]#{open_vocab_url}[open-vocab]# 
-|The type of impact outside of the direct organization that should be drawn from [stixtype]#<<external-impact-ov,external-impact-ov>># open vocabulary.
+|The type of impact outside of the direct organization.
+
+The value of this property *SHOULD* come from the [stixtype]#<<external-impact-ov,external-impact-ov>># open vocabulary.
 |===
 
 <<<
@@ -634,7 +641,7 @@ This value *MUST* be included if the loss_type is not none. Including an entry w
 |[stixtype]#<<integrity-alteration-enum,integrity-alteration-enum>>#
 |The type of alteration performed against the information_type.
 
-The values of this property *MUST* come from the [stixtype]#<<integrity-alteration-enum,integrity-alteration-enum>># enumeration.
+The value of this property *MUST* come from the [stixtype]#<<integrity-alteration-enum,integrity-alteration-enum>># enumeration.
 
 |*information_type* (optional)
 |[stixtype]#{open_vocab_url}[open-vocab]#
@@ -733,7 +740,7 @@ This value *MUST* be included if the *max_amount* property is included.
 |[stixtype]#<<physical-impact-enum,physical-impact-enum>>#
 |The type of physical impact that has occurred.
 
-The values of this property *MUST* come from the [stixtype]#<<physical-impact-enum,physical-impact-enum>>#
+The value of this property *MUST* come from the [stixtype]#<<physical-impact-enum,physical-impact-enum>>#
 enumeration.
 
 |*asset_type* (optional)
@@ -759,7 +766,7 @@ Including an entry with an *impact_type* of none and no asset_type indicates tha
 |[stixtype]#<<traceability-enum,traceability-enum>>#
 |The impact of this incident on a system or organization's ability to perform audits or provide non-repudiation.
 
-The values of this property *MUST* come from the [stixtype]#<<traceability-enum,traceability-enum>># enumeration
+The value of this property *MUST* come from the [stixtype]#<<traceability-enum,traceability-enum>># enumeration.
 
 |===
 
@@ -817,7 +824,7 @@ The values of this property *MUST* come from the [stixtype]#<<traceability-enum,
 |[stixtype]#<<task-outcome-enum,task-outcome-enum>>#
 |The outcome of the task.
 
-The value of this property *MUST* come from the [stixtype]#<<task-outcome-enum,task-outcome-enum>># enumeration
+The value of this property *MUST* come from the [stixtype]#<<task-outcome-enum,task-outcome-enum>># enumeration.
 
 |*type* (required)
 |[stixtype]#{string_url}[string]#
@@ -831,7 +838,7 @@ This is typically used to indicate how an task has affected impacts.
 |*task_types* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{open_vocab_url}[open-vocabulary]#
 |A list of high level types for the task in order to enable aggregation and summaries.
-The value of this property *SHOULD* come from the [stixtype]#<<task-type-ov,task-type-ov>>#.
+The values of this property *SHOULD* come from the [stixtype]#<<task-type-ov,task-type-ov>># open vocabulary.
 
 |*description* (optional)
 |[stixtype]#{string_url}[string]#
@@ -844,7 +851,7 @@ The value of this property *SHOULD* come from the [stixtype]#<<task-type-ov,task
 |*end_time_fidelity* (optional)
 |[stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>>#
 |The level of fidelity that the end_time is recorded in.
-This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>>#.
+This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>># enumeration.
 
 If no value is provided the timestamp should be considered to be
 accurate up to the number of decimals it includes.
@@ -878,7 +885,7 @@ This property *SHOULD* be populated.
 |*start_time_fidelity* (optional)
 |[stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>>#
 |The level of fidelity that the start_time is recorded in. This value
-*MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>>#.
+*MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>># enumeration.
 
 If no value is provided the timestamp should be considered to be
 accurate up to the number of decimals it includes.
@@ -996,7 +1003,7 @@ Using these embedded relationships ensure that an incomplete sequence cannot be 
 
 The Entity Count type represents the count of one or more entity types.
 The name of each entity type *MUST* be specified as a key in the dictionary and *MUST* identify the count of the entity that corresponds to the value.
-Each key *SHOULD* come from [stixtype]#<<entity-type-ov,entity-type-ov>>#.
+Each key *SHOULD* come from [stixtype]#<<entity-type-ov,entity-type-ov>># open vocabulary.
 This value *MUST* be an [stixtype]#{int_url}[integer]# that is equal to or greater than zero.
 
 *Examples:*
@@ -1044,7 +1051,7 @@ _0 individuals_
 |*event_ref* (required)
 |[stixtype]#{identifier_url}[identifier]# 
 |The event that is described by this entry.
-This *MUST* reference [stixtype]#<<event,event>>#.
+This *MUST* reference an [stixtype]#<<event,event>># object.
 
 |*next_steps* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#<<event-sequence-entry,event-sequence-entry>>#
@@ -1086,10 +1093,14 @@ This reference *MUST* be included as an *event_ref* within the parent array of [
 |If the referenced step required the current one to be successful.
 If it is optional, or if it is unknown.
 
+The values of this property *MUST* come from the [stixtype]#<<activity-condition-enum,activity-condition-enum>># enumeration.
+
 |*transition_type* (required)
 |[stixtype]#<<activity-transition-enum,activity-transition-enum>>#
 |What state the referenced step depends on.
 If it is performed upon success, failure, simple completion, or if it is unknown.
+
+The values of this property *MUST* come from the [stixtype]#<<activity-transition-enum,activity-transition-enum>># enumeration.
 
 |===
 
@@ -1115,7 +1126,7 @@ If it is performed upon success, failure, simple completion, or if it is unknown
 
 |*description* (optional)
 |[stixtype]#{string_url}[string]# 
-|An optional description about how this score was calculated at for systems that provide these.
+|An optional description about how this score was calculated for systems that provide this information.
 |===
 
 <<<
@@ -1137,7 +1148,7 @@ The *initial_ref* or *result_ref* *MUST* be populated.
 |[stixtype]#{open_vocab_url}[open-vocabulary]# 
 |How this activity influenced the change in state between the *initial_ref* and *result_ref*.
 
-This *SHOULD* be drawn from [stixtype]#<<state-change-type-ov,state-change-type-ov>>#.
+The value of this property *SHOULD* come from the [stixtype]#<<state-change-type-ov,state-change-type-ov>># open vocabulary.
 
 |*initial_ref* (optional)
 |[stixtype]#{identifier_url}[identifier]#
@@ -1216,6 +1227,8 @@ As these are always stored in an array of steps within an array of task entries 
 |If the referenced step required the current one to be successful.
 If it is optional, or if it is unknown.
 
+The values of this property *MUST* come from the [stixtype]#<<activity-condition-enum,activity-condition-enum>># enumeration.
+
 |*task_ref* (required)
 |[stixtype]#{identifier_url}[identifier]# 
 |The identity of the event that is described by this entry.
@@ -1226,6 +1239,8 @@ This reference *MUST* be included as an *task_ref* within the parent array of [s
 |[stixtype]#<<activity-transition-enum,activity-transition-enum>>#
 |What state the referenced step depends on.
 If it is performed upon success, failure, simple completion, or if it is unknown.
+
+The values of this property *MUST* come from the [stixtype]#<<activity-transition-enum,activity-transition-enum>># enumeration.
 
 |===
 
@@ -1898,7 +1913,7 @@ The destruction or encryption of this data can cause availability impacts.
 |[stixliteral]#input#
 |This task or event took in a group as an input for automated or playbook activities.
 
-If this is selected *initial_ref* MUST be populated.
+If this is selected the *initial_ref* property *MUST* be populated.
 
 |[stixliteral]#mitigated#
 |This task or event lessened the severity of the initial object.
@@ -1906,7 +1921,7 @@ If this is selected *initial_ref* MUST be populated.
 |[stixliteral]#output#
 |This task or event produced a group as an output as part of automated or playbook activities.
 
-If this is selected *result_ref* MUST be populated.
+If this is selected the *result_ref* property *MUST* be populated..
 
 |[stixliteral]#resolved#
 |This task or event resolved the initial object.
