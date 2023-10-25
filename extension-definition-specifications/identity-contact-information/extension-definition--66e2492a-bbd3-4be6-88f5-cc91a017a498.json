@@ -30,6 +30,11 @@
                         "type": "string",
                         "description": "The contact number.  Typically a phone number."
                     },
+		    "classified": {
+			"type": "boolean",
+			"default": false
+			"description": "Can be used to reach the individual on a classified phone."
+		    },
                     "contact_number_type": {
                         "type": "string",
                         "description": "The type of number this is used for.  This SHOULD be drawn from contact-number-ov."
@@ -56,6 +61,11 @@
                         "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
                         "pattern": "^email-addr--"
                     },
+		    "classified": {
+			"type": "boolean",
+			"default": false
+			"description": "Can be used to reach the individual on a classified network."
+		    },
                     "digital_contact_type": {
                         "type": "string",
                         "description": "The type of email that address is used for.  This SHOULD be drawn from digital-contact-ov."
@@ -82,6 +92,11 @@
                         "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
                         "pattern": "^user-account--"
                     },
+		    "classified": {
+			"type": "boolean",
+			"default": false
+			"description": "Can be used to reach the individual on a classified network."
+		    },
                     "digital_contact_type": {
                         "type": "string",
                         "description": "The type of social media account that relates to.  This SHOULD be drawn from digital-contact-ov."
@@ -113,5 +128,25 @@
             "type": "string",
             "description": "A suffix for the individual such as “PhD”"
         }
+    },
+    "definitions": {
+	"contact-number-ov": {
+	    "type": "string",
+	    "enum": [
+		"personal-landline-phone",
+		"personal-mobile-phone",
+		"personal-fax",
+		"work-phone",
+		"work-fax"
+	    ]
+	},
+	"digital-number-ov": {
+	    "type": "string",
+	    "enum": [
+		"organizational",
+		"personal",
+		"work"
+	    ]
+	}
     }
 }
