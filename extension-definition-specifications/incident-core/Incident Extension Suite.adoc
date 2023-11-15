@@ -244,7 +244,10 @@ This can be used to supplement the created_by_ref in cases where external author
 <<<
 [[event]]
 === 2.2. Event
+
 This new sdo extension *MUST* use [stixliteral]#extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e# as its extension ID.
+[width="100%",cols="100%",stripes=odd]
+|===
 ^|[stixtr]*Required Common Properties*
 |*created*,
 *id*,
