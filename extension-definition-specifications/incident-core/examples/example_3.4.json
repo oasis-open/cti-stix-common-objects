@@ -1,0 +1,7 @@
+{
+    "type": "incident-score",
+    "id": "incident-score--b0e7e6a5-6e2c-4a0b-8d5a-8a5e92a5a5bc",
+    "name": "ExampleSystem Automated Exposure Score",
+    "value": 75.5,
+    "description": "The score is calculated based on the severity of the incident and the potential impact on the organization."
+}
