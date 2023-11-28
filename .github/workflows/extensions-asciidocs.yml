@@ -19,10 +19,12 @@ jobs:
       - name: Update ubuntu
         run:
            sudo apt-get update
+      - name: load dependencies
+        run: 
+          sudo apt-get install -y pandoc asciidoctor asciidoc-common wkhtmltopdf
       - name: Build docs
         working-directory: extension-definition-specifications
         run: 
-          sudo apt-get install -y pandoc asciidoctor asciidoc-common wkhtmltopdf
           sh ../scripts/build_asciidoc.sh
       - uses: actions/upload-artifact@v3
         with:
