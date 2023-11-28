@@ -25,6 +25,7 @@
                         {
                             "contact_number": "123-456-7890",
                             "contact_number_type": "work-phone"
+			    "classified": true
                         },
                         {
                             "contact_number": "123-456-7891",
