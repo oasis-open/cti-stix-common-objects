@@ -148,8 +148,8 @@ The current maintainers of this TC Open Repository are:
 
 -  `Emily Ratliff <mailto:Emily.Ratliff@ibm.com>`__; GitHub ID:
    https://github.com/ejratl; WWW: `IBM <http://www.ibm.com/>`__
--  `Duncan Sparrell <mailto:duncan@sfractal.com>`__; GitHub ID:
-   https://github.com/sparrell; WWW: `sFractal <http://sfractal.com/>`__
+-  `Rich Piazza <mailto:rpiazza@mitre.org>`__; GitHub ID:
+   https://github.com/rpiazza; WWW: `MITRE <http://www.mitre.com/>`__
 
 TC Open Repository `maintainers <https://www.oasis-open.org/resources/open-repositories/maintainers-guide>`_ are responsible for oversight of this project's community development activities, including evaluation of GitHub `pull requests <https://github.com/oasis-open/cti-stix-common-objects/blob/master/CONTRIBUTING.md#fork-and-pull-collaboration-model>`_ and `preserving <https://www.oasis-open.org/policies-guidelines/open-repositories#repositoryManagement>`_ open source principles of openness and fairness. Maintainers are recognized and trusted experts who serve to implement community goals and consensus design preferences.
 
