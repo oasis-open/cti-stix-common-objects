@@ -1,0 +1,17 @@
+{
+    "type": "impact",
+    "id": "impact--562c7b03-3c27-4adf-8580-57ecce6687c8",
+    "impact_category": "monetary",
+    "criticality": 85,
+    "description": "Financial loss due to a ransomware attack.",
+    "start_time": "2023-11-22T15:30:00Z",
+    "start_time_fidelity": "minute",
+    "extensions": {
+        "monetary-impact": {
+            "variety": "ransom",
+            "currency": "USD",
+            "min_amount": 10000,
+            "max_amount": 15000
+        }
+    }
+}

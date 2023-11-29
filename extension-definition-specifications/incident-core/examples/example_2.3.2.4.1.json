@@ -1,0 +1,16 @@
+{
+    "type": "impact",
+    "id": "impact--72047fc7-1b34-4cc2-aea7-61b90cdb832d",
+    "impact_category": "integrity",
+    "criticality": 75,
+    "description": "Unauthorized modification of financial records.",
+    "start_time": "2023-11-22T15:30:00Z",
+    "start_time_fidelity": "minute",
+    "extensions": {
+        "integrity-impact": {
+            "alteration": "unauthorized-modification",
+            "information_type": "financial-records",
+            "record_count": 500
+        }
+    }
+}
