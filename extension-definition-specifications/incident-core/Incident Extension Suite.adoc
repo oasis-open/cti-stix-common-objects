@@ -97,7 +97,7 @@ The Incident object should have sufficient properties to represent the current s
 
 The properties and additional types within the Incident Core Extension are defined below. As this is an extension of a top-level object, fields such as identifier are not present.  This extension *MUST* use [stixliteral]#extension-definition--ef765651-680c-498d-9894-99799f2fa126# as its extension ID.
 
-*2.1 Example*
+*2.1.1 Example*
 
 [source,json]
 ----
@@ -254,7 +254,7 @@ This can be used to supplement the created_by_ref in cases where external author
 
 This new sdo extension *MUST* use [stixliteral]#extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e# as its extension ID.
 
-*2.2 Example*
+*2.2.1 Example*
 
 [source,json]
 ----
@@ -448,7 +448,7 @@ For example, a dropper running allowed a ransomware tool to be downloaded and ru
 === 2.3. Impact
 This new sdo extension *MUST* use [stixliteral]#extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9# as its extension ID.
 
-*2.3 Example*
+*2.3.1 Example*
 
 [source,json]
 ----
@@ -799,7 +799,7 @@ The value of this property *MUST* come from the [stixtype]#<<traceability-enum,t
 [[task]]
 === 2.4. Task
 
-*2.4 Example*
+*2.4.1 Example*
 
 [source,json]
 ----
@@ -1072,7 +1072,7 @@ _0 individuals_
 [[event-entry]]
 === 3.2. Event Entry Object Type
 
-*3.2 Example*
+*3.2.1 Example*
 
 [source,json]
 ----
@@ -1113,7 +1113,7 @@ Default value is [stixliteral]#true#.
 Event sequence entries store references to subsequent steps for an event entry.
 As these are always stored in an array of steps within an array of event entries validation rules for *event_ref* *MUST* be performed against the entire array of event entries.
 
-*3.3 Example*
+*3.3.1 Example*
 
 [source,json]
 ----
@@ -1153,9 +1153,9 @@ The values of this property *MUST* come from the [stixtype]#<<activity-transitio
 <<<
 
 [[incident-score]]
-=== 3.4. Incident Score Object Type
+=== 3.4 Incident Score Object Type
 
-*3.4 Example*
+*3.4.1 Example*
 
 [source,json]
 ----
@@ -1187,7 +1187,7 @@ include::examples/example_3.4.json[]
 [[state-change]]
 === 3.5. State Change Object Type
 
-*3.5 Example*
+*3.5.1 Example*
 
 [source,json]
 ----
@@ -1240,7 +1240,7 @@ If the *initial_ref* is populated this *MUST* reference the same type of SDO.
 [[task-entry]]
 === 3.6. Task Entry Object Type
 
-*3.6 Example*
+*3.6.1 Example*
 
 [source,json]
 ----
@@ -1281,7 +1281,7 @@ Default value is [stixliteral]#true#.
 Task sequence entries store references to subsequent steps for a task entry.
 As these are always stored in an array of steps within an array of task entries validation rules for *task_ref* *MUST* be performed against the entire array of task entries.
 
-*3.7 Example*
+*3.7.1 Example*
 
 [source,json]
 ----
