@@ -1,0 +1,177 @@
+'''
+== Identity Contact Information Extension Version 1.0 for STIX™ Version 2.1
+Draft
+
+3 January 2023
+
+Editors:: Jeffrey Mates
+
+Additional artifacts:: This prose specification is one component of a Work Product that also includes:
+* STIX™ Version 2.1 - OS
+
+Related work:: This specification replaces or supersedes:
+* N/A
+
+Abstract:: The current STIX 2.1 Identity object only contains a single text field for contact information.  This is insufficient to effectively move contact information for individuals between automated systems.  This extension adds more granular tracking so that this can be effectively communicated between systems.
+
+=== 1. Identity Contact Information Extension
+The properties and additional types within the Identity Contact Information Extension are defined below.  As this is not a top-level object, fields such as identifier are not present.  This extension should be mapped to `extension-definition--66e2492a-bbd3-4be6-88f5-cc91a017a498`.
+
+[cols="1,1,1"]
+|===
+|*Property Name* |*Type* |*Description*
+
+|extension_type (required)
+|`string`
+|The value of this property *MUST* be property-extension
+
+|contact_numbers (optional)
+|`list` of type `contact_number`
+|A list of contact number objects that contain the phone and fax numbers.
+
+|email_addresses (optional)
+|`list` of type `email_contact`
+|A list of email contact objects that contain the email type and address.
+
+|first_name (optional)
+|`string`
+|The first name of an individual.
+
+|last_name (optional)
+|`string`
+|The last name of an individual.
+
+|middle_name (optional)
+|`string`
+|The middle name of an individual
+
+|prefix (optional)
+|`string`
+|A prefix or title for an individual such as “Mr” or “Ms”.
+
+|social_media_accounts (optional)
+|`list` of type `social_media_contact`
+|A list of social media contact objects that contain the social media account type and account.
+
+|suffix (optional)
+|`string`
+|A suffix for the individual such as “PhD”.
+|===
+
+==== 1.1 Contact Number Object Type
+===== Type Name: `contact-number`
+[cols="1,1,1"]
+|===
+|*Property Name* |*Type* |*Description*
+
+|description (optional)
+|`string`
+|An additional description for the phone number and its purpose.
+
+|contact_number_type (required)
+|`open-vocab`
+|The type of number this is used for.  This *SHOULD* be drawn from `contact-number-ov`.
+
+|contact_number (required)
+|`string`
+|The contact number. Typically a phone number.
+|===
+
+==== 1.2 Email Contact Object Type
+===== Type Name: `email-contact`
+[cols="1,1,1"]
+|===
+|*Property Name* |*Type* |*Description*
+
+|description (optional)
+|`string`
+|An additional description for the email and its purpose
+
+|digital_contact_type (required)
+|`open-vocab`
+|The type of email that address is used for.  This *SHOULD* be drawn from `digital-contact-ov`.
+
+|email_address_ref (required)
+|`identifier` of type `email-addr`
+|A reference to the email address itself.
+|===
+
+==== 1.3 Social Media Contact Object Type
+===== Type Name: `social-media-contact`
+[cols="1,1,1"]
+|===
+|*Property Name* |*Type* |*Description*
+
+|description (optional)
+|`string`
+|An additional description for the social media account and its purpose
+
+|digital_contact_type (required)
+|`open-vocab`
+|The type of social media account that relates to.  This *SHOULD* be drawn from `digital-contact-ov`.
+
+This *SHOULD NOT* be used to capture the social media service used.  That *SHOULD* be encoded into the User Account Object that is linked to by the user_account_ref property.
+
+|user_account_ref (required)
+|`identifier` of type `user-account`
+|A reference to the social media account itself.
+|===
+
+=== 2. Vocabularies
+
+==== 2.1 Contact Number Type Vocabulary
+===== Type Name: `contact-number-ov`
+[cols="m,1"]
+|===
+s|Property Name s|Type
+
+|`classified-phone`
+|A work email address that can be used to reach the individual on a classified network.
+
+|`personal-fax`
+|A personal fax number
+
+|`personal-phone`
+|A personal email address.
+
+|`unclassified-phone`
+|A work email address that can be used to reach the individual on an unclassified network.
+
+|`work-phone`
+|A work email address that can be used to reach the individual when no distinction is required between classified or unclassified systems.
+
+|`work-fax`
+|A work fax number
+|===
+
+==== 2.2 Digital Contact Type Vocabulary
+===== Type Name: `digital-contact-ov`
+[cols="m,1"]
+|===
+s|Property Name s|Type
+
+|`classified`
+|A work email address that can be used to reach the individual on a classified network.
+
+|`organizational`
+|A shared email address for an organization.
+
+|`personal`
+|A personal email address.
+
+|`unclassified`
+|A work email address that can be used to reach the individual on an unclassified network.
+
+|`work`
+|A work email address that can be used to reach the individual when no distinction is required between classified or unclassified systems.
+|===
+
+=== Appendix A. Acknowledgements
+==== Primary Editor
+Jefferey Mates, US Department of Defense (DoD)
+
+==== Contributors
+The following individuals were members of the OASIS CTI Technical Committee and contributed time and effort to ensure that this extension would be possible.  Their contributions are gratefully acknowledged:
+
+Rich Piazza, MITRE Corporation
+
