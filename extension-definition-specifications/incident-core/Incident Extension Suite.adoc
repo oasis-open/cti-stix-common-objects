@@ -1118,13 +1118,6 @@ _0 individuals_
 [[event-entry]]
 === 3.2. Event Entry Object Type
 
-==== 3.2.1 Example
-
-[source,json]
-----
-include::examples/example_3.2.json[]
-----
-
 *Type Name:* [stixtype]#event-entry#
 
 [width="100%",cols="37%,23%,40%",options="header",]
@@ -1153,18 +1146,19 @@ Default value is [stixliteral]#true#.
 
 |===
 
+==== 3.2.1 Example
+
+[source,json]
+----
+include::examples/example_3.2.json[]
+----
+
 [[event-sequence-entry]]
 === 3.3. Event Sequence Object Type
 
 Event sequence entries store references to subsequent steps for an event entry.
 As these are always stored in an array of steps within an array of event entries validation rules for *event_ref* *MUST* be performed against the entire array of event entries.
 
-==== 3.3.1 Example
-
-[source,json]
-----
-include::examples/example_3.3.json[]
-----
 
 *Type Name:* [stixtype]#event-sequence-entry#
 
@@ -1196,17 +1190,17 @@ The values of this property *MUST* come from the [stixtype]#<<activity-transitio
 
 |===
 
+==== 3.3.1 Example
+
+[source,json]
+----
+include::examples/example_3.3.json[]
+----
+
 <<<
 
 [[incident-score]]
 === 3.4 Incident Score Object Type
-
-==== 3.4.1 Example
-
-[source,json]
-----
-include::examples/example_3.4.json[]
-----
 
 *Type Name:* [stixtype]#incident-score#
 [width="100%",cols="37%,23%,40%",options="header",]
@@ -1229,16 +1223,15 @@ include::examples/example_3.4.json[]
 |===
 
 <<<
-
-[[state-change]]
-=== 3.5. State Change Object Type
-
-==== 3.5.1 Example
+==== 3.4.1 Example
 
 [source,json]
 ----
-include::examples/example_3.5.json[]
+include::examples/example_3.4.json[]
 ----
+
+[[state-change]]
+=== 3.5. State Change Object Type
 
 *Type Name:* [stixtype]#state-change#
 
@@ -1280,18 +1273,17 @@ For example, an event causing a network outage.
 If the *initial_ref* is populated this *MUST* reference the same type of SDO.
 
 |===
+==== 3.5.1 Example
+
+[source,json]
+----
+include::examples/example_3.5.json[]
+----
 
 <<<
 
 [[task-entry]]
 === 3.6. Task Entry Object Type
-
-==== 3.6.1 Example
-
-[source,json]
-----
-include::examples/example_3.6.json[]
-----
 
 *Type Name:* [stixtype]#task-entry#
 
@@ -1321,18 +1313,18 @@ Default value is [stixliteral]#true#.
 
 |===
 
+==== 3.6.1 Example
+
+[source,json]
+----
+include::examples/example_3.6.json[]
+----
+
 [[task-sequence-entry]]
 === 3.7. Task Sequence Object Type
 
 Task sequence entries store references to subsequent steps for a task entry.
 As these are always stored in an array of steps within an array of task entries validation rules for *task_ref* *MUST* be performed against the entire array of task entries.
-
-==== 3.7.1 Example
-
-[source,json]
-----
-include::examples/example_3.7.json[]
-----
 
 *Type Name:* [stixtype]#task-sequence-entry#
 
@@ -1364,6 +1356,12 @@ The values of this property *MUST* come from the [stixtype]#<<activity-transitio
 
 |===
 
+==== 3.7.1 Example
+
+[source,json]
+----
+include::examples/example_3.7.json[]
+----
 <<<
 
 == 4. Vocabularies
