@@ -97,13 +97,6 @@ The Incident object should have sufficient properties to represent the current s
 
 The properties and additional types within the Incident Core Extension are defined below. As this is an extension of a top-level object, fields such as identifier are not present.  This extension *MUST* use [stixliteral]#extension-definition--ef765651-680c-498d-9894-99799f2fa126# as its extension ID.
 
-==== 2.1.1 Example
-
-[source,json]
-----
-include::examples/example_2.1.json[]
-----
-
 <<<
 
 [width="100%",cols="37%,23%,40%",options="header"]
@@ -247,6 +240,13 @@ This can be used to supplement the created_by_ref in cases where external author
 // relationships:end
 |===
 // end::incident-relationships[]
+
+==== 2.1.1 Example
+
+[source,json]
+----
+include::examples/example_2.1.json[]
+----
 
 <<<
 [[event]]
