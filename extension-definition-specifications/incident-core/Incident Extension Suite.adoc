@@ -665,7 +665,7 @@ The value of this property *SHOULD* come from the [stixtype]#<<external-impact-o
 
 [source,json]
 ----
-include::examples/example_2.3.2.2.1.json[]
+include::examples/example_2.3.2.3.1.json[]
 ----
 
 ===== 2.3.2.4. Integrity Impact Extension
