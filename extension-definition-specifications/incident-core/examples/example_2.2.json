@@ -1,6 +1,9 @@
 {
     "type": "event",
     "id": "event--68e1e976-7e3b-4233-8bde-1a5dbb17a9a6",
+    "created": "2023-11-22T15:30:00Z",
+    "modified": "2023-11-22T15:30:00Z",
+    "spec_version": "2.1",
     "status": "ongoing",
     "changed_objects": [
         {

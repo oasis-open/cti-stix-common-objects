@@ -1,6 +1,9 @@
 {
     "type": "task",
     "id": "task--4e1e2a5a-6b3c-4d5e-8f6a-9e7b8a9a5b6c",
+    "created": "2023-11-22T15:30:00Z",
+    "modified": "2023-11-22T15:30:00Z",
+    "spec_version": "2.1",
     "outcome": "successful",
     "changed_objects": [
         {

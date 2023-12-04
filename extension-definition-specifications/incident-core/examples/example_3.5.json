@@ -1,6 +1,4 @@
 {
-    "type": "state-change",
-    "id": "state-change--5e51b49b-6c9b-4e5a-8bc4-82e0a5b5c5c2",
     "state_change_type": "escalation",
     "initial_ref": "incident--d1e4f6c7-3b1a-4b5c-8a5a-9e7b8a9a5b6c",
     "result_ref": "incident--c1f2d3e4-5b6c-7a8d-9e0a-1b2c3d4e5f6g"

@@ -1,4 +1,9 @@
 {
+    "type": "incident",
+    "id": "incident--b0e7e6a5-6e2c-4a0b-8d5a-8a5e92a5a5bc",
+    "created": "2023-11-22T15:30:00Z",
+    "modified": "2023-11-22T15:30:00Z",
+    "spec_version": "2.1",
     "determination": "confirmed",
     "extension_type": "property-extension",
     "investigation_status": "open",

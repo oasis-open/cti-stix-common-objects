@@ -1,6 +1,9 @@
 {
     "type": "impact",
     "id": "impact--de425325-5ac8-4f4b-ace7-054301b80863",
+    "created": "2023-11-22T15:30:00Z",
+    "modified": "2023-11-22T15:30:00Z",
+    "spec_version": "2.1",
     "impact_category": "availability",
     "criticality": 70,
     "description": "Loss of availability for a critical service.",
