@@ -1,0 +1,46 @@
+{
+    "type": "incident",
+    "id": "incident--b0e7e6a5-6e2c-4a0b-8d5a-8a5e92a5a5bc",
+    "created": "2023-11-22T15:30:00Z",
+    "modified": "2023-11-22T15:30:00Z",
+    "spec_version": "2.1",
+    "determination": "confirmed",
+    "extension_type": "property-extension",
+    "investigation_status": "open",
+    "criticality": 70,
+    "detection_methods": [
+        "automated-tool",
+        "human-review"
+    ],
+    "events": [
+        {
+            "event_ref": "event--9ca38544-c247-45d9-9e33-957ba7c9e119"
+        }
+    ],
+    "impact_refs": [
+        "impact--7a5806e4-0f37-4c48-9a50-7301bff4b195"
+    ],
+    "impacted_entity_counts": {
+        "individual": 100,
+        "employee": 70,
+        "customer-individual": 30
+    },
+    "incident_types": [
+        "hosting-phishing-sites"
+    ],
+    "recoverability": "regular",
+    "scores": [
+        {
+            "incident-score": {
+                "name": "ExampleSystem Automated Exposure Score",
+                "value": 75.5,
+                "description": "The score is calculated based on the severity of the incident and the potential impact on the organization."
+            }
+        }
+    ],
+    "tasks": [
+        {
+            "task_ref": "task--a45aaed9-6504-4f95-982e-78508726eb5a"
+        }
+    ]
+}

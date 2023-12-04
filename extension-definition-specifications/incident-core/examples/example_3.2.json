@@ -1,0 +1,11 @@
+{
+    "event_ref": "event--68e1e976-7e3b-4233-8bde-1a5dbb17a9a6",
+    "next_steps": [
+        {
+            "event_ref": "event--f3e1a6f3-1a95-457a-84a7-887c2d9e5e7c",
+            "condition_type": "required",
+            "transition_type": "success"
+        }
+    ],
+    "sequence_start": true
+}

@@ -1,0 +1,27 @@
+{
+    "type": "event",
+    "id": "event--68e1e976-7e3b-4233-8bde-1a5dbb17a9a6",
+    "created": "2023-11-22T15:30:00Z",
+    "modified": "2023-11-22T15:30:00Z",
+    "spec_version": "2.1",
+    "status": "ongoing",
+    "changed_objects": [
+        {
+            "state_change": {
+                "state_change_type": "escalation",
+                "initial_ref": "impact--d1e4f6c7-3b1a-4b5c-8a5a-9e7b8a9a5b6c",
+                "result_ref": "impact--c1f2d3e4-5b6c-7a8d-9e0a-1b2c3d4e5f6g"
+            }
+        }
+    ],
+    "description": "Phishing attack on company email accounts.",
+    "end_time": "2023-11-22T15:30:00Z",
+    "end_time_fidelity": "minute",
+    "event_types": [
+        "phishing"
+    ],
+    "goal": "Gain unauthorized access to sensitive information.",
+    "name": "Phishing Attack",
+    "start_time": "2023-11-22T14:30:00Z",
+    "start_time_fidelity": "minute"
+}
