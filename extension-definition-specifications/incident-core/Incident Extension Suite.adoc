@@ -241,11 +241,20 @@ This can be used to supplement the created_by_ref in cases where external author
 |===
 // end::incident-relationships[]
 
+==== 2.1.1 Example
+
+[source,json]
+----
+include::examples/example_2.1.json[]
+----
+
 <<<
 [[event]]
 === 2.2. Event
 
 This new sdo extension *MUST* use [stixliteral]#extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e# as its extension ID.
+
+
 [width="100%",cols="100%",stripes=odd]
 |===
 ^|[stixtr]*Required Common Properties*
@@ -428,10 +437,18 @@ For example, a dropper running allowed a ransomware tool to be downloaded and ru
 
 // end::event-relationships[]
 
+==== 2.2.2 Example
+
+[source,json]
+----
+include::examples/example_2.2.json[]
+----
+
 <<<
 [[impact]]
 === 2.3. Impact
 This new sdo extension *MUST* use [stixliteral]#extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9# as its extension ID.
+
 
 [width="100%",cols="100%",stripes=odd]
 |===
@@ -580,6 +597,13 @@ This value *MUST* be between 0 to 100. This can be translated into qualitative v
 
 |===
 
+===== 2.3.2.1.1 Availability Impact Example
+
+[source,json]
+----
+include::examples/example_2.3.2.1.1.json[]
+----
+
 <<<
 
 ===== 2.3.2.2. Confidentiality Impact Extension
@@ -613,6 +637,13 @@ The values of this property *MUST* come from the [stixtype]#<<incident-confident
 |The amount of data that was compromised in bytes. The value of this property *MUST NOT* be negative.
 |===
 
+===== 2.3.2.2.1 Confidentiality Impact Example
+
+[source,json]
+----
+include::examples/example_2.3.2.2.1.json[]
+----
+
 ===== 2.3.2.3. External Impact Extension
 
 [width="100%",cols="37%,23%,40%",options="header",]
@@ -629,6 +660,13 @@ The value of this property *SHOULD* come from the [stixtype]#<<external-impact-o
 |===
 
 <<<
+
+===== 2.3.2.3.1 External Impact Example
+
+[source,json]
+----
+include::examples/example_2.3.2.3.1.json[]
+----
 
 ===== 2.3.2.4. Integrity Impact Extension
 
@@ -667,6 +705,13 @@ Including an entry that with an alteration of none and no information_type indic
 |===
 
 <<<
+
+===== 2.3.2.4.1 Integrity Impact Example
+
+[source,json]
+----
+include::examples/example_2.3.2.4.1.json[]
+----
 
 ===== 2.3.2.5. Monetary Impact Extension
 
@@ -731,6 +776,13 @@ This value *MUST* be included if the *max_amount* property is included.
 
 <<<
 
+===== 2.3.2.5.1 Monetary Impact Example
+
+[source,json]
+----
+include::examples/example_2.3.2.5.1.json[]
+----
+
 ===== 2.3.2.6. Physical Impact Extension
 
 [width="100%",cols="37%,23%,40%",options="header",]
@@ -757,6 +809,13 @@ Including an entry with an *impact_type* of none and no asset_type indicates tha
 
 |===
 
+===== 2.3.2.6.1 Physical Impact Example
+
+[source,json]
+----
+include::examples/example_2.3.2.6.1.json[]
+----
+
 ===== 2.3.2.7. Traceability Impact Extension
 
 [width="100%",cols="37%,23%,40%",options="header",]
@@ -773,9 +832,18 @@ The value of this property *MUST* come from the [stixtype]#<<traceability-enum,t
 
 |===
 
+===== 2.3.2.7.1 Traceability Impact Example
+
+[source,json]
+----
+include::examples/example_2.3.2.7.1.json[]
+----
+
 <<<
 [[task]]
 === 2.4. Task
+
+
 
 [width="100%",cols="100%",stripes=odd]
 |===
@@ -993,6 +1061,13 @@ Using these embedded relationships ensure that an incomplete sequence cannot be 
 
 // end::task-relationships[]
 
+==== 2.4.2 Example
+
+[source,json]
+----
+include::examples/example_2.4.json[]
+----
+
 <<<
 
 == 3. Additional Sub-Objects Types
@@ -1071,11 +1146,19 @@ Default value is [stixliteral]#true#.
 
 |===
 
+==== 3.2.1 Example
+
+[source,json]
+----
+include::examples/example_3.2.json[]
+----
+
 [[event-sequence-entry]]
 === 3.3. Event Sequence Object Type
 
 Event sequence entries store references to subsequent steps for an event entry.
 As these are always stored in an array of steps within an array of event entries validation rules for *event_ref* *MUST* be performed against the entire array of event entries.
+
 
 *Type Name:* [stixtype]#event-sequence-entry#
 
@@ -1107,10 +1190,17 @@ The values of this property *MUST* come from the [stixtype]#<<activity-transitio
 
 |===
 
+==== 3.3.1 Example
+
+[source,json]
+----
+include::examples/example_3.3.json[]
+----
+
 <<<
 
 [[incident-score]]
-=== 3.4. Incident Score Object Type
+=== 3.4 Incident Score Object Type
 
 *Type Name:* [stixtype]#incident-score#
 [width="100%",cols="37%,23%,40%",options="header",]
@@ -1133,6 +1223,12 @@ The values of this property *MUST* come from the [stixtype]#<<activity-transitio
 |===
 
 <<<
+==== 3.4.1 Example
+
+[source,json]
+----
+include::examples/example_3.4.json[]
+----
 
 [[state-change]]
 === 3.5. State Change Object Type
@@ -1177,6 +1273,12 @@ For example, an event causing a network outage.
 If the *initial_ref* is populated this *MUST* reference the same type of SDO.
 
 |===
+==== 3.5.1 Example
+
+[source,json]
+----
+include::examples/example_3.5.json[]
+----
 
 <<<
 
@@ -1210,6 +1312,13 @@ If a cycle exists with multiple entries with *sequence_start* set to [stixlitera
 Default value is [stixliteral]#true#.
 
 |===
+
+==== 3.6.1 Example
+
+[source,json]
+----
+include::examples/example_3.6.json[]
+----
 
 [[task-sequence-entry]]
 === 3.7. Task Sequence Object Type
@@ -1247,6 +1356,12 @@ The values of this property *MUST* come from the [stixtype]#<<activity-transitio
 
 |===
 
+==== 3.7.1 Example
+
+[source,json]
+----
+include::examples/example_3.7.json[]
+----
 <<<
 
 == 4. Vocabularies

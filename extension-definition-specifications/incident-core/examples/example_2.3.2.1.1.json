@@ -1,0 +1,25 @@
+{
+    "type": "impact",
+    "id": "impact--de425325-5ac8-4f4b-ace7-054301b80863",
+    "created": "2023-11-22T15:30:00Z",
+    "modified": "2023-11-22T15:30:00Z",
+    "spec_version": "2.1",
+    "impact_category": "availability",
+    "criticality": 70,
+    "description": "Loss of availability for a critical service.",
+    "end_time": "2023-11-22T16:00:00Z",
+    "end_time_fidelity": "minute",
+    "impacted_entity_counts": {
+        "system": 1
+    },
+    "impacted_refs": [
+        "infrastructure--11c25d0e-48f5-4491-960a-0da71c4e0d16"
+    ],
+    "start_time": "2023-11-22T15:30:00Z",
+    "start_time_fidelity": "minute",
+    "extensions": {
+        "availability-impact": {
+            "availability_impact": 90
+        }
+    }
+}

@@ -1,0 +1,5 @@
+{
+    "name": "ExampleSystem Automated Exposure Score",
+    "value": 75.5,
+    "description": "The score is calculated based on the severity of the incident and the potential impact on the organization."
+}
