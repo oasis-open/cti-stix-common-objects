@@ -166,6 +166,26 @@ s|Property Name s|Type
 |A work email address that can be used to reach the individual when no distinction is required between classified or unclassified systems.
 |===
 
+=== 3. Identity Contact Information Examples
+
+==== 3.1 Incident Contact Details Example
+[source,json]
+----
+include::examples/contact_details.json[]
+----
+
+==== 3.2 Identitiy Contact Details Example
+[source,json]
+----
+include::examples/individual_contact_example.json[]
+----
+
+==== 3.3 Organization Contact Details Example
+[source,json]
+----
+include::examples/organization_contact_example.json[]
+----
+
 === Appendix A. Acknowledgements
 ==== Primary Editor
 Jefferey Mates, US Department of Defense (DoD)
