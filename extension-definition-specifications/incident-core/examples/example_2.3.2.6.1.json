@@ -1,6 +1,9 @@
 {
     "type": "impact",
     "id": "impact--738492bd-288b-48c9-ad2a-83230d2dee86",
+    "created": "2023-11-22T15:30:00Z",
+    "modified": "2023-11-22T15:30:00Z",
+    "spec_version": "2.1",
     "impact_category": "physical",
     "criticality": 95,
     "description": "Physical damage to a power plant.",
