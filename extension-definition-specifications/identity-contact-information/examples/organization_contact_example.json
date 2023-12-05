@@ -25,14 +25,16 @@
                     "email_addresses": [
                         {
                             "email_address_ref": "email-addr--035f27c3-0bb7-4400-b270-46cba4a86663",
-                            "digital_contact_type": "organizational"
+                            "digital_contact_type": "organizational",
+                            "classified": false
                         }
                     ],
                     "social_media_accounts": [
                         {
                             "user_account_ref": "user-account--30e60bb2-3efd-4897-a6be-e0ced69920e7",
                             "digital_contact_type": "organizational",
-                            "description": "Test Company's organizational social media account"
+                            "description": "Test Company's organizational social media account",
+                            "classified": false
                         }
                     ]
                 }

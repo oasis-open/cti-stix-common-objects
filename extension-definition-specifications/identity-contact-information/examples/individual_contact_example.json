@@ -23,7 +23,7 @@
                     "contact_numbers": [
                         {
                             "contact_number": "102-030-4050",
-                            "contact_number_type": "personal-phone",
+                            "contact_number_type": "personal-landline-phone",
 			                "classified": false
                         },
                         {
@@ -33,29 +33,33 @@
                         },
                         {
                             "contact_number": "304-050-6070",
-                            "contact_number_type": "classified-phone",
+                            "contact_number_type": "personal-mobile-phone",
                             "classified": true
                         }
                     ],
                     "email_addresses": [
                         {
                             "email_address_ref": "email-addr--d80eb6d5-7d01-4cd2-b710-20ac765dc9c5",
-                            "digital_contact_type": "personal"
+                            "digital_contact_type": "personal",
+                            "classified": false
                         },
                         {
                             "email_address_ref": "email-addr--04aceb6b-f47f-4e6d-8de1-591961aa46d5",
-                            "digital_contact_type": "work"
+                            "digital_contact_type": "work",
+                            "classified": false
                         },
                         {
                             "email_address_ref": "email-addr--1f081efd-856b-4ae3-a242-688a6c223fae",
-                            "digital_contact_type": "classified"
+                            "digital_contact_type": "work",
+                            "classified": true
                         }
                     ],
                     "social_media_accounts": [
                         {
                             "user_account_ref": "user-account--a60d5641-a860-4a86-8ed8-6bbbeaf300e9",
                             "digital_contact_type": "personal",
-                            "description": "Michael Michaelson's personal social media account"
+                            "description": "Michael Michaelson's personal social media account",
+                            "classified": false
                         }
                     ]
                 }
