@@ -1,0 +1,94 @@
+{
+    "type": "bundle",
+    "id": "bundle--bac5c97c-3a7f-481c-aa42-b0e7465a67dc",
+    "objects": [
+        {
+            "type": "identity",
+            "id": "identity--32a6ff61-167a-4481-b678-38e20b1989dc",
+            "created": "2023-08-06T01:02:00.000Z",
+            "modified": "2023-11-16T01:03:01.000Z",
+            "spec_version": "2.1",
+            "name": "Michael Michaelson",
+            "description": "a contact person",
+            "identity_class": "individual",
+            "contact_information": "102-030-4050 / m.michaelson@address.com",
+            "extensions": {
+                "extension-definition--66e2492a-bbd3-4be6-88f5-cc91a017a498": {
+                    "extension_type": "property-extension",
+                    "first_name": "Michael",
+                    "middle_name": "Mikael",
+                    "last_name": "Michaelson",
+                    "prefix": "Dr",
+                    "suffix": "PhD",
+                    "contact_numbers": [
+                        {
+                            "contact_number": "102-030-4050",
+                            "contact_number_type": "personal-landline-phone",
+			                "classified": false
+                        },
+                        {
+                            "contact_number": "203-040-5060",
+                            "contact_number_type": "work-phone",
+                            "classified": false
+                        },
+                        {
+                            "contact_number": "304-050-6070",
+                            "contact_number_type": "personal-mobile-phone",
+                            "classified": true
+                        }
+                    ],
+                    "email_addresses": [
+                        {
+                            "email_address_ref": "email-addr--d80eb6d5-7d01-4cd2-b710-20ac765dc9c5",
+                            "digital_contact_type": "personal",
+                            "classified": false
+                        },
+                        {
+                            "email_address_ref": "email-addr--04aceb6b-f47f-4e6d-8de1-591961aa46d5",
+                            "digital_contact_type": "work",
+                            "classified": false
+                        },
+                        {
+                            "email_address_ref": "email-addr--1f081efd-856b-4ae3-a242-688a6c223fae",
+                            "digital_contact_type": "work",
+                            "classified": true
+                        }
+                    ],
+                    "social_media_accounts": [
+                        {
+                            "user_account_ref": "user-account--a60d5641-a860-4a86-8ed8-6bbbeaf300e9",
+                            "digital_contact_type": "personal",
+                            "description": "Michael Michaelson's personal social media account",
+                            "classified": false
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "type": "email-addr",
+            "spec_version": "2.1",
+            "id": "email-addr--d80eb6d5-7d01-4cd2-b710-20ac765dc9c5",
+            "value": "m.michaelson@address.com"
+        },
+        {
+            "type": "email-addr",
+            "spec_version": "2.1",
+            "id": "email-addr--04aceb6b-f47f-4e6d-8de1-591961aa46d5",
+            "value": "michaelson@workaddress.com"
+        },
+        {
+            "type": "email-addr",
+            "spec_version": "2.1",
+            "id": "email-addr--1f081efd-856b-4ae3-a242-688a6c223fae",
+            "value": "michaelson@classifiedworkaddress.com" 
+        },
+        {
+            "type": "user-account",
+            "spec_version": "2.1",
+            "id": "user-account--a60d5641-a860-4a86-8ed8-6bbbeaf300e9",
+            "account_login": "mmichaelson",
+            "account_type": "social media service"
+        }
+    ]
+}

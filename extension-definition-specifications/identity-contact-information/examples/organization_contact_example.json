@@ -1,0 +1,57 @@
+{
+    "type": "bundle",
+    "id": "bundle--bac5c97c-3a7f-481c-aa42-b0e7465a67dc",
+    "objects": [
+        {
+            "type": "identity",
+            "id": "identity--361ef301-c0cf-4b92-9d42-d2424c47f31d",
+            "created": "2023-01-06T01:02:00.000Z",
+            "modified": "2023-10-16T01:03:01.000Z",
+            "spec_version": "2.1",
+            "name": "Test Company",
+            "description": "a company",
+            "identity_class": "organization",
+            "contact_information": "info@testcompany.com",
+            "extensions": {
+                "extension-definition--66e2492a-bbd3-4be6-88f5-cc91a017a498": {
+                    "extension_type": "property-extension",
+                    "contact_numbers": [
+                        {
+                            "contact_number": "456-789-1234",
+                            "contact_number_type": "work-phone",
+			                "classified": false
+                        }
+                    ],
+                    "email_addresses": [
+                        {
+                            "email_address_ref": "email-addr--035f27c3-0bb7-4400-b270-46cba4a86663",
+                            "digital_contact_type": "organizational",
+                            "classified": false
+                        }
+                    ],
+                    "social_media_accounts": [
+                        {
+                            "user_account_ref": "user-account--30e60bb2-3efd-4897-a6be-e0ced69920e7",
+                            "digital_contact_type": "organizational",
+                            "description": "Test Company's organizational social media account",
+                            "classified": false
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "type": "email-addr",
+            "spec_version": "2.1",
+            "id": "email-addr--035f27c3-0bb7-4400-b270-46cba4a86663",
+            "value": "info@testcompany.com"
+        },
+        {
+            "type": "user-account",
+            "spec_version": "2.1",
+            "id": "user-account--30e60bb2-3efd-4897-a6be-e0ced69920e7",
+            "account_login": "testcompany",
+            "account_type": "social media service"
+        }
+    ]
+}

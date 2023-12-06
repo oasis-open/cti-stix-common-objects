@@ -1,0 +1,253 @@
+:stylesheet: stix.css
+:stylesdir: ../../asciidoc-shared
+:toc: macro
+:toclevels: 4
+:nofooter:
+
+// Types from the STIX 2.1 specification
+:boolean_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_7s76li5u5yid
+:identifier_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_64yvzeku5a5c
+:list_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_9w329aiwpu1y
+:open_vocab_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_bnnxah80y7by
+:string_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_uxyhzmv0vpyc
+
+= [stixtitle]*Identity Contact Information Extension Version 1.0 for STIX™ Version 2.1*
+
+[.stix-doc-information-heading]#Draft#
+
+[.stix-doc-information-heading]#3 January 2023#
+
+[.stix-doc-information-heading]
+Editors:
+[.stix-indent]
+- Jeffrey Mates
+
+[.stix-doc-information-heading]
+Additional artifacts:
+[.stix-indent]
+.This prose specification is one component of a Work Product that also includes:
+
+- STIX™ Version 2.1 - OS
+
+[.stix-doc-information-heading]
+Related work:
+
+[.stix-indent]
+.This specification replaces or supersedes: +
+
+- N/A
+
+toc::[]
+
+[.stix-doc-information-heading]*Abstract:*
+
+The current STIX 2.1 Identity object only contains a single text field for contact information.  This is insufficient to effectively move contact information for individuals between automated systems.  This extension adds more granular tracking so that this can be effectively communicated between systems.
+
+== 1. Identity Contact Information Extension
+The properties and additional types within the Identity Contact Information Extension are defined below.  As this is not a top-level object, fields such as identifier are not present.  This extension should be mapped to [stixliteral]#extension-definition--66e2492a-bbd3-4be6-88f5-cc91a017a498#.
+
+[width="100%",cols="37%,23%,40%",options="header"]
+|===
+^|[stixtr]*Property Name*
+^|[stixtr]*Type*
+^|[stixtr]*Description*
+
+|*extension_type* (required)
+|[stixtype]#{string_url}[string]# 
+|The value of this property *MUST* be [stixliteral]#property-extension#
+
+|*contact_numbers* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#<<contact-number,contact-numer>>#
+|A list of contact number objects that contain the phone and fax numbers.
+
+|*email_addresses* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#<<email-contact,email-contact>>#
+|A list of contact number objects that contain the phone and fax numbers.
+
+|*first_name* (optional)
+|[stixtype]#{string_url}[string]# 
+|The first name of an individual.
+
+|*last_name* (optional)
+|[stixtype]#{string_url}[string]# 
+|The last name of an individual.
+
+|*middle_name* (optional)
+|[stixtype]#{string_url}[string]# 
+|The middle name of an individual.
+
+|*prefix* (optional)
+|[stixtype]#{string_url}[string]# 
+|A prefix or title for an individual such as “Mr” or “Ms”.
+
+|*social_media_accounts* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#<<social-media-contact,social-media-contact>>#
+|A list of social media contact objects that contain the social media account type and account.
+
+|*suffix* (optional)
+|[stixtype]#{string_url}[string]# 
+|A suffix for the individual such as “PhD”.
+|===
+
+== 2. Additional Sub-Object Types
+[[contact-number]]
+=== 2.1 Contact Number Object Type
+*Type Name:* [stixtype]#contact-number#
+
+[width="100%",cols="37%,23%,40%",options="header",]
+|===
+^|[stixtr]*Property Name*
+^|[stixtr]*Type* 
+^|[stixtr]*Description*
+
+|*description* (optional)
+|[stixtype]#{string_url}[string]# 
+|An additional description for the phone number and its purpose.
+
+|*classified* (optional)
+|[stixtype]#{boolean_url}[boolean]#
+|Can be used to reach the identity on a classified phone.  The default is false. 
+
+|*contact_number_type* (required)
+|[stixtype]#{open_vocab_url}[open_vocab]# 
+|The type of number this is used for.  This *SHOULD* be drawn from [stixtype]#<<contact-number-ov,contact-number-ov>>#.
+
+|*contact_number* (required)
+|[stixtype]#{string_url}[string]# 
+|The contact number. Typically a phone number.
+|===
+
+[[email-contact]]
+=== 2.2 Email Contact Object Type
+*Type Name:* [stixtype]#email-contact#
+
+[width="100%",cols="37%,23%,40%",options="header",]
+|===
+^|[stixtr]*Property Name*
+^|[stixtr]*Type* 
+^|[stixtr]*Description*
+
+|*description* (optional)
+|[stixtype]#{string_url}[string]# 
+|An additional description for the email and its purpose.
+
+|*classified* (optional)
+|[stixtype]#{boolean_url}[boolean]#
+|Can be used to reach the identity on a classified network.  The default is false. 
+
+|*digital_contact_type* (required)
+|[stixtype]#{open_vocab_url}[open_vocab]# 
+|The type of email that address is used for.  This *SHOULD* be drawn from [stixtype]#<<digital-contact-ov,digital-contact-ov>>#.
+
+|*email_address_ref* (required)
+|[stixtype]#{identifier_url}[identifer]# of type [stixtype]#<<email-addr,email-addr>>#
+|A reference to the email address itself.
+|===
+
+[[social-media-contact]]
+=== 2.3 Social Media Contact Object Type
+*Type Name:* [stixtype]#social-media-contact#
+
+[width="100%",cols="37%,23%,40%",options="header",]
+|===
+^|[stixtr]*Property Name*
+^|[stixtr]*Type* 
+^|[stixtr]*Description*
+
+|*description* (optional)
+|[stixtype]#{string_url}[string]# 
+|An additional description for the social media account and its purpose
+
+|*classified* (optional)
+|[stixtype]#{boolean_url}[boolean]#
+|Can be used to reach the identity on a classified network.  The default is false. 
+
+|*digital_contact_type* (required)
+|[stixtype]#{open_vocab_url}[open_vocab]# 
+|The type of social media account that relates to.  This *SHOULD* be drawn from [stixtype]#<<digital-contact-ov,digital-contact-ov>>#.
+
+This *SHOULD NOT* be used to capture the social media service used.  That *SHOULD* be encoded into the User Account Object that is linked to by the user_account_ref property.
+
+|*user_account_ref* (required)
+|[stixtype]#{identifier_url}[identifer]# of type [stixtype]#<<user-account,user-account>>#
+|A reference to the social media account itself.
+|===
+
+== 3. Vocabularies
+
+[[contact-number-ov]]
+=== 3.1. Asset Type Vocabulary Contact Number Type Vocabulary
+*Type Name:* [stixtype]#contact-number-ov#
+
+[width="100%",cols="37%,63%",options="header",]
+|===
+^|[stixtr]*Vocabulary Value* 
+^|[stixtr]*Description*
+
+|[stixliteral]#personal-landline-phone#
+|A personal landline phone number
+
+|[stixliteral]#personal-mobile-phone#
+|A personal mobile phone number.
+
+|[stixliteral]#personal-fax#
+|A personal fax number
+
+|[stixliteral]#work-phone#
+|A work phone number (landline or mobile)
+
+|[stixliteral]#work-fax#
+|A work fax number
+|===
+
+[[digital-contact-ov]]
+=== 3.2 Digital Contact Type Vocabulary
+*Type Name:* [stixtype]#digital-contact-ov#
+
+[width="100%",cols="37%,63%",options="header",]
+|===
+^|[stixtr]*Vocabulary Value* 
+^|[stixtr]*Description*
+
+|[stixliteral]#organizational#
+|A shared email address/user-id for an organization.
+
+|[stixliteral]#personal#
+|A personal email address/user-id.
+
+|[stixliteral]#work#
+|A work email address/user-id.
+|===
+
+== 4. Identity Contact Information Examples
+
+=== 4.1 Incident Contact Details Example
+[source,json]
+----
+include::examples/contact_details.json[]
+----
+
+=== 4.2 Identitiy Contact Details Example
+[source,json]
+----
+include::examples/individual_contact_example.json[]
+----
+
+=== 4.3 Organization Contact Details Example
+[source,json]
+----
+include::examples/organization_contact_example.json[]
+----
+
+[[appendix-a]]
+== Appendix A. Acknowledgements
+*Primary Editor*
+
+Jeffrey Mates, US Department of Defense (DoD)
+
+*Contributors*
+The following individuals were members of the OASIS CTI Technical Committee and contributed time and effort to ensure that this extension would be possible.
+Their contributions are gratefully acknowledged:
+
+* Rich Piazza, MITRE Corporation
+
