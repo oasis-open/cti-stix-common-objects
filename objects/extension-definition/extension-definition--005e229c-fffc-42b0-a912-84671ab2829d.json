@@ -6,7 +6,7 @@
 	    "type": "extension-definition",
 	    "spec_version": "2.1",
 	    "name": "Extension to support STIX 1.x/CybOX 2.1 Network Sockets",
-	    "description": "This schema adds STIX 1.x/CybOX 2.1 Network Sockets properties not present in the STIX 2.1 Network Traffic object", # noqa
+	    "description": "This schema adds STIX 1.x/CybOX 2.1 Network Sockets properties not present in the STIX 2.1 Network Traffic object",
 	    "created": "2020-12-22T00:00:00.000000Z",
 	    "modified": "2020-12-22T00:00:00.000000Z",
 	    "created_by_ref": "identity--659e8342-f720-4d0d-b193-6a04fdfbb401",
