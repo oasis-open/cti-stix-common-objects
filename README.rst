@@ -1,3 +1,7 @@
+**If you are having issues cloning this repository, see these 
+`instructions <https://github.com/oasis-open/cti-stix-common-objects/cloning-help.rst/>`_ 
+for alternatives.**
+
 Introduction
 ------------
 
