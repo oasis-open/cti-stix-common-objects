@@ -1,8 +1,8 @@
-The common object repository (COR) contains a Vulnerability object for every CVE that was every created, which is approching 200,000 entries.  Because it is so large, there 
+The common object repository (COR) contains a Vulnerability object for every CVE that was every created, which is approaching 200,000 entries.  Because it is so large, there 
 has sometimes been an issue cloning it.  If you encounter an error similar to this:  
 
-> fatal: early EOF
-> fatal: index-pack failed
+    | fatal: early EOF
+    | fatal: index-pack failed
 
 you may be able to use the following command line instructions to perform the cloning.
 
