@@ -42,7 +42,7 @@ Identity objects
 Vulnerability objects
 ~~~~~~~~~~~~~~~~~~~~~
 
--    All “published” CVEs (updated daily).  As of March 2021, there are approximately 150,000 objects.
+-    All “published” CVEs (updated daily).  As of December 2023, there are over 200,000 objects.
 
 Using Python and STIX 2.1
 -------------------------
@@ -95,7 +95,7 @@ Once this filter is defined, you can pass it to the DataSource `query` function 
 
     vulnerabilities = fs.query([filter])
 
-*This query will process approximately 150,000 objects, which takes about 2 minutes.*
+*This query will process over 200,000 objects, which takes serveral minutes.*
 
 Notice that the `query` function takes a **list** of filters.  These filters are logically AND'd together during the query. 
 
