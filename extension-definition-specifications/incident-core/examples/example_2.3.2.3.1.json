@@ -12,6 +12,9 @@
     "extensions": {
         "external-impact": {
             "impact_type": "reputation"
+        },
+        "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+            "extension_type": "new-sdo"
         }
     }
 }

@@ -23,5 +23,10 @@
     "name": "Mitigation Task",
     "priority": 80,
     "start_time": "2023-11-22T15:30:00Z",
-    "start_time_fidelity": "minute"
+    "start_time_fidelity": "minute",
+    "extensions": {
+        "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
+            "extension_type": "new-sdo"
+        }
+    }
 }
