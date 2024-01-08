@@ -14,6 +14,9 @@
             "alteration": "unauthorized-modification",
             "information_type": "financial-records",
             "record_count": 500
+        },
+        "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+            "extension_type": "new-sdo"
         }
     }
 }

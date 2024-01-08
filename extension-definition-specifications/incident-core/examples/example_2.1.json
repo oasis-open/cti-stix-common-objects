@@ -42,5 +42,10 @@
         {
             "task_ref": "task--a45aaed9-6504-4f95-982e-78508726eb5a"
         }
-    ]
+    ],
+    "extensions": {
+        "extension-definition—ef765651-680c-498d-9894-99799f2fa126": {
+            "extension_type": "new-sdo"
+        }
+    }
 }
