@@ -1,0 +1,247 @@
+= IEP Marking Definition Version 2.0 for STIX™ Version 2.1
+Draft
+19 December 2022
+
+Editors:
+
+    * TBD
+
+Additional artifacts:
+
+    * Information Exchange Policy 2.0 Framework Definition – FIRST specification. This prose specification is one component of a Work Product that also includes:
+    * STIX™ Version 2.1 – OASIS specification
+
+Related work:
+
+    * This specification replaces or supersedes:
+
+== Abstract:
+
+The FIRST Information Exchange Policy (IEP) 2.0 Framework Definition
+specifies how Computer Security Incident Response Teams (CSIRTs),
+security communities, organizations, and vendors may support their
+information sharing and information exchange initiatives.
+
+The framework is intended to support both CSIRT’s existing policies to
+define information exchange and new policies to define matured and
+evolved CSIRT information exchange. This document defines the approach
+to express IEP 2.0 using Structured Threat Information Expression
+(STIX^TM^) language via the use of a *marking definition* object.
+
+== 1.​ Data Markings in STIX
+
+Data markings represent restrictions, permissions, and other guidance
+for how data can be used and shared. For example, data may be shared
+with the restriction that it must not be re-shared, or that it must be
+encrypted at rest. In STIX, data markings are specified using the
+*marking-definition* object. For general information on data markings in
+STIX, see section 7.2 of STIX™ Version 2.1 - OASIS specification.
+
+== 2. The Information Exchange Policy (IEP) Marking Object Type
+
+The Information Exchange Policy (IEP) marking definition type, version
+2.0, defines the STIX object types required to share the IEP 2.0
+standard. IEP is intended to support both CSIRT’s existing policies to
+define information exchange and new policies to define matured and
+evolved CSIRT information exchange. Information sharing happens from
+a _provider_, towards one or more _recipients_.
+
+Because IEP 2.0 data markings are not part of the STIX 2.1
+specification, they must be specified using the Extension Definition
+object as described in section 7.3 of the specification.
+
+The tables below describe the properties of a STIX 2.1 IEP 2.0 marking
+definition type. These properties are based on the *marking-definition*
+object type described in section 7.2 of the STIX 2.1 specification.
+Notice that the deprecated properties of the marking definition object
+type are not used.
+
+Note that when using this extension, *external_references* is required.
+
+[width="100%"]
+|===
+|*Required Common Properties* 
+
+|*type*, *spec_version*, *id*, *created*, *extensions,
+external_references*
+|===
+
+[width="100%"]
+|===
+|*Optional Common Properties*
+
+|
+
+|===
+
+[width="100%"]
+|===
+|*Not Applicable Common Properties*
+
+|*confidence*, *defanged*, *created_by_ref*, *granular_markings*,
+*labels*, *lang*, *modified*, *object_marking_refs*, *revoked*
+|===
+
+[width="100%",cols="32%,26%,42%",]
+|===
+|*Property Name* |*Type* |*Description*
+
+|*type* (required) |string |The *type* property identifies the type of
+object. The value of this property *MUST* be *marking-definition*.
+
+|*name* (required) |string |A name used to identify the Marking
+Definition
+
+|*extensions* (required) |dictionary a|
+Specifies the IEP 2.0 marking “color” as an extension dictionary.
+
+There *MUST* be only one dictionary key and it *MUST* be
+*extension-definition--762e2e97-ee51-43e5-a9ea-165fbb862c4a*, which is
+the id of the *extension-definition* object associated with IEP-2.0.
+
+The corresponding dictionary values *MUST* be the iep-2-0-content data
+type described below.
+
+|===
+
+*Type Name:* iep-2-0-content
+
+[width="100%",cols="37%,23%,40%",]
+|===
+|*Property Name* |*Type* |*Description*
+
+|*extension_type* (required) |string |The *extension_type* property
+indicates the type of extension is being used. The value of this
+property *MUST* be *property-extension*
+
+|*encrypt_in_transit* (required) |string a|
+States whether the received information has to be encrypted when it is
+retransmitted by the recipient.
+
+The value of this property *MUST* be one of the following:
+
+must
+
+may
+
+|*permitted_actions* (required) |enum a|
+States the permitted actions that recipients can take upon information
+received.
+
+The values of this property *MUST* come from the
+*iep-permitted-actions-enum* enumeration.
+
+|*affected_party_notifications* (required) |string a|
+Recipients are permitted to notify affected third parties of a
+compromise or threat.
+
+The value of this property *MUST* be one of the following:
+
+may
+
+must-not
+
+|*tlp* (required) |string a|
+Recipients are permitted to redistribute the information received within
+the redistribution scope as defined by the enumerations.
+
+The value of this property *MUST* be one of the following:
+
+red
+
+amber
+
+green
+
+white
+
+|*provider_attribution* (required) |string a|
+Recipients could be required to attribute or anonymize the provider when
+redistributing the information received.
+
+The value of this property *MUST* be one of the following:
+
+may
+
+must
+
+must-not
+
+|*unmodified_resale* (required) |string a|
+States whether the recipient MAY or MUST NOT resell the information
+received unmodified or in a semantically equivalent format.
+
+The value of this property *MUST* be one of the following:
+
+may
+
+must-not
+
+|*iep_id* (required) |string |Provides a unique ID to identify a
+specific IEP implementation. The policy ID must be either UUIDv4 or
+UUIDv5 as specified in RFC4122
+
+|*iep_version* (required) |float |Defines which version of the IEP
+Framework this policy implements. The value of this property *MUST* be
+2.0, as this extension does not cover earlier versions.
+
+|*policy_name* (required) |string |This statement can be used to provide
+a name for an IEP implementation
+
+|*description* (required) |string |This statement can be used to provide
+some background information about the IEP implementation.
+
+|*start_date* (required) |timestamp |States the UTC date that an IEP is
+effective from.
+
+|*end_date* (optional) |timestamp |States the UTC date that an IEP is
+effective until.
+|===
+
+== Enumerations
+
+*Type Name:* iep-permitted-actions-enum
+
+[width="100%",cols="28%,72%",]
+|===
+|*Vocabulary Value* |*Description*
+
+|none |Recipients SHOULD NOT act upon the information received. The
+information SHOULD only be used for internal informational purposes, and
+internally visible actions, externally visible indirect actions and
+externally visible direct actions SHOULD NOT be performed.
+
+|contact-for-instruction |Recipients MUST contact the Providers before
+acting upon the information received. An example is where information
+redacted by the Provider could be derived by the Recipient and identify
+the affected parties.
+
+|internally-visible-actions |Recipients MAY conduct actions on the
+information received that are only visible on the Recipient's internal
+networks and systems, and MUST NOT conduct actions that are visible
+outside of the Recipients networks and systems, or visible to third
+parties.
+
+|externally-visible-indirect-actions |Recipients MAY conduct internally
+visible actions, and MAY also conduct indirect, or passive, actions on
+the information received. Recipients MUST NOT conduct direct, or active,
+actions that will be visible by Threat Actors mentioned within the
+shared information.
+
+|externally-visible-direct-actions |Recipients MAY conduct any actions
+on the information received.
+|===
+
+== Extension Definition Object for IEP 2.0
+
+[source,json]
+----
+include::examples/iep-extension-definition-object.json[]
+----
+
+== IEP 2.0 Data Marking Example
+
+[source,json]
+----
+include::examples/iep-data-marking-example.json[]
+----
