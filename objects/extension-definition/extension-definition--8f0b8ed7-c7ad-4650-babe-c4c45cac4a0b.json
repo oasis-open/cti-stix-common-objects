@@ -13,8 +13,8 @@
 	    "object_marking_refs": [
 		"marking-definition--3cd55916-d34b-4747-a8e0-dedec14b711b"
 	    ],
-	    "schema": "https://github.com/oasis-open/cti-stix-common-objects/tree/main/extension-definition-specifications/stix-1x/",    "     
-    “version": "1.0.0",
+	    "schema": "https://github.com/oasis-open/cti-stix-common-objects/tree/main/extension-definition-specifications/stix-1x/",     
+    	    "version": "1.0.0",
 	    "extension_types": ["property-extension"]
 	}
     ],
