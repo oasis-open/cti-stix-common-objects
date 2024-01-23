@@ -26,12 +26,11 @@
                     "encrypt_in_transit": "may",
                     "permitted_actions": "externally-visible-direct-actions",
                     "affected_party_notifications": "may",
-                    "tlp_ref": "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82",
+                    "tlp": "amber",
                     "provider_attribution": "must-not",
                     "unmodified_resale": "must-not",
                     "iep_id": "0224bfdf-ea3a-49c3-96f6-66d908bb1845",
                     "iep_version": 2.0,
-                    "policy_name": "IEP TLP-AMBER",
                     "description": "This is a TLP-AMBER Information Exchange Policy",
                     "start_date": "2022-10-01T00:00:00.000Z"
                 }

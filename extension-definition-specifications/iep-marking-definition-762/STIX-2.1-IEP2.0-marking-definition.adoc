@@ -89,8 +89,8 @@ external_references*
 |*type* (required) |string |The *type* property identifies the type of
 object. The value of this property *MUST* be *marking-definition*.
 
-|*name* (required) |string |A name used to identify the Marking
-Definition
+|*name* (required) |string |This statement can be used to provide
+a name for an IEP Marking Definition implementation
 
 |*extensions* (required) |dictionary a|
 Specifies the IEP 2.0 marking “color” as an extension dictionary.
@@ -128,7 +128,7 @@ may
 States the permitted actions that recipients can take upon information
 received.
 
-The values of this property *MUST* come from the
+The value of this property *MUST* come from the
 *iep-permitted-actions-enum* enumeration.
 
 |*affected_party_notifications* (required) |string a|
@@ -184,9 +184,6 @@ UUIDv5 as specified in RFC4122
 |*iep_version* (required) |float |Defines which version of the IEP
 Framework this policy implements. The value of this property *MUST* be
 2.0, as this extension does not cover earlier versions.
-
-|*policy_name* (required) |string |This statement can be used to provide
-a name for an IEP implementation
 
 |*description* (required) |string |This statement can be used to provide
 some background information about the IEP implementation.
