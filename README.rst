@@ -163,7 +163,7 @@ About OASIS TC Open Repositories
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * `TC Open Repositories: Overview and Resources <https://www.oasis-open.org/resources/open-repositories/>`_
-* `Frequently Asked Questions <https://www.oasis-open.org/resources/open-repositories/faq>`_
+* `Frequently Asked Questions <https://www.oasis-open.org/faq-tc-repo/>`_
 * `Open Source Licenses <https://www.oasis-open.org/resources/open-repositories/licenses>`_
 * `Maintainers' Guidelines and Agreement <https://www.oasis-open.org/resources/open-repositories/maintainers-guide>`_
 
