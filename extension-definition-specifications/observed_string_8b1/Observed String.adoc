@@ -7,6 +7,8 @@
 // Types from the STIX 2.1 specification
 :string_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_uxyhzmv0vpyc
 :dict_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_f6e8afjdtrse
+:url_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_ah3hict2dez0
+:artifact_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_4jegwl6ojbes
 
 
 = [stixtitle]*Observed String Extension Version 1.0 for STIX^TM^ Version 2.1*
@@ -88,6 +90,8 @@ There is only one property within this extension section "extension_type" with a
 |===
 
 |===
+^|[stixtr]*Property Name* ^|[stixtr]*Type* ^|[stixtr]*Description*
+
 |*purpose* (required)
 |[stixtype]#{string_url}[string]#
 |What this string is used for.  This SHOULD come from [stixtype]#<<string-purpose-ov,string-purpose-ov>>#.
@@ -164,7 +168,7 @@ include::examples/mission_id.json[]
 
 |*Source* |*Type* |*Target* |*Description*
 // relationships:start
-|[stixtype]#<<artifact,artifact>># 
+|[stixtype]#{artifact_url}[artifact]#
 |[stixrelationship]#outputs#
 |[stixtype]#<<observed-string,observed-string>># 
 |An artifact can be decoded to output an observed string.
@@ -184,7 +188,7 @@ include::examples/mission_id.json[]
 
 |*Source* |*Type* |*Target* |*Description*
 // relationships:start
-|[stixtype]#{url}[url]#
+|[stixtype]#{url_url}[url]#
 |[stixrelationship]#contained#
 |[stixtype]#<<observed-string,observed-string>>#
 |The url contained the observed-string.

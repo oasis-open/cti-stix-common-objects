@@ -1,29 +1,19 @@
 {
-    "$id": "https://raw.githubusercontent.com/oasis-open/cti-stix-common-objects/main/extension-definition-specifications/stix-1x/extension-definition--8b1aa84c-5532-4c69-a8e7-b6170facfd3d.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "stix1x-observed-string-extension-schema",
-    "description": "This is the wrapper for the observed-strings extension",
-    "type": "object",
-    "allOf": [
-      {
-        "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/cyber-observerable-core.json"
-      },
-      {
-        "properties": {
-          "extensions": {
-            "type": "object",
-            "properties": {
-              "extension-definition--8b1aa84c-5532-4c69-a8e7-b6170facfd3d": {
-                "type": "object",
-                "$ref": "stix1x-observed-string.json"
-                }
-              }
-            }
-          },
-        "required": [
-          "extensions"
-        ]
-      }
-    ]
+  "id": "bundle--a4e1bee5-08ae-47f1-98ed-2340e86788c0",
+  "objects": [
+  {
+      "id": "extension-definition--8b1aa84c-5532-4c69-a8e7-b6170facfd3d",
+      "type": "extension-definition",
+      "spec_version": "2.1",
+      "name": "Extension for Observed Strings",
+      "description": "This is the wrapper for the observed-strings extension",
+      "created": "2024-01-24T00:00:00.000000Z",
+      "modified": "2024-01-24T00:00:00.000000Z",
+      "created_by_ref":"identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+      "schema": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/cyber-observerable-core.json",
+      "version": "1.0.0",
+      "extension_types": ["new-sco"]
   }
-  
+    ],
+  "type": "bundle"
+}
