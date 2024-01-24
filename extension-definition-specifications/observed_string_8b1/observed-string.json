@@ -1,0 +1,44 @@
+{
+    "$id": "https://raw.githubusercontent.com/oasis-open/cti-stix-common-objects/main/extension-definition-specifications/stix-1x/stix1x-observed-string.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "stix1x-observed-string-extension-schema",
+    "description": "This is the observed-string extension schema",
+    "type": "object",
+    "properties": {
+        "extension_type": {
+            "type": "string",
+            "enum": [
+                "property-extension"
+            ]
+        },
+        "purpose": {
+            "type": "string",
+            "description": "What this string is used for"
+        },
+        "value": {
+            "type": "string",
+            "description": "The Unicode encoded value of the string. It SHOULD come from string-purpose-ov"
+        }
+    },
+    "required": [
+        "extension_type",
+        "purpose",
+        "value"
+    ],
+    "additionalProperties": false,
+    "definitions": {
+        "string-purpose-ov": {
+            "type": "string",
+            "enum": [
+                "decoded",
+                "document-text",
+                "gui-text",
+                "mission-id",
+                "pipe",
+                "unknown",
+                "user-agent",
+                "uuid"
+            ]
+        }
+    }
+}
