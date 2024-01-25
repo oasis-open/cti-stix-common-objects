@@ -1,0 +1,220 @@
+:stylesheet: stix.css
+:stylesdir: ../../asciidoc-shared
+:toc: macro
+:toclevels: 4
+:nofooter:
+
+// Types from the STIX 2.1 specification
+:string_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_uxyhzmv0vpyc
+:dict_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_f6e8afjdtrse
+:url_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_ah3hict2dez0
+:artifact_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_4jegwl6ojbes
+
+
+= [stixtitle]*Observed String Extension Version 1.0 for STIX^TM^ Version 2.1*
+
+[.stix-doc-information-heading]#6 September 2022#
+
+[.stix-doc-information-heading]
+Editors:
+[.stix-indent]
+- Jeffrey Mates
+
+[.stix-doc-information-heading]
+Additional artifacts:
+[.stix-indent]
+.This prose specification is one component of a Work Product that also includes:
+
+- STIX™ Version 2.1 - OS
+
+[.stix-doc-information-heading]
+.This specification replaces or supersedes:
+
+- _N/A_
+
+toc::[]
+
+[.stix-doc-information-heading]*Abstract:*
+
+The current STIX 2.1 standard does not provide a way to share generic human readable strings that have been discovered as part of CTI or malware analysis work.  While it is possible to share information such as filenames, urls and passwords for specific user accounts.  It is not possible to indicate that a particular string is used as part of the unpacker process for a piece of malware nor that a piece of malware is packaged with a unique identifier for a campaign.
+
+This extension creates a new SCO to support this kind of information capture and sharing.  Observed strings allow for the sharing of simple string information and a high-level understanding of the purpose the string serves.
+
+
+== 1. Observed Strings in STIX
+
+Observed strings are an SCO that tracks both the value and purpose of a string that was discovered through malware analysis, threat hunting, or other analysis activities.  These can be used to track things like common decryption keys, mission IDs embedded within malware, named pipes, user-agent strings and much more.
+
+[[observed-string]]
+== 2. Observed String SCO
+
+The properties and additional types within the Observed String Extension are defined below. This extension *MUST* use [stixliteral]#extension-definition--8b1aa84c-5532-4c69-a8e7-b6170facfd3d# as its extension ID.
+
+There is only one property within this extension section "extension_type" with a value of new-sco.
+
+<<<
+
+[width="100%",cols="100%",stripes=odd]
+|===
+
+^|[stixtr]*Required Common Properties*
+|*id*,
+*type*
+
+^|[stixtr]*Optional Common Properties*
+
+|*defanged*,
+*spec_version*,
+*object_marking_refs*,
+*granular_markings*,
+*extensions*
+
+^|[stixtr]*Not Applicable Common Properties*
+
+|*confidence*,
+*created_by_ref*,
+*external_references*,
+*labels*,
+*lang*,
+*revoked*
+
+^|[stixtr]*Observed String Object Specific Properties*
+
+|*purpose*,
+*value*,
+
+^|[stixtr]*ID Contributing Properties*
+
+|*purpose*,
+*value*,
+|===
+
+|===
+^|[stixtr]*Property Name* ^|[stixtr]*Type* ^|[stixtr]*Description*
+
+|*purpose* (required)
+|[stixtype]#{string_url}[string]#
+|What this string is used for.  This SHOULD come from [stixtype]#<<string-purpose-ov,string-purpose-ov>>#.
+
+|*type*
+|[stixtype]#{string_url}[string]#
+|The value of this property *MUST* be set to [stixliteral]#observed-string#.
+
+|*value* (required)
+|[stixtype]#{string_url}[string]#
+|The Unicode encoded value of the string.
+
+|*extensions* (optional)
+|[stixtype]#{dict_url}[dictionary]#
+|As an SCO extension the extensions block is required and SHOULD be included when using this object.
+
+This SHOULD have an entry for [stixliteral]#extension-definition--8b1aa84c-5532-4c69-a8e7-b6170facfd3d#.
+|===
+
+<<<
+
+*Examples*
+[source,json]
+----
+include::examples/mission_id.json[]
+----
+
+== 3. Vocabularies
+
+=== 3.1 String Purpose Vocabulary
+*Type Name:* [stixtype]#string-purpose-ov#
+
+[width="100%",cols="37%,63%",options="header",]
+|===
+^|[stixtr]*Vocabulary Value* 
+^|[stixtr]*Description*
+
+|[stixliteral]#decoded#
+|A generic string that was decoded from a source input.
+
+|[stixliteral]#document-text#
+|The full text of a document or text file that was extracted for human review.
+
+|[stixliteral]#gui-text#
+|Text presented to users as part of a graphical user interface.  For example, a ransom message.
+
+|[stixliteral]#mission-id#
+|A mission or campaign ID found within a malware sample that is used for tracking.
+
+|[stixliteral]#pipe#
+|A named pipe.
+
+|[stixliteral]#unknown#
+|The purpose of this string is unknown.  These can be produced by running a generic string extraction against an executable instead of using more specific techniques.
+
+|[stixliteral]#user-agent#
+|A user agent string found from network traffic or which a program may generate.
+
+|[stixliteral]#uuid#
+|A UUID without a more specific purpose
+
+|===
+
+== 4.0 Relationships
+
+// tag::observed-string-relationships[]
+
+[width="100%",cols="23%,20%,24%,33%",options="header",]
+|===
+4+^|[stixtr]*Common Relationships*
+4+|[stixrelationship]#derived-from#,
+[stixrelationship]#duplicate-of#,
+[stixrelationship]#related-to#
+
+|*Source* |*Type* |*Target* |*Description*
+// relationships:start
+|[stixtype]#{artifact_url}[artifact]#
+|[stixrelationship]#outputs#
+|[stixtype]#<<observed-string,observed-string>># 
+|An artifact can be decoded to output an observed string.
+
+|[stixtype]#<<observed-string,observed-string>>#
+|[stixrelationship]#outputs#
+|[stixtype]#<<observed-string,observed-string>>#
+|An encoded observed-string can be decoded to output an observed string
+// relationships:end
+|===
+
+<<<
+
+[width="100%",cols="23%,20%,24%,33%",options="header",]
+|===
+4+^|[stixtr]*Reverse Relationships*
+
+|*Source* |*Type* |*Target* |*Description*
+// relationships:start
+|[stixtype]#{url_url}[url]#
+|[stixrelationship]#contained#
+|[stixtype]#<<observed-string,observed-string>>#
+|The url contained the observed-string.
+// relationships:end
+|===
+
+// end::observed-string-relationships[]
+
+== Appendix A. Acknowledgements
+
+*Primary Editor*
+
+Jeffrey Mates, US Department of Defense (DoD)
+
+*Contributors*
+
+The following individuals were members of the OASIS CTI Technical Committee and contributed time and effort to ensure that this extension would be possible.  Their contributions are gratefully acknowledged:
+
+== Appendix B. Revision History
+
+[width="100%",cols="18%,16%,23%,43%",options="header",]
+|===
+^|[stixtr]*Revision* ^|[stixtr]*Date* ^|[stixtr]*Editor* ^|[stixtr]*Changes Made*
+|01
+|2022-09-06
+|Jeffrey Mates
+|Initial Version
+
+|===
