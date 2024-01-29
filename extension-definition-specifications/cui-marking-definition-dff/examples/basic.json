@@ -1,0 +1,14 @@
+{
+    "id": "marking-definition--331bc382-fcf1-43aa-8c04-732ff0b42c85",
+    "type": "marking-definition",
+    "spec_version": "2.1",
+    "created": "2023-03-04T00:00:00.000Z",
+    "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
+    "extensions": {
+        "extension-definition--dff17fb3-edcb-4f99-ad1b-4b751c95738a": {
+            "extension_type": "property-extension",
+            "control": "CUI",
+            "designator_ref": "identity--c069bb9f-158a-405d-92b4-858a2536df9a"
+        }
+    }
+}

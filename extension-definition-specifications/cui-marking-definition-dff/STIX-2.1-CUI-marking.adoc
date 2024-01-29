@@ -1,0 +1,149 @@
+cui
+
+
+:stylesheet: stix.css
+:stylesdir: ../../asciidoc-shared
+:toc: macro
+:toclevels: 4
+:nofooter:
+
+// Types from the STIX 2.1 specification
+:boolean_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_7s76li5u5yid
+:identifier_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_64yvzeku5a5c
+:identity_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_wh296fiwpklp
+:list_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_9w329aiwpu1y
+:open_vocab_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_bnnxah80y7by
+:string_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_uxyhzmv0vpyc
+:dictionary_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_f6e8afjdtrse
+
+= [stixtitle]*CUI Marking Definition for STIX™ Version 2.1*
+
+[.stix-doc-information-heading]#Draft#
+
+[.stix-doc-information-heading]#04 March 2023#
+
+[.stix-doc-information-heading]
+Editors:
+[.stix-indent]
+- Chris Lenk
+
+[.stix-doc-information-heading]
+Additional artifacts:
+[.stix-indent]
+- Marking Controlled Unclassified Information Version 1.1
+
+[.stix-indent]
+.This prose specification is one component of a Work Product that also includes:
+
+- STIX™ Version 2.1 – OASIS specification
+
+[.stix-doc-information-heading]
+Related work:
+
+[.stix-indent]
+.This specification replaces or supersedes: +
+
+- N/A
+
+toc::[]
+
+[.stix-doc-information-heading]*Abstract:*
+
+The Controlled Unclassified Information (CUI) Program standardizes the way the Executive branch of the U.S. Government handles information that doesn’t meet the criteria for classification but must be protected based on law, regulation, or Government-wide policy. This document defines the approach to express CUI using Structured Threat Information Expression (STIX™) language via the use of a marking definition object.
+
+== 1. Data Markings in STIX
+Data markings represent restrictions, permissions, and other guidance for how data can be used and shared. In STIX, data markings are specified using the `marking-definition` object. For general information on data markings in STIX, see section 7.2 of STIX™ Version 2.1 - OASIS specification.
+
+== 2. The Controlled Unclassified Information (CUI) Marking Object Type
+The Controlled Unclassified Information (CUI) marking definition type defines the STIX object types required to share CUI marked data. CUI was established to standardizes the way the Executive branch of the U.S. Government handles information that doesn’t meet the criteria for classification but must be protected based on law, regulation, or Government-wide policy.
+
+Because CUI data markings are not part of the STIX 2.1 specification, they must be specified using the Extension Definition object as described in section 7.3 of the specification.
+
+The tables below describe the properties of a STIX 2.1 CUI marking definition extension. The extension can be used on the `marking-definition` object type described in section 7.2 of the STIX 2.1 specification. As this is not a top-level object, fields such as *identifier* are not present.
+
+
+[width="100%",cols="37%,23%,40%",options="header",]
+|===
+^|[stixtr]*Property Name*
+^|[stixtr]*Type* 
+^|[stixtr]*Description*
+
+|*extension_type* (required)
+|[stixtype]#{string_url}[string]# 
+|The extension_type property indicates the type of extension is being used.
+
+The value of this property *MUST* be [stixtype]#<<property-extension,property-extension>>#
+
+|*control* (required)
+|[stixtype]#{string_url}[string]# 
+|The CUI Control Marking. The value of this property *MUST* be one of the following:
+
+CONTROLLED, 
+CUI
+|*categories* (optional)
+|[stixtype]#{list_url}[list] of {string_url}[string]# 
+|The CUI Category or Subcategory Markings. If a CUI Specified Category or Subcategory is used, it *MUST* include the “SP-“ prefix.
+
+Each of the values of this property *MUST* be one of the Category or Specified Category Markings listed in the National Archives CUI Markings Registryfootnote:[https://www.archives.gov/cui/registry/category-marking-list ].
+
+Subcategory Markings *MUST* immediately follow the Category Marking they belong to. Categories *MUST* be ordered alphabetically within CUI type (Specified or Basic). Alphabetized Specified CUI categories and subcategories *MUST* precede alphabetized Basic CUI categories and subcategories.
+|*disseminations* (optional)
+|[stixtype]#{list_url}[list] of {string_url}[string]# 
+|The CUI Limited Dissemination Control Markings. Each of the values of this property *MUST* be one of the values in the National Archives CUI Limited Dissemination Controls Registryfootnote:[https://www.archives.gov/cui/registry/limited-dissemination].
+|*designator_ref* (required)
+|[stixtype]#{identifier_url}[identifier] of {identity_url}[identity]# 
+|A reference to the `identity` object representing the designator’s agency. The `identity` object *SHOULD* also include contact informationfootnote:[https://oasis-open.github.io/cti-stix-common-objects/Identity_Contact_Information.html].
+|*required_statements* (optional)
+|[stixtype]#{list_url}[list] of {string_url}[string]# 
+|Required indicators – including, informational, warning, or dissemination statements – as mandated by the law, Federal regulation, or Government-wide policy.
+|*supplemental_administrative* (optional)
+|[stixtype]#{list_url}[list] of {string_url}[string]# 
+|Supplemental administrative markings (e.g., Draft, Deliberative, Pre-decisional, Provisional) used to inform recipients of the non-final status of documents. The values of this property *MUST NOT* duplicate any marking in the CUI Registry.
+|===
+
+== 3. Extension Definition Object for CUI
+[source,json]
+----
+{
+    "id": "extension-definition--dff17fb3-edcb-4f99-ad1b-4b751c95738a",
+    "type": "extension-definition",
+    "spec_version": "2.1",
+    "name": "CUI",
+    "description": "This defines CUI as a STIX extension",
+    "created": "2023-03-04T00:00:00.000Z",
+    "modified": "2023-03-04T00:00:00.000Z",
+    "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+    "schema": "https://github.com/oasis-open/cti-stix-common-objects/tree/master/extension-definition-specifications/cui",
+    "version": "1.0.0",
+    "extension_types": [
+        "property-extension"
+    ]
+}
+----
+
+== 4. Examples
+
+Most basic CUI portion marking.
+[source,json]
+----
+include::examples/basic.json[]
+----
+
+CUI banner marking with a basic category.
+[source,json]
+----
+include::examples/banner.json[]
+----
+
+CUI marking with multiple categories, including Specified, as well as Dissemination Controls.
+[source,json]
+----
+include::examples/categories.json[]
+----
+
+CUI marking with required indicators and supplemental administrative markings.
+[source,json]
+----
+include::examples/supplemental.json[]
+----
+
