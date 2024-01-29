@@ -92,7 +92,7 @@ Subcategory Markings *MUST* immediately follow the Category Marking they belong 
 |The CUI Limited Dissemination Control Markings. Each of the values of this property *MUST* be one of the values in the National Archives CUI Limited Dissemination Controls Registryfootnote:[https://www.archives.gov/cui/registry/limited-dissemination].
 |*designator_ref* (required)
 |[stixtype]#{identifier_url}[identifier] of {identity_url}[identity]# 
-|A reference to the `identity` object representing the designator’s agency. The `identity` object *SHOULD* also include contact information.
+|A reference to the `identity` object representing the designator’s agency. The `identity` object *SHOULD* also include contact informationfootnote:[https://oasis-open.github.io/cti-stix-common-objects/Identity_Contact_Information.html].
 |*required_statements* (optional)
 |[stixtype]#{list_url}[list] of {string_url}[string]# 
 |Required indicators – including, informational, warning, or dissemination statements – as mandated by the law, Federal regulation, or Government-wide policy.
