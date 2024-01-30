@@ -603,7 +603,7 @@ It also *MUST* reference an [stixtype]#<<impact,impact>># of the same as the *im
 ==== 2.3.2. Extensions
 
 The Impact SDO is currently an extension, but as there are many specific types of impacts with their own unique properties it emulates the File SCO through the use of STIX Extensions to provide the granular details of specific categories of impacts.
-As such every Impact *MUST* have one and only one extension that has the same value of the *impact_category*.
+As such every Impact *MUST* have one and only one extension which has the same value as the *impact_category* property.
 This allows consumers to quickly validate their ability to process this category of impact and then load all of its specific details.
 
 Producers *SHOULD* use one of these extensions.
