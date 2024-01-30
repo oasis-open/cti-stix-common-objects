@@ -4,7 +4,7 @@
     "created": "2023-11-22T15:30:00Z",
     "modified": "2023-11-22T15:30:00Z",
     "spec_version": "2.1",
-    "impact_category": "availability",
+    "impact_category": "availability-impact-ext",
     "criticality": 70,
     "description": "Loss of availability for a critical service.",
     "end_time": "2023-11-22T16:00:00Z",
@@ -18,8 +18,8 @@
     "start_time": "2023-11-22T15:30:00Z",
     "start_time_fidelity": "minute",
     "extensions": {
-        "availability-impact": {
-            "availability_impact": 90
+        "availability-impact-ext": {
+            "availability_impact-ext": 90
         },
         "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
             "extension_type": "new-sdo"

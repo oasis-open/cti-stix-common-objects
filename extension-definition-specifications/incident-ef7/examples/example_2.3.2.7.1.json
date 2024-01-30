@@ -4,13 +4,13 @@
     "created": "2023-11-22T15:30:00Z",
     "modified": "2023-11-22T15:30:00Z",
     "spec_version": "2.1",
-    "impact_category": "traceability",
+    "impact_category": "traceability-impact-ext",
     "criticality": 65,
     "description": "Loss of audit logs due to a cyber attack.",
     "start_time": "2023-11-22T15:30:00Z",
     "start_time_fidelity": "minute",
     "extensions": {
-        "traceability-impact": {
+        "traceability-impact-ext": {
             "traceability_impact": "partial"
         },
         "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {

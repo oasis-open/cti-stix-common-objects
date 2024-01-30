@@ -4,13 +4,13 @@
     "created": "2023-11-22T15:30:00Z",
     "modified": "2023-11-22T15:30:00Z",
     "spec_version": "2.1",
-    "impact_category": "external",
+    "impact_category": "external-impact-ext",
     "criticality": 60,
     "description": "Negative impact on the company's reputation.",
     "start_time": "2023-11-22T15:30:00Z",
     "start_time_fidelity": "minute",
     "extensions": {
-        "external-impact": {
+        "external-impact-ext": {
             "impact_type": "reputation"
         },
         "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
