@@ -120,10 +120,10 @@ The values of this property *MUST* come from the [stixtype]#<<incident-determina
 |The value of this property *MUST* be [stixliteral]#property-extension#
 
 |*investigation_status* (required)
-|[stixtype]#<<incident-investigation-ov,incident-investigation-ov>>#
+|[stixtype]#{open_vocab_url}[open-vocab]#
 |The current status of the incident investigation.
 
-The values of this property *MUST* come from the [stixtype]#<<incident-investigation-ov,incident-investigation-ov>># enumeration.
+The values of this property *MUST* come from the [stixtype]#<<incident-investigation-ov,incident-investigation-ov>># open vocabulary.
 
 |*criticality* (optional)
 |[stixtype]#{int_url}[integer]#
@@ -348,7 +348,7 @@ This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidel
 If no value is provided the timestamp should be considered to be accurate up to the number of decimals it includes.
 
 |*event_types* (optional)
-|[stixtype]#{list_url}[list]# of type [stixtype]#{open_vocab_url}[open-vocabulary]#
+|[stixtype]#{list_url}[list]# of type [stixtype]#{open_vocab_url}[open-vocab]#
 |High level types for the event in order to enable aggregation and summaries.
 The value of this property *SHOULD* come from the [stixtype]#<<event-type-ov,event-type-ov>># open vocabulary.
 
