@@ -264,6 +264,8 @@ include::examples/example_2.1.json[]
 [[event]]
 === 2.2. Event
 
+An Event is an activity that takes place during an attack attributed to the attacker.
+
 This new sdo extension *MUST* use [stixliteral]#extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e# as its extension ID.
 
 As a new sdo extension it must follow the requirements as described in section 7.3.2.2 of the STIX 2.1 specification.
@@ -469,6 +471,9 @@ include::examples/example_2.2.json[]
 <<<
 [[impact]]
 === 2.3. Impact
+
+An Impact is the result of an attack to the victim. Impacts can have many facets: availability of resources, confidentiality of data, integrety of data or resources, monetary, physical damage, damage to others and traceability (auditing). 
+
 This new sdo extension *MUST* use [stixliteral]#extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9# as its extension ID.
 
 As a new sdo extension it must follow the requirements as described in section 7.3.2.2 of the STIX 2.1 specification.
@@ -598,12 +603,14 @@ It also *MUST* reference an [stixtype]#<<impact,impact>># of the same as the *im
 ==== 2.3.2. Extensions
 
 The Impact SDO is currently an extension, but as there are many specific types of impacts with their own unique properties it emulates the File SCO through the use of STIX Extensions to provide the granular details of specific categories of impacts.
-As such every Impact *MUST* have an extension that has the same value of the *impact_category*.
+As such every Impact *MUST* have one and only one extension that has the same value of the *impact_category*.
 This allows consumers to quickly validate their ability to process this category of impact and then load all of its specific details.
 
 Producers *SHOULD* use one of these extensions.
 
 ===== 2.3.2.1. Availability Impact Extension 
+
+*Type Name:* [stixtype]#availability-impact-ext#
 
 [width="100%",cols="37%,23%,40%",options="header",]
 |===
@@ -630,6 +637,8 @@ include::examples/example_2.3.2.1.1.json[]
 <<<
 
 ===== 2.3.2.2. Confidentiality Impact Extension
+
+*Type Name:* [stixtype]#confidentiality-impact-ext#
 
 [width="100%",cols="37%,23%,40%",options="header",]
 |===
@@ -669,6 +678,8 @@ include::examples/example_2.3.2.2.1.json[]
 
 ===== 2.3.2.3. External Impact Extension
 
+*Type Name:* [stixtype]#external-impact-ext#
+
 [width="100%",cols="37%,23%,40%",options="header",]
 |===
 ^|[stixtr]*Property Name*
@@ -693,7 +704,7 @@ include::examples/example_2.3.2.3.1.json[]
 
 ===== 2.3.2.4. Integrity Impact Extension
 
-*Type Name:* [stixtype]#integrity-impact#
+*Type Name:* [stixtype]#integrity-impact-ext#
 
 [width="100%",cols="37%,23%,40%",options="header",]
 |===
@@ -737,6 +748,8 @@ include::examples/example_2.3.2.4.1.json[]
 ----
 
 ===== 2.3.2.5. Monetary Impact Extension
+
+*Type Name:* [stixtype]#monetary-impact-ext#
 
 [width="100%",cols="37%,23%,40%",options="header",]
 |===
@@ -808,6 +821,8 @@ include::examples/example_2.3.2.5.1.json[]
 
 ===== 2.3.2.6. Physical Impact Extension
 
+*Type Name:* [stixtype]#physical-impact-ext#
+
 [width="100%",cols="37%,23%,40%",options="header",]
 |===
 ^|[stixtr]*Property Name*
@@ -841,6 +856,8 @@ include::examples/example_2.3.2.6.1.json[]
 
 ===== 2.3.2.7. Traceability Impact Extension
 
+*Type Name:* [stixtype]#traceability-impact-ext#
+
 [width="100%",cols="37%,23%,40%",options="header",]
 |===
 ^|[stixtr]*Property Name*
@@ -865,6 +882,8 @@ include::examples/example_2.3.2.7.1.json[]
 <<<
 [[task]]
 === 2.4. Task
+
+An Task is an activity that is performed by the victim to respond to the attack.
 
 This new sdo extension *MUST* use [stixliteral]#extension-definition--2074a052-8be4-4932-849e-f5e7798e0030# as its extension ID.
 
@@ -2216,7 +2235,7 @@ If playbook steps feed each other information that is designed to be passed as S
 |The event is still occurring.
 
 |[stixliteral]#occurred#
-|The event took and is no longer ongoing.
+|The event took place and is no longer ongoing.
 
 |[stixliteral]#not-occurred#
 |The event did not take place, but it was previously expected to.
@@ -2451,7 +2470,7 @@ Hours and minutes should be understood to establish the timezone for the activit
 |===
 
 [[traceability-enum]]
-=== 5.11. Timestamp Fidelity Enumeration
+=== 5.11. Traceability Enumeration
 *Type Name:* [stixtype]#traceability-enum#
 
 [width="100%",cols="31%,69%",options="header",]
