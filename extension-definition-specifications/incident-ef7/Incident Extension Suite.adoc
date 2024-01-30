@@ -120,7 +120,7 @@ The values of this property *MUST* come from the [stixtype]#<<incident-determina
 |The value of this property *MUST* be [stixliteral]#property-extension#
 
 |*investigation_status* (required)
-|[stixtype]#{open_vocab_url}[open-vocab]#
+|[stixtype]#<<incident-investigation-ov,incident-investigation-ov>>#
 |The current status of the incident investigation.
 
 The values of this property *MUST* come from the [stixtype]#<<incident-investigation-ov,incident-investigation-ov>># enumeration.
@@ -177,8 +177,19 @@ enumeration.
 |===
 
 ==== 2.1.1. Relationships
-
 // tag::incident-relationships[]
+
+These are the relationships explicitly defined between the Incident object and other STIX Objects.
+The table identifies the relationships that can be made from this object type to another object
+type by way of the Relationship object. The reverse relationships section illustrates the relationships
+targeting this object type from another object type. They are included here for convenience. For their
+definitions, please see the "Source" object.
+
+Relationships are not restricted to those listed below. Relationships can be created between any objects
+using the related-to relationship type or, as with open vocabularies, user-defined names.  Because of this, some of these
+relationships can be used independent of explicitly using this extension.
+
+
 [width="100%",cols="24%,23%,20%,33%",options="header",]
 |===
 4+^|[stixtr]*Common Relationships*
@@ -231,7 +242,8 @@ enumeration.
 |[stixtype]#{incident_url}[incident]#
 |An identity should be considered a point of contact for an incident.
 
-This can be used to supplement the created_by_ref in cases where external authorship would prevent using it for this purpose.
+This relationship is different from the *created_by_ref* property, which is the creator of the STIX Incident object.
+Additionally, this can be used to supplement the *created_by_ref* property in cases where external authorship would prevent using it for this purpose.
 
 |[stixtype]#{indicator_url}[indicator]#
 |[stixrelationship]#detected#
@@ -254,6 +266,7 @@ include::examples/example_2.1.json[]
 
 This new sdo extension *MUST* use [stixliteral]#extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e# as its extension ID.
 
+As a new sdo extension it must follow the requirements as described in section 7.3.2.2 of the STIX 2.1 specification.
 
 [width="100%",cols="100%",stripes=odd]
 |===
@@ -380,6 +393,15 @@ accurate up to the number of decimals it includes.
 
 // tag::event-relationships[]
 
+These are the relationships explicitly defined between the Event object and other STIX Objects.
+The table identifies the relationships that can be made from this object type to another object
+type by way of the Relationship object. The reverse relationships section illustrates the relationships
+targeting this object type from another object type. They are included here for convenience. For their
+definitions, please see the "Source" object.
+
+Relationships are not restricted to those listed below. Relationships can be created between any objects
+using the related-to relationship type or, as with open vocabularies, user-defined names.  
+
 [width="100%",cols="23%,20%,24%,33%",options="header",]
 |===
 4+^|[stixtr]*Common Relationships*
@@ -449,6 +471,7 @@ include::examples/example_2.2.json[]
 === 2.3. Impact
 This new sdo extension *MUST* use [stixliteral]#extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9# as its extension ID.
 
+As a new sdo extension it must follow the requirements as described in section 7.3.2.2 of the STIX 2.1 specification.
 
 [width="100%",cols="100%",stripes=odd]
 |===
@@ -843,7 +866,9 @@ include::examples/example_2.3.2.7.1.json[]
 [[task]]
 === 2.4. Task
 
+This new sdo extension *MUST* use [stixliteral]#extension-definition--2074a052-8be4-4932-849e-f5e7798e0030# as its extension ID.
 
+As a new sdo extension it must follow the requirements as described in section 7.3.2.2 of the STIX 2.1 specification.
 
 [width="100%",cols="100%",stripes=odd]
 |===
@@ -971,6 +996,15 @@ accurate up to the number of decimals it includes.
 ==== 2.4.1. Relationships
 
 // tag::task-relationships[]
+
+These are the relationships explicitly defined between the Task object and other STIX Objects.
+The table identifies the relationships that can be made from this object type to another object
+type by way of the Relationship object. The reverse relationships section illustrates the relationships
+targeting this object type from another object type. They are included here for convenience. For their
+definitions, please see the "Source" object.
+
+Relationships are not restricted to those listed below. Relationships can be created between any objects
+using the related-to relationship type or, as with open vocabularies, user-defined names.  
 
 When creating sequences of [stixtype]#<<task,tasks>># these *SHOULD NOT* be shared using relationship objects.
 Sequences *SHOULD* be shared within an [stixtype]#{incident_url}[incident]# or [stixtype]#<<task,task>># as part of the list of *tasks* or *subtasks* respectively.
