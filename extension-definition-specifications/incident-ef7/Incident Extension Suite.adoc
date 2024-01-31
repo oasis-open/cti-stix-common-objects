@@ -123,7 +123,7 @@ The values of this property *MUST* come from the [stixtype]#<<incident-determina
 |[stixtype]#{open_vocab_url}[open-vocab]#
 |The current status of the incident investigation.
 
-The values of this property *MUST* come from the [stixtype]#<<incident-investigation-ov,incident-investigation-ov>># enumeration.
+The values of this property *MUST* come from the [stixtype]#<<incident-investigation-ov,incident-investigation-ov>># open vocabulary.
 
 |*criticality* (optional)
 |[stixtype]#{int_url}[integer]#
@@ -177,8 +177,19 @@ enumeration.
 |===
 
 ==== 2.1.1. Relationships
-
 // tag::incident-relationships[]
+
+These are the relationships explicitly defined between the Incident object and other STIX Objects.
+The table identifies the relationships that can be made from this object type to another object
+type by way of the Relationship object. The reverse relationships section illustrates the relationships
+targeting this object type from another object type. They are included here for convenience. For their
+definitions, please see the "Source" object.
+
+Relationships are not restricted to those listed below. Relationships can be created between any objects
+using the related-to relationship type or, as with open vocabularies, user-defined names.  Because of this, some of these
+relationships can be used independent of explicitly using this extension.
+
+
 [width="100%",cols="24%,23%,20%,33%",options="header",]
 |===
 4+^|[stixtr]*Common Relationships*
@@ -231,7 +242,8 @@ enumeration.
 |[stixtype]#{incident_url}[incident]#
 |An identity should be considered a point of contact for an incident.
 
-This can be used to supplement the created_by_ref in cases where external authorship would prevent using it for this purpose.
+This relationship is different from the *created_by_ref* property, which is the creator of the STIX Incident object.
+Additionally, this can be used to supplement the *created_by_ref* property in cases where external authorship would prevent using it for this purpose.
 
 |[stixtype]#{indicator_url}[indicator]#
 |[stixrelationship]#detected#
@@ -252,8 +264,11 @@ include::examples/example_2.1.json[]
 [[event]]
 === 2.2. Event
 
+An Event is an activity that takes place during an attack attributed to the attacker.
+
 This new sdo extension *MUST* use [stixliteral]#extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e# as its extension ID.
 
+As a new sdo extension it must follow the requirements as described in section 7.3.2.2 of the STIX 2.1 specification.
 
 [width="100%",cols="100%",stripes=odd]
 |===
@@ -333,7 +348,7 @@ This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidel
 If no value is provided the timestamp should be considered to be accurate up to the number of decimals it includes.
 
 |*event_types* (optional)
-|[stixtype]#{list_url}[list]# of type [stixtype]#{open_vocab_url}[open-vocabulary]#
+|[stixtype]#{list_url}[list]# of type [stixtype]#{open_vocab_url}[open-vocab]#
 |High level types for the event in order to enable aggregation and summaries.
 The value of this property *SHOULD* come from the [stixtype]#<<event-type-ov,event-type-ov>># open vocabulary.
 
@@ -379,6 +394,15 @@ accurate up to the number of decimals it includes.
 ==== 2.2.1. Relationships
 
 // tag::event-relationships[]
+
+These are the relationships explicitly defined between the Event object and other STIX Objects.
+The table identifies the relationships that can be made from this object type to another object
+type by way of the Relationship object. The reverse relationships section illustrates the relationships
+targeting this object type from another object type. They are included here for convenience. For their
+definitions, please see the "Source" object.
+
+Relationships are not restricted to those listed below. Relationships can be created between any objects
+using the related-to relationship type or, as with open vocabularies, user-defined names.  
 
 [width="100%",cols="23%,20%,24%,33%",options="header",]
 |===
@@ -447,8 +471,12 @@ include::examples/example_2.2.json[]
 <<<
 [[impact]]
 === 2.3. Impact
+
+An Impact is the result of an attack to the victim. Impacts can have many facets: availability of resources, confidentiality of data, integrety of data or resources, monetary, physical damage, damage to others and traceability (auditing). 
+
 This new sdo extension *MUST* use [stixliteral]#extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9# as its extension ID.
 
+As a new sdo extension it must follow the requirements as described in section 7.3.2.2 of the STIX 2.1 specification.
 
 [width="100%",cols="100%",stripes=odd]
 |===
@@ -495,7 +523,7 @@ This new sdo extension *MUST* use [stixliteral]#extension-definition--7cc33dd6-f
 |*impact_category* (required)
 |[stixtype]#{string_url}[string]#
 |The category of impact this applies to.
-This *MUST* match an extension that provides greater and *SHOULD* come from the extensions listed in section 3 of this document.
+This *MUST* match an extension that provides greater details of a specific type of impact, and *SHOULD* come from the extensions listed in section 2.3.2 of this document.  The value can be specified with or without the "-ext" suffix.
 
 |*type* (required)
 |[stixtype]#{string_url}[string]#
@@ -575,12 +603,14 @@ It also *MUST* reference an [stixtype]#<<impact,impact>># of the same as the *im
 ==== 2.3.2. Extensions
 
 The Impact SDO is currently an extension, but as there are many specific types of impacts with their own unique properties it emulates the File SCO through the use of STIX Extensions to provide the granular details of specific categories of impacts.
-As such every Impact *MUST* have an extension that has the same value of the *impact_category*.
+As such every Impact *MUST* have one and only one extension which has the same value as the *impact_category* property (see this property description above).
 This allows consumers to quickly validate their ability to process this category of impact and then load all of its specific details.
 
 Producers *SHOULD* use one of these extensions.
 
 ===== 2.3.2.1. Availability Impact Extension 
+
+*Type Name:* [stixtype]#availability-ext#
 
 [width="100%",cols="37%,23%,40%",options="header",]
 |===
@@ -607,6 +637,8 @@ include::examples/example_2.3.2.1.1.json[]
 <<<
 
 ===== 2.3.2.2. Confidentiality Impact Extension
+
+*Type Name:* [stixtype]#confidentiality-ext#
 
 [width="100%",cols="37%,23%,40%",options="header",]
 |===
@@ -646,6 +678,8 @@ include::examples/example_2.3.2.2.1.json[]
 
 ===== 2.3.2.3. External Impact Extension
 
+*Type Name:* [stixtype]#external-ext#
+
 [width="100%",cols="37%,23%,40%",options="header",]
 |===
 ^|[stixtr]*Property Name*
@@ -670,7 +704,7 @@ include::examples/example_2.3.2.3.1.json[]
 
 ===== 2.3.2.4. Integrity Impact Extension
 
-*Type Name:* [stixtype]#integrity-impact#
+*Type Name:* [stixtype]#integrity-ext#
 
 [width="100%",cols="37%,23%,40%",options="header",]
 |===
@@ -714,6 +748,8 @@ include::examples/example_2.3.2.4.1.json[]
 ----
 
 ===== 2.3.2.5. Monetary Impact Extension
+
+*Type Name:* [stixtype]#monetary-ext#
 
 [width="100%",cols="37%,23%,40%",options="header",]
 |===
@@ -785,6 +821,8 @@ include::examples/example_2.3.2.5.1.json[]
 
 ===== 2.3.2.6. Physical Impact Extension
 
+*Type Name:* [stixtype]#physical-ext#
+
 [width="100%",cols="37%,23%,40%",options="header",]
 |===
 ^|[stixtr]*Property Name*
@@ -818,6 +856,8 @@ include::examples/example_2.3.2.6.1.json[]
 
 ===== 2.3.2.7. Traceability Impact Extension
 
+*Type Name:* [stixtype]#traceability-ext#
+
 [width="100%",cols="37%,23%,40%",options="header",]
 |===
 ^|[stixtr]*Property Name*
@@ -843,7 +883,11 @@ include::examples/example_2.3.2.7.1.json[]
 [[task]]
 === 2.4. Task
 
+An Task is an activity that is performed by the victim to respond to the attack.
 
+This new sdo extension *MUST* use [stixliteral]#extension-definition--2074a052-8be4-4932-849e-f5e7798e0030# as its extension ID.
+
+As a new sdo extension it must follow the requirements as described in section 7.3.2.2 of the STIX 2.1 specification.
 
 [width="100%",cols="100%",stripes=odd]
 |===
@@ -971,6 +1015,15 @@ accurate up to the number of decimals it includes.
 ==== 2.4.1. Relationships
 
 // tag::task-relationships[]
+
+These are the relationships explicitly defined between the Task object and other STIX Objects.
+The table identifies the relationships that can be made from this object type to another object
+type by way of the Relationship object. The reverse relationships section illustrates the relationships
+targeting this object type from another object type. They are included here for convenience. For their
+definitions, please see the "Source" object.
+
+Relationships are not restricted to those listed below. Relationships can be created between any objects
+using the related-to relationship type or, as with open vocabularies, user-defined names.  
 
 When creating sequences of [stixtype]#<<task,tasks>># these *SHOULD NOT* be shared using relationship objects.
 Sequences *SHOULD* be shared within an [stixtype]#{incident_url}[incident]# or [stixtype]#<<task,task>># as part of the list of *tasks* or *subtasks* respectively.
@@ -2182,7 +2235,7 @@ If playbook steps feed each other information that is designed to be passed as S
 |The event is still occurring.
 
 |[stixliteral]#occurred#
-|The event took and is no longer ongoing.
+|The event took place and is no longer ongoing.
 
 |[stixliteral]#not-occurred#
 |The event did not take place, but it was previously expected to.
@@ -2417,7 +2470,7 @@ Hours and minutes should be understood to establish the timezone for the activit
 |===
 
 [[traceability-enum]]
-=== 5.11. Timestamp Fidelity Enumeration
+=== 5.11. Traceability Enumeration
 *Type Name:* [stixtype]#traceability-enum#
 
 [width="100%",cols="31%,69%",options="header",]

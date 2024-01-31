@@ -10,7 +10,7 @@
     "start_time": "2023-11-22T15:30:00Z",
     "start_time_fidelity": "minute",
     "extensions": {
-        "monetary-impact": {
+        "monetary-ext": {
             "variety": "ransom",
             "currency": "USD",
             "min_amount": 10000,
