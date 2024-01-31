@@ -523,7 +523,7 @@ As a new sdo extension it must follow the requirements as described in section 7
 |*impact_category* (required)
 |[stixtype]#{string_url}[string]#
 |The category of impact this applies to.
-This *MUST* match an extension that provides greater and *SHOULD* come from the extensions listed in section 3 of this document.
+This *MUST* match an extension that provides greater details of a specific type of impact, and *SHOULD* come from the extensions listed in section 2.3.2 of this document.  The value can be specified with or without the "-ext" suffix.
 
 |*type* (required)
 |[stixtype]#{string_url}[string]#
@@ -603,14 +603,14 @@ It also *MUST* reference an [stixtype]#<<impact,impact>># of the same as the *im
 ==== 2.3.2. Extensions
 
 The Impact SDO is currently an extension, but as there are many specific types of impacts with their own unique properties it emulates the File SCO through the use of STIX Extensions to provide the granular details of specific categories of impacts.
-As such every Impact *MUST* have one and only one extension which has the same value as the *impact_category* property.
+As such every Impact *MUST* have one and only one extension which has the same value as the *impact_category* property (see this property description above).
 This allows consumers to quickly validate their ability to process this category of impact and then load all of its specific details.
 
 Producers *SHOULD* use one of these extensions.
 
 ===== 2.3.2.1. Availability Impact Extension 
 
-*Type Name:* [stixtype]#availability-impact-ext#
+*Type Name:* [stixtype]#availability-ext#
 
 [width="100%",cols="37%,23%,40%",options="header",]
 |===
@@ -638,7 +638,7 @@ include::examples/example_2.3.2.1.1.json[]
 
 ===== 2.3.2.2. Confidentiality Impact Extension
 
-*Type Name:* [stixtype]#confidentiality-impact-ext#
+*Type Name:* [stixtype]#confidentiality-ext#
 
 [width="100%",cols="37%,23%,40%",options="header",]
 |===
@@ -678,7 +678,7 @@ include::examples/example_2.3.2.2.1.json[]
 
 ===== 2.3.2.3. External Impact Extension
 
-*Type Name:* [stixtype]#external-impact-ext#
+*Type Name:* [stixtype]#external-ext#
 
 [width="100%",cols="37%,23%,40%",options="header",]
 |===
@@ -704,7 +704,7 @@ include::examples/example_2.3.2.3.1.json[]
 
 ===== 2.3.2.4. Integrity Impact Extension
 
-*Type Name:* [stixtype]#integrity-impact-ext#
+*Type Name:* [stixtype]#integrity-ext#
 
 [width="100%",cols="37%,23%,40%",options="header",]
 |===
@@ -749,7 +749,7 @@ include::examples/example_2.3.2.4.1.json[]
 
 ===== 2.3.2.5. Monetary Impact Extension
 
-*Type Name:* [stixtype]#monetary-impact-ext#
+*Type Name:* [stixtype]#monetary-ext#
 
 [width="100%",cols="37%,23%,40%",options="header",]
 |===
@@ -821,7 +821,7 @@ include::examples/example_2.3.2.5.1.json[]
 
 ===== 2.3.2.6. Physical Impact Extension
 
-*Type Name:* [stixtype]#physical-impact-ext#
+*Type Name:* [stixtype]#physical-ext#
 
 [width="100%",cols="37%,23%,40%",options="header",]
 |===
@@ -856,7 +856,7 @@ include::examples/example_2.3.2.6.1.json[]
 
 ===== 2.3.2.7. Traceability Impact Extension
 
-*Type Name:* [stixtype]#traceability-impact-ext#
+*Type Name:* [stixtype]#traceability-ext#
 
 [width="100%",cols="37%,23%,40%",options="header",]
 |===
