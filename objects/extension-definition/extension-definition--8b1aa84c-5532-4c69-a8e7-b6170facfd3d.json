@@ -10,7 +10,7 @@
       "created": "2024-01-24T00:00:00.000000Z",
       "modified": "2024-01-24T00:00:00.000000Z",
       "created_by_ref":"identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
-      "schema": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/cyber-observerable-core.json",
+      "schema": "https://raw.githubusercontent.com/oasis-open/cti-stix-common-objects/main/extension-definition-specifications/malware-behavior-8e9/extension-definition--8b1aa84c-5532-4c69-a8e7-b6170facfd3d.json",
       "version": "1.0.0",
       "extension_types": ["new-sco"]
   }

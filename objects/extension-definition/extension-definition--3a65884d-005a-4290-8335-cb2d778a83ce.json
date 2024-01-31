@@ -11,7 +11,7 @@
             "id": "extension-definition--3a65884d-005a-4290-8335-cb2d778a83ce",
             "modified": "2021-12-01T16:19:51.601791Z",
             "name": "isa-acs-3-0",
-            "schema": "https://github.com/oasis-open/cti-stix-common-objects/tree/master/extension-definition-specifications/acs-data-markings",
+            "schema": "https://github.com/oasis-open/cti-stix-common-objects/tree/master/extension-definition-specifications/acs-marking-definition-3a6",
             "spec_version": "2.1",
             "type": "extension-definition",
             "version": "1.0.0"

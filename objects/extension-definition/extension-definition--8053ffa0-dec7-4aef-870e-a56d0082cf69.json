@@ -9,7 +9,7 @@
         "created": "2022-10-25T09:00:00.000000Z",
         "modified": "2022-10-25T09:00:00.000000Z",
         "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
-        "schema": "https://github.com/oasis-open/cti-stix-common-objects/tree/main/extension-definition-specifications/malware-artifact/",
+        "schema": "https://github.com/oasis-open/cti-stix-common-objects/tree/main/extension-definition-specifications/artifact-805/",
         "version": "1.0.0",
         "extension_types": ["toplevel-property-extension"],
         "extension_properties": ["is_safe"]

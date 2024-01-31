@@ -11,7 +11,7 @@
       "created": "2022-12-16T22:00:00.000Z",
       "modified": "2023-01-03T13:00:00.000Z",
       "created_by_ref": "identity--8ce3f695-d5a4-4dc8-9e93-a65af453a31a",
-      "schema": "https://github.com/oasis-open/cti-stix-common-objects/tree/main/extension-definition-specifications/identity-contact-information",
+      "schema": "https://github.com/oasis-open/cti-stix-common-objects/tree/main/extension-definition-specifications/identity-66e",
       "version": "1.0.0",
       "extension_types": [ "property-extension" ]
     }
