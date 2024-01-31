@@ -4,13 +4,13 @@
     "created": "2023-11-22T15:30:00Z",
     "modified": "2023-11-22T15:30:00Z",
     "spec_version": "2.1",
-    "impact_category": "monetary-impact-ext",
+    "impact_category": "monetary",
     "criticality": 85,
     "description": "Financial loss due to a ransomware attack.",
     "start_time": "2023-11-22T15:30:00Z",
     "start_time_fidelity": "minute",
     "extensions": {
-        "monetary-impact-ext": {
+        "monetary-ext": {
             "variety": "ransom",
             "currency": "USD",
             "min_amount": 10000,

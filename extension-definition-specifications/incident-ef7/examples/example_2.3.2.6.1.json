@@ -4,13 +4,13 @@
     "created": "2023-11-22T15:30:00Z",
     "modified": "2023-11-22T15:30:00Z",
     "spec_version": "2.1",
-    "impact_category": "physical-impact-ext",
+    "impact_category": "physical",
     "criticality": 95,
     "description": "Physical damage to a power plant.",
     "start_time": "2023-11-22T15:30:00Z",
     "start_time_fidelity": "minute",
     "extensions": {
-        "physical-impact-ext": {
+        "physical-ext": {
             "impact_type": "destruction",
             "asset_type": "power-plant"
         },
