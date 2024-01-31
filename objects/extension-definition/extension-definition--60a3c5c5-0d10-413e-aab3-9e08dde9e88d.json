@@ -1,20 +1,21 @@
 {
+    "type": "bundle",
     "id": "bundle--1d3fa741-e3bd-451a-acf5-b2f01d075ba7",
     "objects": [
-        { 
-	    "id": "extension-definition--60a3c5c5-0d10-413e-aab3-9e08dde9e88d", 
-	    "type": "extension-definition", 
-	    "spec_version": "2.1", 
-	    "name": "TLP 2.0", 
-	    "description": "This defines TLP 2.0 as a STIX extension", 
-	    "created": "2022-10-01T00:00:00.000Z",
-	    "modified": "2022-10-01T00:00:00.000Z",
-	    "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01", 
-	    "schema": "https://github.com/oasis-open/cti-stix-common-objects/tree/master/extension-definition-specifications/tlp-2.0", 
-	    "version": "1.0.0", 
-	    "extension_types": [ 
-		"property-extension"
-	    ]
-	}
+        {
+            "id": "extension-definition--60a3c5c5-0d10-413e-aab3-9e08dde9e88d",
+            "type": "extension-definition",
+            "spec_version": "2.1",
+            "name": "TLP 2.0",
+            "description": "This defines TLP 2.0 as a STIX extension",
+            "created": "2022-10-01T00:00:00.000Z",
+            "modified": "2022-10-01T00:00:00.000Z",
+            "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+            "schema": "https://github.com/oasis-open/cti-stix-common-objects/tree/master/extension-definition-specifications/tlp-2.0",
+            "version": "1.0.0",
+            "extension_types": [
+                "property-extension"
+            ]
+        }
     ]
 }
