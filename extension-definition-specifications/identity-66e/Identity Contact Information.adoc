@@ -221,19 +221,13 @@ This *SHOULD NOT* be used to capture the social media service used.  That *SHOUL
 
 == 4. Identity Contact Information Examples
 
-=== 4.1 Incident Contact Details Example
-[source,json]
-----
-include::examples/contact_details.json[]
-----
-
-=== 4.2 Identitiy Contact Details Example
+=== 4.1 Identitiy Contact Details Example
 [source,json]
 ----
 include::examples/individual_contact_example.json[]
 ----
 
-=== 4.3 Organization Contact Details Example
+=== 4.2 Organization Contact Details Example
 [source,json]
 ----
 include::examples/organization_contact_example.json[]
