@@ -113,7 +113,7 @@
                                 }
                             }
                         },
-                        "availability": {
+                        "availability-ext": {
                             "required": ["availability_impact"],
                             "additionalProperties": false,
                             "properties": {
@@ -124,7 +124,7 @@
                                 }
                             }
                         },
-                        "confidentiality": {
+                        "confidentiality-ext": {
                             "additionalProperties": false,
                             "anyOf": [
                                 {
@@ -171,7 +171,7 @@
                                 }
                             }
                         },
-                        "external": {
+                        "external-ext": {
                             "required": [
                                 "impact_type"
                             ],
@@ -182,7 +182,7 @@
                                 }
                             }
                         },
-                        "integrity": {
+                        "integrity-ext": {
                             "anyOf": [
                                 {
                                     "required": [
@@ -233,7 +233,7 @@
                                 }
                             }
                         },
-                        "monetary": {
+                        "monetary-ext": {
                             "required": ["variety"],
                             "additionalProperties": false,
                             "oneOf": [
@@ -325,7 +325,7 @@
                                 }
                             }
                         },
-                        "physical": {
+                        "physical-ext": {
                             "additionalProperties": false,
                             "anyOf": [
                                 {
@@ -362,7 +362,7 @@
                                 }
                             }
                         },
-                        "traceability": {
+                        "traceability-ext": {
                             "additionalProperties": false,
                             "required": ["traceability_impact"],
                             "properties": {
