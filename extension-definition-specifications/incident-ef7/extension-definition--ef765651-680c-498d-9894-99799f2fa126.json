@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "https://raw.githubusercontent.com/oasis-open/cti-stix-common-objects/main/extension-definition-specifications/incident-core/incident_core.json",
+    "$id": "https://raw.githubusercontent.com/oasis-open/cti-stix-common-objects/main/extension-definition-specifications/incident-ef7/extension-definition--ef765651-680c-498d-9894-99799f2fa126.json",
     "title": "Incident Core Extension",
     "description": "A core extension of the Incident object to allow core details of the Incident to be shared while tracking major details tied to the incident's timeline.  Multiple Incidents can be tied together via relationships if a higher degree of fidelity is needed across phases.",
     "type": "object",
