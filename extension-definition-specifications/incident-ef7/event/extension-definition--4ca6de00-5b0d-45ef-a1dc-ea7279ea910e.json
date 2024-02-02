@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "https://raw.githubusercontent.com/oasis-open/cti-stix-common-objects/main/extension-definition-specifications/incident-core/incident_core.json",
+    "$id": "https://raw.githubusercontent.com/oasis-open/cti-stix-common-objects/main/extension-definition-specifications/incident-ef7/event/extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e.json",
     "title": "Event",
     "description": "An extension for recording events in STIX.",
     "type": "object",
