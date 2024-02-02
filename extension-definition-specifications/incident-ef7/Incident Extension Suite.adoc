@@ -134,6 +134,7 @@ This value *MUST* be between 0 to 100. This can be translated into qualitative v
 |*detection_methods* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{open_vocab_url}[open-vocab]#
 |A list of strings containing what was used to detect the activity, e.g., commercial tool names, techniques associated with proprietary solutions, human review, external sources, or other methods.
+
 These values *SHOULD* be selected from the [stixtype]#<<detection-methods-ov,detection-methods-ov>># open vocabulary.
 
 |*events* (optional)
@@ -338,11 +339,12 @@ This is typically used to indicate how an event has affected impacts.
 |[stixtype]#{timestamp_url}[timestamp]#
 |The date and time the event was last recorded. If this is not present it is assumed to be unknown.
 
-If *start_time* and *end_time* properties are both defined, then end_time *MUST* be later than the start_time value. 
+If *start_time* and *end_time* properties are both defined, then *end_time* value *MUST* be later than the *start_time* value. 
 
 |*end_time_fidelity* (optional)
 |[stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>>#
 |The level of fidelity that the end_time is recorded in.
+
 This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>># enumeration.
 
 If no value is provided the timestamp should be considered to be accurate up to the number of decimals it includes.
@@ -350,6 +352,7 @@ If no value is provided the timestamp should be considered to be accurate up to 
 |*event_types* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{open_vocab_url}[open-vocab]#
 |High level types for the event in order to enable aggregation and summaries.
+
 The value of this property *SHOULD* come from the [stixtype]#<<event-type-ov,event-type-ov>># open vocabulary.
 
 |*goal* (optional)
@@ -503,7 +506,7 @@ As a new sdo extension it must follow the requirements as described in section 7
 
 |*defanged*
 
-^|[stixtr]*Incident Activity Object Specific Properties*
+^|[stixtr]*Impact Object Specific Properties*
 
 |*impact_category*,
 *criticality*,
@@ -546,11 +549,12 @@ This property *SHOULD* be populated if the impact is resolved or mitigated.
 
 If the *superseded_by_ref* property is included this *MUST* be included.
 
-If *start_time* and *end_time* properties are both defined, then end_time *MUST* be later than the start_time value. 
+If *start_time* and *end_time* properties are both defined, then *end_time* value *MUST* be later than the *start_time* value. 
 
 |*end_time_fidelity* (optional)
 |[stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>>#
 |The level of fidelity that the end_time is recorded in.
+
 This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>># enumeration.
 
 |*impacted_entity_counts* (optional)
@@ -578,6 +582,7 @@ This property *SHOULD* be populated.
 |*start_time_fidelity* (optional)
 |[stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>>#
 |The level of fidelity that the start_time is recorded in.
+
 This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>># enumeration.
 
 If no value is provided the timestamp should be considered to be
@@ -792,6 +797,7 @@ For ransom demands this should be the currency of the demand.
 If this is not included it should be assumed to be the same value as the *currency* property.
 
 If this is included then the *currency* property *MUST* be included.
+
 This *SHOULD* be an ISO 4217 alpha currency code or the official currency code for the relevant cryptocurrency.
 
 |*max_amount* (optional)
@@ -801,12 +807,16 @@ This value *MUST* be greater than zero.
 
 This value *MUST* be included if the *min_amount* property is included.
 
+If *min_amount* and *max_amount* properties are both defined, then *max_amount* value *MUST* be greater than or equal to the *min_amount* value. 
+
 |*min_amount* (optional)
 |[stixtype]#{number_url}[number]#
 |The minimum damage estimate of this type in the provided currency.
 This value *MUST* be greater than zero.
 
 This value *MUST* be included if the *max_amount* property is included.
+
+If *min_amount* and *max_amount* properties are both defined, then *max_amount* value *MUST* be greater than or equal to the *min_amount* value. 
 
 |===
 
@@ -953,6 +963,7 @@ This is typically used to indicate how an task has affected impacts.
 |*task_types* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{open_vocab_url}[open-vocabulary]#
 |A list of high level types for the task in order to enable aggregation and summaries.
+
 The values of this property *SHOULD* come from the [stixtype]#<<task-type-ov,task-type-ov>># open vocabulary.
 
 |*description* (optional)
@@ -963,9 +974,12 @@ The values of this property *SHOULD* come from the [stixtype]#<<task-type-ov,tas
 |[stixtype]#{timestamp_url}[timestamp]#
 |The date and time the task was last recorded. If this is not present it is assumed to be unknown.
 
+If *start_time* and *end_time* properties are both defined, then *end_time* value *MUST* be later than the *start_time* value. 
+
 |*end_time_fidelity* (optional)
 |[stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>>#
 |The level of fidelity that the end_time is recorded in.
+
 This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>># enumeration.
 
 If no value is provided the timestamp should be considered to be
@@ -999,8 +1013,9 @@ This property *SHOULD* be populated.
 
 |*start_time_fidelity* (optional)
 |[stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>>#
-|The level of fidelity that the start_time is recorded in. This value
-*MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>># enumeration.
+|The level of fidelity that the start_time is recorded in. 
+
+This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>># enumeration.
 
 If no value is provided the timestamp should be considered to be
 accurate up to the number of decimals it includes.
