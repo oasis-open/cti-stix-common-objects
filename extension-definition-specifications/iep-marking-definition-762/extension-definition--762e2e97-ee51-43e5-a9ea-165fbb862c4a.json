@@ -1,6 +1,6 @@
 {
   "$id": "iep-2.0.json",
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "iep-2.0-marking-definition-extension",
   "description": "This marking definition extension was created to apply IEP data markings.",
   "type": "object",
