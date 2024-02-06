@@ -1,0 +1,40 @@
+{
+    "type": "bundle",
+    "id": "bundle--1b068194-6f34-4a7f-b73d-407d8375b81d",
+    "objects": [
+        { 
+            "type": "marking-definition", 
+            "spec_version": "2.1", 
+            "id": "marking-definition--d68dc6bf-c181-424b-85e1-5a92868f01b6", 
+            "created": "2022-10-01T00:00:00.000Z", 
+            "name": "IEP data marking",
+            "external_references": [
+                {
+                    "source_name": "IEP",
+                    "description": "Information Exchange Policy",
+                    "url": "https://www.first.org/iep"
+                },
+                {
+                    "source_name": "TLP",
+                    "description": "Traffic Light Protocol",
+                    "url": "https://www.first.org/tlp"
+                }
+            ],
+            "extensions": {
+                "extension-definition--762e2e97-ee51-43e5-a9ea-165fbb862c4a": {
+                    "extension_type": "property-extension",
+                    "encrypt_in_transit": "may",
+                    "permitted_actions": "externally-visible-direct-actions",
+                    "affected_party_notifications": "may",
+                    "tlp": "amber",
+                    "provider_attribution": "must-not",
+                    "unmodified_resale": "must-not",
+                    "iep_id": "0224bfdf-ea3a-49c3-96f6-66d908bb1845",
+                    "iep_version": 2.0,
+                    "description": "This is a TLP-AMBER Information Exchange Policy",
+                    "start_date": "2022-10-01T00:00:00.000Z"
+                }
+            }
+        }
+    ]
+}

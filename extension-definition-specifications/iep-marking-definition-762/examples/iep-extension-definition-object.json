@@ -1,0 +1,15 @@
+{ 
+    "id": "extension-definition--762e2e97-ee51-43e5-a9ea-165fbb862c4a", 
+    "type": "extension-definition", 
+    "spec_version": "2.1", 
+    "name": "IEP 2.0", 
+    "description": "This defines IEP 2.0 as a STIX extension", 
+    "created": "2022-12-19T00:00:00.000Z",
+    "modified": "2022-12-19T00:00:00.000Z",
+    "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01", 
+    "schema": "https://github.com/oasis-open/cti-stix-common-objects/tree/master/extension-definition-specifications/iep-marking-definition-762", 
+    "version": "1.0.0", 
+    "extension_types": [ 
+        "property-extension"
+    ] 
+}
