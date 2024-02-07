@@ -1,0 +1,196 @@
+:stylesheet: stix.css
+:stylesdir: ../../asciidoc-shared
+:toc: macro
+:toclevels: 4
+:nofooter:
+
+// Types from the STIX 2.1 specification
+:boolean_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_7s76li5u5yid
+:identifier_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_64yvzeku5a5c
+:list_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_9w329aiwpu1y
+:open_vocab_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_bnnxah80y7by
+:string_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_uxyhzmv0vpyc
+:dictionary_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_f6e8afjdtrse
+
+= [stixtitle]*PAP Marking Definition for STIX™ Version 2.1*
+
+[.stix-doc-information-heading]#Draft#
+
+[.stix-doc-information-heading]#28 November 2022#
+
+[.stix-doc-information-heading]
+Editors:
+[.stix-indent]
+- Jill Kamienski
+
+[.stix-doc-information-heading]
+Additional artifacts:
+[.stix-indent]
+- Permissible Actions Protocol (PAP) MISP Taxonomy
+
+[.stix-indent]
+.This prose specification is one component of a Work Product that also includes:
+
+- STIX™ Version 2.1 – OASIS specification
+
+[.stix-doc-information-heading]
+Related work:
+
+[.stix-indent]
+.This specification replaces or supersedes: +
+
+- N/A
+
+toc::[]
+
+[.stix-doc-information-heading]*Abstract:*
+
+The Permissible Actions Protocol (PAP) used in MISP is a protocol that describes how much risk of an attacker detecting current analysis state or defensive actions is acceptable. It is designed to indicate what the receiver may do with the information, and it achieves this by using a color scheme. PAP provides a focus on what defenders are allowed to do with information they receive. This document defines the approach to express PAP using Structured Threat Information Expression (STIXTM) language via the use of a marking definition object.
+
+== 1. Data Markings in STIX
+Data markings represent restrictions, permissions, and other guidance for how data can be used and shared. For example, data may be shared with the restriction that it must not be re-shared, or that it must be encrypted at rest. In STIX, data markings are specified using the marking-definition object. For general information on data markings in STIX, see section 7.2 of STIX™ Version 2.1 - OASIS specification.
+
+== 2. The Permissible Actions Protocol (PAP) Marking Object Type
+The Permissible Actions Protocol (PAP) marking definition type defines the STIX object types required to share the PAP standard used by MISP. PAP was created to facilitate greater sharing of potentially sensitive information and more effective collaboration, with a focus on what recipients are allowed to do with the information. Some actions taken by defenders could alert attackers to the fact that they are aware of the attack or where they are in their analysis. This such actions should be limited, and PAP provides a way of describing such limitations. PAP data markings are defined using the “colors” of a traffic light.
+
+Because PAP 1.0 data markings are not part of the STIX 2.1 specification, they must be specified using the Extension Definition object as described in section 7.3 of the specification.
+
+The tables below describe the properties of a STIX 2.1 PAP 1.0 marking definition type. These properties are based on the marking-definition object type described in section 7.2 of the STIX 2.1 specification.  Notice that the deprecated properties of the marking definition object type are not used.
+
+
+[width="100%",cols="100%",stripes=odd]
+|===
+^|[stixtr]*Required Common Properties*
+|*type*,
+*spec_version*,
+*id*,
+*created*,
+*extensions*
+
+^|[stixtr]*Optional Common Properties*
+
+|*n/a*
+
+^|[stixtr]*Not Applicable Common Properties*
+
+|*confidence*,
+*defanged*,
+*created_by_ref*,
+*external_references*,
+*granular_markings*,
+*labels*,
+*lang*,
+*modified*,
+*object_marking_refs*,
+*revoked*
+|===
+|===
+^|[stixtr]*Property Name* ^|[stixtr]*Type* ^|[stixtr]*Description*
+
+|*type* (required)
+|[stixtype]#{string_url}[string]#
+|The type property identifies the type of object.
+
+The value of this property *MUST* be [stixtype]#<<marking-definition,marking-definition>>#
+
+|*name* (required)
+|[stixtype]#{string_url}[string]#
+|A name used to identify the Marking Definition.
+
+The value of this property *MUST* be one of the following:
+
+PAP:WHITE
+
+PAP:GREEN
+
+PAP:AMBER
+
+PAP:RED
+
+|*extensions* (required)
+|[stixtype]#{dictionary_url}[dictionary]#
+|Specifies the PAP marking “color” as an extension dictionary.
+
+There MUST be only one dictionary key and it *MUST* be [stixliteral]#extension-definition-- f8d78575-edfd-406e-8e84-6162a8450f5b#, which is the id of the extension-definition object associated with PAP.
+
+The corresponding dictionary values *MUST* be the [stixtype]#<<pap-description,pap-description>># data type described below
+|===
+
+[[pap-description]]
+*Type Name:* [stixtype]#pap-description#
+
+[width="100%",cols="37%,23%,40%",options="header",]
+|===
+^|[stixtr]*Property Name*
+^|[stixtr]*Type* 
+^|[stixtr]*Description*
+
+|*extension_type* (required)
+|[stixtype]#{string_url}[string]# 
+|The extension_type property indicates the type of extension is being used.  
+
+The value of this property *MUST* be [stixtype]#<<property-extension,property-extension>>#
+
+|*pap* (required)
+|[stixtype]#{string_url}[string]# 
+|This property contains PAP “color”.  It must be one of the following:
+
+white, 
+green,
+amber,
+red
+|===
+
+[[marking-definition]]
+The following standard marking definitions MUST be used to reference or represent PAP markings. Other instances of a PAP marking definition object MUST NOT be used or created (the only instances of PAP marking definitions permitted are those defined here).
+
+[width="100%",cols="10%,90%"]
+|===
+a|white
+[source,json]
+a|
+----
+include::examples/pap-white.json[]
+----
+a|green
+[source,json]
+a|
+----
+include::examples/pap-green.json[]
+----
+a|amber
+[source,json]
+a|
+----
+include::examples/pap-amber.json[]
+----
+a|red
+[source,json]
+a|
+----
+include::examples/pap-red.json[]
+
+----
+|===
+
+In general, there is no need to share a PAP marking-definition object in a Bundle, because the four objects are assumed to be defined when using this extension.  Use the id property of these objects to mark content.
+
+== 3. Extension Definition Object for PAP
+[source,json]
+----
+{ 
+    "id": "extension-definition-- f8d78575-edfd-406e-8e84-6162a8450f5b", 
+    "type": "extension-definition", 
+    "spec_version": "2.1", 
+    "name": "PAP",     
+    "description": "This defines PAP as a STIX extension", 
+    "created": "2022-11-28T00:00:00.000Z",
+    "modified": "2022-11-28T00:00:00.000Z",
+    "created_by_ref": "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01", 
+    "schema": "https://github.com/oasis-open/cti-stix-common-objects/tree/master/extension-definition-specifications/pap", 
+    "version": "1.0.0", 
+    "extension_types": [ 
+    "property-extension"
+    ] 
+}
+----

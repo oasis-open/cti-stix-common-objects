@@ -1,0 +1,13 @@
+{ 
+    "type": "marking-definition", 
+    "spec_version": "2.1", 
+    "id": "marking-definition--c43594d1-4b11-4c59-93ab-1c9b14d53ce9", 
+    "created": "2022-10-09T00:00:00.000Z", 
+    "name": "PAP:GREEN",
+    "extensions": {
+        "extension-definition--f8d78575-edfd-406e-8e84-6162a8450f5b": {
+            "extension_type": "property-extension",
+            "pap": "green"
+        }
+    }
+}
