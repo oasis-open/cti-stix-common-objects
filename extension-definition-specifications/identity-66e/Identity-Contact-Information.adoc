@@ -46,6 +46,11 @@ The current STIX 2.1 Identity object only contains a single text field for conta
 == 1. Identity Contact Information Extension
 The properties and additional types within the Identity Contact Information Extension are defined below.  As this is not a top-level object, fields such as identifier are not present.  This extension should be mapped to [stixliteral]#extension-definition--66e2492a-bbd3-4be6-88f5-cc91a017a498#.
 
+.At least one of the following properties/sets of properties *MUST* be provided:
+- *contact_numbers*
+- *email_addresses*
+- *social_media_accounts*
+
 [width="100%",cols="37%,23%,40%",options="header"]
 |===
 ^|[stixtr]*Property Name*
