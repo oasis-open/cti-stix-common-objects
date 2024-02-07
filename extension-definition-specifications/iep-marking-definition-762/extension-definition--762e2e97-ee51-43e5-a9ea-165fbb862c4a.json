@@ -1,134 +1,145 @@
 {
-  "$id": "iep-2.0.json",
+  "$id": "https://raw.githubusercontent.com/oasis-open/cti-stix-common-objects/main/extension-definition-specifications/iep-marking-definition-762/extension-definition--762e2e97-ee51-43e5-a9ea-165fbb862c4a.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "iep-2.0-marking-definition-extension",
+  "title": "iep-marking-definition-extension",
   "description": "This marking definition extension was created to apply IEP data markings.",
   "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "A name used to identify the Marking Definition."
+  "allOf": [
+    {
+      "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/marking-definition.json"
     },
-    "extensions": {
-      "type": "object",
+    {
+      "not": {
+        "required": [
+          "definition_type"
+        ]
+      }
+    },
+    {
+      "not": {
+        "required": [
+          "definition"
+        ]
+      }
+    },
+    {
       "properties": {
-        "extension-definition--762e2e97-ee51-43e5-a9ea-165fbb862c4a": {
+        "extensions": {
           "type": "object",
           "properties": {
-            "extension_type": {
-              "type": "string",
-              "description": "Defined by STIX 2.1 extension definition rules from 'extension-type-enum'.",
-              "enum": [
-                "property-extension"
+            "extension-definition--762e2e97-ee51-43e5-a9ea-165fbb862c4a": {
+              "type": "object",
+              "properties": {
+                "extension_type": {
+                  "type": "string",
+                  "description": "Defined by STIX 2.1 extension definition rules from 'extension-type-enum'.",
+                  "enum": [
+                    "property-extension"
+                  ]
+                },
+                "encrypt_in_transit": {
+                  "type": "string",
+                  "description": "States whether the received information has to be encrypted when it is retransmitted by the recipient.",
+                  "enum": [
+                    "must",
+                    "may"
+                  ]
+                },
+                "permitted_actions": {
+                  "type": "string",
+                  "description": "States the permitted actions that recipients can take upon information received.",
+                  "enum": [
+                    "none",
+                    "contact-for-instruction",
+                    "internally-visible-actions",
+                    "externally-visible-indirect-actions",
+                    "externally-visible-direct-actions"
+                  ]
+                },
+                "affected_party_notifications": {
+                  "type": "string",
+                  "description": "States whether recipients are permitted to notify affected third parties of a compromise or threat.",
+                  "enum": [
+                    "may",
+                    "must-not"
+                  ]
+                },
+                "tlp": {
+                  "type": "string",
+                  "description": "A TLP color that indicates the redistribution scope.",
+                  "enum": [
+                    "red",
+                    "amber",
+                    "green",
+                    "white"
+                  ]
+                },
+                "provider_attribution": {
+                  "type": "string",
+                  "description": "Recipients could be required to attribute or anonymize the provider when redistributing the informaiton received.",
+                  "enum": [
+                    "may",
+                    "must",
+                    "must-not"
+                  ]
+                },
+                "unmodified_resale": {
+                  "type": "string",
+                  "description": "States whether the recipient MAY or MUST NOT resell the information received unmodified or in a semanticaly equivalent format.",
+                  "enum": [
+                    "may",
+                    "must-not"
+                  ]
+                },
+                "iep_id": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "Provides a unique ID to identify a specific IEP implementation. The policy ID must be either UUIDv4 or UUID5 as specified in RFC4122."
+                },
+                "iep_version": {
+                  "type": "number",
+                  "description": "Defines which version of the IEP Framework this policy implements. The value of this property MUST be 2.0.",
+                  "enum": [
+                    2.0
+                  ]
+                },
+                "description": {
+                  "type": "string",
+                  "description": "This statement can be used to provide some background information about the IEP implementation."
+                },
+                "start_date": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "States the UTC date that an IEP is effective from."
+                },
+                "end_date": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "States the UTC date that an IEP is effective until."
+                }
+              },
+              "required": [
+                "extension_type",
+                "encrypt_in_transit",
+                "permitted_actions",
+                "affected_party_notifications",
+                "tlp_ref",
+                "provider_attribution",
+                "unmodified_resale",
+                "iep_id",
+                "iep_version",
+                "policy_name",
+                "description",
+                "start_date"
               ]
-            },
-            "encrypt_in_transit": {
-              "type": "string",
-              "description": "States whether the received information has to be encrypted when it is retransmitted by the recipient.",
-              "enum": [
-                "must",
-                "may"
-              ]
-            },
-            "permitted_actions": {
-              "type": "string",
-              "description": "States the permitted actions that recipients can take upon information received.",
-              "enum": [
-                "none",
-                "contact-for-instruction",
-                "internally-visible-actions",
-                "externally-visible-indirect-actions",
-                "externally-visible-direct-actions"
-              ]
-            },
-            "affected_party_notifications": {
-              "type": "string",
-              "description": "States whether recipients are permitted to notify affected third parties of a compromise or threat.",
-              "enum": [
-                "may",
-                "must-not"
-              ]
-            },
-            "tlp": {
-              "type": "string",
-              "description": "A TLP color that indicates the redistribution scope.",
-              "enum": [
-                "red",
-                "amber",
-                "green",
-                "white"
-              ]
-            },
-            "provider_attribution": {
-              "type": "string",
-              "description": "Recipients could be required to attribute or anonymize the provider when redistributing the informaiton received.",
-              "enum": [
-                "may",
-                "must",
-                "must-not"
-              ]
-            },
-            "unmodified_resale": {
-              "type": "string",
-              "description": "States whether the recipient MAY or MUST NOT resell the information received unmodified or in a semanticaly equivalent format.",
-              "enum": [
-                "may",
-                "must-not"
-              ]
-            },
-            "iep_id": {
-              "type": "string",
-              "format": "uuid",
-              "description": "Provides a unique ID to identify a specific IEP implementation. The policy ID must be either UUIDv4 or UUID5 as specified in RFC4122."
-            },
-            "iep_version": {
-              "type": "number",
-              "description": "Defines which version of the IEP Framework this policy implements. The value of this property MUST be 2.0.",
-              "enum": [
-                2.0
-              ]
-            },
-            "description": {
-              "type": "string",
-              "description": "This statement can be used to provide some background information about the IEP implementation."
-            },
-            "start_date": {
-              "type": "string",
-              "format": "date-time",
-              "description": "States the UTC date that an IEP is effective from."
-            },
-            "end_date": {
-              "type": "string",
-              "format": "date-time",
-              "description": "States the UTC date that an IEP is effective until."
             }
-          },
-          "required": [
-            "extension_type",
-            "encrypt_in_transit",
-            "permitted_actions",
-            "affected_party_notifications",
-            "tlp_ref",
-            "provider_attribution",
-            "unmodified_resale",
-            "iep_id",
-            "iep_version",
-            "policy_name",
-            "description",
-            "start_date"
-          ]
+          }
         }
-      }
+      },
+      "required": [
+        "extensions"
+      ]
     }
-  },
-  "required": [
-    "type",
-    "id",
-    "spec_version",
-    "created",
-    "extensions",
-    "external_references",
-    "name"
   ]
 }
   

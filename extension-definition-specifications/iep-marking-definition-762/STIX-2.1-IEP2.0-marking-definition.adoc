@@ -251,11 +251,20 @@ on the information received.
 
 == 4. IEP 2.0 Data Marking Example
 
+Basic example of the IEP Data Marking
 [source,json]
 ----
 include::examples/iep-data-marking-example.json[]
 ----
 
+Basic example with optional end date field
+[source,json]
+----
+include::examples/iep-data-marking-example.json[]
+----
+
+Example of the Bundle with an IEP Data Marking
+[source,json]
 ----
 include::examples/iep-data-marking-bundle-example.json[]
 ----
