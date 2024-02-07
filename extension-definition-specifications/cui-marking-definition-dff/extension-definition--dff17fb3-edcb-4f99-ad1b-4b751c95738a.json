@@ -1,5 +1,5 @@
 {
-    "$id": "https://raw.githubusercontent.com/oasis-open/cti-stix-common-objects/main/extension-definition-specifications/cui-data-markings/extension-definition--dff17fb3-edcb-4f99-ad1b-4b751c95738a.json",
+    "$id": "https://raw.githubusercontent.com/oasis-open/cti-stix-common-objects/main/extension-definition-specifications/cui-marking-definition-dff/extension-definition--dff17fb3-edcb-4f99-ad1b-4b751c95738a.json",
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "cui-marking-definition-extension",
     "description": "This marking extension was created to represent Controlled Unclassified Information (CUI) markings",
@@ -7,6 +7,20 @@
     "allOf": [
       {
         "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/marking-definition.json"
+      },
+      {
+        "not": {
+          "required": [
+            "definition_type"
+          ]
+        }
+      },
+      {
+        "not": {
+          "required": [
+            "definition"
+          ]
+        }
       },
       {
         "properties": {
@@ -31,22 +45,6 @@
                       "CUI"
                     ]
                   },
-                  "categories": {
-                    "type": "array",
-                    "description": "The CUI Category or Subcategory Markings.",
-                    "items": {
-                      "type": "string"
-                    },
-                    "minItems": 1
-                  },
-                  "disseminations": {
-                    "type": "array",
-                    "description": "The CUI Limited Dissemination Control Markings.",
-                    "items": {
-                      "type": "string"
-                    },
-                    "minItems": 1
-                  },
                   "designator_ref": {
                     "description": "A reference to the identity object representing the designator’s agency.",
                     "allOf": [
@@ -57,6 +55,22 @@
                         "pattern": "^identity--.+$"
                       }
                     ]
+                  },
+                  "categories": {
+                    "type": "array",
+                    "description": "The CUI Category or Subcategory Markings. Must come from https://www.archives.gov/cui/registry/category-marking-list",
+                    "items": {
+                      "type": "string"
+                    },
+                    "minItems": 1
+                  },
+                  "disseminations": {
+                    "type": "array",
+                    "description": "The CUI Limited Dissemination Control Markings. Must come from https://www.archives.gov/cui/registry/limited-dissemination",
+                    "items": {
+                      "type": "string"
+                    },
+                    "minItems": 1
                   },
                   "required_statements": {
                     "type": "array",
@@ -77,7 +91,8 @@
                 },
                 "required": [
                   "extension_type",
-                  "control"
+                  "control",
+                  "designator_ref"
                 ],
                 "additionalProperties": false
               }

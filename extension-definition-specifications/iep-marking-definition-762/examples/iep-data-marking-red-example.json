@@ -1,0 +1,23 @@
+{
+    "type": "marking-definition",
+    "spec_version": "2.1",
+    "id": "marking-definition--da05d443-ad8d-46fc-abf5-31d3d00290f1",
+    "created": "2024-01-10T14:52:41.853121Z",
+    "name": "IEP data marking",
+    "extensions": {
+        "extension-definition--762e2e97-ee51-43e5-a9ea-165fbb862c4a": {
+            "extension_type": "property-extension",
+            "encrypt_in_transit": "must",
+            "permitted_actions": "contact-for-instruction",
+            "affected_party_notifications": "must-not",
+            "tlp": "red",
+            "provider_attribution": "must-not",
+            "unmodified_resale": "must-not",
+            "iep_id": "0224bfdf-ea3a-49c3-96f6-66d908bb1845",
+            "iep_version": 2.0,
+            "description": "This is a TLP-RED Information Exchange Policy",
+            "start_date": "2022-10-01T00:00:00Z",
+            "end_date": "2022-11-01T00:00:00Z"
+        }
+    }
+}

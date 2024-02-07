@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "https://raw.githubusercontent.com/oasis-open/cti-stix-common-objects/main/extension-definition-specifications/malware-artifact/artifact.json",
+    "$id": "https://raw.githubusercontent.com/oasis-open/cti-stix-common-objects/main/extension-definition-specifications/artifact-805/artifact.json",
     "title": "malware-sample-artifact-extension",
     "description": "An extension of the Artifact object to allow capture of malware samples.",
     "type": "object",
