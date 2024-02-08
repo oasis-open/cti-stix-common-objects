@@ -44,7 +44,7 @@
 
 [.stix-doc-information-heading]#Draft#
 
-[.stix-doc-information-heading]#10 October 20238 February 2024#
+[.stix-doc-information-heading]#8 February 2024#
 
 [.stix-doc-information-heading]
 Editors:
