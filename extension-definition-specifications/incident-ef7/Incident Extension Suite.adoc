@@ -40,11 +40,11 @@
 :threat_actor_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_k017w16zutw
 :tool_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_z4voa9ndw8v
 
-= [stixtitle]*Incident Core Extension Version 2.0 for STIX^TM^ Version 2.1*
+= [stixtitle]*Incident Core Extension Version 2.1 for STIX^TM^ Version 2.1*
 
 [.stix-doc-information-heading]#Draft#
 
-[.stix-doc-information-heading]#10 October 2023#
+[.stix-doc-information-heading]#10 October 20238 February 2024#
 
 [.stix-doc-information-heading]
 Editors:
@@ -95,7 +95,7 @@ The Incident object should have sufficient properties to represent the current s
 
 === 2.1. Incident Core
 
-The properties and additional types within the Incident Core Extension are defined below. As this is an extension of a top-level object, fields such as identifier are not present.  This extension *MUST* use [stixliteral]#extension-definition--ef765651-680c-498d-9894-99799f2fa126# as its extension ID.
+The properties and additional types within the Incident Core Extension are defined below. As this is an extension of a top-level object, common properties such as *id* are not present.  This extension *MUST* use [stixliteral]#extension-definition--ef765651-680c-498d-9894-99799f2fa126# as its extension ID.
 
 <<<
 
@@ -107,11 +107,11 @@ The properties and additional types within the Incident Core Extension are defin
 
 |*determination* (required)
 |[stixtype]#<<incident-determination-enum,incident-determination-enum>>#
-|A high level determination on the outcome of this incident.
+|A high-level determination on the status of this incident.
 The value of this property *SHOULD* be [stixliteral]#suspected# until enough information is available to provide a well researched result.
 
-Some automated tools may flag results as blocked or low-value automatically depending on the tool type or activity.
-A tool that blocks a series of phishing emails may create an incident with a blocked determination automatically.
+Some automated tools may flag results as "blocked" or "low-value" automatically depending on the tool type or activity.
+For example, a tool that blocks a series of phishing emails may create an incident with a [stixliteral]#blocked# determination automatically.
 
 The values of this property *MUST* come from the [stixtype]#<<incident-determination-enum,incident-determination-enum>># enumeration.
 
@@ -139,7 +139,7 @@ These values *SHOULD* be selected from the [stixtype]#<<detection-methods-ov,det
 
 |*events* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#<<event-entry,event-entry>>#
-|A list of events tied to this incident.
+|A list of events (as a list of [stixtype]#<<event-entry,event-entry>>#) tied to this incident.
 
 |*impact_refs* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
@@ -148,11 +148,11 @@ All objects referenced in this list *MUST* be of type [stixtype]#<<impact,impact
 
 |*impacted_entity_counts* (optional)
 |[stixtype]#<<entity-count,entity-count>>#
-|An optional listing of the entity types that were impacted by the incident, and how many of each type were affected.
-Individual impacts may also record more detailed counts as appropriate.
+|An listing of the entity types that were impacted by the incident, and how many of each type were affected.
+Individual impacts objects may also record more detailed counts as appropriate.
 
 If this property is not present it should be assumed that this information is not being shared, not that there were no impacted entities.
-To affirmatively state no entities of a given class were impacted they should be included with the number of entities affected by it set to [stixliteral]#0#.
+To affirmatively state no entities of a given class were impacted they should be included with the number of entities affected by it set to 0.
 
 |*incident_types* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{open_vocab_url}[open-vocab]#
@@ -173,7 +173,41 @@ enumeration.
 
 |*tasks* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#<<task-entry,task-entry>>#
-|A list of tasks tied to this incident.
+|A list of tasks (as a list of [stixtype]#<<event-entry,event-entry>>#) tied to this incident.
+
+|*impact_refs* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
+|A list of impacts of this incident.
+All objects referenced in this list *MUST* be of type [stixtype]#<<impact,impact>>#
+
+|*impacted_entity_counts* (optional)
+|[stixtype]#<<entity-count,entity-count>>#
+|An listing of the entity types that were impacted by the incident, and how many of each type were affected.
+Individual impacts objects may also record more detailed counts as appropriate.
+
+If this property is not present it should be assumed that this information is not being shared, not that there were no impacted entities.
+To affirmatively state no entities of a given class were impacted they should be included with the number of entities affected by it set to 0.
+
+|*incident_types* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#{open_vocab_url}[open-vocab]#
+|This property uses an Open Vocabulary that specifies the type of incident that occurred, if applicable.
+
+The values of this property *SHOULD* come from the [stixtype]#<<event-type-ov,event-type-ov>># open vocabulary.
+
+|*recoverability* (optional)
+|[stixtype]#<<recoverability-enum,recoverability-enum>>#
+|The recoverability of this particular Incident with respect to feasibility and required time and resources.
+
+The value of this property *MUST* come from the [stixtype]#<<recoverability-enum,recoverability-enum>>#
+enumeration.
+
+|*scores* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#<<incident-score,incident-score>>#
+|A list of scores from various automated or manual mechanisms along with optional descriptions.
+
+|*tasks* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#<<task-entry,task-entry>>#
+|A list of tasks (as a list of [stixtype]#<<task-entry,task-entry>>#) tied to this incident.
 
 |===
 
@@ -265,7 +299,7 @@ include::examples/example_2.1.json[]
 [[event]]
 === 2.2. Event
 
-An Event is an activity that takes place during an attack attributed to the attacker.
+An Event is an activity attributed to the attacker.
 
 This new sdo extension *MUST* use [stixliteral]#extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e# as its extension ID.
 
@@ -347,11 +381,11 @@ If *start_time* and *end_time* properties are both defined, then *end_time* valu
 
 This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>># enumeration.
 
-If no value is provided the timestamp should be considered to be accurate up to the number of decimals it includes.
+If no value is provided for this property, the *end_time* should be considered to be accurate to the smallest unit specified with a non-zero value in the timestamp.
 
 |*event_types* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{open_vocab_url}[open-vocab]#
-|High level types for the event in order to enable aggregation and summaries.
+|High level types for the event to enable aggregation and summarization.
 
 The value of this property *SHOULD* come from the [stixtype]#<<event-type-ov,event-type-ov>># open vocabulary.
 
@@ -384,12 +418,11 @@ This property *SHOULD* be populated.
 |The level of fidelity that the start_time is recorded in. This value
 *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>># enumeration.
 
-If no value is provided the timestamp should be considered to be
-accurate up to the number of decimals it includes.
+If no value is provided for this property, the *start_time* should be considered to be accurate to the smallest unit specified with a non-zero value in the timestamp.
 
 |*subevents* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#<<event-entry,event-entry>>#
-|A list of sub-events tied to this event.
+|A list of sub-events (as a list of [stixtype]#<<event-entry,event-entry>>#) tied to this event.
 |===
 
 <<<
@@ -557,6 +590,8 @@ If *start_time* and *end_time* properties are both defined, then *end_time* valu
 
 This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>># enumeration.
 
+If no value is provided for this property, the *end_time* should be considered to be accurate to the smallest unit specified with a non-zero value in the timestamp.
+
 |*impacted_entity_counts* (optional)
 |[stixtype]#<<entity-count,entity-count>>#
 |An optional listing of the entity types that were impacted and how many of each were affected.
@@ -585,8 +620,7 @@ This property *SHOULD* be populated.
 
 This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>># enumeration.
 
-If no value is provided the timestamp should be considered to be
-accurate up to the number of decimals it includes.
+If no value is provided for this property, the *start_time* should be considered to be accurate to the smallest unit specified with a non-zero value in the timestamp.
 
 |*superseded_by_ref* (optional)
 |[stixtype]#{identifier_url}[identifier]# 
@@ -893,7 +927,7 @@ include::examples/example_2.3.2.7.1.json[]
 [[task]]
 === 2.4. Task
 
-An Task is an activity that is performed by the victim to respond to the attack.
+A Task is an activity that is performed by the victim to respond to the attack.
 
 This new sdo extension *MUST* use [stixliteral]#extension-definition--2074a052-8be4-4932-849e-f5e7798e0030# as its extension ID.
 
@@ -982,8 +1016,7 @@ If *start_time* and *end_time* properties are both defined, then *end_time* valu
 
 This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>># enumeration.
 
-If no value is provided the timestamp should be considered to be
-accurate up to the number of decimals it includes.
+If no value is provided for this property, the *end_time* should be considered to be accurate to the smallest unit specified with a non-zero value in the timestamp.
 
 |*error* (optional)
 |[stixtype]#{string_url}[string]#
@@ -1017,8 +1050,7 @@ This property *SHOULD* be populated.
 
 This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>># enumeration.
 
-If no value is provided the timestamp should be considered to be
-accurate up to the number of decimals it includes.
+If no value is provided for this property, the *start_time* should be considered to be accurate to the smallest unit specified with a non-zero value in the timestamp.
 
 |*subtasks* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#<<task-entry,task-entry>>#
