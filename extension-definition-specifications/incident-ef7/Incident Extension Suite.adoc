@@ -373,7 +373,7 @@ This is typically used to indicate how an event has affected impacts.
 |[stixtype]#{timestamp_url}[timestamp]#
 |The date and time the event was last recorded. If this is not present it is assumed to be unknown.
 
-If *start_time* and *end_time* properties are both defined, then *end_time* value *MUST* be later than the *start_time* value. 
+If *start_time* and *end_time* properties are both defined, then *end_time* value *MUST* be the same or later than the *start_time* value. 
 
 |*end_time_fidelity* (optional)
 |[stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>>#
@@ -381,7 +381,7 @@ If *start_time* and *end_time* properties are both defined, then *end_time* valu
 
 This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>># enumeration.
 
-If no value is provided the timestamp should be considered to be accurate up to the number of decimals it includes.
+If no value is provided the timestamp should be considered to be accurate up to the number of decimal digits it includes.
 
 |*event_types* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{open_vocab_url}[open-vocab]#
@@ -396,11 +396,11 @@ Not all events have goals.
 
 |*name* (optional)
 |[stixtype]#{string_url}[string]#
-|An optional name for the event.
+|A name for the event.
 
 |*sighting_refs* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
-|An optional list of [stixtype]#{sighting_url}[sighting]# objects that were related to this event.
+|A list of [stixtype]#{sighting_url}[sighting]# objects that were related to this event.
 Sightings referenced in this *SHOULD* be based on [stixtype]#{attack_pattern_url}[attack-pattern]#, [stixtype]#{indicator_url}[indicator]#, or [stixtype]#{malware_url}[malware]# SDOs.
 
 In some cases observed data may be present, but no [stixtype]#{indicator_url}[indicator]# can be created.
@@ -418,7 +418,7 @@ This property *SHOULD* be populated.
 |The level of fidelity that the start_time is recorded in. This value
 *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>># enumeration.
 
-If no value is provided the timestamp should be considered to be accurate up to the number of decimals it includes.
+If no value is provided the timestamp should be considered to be accurate up to the number of decimal digits it includes.
 
 |*subevents* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#<<event-entry,event-entry>>#
@@ -508,7 +508,7 @@ include::examples/example_2.2.json[]
 [[impact]]
 === 2.3. Impact
 
-An Impact is the result of an attack to the victim. Impacts can have many facets: availability of resources, confidentiality of data, integrety of data or resources, monetary, physical damage, damage to others and traceability (auditing). 
+An Impact is the result of an attack to the victim. Impacts can have many catgories: availability of resources, confidentiality of data, integrity of data or resources, monetary, physical damage, damage to others and traceability (auditing). 
 
 This new sdo extension *MUST* use [stixliteral]#extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9# as its extension ID.
 
@@ -551,6 +551,7 @@ As a new sdo extension it must follow the requirements as described in section 7
 *recoverability*,
 *start_time*,
 *start_time_fidelity*,
+*superseded_by_ref*
 |===
 
 |===
@@ -558,7 +559,7 @@ As a new sdo extension it must follow the requirements as described in section 7
 
 |*impact_category* (required)
 |[stixtype]#{string_url}[string]#
-|The category of impact this applies to.
+|The category of impact this object applies to.
 This *MUST* match an extension that provides greater details of a specific type of impact, and *SHOULD* come from the extensions listed in section 2.3.2 of this document.  The value can be specified with or without the "-ext" suffix.
 
 |*type* (required)
@@ -578,11 +579,11 @@ This can be translated into qualitative values as described in <<appendix-b,Appe
 |[stixtype]#{timestamp_url}[timestamp]#
 |The date and time the impact was last recorded.
 
-This property *SHOULD* be populated if the impact is resolved or mitigated.
+This property *SHOULD* be populated if this impact is resolved or mitigated.
+
+If *start_time* and *end_time* properties are both defined, then *end_time* value *MUST* be the same or later than the *start_time* value.
 
 If the *superseded_by_ref* property is included this *MUST* be included.
-
-If *start_time* and *end_time* properties are both defined, then *end_time* value *MUST* be later than the *start_time* value. 
 
 |*end_time_fidelity* (optional)
 |[stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>>#
@@ -590,11 +591,11 @@ If *start_time* and *end_time* properties are both defined, then *end_time* valu
 
 This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>># enumeration.
 
-If no value is provided the timestamp should be considered to be accurate up to the number of decimals it includes.
+If no value is provided the timestamp should be considered to be accurate up to the number of decimal digits it includes.
 
 |*impacted_entity_counts* (optional)
 |[stixtype]#<<entity-count,entity-count>>#
-|An optional listing of the entity types that were impacted and how many of each were affected.
+|A listing of the entity types that were impacted and how many of each were affected.
 
 If this property is not present it should be assumed that this information is not being shared, not that there were no impacted entities.
 
@@ -610,7 +611,7 @@ The value of this property *MUST* come from the [stixtype]#<<recoverability-enum
 
 |*start_time* (optional)
 |[stixtype]#{timestamp_url}[timestamp]#
-|The date and time the impact was first recorded.
+|The date and time this impact was first recorded.
 
 This property *SHOULD* be populated.
 
@@ -620,15 +621,15 @@ This property *SHOULD* be populated.
 
 This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>># enumeration.
 
-If no value is provided the timestamp should be considered to be accurate up to the number of decimals it includes.
+If no value is provided the timestamp should be considered to be accurate up to the number of decimal digits it includes.
 
 |*superseded_by_ref* (optional)
 |[stixtype]#{identifier_url}[identifier]# 
 |The referenced [stixtype]#<<impact,impact>># supersedes this one at the *end_time* for the current impact.
 This allows capturing how the severity of this impact changes over time.
 
-When populated the impact *MUST* have an *end_time*.
-It also *MUST* reference an [stixtype]#<<impact,impact>># of the same as the *impact_category* property.
+When populated this impact *MUST* have an *end_time*.
+It also *MUST* reference an [stixtype]#<<impact,impact>># of the same as the category specified in the *impact_category* property.
 
 |===
 
@@ -637,12 +638,17 @@ It also *MUST* reference an [stixtype]#<<impact,impact>># of the same as the *im
 ==== 2.3.1. Relationships
 
 // tag::impact-relationships[]
+There are no relationships explicitly defined between the Impact object and other STIX
+Objects, other than those defined as common relationships ([stixrelationship]#duplicate-of#, [stixrelationship]#derived-from#, [stixrelationship]#related-to#, and the embedded relationships defined by the common SDO properties.
+
+Relationships can be created between any objects
+using the [stixrelationship]#related-to# relationship type or, as with open vocabularies, user-defined names.
 // end::impact-relationships[]
 
 ==== 2.3.2. Extensions
 
 The Impact SDO is currently an extension, but as there are many specific types of impacts with their own unique properties it emulates the File SCO through the use of STIX Extensions to provide the granular details of specific categories of impacts.
-As such every Impact *MUST* have the one extension which has the same value as the *impact_category* property (see this property description above).  
+As such every Impact *MUST* have the one extension which matches the value of the *impact_category* property (see this property description above).  
 This allows consumers to quickly validate their ability to process this category of impact and then load all of its specific details.
 
 Because these extensions are used to specify very different types of impacts, producers *SHOULD* use one and only one of these extensions. However, additional extensions might be proposed in the future and might be used in conjunction with one of these.
@@ -660,7 +666,7 @@ Because these extensions are used to specify very different types of impacts, pr
 |*availability_impact* (required)
 |[stixtype]#{int_url}[integer]#
 |The availability / functional impact of the incident on the objects referenced in *impacted_refs*. 
-If no objects are referenced it should be treated as the overall availability impact for the [stixtype]#{incident_url}[incident]# that references it.
+If no objects are referenced, the impact should be treated as the overall availability impact for the [stixtype]#{incident_url}[incident]# that references it.
 
 This value *MUST* be between 0 to 100. This can be translated into qualitative values as described in <<appendix-a,Appendix A>>.
 
@@ -927,7 +933,7 @@ include::examples/example_2.3.2.7.1.json[]
 [[task]]
 === 2.4. Task
 
-A Task is an activity that is performed by the victim/defender to respond to the attack.
+A Task is an activity that is performed by or for the victim/defender to respond to the attack.
 
 This new sdo extension *MUST* use [stixliteral]#extension-definition--2074a052-8be4-4932-849e-f5e7798e0030# as its extension ID.
 
@@ -1002,7 +1008,7 @@ The values of this property *SHOULD* come from the [stixtype]#<<task-type-ov,tas
 
 |*description* (optional)
 |[stixtype]#{string_url}[string]#
-|A description of task that occurred.
+|A description of the task.
 
 |*end_time* (optional)
 |[stixtype]#{timestamp_url}[timestamp]#
@@ -1016,7 +1022,7 @@ If *start_time* and *end_time* properties are both defined, then *end_time* valu
 
 This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>># enumeration.
 
-If no value is provided the timestamp should be considered to be accurate up to the number of decimals it includes.
+If no value is provided the timestamp should be considered to be accurate up to the number of decimal digits it includes.
 
 |*error* (optional)
 |[stixtype]#{string_url}[string]#
@@ -1024,13 +1030,13 @@ If no value is provided the timestamp should be considered to be accurate up to 
 
 |*impacted_entity_counts* (optional)
 |[stixtype]#<<entity-count,entity-count>>#
-|An optional listing of the entity types that were impacted and how many of each were affected.
+|A listing of the entity types that were impacted and how many of each were affected.
 
 This is primarily used when recording victim notifications.
 
 |*name* (optional)
 |[stixtype]#{string_url}[string]#
-|An optional name used to identify the task.
+|A name used to identify the task.
 
 |*priority* (optional)
 |[stixtype]#{int_url}[integer]#
@@ -1050,7 +1056,7 @@ This property *SHOULD* be populated.
 
 This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>># enumeration.
 
-If no value is provided the timestamp should be considered to be accurate up to the number of decimals it includes.
+If no value is provided the timestamp should be considered to be accurate up to the number of decimal digits it includes.
 
 |*subtasks* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#<<task-entry,task-entry>>#
@@ -1319,7 +1325,7 @@ include::examples/example_3.3.json[]
 
 |*description* (optional)
 |[stixtype]#{string_url}[string]# 
-|An optional description about how this score was calculated for systems that provide this information.
+|A description about how this score was calculated for systems that provide this information.
 |===
 
 <<<
