@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://github.com/oasis-open/cti-stix-common-objects/tree/main/extension-definition-specifications/identity-contact-information/extension-definition--66e2492a-bbd3-4be6-88f5-cc91a017a498.json",
+    "$id": "https://raw.githubusercontent.com/oasis-open/cti-stix-common-objects/main/extension-definition-specifications/identity-66e/extension-definition--66e2492a-bbd3-4be6-88f5-cc91a017a498.json",
     "title": "Identity Contact Information",
     "description": "This extension allows contact information to be included in identities in a manner that allows them to be machine parsable.",
     "type": "object",
