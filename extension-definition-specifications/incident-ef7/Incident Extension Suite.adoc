@@ -110,7 +110,7 @@ The properties and additional types within the Incident Core Extension are defin
 |A high-level determination on the status of this incident.
 The value of this property *SHOULD* be [stixliteral]#suspected# until enough information is available to provide a well researched result.
 
-Some automated tools may flag results as "blocked" or "low-value" automatically depending on the tool type or activity.
+Some automated tools may flag results as [stixliteral]#blocked# or [stixliteral]#low-value# automatically depending on the tool type or activity.
 For example, a tool that blocks a series of phishing emails may create an incident with a [stixliteral]#blocked# determination automatically.
 
 The values of this property *MUST* come from the [stixtype]#<<incident-determination-enum,incident-determination-enum>># enumeration.
@@ -123,7 +123,7 @@ The values of this property *MUST* come from the [stixtype]#<<incident-determina
 |[stixtype]#{open_vocab_url}[open-vocab]#
 |The current status of the incident investigation.
 
-The values of this property *MUST* come from the [stixtype]#<<incident-investigation-ov,incident-investigation-ov>># open vocabulary.
+The values of this property *SHOULD* come from the [stixtype]#<<incident-investigation-ov,incident-investigation-ov>># open vocabulary.
 
 |*criticality* (optional)
 |[stixtype]#{int_url}[integer]#
@@ -299,7 +299,7 @@ include::examples/example_2.1.json[]
 [[event]]
 === 2.2. Event
 
-An Event is an activity attributed to the attacker.
+An Event is an activity that has a harmful effect on the defender/victim.
 
 This new sdo extension *MUST* use [stixliteral]#extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e# as its extension ID.
 
@@ -381,7 +381,7 @@ If *start_time* and *end_time* properties are both defined, then *end_time* valu
 
 This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>># enumeration.
 
-If no value is provided for this property, the *end_time* should be considered to be accurate to the smallest unit specified with a non-zero value in the timestamp.
+If no value is provided the timestamp should be considered to be accurate up to the number of decimals it includes.
 
 |*event_types* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{open_vocab_url}[open-vocab]#
@@ -418,7 +418,7 @@ This property *SHOULD* be populated.
 |The level of fidelity that the start_time is recorded in. This value
 *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>># enumeration.
 
-If no value is provided for this property, the *start_time* should be considered to be accurate to the smallest unit specified with a non-zero value in the timestamp.
+If no value is provided the timestamp should be considered to be accurate up to the number of decimals it includes.
 
 |*subevents* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#<<event-entry,event-entry>>#
@@ -590,7 +590,7 @@ If *start_time* and *end_time* properties are both defined, then *end_time* valu
 
 This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>># enumeration.
 
-If no value is provided for this property, the *end_time* should be considered to be accurate to the smallest unit specified with a non-zero value in the timestamp.
+If no value is provided the timestamp should be considered to be accurate up to the number of decimals it includes.
 
 |*impacted_entity_counts* (optional)
 |[stixtype]#<<entity-count,entity-count>>#
@@ -620,7 +620,7 @@ This property *SHOULD* be populated.
 
 This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>># enumeration.
 
-If no value is provided for this property, the *start_time* should be considered to be accurate to the smallest unit specified with a non-zero value in the timestamp.
+If no value is provided the timestamp should be considered to be accurate up to the number of decimals it includes.
 
 |*superseded_by_ref* (optional)
 |[stixtype]#{identifier_url}[identifier]# 
@@ -642,10 +642,10 @@ It also *MUST* reference an [stixtype]#<<impact,impact>># of the same as the *im
 ==== 2.3.2. Extensions
 
 The Impact SDO is currently an extension, but as there are many specific types of impacts with their own unique properties it emulates the File SCO through the use of STIX Extensions to provide the granular details of specific categories of impacts.
-As such every Impact *MUST* have one and only one extension which has the same value as the *impact_category* property (see this property description above).
+As such every Impact *MUST* have the one extension which has the same value as the *impact_category* property (see this property description above).  
 This allows consumers to quickly validate their ability to process this category of impact and then load all of its specific details.
 
-Producers *SHOULD* use one of these extensions.
+Because these extensions are used to specify very different types of impacts, producers *SHOULD* use one and only one of these extensions. However, additional extensions might be proposed in the future and might be used in conjunction with one of these.
 
 ===== 2.3.2.1. Availability Impact Extension 
 
@@ -927,7 +927,7 @@ include::examples/example_2.3.2.7.1.json[]
 [[task]]
 === 2.4. Task
 
-A Task is an activity that is performed by the victim to respond to the attack.
+A Task is an activity that is performed by the victim/defender to respond to the attack.
 
 This new sdo extension *MUST* use [stixliteral]#extension-definition--2074a052-8be4-4932-849e-f5e7798e0030# as its extension ID.
 
@@ -1016,7 +1016,7 @@ If *start_time* and *end_time* properties are both defined, then *end_time* valu
 
 This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>># enumeration.
 
-If no value is provided for this property, the *end_time* should be considered to be accurate to the smallest unit specified with a non-zero value in the timestamp.
+If no value is provided the timestamp should be considered to be accurate up to the number of decimals it includes.
 
 |*error* (optional)
 |[stixtype]#{string_url}[string]#
@@ -1050,7 +1050,7 @@ This property *SHOULD* be populated.
 
 This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>># enumeration.
 
-If no value is provided for this property, the *start_time* should be considered to be accurate to the smallest unit specified with a non-zero value in the timestamp.
+If no value is provided the timestamp should be considered to be accurate up to the number of decimals it includes.
 
 |*subtasks* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#<<task-entry,task-entry>>#
