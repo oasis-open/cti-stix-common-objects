@@ -1,5 +1,5 @@
 {
-    "$id": "pap.json",
+    "$id": "https://raw.githubusercontent.com/oasis-open/cti-stix-common-objects/main/extension-definition-specifications/pap-marking-definition-f8d/extension-definition--f8d78575-edfd-406e-8e84-6162a8450f5b.json",
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "pap-marking-definition-extension",
     "description": "This marking extension was created to apply PAP data markings",
