@@ -73,15 +73,15 @@ toc::[]
 
 [.stix-doc-information-heading]*Abstract:*
 
-The current STIX 2.1 Incident object exists as a stub in the hopes that future work would allow STIX Incidents to be more fully fleshed out using extensions, and that in time a set of core features could be defined to be migrated into a future version of the Incident object or the community could arrive at the consensus to continue to use these extensions.
+The current STIX 2.1 Incident object was defined as a stub with the expectation that it would be fleshed out using extensions, and that in time either a set of core features would be integrated into a future version of the STIX or that the community would arrive at the consensus to continue to use these extensions.
 
-In the 1.0 version of the core incident extension information on impact, events, and tasks were embedded within the Incident itself, however this was found to have limitations.
-As such a 2.0 version of this extension has been created in order to separate these components into independent SDOs for more complex incidents to be accurately modeled.
+In the 1.0 version of the core incident extension, information on impact, events, and tasks were embedded within the Incident object itself, however this was found to have limitations.
+Therefore, the 2.0 version of this extension has been created in which these components have been separated into independent SDOs for more complex incidents to be accurately modeled.
 
-These extensions allow tracking incidents across their life cycle where Events are first flagged for investigation resulting in [stixtype]#{incident_url}[incidents]# with [stixtype]#<<task,tasks>># being worked to resolve these.
+These extensions allow incidents to be tracked across their life cycle where [stixtype]#<<events,events>># are first flagged for investigation resulting in [stixtype]#{incident_url}[incidents]# with [stixtype]#<<task,tasks>># being worked to resolve them.
 Incidents have [stixtype]#<<impact,impacts>># that change over time.
-[stixtype]#<<event,Events>># can cause or influence these [stixtype]#<<impact,impacts>># which are in turn mitigated and potentially resolved by [stixtype]#<<task,tasks>># performed as part of the incident response process.
-Both [stixtype]#<<event,events>># and [stixtype]#<<task,tasks>># can exist independent of [stixtype]#{incident_url}[incidents]# and in most workflows will occur prior to an incident being declared.
+[stixtype]#<<event,events>># can cause or influence these [stixtype]#<<impact,impacts>># which are in turn mitigated and potentially resolved by [stixtype]#<<task,tasks>># performed as part of the incident response process.
+Both [stixtype]#<<event,events>># and [stixtype]#<<task,tasks>># can exist independently of [stixtype]#{incident_url}[incidents]# and in most workflows will occur prior to an incident being declared.
 
 
 == 1. Incidents in STIX
@@ -299,7 +299,7 @@ include::examples/example_2.1.json[]
 [[event]]
 === 2.2. Event
 
-An Event is an activity that has a harmful effect on the defender/victim.
+An Event is an activity that has a harmful effect or which will be investigated or already has been investigated as potentially having a harmful effect.  Events can be used to further enrich and explain Sightings by allowing analysts to indicate if these are part of a potential threat, and if so how it connects to a larger incident.
 
 This new sdo extension *MUST* use [stixliteral]#extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e# as its extension ID.
 
@@ -2906,4 +2906,8 @@ Added [stixliteral]#ransom-demand# and [stixliteral]#ransom-payment# to [stixtyp
 |Richard Piazza and Jeffrey Mates
 |Multiple editorial fixes, removing copy paste errors and obsolete relationships.
 
+|06
+|2024-02-15
+|Richard Piazza, Jeffrey Mates and Dez Beck
+|Additional editorial fixes, a minor changes to normative statements
 |===
