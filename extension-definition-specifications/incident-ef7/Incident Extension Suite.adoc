@@ -299,7 +299,7 @@ include::examples/example_2.1.json[]
 [[event]]
 === 2.2. Event
 
-An Event is an activity that has a harmful effect or which will be investigated or already has been investigated as potentially having a harmful effect.  Events can be used to further enrich and explain Sightings by allowing analysts to indicate if these are part of a potential threat, and if so how it connects to a larger incident.
+An Event is an activity that has a harmful effect or which will be investigated or already has been investigated as potentially having a harmful effect.  Events can be used to further enrich and explain Sightings by allowing analysts to indicate if these are part of a potential threat, and if so how it connects to a larger incident. Some activity, described in an Event, will be found to be not harmful when investigated.
 
 This new sdo extension *MUST* use [stixliteral]#extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e# as its extension ID.
 
