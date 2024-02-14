@@ -663,7 +663,7 @@ include::examples/example_2.3.2.1.1.json[]
 
 |*loss_type* (required)
 |[stixtype]#<<incident-confidentiality-loss-enum,incident-confidentiality-loss-enum>>#
-|The type of loss that occurred to the relevant information
+|The type of loss that occurred with respect to the relevant information.
 
 The values of this property *MUST* come from the [stixtype]#<<incident-confidentiality-loss-enum,incident-confidentiality-loss-enum>># enumeration.
 
@@ -733,7 +733,7 @@ include::examples/example_2.3.2.3.1.json[]
 
 |*alteration* (required)
 |[stixtype]#<<integrity-alteration-enum,integrity-alteration-enum>>#
-|The type of alteration performed against the information that was compromised.
+|The type of alteration affecting integrity of the information.
 
 The value of this property *MUST* come from the [stixtype]#<<integrity-alteration-enum,integrity-alteration-enum>># enumeration.
 
@@ -745,7 +745,7 @@ This can include control systems and other processes that can result in virtual 
 The value of this property *SHOULD* come from the [stixtype]#<<information-type-ov,information-type-ov>># open vocabulary.
 
 This value *MUST* be included if the alternation is not none.
-Including an entry that with an alteration of none and no information_type indicates that no information had its integrity impacted by this incident.
+Including an entry that with an alteration of [stixliteral]#none# and no information_type provided indicates that no information had its integrity impacted by this incident.
 
 |*record_count* (optional)
 |[stixtype]#{int_url}[integer]#
@@ -789,6 +789,7 @@ The value of this property *SHOULD* come from the [stixtype]#<<monetary-impact-t
 |*conversion_rate* (optional)
 |[stixtype]#{number_url}[number]#
 |The conversion rate between the *currency* and *currency_actual* properties.
+
 This *MUST NOT* be included if the *currency_actual* property is not included.
 This *MUST* be included if the *currency_actual* property is included.
 This value *MUST* be greater than zero.
@@ -800,6 +801,7 @@ If this property is provided, the *conversion_time* property must also be provid
 |*conversion_time* (optional)
 |[stixtype]#{timestamp_url}[timestamp]#
 |The timestamp when the conversion rate was queried.
+
 This *MUST* be included if a *conversion_rate* property is included.
 
 |*currency* (optional)
@@ -872,7 +874,7 @@ enumeration.
 
 The value of this property *SHOULD* come from the [stixtype]#<<asset-type-ov,asset-type-ov>># open vocabulary.
 
-This value *MUST* be included if the *impact_type* is not none.
+This value *MUST* be included if the *impact_type* is not [stixliteral]#none#		      .
 Including an entry with an *impact_type* of none and no asset_type indicates that no physical damage was caused by this incident.
 
 |===
