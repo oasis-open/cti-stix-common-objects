@@ -661,27 +661,31 @@ include::examples/example_2.3.2.1.1.json[]
 ^|[stixtr]*Type* 
 ^|[stixtr]*Description*
 
-|*information_type* (optional)
-|[stixtype]#{open_vocab_url}[open-vocab]#
-|The type of information that had its confidentiality compromised. This can include control systems and other processes that can result in virtual or physical impacts.
-
-The value of this property *SHOULD* come from the [stixtype]#<<information-type-ov,information-type-ov>> open vocabulary#.
-
-This value *MUST* be included if the loss_type is not none. Including an entry with loss_type of none and no information_type indicates that no information had its confidentiality impacted by this incident.
-
 |*loss_type* (required)
 |[stixtype]#<<incident-confidentiality-loss-enum,incident-confidentiality-loss-enum>>#
 |The type of loss that occurred to the relevant information
 
 The values of this property *MUST* come from the [stixtype]#<<incident-confidentiality-loss-enum,incident-confidentiality-loss-enum>># enumeration.
 
+|*information_type* (optional)
+|[stixtype]#{open_vocab_url}[open-vocab]#
+|The type of information that had its confidentiality compromised. This can include control systems and other processes that can result in virtual or physical impacts.
+
+The value of this property *SHOULD* come from the [stixtype]#<<information-type-ov,information-type-ov>> open vocabulary#.
+
+This value *MUST* be included if the loss_type is not [stixliteral]#none#. Including an entry with loss_type of none and no information_type indicates that no information had its confidentiality impacted by this incident.
+
 |*record_count* (optional)
 |[stixtype]#{int_url}[integer]#
-|The number of records of this type that were compromised. The value of this property *MUST NOT* be negative.
+|The number of records of this information type that were compromised.
+
+The value of this property *MUST NOT* be negative.
 
 |*record_size* (optional)
 |[stixtype]#{int_url}[integer]#
-|The amount of data that was compromised in bytes. The value of this property *MUST NOT* be negative.
+|The amount of data that was compromised in bytes.
+
+The value of this property *MUST NOT* be negative.
 |===
 
 ===== 2.3.2.2.1 Confidentiality Impact Example
@@ -703,7 +707,7 @@ include::examples/example_2.3.2.2.1.json[]
 
 |*impact_type* (required)
 |[stixtype]#{open_vocab_url}[open-vocab]# 
-|The type of impact outside of the direct organization.
+|The type of impact outside of the targeted organization.
 
 The value of this property *SHOULD* come from the [stixtype]#<<external-impact-ov,external-impact-ov>># open vocabulary.
 |===
@@ -729,7 +733,7 @@ include::examples/example_2.3.2.3.1.json[]
 
 |*alteration* (required)
 |[stixtype]#<<integrity-alteration-enum,integrity-alteration-enum>>#
-|The type of alteration performed against the information_type.
+|The type of alteration performed against the information that was compromised.
 
 The value of this property *MUST* come from the [stixtype]#<<integrity-alteration-enum,integrity-alteration-enum>># enumeration.
 
@@ -745,11 +749,15 @@ Including an entry that with an alteration of none and no information_type indic
 
 |*record_count* (optional)
 |[stixtype]#{int_url}[integer]#
-|The number of records of this type that were compromised. The value of this property *MUST NOT* be negative.
+|The number of records of this type that were compromised.
+
+The value of this property *MUST NOT* be negative.
 
 |*record_size* (optional)
 |[stixtype]#{int_url}[integer]#
-|The amount of data that was compromised in bytes. The value of this property *MUST NOT* be negative.
+|The amount of data that was compromised in bytes.
+
+The value of this property *MUST NOT* be negative.
 
 |===
 
@@ -787,6 +795,8 @@ This value *MUST* be greater than zero.
 
 This value *MUST* be included if the *min_amount* property is included.
 
+If this property is provided, the *conversion_time* property must also be provided.
+
 |*conversion_time* (optional)
 |[stixtype]#{timestamp_url}[timestamp]#
 |The timestamp when the conversion rate was queried.
@@ -794,7 +804,7 @@ This *MUST* be included if a *conversion_rate* property is included.
 
 |*currency* (optional)
 |[stixtype]#{string_url}[string]#|
-The currency that the max_amount and min_amount fields use.
+The currency that the *max_amount* and *min_amount* properties use.
 This *SHOULD* be an ISO 4217 alpha currency code or the official currency code for the relevant cryptocurrency.
 This *SHOULD* match an organizations own primary currency, or for government reporting the currency requested by that government for these reports.
 
