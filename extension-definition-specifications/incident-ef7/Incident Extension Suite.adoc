@@ -174,7 +174,7 @@ enumeration.
 
 |*tasks* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#<<task-entry,task-entry>>#
-|A list of tasks (as a list of [stixtype]#<<event-entry,event-entry>>#) tied to this incident.
+|A list of tasks (as a list of [stixtype]#<<task-entry,task-entry>>#) tied to this incident.
 
 |===
 
@@ -183,7 +183,9 @@ enumeration.
 
 These are the relationships explicitly defined between the Incident object and other STIX Objects.
 The table identifies the relationships that can be made from this object type to another object
-type by way of the Relationship object. The reverse relationships section illustrates the relationships
+type by way of the Relationship object.
+
+The reverse relationships section illustrates the relationships
 targeting this object type from another object type. They are included here for convenience. See the
 forward relationship for the definition.
 
@@ -402,7 +404,9 @@ If no value is provided the timestamp should be considered to be accurate up to 
 
 These are the relationships explicitly defined between the Event object and other STIX Objects.
 The table identifies the relationships that can be made from this object type to another object
-type by way of the Relationship object. The reverse relationships section illustrates the relationships
+type by way of the Relationship object.
+
+The reverse relationships section illustrates the relationships
 targeting this object type from another object type. They are included here for convenience. See the
 forward relationship for the definition.
 
@@ -915,7 +919,7 @@ include::examples/example_2.3.2.7.1.json[]
 [[task]]
 === 2.4. Task
 
-A Task is an activity that is performed by or for the victim/defender to respond to the attack.
+A Task is an activity that is performed by or for the victim/defender to respond to the incident.
 
 This new SDO extension *MUST* use [stixliteral]#extension-definition--2074a052-8be4-4932-849e-f5e7798e0030# as its extension ID.
 
@@ -980,7 +984,7 @@ The value of this property *MUST* come from the [stixtype]#<<task-outcome-enum,t
 |*changed_objects* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#<<state-change,state-change>>#
 |A list of changes that this task has caused.
-This is typically used to indicate how an task has affected impacts.
+This is typically used to indicate how a task has affected impacts.
 
 |*task_types* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{open_vocab_url}[open-vocabulary]#
@@ -1023,7 +1027,7 @@ This is primarily used when recording victim notifications.
 |*priority* (optional)
 |[stixtype]#{int_url}[integer]#
 |The priority or importance of the task.
-This value *MUST* be between 0 to 100. This can be translated into qualitative values as described in <<appendix-b,Appendix B>>.
+This value *MUST* be between an integer 0 to 100. This can be translated into qualitative values as described in <<appendix-b,Appendix B>>.
 
 |*start_time* (optional)
 |[stixtype]#{timestamp_url}[timestamp]#
@@ -1042,7 +1046,7 @@ If no value is provided the timestamp should be considered to be accurate up to 
 
 |*subtasks* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#<<task-entry,task-entry>>#
-|A list of subtasks tied to this task.
+|A list of subtasks related to this task.
 |===
 
 <<<
@@ -1053,16 +1057,18 @@ If no value is provided the timestamp should be considered to be accurate up to 
 
 These are the relationships explicitly defined between the Task object and other STIX Objects.
 The table identifies the relationships that can be made from this object type to another object
-type by way of the Relationship object. The reverse relationships section illustrates the relationships
+type by way of the Relationship object.
+
+The reverse relationships section illustrates the relationships
 targeting this object type from another object type. They are included here for convenience. See the
 forward relationship for the definition.
 
 Relationships are not restricted to those listed below. Relationships can be created between any objects
 using the [stixrelationship]#related-to# relationship type or, as with open vocabularies, user-defined names.  
 
-When creating sequences of [stixtype]#<<task,tasks>># these *SHOULD NOT* be shared using relationship objects.
+Sequences of[stixtype]#<<task,tasks>># SHOULD NOT be shared using relationship objects
 Sequences *SHOULD* be shared within an [stixtype]#{incident_url}[incident]# or [stixtype]#<<task,task>># as part of the list of *tasks* or *subtasks* respectively.
-Using these embedded relationships ensure that an incomplete sequence cannot be shared accidentally to avoid potential confusion or misunderstandings when processing STIX data.
+Using these embedded relationships ensures that an incomplete sequence cannot be shared accidentally (avoiding potential confusion or misunderstandings when processing STIX data.)
 
 [width="100%",cols="27%,16%,24%,33%",options="header",]
 |===
@@ -1107,7 +1113,7 @@ Using these embedded relationships ensure that an incomplete sequence cannot be 
 |[stixtype]#<<task,task>>#
 |[stixrelationship]#located-at#
 |[stixtype]#{location_url}[location]#
-|The task occurred at a specific location or locations.
+|The task occurred at a specific location.
 
 // relationships:end
 |===
@@ -1203,8 +1209,54 @@ _0 individuals_
 
 <<<
 
+[[event-sequence-entry]]
+=== 3.2. Event Sequence Object Type
+
+Event sequence entries store references to subsequent steps for an event entry.
+As these are always stored in an list of steps within an array of list entries, validation rules for *event_ref* *MUST* be performed against the entire array of event entries.
+
+
+*Type Name:* [stixtype]#event-sequence-entry#
+
+[width="100%",cols="37%,23%,40%",options="header",]
+|===
+^|[stixtr]*Property Name*
+^|[stixtr]*Type* 
+^|[stixtr]*Description*
+
+|*event_ref* (required)
+|[stixtype]#{identifier_url}[identifier]# 
+|The identifier of the event that is described by this entry.
+
+This reference *MUST* be included as an *event_ref* within the parent array of [stixtype]#<<event-entry,event-entry>># objects.
+
+|*condition_type* (required)
+|[stixtype]#<<activity-condition-enum,activity-condition-enum>>#
+|If the referenced step required the current one to be successful.
+If it is optional, or if it is unknown.
+
+The values of this property *MUST* come from the [stixtype]#<<activity-condition-enum,activity-condition-enum>># enumeration.
+
+|*transition_type* (required)
+|[stixtype]#<<activity-transition-enum,activity-transition-enum>>#
+|What state the referenced step depends on.
+If it is performed upon success, failure, simple completion, or if it is unknown.
+
+The values of this property *MUST* come from the [stixtype]#<<activity-transition-enum,activity-transition-enum>># enumeration.
+
+|===
+
+==== 3.2.1 Example
+
+[source,json]
+----
+include::examples/example_3.3.json[]
+----
+
+<<<
+
 [[event-entry]]
-=== 3.2. Event Entry Object Type
+=== 3.3. Event Entry Object Type
 
 *Type Name:* [stixtype]#event-entry#
 
@@ -1234,58 +1286,13 @@ Default value is [stixliteral]#true#.
 
 |===
 
-==== 3.2.1 Example
+==== 3.3.1 Example
 
 [source,json]
 ----
 include::examples/example_3.2.json[]
 ----
 
-[[event-sequence-entry]]
-=== 3.3. Event Sequence Object Type
-
-Event sequence entries store references to subsequent steps for an event entry.
-As these are always stored in an array of steps within an array of event entries validation rules for *event_ref* *MUST* be performed against the entire array of event entries.
-
-
-*Type Name:* [stixtype]#event-sequence-entry#
-
-[width="100%",cols="37%,23%,40%",options="header",]
-|===
-^|[stixtr]*Property Name*
-^|[stixtr]*Type* 
-^|[stixtr]*Description*
-
-|*event_ref* (required)
-|[stixtype]#{identifier_url}[identifier]# 
-|The identity of the event that is described by this entry.
-
-This reference *MUST* be included as an *event_ref* within the parent array of [stixtype]#<<event-entry,event-entry>># objects.
-
-|*condition_type* (required)
-|[stixtype]#<<activity-condition-enum,activity-condition-enum>>#
-|If the referenced step required the current one to be successful.
-If it is optional, or if it is unknown.
-
-The values of this property *MUST* come from the [stixtype]#<<activity-condition-enum,activity-condition-enum>># enumeration.
-
-|*transition_type* (required)
-|[stixtype]#<<activity-transition-enum,activity-transition-enum>>#
-|What state the referenced step depends on.
-If it is performed upon success, failure, simple completion, or if it is unknown.
-
-The values of this property *MUST* come from the [stixtype]#<<activity-transition-enum,activity-transition-enum>># enumeration.
-
-|===
-
-==== 3.3.1 Example
-
-[source,json]
-----
-include::examples/example_3.3.json[]
-----
-
-<<<
 
 [[incident-score]]
 === 3.4 Incident Score Object Type
@@ -1299,7 +1306,9 @@ include::examples/example_3.3.json[]
 
 |*name* (required)
 |[stixtype]#{string_url}[string]# 
-|The name of the score. This is normally a system or process name or some combination of these such as [Tool Name] Automated Exposure Score.
+|The name of the score.
+
+This is normally a system or process name or some combination of these such as "<Tool Name> Automated Exposure Score".
 
 |*value* (required)
 |[stixtype]#{number_url}[number]# 
@@ -1307,7 +1316,7 @@ include::examples/example_3.3.json[]
 
 |*description* (optional)
 |[stixtype]#{string_url}[string]# 
-|A description about how this score was calculated for systems that provide this information.
+|A description of how this score was calculated by the system, if that information is provided.
 |===
 
 <<<
@@ -1323,7 +1332,7 @@ include::examples/example_3.4.json[]
 
 *Type Name:* [stixtype]#state-change#
 
-The *initial_ref* or *result_ref* *MUST* be populated.
+The *initial_ref* or *result_ref* property *MUST* be populated.
 
 [width="100%",cols="37%,23%,40%",options="header",]
 |===
@@ -1341,24 +1350,26 @@ The value of this property *SHOULD* come from the [stixtype]#<<state-change-type
 |[stixtype]#{identifier_url}[identifier]#
 |The initial object state that this event affected.
 
-If the *result_ref* is not populated then this *MUST* be populated.
+If the *result_ref* property is not populated then this *MUST* be populated.
+
 If there is no result state this typically means that this event removed or resolved the initial object.
 For example, an event or task resolved a network outage.
 
 If both are present this indicates a transition between these states.
 For example, a confidentiality impact was made worse as the information was shared further.
 
-If the *result_ref* is populated this *MUST* reference the same type of SDO.
+If the *result_ref* property is populated this *MUST* reference the same type of SDO.
 
 |*result_ref* (optional)
 |[stixtype]#{identifier_url}[identifier]#
 |The final state that this event influenced.
 
-If the *initial_ref* is not populated then this *MUST* be populated.
+If the *initial_ref* property is not populated then this *MUST* be populated.
+
 If there is no initial state it typically means that this event caused or created the result.
 For example, an event causing a network outage.
 
-If the *initial_ref* is populated this *MUST* reference the same type of SDO.
+If the *initial_ref* property is populated this *MUST* reference the same type of SDO.
 
 |===
 ==== 3.5.1 Example
@@ -1370,49 +1381,11 @@ include::examples/example_3.5.json[]
 
 <<<
 
-[[task-entry]]
-=== 3.6. Task Entry Object Type
-
-*Type Name:* [stixtype]#task-entry#
-
-[width="100%",cols="37%,23%,40%",options="header",]
-|===
-^|[stixtr]*Property Name*
-^|[stixtr]*Type* 
-^|[stixtr]*Description*
-
-|*task_ref* (required)
-|[stixtype]#{identifier_url}[identifier]# 
-|The identity of the task that is described by this entry.
-This *MUST* reference a [stixtype]#<<task,task>>#.
-
-|*next_steps* (optional)
-|[stixtype]#{list_url}[list]# of type [stixtype]#<<task-sequence-entry,task-sequence-entry>>#
-|A list of task sequences that describes the current task flows into the next one.
-
-|*sequence_start* (optional)
-|[stixtype]#{boolean_url}[boolean]#
-|If this is a start of a sequence chain.
-
-All sequences of tasks *MUST* begin with at least one entry where *sequence_start* is set to [stixliteral]#true#.
-If a cycle exists with multiple entries with *sequence_start* set to [stixliteral]#true# then all of these are equally valid start points.
-
-Default value is [stixliteral]#true#.
-
-|===
-
-==== 3.6.1 Example
-
-[source,json]
-----
-include::examples/example_3.6.json[]
-----
-
 [[task-sequence-entry]]
-=== 3.7. Task Sequence Object Type
+=== 3.6. Task Sequence Object Type
 
 Task sequence entries store references to subsequent steps for a task entry.
-As these are always stored in an array of steps within an array of task entries validation rules for *task_ref* *MUST* be performed against the entire array of task entries.
+As these are always stored in an list of steps within an list of task entries, validation rules for *task_ref* *MUST* be performed against the entire list of task entries.
 
 *Type Name:* [stixtype]#task-sequence-entry#
 
@@ -1444,13 +1417,53 @@ The values of this property *MUST* come from the [stixtype]#<<activity-transitio
 
 |===
 
-==== 3.7.1 Example
+==== 3.6.1 Example
 
 [source,json]
 ----
 include::examples/example_3.7.json[]
 ----
 <<<
+
+
+[[task-entry]]
+=== 3.7. Task Entry Object Type
+
+*Type Name:* [stixtype]#task-entry#
+
+[width="100%",cols="37%,23%,40%",options="header",]
+|===
+^|[stixtr]*Property Name*
+^|[stixtr]*Type* 
+^|[stixtr]*Description*
+
+|*task_ref* (required)
+|[stixtype]#{identifier_url}[identifier]# 
+|The identifier of the task that is described by this entry.
+This *MUST* reference a [stixtype]#<<task,task>>#.
+
+|*next_steps* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#<<task-sequence-entry,task-sequence-entry>>#
+|A list of task sequences that describes the current task flows into the next one.
+
+|*sequence_start* (optional)
+|[stixtype]#{boolean_url}[boolean]#
+|If this is a start of a sequence chain.
+
+All sequences of tasks *MUST* begin with at least one entry where *sequence_start* is set to [stixliteral]#true#.
+If a cycle exists with multiple entries with *sequence_start* set to [stixliteral]#true# then all of these are equally valid start points.
+
+Default value is [stixliteral]#true#.
+
+|===
+
+==== 3.7.1 Example
+
+[source,json]
+----
+include::examples/example_3.6.json[]
+----
+
 
 == 4. Vocabularies
 
