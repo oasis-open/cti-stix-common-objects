@@ -129,7 +129,7 @@ The corresponding dictionary values *MUST* be the [stixtype]#<<pap-description,p
 |[stixtype]#{string_url}[string]# 
 |The extension_type property indicates the type of extension is being used.  
 
-The value of this property *MUST* be [stixtype]#<<property-extension,property-extension>>#
+The value of this property *MUST* be [stixliteral]#property-extension#
 
 |*pap* (required)
 |[stixtype]#{string_url}[string]# 

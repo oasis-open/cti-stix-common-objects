@@ -1,0 +1,18 @@
+name: AsciiDoc Validation
+on: [push, pull_request]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set Up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.10'
+      - name: Validate adoc
+        working-directory: extension-definition-specifications
+        run: |
+          for file in */*.adoc; do
+            python ../scripts/validate_adoc.py -i "$file"
+          done
