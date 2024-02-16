@@ -39,6 +39,7 @@
 :sighting_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_a795guqsap3r
 :threat_actor_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_k017w16zutw
 :tool_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_z4voa9ndw8v
+:sco_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_mlbmudhl16lr
 
 = [stixtitle]*Incident Core Extension Version 2.1 for STIX^TM^ Version 2.1*
 
@@ -78,7 +79,7 @@ The current STIX 2.1 Incident object was defined as a stub with the expectation 
 In the 1.0 version of the core incident extension, information on impact, events, and tasks were embedded within the Incident object itself, however this was found to have limitations.
 Therefore, the 2.0 version of this extension has been created in which these components have been separated into independent SDOs for more complex incidents to be accurately modeled.
 
-These extensions allow incidents to be tracked across their life cycle where [stixtype]#<<event,events>># are first flagged for investigation resulting in [stixtype]#incidents# with [stixtype]#<<task,tasks>># being worked to resolve them.
+These extensions allow incidents to be tracked across their life cycle where [stixtype]#<<event,events>># are first flagged for investigation resulting in [stixtype]#{incident_url}incidents# with [stixtype]#<<task,tasks>># being worked to resolve them.
 Incidents have [stixtype]#<<impact,impacts>># that change over time.
 [stixtype]#<<event,events>># can cause or influence these [stixtype]#<<impact,impacts>># which are in turn mitigated and potentially resolved by [stixtype]#<<task,tasks>># performed as part of the incident response process.
 Both [stixtype]#<<event,events>># and [stixtype]#<<task,tasks>># can exist independently of [stixtype]#{incident_url}[incidents]# and in most workflows will occur prior to an incident being declared.
@@ -259,7 +260,7 @@ Additionally, this can be used to supplement the *created_by_ref* property in ca
 |===
 // end::incident-relationships[]
 
-==== 2.1.2 Example
+==== 2.1.2. Example
 
 [source,json]
 ----
@@ -432,7 +433,7 @@ For example, a dropper running led to a ransomware tool to be downloaded and run
 |[stixtype]#<<event,event>>#
 |[stixrelationship]#impacts#
 |[stixtype]#{infrastructure_url}[infrastructure]#, +
-[stixtype]#[<All STIX Cyber-observable Objects>]#
+[stixtype]#{sco_url}[<All STIX Cyber-observable Objects>]#
 |An event has an impact on specific infrastructure. While not all SCO types will make sense in this relationship, allowing any type of SCO prevents artificially restricting what could be used.
 
 |[stixtype]#<<event,event>>#
@@ -470,7 +471,7 @@ For example, a dropper running led to a ransomware tool to be downloaded and run
 
 // end::event-relationships[]
 
-==== 2.2.2 Example
+==== 2.2.2. Example
 
 [source,json]
 ----
@@ -646,7 +647,7 @@ This value *MUST* be an integer between 0 to 100. This can be translated into qu
 
 |===
 
-===== 2.3.2.1.1 Availability Impact Example
+====== 2.3.2.1.1. Availability Impact Example
 
 [source,json]
 ----
@@ -692,7 +693,7 @@ The value of this property *MUST NOT* be negative.
 The value of this property *MUST NOT* be negative.
 |===
 
-===== 2.3.2.2.1 Confidentiality Impact Example
+====== 2.3.2.2.1. Confidentiality Impact Example
 
 [source,json]
 ----
@@ -718,7 +719,7 @@ The value of this property *SHOULD* come from the [stixtype]#<<external-impact-o
 
 <<<
 
-===== 2.3.2.3.1 External Impact Example
+====== 2.3.2.3.1. External Impact Example
 
 [source,json]
 ----
@@ -767,7 +768,7 @@ The value of this property *MUST NOT* be negative.
 
 <<<
 
-===== 2.3.2.4.1 Integrity Impact Example
+====== 2.3.2.4.1. Integrity Impact Example
 
 [source,json]
 ----
@@ -848,7 +849,7 @@ If *min_amount* and *max_amount* properties are both defined, then *max_amount* 
 
 <<<
 
-===== 2.3.2.5.1 Monetary Impact Example
+====== 2.3.2.5.1. Monetary Impact Example
 
 [source,json]
 ----
@@ -883,7 +884,7 @@ Including an entry with an *impact_type* of none and no asset_type indicates tha
 
 |===
 
-===== 2.3.2.6.1 Physical Impact Example
+====== 2.3.2.6.1. Physical Impact Example
 
 [source,json]
 ----
@@ -908,7 +909,7 @@ The value of this property *MUST* come from the [stixtype]#<<traceability-enum,t
 
 |===
 
-===== 2.3.2.7.1 Traceability Impact Example
+====== 2.3.2.7.1. Traceability Impact Example
 
 [source,json]
 ----
@@ -1107,7 +1108,7 @@ Using these embedded relationships ensures that an incomplete sequence cannot be
 |[stixtype]#<<task,task>>#
 |[stixrelationship]#impacts#
 |[stixtype]#{infrastructure_url}[infrastructure]#, +
-[stixtype]#[<All STIX Cyber-observable Objects>]#
+[stixtype]#{sco_url}[<All STIX Cyber-observable Objects>]#
 |A task has an impact on specific infrastructure.
 
 |[stixtype]#<<task,task>>#
@@ -1155,7 +1156,7 @@ Using these embedded relationships ensures that an incomplete sequence cannot be
 
 // end::task-relationships[]
 
-==== 2.4.2 Example
+==== 2.4.2. Example
 
 [source,json]
 ----
@@ -1246,7 +1247,7 @@ The values of this property *MUST* come from the [stixtype]#<<activity-transitio
 
 |===
 
-==== 3.2.1 Example
+==== 3.2.1. Example
 
 [source,json]
 ----
@@ -1286,7 +1287,7 @@ Default value is [stixliteral]#true#.
 
 |===
 
-==== 3.3.1 Example
+==== 3.3.1. Example
 
 [source,json]
 ----
@@ -1295,7 +1296,7 @@ include::examples/example_3.2.json[]
 
 
 [[incident-score]]
-=== 3.4 Incident Score Object Type
+=== 3.4. Incident Score Object Type
 
 *Type Name:* [stixtype]#incident-score#
 [width="100%",cols="37%,23%,40%",options="header",]
@@ -1320,7 +1321,7 @@ This is normally a system or process name or some combination of these such as "
 |===
 
 <<<
-==== 3.4.1 Example
+==== 3.4.1. Example
 
 [source,json]
 ----
@@ -1372,7 +1373,7 @@ For example, an event causing a network outage.
 If the *initial_ref* property is populated this *MUST* reference the same type of SDO.
 
 |===
-==== 3.5.1 Example
+==== 3.5.1. Example
 
 [source,json]
 ----
@@ -1417,7 +1418,7 @@ The values of this property *MUST* come from the [stixtype]#<<activity-transitio
 
 |===
 
-==== 3.6.1 Example
+==== 3.6.1. Example
 
 [source,json]
 ----
@@ -1457,7 +1458,7 @@ Default value is [stixliteral]#true#.
 
 |===
 
-==== 3.7.1 Example
+==== 3.7.1. Example
 
 [source,json]
 ----

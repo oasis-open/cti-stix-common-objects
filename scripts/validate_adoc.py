@@ -7,7 +7,7 @@ class Validator():
     def __init__(self, file_path):
         self._errors = []
 
-        with open(file_path, "rt") as input_file:
+        with open(file_path, "rt", encoding="utf-8") as input_file:
             self._content = input_file.read()
 
     def run_jobs(self) -> list:
@@ -96,7 +96,9 @@ class Validator():
                         self._errors.append(f"Line {line_number}: {item} should be 1 as the first item")
                     continue
 
-                if len(parts) == len(last_parts):
+                if item[-1] != ".":
+                    self._errors.append(f"Line {line_number}: {item} has no . at the end")
+                elif len(parts) == len(last_parts):
                     if int(last_parts[-1]) != int(parts[-1]) - 1:
                         self._errors.append(f"Line {line_number}: {item} should be {'.'.join(last_parts[:-1])}.{int(last_parts[-1]) + 1}")
                 elif len(parts) > len(last_parts):
@@ -128,9 +130,10 @@ if __name__ == "__main__":
     errors = validator.run_jobs()
 
     if len(errors) > 0:
+        print(f"Error Validating: {args.input_path}", file=sys.stderr)
         print("\n".join(errors), file=sys.stderr)
         exit(1)
     else:
-        print("No errors found")
+        print(f"No errors found: {args.input_path}")
 
     exit(0)

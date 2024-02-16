@@ -10,6 +10,8 @@
 :list_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_9w329aiwpu1y
 :open_vocab_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_bnnxah80y7by
 :string_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_uxyhzmv0vpyc
+:user_account_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_azo70vgj1vm2
+:email_address_url: https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_wmenahkvqmgj
 
 = [stixtitle]*Identity Contact Information Extension Version 1.0 for STIX™ Version 2.1*
 
@@ -96,7 +98,7 @@ The properties and additional types within the Identity Contact Information Exte
 
 == 2. Additional Sub-Object Types
 [[contact-number]]
-=== 2.1 Contact Number Object Type
+=== 2.1. Contact Number Object Type
 *Type Name:* [stixtype]#contact-number#
 
 [width="100%",cols="37%,23%,40%",options="header",]
@@ -123,7 +125,7 @@ The properties and additional types within the Identity Contact Information Exte
 |===
 
 [[email-contact]]
-=== 2.2 Email Contact Object Type
+=== 2.2. Email Contact Object Type
 *Type Name:* [stixtype]#email-contact#
 
 [width="100%",cols="37%,23%,40%",options="header",]
@@ -145,12 +147,12 @@ The properties and additional types within the Identity Contact Information Exte
 |The type of email that address is used for.  This *SHOULD* be drawn from [stixtype]#<<digital-contact-ov,digital-contact-ov>>#.
 
 |*email_address_ref* (required)
-|[stixtype]#{identifier_url}[identifer]# of type [stixtype]#<<email-addr,email-addr>>#
+|[stixtype]#{identifier_url}[identifer]# of type [stixtype]#{email_address_url}[email-addr]#
 |A reference to the email address itself.
 |===
 
 [[social-media-contact]]
-=== 2.3 Social Media Contact Object Type
+=== 2.3. Social Media Contact Object Type
 *Type Name:* [stixtype]#social-media-contact#
 
 [width="100%",cols="37%,23%,40%",options="header",]
@@ -174,7 +176,7 @@ The properties and additional types within the Identity Contact Information Exte
 This *SHOULD NOT* be used to capture the social media service used.  That *SHOULD* be encoded into the User Account Object that is linked to by the user_account_ref property.
 
 |*user_account_ref* (required)
-|[stixtype]#{identifier_url}[identifer]# of type [stixtype]#<<user-account,user-account>>#
+|[stixtype]#{identifier_url}[identifer]# of type [stixtype]#{user_account_url}[user-account]#
 |A reference to the social media account itself.
 |===
 
@@ -206,7 +208,7 @@ This *SHOULD NOT* be used to capture the social media service used.  That *SHOUL
 |===
 
 [[digital-contact-ov]]
-=== 3.2 Digital Contact Type Vocabulary
+=== 3.2. Digital Contact Type Vocabulary
 *Type Name:* [stixtype]#digital-contact-ov#
 
 [width="100%",cols="37%,63%",options="header",]
@@ -226,19 +228,18 @@ This *SHOULD NOT* be used to capture the social media service used.  That *SHOUL
 
 == 4. Identity Contact Information Examples
 
-=== 4.1 Identitiy Contact Details Example
+=== 4.1. Identitiy Contact Details Example
 [source,json]
 ----
 include::examples/individual_contact_example.json[]
 ----
 
-=== 4.2 Organization Contact Details Example
+=== 4.2. Organization Contact Details Example
 [source,json]
 ----
 include::examples/organization_contact_example.json[]
 ----
 
-[[appendix-a]]
 == Appendix A. Acknowledgements
 *Primary Editor*
 

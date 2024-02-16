@@ -121,7 +121,8 @@ include::examples/mission_id.json[]
 
 == 3. Vocabularies
 
-=== 3.1 String Purpose Vocabulary
+[[string-purpose-ov]]
+=== 3.1. String Purpose Vocabulary
 *Type Name:* [stixtype]#string-purpose-ov#
 
 [width="100%",cols="37%,63%",options="header",]
@@ -155,7 +156,7 @@ include::examples/mission_id.json[]
 
 |===
 
-== 4.0 Relationships
+== 4. Relationships
 
 // tag::observed-string-relationships[]
 
