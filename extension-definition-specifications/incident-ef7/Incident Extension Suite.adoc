@@ -186,8 +186,7 @@ The table identifies the relationships that can be made from this object type to
 type by way of the Relationship object.
 
 The reverse relationships section illustrates the relationships
-targeting this object type from another object type. They are included here for convenience. See the
-forward relationship for the definition.
+targeting this object type from another object type. 
 
 Relationships are not restricted to those listed below. Relationships can be created between any objects
 using the [stixrelationship]#related-to# relationship type or, as with open vocabularies, user-defined names.
@@ -358,7 +357,7 @@ If no value is provided the timestamp should be considered to be accurate up to 
 |[stixtype]#{list_url}[list]# of type [stixtype]#{open_vocab_url}[open-vocab]#
 |High level types for the event to enable aggregation and summarization.
 
-The value of this property *SHOULD* come from the [stixtype]#<<event-type-ov,event-type-ov>># open vocabulary.
+The values of this property *SHOULD* come from the [stixtype]#<<event-type-ov,event-type-ov>># open vocabulary.
 
 |*goal* (optional)
 |[stixtype]#{string_url}[string]#
@@ -407,8 +406,7 @@ The table identifies the relationships that can be made from this object type to
 type by way of the Relationship object.
 
 The reverse relationships section illustrates the relationships
-targeting this object type from another object type. They are included here for convenience. See the
-forward relationship for the definition.
+targeting this object type from another object type. 
 
 Relationships are not restricted to those listed below. Relationships can be created between any objects
 using the [stixrelationship]#related-to# relationship type or, as with open vocabularies, user-defined names.  
@@ -673,7 +671,7 @@ The values of this property *MUST* come from the [stixtype]#<<incident-confident
 
 |*information_type* (optional)
 |[stixtype]#{open_vocab_url}[open-vocab]#
-|The type of information that had its confidentiality compromised. This can include control systems and other processes that can result in virtual or physical impacts.
+|The type of information that had its confidentiality compromised. This can include information about control systems and other processes that can result in other impacts.
 
 The value of this property *SHOULD* come from the [stixtype]#<<information-type-ov,information-type-ov>> open vocabulary#.
 
@@ -744,7 +742,7 @@ The value of this property *MUST* come from the [stixtype]#<<integrity-alteratio
 |*information_type* (optional)
 |[stixtype]#{open_vocab_url}[open-vocab]#
 |The type of information that had its integrity compromised.
-This can include control systems and other processes that can result in virtual or physical impacts.
+This can include information about control systems and other processes that can result in other impacts.
 
 The value of this property *SHOULD* come from the [stixtype]#<<information-type-ov,information-type-ov>># open vocabulary.
 
@@ -1000,7 +998,7 @@ The values of this property *SHOULD* come from the [stixtype]#<<task-type-ov,tas
 |[stixtype]#{timestamp_url}[timestamp]#
 |The date and time the task was last recorded. If this is not present it is assumed to be unknown.
 
-If *start_time* and *end_time* properties are both defined, then *end_time* value *MUST* be later than the *start_time* value. 
+If *start_time* and *end_time* properties are both defined, then *end_time* value *MUST* be the same or later than the *start_time* value. 
 
 |*end_time_fidelity* (optional)
 |[stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>>#
@@ -1060,8 +1058,7 @@ The table identifies the relationships that can be made from this object type to
 type by way of the Relationship object.
 
 The reverse relationships section illustrates the relationships
-targeting this object type from another object type. They are included here for convenience. See the
-forward relationship for the definition.
+targeting this object type from another object type. 
 
 Relationships are not restricted to those listed below. Relationships can be created between any objects
 using the [stixrelationship]#related-to# relationship type or, as with open vocabularies, user-defined names.  
@@ -2011,15 +2008,16 @@ organizations may choose to not share the details of these impacts.
 ^|[stixtr]*Description*
 
 |[stixliteral]#closed#
-|All defender work on this incident has been concluded.
-In some cases, blue teams may make child Incidents of a closed Incident.
+|All victim/defender work on this incident has been concluded.
+
+Blue teams may use a closed incident as a starting point for their work, by creating child Incidents of the closed Incident.
 In these cases, it is appropriate to mark an initial Incident as closed if the related child incidents that track this work are still open.
 
 |[stixliteral]#new#
-|A new incident that has not begun the formal workflow on the defender's network.
+|A new incident which the victim/defender has not begun formal work on.
 
 |[stixliteral]#open#
-|An open incident that is currently being worked.
+|Victim/Defender work is in underway for this Incident.
 |===
 
 <<<
