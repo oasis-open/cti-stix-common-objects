@@ -45,7 +45,7 @@
 
 [.stix-doc-information-heading]#Draft#
 
-[.stix-doc-information-heading]#8 February 2024#
+[.stix-doc-information-heading]#20 February 2024#
 
 [.stix-doc-information-heading]
 Editors:
@@ -620,9 +620,10 @@ using the [stixrelationship]#related-to# relationship type or, as with open voca
 
 ==== 2.3.2. Extensions
 
-There are many types of impacts, each with its own unique properties, therefore the Impact SDO emulates the File SCO through the use of STIX (sub-type) Extensions to provide the granular details of specific categories of impacts.
+There are many types of impacts, each with its own unique properties, therefore the Impact SDO emulates the File SCO through the use of STIX (sub-type) Extensions to provide the granular details of specific categories of impacts. Seven extensions to [stixtype]#<<impact,impact>>#, which further define the impact on a related Incident, are given below.
 As such, every Impact *MUST* have the one extension which matches the value of the *impact_category* property (see this property description above).  
 This allows consumers to quickly validate their ability to process this category of impact and then load all of its specific details.
+
 
 Because these extensions are used to specify very different types of impacts, producers *SHOULD* use one and only one of these extensions. However, additional extensions might be proposed in the future and might be used in conjunction with one of these.
 
@@ -638,7 +639,7 @@ Because these extensions are used to specify very different types of impacts, pr
 
 |*availability_impact* (required)
 |[stixtype]#{int_url}[integer]#
-|The availability / functional impact of the incident on the objects referenced in *impacted_refs*. 
+|The availability / functional impact of the related incident on the objects referenced in *impacted_refs*. 
 If no objects are referenced, the impact should be treated as the overall availability impact for the related [stixtype]#{incident_url}[incident]#.
 
 This value *MUST* be an integer between 0 to 100. This can be translated into qualitative values as described in <<appendix-a,Appendix A>>.
@@ -676,7 +677,7 @@ The values of this property *MUST* come from the [stixtype]#<<incident-confident
 
 The value of this property *SHOULD* come from the [stixtype]#<<information-type-ov,information-type-ov>> open vocabulary#.
 
-This value *MUST* be included if the loss_type is not [stixliteral]#none#. Including an entry with loss_type of none and no information_type indicates that no information had its confidentiality impacted by this incident.
+This value *MUST* be included if the loss_type is not [stixliteral]#none#. Including an entry with loss_type of none and no information_type indicates that no information had its confidentiality impacted by the related incident.
 
 |*record_count* (optional)
 |[stixtype]#{int_url}[integer]#
@@ -748,7 +749,7 @@ This can include information about control systems and other processes that can 
 The value of this property *SHOULD* come from the [stixtype]#<<information-type-ov,information-type-ov>># open vocabulary.
 
 This value *MUST* be included if the alternation is not none.
-Including an entry that with an alteration of [stixliteral]#none# and no information_type provided indicates that no information had its integrity impacted by this incident.
+Including an entry that with an alteration of [stixliteral]#none# and no information_type provided indicates that no information had its integrity impacted by the related incident.
 
 |*record_count* (optional)
 |[stixtype]#{int_url}[integer]#
@@ -797,21 +798,19 @@ This *MUST NOT* be included if the *currency_actual* property is not included.
 This *MUST* be included if the *currency_actual* property is included.
 This value *MUST* be greater than zero.
 
-This value *MUST* be included if the *min_amount* property is included.
-
 If this property is provided, the *conversion_time* property must also be provided.
 
 |*conversion_time* (optional)
 |[stixtype]#{timestamp_url}[timestamp]#
-|The timestamp when the conversion rate was queried.
+|The timestamp corresponding to the conversion rate from the *currency* property to the *currency_actual* property.
 
 This *MUST* be included if a *conversion_rate* property is included.
 
 |*currency* (optional)
 |[stixtype]#{string_url}[string]#|
-The currency that the *max_amount* and *min_amount* properties use.
+The currency used for reporting which the *max_amount* and *min_amount* properties use.
 This *SHOULD* be an ISO 4217 alpha currency code or the official currency code for the relevant cryptocurrency.
-This *SHOULD* match an organizations own primary currency, or for government reporting the currency requested by that government for these reports.
+This *SHOULD* match the currency of the organization or the government producing the report.
 
 This value *MUST* be included if the *min_amount* property is included.
 
@@ -827,7 +826,7 @@ This *SHOULD* be an ISO 4217 alpha currency code or the official currency code f
 
 |*max_amount* (optional)
 |[stixtype]#{number_url}[number]#
-|The maximum damage estimate of this type in the provided currency.
+The maximum monetary amount of the impact using the currency specified in the *currency* property.
 This value *MUST* be greater than zero.
 
 This value *MUST* be included if the *min_amount* property is included.
@@ -836,7 +835,7 @@ If *min_amount* and *max_amount* properties are both defined, then *max_amount* 
 
 |*min_amount* (optional)
 |[stixtype]#{number_url}[number]#
-|The minimum damage estimate of this type in the provided currency.
+The maximum monetary amount of the impact using the currency specified in the *currency* property.
 This value *MUST* be greater than zero.
 
 This value *MUST* be included if the *max_amount* property is included.
@@ -873,12 +872,12 @@ enumeration.
 
 |*asset_type* (optional)
 |[stixtype]#{open_vocab_url}[open-vocab]#
-|The type or property or system that was affected by this impact.
+|The type of property or system that was affected by this impact.
 
 The value of this property *SHOULD* come from the [stixtype]#<<asset-type-ov,asset-type-ov>># open vocabulary.
 
 This value *MUST* be included if the *impact_type* is not [stixliteral]#none#		      .
-Including an entry with an *impact_type* of none and no asset_type indicates that no physical damage was caused by this incident.
+Including an entry with an *impact_type* of none and no asset_type indicates that no physical damage was caused by the related incident.
 
 |===
 
@@ -901,7 +900,7 @@ include::examples/example_2.3.2.6.1.json[]
 
 |*traceability_impact* (required)
 |[stixtype]#<<traceability-enum,traceability-enum>>#
-|The impact of this incident on a system or organization's ability to perform audits or provide non-repudiation.
+|The impact on a system or organization's ability to perform audits or provide non-repudiation.
 
 The value of this property *MUST* come from the [stixtype]#<<traceability-enum,traceability-enum>># enumeration.
 
@@ -918,7 +917,7 @@ include::examples/example_2.3.2.7.1.json[]
 [[task]]
 === 2.4. Task
 
-A Task is an activity that is performed by or for the victim/defender to respond to the incident.
+A Task is an activity that is performed by or for the victim/defender to respond to the related incident.
 
 This new SDO extension *MUST* use [stixliteral]#extension-definition--2074a052-8be4-4932-849e-f5e7798e0030# as its extension ID.
 
@@ -1064,8 +1063,8 @@ targeting this object type from another object type.
 Relationships are not restricted to those listed below. Relationships can be created between any objects
 using the [stixrelationship]#related-to# relationship type or, as with open vocabularies, user-defined names.  
 
-Sequences of[stixtype]#<<task,tasks>># SHOULD NOT be shared using relationship objects
-Sequences *SHOULD* be shared within an [stixtype]#{incident_url}[incident]# or [stixtype]#<<task,task>># as part of the list of *tasks* or *subtasks* respectively.
+Sequences of [stixtype]#<<task,tasks>># *SHOULD NOT* be shared using relationship objects.
+Sequences *SHOULD* be shared within an [stixtype]#{incident_url}[incident]# or [stixtype]#<<task,task>># using the *tasks* or *subtasks* properties, respectively.
 Using these embedded relationships ensures that an incomplete sequence cannot be shared accidentally (avoiding potential confusion or misunderstandings when processing STIX data.)
 
 [width="100%",cols="27%,16%,24%,33%",options="header",]
