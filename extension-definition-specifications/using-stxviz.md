@@ -8,7 +8,7 @@
 ### Use STIXViz
 
 - Click on index.html to bring up a "local" copy of STIXViz in your browser
-- Cut and paste the contents of stix-viz-config.json of any extension you are using info the --Configuration-- text box at the bottom of the web page
+- Cut and paste the contents of stix-viz-config.json of any extension you are using into the --Configuration-- text box at the bottom of the web page
 - Choose a STIX file
 
 ### Tips
