@@ -1,0 +1,10 @@
+{
+    "incident": {
+	"embeddedRelationships": [ [ "extensions.extension-definition—​ef765651-680c-498d-9894-99799f2fa126.events.event_ref", "has_event", true],
+				   [ "extensions.extension-definition—​ef765651-680c-498d-9894-99799f2fa126.tasks.task_ref", "has_task", true]
+				 ]
+    },
+    "event": {
+	"embeddedRelationships": [[ "sightings_refs", "evidence", true]]
+    }
+}
