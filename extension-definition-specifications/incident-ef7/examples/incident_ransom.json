@@ -72,7 +72,7 @@
                 "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
                     "extension_type": "new-sdo"
                 },
-                "integrity": {
+                "integrity-ext": {
                     "information_type": "system",
                     "alteration": "full-modification"
                 }
@@ -92,7 +92,7 @@
                 "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
                     "extension_type": "new-sdo"
                 },
-                "monetary": {
+                "monetary-ext": {
                     "currency": "usd",
                     "min_amount": 0,
                     "max_amount": 14413.05,
@@ -117,7 +117,7 @@
                 "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
                     "extension_type": "new-sdo"
                 },
-                "monetary": {
+                "monetary-ext": {
                     "currency": "usd",
                     "min_amount": 10000,
                     "max_amount": 10000,
@@ -158,7 +158,7 @@
             "end_time": "2023-05-02T17:13:15.0000Z",
             "impact_category": "availability",
             "extensions": {
-                "availability": {
+                "availability-ext": {
                     "availability_impact": 70
                 },
                 "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {

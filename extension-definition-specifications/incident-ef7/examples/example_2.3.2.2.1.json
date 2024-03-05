@@ -1,8 +1,8 @@
 {
     "type": "impact",
     "id": "impact--c08d9e5a-ba7e-465c-96d5-659683aa9395",
-    "created": "2023-11-22T15:30:00Z",
-    "modified": "2023-11-22T15:30:00Z",
+    "created": "2023-11-22T15:30:00.000Z",
+    "modified": "2023-11-22T15:30:00.000Z",
     "spec_version": "2.1",
     "impact_category": "confidentiality-ext",
     "criticality": 80,
@@ -12,7 +12,7 @@
     "extensions": {
         "confidentiality-ext": {
             "information_type": "customer-data",
-            "loss_type": "unauthorized-disclosure",
+            "loss_type": "confirmed-loss",
             "record_count": 1000
         },
         "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {

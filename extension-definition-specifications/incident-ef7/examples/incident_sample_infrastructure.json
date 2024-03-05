@@ -99,7 +99,7 @@
             "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
                 "extension_type": "new-sdo"
             },
-            "availability": {
+            "availability-ext": {
                 "availability_impact": 0
             }
         }
@@ -116,7 +116,7 @@
             "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
                 "extension_type": "new-sdo"
             },
-            "confidentiality": {
+            "confidentiality-ext": {
                 "information_type": "pii",
                 "loss_type": "confirmed-loss"
             }
@@ -134,7 +134,7 @@
             "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
                 "extension_type": "new-sdo"
             },
-            "confidentiality": {
+            "confidentiality-ext": {
                 "information_type": "phi",
                 "loss_type": "confirmed-loss",
                 "record_size": 124000
@@ -154,7 +154,7 @@
             "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
                 "extension_type": "new-sdo"
             },
-            "integrity": {
+            "integrity-ext": {
                 "information_type": "system-data",
                 "alteration": "full-destruction"
             }
@@ -171,7 +171,7 @@
             "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
                 "extension_type": "new-sdo"
             },
-            "integrity": {
+            "integrity-ext": {
                 "information_type": "phi",
                 "alteration": "none"
             }
@@ -188,7 +188,7 @@
             "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
                 "extension_type": "new-sdo"
             },
-            "traceability": {
+            "traceability-ext": {
                 "traceability_impact": "accountability-lost"
             }
         }

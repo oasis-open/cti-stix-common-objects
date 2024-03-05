@@ -381,7 +381,7 @@
                 "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
                     "extension_type": "new-sdo"
                 },
-                "external": {
+                "external-ext": {
                     "impact_type": "foreign-relations"
                 }
             }
@@ -399,7 +399,7 @@
                 "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
                     "extension_type": "new-sdo"
                 },
-                "monetary": {
+                "monetary-ext": {
                     "variety": "brand-damage"
                 }
             }
@@ -422,7 +422,7 @@
                 "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
                     "extension_type": "new-sdo"
                 },
-                "availability": {
+                "availability-ext": {
                     "availability_impact": 90
                 }
             }
@@ -445,7 +445,7 @@
                 "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
                     "extension_type": "new-sdo"
                 },
-                "availability": {
+                "availability-ext": {
                     "availability_impact": 75
                 }
             }
@@ -467,7 +467,7 @@
                 "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
                     "extension_type": "new-sdo"
                 },
-                "availability": {
+                "availability-ext": {
                     "availability_impact": 30
                 }
             }
@@ -487,7 +487,7 @@
                 "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
                     "extension_type": "new-sdo"
                 },
-                "confidentiality": {
+                "confidentiality-ext": {
                     "information_type": "credentials-user",
                     "loss_type": "confirmed-loss"
                 }

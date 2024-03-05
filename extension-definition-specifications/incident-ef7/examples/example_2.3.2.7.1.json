@@ -1,8 +1,8 @@
 {
     "type": "impact",
     "id": "impact--ef58b184-e4b8-4f1f-9ac3-f22aff3f9459",
-    "created": "2023-11-22T15:30:00Z",
-    "modified": "2023-11-22T15:30:00Z",
+    "created": "2023-11-22T15:30:00.628Z",
+    "modified": "2023-11-22T15:30:00.845Z",
     "spec_version": "2.1",
     "impact_category": "traceability",
     "criticality": 65,
@@ -11,7 +11,7 @@
     "start_time_fidelity": "minute",
     "extensions": {
         "traceability-ext": {
-            "traceability_impact": "partial"
+            "traceability_impact": "partial-accountability"
         },
         "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
             "extension_type": "new-sdo"

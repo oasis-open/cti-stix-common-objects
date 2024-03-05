@@ -120,7 +120,7 @@
                 "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
                     "extension_type": "new-sdo"
                 },
-                "availability": {
+                "availability-ext": {
                     "availability_impact": 75
                 }
             }
@@ -139,7 +139,7 @@
                 "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
                     "extension_type": "new-sdo"
                 },
-                "availability": {
+                "availability-ext": {
                     "availability_impact": 50
                 }
             }
@@ -156,7 +156,7 @@
                 "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
                     "extension_type": "new-sdo"
                 },
-                "monetary": {
+                "monetary-ext": {
                     "variety": "business-disruption",
                     "currency": "usd",
                     "min_amount": 10000,
@@ -178,7 +178,7 @@
                 "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
                     "extension_type": "new-sdo"
                 },
-                "physical": {
+                "physical-ext": {
                     "asset_type": "ics-sensor",
                     "impact_type": "damaged-nonfunctional"
                 }
@@ -435,25 +435,6 @@
             "created": "2022-05-06T01:01:01.002Z",
             "modified":"2022-05-06T01:01:01.002Z",
             "spec_version": "2.1",
-            "task_types": ["escalated"],
-            "id": "task--7c99eec2-5873-4d02-a286-b1cfcbb33cbc",
-            "outcome": "successful",
-            "description": "The cause of the error was traced to malware on the system and an investigation began",
-            "start_time": "2022-05-02T07:00:00Z",
-            "start_time_fidelity": "day",
-            "end_time": "2022-05-02T07:00:00Z",
-            "end_time_fidelity": "day",
-            "extensions": {
-                "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
-                    "extension_type": "new-sdo"
-                }
-            }
-        },
-        {
-            "type": "task",
-            "created": "2022-05-06T01:01:01.002Z",
-            "modified":"2022-05-06T01:01:01.002Z",
-            "spec_version": "2.1",
             "task_types": ["reported"],
             "id": "task--1b44203f-dbfb-4399-a02d-6b71f04ccfb7",
             "outcome": "successful",
@@ -474,7 +455,7 @@
             "modified":"2022-05-06T01:01:01.002Z",
             "spec_version": "2.1",
             "task_types": ["recovery"],
-            "id": "task--d6853763-b5b3-4f5e-b031-bcb111a3d7a1",
+            "id": "task--37c289f5-ff65-44d5-a255-0d2a5f780d5d",
             "outcome": "ongoing",
             "priority": 75,
             "description": "Began formal recovery",
@@ -779,7 +760,7 @@
         {
             "type": "relationship",
             "spec_version": "2.1",
-            "id": "relationship--05298766-27ed-4390-ae32-eb4a94bf5947",
+            "id": "relationship--f9812ee4-dc40-4618-aeef-c4f24cef95d1",
             "created": "2022-05-06T01:01:01.000Z",
             "modified": "2022-05-06T01:01:01.000Z",
             "relationship_type": "member-of",
@@ -1132,10 +1113,9 @@
                 "task--fd5f04a8-877f-42a3-a25d-ddfe2001a6e1",
                 "task--7a998b82-389d-4d9c-b5ca-40aa34680c0a",
                 "task--7c99eec2-5873-4d02-a286-b1cfcbb33cbc",
-                "task--7c99eec2-5873-4d02-a286-b1cfcbb33cbc",
                 "task--1b44203f-dbfb-4399-a02d-6b71f04ccfb7",
                 "task--d6853763-b5b3-4f5e-b031-bcb111a3d7a1",
-                "task--d6853763-b5b3-4f5e-b031-bcb111a3d7a1",
+                "task--37c289f5-ff65-44d5-a255-0d2a5f780d5d",
                 "task--05bf660d-52b9-4249-a75d-ada224dd1261",
                 "task--6aa81489-8137-46e0-84f1-ebcae2e001e8",
                 "file--9704eca1-8efd-542c-a626-77d7cbcfe49f",
@@ -1160,7 +1140,7 @@
                 "identity--e0ee62af-7b13-4345-ad42-11950850cabe",
                 "identity--7a164253-fbfd-420b-9316-79f5d3dff51f",
                 "relationship--05298766-27ed-4390-ae32-eb4a94bf5947",
-                "relationship--05298766-27ed-4390-ae32-eb4a94bf5947",
+                "relationship--f9812ee4-dc40-4618-aeef-c4f24cef95d1",
                 "relationship--a5916e8a-0e0a-412a-b2b0-7e1ae1626a2d",
                 "relationship--a4095aa9-217b-44be-bee3-966447b486dc",
                 "attack-pattern--83ebd22f-b401-4d59-8219-2294172cf916",

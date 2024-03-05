@@ -254,7 +254,7 @@
                 "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
                     "extension_type": "new-sdo"
                 },
-                "external": {
+                "external-ext": {
                     "impact_type": "foreign-relations"
                 }
             }
@@ -272,7 +272,7 @@
                 "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
                     "extension_type": "new-sdo"
                 },
-                "monetary": {
+                "monetary-ext": {
                     "variety": "brand-damage"
                 }
             }
@@ -295,7 +295,7 @@
                 "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
                     "extension_type": "new-sdo"
                 },
-                "availability": {
+                "availability-ext": {
                     "availability_impact": 90
                 }
             }
@@ -318,7 +318,7 @@
                 "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
                     "extension_type": "new-sdo"
                 },
-                "availability": {
+                "availability-ext": {
                     "availability_impact": 75
                 }
             }
@@ -338,7 +338,7 @@
                 "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
                     "extension_type": "new-sdo"
                 },
-                "availability": {
+                "availability-ext": {
                     "availability_impact": 30
                 }
             }
@@ -347,7 +347,6 @@
             "type": "malware",
             "spec_version": "2.1",
             "id": "malware--0099bc44-f289-418d-be8e-d9149d324b27",
-            "sighting_refs": ["sighting--b5d18fae-3a04-4891-84db-fe64a99bc16c"],
             "created": "2022-09-15T13:22:53.231Z",
             "modified": "2022-09-15T13:22:53.231Z",
             "name": "ExpoOfficeSwitch",
