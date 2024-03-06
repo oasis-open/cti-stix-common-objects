@@ -123,12 +123,11 @@
                 "encrypt_in_transit",
                 "permitted_actions",
                 "affected_party_notifications",
-                "tlp_ref",
+                "tlp",
                 "provider_attribution",
                 "unmodified_resale",
                 "iep_id",
                 "iep_version",
-                "policy_name",
                 "description",
                 "start_date"
               ]
