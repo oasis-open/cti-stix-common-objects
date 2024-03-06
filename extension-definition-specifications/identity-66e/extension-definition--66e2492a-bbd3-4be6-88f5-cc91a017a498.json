@@ -1,152 +1,177 @@
 {
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://raw.githubusercontent.com/oasis-open/cti-stix-common-objects/main/extension-definition-specifications/identity-66e/extension-definition--66e2492a-bbd3-4be6-88f5-cc91a017a498.json",
-    "title": "Identity Contact Information",
-    "description": "This extension allows contact information to be included in identities in a manner that allows them to be machine parsable.",
-    "type": "object",
-    "required": [
-        "extension_type"
-    ],
-    "minProperties": 2,
-    "additionalProperties": false,
-    "properties": {
-        "extension_type": {
-            "type": "string",
-            "description": "Defined by STIX 2.1 extension definition rules from 'extension-type-enum'.",
-            "enum": [
-                "property-extension"
-            ]
-        },
-        "contact_numbers": {
-            "type": "array",
-            "description": "A list of contact number objects that contain the phone and fax numbers.",
-            "minItems": 1,
-            "additionalProperties": false,
-            "items": {
-                "type": "object",
-                "required": ["contact_number", "contact_number_type"],
-                "properties": {
-                    "contact_number": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/oasis-open/cti-stix-common-objects/main/extension-definition-specifications/identity-66e/extension-definition--66e2492a-bbd3-4be6-88f5-cc91a017a498.json",
+  "title": "Identity Contact Information",
+  "description": "This extension allows contact information to be included in identities in a manner that allows them to be machine parsable.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/sdos/identity.json"
+    },
+    {
+      "properties": {
+        "extensions": {
+          "additionalProperties": true,
+          "properties": {
+            "extension-definition--66e2492a-bbd3-4be6-88f5-cc91a017a498": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "extension_type"
+              ],
+              "properties": {
+                "extension_type": {
+                  "type": "string",
+                  "description": "Defined by STIX 2.1 extension definition rules from 'extension-type-enum'.",
+                  "enum": [
+                    "property-extension"
+                  ]
+                },
+                "contact_numbers": {
+                  "type": "array",
+                  "description": "A list of contact number objects that contain the phone and fax numbers.",
+                  "minItems": 1,
+                  "additionalProperties": false,
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "contact_number",
+                      "contact_number_type"
+                    ],
+                    "properties": {
+                      "contact_number": {
                         "type": "string",
                         "description": "The contact number.  Typically a phone number."
-                    },
-                "classified": {
-                "type": "boolean",
-                "default": false,
-                "description": "Can be used to reach the individual on a classified phone."
-                },
-                    "contact_number_type": {
+                      },
+                      "classified": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Can be used to reach the individual on a classified phone."
+                      },
+                      "contact_number_type": {
                         "type": "string",
                         "description": "The type of number this is used for.  This SHOULD be drawn from contact-number-ov."
-                    },
-                    "description": {
+                      },
+                      "description": {
                         "type": "string",
                         "description": "An additional description for the phone number and its purpose"
+                      }
                     }
-                }
-            }
-        },
-        "email_addresses": {
-            "type": "array",
-            "description": "A list of contact number objects that contain the phone and fax numbers.",
-            "minItems": 1,
-            "additionalProperties": false,
-            "items": {
-                "type": "object",
-                "required": ["email_address_ref", "digital_contact_type"],
-                "properties": {
-                    "email_address_ref": {
+                  }
+                },
+                "email_addresses": {
+                  "type": "array",
+                  "description": "A list of contact number objects that contain the phone and fax numbers.",
+                  "minItems": 1,
+                  "additionalProperties": false,
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "email_address_ref": {
                         "type": "string",
                         "description": "A reference to the email address itself",
                         "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
                         "pattern": "^email-addr--"
-                    },
-                "classified": {
-                "type": "boolean",
-                "default": false,
-                "description": "Can be used to reach the individual on a classified network."
-                },
-                    "digital_contact_type": {
+                      },
+                      "classified": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Can be used to reach the individual on a classified network."
+                      },
+                      "digital_contact_type": {
                         "type": "string",
                         "description": "The type of email that address is used for.  This SHOULD be drawn from digital-contact-ov."
-                    },
-                    "description": {
+                      },
+                      "description": {
                         "type": "string",
                         "description": "An additional description for the email and its purpose"
-                    }
-                }
-            }
-        },
-        "social_media_accounts": {
-            "type": "array",
-            "description": "A list of contact number objects that contain the phone and fax numbers.",
-            "minItems": 1,
-            "additionalProperties": false,
-            "items": {
-                "type": "object",
-                "required": ["user_account_ref", "digital_contact_type"],
-                "properties": {
-                    "user_account_ref": {
+                      }
+                    },
+                    "required": [
+                      "email_address_ref",
+                      "digital_contact_type"
+                    ]
+                  }
+                },
+                "social_media_accounts": {
+                  "type": "array",
+                  "description": "A list of contact number objects that contain the phone and fax numbers.",
+                  "minItems": 1,
+                  "additionalProperties": false,
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "user_account_ref",
+                      "digital_contact_type"
+                    ],
+                    "properties": {
+                      "user_account_ref": {
                         "type": "string",
                         "description": "A reference to the social media account itself",
-                        "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/sdos/identity.json",
+                        "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
                         "pattern": "^user-account--"
-                    },
-                "classified": {
-                "type": "boolean",
-                "default": false,
-                "description": "Can be used to reach the individual on a classified network."
-                },
-                    "digital_contact_type": {
+                      },
+                      "classified": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Can be used to reach the individual on a classified network."
+                      },
+                      "digital_contact_type": {
                         "type": "string",
                         "description": "The type of social media account that relates to.  This SHOULD be drawn from digital-contact-ov."
-                    },
-                    "description": {
+                      },
+                      "description": {
                         "type": "string",
                         "description": "An additional description for the social media account and its purpose"
+                      }
                     }
+                  }
+                },
+                "first_name": {
+                  "type": "string",
+                  "description": "The first name of an individual"
+                },
+                "last_name": {
+                  "type": "string",
+                  "description": "The last name of an individual"
+                },
+                "middle_name": {
+                  "type": "string",
+                  "description": "The middle name of an individual"
+                },
+                "prefix": {
+                  "type": "string",
+                  "description": "A prefix or title for an individual such as “Mr” or “Ms”"
+                },
+                "suffix": {
+                  "type": "string",
+                  "description": "A suffix for the individual such as “PhD”"
                 }
+              }
             }
-        },
-        "first_name": {
-            "type": "string",
-            "description": "The first name of an individual"
-        },
-        "last_name": {
-            "type": "string",
-            "description": "The last name of an individual"
-        },
-        "middle_name": {
-            "type": "string",
-            "description": "The middle name of an individual"
-        },
-        "prefix": {
-            "type": "string",
-            "description": "A prefix or title for an individual such as “Mr” or “Ms”"
-        },
-        "suffix": {
-            "type": "string",
-            "description": "A suffix for the individual such as “PhD”"
+          }
         }
-    },
-    "defs": {
-	"contact-number-ov": {
-	    "type": "string",
-	    "enum": [
-		"personal-landline-phone",
-		"personal-mobile-phone",
-		"personal-fax",
-		"work-phone",
-		"work-fax"
-	    ]
-	},
-	"digital-number-ov": {
-	    "type": "string",
-	    "enum": [
-		"organizational",
-		"personal",
-		"work"
-	    ]
-	}
+      }
     }
+  ],
+  "definitions": {
+    "contact-number-ov": {
+      "type": "string",
+      "enum": [
+        "personal-landline-phone",
+        "personal-mobile-phone",
+        "personal-fax",
+        "work-phone",
+        "work-fax"
+      ]
+    },
+    "digital-number-ov": {
+      "type": "string",
+      "enum": [
+        "organizational",
+        "personal",
+        "work"
+      ]
+    }
+  }
 }
