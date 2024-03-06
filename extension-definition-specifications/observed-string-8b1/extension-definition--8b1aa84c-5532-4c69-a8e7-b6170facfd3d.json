@@ -6,7 +6,7 @@
     "type": "object",
     "allOf": [
       {
-        "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/cyber-observerable-core.json"
+        "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/master/schemas/common/cyber-observable-core.json"
       },
       {
         "properties": {
@@ -15,14 +15,33 @@
             "properties": {
               "extension-definition--8b1aa84c-5532-4c69-a8e7-b6170facfd3d": {
                 "type": "object",
-                "$ref": "observed-string.json"
-                }
-              }
-            }
+                "additionalProperties": false,
+                "properties": {
+                    "extension_type": {
+			"type": "string",
+			"const": "new-sco"
+		    }
+		},
+		"required": [
+		    "extension_type"
+		]
+	      }
+	    }
           },
-        "required": [
-          "extensions"
-        ]
+	  "purpose": {
+            "type": "string",
+            "description": "What this string is used for"
+          },
+          "value": {
+  	      "type": "string",
+	      "description": "The Unicode encoded value of the string. It SHOULD come from string-purpose-ov"
+          },
+	  "required": [
+	      "extensions",	
+              "purpose",
+              "value"
+	  ]
+	}
       }
     ]
   }
