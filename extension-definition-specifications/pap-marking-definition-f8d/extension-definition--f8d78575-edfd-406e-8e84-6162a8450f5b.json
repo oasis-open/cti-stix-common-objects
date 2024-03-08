@@ -4,248 +4,260 @@
     "title": "pap-marking-definition-extension",
     "description": "This marking extension was created to apply PAP data markings",
     "type": "object",
-    "required": [
-      "id",
-      "type",
-      "name",
-      "spec_version",
-      "created",
-      "extensions"
-    ],
-    "properties": {
-      "type": {
-        "type": "string",
-        "description": "The type of this object, which MUST be the literal `marking-definition`.",
-        "enum": [
-          "marking-definition"
+    "allOf": [
+      {
+        "required": [
+          "id",
+          "type",
+          "name",
+          "spec_version",
+          "created",
+          "extensions"
         ]
       },
-      "spec_version": {
-        "type": "string",
-        "enum": [
-          "2.1"
-        ],
-        "description": "The version of the STIX specification used to represent this object."
+      {
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "The type of this object, which MUST be the literal `marking-definition`.",
+            "enum": [
+              "marking-definition"
+            ]
+          },
+          "spec_version": {
+            "type": "string",
+            "enum": [
+              "2.1"
+            ],
+            "description": "The version of the STIX specification used to represent this object."
+          },
+          "created": {
+            "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/timestamp.json",
+            "description": "The created property represents the time at which the first version of this Marking Definition object was created."
+          }
+        }
       },
-      "created": {
-        "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/timestamp.json",
-        "description": "The created property represents the time at which the first version of this Marking Definition object was created."
+      {
+        "name": {
+          "type": "string",
+          "description": "A name used to identify the Marking Definition. The value of this property MUST be one of the following: PAP:WHITE, PAP:GREEN, PAP:AMBER, PAP:RED"
+        }
+      },
+      {
+        "oneOf": [
+          {
+            "$ref": "#/definitions/pap_white"
+          },
+          {
+            "$ref": "#/definitions/pap_green"
+          },
+          {
+            "$ref": "#/definitions/pap_amber"
+          },
+          {
+            "$ref": "#/definitions/pap_red"
+          }
+        ]
+      },
+      {
+        "defs": {
+          "pap_white": {
+            "description": "The marking-definition object representing Permissible Actions Protocol (PAP) White.",
+            "properties": {
+              "id": {
+                "type": "string",
+                "enum": [
+                  "marking-definition--a3bea94c-b469-41dc-9cfe-d6e7daba7730" 
+                ]
+              },
+              "name": {
+                "type": "string",
+                "enum": [
+                  "PAP:WHITE"
+                ]
+              },
+              "extensions": {
+                "type": "object",
+                "properties": {
+                  "extension-definition--f8d78575-edfd-406e-8e84-6162a8450f5b": {
+                    "type": "object",
+                    "properties": {
+                      "extension_type": {
+                        "type": "string",
+                        "description": "Defined by STIX 2.1 extension definition rules from 'extension-type-enum'.",
+                        "enum": [
+                          "property-extension"
+                        ]
+                      },
+                      "pap": {
+                        "type": "string",
+                        "enum": [
+                          "white"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "extension_type",
+                      "pap"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "extension-definition--f8d78575-edfd-406e-8e84-6162a8450f5b"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "pap_green": {
+            "description": "The marking-definition object representing Permissible Actions Protocol (PAP) Green.",
+            "properties": {
+              "id": {
+                "type": "string",
+                "enum": [
+                  "marking-definition--c43594d1-4b11-4c59-93ab-1c9b14d53ce9"
+                ]
+              },
+              "name": {
+                "type": "string",
+                "enum": [
+                  "PAP:GREEN"
+                ]
+              },
+              "extensions": {
+                "type": "object",
+                "properties": {
+                  "extension-definition--f8d78575-edfd-406e-8e84-6162a8450f5b": {
+                    "type": "object",
+                    "properties": {
+                      "extension_type": {
+                        "type": "string",
+                        "description": "Defined by STIX 2.1 extension definition rules from 'extension-type-enum'.",
+                        "enum": [
+                          "property-extension"
+                        ]
+                      },
+                      "pap": {
+                        "type": "string",
+                        "enum": [
+                          "green"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "extension_type",
+                      "pap"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "extension-definition--f8d78575-edfd-406e-8e84-6162a8450f5b"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "pap_amber": {
+            "description": "The marking-definition object representing Permissible Protocol (PAP) Amber.",
+            "properties": {
+              "id": {
+                "type": "string",
+                "enum": [
+                  "marking-definition--60f8932b-e51e-4458-b265-a2e8be9a80ab"
+                ]
+              },
+              "name": {
+                "type": "string",
+                "enum": [
+                  "PAP:AMBER"
+                ]
+              },
+              "extensions": {
+                "type": "object",
+                "properties": {
+                  "extension-definition--f8d78575-edfd-406e-8e84-6162a8450f5b": {
+                    "type": "object",
+                    "properties": {
+                      "extension_type": {
+                        "type": "string",
+                        "description": "Defined by STIX 2.1 extension definition rules from 'extension-type-enum'.",
+                        "enum": [
+                          "property-extension"
+                        ]
+                      },
+                      "pap": {
+                        "type": "string",
+                        "enum": [
+                          "amber"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "extension_type",
+                      "pap"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "extension-definition--f8d78575-edfd-406e-8e84-6162a8450f5b"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "pap_red": {
+            "description": "The marking-definition object representing Permissible Actions Protocol (PAP) Red.",
+            "properties": {
+              "id": {
+                "type": "string",
+                "enum": [
+                  "marking-definition--740d36e5-7714-4c30-961a-3ae632ceee0e"
+                ]
+              },
+              "name": {
+                "type": "string",
+                "enum": [
+                  "PAP:RED"
+                ]
+              },
+              "extensions": {
+                "type": "object",
+                "properties": {
+                  "extension-definition--f8d78575-edfd-406e-8e84-6162a8450f5b": {
+                    "type": "object",
+                    "properties": {
+                      "extension_type": {
+                        "type": "string",
+                        "description": "Defined by STIX 2.1 extension definition rules from 'extension-type-enum'.",
+                        "enum": [
+                          "property-extension"
+                        ]
+                      },
+                      "pap": {
+                        "type": "string",
+                        "enum": [
+                          "red"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "extension_type",
+                      "pap"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "extension-definition--f8d78575-edfd-406e-8e84-6162a8450f5b"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
       }
-    },
-    "name": {
-      "type": "string",
-      "description": "A name used to identify the Marking Definition. The value of this property MUST be one of the following: PAP:WHITE, PAP:GREEN, PAP:AMBER, PAP:RED"
-    },
-    "oneOf": [
-      {
-        "$ref": "#/definitions/pap_white"
-      },
-      {
-        "$ref": "#/definitions/pap_green"
-      },
-      {
-        "$ref": "#/definitions/pap_amber"
-      },
-      {
-        "$ref": "#/definitions/pap_red"
-      }
-    ],
-    "defs": {
-      "pap_white": {
-        "description": "The marking-definition object representing Permissible Actions Protocol (PAP) White.",
-        "properties": {
-          "id": {
-            "type": "string",
-            "enum": [
-              "marking-definition--a3bea94c-b469-41dc-9cfe-d6e7daba7730" 
-            ]
-          },
-          "name": {
-            "type": "string",
-            "enum": [
-              "PAP:WHITE"
-            ]
-          },
-          "extensions": {
-            "type": "object",
-            "properties": {
-              "extension-definition--f8d78575-edfd-406e-8e84-6162a8450f5b": {
-                "type": "object",
-                "properties": {
-                  "extension_type": {
-                    "type": "string",
-                    "description": "Defined by STIX 2.1 extension definition rules from 'extension-type-enum'.",
-                    "enum": [
-                      "property-extension"
-                    ]
-                  },
-                  "pap": {
-                    "type": "string",
-                    "enum": [
-                      "white"
-                    ]
-                  }
-                },
-                "required": [
-                  "extension_type",
-                  "pap"
-                ],
-                "additionalProperties": false
-              }
-            },
-            "required": [
-              "extension-definition--f8d78575-edfd-406e-8e84-6162a8450f5b"
-            ],
-            "additionalProperties": false
-          }
-        }
-      },
-      "pap_green": {
-        "description": "The marking-definition object representing Permissible Actions Protocol (PAP) Green.",
-        "properties": {
-          "id": {
-            "type": "string",
-            "enum": [
-              "marking-definition--c43594d1-4b11-4c59-93ab-1c9b14d53ce9"
-            ]
-          },
-          "name": {
-            "type": "string",
-            "enum": [
-              "PAP:GREEN"
-            ]
-          },
-          "extensions": {
-            "type": "object",
-            "properties": {
-              "extension-definition--f8d78575-edfd-406e-8e84-6162a8450f5b": {
-                "type": "object",
-                "properties": {
-                  "extension_type": {
-                    "type": "string",
-                    "description": "Defined by STIX 2.1 extension definition rules from 'extension-type-enum'.",
-                    "enum": [
-                      "property-extension"
-                    ]
-                  },
-                  "pap": {
-                    "type": "string",
-                    "enum": [
-                      "green"
-                    ]
-                  }
-                },
-                "required": [
-                  "extension_type",
-                  "pap"
-                ],
-                "additionalProperties": false
-              }
-            },
-            "required": [
-              "extension-definition--f8d78575-edfd-406e-8e84-6162a8450f5b"
-            ],
-            "additionalProperties": false
-          }
-        }
-      },
-      "pap_amber": {
-        "description": "The marking-definition object representing Permissible Protocol (PAP) Amber.",
-        "properties": {
-          "id": {
-            "type": "string",
-            "enum": [
-              "marking-definition--60f8932b-e51e-4458-b265-a2e8be9a80ab"
-            ]
-          },
-          "name": {
-            "type": "string",
-            "enum": [
-              "PAP:AMBER"
-            ]
-          },
-          "extensions": {
-            "type": "object",
-            "properties": {
-              "extension-definition--f8d78575-edfd-406e-8e84-6162a8450f5b": {
-                "type": "object",
-                "properties": {
-                  "extension_type": {
-                    "type": "string",
-                    "description": "Defined by STIX 2.1 extension definition rules from 'extension-type-enum'.",
-                    "enum": [
-                      "property-extension"
-                    ]
-                  },
-                  "pap": {
-                    "type": "string",
-                    "enum": [
-                      "amber"
-                    ]
-                  }
-                },
-                "required": [
-                  "extension_type",
-                  "pap"
-                ],
-                "additionalProperties": false
-              }
-            },
-            "required": [
-              "extension-definition--f8d78575-edfd-406e-8e84-6162a8450f5b"
-            ],
-            "additionalProperties": false
-          }
-        }
-      },
-      "pap_red": {
-        "description": "The marking-definition object representing Permissible Actions Protocol (PAP) Red.",
-        "properties": {
-          "id": {
-            "type": "string",
-            "enum": [
-              "marking-definition--740d36e5-7714-4c30-961a-3ae632ceee0e"
-            ]
-          },
-          "name": {
-            "type": "string",
-            "enum": [
-              "PAP:RED"
-            ]
-          },
-          "extensions": {
-            "type": "object",
-            "properties": {
-              "extension-definition--f8d78575-edfd-406e-8e84-6162a8450f5b": {
-                "type": "object",
-                "properties": {
-                  "extension_type": {
-                    "type": "string",
-                    "description": "Defined by STIX 2.1 extension definition rules from 'extension-type-enum'.",
-                    "enum": [
-                      "property-extension"
-                    ]
-                  },
-                  "pap": {
-                    "type": "string",
-                    "enum": [
-                      "red"
-                    ]
-                  }
-                },
-                "required": [
-                  "extension_type",
-                  "pap"
-                ],
-                "additionalProperties": false
-              }
-            },
-            "required": [
-              "extension-definition--f8d78575-edfd-406e-8e84-6162a8450f5b"
-            ],
-            "additionalProperties": false
-          }
-        }
-      }
-    }
+    ]
   }
