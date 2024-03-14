@@ -6,7 +6,7 @@
     "purpose": "mission-id",
     "extensions": {
         "extension-definition--8b1aa84c-5532-4c69-a8e7-b6170facfd3d": {
-                "extension_type": "new-sco"
-            }
+            "extension_type": "new-sco"
         }
     }
+}
