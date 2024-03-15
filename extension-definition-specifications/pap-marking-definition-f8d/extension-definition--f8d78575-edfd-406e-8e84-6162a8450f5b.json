@@ -37,13 +37,11 @@
         "created": {
           "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/timestamp.json",
           "description": "The created property represents the time at which the first version of this Marking Definition object was created."
+        },
+        "name": {
+          "type": "string",
+          "description": "A name used to identify the Marking Definition. The value of this property MUST be one of the following: PAP:WHITE, PAP:GREEN, PAP:AMBER, PAP:RED, PAP:CLEAR"
         }
-      }
-    },
-    {
-      "name": {
-        "type": "string",
-        "description": "A name used to identify the Marking Definition. The value of this property MUST be one of the following: PAP:WHITE, PAP:GREEN, PAP:AMBER, PAP:RED, PAP:CLEAR"
       }
     },
     {
@@ -66,7 +64,7 @@
       ]
     }
   ],
-  "defs": {
+  "$definitions": {
     "pap_white": {
       "description": "The marking-definition object representing Permissible Actions Protocol (PAP) White.",
       "properties": {
