@@ -9,6 +9,20 @@
       "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/marking-definition.json"
     },
     {
+      "not": {
+        "required": [
+          "definition_type"
+        ]
+      }
+    },
+    {
+      "not": {
+        "required": [
+          "definition"
+        ]
+      }
+    },
+    {
       "required": [
         "id",
         "type",
@@ -64,7 +78,7 @@
       ]
     }
   ],
-  "$definitions": {
+  "definitions": {
     "pap_white": {
       "description": "The marking-definition object representing Permissible Actions Protocol (PAP) White.",
       "properties": {
