@@ -78,7 +78,7 @@
       ]
     }
   ],
-  "definitions": {
+  "$defs": {
     "pap_white": {
       "description": "The marking-definition object representing Permissible Actions Protocol (PAP) White.",
       "properties": {
