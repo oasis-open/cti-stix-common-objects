@@ -107,6 +107,8 @@ PAP:AMBER
 
 PAP:RED
 
+PAP:CLEAR
+
 |*extensions* (required)
 |[stixtype]#{dictionary_url}[dictionary]#
 |Specifies the PAP marking “color” as an extension dictionary.
@@ -138,7 +140,8 @@ The value of this property *MUST* be [stixliteral]#property-extension#
 white, 
 green,
 amber,
-red
+red,
+clear
 |===
 
 [[marking-definition]]
@@ -169,7 +172,12 @@ a|red
 a|
 ----
 include::examples/pap-red.json[]
-
+----
+a|clear
+[source,json]
+a|
+----
+include::examples/pap-clear.json[]
 ----
 |===
 
