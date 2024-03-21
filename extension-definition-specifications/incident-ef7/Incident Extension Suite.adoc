@@ -831,7 +831,7 @@ If this is included then the *currency* property *MUST* be included.
 This *SHOULD* be an ISO 4217 alpha currency code or the official currency code for the relevant cryptocurrency.
 
 |*max_amount* (optional)
-|[stixtype]#{number_url}[number]#
+|[stixtype]#{number_url}[number]#|
 The maximum monetary amount of the impact using the currency specified in the *currency* property.
 This value *MUST* be greater than zero.
 
@@ -840,7 +840,7 @@ This value *MUST* be included if the *min_amount* property is included.
 If *min_amount* and *max_amount* properties are both defined, then *max_amount* value *MUST* be greater than or equal to the *min_amount* value. 
 
 |*min_amount* (optional)
-|[stixtype]#{number_url}[number]#
+|[stixtype]#{number_url}[number]#|
 The maximum monetary amount of the impact using the currency specified in the *currency* property.
 This value *MUST* be greater than zero.
 
