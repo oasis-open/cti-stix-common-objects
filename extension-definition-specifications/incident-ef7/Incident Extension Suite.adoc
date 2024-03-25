@@ -130,7 +130,7 @@ The values of this property *SHOULD* come from the [stixtype]#<<incident-investi
 |[stixtype]#{int_url}[integer]#
  
 |The criticality of the incident.
-If present, this value *MUST* be between 0 to 100. This can be translated into qualitative values as described in <<appendix-b,Appendix B>>.
+If present, this value *MUST* be an integer between 0 to 100. This can be translated into qualitative values as described in <<appendix-b,Appendix B>>.
 
 |*detection_methods* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{open_vocab_url}[open-vocab]#
@@ -445,6 +445,11 @@ For example, a dropper running led to a ransomware tool to be downloaded and run
 |[stixtype]#{location_url}[location]#
 |The event occurred at a specific location.
 
+|[stixtype]#<<event,event>>#
+|[stixrelationship]#performed-by#
+|[stixtype]#{identity_url}[identity]#
+|The event was performed by the identity.
+
 // relationships:end
 |===
 
@@ -546,7 +551,7 @@ This *MUST* match an extension that provides greater details of a specific type 
 
 |*criticality* (optional)
 |[stixtype]#{int_url}[integer]#
-|The criticality of this impact. If present, this value *MUST* be between 0 to 100.
+|The criticality of this impact. If present, this value *MUST* be an integer between 0 to 100.
 This can be translated into qualitative values as described in <<appendix-b,Appendix B>>.
 
 |*description* (optional)
@@ -1117,6 +1122,12 @@ Using these embedded relationships ensures that an incomplete sequence cannot be
 |[stixrelationship]#located-at#
 |[stixtype]#{location_url}[location]#
 |The task occurred at a specific location.
+
+
+|[stixtype]#<<task,task>>#
+|[stixrelationship]#performed-by#
+|[stixtype]#{identity_url}[identity]#
+|The task was performed by the identity.
 
 // relationships:end
 |===
