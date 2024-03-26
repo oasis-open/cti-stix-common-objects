@@ -130,7 +130,7 @@ The values of this property *SHOULD* come from the [stixtype]#<<incident-investi
 |[stixtype]#{int_url}[integer]#
  
 |The criticality of the incident.
-If present, this value *MUST* be between 0 to 100. This can be translated into qualitative values as described in <<appendix-b,Appendix B>>.
+If present, this value *MUST* be an integer between 0 and 100. This can be translated into qualitative values as described in <<appendix-b,Appendix B>>.
 
 |*detection_methods* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{open_vocab_url}[open-vocab]#
@@ -456,6 +456,11 @@ For example, a dropper running led to a ransomware tool to be downloaded and run
 
 |*Source* |*Type* |*Target* |*Description*
 // relationships:start
+|[stixtype]#{identity_url}[identity]#
+|[stixrelationship]#performed#
+|[stixtype]#<<event,event>>#
+|An identity performed a specific event.
+
 |[stixtype]#{indicator_url}[indicator]#
 |[stixrelationship]#based-on#
 |[stixtype]#<<event,event>>#
@@ -546,7 +551,7 @@ This *MUST* match an extension that provides greater details of a specific type 
 
 |*criticality* (optional)
 |[stixtype]#{int_url}[integer]#
-|The criticality of this impact. If present, this value *MUST* be between 0 to 100.
+|The criticality of this impact. If present, this value *MUST* be an integer between 0 and 100.
 This can be translated into qualitative values as described in <<appendix-b,Appendix B>>.
 
 |*description* (optional)
@@ -648,7 +653,7 @@ Because these extensions are used to specify very different types of impacts, pr
 |The availability / functional impact of the related incident on the objects referenced in *impacted_refs*. 
 If no objects are referenced, the impact should be treated as the overall availability impact for the related [stixtype]#{incident_url}[incident]#.
 
-This value *MUST* be an integer between 0 to 100. This can be translated into qualitative values as described in <<appendix-a,Appendix A>>.
+This value *MUST* be an integer between 0 and 100. This can be translated into qualitative values as described in <<appendix-a,Appendix A>>.
 
 |===
 
@@ -1031,7 +1036,7 @@ This is primarily used when recording victim notifications.
 |*priority* (optional)
 |[stixtype]#{int_url}[integer]#
 |The priority or importance of the task.
-This value *MUST* be between an integer 0 to 100. This can be translated into qualitative values as described in <<appendix-b,Appendix B>>.
+This value *MUST* be an integer between 0 and 100. This can be translated into qualitative values as described in <<appendix-b,Appendix B>>.
 
 |*start_time* (optional)
 |[stixtype]#{timestamp_url}[timestamp]#
