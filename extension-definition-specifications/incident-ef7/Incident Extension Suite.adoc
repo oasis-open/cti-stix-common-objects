@@ -176,13 +176,13 @@ enumeration.
 
 |*sequence_refs* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
-|A list of Sequence Start objects tied to this incident.
+|A list of sequence objects tied to this Incident.
 It *MUST* contain references only to Sequence objects.
 
 |*sequence_start_refs* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
-|A list of ence objects tied to this incident.
-It *MUST* contain references only to Sequence objects, where the step_type property is set to [stixliteral]#start_step#.
+|A list of sequence start objects tied to this incident. 
+It *MUST* contain references only to Sequence objects where the *step_type* property is [stixliteral]#start_step#.
 
 |*task_refs* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
