@@ -1171,7 +1171,106 @@ include::examples/example_2.4.json[]
 ----
 
 <<<
+<<<
+[[sequence]]
+=== 2.5. Sequence
+The Python class name is [stixliteral]#Sequence#.
 
+[width="100%",cols="100%",stripes=odd]
+|===
+^|[stixtr]*Required Common Properties*
+|*created*,
+*id*,
+*modified*,
+*spec_version*,
+*type*
+
+^|[stixtr]*Optional Common Properties*
+
+|*created_by_ref*,
+*revoked*,
+*labels*,
+*confidence*,
+*lang*,
+*external_references*,
+*object_marking_refs*,
+*granular_markings*,
+*extensions*
+
+^|[stixtr]*Not Applicable Common Properties*
+
+|*defanged*
+
+^|[stixtr]*Sequence Object Specific Properties*
+
+|*sequenced_object*,
+*sequence_type*,
+*step_type*,
+*on_completion*,
+*on_success*,
+*on_failure*,
+*next_steps*
+|===
+
+|===
+^|[stixtr]*Property Name* ^|[stixtr]*Type* ^|[stixtr]*Description*
+
+|*type* (required)
+|[stixtype]#{string_url}[string]#
+|The value of this property *MUST* be set to [stixliteral]#sequence#.
+
+|*step_type* (required)
+|[stixtype]#<<step-type-enum,step-type-enum>>#
+|The type of step,  *MUST* be one of [stixliteral]#(start_step, end_step, single_step, parallel_step)#
+
+|*sequence_type* (required)
+|[stixtype]#{string_url}[string]#
+|The type of sequence,  *MUST* be [stixliteral]#(event or task)#
+
+|*sequenced_object* (optional)
+|[stixtype]#{identifier_url}[identifier]#
+|The SDO that is part of the sequence, *MUST* be of type [stixtype]#event# or [stixtype]#task#.
+
+|*on_completion* (optional)
+|[stixtype]#{identifier_url}[identifier]#
+|The [stixtype]#sequence# object to follow, *MUST* be of type [stixtype]#sequence#
+
+
+|*on_success* (optional)
+|[stixtype]#{identifier_url}[identifier]#
+|The [stixtype]#sequence# object to follow, *MUST* be of type [stixtype]#sequence#
+
+
+|*on_failure* (optional)
+|[stixtype]#{identifier_url}[identifier]#
+|The [stixtype]#sequence# object to follow, *MUST* be of type [stixtype]#sequence#
+
+
+|*next_steps* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
+|The [stixtype]#sequence# objects to follow, *MUST* be of type [stixtype]#sequence#
+
+
+|===
+
+
+
+==== 2.5.1 Sequence Extension Definition
+The definition extension  *MUST* use [stixliteral]#extension-definition--be0c7c79-1961-43db-afde-637066a87a64# as its extension ID.  The Python class name is [stixliteral]#SequenceExt#.
+
+[width="100%",cols="37%,23%,40%",options="header",]
+|===
+^|[stixtr]*Property Name*
+^|[stixtr]*Type*
+^|[stixtr]*Description*
+
+|*extension_type* (required)
+|[stixtype]#{string_url}[string]#
+|The value of this property *MUST* be [stixliteral]#new-sdo#
+
+|===
+
+<<<
 == 3. Additional Sub-Objects Types
 
 <<<
