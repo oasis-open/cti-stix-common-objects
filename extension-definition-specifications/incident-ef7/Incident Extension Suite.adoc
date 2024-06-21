@@ -138,9 +138,10 @@ If present, this value *MUST* be an integer between 0 and 100. This can be trans
 
 These values *SHOULD* be selected from the [stixtype]#<<detection-methods-ov,detection-methods-ov>># open vocabulary.
 
-|*events* (optional)
-|[stixtype]#{list_url}[list]# of type [stixtype]#<<event-entry,event-entry>>#
-|A list of events (as a list of [stixtype]#<<event-entry,event-entry>>#) tied to this incident.
+|*event_refs* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
+|A list of events tied to this incident.
+It *MUST* contain references to one or more Event objects.
 
 |*impact_refs* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
@@ -173,9 +174,21 @@ enumeration.
 |[stixtype]#{list_url}[list]# of type [stixtype]#<<incident-score,incident-score>>#
 |A list of scores from various automated or manual mechanisms along with optional descriptions.
 
-|*tasks* (optional)
-|[stixtype]#{list_url}[list]# of type [stixtype]#<<task-entry,task-entry>>#
-|A list of tasks (as a list of [stixtype]#<<task-entry,task-entry>>#) tied to this incident.
+|*sequence_refs* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
+|A list of Sequence Start objects tied to this incident.
+It *MUST* contain references only to Sequence objects.
+
+|*sequence_start_refs* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
+|A list of ence objects tied to this incident.
+It *MUST* contain references only to Sequence objects, where the step_type property is set to [stixliteral]#start_step#.
+
+|*task_refs* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
+|A list of tasks tied to this incident.
+It *MUST* contain references to one or more Task objects.
+
 
 |===
 
@@ -1316,91 +1329,6 @@ _0 individuals_
 
 <<<
 
-[[event-sequence-entry]]
-=== 3.2. Event Sequence Object Type
-
-Event sequence entries store references to subsequent steps for an event entry.
-As these are always stored in an list of steps within an array of list entries, validation rules for *event_ref* *MUST* be performed against the entire array of event entries.
-
-
-*Type Name:* [stixtype]#event-sequence-entry#
-
-[width="100%",cols="37%,23%,40%",options="header",]
-|===
-^|[stixtr]*Property Name*
-^|[stixtr]*Type* 
-^|[stixtr]*Description*
-
-|*event_ref* (required)
-|[stixtype]#{identifier_url}[identifier]# 
-|The identifier of the event that is described by this entry.
-
-This reference *MUST* be included as an *event_ref* within the parent array of [stixtype]#<<event-entry,event-entry>># objects.
-
-|*condition_type* (required)
-|[stixtype]#<<activity-condition-enum,activity-condition-enum>>#
-|If the referenced step required the current one to be successful.
-If it is optional, or if it is unknown.
-
-The values of this property *MUST* come from the [stixtype]#<<activity-condition-enum,activity-condition-enum>># enumeration.
-
-|*transition_type* (required)
-|[stixtype]#<<activity-transition-enum,activity-transition-enum>>#
-|What state the referenced step depends on.
-If it is performed upon success, failure, simple completion, or if it is unknown.
-
-The values of this property *MUST* come from the [stixtype]#<<activity-transition-enum,activity-transition-enum>># enumeration.
-
-|===
-
-==== 3.2.1. Example
-
-[source,json]
-----
-include::examples/example_3.3.json[]
-----
-
-<<<
-
-[[event-entry]]
-=== 3.3. Event Entry Object Type
-
-*Type Name:* [stixtype]#event-entry#
-
-[width="100%",cols="37%,23%,40%",options="header",]
-|===
-^|[stixtr]*Property Name*
-^|[stixtr]*Type* 
-^|[stixtr]*Description*
-
-|*event_ref* (required)
-|[stixtype]#{identifier_url}[identifier]# 
-|The event that is described by this entry.
-This *MUST* reference an [stixtype]#<<event,event>># object.
-
-|*next_steps* (optional)
-|[stixtype]#{list_url}[list]# of type [stixtype]#<<event-sequence-entry,event-sequence-entry>>#
-|A list of event sequences that describes the current event flows into the next one.
-
-|*sequence_start* (optional)
-|[stixtype]#{boolean_url}[boolean]#
-|If this is a start of a sequence chain.
-
-All sequences of events *MUST* begin with at least one entry where *sequence_start* is set to [stixliteral]#true#.
-If a cycle exists with multiple entries with *sequence_start* set to [stixliteral]#true# then all of these are equally valid start points.
-
-Default value is [stixliteral]#true#.
-
-|===
-
-==== 3.3.1. Example
-
-[source,json]
-----
-include::examples/example_3.2.json[]
-----
-
-
 [[incident-score]]
 === 3.4. Incident Score Object Type
 
@@ -1485,92 +1413,6 @@ If the *initial_ref* property is populated this *MUST* reference the same type o
 ----
 include::examples/example_3.5.json[]
 ----
-
-<<<
-
-[[task-sequence-entry]]
-=== 3.6. Task Sequence Object Type
-
-Task sequence entries store references to subsequent steps for a task entry.
-As these are always stored in an list of steps within an list of task entries, validation rules for *task_ref* *MUST* be performed against the entire list of task entries.
-
-*Type Name:* [stixtype]#task-sequence-entry#
-
-[width="100%",cols="37%,23%,40%",options="header",]
-|===
-^|[stixtr]*Property Name*
-^|[stixtr]*Type* 
-^|[stixtr]*Description*
-
-|*condition_type* (required)
-|[stixtype]#<<activity-condition-enum,activity-condition-enum>>#
-|If the referenced step required the current one to be successful.
-If it is optional, or if it is unknown.
-
-The values of this property *MUST* come from the [stixtype]#<<activity-condition-enum,activity-condition-enum>># enumeration.
-
-|*task_ref* (required)
-|[stixtype]#{identifier_url}[identifier]# 
-|The identity of the event that is described by this entry.
-
-This reference *MUST* be included as an *task_ref* within the parent array of [stixtype]#<<task-entry,task-entry>># objects.
-
-|*transition_type* (required)
-|[stixtype]#<<activity-transition-enum,activity-transition-enum>>#
-|What state the referenced step depends on.
-If it is performed upon success, failure, simple completion, or if it is unknown.
-
-The values of this property *MUST* come from the [stixtype]#<<activity-transition-enum,activity-transition-enum>># enumeration.
-
-|===
-
-==== 3.6.1. Example
-
-[source,json]
-----
-include::examples/example_3.7.json[]
-----
-<<<
-
-
-[[task-entry]]
-=== 3.7. Task Entry Object Type
-
-*Type Name:* [stixtype]#task-entry#
-
-[width="100%",cols="37%,23%,40%",options="header",]
-|===
-^|[stixtr]*Property Name*
-^|[stixtr]*Type* 
-^|[stixtr]*Description*
-
-|*task_ref* (required)
-|[stixtype]#{identifier_url}[identifier]# 
-|The identifier of the task that is described by this entry.
-This *MUST* reference a [stixtype]#<<task,task>>#.
-
-|*next_steps* (optional)
-|[stixtype]#{list_url}[list]# of type [stixtype]#<<task-sequence-entry,task-sequence-entry>>#
-|A list of task sequences that describes the current task flows into the next one.
-
-|*sequence_start* (optional)
-|[stixtype]#{boolean_url}[boolean]#
-|If this is a start of a sequence chain.
-
-All sequences of tasks *MUST* begin with at least one entry where *sequence_start* is set to [stixliteral]#true#.
-If a cycle exists with multiple entries with *sequence_start* set to [stixliteral]#true# then all of these are equally valid start points.
-
-Default value is [stixliteral]#true#.
-
-|===
-
-==== 3.7.1. Example
-
-[source,json]
-----
-include::examples/example_3.6.json[]
-----
-
 
 == 4. Vocabularies
 
