@@ -141,7 +141,7 @@ These values *SHOULD* be selected from the [stixtype]#<<detection-methods-ov,det
 |*event_refs* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
 |A list of events tied to this incident.
-It *MUST* contain references to one or more Event objects.
+It *MUST* contain references to one or more [stixtype]#<<event, event>># objects.
 
 |*impact_refs* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
@@ -177,17 +177,17 @@ enumeration.
 |*sequence_refs* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
 |A list of sequence objects tied to this Incident.
-It *MUST* contain references only to Sequence objects.
+It *MUST* contain references only to [stixtype]#<<sequence, sequence>># objects.
 
 |*sequence_start_refs* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
 |A list of sequence start objects tied to this incident. 
-It *MUST* contain references only to Sequence objects where the *step_type* property is [stixliteral]#start_step#.
+It *MUST* contain references only to [stixtype]#<<sequence, sequence>># objects where the *step_type* property is [stixliteral]#start_step#.
 
 |*task_refs* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
 |A list of tasks tied to this incident.
-It *MUST* contain references to one or more Task objects.
+It *MUST* contain references to one or more [stixtype]#<<task, task>># objects.
 
 
 |===
