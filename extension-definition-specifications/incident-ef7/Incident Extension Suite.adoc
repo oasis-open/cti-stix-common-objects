@@ -404,9 +404,6 @@ This property *SHOULD* be populated.
 
 If no value is provided the timestamp should be considered to be accurate up to the number of decimal digits it includes.
 
-|*subevents* (optional)
-|[stixtype]#{list_url}[list]# of type [stixtype]#<<event-entry,event-entry>>#
-|A list of sub-events (as a list of [stixtype]#<<event-entry,event-entry>>#) related to this event.
 |===
 
 <<<
@@ -1065,10 +1062,6 @@ This property *SHOULD* be populated.
 This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>># enumeration.
 
 If no value is provided the timestamp should be considered to be accurate up to the number of decimal digits it includes.
-
-|*subtasks* (optional)
-|[stixtype]#{list_url}[list]# of type [stixtype]#<<task-entry,task-entry>>#
-|A list of subtasks related to this task.
 |===
 
 <<<
@@ -1248,11 +1241,11 @@ The definition extension  *MUST* use [stixliteral]#extension-definition--be0c7c7
 
 |*step_object_ref* (optional)
 |[stixtype]#{identifier_url}[identifier]#
-|The SDO that this step is a part. It *MUST* be of type [stixtype]#event# or [stixtype]#task#.
+|The SDO that this step is a part. It *MUST* be of type [stixtype]#<<event, event>># or [stixtype]#<<task, task>>#.
 
 |*next_step_refs* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
-|The [stixtype]#step# objects to follow, *MUST* be of type [stixtype]#step#
+|The [stixtype]#step# objects to follow, *MUST* be of type [stixtype]#<<step, step>>#
 
 
 |===
@@ -1308,7 +1301,7 @@ _0 individuals_
 <<<
 
 [[incident-score]]
-=== 3.4. Incident Score Object Type
+=== 3.2. Incident Score Object Type
 
 *Type Name:* [stixtype]#incident-score#
 [width="100%",cols="37%,23%,40%",options="header",]
@@ -1333,7 +1326,7 @@ This is normally a system or process name or some combination of these such as "
 |===
 
 <<<
-==== 3.4.1. Example
+==== 3.2.1. Example
 
 [source,json]
 ----
@@ -1341,7 +1334,7 @@ include::examples/example_3.4.json[]
 ----
 
 [[state-change]]
-=== 3.5. State Change Object Type
+=== 3.3. State Change Object Type
 
 *Type Name:* [stixtype]#state-change#
 
@@ -1385,7 +1378,7 @@ For example, an event causing a network outage.
 If the *initial_ref* property is populated this *MUST* reference the same type of SDO.
 
 |===
-==== 3.5.1. Example
+==== 3.3.1. Example
 
 [source,json]
 ----
