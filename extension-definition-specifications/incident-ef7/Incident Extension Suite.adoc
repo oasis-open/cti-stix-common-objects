@@ -1180,7 +1180,7 @@ include::examples/example_2.4.json[]
 <<<
 [[step]]
 === 2.5. Step
-The Python class name is [stixliteral]#Step#.
+The Python class name is [stixliteral]#step#.
 
 The definition extension  *MUST* use [stixliteral]#extension-definition--be0c7c79-1961-43db-afde-637066a87a64# as its extension ID. 
 
@@ -1245,7 +1245,7 @@ The definition extension  *MUST* use [stixliteral]#extension-definition--be0c7c7
 
 |*next_step_refs* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
-|The [stixtype]#step# objects to follow, *MUST* be of type [stixtype]#<<step, step>>#
+|The [stixtype]#step# objects to follow. They *MUST* be of type [stixtype]#<<step, step>>#
 
 
 |===
