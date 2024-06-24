@@ -174,15 +174,15 @@ enumeration.
 |[stixtype]#{list_url}[list]# of type [stixtype]#<<incident-score,incident-score>>#
 |A list of scores from various automated or manual mechanisms along with optional descriptions.
 
-|*sequence_refs* (optional)
+|*step_refs* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
-|A list of sequence objects tied to this Incident.
-It *MUST* contain references only to [stixtype]#<<sequence, sequence>># objects.
+|A list of step objects tied to this Incident.
+It *MUST* contain references only to [stixtype]#<<step, step>># objects.
 
-|*sequence_start_refs* (optional)
+|*step_start_refs* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
-|A list of sequence start objects tied to this incident. 
-It *MUST* contain references only to [stixtype]#<<sequence, sequence>># objects where the *step_type* property is [stixliteral]#start_step#.
+|A list of step start objects tied to this incident. 
+It *MUST* contain references only to [stixtype]#<<step, step>># objects where the *step_type* property is [stixliteral]#start-step#.
 
 |*task_refs* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
@@ -1185,9 +1185,23 @@ include::examples/example_2.4.json[]
 
 <<<
 <<<
-[[sequence]]
-=== 2.5. Sequence
-The Python class name is [stixliteral]#Sequence#.
+[[step]]
+=== 2.5. Step
+The Python class name is [stixliteral]#Step#.
+
+The definition extension  *MUST* use [stixliteral]#extension-definition--be0c7c79-1961-43db-afde-637066a87a64# as its extension ID. 
+
+[width="100%",cols="37%,23%,40%",options="header",]
+|===
+^|[stixtr]*Property Name*
+^|[stixtr]*Type*
+^|[stixtr]*Description*
+
+|*extension_type* (required)
+|[stixtype]#{string_url}[string]#
+|The value of this property *MUST* be [stixliteral]#new-sdo#
+
+|===
 
 [width="100%",cols="100%",stripes=odd]
 |===
@@ -1214,15 +1228,11 @@ The Python class name is [stixliteral]#Sequence#.
 
 |*defanged*
 
-^|[stixtr]*Sequence Object Specific Properties*
+^|[stixtr]*Step Object Specific Properties*
 
-|*sequenced_object*,
-*sequence_type*,
+|*step_object_ref*,
 *step_type*,
-*on_completion*,
-*on_success*,
-*on_failure*,
-*next_steps*
+*next_step_refs*
 |===
 
 |===
@@ -1230,58 +1240,26 @@ The Python class name is [stixliteral]#Sequence#.
 
 |*type* (required)
 |[stixtype]#{string_url}[string]#
-|The value of this property *MUST* be set to [stixliteral]#sequence#.
+|The value of this property *MUST* be set to [stixliteral]#step#.
 
 |*step_type* (required)
 |[stixtype]#<<step-type-enum,step-type-enum>>#
-|The type of step,  *MUST* be one of [stixliteral]#(start_step, end_step, single_step, parallel_step)#
+|The type of step. 
 
-|*sequence_type* (required)
-|[stixtype]#{string_url}[string]#
-|The type of sequence,  *MUST* be [stixliteral]#(event or task)#
-
-|*sequenced_object* (optional)
+|*step_object_ref* (optional)
 |[stixtype]#{identifier_url}[identifier]#
-|The SDO that is part of the sequence, *MUST* be of type [stixtype]#event# or [stixtype]#task#.
+|The SDO that this step is a part. It *MUST* be of type [stixtype]#event# or [stixtype]#task#.
 
-|*on_completion* (optional)
-|[stixtype]#{identifier_url}[identifier]#
-|The [stixtype]#sequence# object to follow, *MUST* be of type [stixtype]#sequence#
-
-
-|*on_success* (optional)
-|[stixtype]#{identifier_url}[identifier]#
-|The [stixtype]#sequence# object to follow, *MUST* be of type [stixtype]#sequence#
-
-
-|*on_failure* (optional)
-|[stixtype]#{identifier_url}[identifier]#
-|The [stixtype]#sequence# object to follow, *MUST* be of type [stixtype]#sequence#
-
-
-|*next_steps* (optional)
+|*next_step_refs* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
-|The [stixtype]#sequence# objects to follow, *MUST* be of type [stixtype]#sequence#
+|The [stixtype]#step# objects to follow, *MUST* be of type [stixtype]#step#
 
 
 |===
 
 
 
-==== 2.5.1 Sequence Extension Definition
-The definition extension  *MUST* use [stixliteral]#extension-definition--be0c7c79-1961-43db-afde-637066a87a64# as its extension ID.  The Python class name is [stixliteral]#SequenceExt#.
 
-[width="100%",cols="37%,23%,40%",options="header",]
-|===
-^|[stixtr]*Property Name*
-^|[stixtr]*Type*
-^|[stixtr]*Description*
-
-|*extension_type* (required)
-|[stixtype]#{string_url}[string]#
-|The value of this property *MUST* be [stixliteral]#new-sdo#
-
-|===
 
 <<<
 == 3. Additional Sub-Objects Types
@@ -2484,6 +2462,28 @@ Hours and minutes should be understood to establish the timezone for the activit
 |[stixliteral]#provable-accountability#
 |Accountability can be ensured from the traces that are present.
 |===
+
+[[step-type-enum]]
+=== 5.12. Step Type Enumeration
+*Type Name:* [stixtype]#step-type-enum#
+
+[width="100%",cols="31%,69%",options="header",]
+|===
+^|[stixtr]*Vocabulary Value*
+^|[stixtr]*Description*
+|[stixliteral]#start_step#
+|Equivalent to CACAO start_step. It has no sequenced object connected to it
+
+|[stixliteral]#end_step#
+|Equivalent to CACAO end_step. It has no sequenced object connected to it
+
+|[stixliteral]#single_step#
+|Equivalent to CACAO single_step. It has a sequenced object connected to it
+
+|[stixliteral]#parallel_step#
+|Equivalent to CACAO parallel_step. It has no sequenced object connected to it
+|===
+
 
 <<<
 
