@@ -316,7 +316,7 @@ As a new SDO extension it must follow the requirements as described in section 7
 *status*,
 *sighting_refs*,
 *start_time*,
-*start_time_fidelity*
+*start_time_fidelity*,
 *step_refs*,
 *step_start_refs*
 |===
@@ -339,6 +339,7 @@ enumeration.
 |[stixtype]#{list_url}[list]# of type [stixtype]#<<state-change,state-change>>#
 |A list of changes that this event has caused.
 This is typically used to indicate how an event has affected impacts.
+This property *MAY* not be present when changed objects are recorded at the [stixtype]#<<step,step>># level.
 
 |*description* (optional)
 |[stixtype]#{string_url}[string]#
@@ -1005,6 +1006,7 @@ The value of this property *MUST* come from the [stixtype]#<<task-outcome-enum,t
 |[stixtype]#{list_url}[list]# of type [stixtype]#<<state-change,state-change>>#
 |A list of changes that this task has caused.
 This is typically used to indicate how a task has affected impacts.
+This property *MAY* not be present when changed objects are recorded at the [stixtype]#<<step,step>># level.
 
 |*task_types* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{open_vocab_url}[open-vocabulary]#
@@ -1191,7 +1193,6 @@ include::examples/example_2.4.json[]
 <<<
 [[step]]
 === 2.5. Step
- [stixliteral]#step#.
 
 A Step is an activity that is performed as part of an event or task.
 
@@ -1280,8 +1281,8 @@ This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidel
 
 |*next_step_refs* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
-|The [stixtype]#step# objects to follow. They *MUST* be of type [stixtype]#<<step, step>>#
-This property *MUST* be populated, unless the *step_type* is [stixliteral]#end-step#.
+|The [stixtype]#step# objects to follow. They *MUST* be of type [stixtype]#<<step, step>>#.
+This property *MUST NOT* be populated, if the *step_type* is [stixliteral]#end-step#.
 
 |*start_time* (optional)
 |[stixtype]#{timestamp_url}[timestamp]#
@@ -1294,18 +1295,86 @@ This property *SHOULD* be populated.
 |[stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>>#
 |The level of fidelity that the *start_time* property is recorded in. 
 
+|===
+
+<<<
+
 ==== 2.5.1. Relationships
 
 // tag::step-relationships[]
 
-These are no relationships explicitly defined between the Step object and other STIX Objects.
+These are the relationships explicitly defined between the Sept object and other STIX Objects.
+The table identifies the relationships that can be made from this object type to another object
+type by way of the Relationship object.
 
-Most relationships associated with steps are embedded
+Most relationships associated with steps are embedded.
 
-However, relationships can be created between any objects
-using the [stixrelationship]#related-to# relationship type or, as with open vocabularies, user-defined names.  
+The reverse relationships section illustrates the relationships
+targeting this object type from another object type. 
 
+Relationships are not restricted to those listed below. Relationships can be created between any objects
+using the [stixrelationship]#related-to# relationship type or, as with open vocabularies, user-defined names. 
+
+[width="100%",cols="23%,20%,24%,33%",options="header",]
 |===
+4+^|[stixtr]*Common Relationships*
+4+|[stixrelationship]#derived-from#,
+[stixrelationship]#duplicate-of#,
+[stixrelationship]#related-to#
+
+|*Source* |*Type* |*Target* |*Description*
+// relationships:start
+
+|[stixtype]#<<step,step>>#
+|[stixrelationship]#impacts#
+|[stixtype]#{infrastructure_url}[infrastructure]#, +
+[stixtype]#{sco_url}[<All STIX Cyber-observable Objects>]#
+|An event has an impact on specific infrastructure. While not all SCO types will make sense in this relationship, allowing any type of SCO prevents artificially restricting what could be used.
+
+|[stixtype]#<<step,step>>#
+|[stixrelationship]#located-at#
+|[stixtype]#{location_url}[location]#
+|The event occurred at a specific location.
+
+// relationships:end
+|===
+
+<<<
+
+[width="100%",cols="27%,16%,24%,33%",options="header",]
+|===
+4+^|[stixtr]*Reverse Relationships*
+
+|*Source* |*Type* |*Target* |*Description*
+// relationships:start
+|[stixtype]#{identity_url}[identity]#
+|[stixrelationship]#assigned#
+|[stixtype]#<<step,step>>#
+|An identity has been assigned the task
+
+|[stixtype]#{identity_url}[identity]#
+|[stixrelationship]#contact-for#
+|[stixtype]#<<step,step>>#
+|An identity is a point of contact for this task.
+
+|[stixtype]#{identity_url}[identity]#
+|[stixrelationship]#participated-in#
+|[stixtype]#<<step,step>>#
+|An identity participated in a specific task, but as not the primary performer
+
+|[stixtype]#{identity_url}[identity]#
+|[stixrelationship]#performed#
+|[stixtype]#<<step,step>>#
+|An identity performed a specific task.
+
+|[stixtype]#{tool_url}[tool]#
+|[stixrelationship]#performed#
+|[stixtype]#<<step,step>>#
+|A tool performed a specific task.
+// relationships:end
+|===
+
+// end::step-relationships[]
 
 <<<
 == 3. Additional Sub-Objects Types
@@ -2518,16 +2587,14 @@ Hours and minutes should be understood to establish the timezone for the activit
 ^|[stixtr]*Vocabulary Value*
 ^|[stixtr]*Description*
 |[stixliteral]#start_step#
-|Equivalent to CACAO start_step. It has no sequenced object connected to it
+|Similar to a CACAO start_step.
 
 |[stixliteral]#end_step#
-|Equivalent to CACAO end_step. It has no sequenced object connected to it
+|Similar to a CACAO end_step. 
 
 |[stixliteral]#single_step#
-|Equivalent to CACAO single_step. It has a sequenced object connected to it
+|Similar  to CACAO single_step.
 
-|[stixliteral]#parallel_step#
-|Equivalent to CACAO parallel_step. It has no sequenced object connected to it
 |===
 
 
@@ -2901,4 +2968,10 @@ Added [stixliteral]#ransom-demand# and [stixliteral]#ransom-payment# to [stixtyp
 |2024-02-15
 |Richard Piazza, Jeffrey Mates and Dez Beck
 |Additional editorial fixes, a minor changes to normative statements
+|===
+
+|07
+|2024-07-15
+|Richard Piazza, Jeffrey Mates and Dez Beck
+|Introduced steps, removed event_sequence, event_entry, task_sequence, task_entry
 |===
