@@ -422,8 +422,8 @@ targeting this object type from another object type.
 Relationships are not restricted to those listed below. Relationships can be created between any objects
 using the [stixrelationship]#related-to# relationship type or, as with open vocabularies, user-defined names.
 
-Sequences of [stixtype]#<<event,events>># *SHOULD NOT* be shared using relationship objects.
-Sequences *SHOULD* be shared within an [stixtype]#{incident_url}[incident]# or [stixtype]#<<event,event>># using the *events* or *subevents* properties, respectively.
+Steps of [stixtype]#<<event,events>># *SHOULD NOT* be shared using relationship objects.
+Steps *SHOULD* be shared within an [stixtype]#{incident_url}[incident]# or [stixtype]#<<event,event>># using the *events* properties, respectively.
 Using these embedded relationships ensures that an incomplete sequence cannot be shared accidentally (avoiding potential confusion or misunderstandings when processing STIX data.)
 
 
@@ -1180,7 +1180,7 @@ include::examples/example_2.4.json[]
 <<<
 [[step]]
 === 2.5. Step
-The Python class name is [stixliteral]#step#.
+Describe...is [stixliteral]#step#.
 
 The definition extension  *MUST* use [stixliteral]#extension-definition--be0c7c79-1961-43db-afde-637066a87a64# as its extension ID. 
 
@@ -1239,13 +1239,18 @@ The definition extension  *MUST* use [stixliteral]#extension-definition--be0c7c7
 |[stixtype]#<<step-type-enum,step-type-enum>>#
 |The type of step. 
 
-|*step_object_ref* (optional)
+|*step_object_ref* (required)
 |[stixtype]#{identifier_url}[identifier]#
 |The SDO that this step is a part. It *MUST* be of type [stixtype]#<<event, event>># or [stixtype]#<<task, task>>#.
+
+|*description* (optional)
+|[stixtype]#{string_url}[string]#
+|A description of the step.
 
 |*next_step_refs* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
 |The [stixtype]#step# objects to follow. They *MUST* be of type [stixtype]#<<step, step>>#
+This property *MUST* be populated, unless the *step_type* is [stixliteral]#end-step#.
 
 
 |===
