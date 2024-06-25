@@ -424,7 +424,7 @@ Relationships are not restricted to those listed below. Relationships can be cre
 using the [stixrelationship]#related-to# relationship type or, as with open vocabularies, user-defined names.
 
 Steps of [stixtype]#<<event,events>># *SHOULD NOT* be shared using relationship objects.
-Steps *SHOULD* be shared within an [stixtype]#<<event,event>># using the *events* property.
+Steps *SHOULD* be shared within an [stixtype]#<<event,event>># using the *step_refs* property.
 Using these embedded relationships ensures that an incomplete sequence cannot be shared accidentally (avoiding potential confusion or misunderstandings when processing STIX data.)
 
 
@@ -1092,7 +1092,7 @@ Relationships are not restricted to those listed below. Relationships can be cre
 using the [stixrelationship]#related-to# relationship type or, as with open vocabularies, user-defined names.  
 
 Steps of [stixtype]#<<task,tasks>># *SHOULD NOT* be shared using relationship objects.
-Steps *SHOULD* be shared within a [stixtype]#<<task,task>># using the *tasks* property.
+Steps *SHOULD* be shared within a [stixtype]#<<task,task>># using the *step_refs* property.
 Using these embedded relationships ensures that an incomplete sequence cannot be shared accidentally (avoiding potential confusion or misunderstandings when processing STIX data.)
 
 [width="100%",cols="27%,16%,24%,33%",options="header",]
@@ -1293,6 +1293,17 @@ This property *SHOULD* be populated.
 |*start_time_fidelity* (optional)
 |[stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>>#
 |The level of fidelity that the *start_time* property is recorded in. 
+
+==== 2.5.1. Relationships
+
+// tag::step-relationships[]
+
+These are no relationships explicitly defined between the Step object and other STIX Objects.
+
+Most relationships associated with steps are embedded
+
+However, relationships can be created between any objects
+using the [stixrelationship]#related-to# relationship type or, as with open vocabularies, user-defined names.  
 
 |===
 
