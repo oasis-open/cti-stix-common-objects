@@ -424,7 +424,7 @@ Relationships are not restricted to those listed below. Relationships can be cre
 using the [stixrelationship]#related-to# relationship type or, as with open vocabularies, user-defined names.
 
 Steps of [stixtype]#<<event,events>># *SHOULD NOT* be shared using relationship objects.
-Steps *SHOULD* be shared within an [stixtype]#{incident_url}[incident]# or [stixtype]#<<event,event>># using the *events* properties, respectively.
+Steps *SHOULD* be shared within an [stixtype]#<<event,event>># using the *events* property.
 Using these embedded relationships ensures that an incomplete sequence cannot be shared accidentally (avoiding potential confusion or misunderstandings when processing STIX data.)
 
 
@@ -986,7 +986,6 @@ As a new SDO extension it must follow the requirements as described in section 7
 *start_time_fidelity*,
 *step_refs*,
 *step_start_refs*
-*template_refs*
 |===
 
 |===
@@ -1072,7 +1071,7 @@ It *MUST* contain references only to [stixtype]#<<step, step>># objects.
 
 |*step_start_refs* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
-|A list of step start objects tied to this tasks. 
+|A list of step start objects tied to this task. 
 It *MUST* contain references only to [stixtype]#<<step, step>># objects where the *step_type* property is [stixliteral]#start-step#.
 |===
 
@@ -1092,8 +1091,8 @@ targeting this object type from another object type.
 Relationships are not restricted to those listed below. Relationships can be created between any objects
 using the [stixrelationship]#related-to# relationship type or, as with open vocabularies, user-defined names.  
 
-Sequences of [stixtype]#<<task,tasks>># *SHOULD NOT* be shared using relationship objects.
-Sequences *SHOULD* be shared within an [stixtype]#{incident_url}[incident]# or [stixtype]#<<task,task>># using the *tasks* or *subtasks* properties, respectively.
+Steps of [stixtype]#<<task,tasks>># *SHOULD NOT* be shared using relationship objects.
+Steps *SHOULD* be shared within a [stixtype]#<<task,task>># using the *tasks* property.
 Using these embedded relationships ensures that an incomplete sequence cannot be shared accidentally (avoiding potential confusion or misunderstandings when processing STIX data.)
 
 [width="100%",cols="27%,16%,24%,33%",options="header",]
