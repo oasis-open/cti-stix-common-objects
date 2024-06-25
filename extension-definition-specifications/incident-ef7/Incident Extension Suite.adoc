@@ -174,16 +174,6 @@ enumeration.
 |[stixtype]#{list_url}[list]# of type [stixtype]#<<incident-score,incident-score>>#
 |A list of scores from various automated or manual mechanisms along with optional descriptions.
 
-|*step_refs* (optional)
-|[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
-|A list of step objects tied to this Incident.
-It *MUST* contain references only to [stixtype]#<<step, step>># objects.
-
-|*step_start_refs* (optional)
-|[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
-|A list of step start objects tied to this incident. 
-It *MUST* contain references only to [stixtype]#<<step, step>># objects where the *step_type* property is [stixliteral]#start-step#.
-
 |*task_refs* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
 |A list of tasks tied to this incident.
@@ -326,8 +316,9 @@ As a new SDO extension it must follow the requirements as described in section 7
 *status*,
 *sighting_refs*,
 *start_time*,
-*start_time_fidelity*,
-*subevents*
+*start_time_fidelity*
+*step_refs*,
+*step_start_refs*
 |===
 
 |===
@@ -403,6 +394,16 @@ This property *SHOULD* be populated.
 *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>># enumeration.
 
 If no value is provided the timestamp should be considered to be accurate up to the number of decimal digits it includes.
+
+|*step_refs* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
+|A list of step objects tied to this event.
+It *MUST* contain references only to [stixtype]#<<step, step>># objects.
+
+|*step_start_refs* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
+|A list of step start objects tied to this event. 
+It *MUST* contain references only to [stixtype]#<<step, step>># objects where the *step_type* property is [stixliteral]#start-step#.
 
 |===
 
@@ -983,7 +984,8 @@ As a new SDO extension it must follow the requirements as described in section 7
 *priority*,
 *start_time*,
 *start_time_fidelity*,
-*subtasks*,
+*step_refs*,
+*step_start_refs*
 *template_refs*
 |===
 
@@ -1062,6 +1064,16 @@ This property *SHOULD* be populated.
 This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>># enumeration.
 
 If no value is provided the timestamp should be considered to be accurate up to the number of decimal digits it includes.
+
+|*step_refs* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
+|A list of step objects tied to this task.
+It *MUST* contain references only to [stixtype]#<<step, step>># objects.
+
+|*step_start_refs* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
+|A list of step start objects tied to this tasks. 
+It *MUST* contain references only to [stixtype]#<<step, step>># objects where the *step_type* property is [stixliteral]#start-step#.
 |===
 
 <<<
@@ -1180,7 +1192,9 @@ include::examples/example_2.4.json[]
 <<<
 [[step]]
 === 2.5. Step
-Describe...is [stixliteral]#step#.
+ [stixliteral]#step#.
+
+A Step is an activity that is performed as part of an event or task.
 
 The definition extension  *MUST* use [stixliteral]#extension-definition--be0c7c79-1961-43db-afde-637066a87a64# as its extension ID. 
 
@@ -1223,9 +1237,14 @@ The definition extension  *MUST* use [stixliteral]#extension-definition--be0c7c7
 
 ^|[stixtr]*Step Object Specific Properties*
 
-|*step_object_ref*,
-*step_type*,
-*next_step_refs*
+|*changed_objects*,
+*description*,
+*end_time*,
+*end_time_fidelity*,
+*next_step_refs*,
+*start_time*,
+*start_time_fidelity*,
+*step_type*
 |===
 
 |===
@@ -1239,25 +1258,44 @@ The definition extension  *MUST* use [stixliteral]#extension-definition--be0c7c7
 |[stixtype]#<<step-type-enum,step-type-enum>>#
 |The type of step. 
 
-|*step_object_ref* (required)
-|[stixtype]#{identifier_url}[identifier]#
-|The SDO that this step is a part. It *MUST* be of type [stixtype]#<<event, event>># or [stixtype]#<<task, task>>#.
+|*changed_objects* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#<<state-change,state-change>>#
+|A list of changes that this step has caused.
+This is typically used to indicate how an step has affected impacts.
 
 |*description* (optional)
 |[stixtype]#{string_url}[string]#
 |A description of the step.
+
+|*end_time* (optional)
+|[stixtype]#{timestamp_url}[timestamp]#
+|The date and time the task was last recorded. If this is not present it is assumed to be unknown.
+
+If *start_time* and *end_time* properties are both defined, then *end_time* value *MUST* be the same or later than the *start_time* value. 
+
+|*end_time_fidelity* (optional)
+|[stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>>#
+|The level of fidelity that the *end_time* fidelity is recorded in.
+
+This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>># enumeration.
 
 |*next_step_refs* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
 |The [stixtype]#step# objects to follow. They *MUST* be of type [stixtype]#<<step, step>>#
 This property *MUST* be populated, unless the *step_type* is [stixliteral]#end-step#.
 
+|*start_time* (optional)
+|[stixtype]#{timestamp_url}[timestamp]#
+|The date and time the task was first recorded. If this is not
+present it is assumed to be unknown.
+
+This property *SHOULD* be populated.
+
+|*start_time_fidelity* (optional)
+|[stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>>#
+|The level of fidelity that the *start_time* property is recorded in. 
 
 |===
-
-
-
-
 
 <<<
 == 3. Additional Sub-Objects Types
