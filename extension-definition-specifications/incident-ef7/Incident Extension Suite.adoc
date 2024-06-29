@@ -313,12 +313,11 @@ As a new SDO extension it must follow the requirements as described in section 7
 *event_types*,
 *goal*,
 *name*,
+*next_events_refs*,
 *status*,
 *sighting_refs*,
 *start_time*,
-*start_time_fidelity*,
-*step_refs*,
-*step_start_refs*
+*start_time_fidelity*
 |===
 
 |===
@@ -374,6 +373,10 @@ Not all events have goals.
 |[stixtype]#{string_url}[string]#
 |A name for the event.
 
+|*next_events_refs* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
+|The [stixtype]#event# objects to follow. They *MUST* be of type [stixtype]#<<event, event>>#.
+
 |*sighting_refs* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
 |A list of [stixtype]#{sighting_url}[sighting]# objects that were related to this event.
@@ -396,15 +399,6 @@ This property *SHOULD* be populated.
 
 If no value is provided the timestamp should be considered to be accurate up to the number of decimal digits it includes.
 
-|*step_refs* (optional)
-|[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
-|A list of step objects tied to this event.
-It *MUST* contain references only to [stixtype]#<<step, step>># objects.
-
-|*step_start_refs* (optional)
-|[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
-|A list of step start objects tied to this event. 
-It *MUST* contain references only to [stixtype]#<<step, step>># objects where the *step_type* property is [stixliteral]#start-step#.
 
 |===
 
@@ -981,12 +975,11 @@ As a new SDO extension it must follow the requirements as described in section 7
 *error*,
 *impact_entity_counts*,
 *name*,
+*next_tasks_refs*
 *outcome*,
 *priority*,
 *start_time*,
-*start_time_fidelity*,
-*step_refs*,
-*step_start_refs*
+*start_time_fidelity*
 |===
 
 |===
@@ -1046,6 +1039,10 @@ This is primarily used when recording victim notifications.
 |[stixtype]#{string_url}[string]#
 |A name used to identify the task.
 
+|*next_tasks_refs* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
+|The [stixtype]#task# objects to follow. They *MUST* be of type [stixtype]#<<task, task>>#.
+
 |*priority* (optional)
 |[stixtype]#{int_url}[integer]#
 |The priority or importance of the task.
@@ -1066,15 +1063,7 @@ This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidel
 
 If no value is provided the timestamp should be considered to be accurate up to the number of decimal digits it includes.
 
-|*step_refs* (optional)
-|[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
-|A list of step objects tied to this task.
-It *MUST* contain references only to [stixtype]#<<step, step>># objects.
 
-|*step_start_refs* (optional)
-|[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
-|A list of step start objects tied to this task. 
-It *MUST* contain references only to [stixtype]#<<step, step>># objects where the *step_type* property is [stixliteral]#start-step#.
 |===
 
 <<<
@@ -1190,112 +1179,6 @@ include::examples/example_2.4.json[]
 ----
 
 <<<
-<<<
-[[step]]
-=== 2.5. Step
-
-A Step is an activity that is performed as part of an event or task.
-
-The definition extension  *MUST* use [stixliteral]#extension-definition--be0c7c79-1961-43db-afde-637066a87a64# as its extension ID. 
-
-[width="100%",cols="37%,23%,40%",options="header",]
-|===
-^|[stixtr]*Property Name*
-^|[stixtr]*Type*
-^|[stixtr]*Description*
-
-|*extension_type* (required)
-|[stixtype]#{string_url}[string]#
-|The value of this property *MUST* be [stixliteral]#new-sdo#
-
-|===
-
-[width="100%",cols="100%",stripes=odd]
-|===
-^|[stixtr]*Required Common Properties*
-|*created*,
-*id*,
-*modified*,
-*spec_version*,
-*type*
-
-^|[stixtr]*Optional Common Properties*
-
-|*created_by_ref*,
-*revoked*,
-*labels*,
-*confidence*,
-*lang*,
-*external_references*,
-*object_marking_refs*,
-*granular_markings*,
-*extensions*
-
-^|[stixtr]*Not Applicable Common Properties*
-
-|*defanged*
-
-^|[stixtr]*Step Object Specific Properties*
-
-|*changed_objects*,
-*description*,
-*end_time*,
-*end_time_fidelity*,
-*next_step_refs*,
-*start_time*,
-*start_time_fidelity*,
-*step_type*
-|===
-
-|===
-^|[stixtr]*Property Name* ^|[stixtr]*Type* ^|[stixtr]*Description*
-
-|*type* (required)
-|[stixtype]#{string_url}[string]#
-|The value of this property *MUST* be set to [stixliteral]#step#.
-
-|*step_type* (required)
-|[stixtype]#<<step-type-enum,step-type-enum>>#
-|The type of step. 
-
-|*changed_objects* (optional)
-|[stixtype]#{list_url}[list]# of type [stixtype]#<<state-change,state-change>>#
-|A list of changes that this step has caused.
-This is typically used to indicate how an step has affected impacts.
-
-|*description* (optional)
-|[stixtype]#{string_url}[string]#
-|A description of the step.
-
-|*end_time* (optional)
-|[stixtype]#{timestamp_url}[timestamp]#
-|The date and time the task was last recorded. If this is not present it is assumed to be unknown.
-
-If *start_time* and *end_time* properties are both defined, then *end_time* value *MUST* be the same or later than the *start_time* value. 
-
-|*end_time_fidelity* (optional)
-|[stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>>#
-|The level of fidelity that the *end_time* fidelity is recorded in.
-
-This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>># enumeration.
-
-|*next_step_refs* (optional)
-|[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
-|The [stixtype]#step# objects to follow. They *MUST* be of type [stixtype]#<<step, step>>#.
-This property *MUST NOT* be populated, if the *step_type* is [stixliteral]#end-step#.
-
-|*start_time* (optional)
-|[stixtype]#{timestamp_url}[timestamp]#
-|The date and time the task was first recorded. If this is not
-present it is assumed to be unknown.
-
-This property *SHOULD* be populated.
-
-|*start_time_fidelity* (optional)
-|[stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>>#
-|The level of fidelity that the *start_time* property is recorded in. 
-
-|===
 
 <<<
 
@@ -1476,7 +1359,7 @@ The value of this property *SHOULD* come from the [stixtype]#<<state-change-type
 
 |*initial_ref* (optional)
 |[stixtype]#{identifier_url}[identifier]#
-|The initial object state that this event affected.
+|The initial object state that this event affected. It *MUST* be an SDO.  To capture a changing SCO, the Observed Data SDO must be used.
 
 If the *result_ref* property is not populated then this *MUST* be populated.
 
@@ -2273,48 +2156,8 @@ If playbook steps feed each other information that is designed to be passed as S
 
 == 5. Enumerations
 
-[[activity-condition-enum]]
-=== 5.1. Activity Condition Enumeration
-*Type Name:* [stixtype]#activity-condition-enum#
-
-|===
-^|[stixtr]*Vocabulary Value* ^|[stixtr]*Description*
-
-|[stixliteral]#optional#
-|The following event or task does not depend on the current one.
-
-|[stixliteral]#required#
-|The following event or task depends on the current one.
-
-|[stixliteral]#unknown#
-|It is unknown if the following event or task depends on the current one.
-|===
-
-[[activity-transition-enum]]
-=== 5.2. Activity Transition Enumeration
-*Type Name:* [stixtype]#activity-transition-enum#
-
-|===
-^|[stixtr]*Vocabulary Value* ^|[stixtr]*Description*
-
-|[stixliteral]#completion#
-|The following task executed when this one completed regardless of success or failure.
-
-|[stixliteral]#failure#
-|The following task executed when this one failed.
-
-|[stixliteral]#success#
-|The following task executed upon success.
-
-|[stixliteral]#unknown#
-|It is unknown what conditions cause the following task to execute only that it followed the current one.
-
-|===
-
-<<<
-
 [[event-status-enum]]
-=== 5.3. Event Status Enumeration
+=== 5.1. Event Status Enumeration
 
 *Type Name:* [stixtype]#event-status-enum#
 
@@ -2342,7 +2185,7 @@ As such any time or sequence values for pending activities should be treated as 
 |===
 
 [[incident-confidentiality-loss-enum]]
-=== 5.4. Incident Confidentiality Loss Enumeration
+=== 5.2. Incident Confidentiality Loss Enumeration
 
 *Type Name:* [stixtype]#incident-confidentiality-loss-enum#
 
@@ -2376,7 +2219,7 @@ This option should be used to affirmatively supply this information when necessa
 <<<
 
 [[incident-determination-enum]]
-=== 5.5. Incident Determination Enumeration
+=== 5.3. Incident Determination Enumeration
 
 *Type Name:* [stixtype]#incident-determination-enum#
 
@@ -2407,7 +2250,7 @@ This should not be used when an incident was flagged correctly, but is of no imp
 <<<
 
 [[integrity-alteration-enum]]
-=== 5.6. Integrity Alteration Enumeration
+=== 5.4. Integrity Alteration Enumeration
 
 *Type Name:* [stixtype]#integrity-alteration-enum#
 
@@ -2439,7 +2282,7 @@ This should not be used when an incident was flagged correctly, but is of no imp
 |===
 
 [[physical-impact-enum]]
-=== 5.7. Physical Impact Enumeration
+=== 5.5. Physical Impact Enumeration
 
 *Type Name:* [stixtype]#physical-impact-enum#
 
@@ -2469,7 +2312,7 @@ In some cases destroyed assets can be rebuilt, but doing so involves a similar a
 <<<
 
 [[recoverability-enum]]
-=== 5.8. Recoverability Enumeration
+=== 5.6. Recoverability Enumeration
 
 *Type Name:* [stixtype]#recoverability-enum#
 
@@ -2496,7 +2339,7 @@ resources.
 |===
 
 [[task-outcome-enum]]
-=== 5.9. Task Outcome Enumeration
+=== 5.7. Task Outcome Enumeration
 
 *Type Name:* [stixtype]#task-outcome-enum#
 
@@ -2526,7 +2369,7 @@ resources.
 <<<
 
 [[timestamp-fidelity-enum]]
-=== 5.10. Timestamp Fidelity Enumeration
+=== 5.8. Timestamp Fidelity Enumeration
 
 *Type Name:* [stixtype]#timestamp-fidelity-enum#
 
@@ -2577,26 +2420,6 @@ Hours and minutes should be understood to establish the timezone for the activit
 |[stixliteral]#provable-accountability#
 |Accountability can be ensured from the traces that are present.
 |===
-
-[[step-type-enum]]
-=== 5.12. Step Type Enumeration
-*Type Name:* [stixtype]#step-type-enum#
-
-[width="100%",cols="31%,69%",options="header",]
-|===
-^|[stixtr]*Vocabulary Value*
-^|[stixtr]*Description*
-|[stixliteral]#start_step#
-|Similar to a CACAO start_step.
-
-|[stixliteral]#end_step#
-|Similar to a CACAO end_step. 
-
-|[stixliteral]#single_step#
-|Similar  to CACAO single_step.
-
-|===
-
 
 <<<
 
