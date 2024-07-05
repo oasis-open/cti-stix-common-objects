@@ -419,8 +419,8 @@ targeting this object type from another object type.
 Relationships are not restricted to those listed below. Relationships can be created between any objects
 using the [stixrelationship]#related-to# relationship type or, as with open vocabularies, user-defined names.
 
-[stixtype]#<<event,Events>># *SHOULD NOT* be shared using relationship objects.
-Events *SHOULD* be shared within an [stixtype]#<<incident,incident>># using the *event_refs* property.
+To relate [stixtype]#<<event,events>># to an [stixtype]#<<incident,incident>># the *event_refs* property
+*SHOULD* be used.
 Using these embedded relationships ensures that an incomplete sequence cannot be shared accidentally (avoiding potential confusion or misunderstandings when processing STIX data.)
 
 
@@ -434,11 +434,16 @@ Using these embedded relationships ensures that an incomplete sequence cannot be
 |*Source* |*Type* |*Target* |*Description*
 // relationships:start
 |[stixtype]#<<event,event>># 
-|[stixrelationship]#led-to#
+|[stixrelationship]#causes#
 |[stixtype]#<<event,event>># 
-|One event led to another.
+|One event caused another to take place.
 
 For example, a dropper running led to a ransomware tool to be downloaded and run.
+
+|[stixtype]#<<event,event>># 
+|[stixrelationship]#causes#
+|[stixtype]#<impact,impact>># 
+|The event caused the impact.
 
 |[stixtype]#<<event,event>>#
 |[stixrelationship]#impacts#
@@ -481,6 +486,22 @@ For example, a dropper running led to a ransomware tool to be downloaded and run
 |[stixrelationship]#performed#
 |[stixtype]#<<event,event>>#
 |A tool performed a specific event.
+
+|[stixtype]#<<task,task>>#
+|[stixrelationship]#uses#
+|[stixtype]#{course_of_action_url}[course-of-action]#
+|An task uses a particular course of action.
+
+|[stixtype]#<<task,task>># 
+|[stixrelationship]#blocks#
+|[stixtype]#<<event,event>>#
+|A task was performed to block a potential event.
+
+|[stixtype]#<<task,task>># 
+|[stixrelationship]#causes#
+|[stixtype]#<<event,event>>#
+|A task was performed that caused an event, usually due to an error.
+
 // relationships:end
 |===
 
@@ -632,6 +653,8 @@ When this property is populated this impact *MUST* have an *end_time* and and th
 // tag::impact-relationships[]
 There are no relationships explicitly defined between the Impact object and other STIX
 Objects, other than those defined as common relationships ([stixrelationship]#duplicate-of#, [stixrelationship]#derived-from#, [stixrelationship]#related-to#, and the embedded relationships defined by the common SDO properties.)
+
+*Reverse relationships??*
 
 Relationships can be created between any objects
 using the [stixrelationship]#related-to# relationship type or, as with open vocabularies, user-defined names.
@@ -1084,7 +1107,8 @@ targeting this object type from another object type.
 Relationships are not restricted to those listed below. Relationships can be created between any objects
 using the [stixrelationship]#related-to# relationship type or, as with open vocabularies, user-defined names.  
 
-Tasks *SHOULD* be shared within a [stixtype]#<<incident,incident>># using the *task_refs* property.
+To relate [stixtype]#<<task,tasks>># to an [stixtype]#<<incident,incident>># the *task_refs* property
+*SHOULD* be used.
 Using these embedded relationships ensures that an incomplete sequence cannot be shared accidentally (avoiding potential confusion or misunderstandings when processing STIX data.)
 
 [width="100%",cols="27%,16%,24%,33%",options="header",]
@@ -2712,7 +2736,6 @@ Added [stixliteral]#ransom-demand# and [stixliteral]#ransom-payment# to [stixtyp
 |2024-02-15
 |Richard Piazza, Jeffrey Mates and Dez Beck
 |Additional editorial fixes, a minor changes to normative statements
-|===
 
 |07
 |2024-07-02
