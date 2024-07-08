@@ -654,12 +654,34 @@ When this property is populated this impact *MUST* have an *end_time* and and th
 There are no relationships explicitly defined between the Impact object and other STIX
 Objects, other than those defined as common relationships ([stixrelationship]#duplicate-of#, [stixrelationship]#derived-from#, [stixrelationship]#related-to#, and the embedded relationships defined by the common SDO properties.)
 
-*Reverse relationships??*
+The reverse relationships section illustrates the relationships
+targeting this object type from another object type. 
 
-Relationships can be created between any objects
+Relationships are not restricted to those listed below. Relationships can be created between any objects
 using the [stixrelationship]#related-to# relationship type or, as with open vocabularies, user-defined names.
+
+[width="100%",cols="23%,20%,24%,33%",options="header",]
+|===
+4+^|[stixtr]*Reverse Relationships*
+
+|*Source* |*Type* |*Target* |*Description*
+// relationships:start
+|[stixtype]#<<event,event>>#
+|[stixrelationship]#causes#
+|[stixtype]#<<impact,impact>>#
+|An event causes an impact.
+
+|[stixtype]#<<task,task>>#
+|[stixrelationship]#causes#
+|[stixtype]#<<impact,impact>>#
+|A task causes an impact.
+// relationships:end
+
 // end::impact-relationships[]
 
+|===
+
+<<<
 ==== 2.3.2. Extensions
 
 There are many types of impacts, each with its own unique properties, therefore the Impact SDO emulates the File SCO through the use of STIX (sub-type) Extensions to provide the granular details of specific categories of impacts. Seven extensions to [stixtype]#<<impact,impact>>#, which further define the impact on a related Incident, are given below.
