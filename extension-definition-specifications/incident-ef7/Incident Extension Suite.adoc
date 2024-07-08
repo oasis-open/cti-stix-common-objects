@@ -84,7 +84,7 @@ Incidents have [stixtype]#<<impact,impacts>># that change over time.
 [stixtype]#<<event,events>># can cause or influence these [stixtype]#<<impact,impacts>># which are in turn mitigated and potentially resolved by [stixtype]#<<task,tasks>># performed as part of the incident response process.
 Both [stixtype]#<<event,events>># and [stixtype]#<<task,tasks>># can exist independently of [stixtype]#{incident_url}[incidents]# and in most workflows will occur prior to an incident being declared.
 
-
+[[incident]]
 == 1. Incidents in STIX
 
 Incident objects represent cases composed of [stixtype]#<<event,events>># and [stixtype]#<<task,tasks>># as well as actual or potential [stixtype]#<<impact,impacts>>#.
@@ -374,7 +374,7 @@ Not all events have goals.
 
 |*next_events_refs* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
-|The [stixtype]#event# objects to follow. They *MUST* be of type [stixtype]#<<event,event>>#.
+|The [stixtype]#<<event,event>># objects to follow. They *MUST* be of type [stixtype]#<<event,event>>#.
 
 |*sighting_refs* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
@@ -1086,7 +1086,7 @@ This is primarily used when recording victim notifications.
 
 |*next_tasks_refs* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
-|The [stixtype]#task# objects to follow. They *MUST* be of type [stixtype]#<<task,task>>#.
+|The [stixtype]#<<task,task>># objects to follow. They *MUST* be of type [stixtype]#<<task,task>>#.
 
 |*priority* (optional)
 |[stixtype]#{int_url}[integer]#
