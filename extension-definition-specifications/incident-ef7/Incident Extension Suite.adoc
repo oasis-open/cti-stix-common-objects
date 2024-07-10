@@ -442,7 +442,7 @@ For example, a dropper running led to a ransomware tool to be downloaded and run
 
 |[stixtype]#<<event,event>># 
 |[stixrelationship]#causes#
-|[stixtype]#<impact,impact>># 
+|[stixtype]#<<impact,impact>># 
 |The event caused the impact.
 
 |[stixtype]#<<event,event>>#
@@ -450,6 +450,11 @@ For example, a dropper running led to a ransomware tool to be downloaded and run
 |[stixtype]#{infrastructure_url}[infrastructure]#, +
 [stixtype]#{sco_url}[<All STIX Cyber-observable Objects>]#
 |An event has an impact on specific infrastructure. While not all SCO types will make sense in this relationship, allowing any type of SCO prevents artificially restricting what could be used.
+
+|[stixtype]#<<event,event>>#
+|[stixrelationship]#uses#
+|[stixtype]#{attack_pattern_url}[attack_pattern]#
+|An event uses an attack pattern.
 
 |[stixtype]#<<event,event>>#
 |[stixrelationship]#located-at#
