@@ -381,6 +381,8 @@ Not all events have goals.
 |A list of [stixtype]#{sighting_url}[sighting]# objects that were related to this event.
 Sightings referenced in this *SHOULD* be based on [stixtype]#{attack_pattern_url}[attack-pattern]#, [stixtype]#{indicator_url}[indicator]#, or [stixtype]#{malware_url}[malware]# SDOs.
 
+Using the *sighting_refs* property to relate an [stixtype]#<<event,event>># to an SDO is preferred over using an SRO.
+
 In some cases observed data may be present, but no [stixtype]#{indicator_url}[indicator]# can be created.
 In these cases it is recommended to use an [stixtype]#{attack_pattern_url}[attack-pattern]# using the name or description of the behavior or rule that triggered the sighting.
 
@@ -433,12 +435,7 @@ Using these embedded relationships ensures that an incomplete sequence cannot be
 
 |*Source* |*Type* |*Target* |*Description*
 // relationships:start
-|[stixtype]#<<event,event>># 
-|[stixrelationship]#causes#
-|[stixtype]#<<event,event>># 
-|One event caused another to take place.
 
-For example, a dropper running led to a ransomware tool to be downloaded and run.
 
 |[stixtype]#<<event,event>># 
 |[stixrelationship]#causes#
@@ -450,11 +447,6 @@ For example, a dropper running led to a ransomware tool to be downloaded and run
 |[stixtype]#{infrastructure_url}[infrastructure]#, +
 [stixtype]#{sco_url}[<All STIX Cyber-observable Objects>]#
 |An event has an impact on specific infrastructure. While not all SCO types will make sense in this relationship, allowing any type of SCO prevents artificially restricting what could be used.
-
-|[stixtype]#<<event,event>>#
-|[stixrelationship]#uses#
-|[stixtype]#{attack_pattern_url}[attack_pattern]#
-|An event uses an attack pattern.
 
 |[stixtype]#<<event,event>>#
 |[stixrelationship]#located-at#
