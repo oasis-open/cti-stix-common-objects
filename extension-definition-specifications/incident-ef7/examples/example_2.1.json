@@ -15,10 +15,9 @@
         "automated-tool",
         "human-review"
       ],
-      "events": [
-        {
-          "event_ref": "event--9ca38544-c247-45d9-9e33-957ba7c9e119"
-        }
+      "event_refs": [
+        "event--9ca38544-c247-45d9-9e33-957ba7c9e119"
+
       ],
       "impact_refs": [
         "impact--7a5806e4-0f37-4c48-9a50-7301bff4b195"
@@ -39,10 +38,8 @@
           "description": "The score is calculated based on the severity of the incident and the potential impact on the organization."
         }
       ],
-      "tasks": [
-        {
-          "task_ref": "task--a45aaed9-6504-4f95-982e-78508726eb5a"
-        }
+      "task_refs": [
+        "task--a45aaed9-6504-4f95-982e-78508726eb5a"
       ]
     }
   }
