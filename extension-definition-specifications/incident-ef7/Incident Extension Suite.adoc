@@ -143,7 +143,7 @@ These values *SHOULD* be selected from the [stixtype]#<<detection-methods-ov,det
 |A list of events tied to this incident.
 It *MUST* contain references to one or more [stixtype]#<<event, event>># objects.
 
-Events can be grouped into sequences based on the *next_event_refs* property of the relevant [stixtype]#<<event, event>># Event objects. Events that are the first in a sequence are not referenced by any *next_event_refs* property.
+Events can be grouped into sequences based on the *next_event_refs* property of the relevant [stixtype]#<<event, event>># objects. Events that are the first in a sequence are not referenced by the *next_event_refs* property of any other [stixtype]#<<event, event>># object.
 
 |*impact_refs* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
@@ -181,7 +181,7 @@ enumeration.
 |A list of tasks tied to this incident.
 It *MUST* contain references to one or more [stixtype]#<<task,task>># objects.
 
-Tasks can be grouped into sequences based on the *next_task_refs* property of the relevant [stixtype]#<<task, task>># Event objects. Tasks that are the first in a sequence are not referenced by any *next_task_refs* property.
+Tasks can be grouped into sequences based on the *next_task_refs* property of the relevant [stixtype]#<<task, task>>#  objects. Tasks that are the first in a sequence are not referenced by the *next_task_refs* property of any other [stixtype]#<<task, task>># object.
 
 |===
 
