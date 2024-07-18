@@ -79,7 +79,7 @@ The current STIX 2.1 Incident object was defined as a stub with the expectation 
 In the 1.0 version of the core incident extension, information on impact, events, and tasks were embedded within the Incident object itself, however this was found to have limitations.
 Therefore, the 2.0 version of this extension has been created in which these components have been separated into independent SDOs for more complex incidents to be accurately modeled.
 
-These extensions allow incidents to be tracked across their life cycle where [stixtype]#<<event,events>># are first flagged for investigation resulting in [stixtype]#{incident_url}incidents# with [stixtype]#<<task,tasks>># being worked to resolve them.
+These extensions allow incidents to be tracked across their life cycle where [stixtype]#<<event,events>># are first flagged for investigation resulting in [stixtype]#{incident_url}[incidents]# with [stixtype]#<<task,tasks>># being worked to resolve them.
 Incidents have [stixtype]#<<impact,impacts>># that change over time.
 [stixtype]#<<event,events>># can cause or influence these [stixtype]#<<impact,impacts>># which are in turn mitigated and potentially resolved by [stixtype]#<<task,tasks>># performed as part of the incident response process.
 Both [stixtype]#<<event,events>># and [stixtype]#<<task,tasks>># can exist independently of [stixtype]#{incident_url}[incidents]# and in most workflows will occur prior to an incident being declared.
