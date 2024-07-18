@@ -19,6 +19,9 @@
         "blocked"
     ],
     "name": "Mitigation Task",
+    "next_task_refs": [
+        "task--1cb3fbba-3216-4fd7-a1c2-b33473d20ed7"
+    ],
     "priority": 80,
     "start_time": "2023-11-22T15:30:00Z",
     "start_time_fidelity": "minute",

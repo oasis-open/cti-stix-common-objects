@@ -45,7 +45,7 @@
 
 [.stix-doc-information-heading]#Draft#
 
-[.stix-doc-information-heading]#20 February 2024#
+[.stix-doc-information-heading]#8 July 2024#
 
 [.stix-doc-information-heading]
 Editors:
@@ -84,7 +84,7 @@ Incidents have [stixtype]#<<impact,impacts>># that change over time.
 [stixtype]#<<event,events>># can cause or influence these [stixtype]#<<impact,impacts>># which are in turn mitigated and potentially resolved by [stixtype]#<<task,tasks>># performed as part of the incident response process.
 Both [stixtype]#<<event,events>># and [stixtype]#<<task,tasks>># can exist independently of [stixtype]#{incident_url}[incidents]# and in most workflows will occur prior to an incident being declared.
 
-
+[[incident]]
 == 1. Incidents in STIX
 
 Incident objects represent cases composed of [stixtype]#<<event,events>># and [stixtype]#<<task,tasks>># as well as actual or potential [stixtype]#<<impact,impacts>>#.
@@ -96,7 +96,7 @@ The Incident object should have sufficient properties to represent the current s
 
 === 2.1. Incident Core
 
-The properties and additional types within the Incident Core Extension are defined below. As this is an extension of a top-level object, common properties such as *id* are not present.  This extension *MUST* use [stixliteral]#extension-definition--ef765651-680c-498d-9894-99799f2fa126# as its extension ID.
+The properties and additional types within the Incident Core Extension are defined below. As this is an extension of a top-level object, common properties such as *id* are not present, but are present in the [stixtype]#{incident_url}[incident]# object stub .  This extension *MUST* use [stixliteral]#extension-definition--ef765651-680c-498d-9894-99799f2fa126# as its extension ID.
 
 <<<
 
@@ -138,13 +138,16 @@ If present, this value *MUST* be an integer between 0 and 100. This can be trans
 
 These values *SHOULD* be selected from the [stixtype]#<<detection-methods-ov,detection-methods-ov>># open vocabulary.
 
-|*events* (optional)
-|[stixtype]#{list_url}[list]# of type [stixtype]#<<event-entry,event-entry>>#
-|A list of events (as a list of [stixtype]#<<event-entry,event-entry>>#) tied to this incident.
+|*event_refs* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
+|A list of events tied to this incident.
+It *MUST* contain references to one or more [stixtype]#<<event, event>># objects.
+
+Events can be grouped into sequences based on the *next_event_refs* property of the relevant [stixtype]#<<event, event>># objects. Events that are the first in a sequence are not referenced by the *next_event_refs* property of any other [stixtype]#<<event, event>># object.
 
 |*impact_refs* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
-|A list of impacts of this incident.
+|A list of the impacts of this incident.
 All objects referenced in this list *MUST* be an [stixtype]#<<impact,impact>># object.
 
 |*impacted_entity_counts* (optional)
@@ -173,9 +176,12 @@ enumeration.
 |[stixtype]#{list_url}[list]# of type [stixtype]#<<incident-score,incident-score>>#
 |A list of scores from various automated or manual mechanisms along with optional descriptions.
 
-|*tasks* (optional)
-|[stixtype]#{list_url}[list]# of type [stixtype]#<<task-entry,task-entry>>#
-|A list of tasks (as a list of [stixtype]#<<task-entry,task-entry>>#) tied to this incident.
+|*task_refs* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
+|A list of tasks tied to this incident.
+It *MUST* contain references to one or more [stixtype]#<<task,task>># objects.
+
+Tasks can be grouped into sequences based on the *next_task_refs* property of the relevant [stixtype]#<<task, task>>#  objects. Tasks that are the first in a sequence are not referenced by the *next_task_refs* property of any other [stixtype]#<<task, task>># object.
 
 |===
 
@@ -310,11 +316,11 @@ As a new SDO extension it must follow the requirements as described in section 7
 *event_types*,
 *goal*,
 *name*,
+*next_events_refs*,
 *status*,
 *sighting_refs*,
 *start_time*,
-*start_time_fidelity*,
-*subevents*
+*start_time_fidelity*
 |===
 
 |===
@@ -369,10 +375,16 @@ Not all events have goals.
 |[stixtype]#{string_url}[string]#
 |A name for the event.
 
+|*next_events_refs* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
+|The [stixtype]#<<event,event>># objects to follow. They *MUST* be of type [stixtype]#<<event,event>>#.
+
 |*sighting_refs* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
 |A list of [stixtype]#{sighting_url}[sighting]# objects that were related to this event.
 Sightings referenced in this *SHOULD* be based on [stixtype]#{attack_pattern_url}[attack-pattern]#, [stixtype]#{indicator_url}[indicator]#, or [stixtype]#{malware_url}[malware]# SDOs.
+
+The *sighting_refs* property *SHOULD* be used to relate an [stixtype]#<<event,event>># to an SDO, instead of using right an SRO.
 
 In some cases observed data may be present, but no [stixtype]#{indicator_url}[indicator]# can be created.
 In these cases it is recommended to use an [stixtype]#{attack_pattern_url}[attack-pattern]# using the name or description of the behavior or rule that triggered the sighting.
@@ -384,6 +396,8 @@ present it is assumed to be unknown.
 
 This property *SHOULD* be populated.
 
+If *start_time* and *end_time* properties are both defined, then *end_time* value *MUST* be the same or later than the *start_time* value. 
+
 |*start_time_fidelity* (optional)
 |[stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>>#
 |The level of fidelity that the *start_time* property is recorded in. This value
@@ -391,9 +405,7 @@ This property *SHOULD* be populated.
 
 If no value is provided the timestamp should be considered to be accurate up to the number of decimal digits it includes.
 
-|*subevents* (optional)
-|[stixtype]#{list_url}[list]# of type [stixtype]#<<event-entry,event-entry>>#
-|A list of sub-events (as a list of [stixtype]#<<event-entry,event-entry>>#) related to this event.
+
 |===
 
 <<<
@@ -412,10 +424,9 @@ targeting this object type from another object type.
 Relationships are not restricted to those listed below. Relationships can be created between any objects
 using the [stixrelationship]#related-to# relationship type or, as with open vocabularies, user-defined names.
 
-Sequences of [stixtype]#<<event,events>># *SHOULD NOT* be shared using relationship objects.
-Sequences *SHOULD* be shared within an [stixtype]#{incident_url}[incident]# or [stixtype]#<<event,event>># using the *events* or *subevents* properties, respectively.
+To relate [stixtype]#<<event,events>># to an [stixtype]#<<incident,incident>># the *event_refs* property
+*SHOULD* be used.
 Using these embedded relationships ensures that an incomplete sequence cannot be shared accidentally (avoiding potential confusion or misunderstandings when processing STIX data.)
-
 
 
 [width="100%",cols="23%,20%,24%,33%",options="header",]
@@ -427,12 +438,12 @@ Using these embedded relationships ensures that an incomplete sequence cannot be
 
 |*Source* |*Type* |*Target* |*Description*
 // relationships:start
-|[stixtype]#<<event,event>># 
-|[stixrelationship]#led-to#
-|[stixtype]#<<event,event>># 
-|One event led to another.
 
-For example, a dropper running led to a ransomware tool to be downloaded and run.
+
+|[stixtype]#<<event,event>># 
+|[stixrelationship]#causes#
+|[stixtype]#<<impact,impact>># 
+|The event caused the impact.
 
 |[stixtype]#<<event,event>>#
 |[stixrelationship]#impacts#
@@ -475,6 +486,22 @@ For example, a dropper running led to a ransomware tool to be downloaded and run
 |[stixrelationship]#performed#
 |[stixtype]#<<event,event>>#
 |A tool performed a specific event.
+
+|[stixtype]#<<task,task>>#
+|[stixrelationship]#uses#
+|[stixtype]#{course_of_action_url}[course-of-action]#
+|An task uses a particular course of action.
+
+|[stixtype]#<<task,task>># 
+|[stixrelationship]#blocks#
+|[stixtype]#<<event,event>>#
+|A task was performed to block a potential event.
+
+|[stixtype]#<<task,task>># 
+|[stixrelationship]#causes#
+|[stixtype]#<<event,event>>#
+|A task was performed that caused an event, usually due to an error.
+
 // relationships:end
 |===
 
@@ -586,7 +613,7 @@ To affirmatively state no entities of a given class were impacted they should be
 
 |*impacted_refs* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]# 
-|A list of all impacted entities or infrastructure. The values of this property MUST be the identifier for a SDO or SCO.
+|A list of all impacted entities or infrastructure. The values of this property MUST be the identifier for an SDO or SCO.
 
 |*recoverability* (optional)
 |[stixtype]#<<recoverability-enum,recoverability-enum>>#
@@ -599,6 +626,8 @@ The value of this property *MUST* come from the [stixtype]#<<recoverability-enum
 |The date and time this impact was first recorded.
 
 This property *SHOULD* be populated.
+
+If *start_time* and *end_time* properties are both defined, then *end_time* value *MUST* be the same or later than the *start_time* value.
 
 |*start_time_fidelity* (optional)
 |[stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>>#
@@ -625,18 +654,41 @@ When this property is populated this impact *MUST* have an *end_time* and and th
 There are no relationships explicitly defined between the Impact object and other STIX
 Objects, other than those defined as common relationships ([stixrelationship]#duplicate-of#, [stixrelationship]#derived-from#, [stixrelationship]#related-to#, and the embedded relationships defined by the common SDO properties.)
 
-Relationships can be created between any objects
+The reverse relationships section illustrates the relationships
+targeting this object type from another object type. 
+
+Relationships are not restricted to those listed below. Relationships can be created between any objects
 using the [stixrelationship]#related-to# relationship type or, as with open vocabularies, user-defined names.
+
+[width="100%",cols="23%,20%,24%,33%",options="header",]
+|===
+4+^|[stixtr]*Reverse Relationships*
+
+|*Source* |*Type* |*Target* |*Description*
+// relationships:start
+|[stixtype]#<<event,event>>#
+|[stixrelationship]#causes#
+|[stixtype]#<<impact,impact>>#
+|An event causes an impact.
+
+|[stixtype]#<<task,task>>#
+|[stixrelationship]#causes#
+|[stixtype]#<<impact,impact>>#
+|A task causes an impact.
+// relationships:end
+
 // end::impact-relationships[]
 
+|===
+
+<<<
 ==== 2.3.2. Extensions
 
 There are many types of impacts, each with its own unique properties, therefore the Impact SDO emulates the File SCO through the use of STIX (sub-type) Extensions to provide the granular details of specific categories of impacts. Seven extensions to [stixtype]#<<impact,impact>>#, which further define the impact on a related Incident, are given below.
 As such, every Impact *MUST* have the one extension which matches the value of the *impact_category* property (see this property description above).  
 This allows consumers to quickly validate their ability to process this category of impact and then load all of its specific details.
 
-
-Because these extensions are used to specify very different types of impacts, producers *SHOULD* use one and only one of these extensions. However, additional extensions might be proposed in the future and might be used in conjunction with one of these.
+Because these extensions are used to specify very different types of impacts, producers *SHOULD* use one and only one of these extensions per Impact object. However, additional extensions might be proposed in the future and might be used in conjunction with one of these.
 
 ===== 2.3.2.1. Availability Impact Extension 
 
@@ -688,7 +740,7 @@ The values of this property *MUST* come from the [stixtype]#<<incident-confident
 
 The value of this property *SHOULD* come from the [stixtype]#<<information-type-ov,information-type-ov>> open vocabulary#.
 
-This value *MUST* be included if the loss_type is not [stixliteral]#none#. Including an entry with loss_type of none and no information_type indicates that no information had its confidentiality impacted by the related incident.
+This value *MUST* be included if the loss_type is not [stixliteral]#none#. Otherwise, including an entry with loss_type of none and no information_type indicates that no information had its confidentiality impacted by the related incident.
 
 |*record_count* (optional)
 |[stixtype]#{int_url}[integer]#
@@ -760,7 +812,7 @@ This can include information about control systems and other processes that can 
 The value of this property *SHOULD* come from the [stixtype]#<<information-type-ov,information-type-ov>># open vocabulary.
 
 This value *MUST* be included if the alternation is not none.
-Including an entry that with an alteration of [stixliteral]#none# and no information_type provided indicates that no information had its integrity impacted by the related incident.
+Otherwise, including an entry that with an alteration of [stixliteral]#none# and no information_type provided indicates that no information had its integrity impacted by the related incident.
 
 |*record_count* (optional)
 |[stixtype]#{int_url}[integer]#
@@ -819,7 +871,7 @@ This *MUST* be included if a *conversion_rate* property is included.
 
 |*currency* (optional)
 |[stixtype]#{string_url}[string]#|
-The currency used for reporting which the *max_amount* and *min_amount* properties use.
+The currency used for reporting the *max_amount* and *min_amount* properties values.
 This *SHOULD* be an ISO 4217 alpha currency code or the official currency code for the relevant cryptocurrency.
 This *SHOULD* match the currency of the organization or the government producing the report.
 
@@ -888,7 +940,7 @@ enumeration.
 The value of this property *SHOULD* come from the [stixtype]#<<asset-type-ov,asset-type-ov>># open vocabulary.
 
 This value *MUST* be included if the *impact_type* is not [stixliteral]#none#		      .
-Including an entry with an *impact_type* of none and no asset_type indicates that no physical damage was caused by the related incident.
+Otherwise, including an entry with an *impact_type* of none and no asset_type indicates that no physical damage was caused by the related incident.
 
 |===
 
@@ -969,12 +1021,11 @@ As a new SDO extension it must follow the requirements as described in section 7
 *error*,
 *impact_entity_counts*,
 *name*,
+*next_tasks_refs*
 *outcome*,
 *priority*,
 *start_time*,
-*start_time_fidelity*,
-*subtasks*,
-*template_refs*
+*start_time_fidelity*
 |===
 
 |===
@@ -1033,6 +1084,10 @@ This is primarily used when recording victim notifications.
 |[stixtype]#{string_url}[string]#
 |A name used to identify the task.
 
+|*next_tasks_refs* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
+|The [stixtype]#<<task,task>># objects to follow. They *MUST* be of type [stixtype]#<<task,task>>#.
+
 |*priority* (optional)
 |[stixtype]#{int_url}[integer]#
 |The priority or importance of the task.
@@ -1045,6 +1100,8 @@ present it is assumed to be unknown.
 
 This property *SHOULD* be populated.
 
+If *start_time* and *end_time* properties are both defined, then *end_time* value *MUST* be the same or later than the *start_time* value. 
+
 |*start_time_fidelity* (optional)
 |[stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>>#
 |The level of fidelity that the *start_time* property is recorded in. 
@@ -1053,9 +1110,7 @@ This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidel
 
 If no value is provided the timestamp should be considered to be accurate up to the number of decimal digits it includes.
 
-|*subtasks* (optional)
-|[stixtype]#{list_url}[list]# of type [stixtype]#<<task-entry,task-entry>>#
-|A list of subtasks related to this task.
+
 |===
 
 <<<
@@ -1074,8 +1129,8 @@ targeting this object type from another object type.
 Relationships are not restricted to those listed below. Relationships can be created between any objects
 using the [stixrelationship]#related-to# relationship type or, as with open vocabularies, user-defined names.  
 
-Sequences of [stixtype]#<<task,tasks>># *SHOULD NOT* be shared using relationship objects.
-Sequences *SHOULD* be shared within an [stixtype]#{incident_url}[incident]# or [stixtype]#<<task,task>># using the *tasks* or *subtasks* properties, respectively.
+To relate [stixtype]#<<task,tasks>># to an [stixtype]#<<incident,incident>># the *task_refs* property
+*SHOULD* be used.
 Using these embedded relationships ensures that an incomplete sequence cannot be shared accidentally (avoiding potential confusion or misunderstandings when processing STIX data.)
 
 [width="100%",cols="27%,16%,24%,33%",options="header",]
@@ -1217,93 +1272,8 @@ _0 individuals_
 
 <<<
 
-[[event-sequence-entry]]
-=== 3.2. Event Sequence Object Type
-
-Event sequence entries store references to subsequent steps for an event entry.
-As these are always stored in an list of steps within an array of list entries, validation rules for *event_ref* *MUST* be performed against the entire array of event entries.
-
-
-*Type Name:* [stixtype]#event-sequence-entry#
-
-[width="100%",cols="37%,23%,40%",options="header",]
-|===
-^|[stixtr]*Property Name*
-^|[stixtr]*Type* 
-^|[stixtr]*Description*
-
-|*event_ref* (required)
-|[stixtype]#{identifier_url}[identifier]# 
-|The identifier of the event that is described by this entry.
-
-This reference *MUST* be included as an *event_ref* within the parent array of [stixtype]#<<event-entry,event-entry>># objects.
-
-|*condition_type* (required)
-|[stixtype]#<<activity-condition-enum,activity-condition-enum>>#
-|If the referenced step required the current one to be successful.
-If it is optional, or if it is unknown.
-
-The values of this property *MUST* come from the [stixtype]#<<activity-condition-enum,activity-condition-enum>># enumeration.
-
-|*transition_type* (required)
-|[stixtype]#<<activity-transition-enum,activity-transition-enum>>#
-|What state the referenced step depends on.
-If it is performed upon success, failure, simple completion, or if it is unknown.
-
-The values of this property *MUST* come from the [stixtype]#<<activity-transition-enum,activity-transition-enum>># enumeration.
-
-|===
-
-==== 3.2.1. Example
-
-[source,json]
-----
-include::examples/example_3.3.json[]
-----
-
-<<<
-
-[[event-entry]]
-=== 3.3. Event Entry Object Type
-
-*Type Name:* [stixtype]#event-entry#
-
-[width="100%",cols="37%,23%,40%",options="header",]
-|===
-^|[stixtr]*Property Name*
-^|[stixtr]*Type* 
-^|[stixtr]*Description*
-
-|*event_ref* (required)
-|[stixtype]#{identifier_url}[identifier]# 
-|The event that is described by this entry.
-This *MUST* reference an [stixtype]#<<event,event>># object.
-
-|*next_steps* (optional)
-|[stixtype]#{list_url}[list]# of type [stixtype]#<<event-sequence-entry,event-sequence-entry>>#
-|A list of event sequences that describes the current event flows into the next one.
-
-|*sequence_start* (optional)
-|[stixtype]#{boolean_url}[boolean]#
-|If this is a start of a sequence chain.
-
-All sequences of events *MUST* begin with at least one entry where *sequence_start* is set to [stixliteral]#true#.
-If a cycle exists with multiple entries with *sequence_start* set to [stixliteral]#true# then all of these are equally valid start points.
-
-Default value is [stixliteral]#true#.
-
-|===
-
-==== 3.3.1. Example
-
-[source,json]
-----
-include::examples/example_3.2.json[]
-----
-
-
 [[incident-score]]
-=== 3.4. Incident Score Object Type
+=== 3.2. Incident Score Object Type
 
 *Type Name:* [stixtype]#incident-score#
 [width="100%",cols="37%,23%,40%",options="header",]
@@ -1328,7 +1298,7 @@ This is normally a system or process name or some combination of these such as "
 |===
 
 <<<
-==== 3.4.1. Example
+==== 3.2.1. Example
 
 [source,json]
 ----
@@ -1336,7 +1306,7 @@ include::examples/example_3.4.json[]
 ----
 
 [[state-change]]
-=== 3.5. State Change Object Type
+=== 3.3. State Change Object Type
 
 *Type Name:* [stixtype]#state-change#
 
@@ -1356,12 +1326,12 @@ The value of this property *SHOULD* come from the [stixtype]#<<state-change-type
 
 |*initial_ref* (optional)
 |[stixtype]#{identifier_url}[identifier]#
-|The initial object state that this event affected.
+|The initial object state that this event affected. It *MUST* be an SDO.  To capture a changing SCO, the Observed Data SDO must be used.
 
 If the *result_ref* property is not populated then this *MUST* be populated.
 
-If there is no result state this typically means that this event removed or resolved the initial object.
-For example, an event or task resolved a network outage.
+If there is no result state this typically means that this event/task removed or resolved the initial object.
+For example, a task resolved a network outage.
 
 If both are present this indicates a transition between these states.
 For example, a confidentiality impact was made worse as the information was shared further.
@@ -1374,104 +1344,18 @@ If the *result_ref* property is populated this *MUST* reference the same type of
 
 If the *initial_ref* property is not populated then this *MUST* be populated.
 
-If there is no initial state it typically means that this event caused or created the result.
+If there is no initial state it typically means that this event/task caused or created the result.
 For example, an event causing a network outage.
 
 If the *initial_ref* property is populated this *MUST* reference the same type of SDO.
 
 |===
-==== 3.5.1. Example
+==== 3.3.1. Example
 
 [source,json]
 ----
 include::examples/example_3.5.json[]
 ----
-
-<<<
-
-[[task-sequence-entry]]
-=== 3.6. Task Sequence Object Type
-
-Task sequence entries store references to subsequent steps for a task entry.
-As these are always stored in an list of steps within an list of task entries, validation rules for *task_ref* *MUST* be performed against the entire list of task entries.
-
-*Type Name:* [stixtype]#task-sequence-entry#
-
-[width="100%",cols="37%,23%,40%",options="header",]
-|===
-^|[stixtr]*Property Name*
-^|[stixtr]*Type* 
-^|[stixtr]*Description*
-
-|*condition_type* (required)
-|[stixtype]#<<activity-condition-enum,activity-condition-enum>>#
-|If the referenced step required the current one to be successful.
-If it is optional, or if it is unknown.
-
-The values of this property *MUST* come from the [stixtype]#<<activity-condition-enum,activity-condition-enum>># enumeration.
-
-|*task_ref* (required)
-|[stixtype]#{identifier_url}[identifier]# 
-|The identity of the event that is described by this entry.
-
-This reference *MUST* be included as an *task_ref* within the parent array of [stixtype]#<<task-entry,task-entry>># objects.
-
-|*transition_type* (required)
-|[stixtype]#<<activity-transition-enum,activity-transition-enum>>#
-|What state the referenced step depends on.
-If it is performed upon success, failure, simple completion, or if it is unknown.
-
-The values of this property *MUST* come from the [stixtype]#<<activity-transition-enum,activity-transition-enum>># enumeration.
-
-|===
-
-==== 3.6.1. Example
-
-[source,json]
-----
-include::examples/example_3.7.json[]
-----
-<<<
-
-
-[[task-entry]]
-=== 3.7. Task Entry Object Type
-
-*Type Name:* [stixtype]#task-entry#
-
-[width="100%",cols="37%,23%,40%",options="header",]
-|===
-^|[stixtr]*Property Name*
-^|[stixtr]*Type* 
-^|[stixtr]*Description*
-
-|*task_ref* (required)
-|[stixtype]#{identifier_url}[identifier]# 
-|The identifier of the task that is described by this entry.
-This *MUST* reference a [stixtype]#<<task,task>>#.
-
-|*next_steps* (optional)
-|[stixtype]#{list_url}[list]# of type [stixtype]#<<task-sequence-entry,task-sequence-entry>>#
-|A list of task sequences that describes the current task flows into the next one.
-
-|*sequence_start* (optional)
-|[stixtype]#{boolean_url}[boolean]#
-|If this is a start of a sequence chain.
-
-All sequences of tasks *MUST* begin with at least one entry where *sequence_start* is set to [stixliteral]#true#.
-If a cycle exists with multiple entries with *sequence_start* set to [stixliteral]#true# then all of these are equally valid start points.
-
-Default value is [stixliteral]#true#.
-
-|===
-
-==== 3.7.1. Example
-
-[source,json]
-----
-include::examples/example_3.6.json[]
-----
-
 
 == 4. Vocabularies
 
@@ -2239,48 +2123,8 @@ If playbook steps feed each other information that is designed to be passed as S
 
 == 5. Enumerations
 
-[[activity-condition-enum]]
-=== 5.1. Activity Condition Enumeration
-*Type Name:* [stixtype]#activity-condition-enum#
-
-|===
-^|[stixtr]*Vocabulary Value* ^|[stixtr]*Description*
-
-|[stixliteral]#optional#
-|The following event or task does not depend on the current one.
-
-|[stixliteral]#required#
-|The following event or task depends on the current one.
-
-|[stixliteral]#unknown#
-|It is unknown if the following event or task depends on the current one.
-|===
-
-[[activity-transition-enum]]
-=== 5.2. Activity Transition Enumeration
-*Type Name:* [stixtype]#activity-transition-enum#
-
-|===
-^|[stixtr]*Vocabulary Value* ^|[stixtr]*Description*
-
-|[stixliteral]#completion#
-|The following task executed when this one completed regardless of success or failure.
-
-|[stixliteral]#failure#
-|The following task executed when this one failed.
-
-|[stixliteral]#success#
-|The following task executed upon success.
-
-|[stixliteral]#unknown#
-|It is unknown what conditions cause the following task to execute only that it followed the current one.
-
-|===
-
-<<<
-
 [[event-status-enum]]
-=== 5.3. Event Status Enumeration
+=== 5.1. Event Status Enumeration
 
 *Type Name:* [stixtype]#event-status-enum#
 
@@ -2308,7 +2152,7 @@ As such any time or sequence values for pending activities should be treated as 
 |===
 
 [[incident-confidentiality-loss-enum]]
-=== 5.4. Incident Confidentiality Loss Enumeration
+=== 5.2. Incident Confidentiality Loss Enumeration
 
 *Type Name:* [stixtype]#incident-confidentiality-loss-enum#
 
@@ -2342,7 +2186,7 @@ This option should be used to affirmatively supply this information when necessa
 <<<
 
 [[incident-determination-enum]]
-=== 5.5. Incident Determination Enumeration
+=== 5.3. Incident Determination Enumeration
 
 *Type Name:* [stixtype]#incident-determination-enum#
 
@@ -2373,7 +2217,7 @@ This should not be used when an incident was flagged correctly, but is of no imp
 <<<
 
 [[integrity-alteration-enum]]
-=== 5.6. Integrity Alteration Enumeration
+=== 5.4. Integrity Alteration Enumeration
 
 *Type Name:* [stixtype]#integrity-alteration-enum#
 
@@ -2405,7 +2249,7 @@ This should not be used when an incident was flagged correctly, but is of no imp
 |===
 
 [[physical-impact-enum]]
-=== 5.7. Physical Impact Enumeration
+=== 5.5. Physical Impact Enumeration
 
 *Type Name:* [stixtype]#physical-impact-enum#
 
@@ -2435,7 +2279,7 @@ In some cases destroyed assets can be rebuilt, but doing so involves a similar a
 <<<
 
 [[recoverability-enum]]
-=== 5.8. Recoverability Enumeration
+=== 5.6. Recoverability Enumeration
 
 *Type Name:* [stixtype]#recoverability-enum#
 
@@ -2462,7 +2306,7 @@ resources.
 |===
 
 [[task-outcome-enum]]
-=== 5.9. Task Outcome Enumeration
+=== 5.7. Task Outcome Enumeration
 
 *Type Name:* [stixtype]#task-outcome-enum#
 
@@ -2492,7 +2336,7 @@ resources.
 <<<
 
 [[timestamp-fidelity-enum]]
-=== 5.10. Timestamp Fidelity Enumeration
+=== 5.8. Timestamp Fidelity Enumeration
 
 *Type Name:* [stixtype]#timestamp-fidelity-enum#
 
@@ -2527,7 +2371,7 @@ Hours and minutes should be understood to establish the timezone for the activit
 |===
 
 [[traceability-enum]]
-=== 5.11. Traceability Enumeration
+=== 5.9. Traceability Enumeration
 *Type Name:* [stixtype]#traceability-enum#
 
 [width="100%",cols="31%,69%",options="header",]
@@ -2914,4 +2758,9 @@ Added [stixliteral]#ransom-demand# and [stixliteral]#ransom-payment# to [stixtyp
 |2024-02-15
 |Richard Piazza, Jeffrey Mates and Dez Beck
 |Additional editorial fixes, a minor changes to normative statements
+
+|07
+|2024-07-02
+|Richard Piazza, Jeffrey Mates and Dez Beck
+|Removed event_sequence, event_entry, task_sequence, task_entry
 |===
