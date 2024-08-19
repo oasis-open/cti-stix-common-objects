@@ -276,7 +276,7 @@ include::examples/example_2.1.json[]
 [[event]]
 === 2.2. Event
 
-An Event is an activity that has a harmful effect or which will be investigated or already has been investigated as potentially having a harmful effect.  Events can be used to further enrich and explain Sightings by allowing analysts to indicate if these sightings are part of a potential threat, and if so how they connects to a larger incident. Some activity, described in an Event, will be found to be not harmful when investigated.
+An Event is an activity that has a harmful effect or which will be investigated or already has been investigated as potentially having a harmful effect. The activity is not necessarily performed by an attacker. For example, an event could result from a user or system administrator's mistake. Events can be used to further enrich and explain Sightings by allowing analysts to indicate if these sightings are part of a potential threat, and if so how they connects to a larger incident. Some activity, described in an Event, will be found to be not harmful when investigated.
 
 This new SDO extension *MUST* use [stixliteral]#extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e# as its extension ID.
 
@@ -439,11 +439,15 @@ Using these embedded relationships ensures that an incomplete sequence cannot be
 |*Source* |*Type* |*Target* |*Description*
 // relationships:start
 
-
 |[stixtype]#<<event,event>># 
 |[stixrelationship]#causes#
 |[stixtype]#<<impact,impact>># 
 |The event caused the impact.
+
+|[stixtype]#<<event,event>># 
+|[stixrelationship]#led-to#
+|[stixtype]#<<task,task>># 
+|The event led to performing the task.
 
 |[stixtype]#<<event,event>>#
 |[stixrelationship]#impacts#
@@ -670,11 +674,6 @@ using the [stixrelationship]#related-to# relationship type or, as with open voca
 |[stixrelationship]#causes#
 |[stixtype]#<<impact,impact>>#
 |An event causes an impact.
-
-|[stixtype]#<<task,task>>#
-|[stixrelationship]#causes#
-|[stixtype]#<<impact,impact>>#
-|A task causes an impact.
 // relationships:end
 
 // end::impact-relationships[]
@@ -1189,6 +1188,12 @@ Using these embedded relationships ensures that an incomplete sequence cannot be
 
 |*Source* |*Type* |*Target* |*Description*
 // relationships:start
+
+|[stixtype]#<<event,event>># 
+|[stixrelationship]#led-to#
+|[stixtype]#<<task,task>># 
+|The event led to performing the task.
+
 |[stixtype]#{identity_url}[identity]#
 |[stixrelationship]#assigned#
 |[stixtype]#<<task,task>>#
