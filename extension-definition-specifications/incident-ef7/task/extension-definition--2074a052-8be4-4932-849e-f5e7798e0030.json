@@ -16,14 +16,6 @@
         },
         {
             "properties": {
-                "created": {},
-                "modified": {},
-                "spec_version": {},
-                "labels": {},
-                "external_references": {},
-                "name": {
-                    "type": "string"
-                },
                 "extensions": {
                     "type": "object",
                     "description": "STIX extensions.",
@@ -47,8 +39,11 @@
                     "const": "task"
                 },
                 "id": {
-                    "type": "string",
+		    "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
                     "pattern": "^task--"
+                },
+		"name": {
+                    "type": "string"
                 },
                 "changed_objects": {
                     "type": "array",
@@ -132,72 +127,14 @@
                     "minimum": 0,
                     "maximum": 100
                 },
-                "subtasks": {
-                    "type": "array",
-                    "minItems": 1,
-                    "items": {
-                        "$ref": "#/definitions/Task_Sequence"
+		"next_task_refs": {
+		    "type": "array",
+		    "items": {
+                        "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
+                        "pattern": "^task--"
                     }
-                }
+		}
             }
         }
-    ],
-    "definitions": {
-        "Task_Sequence": {
-            "type": "object",
-            "additionalProperties": false,
-            "required": ["task_ref"],
-            "properties": {
-                "task_ref": {
-                    "type": "string",
-                    "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
-                    "pattern": "^task--",
-                    "description": "The task"
-                },
-                "sequence_start": {
-                    "type": "boolean",
-                    "description": "If this task is the start of a sequence.",
-                    "default": true
-                },
-                "next_steps": {
-                    "type": "array",
-                    "minItems": 1,
-                    "items": {
-                        "type": "object",
-                        "additionalProperties": false,
-                        "required": [
-                            "condition_type",
-                            "task_ref",
-                            "transition_type"
-                        ],
-                        "properties": {
-                            "condition_type": {
-                                "type": "string",
-                                "enum": [
-                                    "optional",
-                                    "required",
-                                    "unknown"
-                                ]
-                            },
-                            "task_ref": {
-                                "type": "string",
-                                "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
-                                "pattern": "^(event|task)--"
-                            },
-                            "transition_type": {
-                                "type": "string",
-                                "description": "What end-state causes the target to begin",
-                                "enum": [
-                                    "completion",
-                                    "failure",
-                                    "success",
-                                    "unknown"
-                                ]
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+    ]
 }

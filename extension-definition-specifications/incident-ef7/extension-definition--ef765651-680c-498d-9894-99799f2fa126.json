@@ -51,18 +51,22 @@
                                         }
                                     }
                                 },
-                                "events": {
+                                "event_refs": {
                                     "type": "array",
                                     "minItems": 1,
                                     "items": {
-                                        "$ref": "#/definitions/Event_Sequence"
+                                        "type": "string",
+                                        "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
+                                        "pattern": "^event--"
                                     }
                                 },
-                                "tasks": {
+                                "task_refs": {
                                     "type": "array",
                                     "minItems": 1,
                                     "items": {
-                                        "$ref": "#/definitions/Task_Sequence"
+                                        "type": "string",
+                                        "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
+                                        "pattern": "^task--"
                                     }
                                 },
                                 "determination": {
@@ -134,118 +138,6 @@
         }
     ],
     "definitions": {
-        "Event_Sequence": {
-            "type": "object",
-            "additionalProperties": false,
-            "required": ["event_ref"],
-            "properties": {
-                "event_ref": {
-                    "type": "string",
-                    "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
-                    "pattern": "^event--",
-                    "description": "The event"
-                },
-                "sequence_start": {
-                    "type": "boolean",
-                    "description": "If this event is the start of a sequence.",
-                    "default": true
-                },
-                "next_steps": {
-                    "type": "array",
-                    "minItems": 1,
-                    "items": {
-                        "type": "object",
-                        "additionalProperties": false,
-                        "required": [
-                            "condition_type",
-                            "event_ref",
-                            "transition_type"
-                        ],
-                        "properties": {
-                            "condition_type": {
-                                "type": "string",
-                                "enum": [
-                                    "optional",
-                                    "required",
-                                    "unknown"
-                                ]
-                            },
-                            "event_ref": {
-                                "type": "string",
-                                "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
-                                "pattern": "^event--"
-                            },
-                            "transition_type": {
-                                "type": "string",
-                                "description": "What end-state causes the target to begin",
-                                "enum": [
-                                    "completion",
-                                    "failure",
-                                    "success",
-                                    "unknown"
-                                ]
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "Task_Sequence": {
-            "type": "object",
-            "additionalProperties": false,
-            "required": ["task_ref"],
-            "properties": {
-                "task_ref": {
-                    "type": "string",
-                    "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
-                    "pattern": "^task--",
-                    "description": "The event or task"
-                },
-                "sequence_start": {
-                    "type": "boolean",
-                    "description": "If this task is the start of a sequence.",
-                    "default": true
-                },
-                "next_steps": {
-                    "type": "array",
-                    "minItems": 1,
-                    "items": {
-                        "type": "object",
-                        "additionalProperties": false,
-                        "required": [
-                            "condition_type",
-                            "task_ref",
-                            "transition_type"
-                        ],
-                        "properties": {
-                            "condition_type": {
-                                "type": "string",
-                                "enum": [
-                                    "optional",
-                                    "required",
-                                    "unknown"
-                                ]
-                            },
-                            "task_ref": {
-                                "type": "string",
-                                "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
-                                "pattern": "^task--"
-                            },
-                            "transition_type": {
-                                "type": "string",
-                                "description": "What end-state causes the target to begin",
-                                "enum": [
-                                    "completion",
-                                    "failure",
-                                    "success",
-                                    "unknown"
-                                ]
-                            }
-                        }
-                    }
-                }
-            }
-        },
         "Recoverability": {
             "type": "string",
             "description": "The scope of impact required to recover from an incident",
@@ -256,7 +148,7 @@
                 "extended",
                 "not-recoverable"
             ],
-            "$comment": "This is a closed vocabulary: non-applicable is an addition to what is found on https://us-cert.cisa.gov/incident-notification-guidelines for Incident reports that do not have associated recover costs.  For example a phishing email that was detected successfully."
+            "$comment": "This is a closed vocabulary (enumeration): non-applicable is an addition to what is found on https://us-cert.cisa.gov/incident-notification-guidelines for Incident reports that do not have associated recover costs.  For example a phishing email that was detected successfully."
         }
     }
 }
