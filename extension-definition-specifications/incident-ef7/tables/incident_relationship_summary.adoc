@@ -5,12 +5,16 @@
 ^|*Target* 
 
 |[stixtype]#<<event,event>>#
+|[stixrelationship]#causes#
+|[stixtype]#<<impact,impact>>#
+
+|[stixtype]#<<event,event>>#
 |[stixrelationship]#impacts#
 |[stixtype]#{infrastructure_url}[infrastructure]#
 
 |[stixtype]#<<event,event>>#
 |[stixrelationship]#led-to#
-|[stixtype]#<<event,event>>#
+|[stixtype]#<<task,task>>#
 
 |[stixtype]#<<event,event>>#
 |[stixrelationship]#located-at#
@@ -62,7 +66,7 @@
 
 |[stixtype]#{identity_url}[identity]#
 |[stixrelationship]#performed#
-|[stixtype]#<<task,task>>#
+|[stixtype]#<<task,task>>#, #<<event,event>>#,
 
 |[stixtype]#{incident_url}[incident]#
 |[stixrelationship]#attributed-to#

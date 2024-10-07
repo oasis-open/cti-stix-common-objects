@@ -4,11 +4,10 @@
     "title": "Event",
     "description": "An extension for recording events in STIX.",
     "type": "object",
-    "unevaluatedProperties": false,
     "required": [
-        "extensions"
-        , "status"
-        , "type"
+        "extensions",
+	"status",
+	"type"
     ],
     "allOf": [
         {
@@ -33,17 +32,12 @@
                         }
                     }
                 },
-                "created": {},
-                "modified": {},
-                "spec_version": {},
-                "labels": {},
-                "external_references": {},
                 "type": {
                     "type": "string",
                     "const": "event"
                 },
                 "id": {
-                    "type": "string",
+                    "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
                     "pattern": "^event--"
                 },
                 "event_types": {
@@ -131,72 +125,15 @@
                         "pattern": "^sighting--"
                     }
                 },
-                "subevents": {
-                    "type": "array",
-                    "minItems": 1,
-                    "items": {
-                        "$ref": "#/definitions/Event_Sequence"
+		"next_event_refs": {
+		    "type": "array",
+		    "items": {
+                        "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
+                        "pattern": "^event--"
                     }
-                }
+		},
+		"unevaluatedProperties": false
             }
         }
-    ],
-    "definitions": {
-        "Event_Sequence": {
-            "type": "object",
-            "additionalProperties": false,
-            "required": ["event_ref"],
-            "properties": {
-                "event_ref": {
-                    "type": "string",
-                    "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
-                    "pattern": "^event--",
-                    "description": "The event"
-                },
-                "sequence_start": {
-                    "type": "boolean",
-                    "description": "If this event is the start of a sequence.",
-                    "default": true
-                },
-                "next_steps": {
-                    "type": "array",
-                    "minItems": 1,
-                    "items": {
-                        "type": "object",
-                        "additionalProperties": false,
-                        "required": [
-                            "condition_type",
-                            "event_ref",
-                            "transition_type"
-                        ],
-                        "properties": {
-                            "condition_type": {
-                                "type": "string",
-                                "enum": [
-                                    "optional",
-                                    "required",
-                                    "unknown"
-                                ]
-                            },
-                            "event_ref": {
-                                "type": "string",
-                                "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
-                                "pattern": "^event--"
-                            },
-                            "transition_type": {
-                                "type": "string",
-                                "description": "What end-state causes the target to begin",
-                                "enum": [
-                                    "completion",
-                                    "failure",
-                                    "success",
-                                    "unknown"
-                                ]
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+    ]
 }

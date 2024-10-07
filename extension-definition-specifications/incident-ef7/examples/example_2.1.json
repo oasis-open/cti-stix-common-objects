@@ -12,7 +12,7 @@
       "investigation_status": "open",
       "criticality": 70,
       "detection_methods": [
-        "automated-tool",
+        "automated-tools",
         "human-review"
       ],
       "event_refs": [
