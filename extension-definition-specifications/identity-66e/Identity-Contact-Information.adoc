@@ -183,7 +183,7 @@ This *SHOULD NOT* be used to capture the social media service used.  That *SHOUL
 == 3. Vocabularies
 
 [[contact-number-ov]]
-=== 3.1. Asset Type Vocabulary Contact Number Type Vocabulary
+=== 3.1. Contact Number Type Vocabulary
 *Type Name:* [stixtype]#contact-number-ov#
 
 [width="100%",cols="37%,63%",options="header",]
