@@ -482,11 +482,6 @@ Using these embedded relationships ensures that an incomplete sequence cannot be
 |[stixtype]#<<event,event>>#
 |A tool performed a specific event.
 
-|[stixtype]#<<task,task>>#
-|[stixrelationship]#uses#
-|[stixtype]#{course_of_action_url}[course-of-action]#
-|An task uses a particular course of action.
-
 |[stixtype]#<<task,task>># 
 |[stixrelationship]#blocks#
 |[stixtype]#<<event,event>>#
