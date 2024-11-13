@@ -564,9 +564,9 @@ As a new SDO extension it must follow the requirements as described in section 7
 
 |*impact_category* (required)
 |[stixtype]#{string_url}[string]#
-|The category to which the impact belongs. This *MUST* be either [stixliteral]#undetermined# or match an extension that provides greater details of a specific type of impact, and *SHOULD* come from the extensions listed in section 2.3.2 of this document.
+|The category to which the impact belongs. This *MUST* be either [stixliteral]#undetermined# or match an extension that provides greater details of a specific type of impact.
  
-The value can be specified with or without the "-ext" suffix. If this property is set to [stixliteral]#undetermined# then there *MUST* not be an "-ext" extension providing further details for this impact.
+If an extension is referenced, it *SHOULD* come from the extensions listed in section 2.3.2 of this document. The value can be specified with or without the "-ext" suffix. 
 
 |*type* (required)
 |[stixtype]#{string_url}[string]#
@@ -601,11 +601,11 @@ If no value is provided the timestamp should be considered to be accurate up to 
 
 |*impacted_entity_counts* (optional)
 |[stixtype]#<<entity-count,entity-count>>#
-|A listing of the entity types that were impacted and how many of each were affected.
+|A list of the entity types, along with the number of each type impacted.
 
 If this property is not present it should be assumed that this information is not being shared, not that there were no impacted entities.
 
-To affirmatively state no entities of a given class were impacted they should be included with the number of entities affected by it set to 0.
+To affirmatively state no entities of a given class were impacted they should be included in the list with the number of entities impacted set to 0.
 
 |*impacted_refs* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]# 
@@ -1067,9 +1067,9 @@ If no value is provided the timestamp should be considered to be accurate up to 
 
 |*affected_entity_counts* (optional)
 |[stixtype]#<<entity-count,entity-count>>#
-|A listing of the entity types and how many of each that were affected.
+|A list of affected entity types, along with the number of each type affected.
 
-This is primarily used when recording victim notifications.
+This property is used primarily to capture victim notification information.
 
 |*name* (optional)
 |[stixtype]#{string_url}[string]#
@@ -1192,7 +1192,7 @@ Using these embedded relationships ensures that an incomplete sequence cannot be
 |An identity has been assigned the task
 
 |[stixtype]#{identity_url}[identity]#
-|[stixrelationship]#contact-for#
+|[stixrelationship]#poc-for#
 |[stixtype]#<<task,task>>#
 |An identity is a point of contact for this task.
 
