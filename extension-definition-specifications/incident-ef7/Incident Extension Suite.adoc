@@ -1457,7 +1457,7 @@ This can be combined with other methods including [stixliteral]#automated-tool# 
 |[stixliteral]#message-from-attacker#
 |Notification comes from a message provided by the attacker including email, a note left of a message or popup message.
 
-|[stixliteral]#propriety-solution#
+|[stixliteral]#proprietary-solution#
 |An internally developed tool or process detected this incident.
 This can be combined with other methods including [stixliteral]#automated-tool# to allow greater fidelity.
 
