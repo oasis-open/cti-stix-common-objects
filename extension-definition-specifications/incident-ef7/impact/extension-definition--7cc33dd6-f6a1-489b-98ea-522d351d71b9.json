@@ -8,7 +8,6 @@
         "impact_category",
         "extensions"
     ],
-    "unevaluatedProperties": false,
     "allOf": [
         {
             "$ref": "#/definitions/STIX_Uncommon"
@@ -98,14 +97,15 @@
                 },
                 "extensions": {
                     "type": "object",
-                    "description": "STIX extensions.",
+		    "description": "STIX extensions.",
                     "additionalProperties": true,
-                    "minProperties": 2,
+		    "$comment": "re-consider min_properties: 2 if undetermined is removed",
                     "required": ["extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9"],
                     "properties": {
                         "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
-                            "type": "object",
-                            "additionalProperties": false,
+                            "required": ["extension_type"],
+			    "additionalProperties": false,
+			    "type": "object",
                             "properties": {
                                 "extension_type": {
                                     "type": "string",
@@ -124,26 +124,7 @@
                                 }
                             }
                         },
-                        "confidentiality-ext": {
-                            "additionalProperties": false,
-                            "anyOf": [
-                                {
-                                    "required": [
-                                        "information_type",
-                                        "loss_type"
-                                    ]
-                                },
-                                {
-                                    "required": [
-                                        "loss_type"
-                                    ],
-                                    "properties": {
-                                        "loss_type": {
-                                            "const": "none"
-                                        }
-                                    }
-                                }
-                            ],
+                        "confidentiality-ext": {        
                             "properties": {
                                 "information_type": {
                                     "type": "string",
