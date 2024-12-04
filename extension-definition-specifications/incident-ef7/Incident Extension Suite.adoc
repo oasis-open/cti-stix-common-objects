@@ -436,6 +436,11 @@ Using these embedded relationships ensures that an incomplete sequence cannot be
 |The event caused the impact.
 
 |[stixtype]#<<event,event>># 
+|[stixrelationship]#effects#
+|[stixtype]#{identity_url}[identity]#
+|The event has an effect on the identity.
+
+|[stixtype]#<<event,event>># 
 |[stixrelationship]#led-to#
 |[stixtype]#<<task,task>># 
 |The event led to performing the task.
