@@ -513,7 +513,7 @@ include::examples/example_2.2.json[]
 [[impact]]
 === 2.3. Impact
 
-An Impact is the result of the Incident on the victim, captured in the *impact_ref* property of the Incident object. Impacts can have many categories: availability of resources, confidentiality of data, integrity of data or resources, monetary, physical damage, damage to others and traceability (auditing). 
+An Impact is the result of the Incident on the victim, captured in the *impact_ref* property of the Incident object. Impacts can have many categories: availability of resources, confidentiality of data, integrity of data or resources, economic, physical damage, damage to others and traceability (auditing). 
 
 This new SDO extension *MUST* use [stixliteral]#extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9# as its extension ID.
 
@@ -828,9 +828,9 @@ The value of this property *MUST NOT* be negative.
 include::examples/example_2.3.2.4.1.json[]
 ----
 
-===== 2.3.2.5. Monetary Impact Extension
+===== 2.3.2.5. Economic Impact Extension
 
-*Type Name:* [stixtype]#monetary-ext#
+*Type Name:* [stixtype]#economic-ext#
 
 [width="100%",cols="37%,23%,40%",options="header",]
 |===
@@ -840,9 +840,9 @@ include::examples/example_2.3.2.4.1.json[]
 
 |*variety* (required)
 |[stixtype]#{open_vocab_url}[open-vocab]#
-|The variety of this monetary impact.
+|The variety of this economic impact.
 
-The value of this property *SHOULD* come from the [stixtype]#<<monetary-impact-type-ov,monetary-impact-type-ov>># open vocabulary.
+The value of this property *SHOULD* come from the [stixtype]#<<economic-impact-type-ov,economic-impact-type-ov>># open vocabulary.
 
 |*conversion_rate* (optional)
 |[stixtype]#{number_url}[number]#
@@ -880,7 +880,7 @@ This *SHOULD* be an ISO 4217 alpha currency code or the official currency code f
 
 |*max_amount* (optional)
 |[stixtype]#{number_url}[number]#|
-The maximum monetary amount of the impact using the currency specified in the *currency* property.
+The maximum economic amount of the impact using the currency specified in the *currency* property.
 This value *MUST* be greater than zero.
 
 This value *MUST* be included if the *min_amount* property is included.
@@ -889,7 +889,7 @@ If *min_amount* and *max_amount* properties are both defined, then *max_amount* 
 
 |*min_amount* (optional)
 |[stixtype]#{number_url}[number]#|
-The maximum monetary amount of the impact using the currency specified in the *currency* property.
+The maximum economic amount of the impact using the currency specified in the *currency* property.
 This value *MUST* be greater than zero.
 
 This value *MUST* be included if the *max_amount* property is included.
@@ -900,7 +900,7 @@ If *min_amount* and *max_amount* properties are both defined, then *max_amount* 
 
 <<<
 
-====== 2.3.2.5.1. Monetary Impact Example
+====== 2.3.2.5.1. Economic Impact Example
 
 [source,json]
 ----
@@ -1961,10 +1961,10 @@ The destruction or encryption of this data can cause availability impacts.
 
 <<<
 
-[[monetary-impact-type-ov]]
-=== 4.8. Monetary Impact Type Vocabulary
+[[economic-impact-type-ov]]
+=== 4.8. Economic Impact Type Vocabulary
 
-*Type Name:* [stixtype]#monetary-impact-type-ov#
+*Type Name:* [stixtype]#economic-impact-type-ov#
 
 [width="100%",cols="31%,69%",options="header",]
 |===
@@ -2747,7 +2747,7 @@ Their contributions are gratefully acknowledged:
 
 Replaced *availability_impact* with *availability_impacts* new guidance is to use scores for this in more granular *availability_impacts*.
 
-Added [stixliteral]#ransom-demand# and [stixliteral]#ransom-payment# to [stixtype]#<<monetary-impact-type-ov,monetary-impact-type-ov>>#.
+Added [stixliteral]#ransom-demand# and [stixliteral]#ransom-payment# to [stixtype]#<<economic-impact-type-ov,economic-impact-type-ov>>#.
 
 
 |04
