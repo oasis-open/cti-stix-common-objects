@@ -124,7 +124,25 @@
                                 }
                             }
                         },
-                        "confidentiality-ext": {        
+                        "confidentiality-ext": {
+			    "anyOf": [
+                                {
+                                    "required": [
+                                        "information_type",
+                                        "loss_type"
+                                    ]
+                                },
+                                {
+                                    "required": [
+                                        "loss_type"
+                                    ],
+                                    "properties": {
+                                        "loss_type": {
+                                            "const": "none"
+                                        }
+                                    }
+                                }
+                            ],
                             "properties": {
                                 "information_type": {
                                     "type": "string",
@@ -176,7 +194,7 @@
                                         "alteration"
                                     ],
                                     "properties": {
-                                        "loss_type": {
+                                        "alteration": {
                                             "const": "none"
                                         }
                                     }
