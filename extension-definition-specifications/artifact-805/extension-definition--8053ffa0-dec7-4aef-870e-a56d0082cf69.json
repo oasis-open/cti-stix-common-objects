@@ -1,0 +1,39 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://raw.githubusercontent.com/oasis-open/cti-stix-common-objects/main/extension-definition-specifications/artifact-805/extension-definition--8053ffa0-dec7-4aef-870e-a56d0082cf69.json",
+    "title": "malware-sample-artifact-extension",
+    "description": "An extension of the Artifact object to allow capture of malware samples.",
+    "type": "object",
+    "allOf:": [
+      {
+        "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/observables/artifact.json"
+      },
+      {
+	  "properties": {
+              "extensions": {
+		  "type": "object",
+		  "properties": {
+                      "extension-definition--8053ffa0-dec7-4aef-870e-a56d0082cf69": {
+			  "type": "object",
+			  "properties": {"extension_type": {
+                              "type": "string",
+                              "description": "Defined by STIX 2.1 extension definition rules from 'extension-type-enum'.",
+                              "enum": ["toplevel-property-extension"]
+			  }},
+			  "required": ["extension_type"]
+                      },
+                      "required": ["extension-definition--8053ffa0-dec7-4aef-870e-a56d0082cf69"]
+		  }
+              },
+              "is_safe": {
+		  "type": "boolean",
+		  "description": "Indicates whether the artifact is safe, i.e., can be opened or processed without risking harm or infection. The default value is false."
+              }
+	  },
+	  "required": [
+              "extensions",
+              "is_safe"
+	  ]
+      }
+   ]
+}

@@ -150,15 +150,6 @@ Events can be grouped into sequences based on the *next_events_refs* property of
 |A list of the impacts of this incident.
 All objects referenced in this list *MUST* be an [stixtype]#<<impact,impact>># object.
 
-|*impacted_entity_counts* (optional)
-|[stixtype]#<<entity-count,entity-count>>#
-|A listing of the entity types that were impacted by the incident, and how many of each type were affected.
-Individual impacts objects may also record more detailed counts as appropriate.
-
-If this property is not present it should be assumed that this information is not being shared, not that there were no impacted entities.
-
-To affirmatively state no entities of a given class were impacted they should be included with the number of entities affected by it set to 0.
-
 |*incident_types* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{open_vocab_url}[open-vocab]#
 |A list of incident types of incident that occurred, if applicable.
@@ -573,8 +564,9 @@ As a new SDO extension it must follow the requirements as described in section 7
 
 |*impact_category* (required)
 |[stixtype]#{string_url}[string]#
-|The category to which the impact belongs.
-This *MUST* match an extension that provides greater details of a specific type of impact, and *SHOULD* come from the extensions listed in section 2.3.2 of this document.  The value can be specified with or without the "-ext" suffix.
+|The category to which the impact belongs. This *MUST* be either [stixliteral]#undetermined# or match an extension that provides greater details of a specific type of impact, and *SHOULD* come from the extensions listed in section 2.3.2 of this document.
+ 
+The value can be specified with or without the "-ext" suffix. If this property is set to [stixliteral]#undetermined# then there *MUST* not be an "-ext" extension providing further details for this impact.
 
 |*type* (required)
 |[stixtype]#{string_url}[string]#
@@ -1013,12 +1005,12 @@ As a new SDO extension it must follow the requirements as described in section 7
 ^|[stixtr]*Task Object Specific Properties*
 
 |*task_types*,
+*affected_entity_counts*,
 *changed_objects*,
 *description*,
 *end_time*,
 *end_time_fidelity*,
 *error*,
-*impact_entity_counts*,
 *name*,
 *next_tasks_refs*
 *outcome*,
@@ -1073,9 +1065,9 @@ If no value is provided the timestamp should be considered to be accurate up to 
 |[stixtype]#{string_url}[string]#
 |Details about any failures or deviations that occurred in the task.
 
-|*impacted_entity_counts* (optional)
+|*affected_entity_counts* (optional)
 |[stixtype]#<<entity-count,entity-count>>#
-|A listing of the entity types that were impacted and how many of each were affected.
+|A listing of the entity types and how many of each that were affected.
 
 This is primarily used when recording victim notifications.
 
@@ -2186,6 +2178,9 @@ This option should be used to affirmatively supply this information when necessa
 
 |[stixliteral]#suspected-loss#
 |It is suspected but not confirmed that the attacker may have gained access to this information.
+
+|[stixliteral]#unknown#
+|It is unknown if the attacker may have gained access to this information.
 |===
 
 <<<
@@ -2251,6 +2246,9 @@ This should not be used when an incident was flagged correctly, but is of no imp
 
 |[stixliteral]#none#
 |There is no evidence of destruction or modification of this data type in the system.
+
+|[stixliteral]#unknown#
+|It is unknown if destruction or modification of this data type in the system has occurred.
 |===
 
 [[physical-impact-enum]]
@@ -2391,6 +2389,9 @@ Hours and minutes should be understood to establish the timezone for the activit
 
 |[stixliteral]#provable-accountability#
 |Accountability can be ensured from the traces that are present.
+
+|[stixliteral]#unknown-accountability#
+|Accountability is unknown.
 |===
 
 <<<
