@@ -195,7 +195,7 @@
                                         "alteration"
                                     ],
                                     "properties": {
-                                        "loss_type": {
+                                        "alteration": {
                                             "const": "none"
                                         }
                                     }
