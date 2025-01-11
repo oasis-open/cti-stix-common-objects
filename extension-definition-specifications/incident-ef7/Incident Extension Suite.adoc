@@ -366,9 +366,11 @@ Not all events have goals.
 |[stixtype]#{string_url}[string]#
 |A name for the event.
 
-|*next_events_refs* (optional)
+|*next_event_refs* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
 |The [stixtype]#<<event,event>># objects to follow. They *MUST* be of type [stixtype]#<<event,event>>#.
+
+There can be more than one if they take place in parallel.
 
 |*sighting_refs* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
@@ -562,11 +564,9 @@ As a new SDO extension it must follow the requirements as described in section 7
 |===
 ^|[stixtr]*Property Name* ^|[stixtr]*Type* ^|[stixtr]*Description*
 
-|*impact_category* (required)
+|*impact_category* (optional)
 |[stixtype]#{string_url}[string]#
-|The category to which the impact belongs. This *MUST* be either [stixliteral]#undetermined# or match an extension that provides greater details of a specific type of impact.
- 
-If an extension is referenced, it *SHOULD* come from the extensions listed in section 2.3.2 of this document. The value can be specified with or without the "-ext" suffix. 
+|The category to which the impact belongs. If the category is one of the defined extensions from section 2.3.2 are used (availability, confidentiality, integrity, economic, external, traceability) it *MUST* be specified. The value *MUST* be specified without the "-ext" suffix. 
 
 |*type* (required)
 |[stixtype]#{string_url}[string]#
@@ -632,6 +632,10 @@ If *start_time* and *end_time* properties are both defined, then *end_time* valu
 This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>># enumeration.
 
 If no value is provided the timestamp should be considered to be accurate up to the number of decimal digits it includes.
+
+|*sub_impact_refs* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
+|The [stixtype]#<<impact,impact>># objects to that are part of this impact. They *MUST* be of type [stixtype]#<<impact,impact>>#.
 
 |*superseded_by_ref* (optional)
 |[stixtype]#{identifier_url}[identifier]# 
@@ -1075,9 +1079,11 @@ This property is used primarily to capture victim notification information.
 |[stixtype]#{string_url}[string]#
 |A name used to identify the task.
 
-|*next_tasks_refs* (optional)
+|*next_task_refs* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#{identifier_url}[identifier]#
 |The [stixtype]#<<task,task>># objects to follow. They *MUST* be of type [stixtype]#<<task,task>>#.
+
+There can be more than one if they take place in parallel.
 
 |*priority* (optional)
 |[stixtype]#{int_url}[integer]#
