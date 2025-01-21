@@ -1051,6 +1051,12 @@ The values of this property *SHOULD* come from the [stixtype]#<<task-type-ov,tas
 |[stixtype]#{string_url}[string]#
 |A description of the task.
 
+|*due_date* (optional)
+|[stixtype]#{timestamp_url}[timestamp]#
+|The date and time the task is/was due to be completed.
+
+The value of due_date *MAY* be unrelated to the values of *start_time* and *end_time*, i.e., there is no requirement that a *due_date* be between those values.
+
 |*end_time* (optional)
 |[stixtype]#{timestamp_url}[timestamp]#
 |The date and time the task was last recorded. If this is not present it is assumed to be unknown.
