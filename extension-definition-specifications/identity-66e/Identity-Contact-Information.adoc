@@ -72,7 +72,7 @@ The properties and additional types within the Identity Contact Information Exte
 |A list of contact number objects that contain the phone and fax numbers.
 
 |*websites* (optional)
-|[stixtype]#{list_url}[list]# of type [stixtype]#<<urk, url>>#
+|[stixtype]#{list_url}[list]# of type [stixtype]#{string_url}[string]#
 |A list of websites associated with the identity.
 
 |*first_name* (optional)
