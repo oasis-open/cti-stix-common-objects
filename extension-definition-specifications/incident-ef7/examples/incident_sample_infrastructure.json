@@ -13,16 +13,10 @@
                 "extension_type": "property-extension",
                 "determination": "confirmed",
                 "investigation_status": "open",
-                "tasks": [
-                    {
-                        "task_ref": "task--83d0d800-e66f-4b30-9748-d079e41e3483"
-                    },
-                    {
-                        "task_ref": "task--7586c149-484c-48ef-ab2c-4bc70c3638f3"
-                    },
-                    {
-                        "task_ref": "task--397d5f8b-467f-4621-a11e-519d7c731652"
-                    }
+                "task_refs": [
+                    "task--83d0d800-e66f-4b30-9748-d079e41e3483",
+                    "task--7586c149-484c-48ef-ab2c-4bc70c3638f3",
+                    "task--397d5f8b-467f-4621-a11e-519d7c731652"
                 ],
                 "impact_refs": [
                     "impact--726dfff2-e3a9-45b5-b903-ed22f5962d44",

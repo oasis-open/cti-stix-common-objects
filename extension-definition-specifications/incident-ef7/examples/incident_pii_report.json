@@ -22,33 +22,17 @@
                         , "equipment-theft"
                         , "major"
                     ],
-                    "events": [
-                        {
-                            "event_ref": "event--558107fe-70be-46cc-81ea-d825c5f8dc47"
-                        }
+                    "event_refs": [
+                        "event--558107fe-70be-46cc-81ea-d825c5f8dc47"
                     ],
-                    "tasks": [
-                        {
-                            "task_ref": "task--9cc91e80-f7e6-4dac-8178-e4f3e5d6516c"
-                        },
-                        {
-                            "task_ref": "task--8de0400e-bffd-429b-a3cc-0a8073ef0719"
-                        },
-                        {
-                            "task_ref": "task--723ce9ab-def7-4ba7-b33c-8703b373b722"
-                        },
-                        {
-                            "task_ref": "task--f02f5b09-068d-4665-830a-7a3631bebffe"
-                        },
-                        {
-                            "task_ref": "task--81a3c814-b2be-4fc9-b122-13d45f081720"
-                        },
-                        {
-                            "task_ref": "task--83693cc3-7cc5-4368-ac71-c9b0d840f20d"
-                        },
-                        {
-                            "task_ref": "task--c8c44b19-b1f5-4d40-ad43-23c686e5557b"
-                        }
+                    "task_refs": [
+                        "task--9cc91e80-f7e6-4dac-8178-e4f3e5d6516c",
+                        "task--8de0400e-bffd-429b-a3cc-0a8073ef0719",
+                        "task--723ce9ab-def7-4ba7-b33c-8703b373b722",
+                        "task--f02f5b09-068d-4665-830a-7a3631bebffe",
+                        "task--81a3c814-b2be-4fc9-b122-13d45f081720",
+                        "task--83693cc3-7cc5-4368-ac71-c9b0d840f20d",
+                        "task--c8c44b19-b1f5-4d40-ad43-23c686e5557b"
                     ],
                     "impact_refs": [
                         "impact--29d33f9d-a1a4-4d08-a48c-01a8f076331b",

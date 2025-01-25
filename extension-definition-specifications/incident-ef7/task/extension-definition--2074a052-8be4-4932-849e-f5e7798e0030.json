@@ -127,7 +127,7 @@
                     "minimum": 0,
                     "maximum": 100
                 },
-		"next_task_refs": {
+		"next_tasks_refs": {
 		    "type": "array",
 		    "items": {
                         "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",

@@ -17,55 +17,19 @@
                     "determination": "confirmed",
                     "investigation_status": "open",
                     "detection_methods": ["human-review"],
-                    "events": [
-                        {
-                            "event_ref": "event--fa107730-c44b-403b-8673-387180fed6f8",
-                            "next_steps": [
-                                {
-                                    "event_ref": "event--dbe72493-1326-4e25-ad04-99c805a51939",
-                                    "condition_type": "unknown",
-                                    "transition_type": "success"
-                                }
-                            ]
-                        },
-                        {
-                            "event_ref": "event--44728578-a89c-41de-b934-17fec1bd30d7",
-                            "next_steps": [
-                                {
-                                    "event_ref": "event--dbe72493-1326-4e25-ad04-99c805a51939",
-                                    "condition_type": "optional",
-                                    "transition_type": "unknown"
-                                }
-                            ]
-                        },
-                        {
-                            "event_ref": "event--dbe72493-1326-4e25-ad04-99c805a51939",
-                            "next_steps": [
-                                {
-                                    "event_ref": "event--774d7ae5-3efc-40e6-8d9d-63ca9904bfad",
-                                    "condition_type": "required",
-                                    "transition_type": "success"
-                                }
-                            ]
-                        },
-                        {
-                            "event_ref": "event--774d7ae5-3efc-40e6-8d9d-63ca9904bfad"
-                        }
+                    "event_refs": [
+                        "event--fa107730-c44b-403b-8673-387180fed6f8",
+                        "event--dbe72493-1326-4e25-ad04-99c805a51939",
+                        "event--44728578-a89c-41de-b934-17fec1bd30d7",
+                        "event--dbe72493-1326-4e25-ad04-99c805a51939",
+                        "event--dbe72493-1326-4e25-ad04-99c805a51939",
+                        "event--774d7ae5-3efc-40e6-8d9d-63ca9904bfad",
+                        "event--774d7ae5-3efc-40e6-8d9d-63ca9904bfad"
                     ],
-                    "tasks": [
-                        {
-                            "task_ref": "task--2d254737-fbf8-4969-adb3-80ac5c293f57",
-                            "next_steps": [
-                                {
-                                    "task_ref": "task--b0f2c730-7f0b-4ca9-895f-e41b9cf39949",
-                                    "condition_type": "required",
-                                    "transition_type": "completion"
-                                }
-                            ]
-                        },
-                        {
-                            "task_ref": "task--b0f2c730-7f0b-4ca9-895f-e41b9cf39949"
-                        }
+                    "task_refs": [
+                        "task--2d254737-fbf8-4969-adb3-80ac5c293f57",
+                        "task--b0f2c730-7f0b-4ca9-895f-e41b9cf39949",
+                        "task--b0f2c730-7f0b-4ca9-895f-e41b9cf39949"
                     ]
                 }
             }
@@ -80,6 +44,9 @@
             "status": "occurred",
             "sighting_refs": ["sighting--55183679-1f1d-4824-af63-72ec2ef855a0"],
             "description": "Drive-by compromise of a trusted domain was believed to deliver malware, but it is unclear when it was activated",
+	    "next_events_refs": [
+		"event--dbe72493-1326-4e25-ad04-99c805a51939"
+	    ],
             "extensions": {
                 "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
                     "extension_type": "new-sdo"
@@ -104,6 +71,9 @@
             "status": "occurred",
             "sighting_refs": ["sighting--9af0cfab-2dfe-448d-a4e3-85ae0af3149c"],
             "description": "A phishing campaign was attachments was used to attempt to deliver malicious PDFs.  The malware may have already been active by the time a user clicks on this however as it started before the drive by, but also ended after it.",
+	    "next_events_refs": [
+		"event--dbe72493-1326-4e25-ad04-99c805a51939"
+	    ],
             "extensions": {
                 "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
                     "extension_type": "new-sdo"
@@ -128,6 +98,9 @@
             "status": "occurred",
             "sighting_refs": ["sighting--784ccd72-98fa-41e5-bc37-20659e0e9397"],
             "description": "Remote desktop protocol was used to access domain controller",
+	    "next_events_refs": [
+		"event--774d7ae5-3efc-40e6-8d9d-63ca9904bfad"
+	    ],
             "extensions": {
                 "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
                     "extension_type": "new-sdo"
@@ -179,6 +152,9 @@
             "description": "A server admin found a strange account",
             "start_time": "2020-10-15T01:01:01.000Z",
             "end_time": "2020-10-15T01:01:01.000Z",
+	    "next_tasks_refs": [
+		"task--b0f2c730-7f0b-4ca9-895f-e41b9cf39949"
+	    ],
             "extensions": {
                 "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
                     "extension_type": "new-sdo"
@@ -201,30 +177,10 @@
             ],
             "description": "Began executing playbook",
             "start_time": "2020-10-15T01:01:01.000Z",
-            "subtasks": [
-                {
-                    "task_ref": "task--9ceb67a5-5c5e-4d2c-8fa1-044c91445e49",
-                    "next_steps": [
-                        {
-                            "task_ref": "task--4d8c9945-cbaa-41d5-b98b-e620f7b7b7e5",
-                            "condition_type": "required",
-                            "transition_type": "success"
-                        }
-                    ]
-                },
-                {
-                    "task_ref": "task--4d8c9945-cbaa-41d5-b98b-e620f7b7b7e5",
-                    "next_steps": [
-                        {
-                            "task_ref": "task--caa55f5d-cf7f-4f34-a48b-62c0bf9e9e1d",
-                            "condition_type": "optional",
-                            "transition_type": "failure"
-                        }
-                    ]
-                },
-                {
-                    "task_ref": "task--caa55f5d-cf7f-4f34-a48b-62c0bf9e9e1d"
-                }
+            "next_tasks_refs": [
+                "task--9ceb67a5-5c5e-4d2c-8fa1-044c91445e49",
+		"task--4d8c9945-cbaa-41d5-b98b-e620f7b7b7e5",
+                "task--caa55f5d-cf7f-4f34-a48b-62c0bf9e9e1d"
             ],
             "extensions": {
                 "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
@@ -257,6 +213,9 @@
                     "result_ref": "grouping--5ae578cf-5884-45f4-a1bf-1998af828ccc"
                 }
             ],
+	    "next_tasks_refs": [
+		"task--4d8c9945-cbaa-41d5-b98b-e620f7b7b7e5"
+	    ],
             "extensions": {
                 "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
                     "extension_type": "new-sdo"
@@ -309,6 +268,9 @@
                     "initial_ref": "grouping--5ae578cf-5884-45f4-a1bf-1998af828ccc"
                 }
             ],
+	    "next_tasks_refs": [
+		"task--caa55f5d-cf7f-4f34-a48b-62c0bf9e9e1d"
+	    ],
             "extensions": {
                 "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
                     "extension_type": "new-sdo"

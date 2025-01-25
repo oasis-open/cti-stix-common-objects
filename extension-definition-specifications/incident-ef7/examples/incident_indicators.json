@@ -21,81 +21,19 @@
                         , "denial-of-service"
                         , "major"
                     ],
-                    "events": [
-                        {
-                            "event_ref": "event--6e7ec24e-e3b2-498e-afb4-e14eab67b5d4",
-                            "next_steps": [
-                                {
-                                    "event_ref": "event--e1d9744a-9c23-45fa-adee-59d739dfb620",
-                                    "condition_type": "required",
-                                    "transition_type": "completion"
-                                }
-                            ]
-                        },
-                        {
-                            "event_ref": "event--e1d9744a-9c23-45fa-adee-59d739dfb620",
-                            "next_steps": [
-                                {
-                                    "event_ref": "event--612c5cd9-689c-4bc0-83b2-cd956f812cf9",
-                                    "condition_type": "required",
-                                    "transition_type": "completion"
-                                },
-                                {
-                                    "event_ref": "event--747f4f6b-175f-4843-bde2-1b3218bf5ff0",
-                                    "condition_type": "required",
-                                    "transition_type": "completion"
-                                }
-                            ]
-                        },
-                        {
-                            "event_ref": "event--612c5cd9-689c-4bc0-83b2-cd956f812cf9"
-                        },
-                        {
-                            "event_ref": "event--747f4f6b-175f-4843-bde2-1b3218bf5ff0"
-                        }
+                    "event_refs": [
+                        "event--6e7ec24e-e3b2-498e-afb4-e14eab67b5d4",
+                        "event--e1d9744a-9c23-45fa-adee-59d739dfb620",
+                        "event--612c5cd9-689c-4bc0-83b2-cd956f812cf9",
+                        "event--747f4f6b-175f-4843-bde2-1b3218bf5ff0"
                     ],
-                    "tasks": [
-                        {
-                            "task_ref": "task--fd5f04a8-877f-42a3-a25d-ddfe2001a6e1",
-                            "next_steps": [
-                                {
-                                    "task_ref": "task--7a998b82-389d-4d9c-b5ca-40aa34680c0a",
-                                    "condition_type": "required",
-                                    "transition_type": "completion"
-                                },
-                                {
-                                    "task_ref": "task--d6853763-b5b3-4f5e-b031-bcb111a3d7a1",
-                                    "condition_type": "required",
-                                    "transition_type": "completion"
-                                }
-                            ]
-                        },
-                        {
-                            "task_ref": "task--7a998b82-389d-4d9c-b5ca-40aa34680c0a",
-                            "next_steps": [
-                                {
-                                    "task_ref": "task--7c99eec2-5873-4d02-a286-b1cfcbb33cbc",
-                                    "condition_type": "required",
-                                    "transition_type": "completion"
-                                }
-                            ]
-                        },
-                        {
-                            "task_ref": "task--7c99eec2-5873-4d02-a286-b1cfcbb33cbc",
-                            "next_steps": [
-                                {
-                                    "task_ref": "task--1b44203f-dbfb-4399-a02d-6b71f04ccfb7",
-                                    "condition_type": "required",
-                                    "transition_type": "completion"
-                                }
-                            ]
-                        },
-                        {
-                            "task_ref": "task--1b44203f-dbfb-4399-a02d-6b71f04ccfb7"
-                        },
-                        {
-                            "task_ref": "task--d6853763-b5b3-4f5e-b031-bcb111a3d7a1"
-                        }                   
+                    "task_refs": [
+                        "task--fd5f04a8-877f-42a3-a25d-ddfe2001a6e1",
+                        "task--7a998b82-389d-4d9c-b5ca-40aa34680c0a",
+                        "task--d6853763-b5b3-4f5e-b031-bcb111a3d7a1",
+                        "task--7c99eec2-5873-4d02-a286-b1cfcbb33cbc",
+                        "task--1b44203f-dbfb-4399-a02d-6b71f04ccfb7",
+                        "task--d6853763-b5b3-4f5e-b031-bcb111a3d7a1"       
                     ],
                     "impact_refs": [
                         "impact--8a8c50a3-c57f-4440-9fde-ff4d14da03d3",
@@ -193,6 +131,9 @@
             "id": "event--6e7ec24e-e3b2-498e-afb4-e14eab67b5d4",
             "description": "A phishing email with a malicious link was delivered.  When the user went to this link it put a dropper on their computer.",
             "sighting_refs": ["sighting--f0747539-929a-46b8-bc54-dc96e876a679", "sighting--f771469d-bd11-4e7a-b1f8-9a732b77db23"],
+	    "next_events_refs": [
+		"event--e1d9744a-9c23-45fa-adee-59d739dfb620"
+	    ],
             "extensions": {
                 "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
                     "extension_type": "new-sdo"
@@ -238,6 +179,10 @@
             "description": "The dropper verified it had internet access by checking google and then downloaded and installed second stage tooling.",
             "id": "event--e1d9744a-9c23-45fa-adee-59d739dfb620",
             "sighting_refs": ["sighting--0770b1ac-6b85-41cb-a0c4-2b71b9e76182"],
+	    "next_events_refs": [
+		"event--612c5cd9-689c-4bc0-83b2-cd956f812cf9",
+		"event--747f4f6b-175f-4843-bde2-1b3218bf5ff0"
+	    ], 
             "extensions": {
                 "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
                     "extension_type": "new-sdo"
@@ -386,6 +331,10 @@
             "start_time_fidelity": "day",
             "end_time": "2022-05-01T07:00:00Z",
             "end_time_fidelity": "day",
+	    "next_tasks_refs": [
+		"task--7a998b82-389d-4d9c-b5ca-40aa34680c0a",
+		"task--d6853763-b5b3-4f5e-b031-bcb111a3d7a1"
+	    ],
             "extensions": {
                 "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
                     "extension_type": "new-sdo"
@@ -405,6 +354,9 @@
             "start_time_fidelity": "day",
             "end_time": "2022-05-01T07:00:00Z",
             "end_time_fidelity": "day",
+	    "next_tasks_refs": [
+		"task--7c99eec2-5873-4d02-a286-b1cfcbb33cbc"
+	    ],
             "extensions": {
                 "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
                     "extension_type": "new-sdo"
@@ -424,6 +376,9 @@
             "start_time_fidelity": "day",
             "end_time": "2022-05-02T07:00:00Z",
             "end_time_fidelity": "day",
+	    "next_tasks_refs": [
+		"task--1b44203f-dbfb-4399-a02d-6b71f04ccfb7"
+	    ],
             "extensions": {
                 "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
                     "extension_type": "new-sdo"
@@ -480,13 +435,9 @@
             "description": "Assembled team and began recovery",
             "start_time": "2022-05-02T07:00:00Z",
             "start_time_fidelity": "day",
-            "subtasks": [
-                {
-                    "task_ref": "task--05bf660d-52b9-4249-a75d-ada224dd1261"
-                },
-                {
-                    "task_ref": "task--6aa81489-8137-46e0-84f1-ebcae2e001e8"
-                }
+            "next_tasks_refs": [
+                "task--05bf660d-52b9-4249-a75d-ada224dd1261",
+                "task--6aa81489-8137-46e0-84f1-ebcae2e001e8"
             ],
             "extensions": {
                 "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {

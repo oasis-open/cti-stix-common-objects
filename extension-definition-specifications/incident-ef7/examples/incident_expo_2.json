@@ -154,89 +154,20 @@
                         "impact--6359dec6-d597-466a-bf50-6ed59cdec053",
                         "impact--e86d8503-becf-4647-a909-9c13661d1f2c"
                     ],
-                    "events": [
-                        {
-                            "event_ref": "event--90d6dde5-acb6-4a8e-b1d2-72f548a64839",
-                            "next_steps": [
-                                {
-                                    "event_ref": "event--05385116-81a8-4212-82b5-9f57dd832fb5",
-                                    "condition_type": "required",
-                                    "transition_type": "success"
-                                }
-                            ]
-                        },
-                        {
-                            "event_ref": "event--05385116-81a8-4212-82b5-9f57dd832fb5",
-                            "sequence_start": false
-                        }
+                    "event_refs": [
+			"event--90d6dde5-acb6-4a8e-b1d2-72f548a64839",
+                        "event--05385116-81a8-4212-82b5-9f57dd832fb5"
                     ],
-                    "tasks": [
-                        {
-                            "task_ref": "task--a45aaed9-6504-4f95-982e-78508726eb5a"
-                        },
-                        {
-                            "task_ref": "task--c9bbe53b-58f2-43a8-b68e-160ea57e61b8",
-                            "next_steps": [
-                                {
-                                    "task_ref": "task--6ef78c95-3b5d-4b8d-88c7-a90625cf7a5d",
-                                    "condition_type": "optional",
-                                    "transition_type": "failure"
-                                }
-                            ]
-                        },
-                        {
-                            "task_ref": "task--f5896140-d53d-4fe8-b1a8-06728dbfdc49"
-                        },
-                        {
-                            "task_ref": "task--6ef78c95-3b5d-4b8d-88c7-a90625cf7a5d",
-                            "sequence_start": false,
-                            "next_steps": [
-                                {
-                                    "task_ref": "task--993a1e68-8b5c-4f0e-aef7-75c31b85df3e",
-                                    "condition_type": "required",
-                                    "transition_type": "success"
-                                }
-                            ]
-                        },
-                        {
-                            "task_ref": "task--1e5701fe-569a-41d4-8014-bfbb07b2c82e",
-                            "next_steps": [
-                                {
-                                    "task_ref": "task--980ddd0f-5863-4464-b12e-105e6255eef1",
-                                    "condition_type": "required",
-                                    "transition_type": "success"
-                                }
-                            ]
-                        },
-                        {
-                            "task_ref": "task--980ddd0f-5863-4464-b12e-105e6255eef1",
-                            "sequence_start": false,
-                            "next_steps": [
-                                {
-                                    "task_ref": "task--6998596d-28f5-4670-af86-3bc168df1854",
-                                    "condition_type": "optional",
-                                    "transition_type": "success"
-                                }
-                            ]
-                        },
-                        {
-                            "task_ref": "task--993a1e68-8b5c-4f0e-aef7-75c31b85df3e",
-                            "sequence_start": false,
-                            "next_steps": [
-                                {
-                                    "task_ref": "task--6998596d-28f5-4670-af86-3bc168df1854",
-                                    "condition_type": "required",
-                                    "transition_type": "success"
-                                }
-                            ]
-                        },
-                        {
-                            "task_ref": "task--6998596d-28f5-4670-af86-3bc168df1854",
-                            "sequence_start": false
-                        },
-                        {
-                            "task_ref": "task--e0accba2-08cd-41fe-b31a-fab30267b222"
-                        }
+                    "task_refs": [
+                        "task--a45aaed9-6504-4f95-982e-78508726eb5a",
+                        "task--c9bbe53b-58f2-43a8-b68e-160ea57e61b8",
+                        "task--f5896140-d53d-4fe8-b1a8-06728dbfdc49",
+                        "task--6ef78c95-3b5d-4b8d-88c7-a90625cf7a5d",
+                        "task--1e5701fe-569a-41d4-8014-bfbb07b2c82e",
+                        "task--980ddd0f-5863-4464-b12e-105e6255eef1",
+                        "task--6998596d-28f5-4670-af86-3bc168df1854",
+                        "task--993a1e68-8b5c-4f0e-aef7-75c31b85df3e",
+                        "task--e0accba2-08cd-41fe-b31a-fab30267b222"
                     ]
                 }
             }
@@ -368,6 +299,9 @@
             "start_time_fidelity": "minute",
             "end_time": "2022-09-15T10:00:00.000Z",
             "end_time_fidelity": "hour",
+	    "next_events_refs": [
+		"event--05385116-81a8-4212-82b5-9f57dd832fb5"
+	    ],
             "extensions": {
                 "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
                     "extension_type": "new-sdo"
@@ -429,21 +363,9 @@
                     "result_ref": "impact--d16ffd9c-4d83-46d5-b6ac-626ada44458c"
                 }
             ],
-            "subtasks": [
-                {
-                    "task_ref": "task--f5ea62cf-bcbb-47cd-bc52-42cadd1afbeb",
-                    "next_steps": [
-                        {
-                            "task_ref": "task--88f6cf01-c575-425e-a304-d842edb91bfa",
-                            "condition_type": "required",
-                            "transition_type": "completion"
-                        }
-                    ]
-                },
-                {
-                    "task_ref": "task--88f6cf01-c575-425e-a304-d842edb91bfa",
-                    "sequence_start": false
-                }
+            "next_tasks_refs": [
+                "task--f5ea62cf-bcbb-47cd-bc52-42cadd1afbeb",
+                "task--88f6cf01-c575-425e-a304-d842edb91bfa"
             ],
             "extensions": {
                 "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
@@ -495,6 +417,9 @@
             "start_time_fidelity": "hour",
             "end_time": "2022-09-14T18:00:00.000Z",
             "end_time_fidelity": "hour",
+	    "next_tasks_refs": [
+		"task--6ef78c95-3b5d-4b8d-88c7-a90625cf7a5d"
+	    ],
             "extensions": {
                 "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
                     "extension_type": "new-sdo"
@@ -533,6 +458,9 @@
             "outcome": "successful",
             "start_time": "2022-09-14T23:00:00.000Z",
             "start_time_fidelity": "hour",
+	    "next_tasks_refs": [
+		"task--993a1e68-8b5c-4f0e-aef7-75c31b85df3e"
+	    ],
             "extensions": {
                 "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
                     "extension_type": "new-sdo"
@@ -596,6 +524,9 @@
             "start_time_fidelity": "hour",
             "end_time": "2022-09-15T05:00:00.000Z",
             "end_time_fidelity": "hour",
+	    "next_tasks_refs": [
+		"task--6998596d-28f5-4670-af86-3bc168df1854"
+	    ],
             "extensions": {
                 "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
                     "extension_type": "new-sdo"

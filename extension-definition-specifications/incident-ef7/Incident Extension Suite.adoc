@@ -1299,7 +1299,7 @@ This is normally a system or process name or some combination of these such as "
 
 [source,json]
 ----
-include::examples/example_3.4.json[]
+include::examples/example_3.2.json[]
 ----
 
 [[state-change]]
@@ -1351,7 +1351,7 @@ If the *initial_ref* property is populated this *MUST* reference the same type o
 
 [source,json]
 ----
-include::examples/example_3.5.json[]
+include::examples/example_3.3.json[]
 ----
 
 == 4. Vocabularies

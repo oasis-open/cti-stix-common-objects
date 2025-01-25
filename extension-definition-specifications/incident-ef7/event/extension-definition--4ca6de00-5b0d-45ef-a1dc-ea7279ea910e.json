@@ -125,7 +125,7 @@
                         "pattern": "^sighting--"
                     }
                 },
-		"next_event_refs": {
+		"next_events_refs": {
 		    "type": "array",
 		    "items": {
                         "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json",
