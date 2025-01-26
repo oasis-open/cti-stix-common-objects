@@ -19,7 +19,7 @@
         "blocked"
     ],
     "name": "Mitigation Task",
-    "next_task_refs": [
+    "next_tasks_refs": [
         "task--1cb3fbba-3216-4fd7-a1c2-b33473d20ed7"
     ],
     "priority": 80,

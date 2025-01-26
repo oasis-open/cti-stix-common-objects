@@ -368,7 +368,7 @@
             "start_time_fidelity": "day",
             "end_time": "2022-09-04T22:00:00.000Z",
             "end_time_fidelity": "day",
-	    "next_event_refs": [
+	    "next_events_refs": [
 		"event--403bce56-2e26-468e-a8a0-636f91903498"
 	    ],
             "extensions": {

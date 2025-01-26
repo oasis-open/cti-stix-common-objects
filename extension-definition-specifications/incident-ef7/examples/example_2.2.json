@@ -20,7 +20,7 @@
     ],
     "goal": "Gain unauthorized access to sensitive information.",
     "name": "Phishing Attack",
-    "next_event_refs": [
+    "next_events_refs": [
         "event--193a3ea2-32ae-4bfd-b353-16836ab70788",
         "event--d263f0f6-4c6c-4f77-a7fd-10368f0cb50a"
     ],
