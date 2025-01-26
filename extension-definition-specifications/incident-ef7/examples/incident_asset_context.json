@@ -23,13 +23,9 @@
                 "detection_methods": ["automated-tool"],
                 "incident_types": ["unauthorized-release"],
                 "criticality": 93,
-                "tasks": [
-                    {
-                        "task_ref": "task--b6e04f72-2414-4916-9d55-9f4c2520d76e"
-                    },
-                    {
-                        "task_ref": "task--8b2e8ed3-b199-453c-8510-ff1cb764832a"
-                    }
+                "task_refs": [
+                    "task--b6e04f72-2414-4916-9d55-9f4c2520d76e",
+                   "task--8b2e8ed3-b199-453c-8510-ff1cb764832a"
                 ],
                 "impact_refs": [
                     "impact--c946cc28-8c05-4770-82c4-4397f62f72b8",
@@ -66,7 +62,6 @@
         "labels": ["overall"],
         "impacted_refs": ["infrastructure--1c69a97c-bcfa-4674-b3a2-bfb8f797b7e5"],
         "extensions": {
-            
             "availability-ext": {
                 "availability_impact": 50
             },

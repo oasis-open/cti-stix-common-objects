@@ -35,8 +35,7 @@
                   "items": {
                     "type": "object",
                     "required": [
-                      "contact_number",
-                      "contact_number_type"
+                      "contact_number"
                     ],
                     "properties": {
                       "contact_number": {
@@ -88,8 +87,7 @@
                       }
                     },
                     "required": [
-                      "email_address_ref",
-                      "digital_contact_type"
+                      "email_address_ref"
                     ]
                   }
                 },
@@ -101,8 +99,7 @@
                   "items": {
                     "type": "object",
                     "required": [
-                      "user_account_ref",
-                      "digital_contact_type"
+                      "user_account_ref"
                     ],
                     "properties": {
                       "user_account_ref": {
@@ -146,7 +143,16 @@
                 "suffix": {
                   "type": "string",
                   "description": "A suffix for the individual such as “PhD”"
-                }
+                },
+		"websites": {
+                    "type": "array",
+		    "minItems": 1,
+                    "items": {
+			"type": "string"
+			"$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/url-regex.json"
+		    },
+                    "description": "A list of websites associated with the identity."
+                },
               }
             }
           }

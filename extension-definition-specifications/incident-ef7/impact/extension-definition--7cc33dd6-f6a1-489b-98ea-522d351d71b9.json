@@ -69,6 +69,21 @@
                         "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json"
                     }
                 },
+		 "sub_imact_refs": {
+                    "type": "array",
+                    "description": "The impact objects to that are part of this impact.",
+                    "minItems": 1,
+                     "items": {
+			 "allOf": [
+			     {
+				 "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json"
+			     },
+			     {
+				 "pattern": "^software--"
+			     }
+			 ]
+                    }
+                },
                 "recoverability": {
                     "type": "string",
                     "description": "The scope of impact required to recover from an incident",
@@ -233,7 +248,7 @@
                                 }
                             }
                         },
-                        "monetary-ext": {
+                        "economic-ext": {
                             "required": ["variety"],
                             "additionalProperties": false,
                             "oneOf": [
@@ -315,12 +330,12 @@
                                 },
                                 "max_amount": {
                                     "type": "number",
-                                    "description": "The lower bound estimate using the currency listed for the monetary damage caused by this impact",
+                                    "description": "The lower bound estimate using the currency listed for the economic damage caused by this impact",
                                     "minimum": 0
                                 },
                                 "min_amount": {
                                     "type": "number",
-                                    "description": "The lower bound estimate using the currency listed for the monetary damage caused by this impact",
+                                    "description": "The lower bound estimate using the currency listed for the economic damage caused by this impact",
                                     "minimum": 0
                                 }
                             }

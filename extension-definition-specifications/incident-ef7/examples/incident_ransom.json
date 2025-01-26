@@ -25,37 +25,15 @@
                         "impact--5cbcf7ba-b278-4fb3-aa86-99a73743db82",
                         "impact--55b1aa48-a642-440a-b9ed-9996189803e1"
                     ],
-                    "tasks": [
-                        {
-                            "task_ref": "task--8824b710-60eb-4e00-9e1e-e1b4a40c9a62"
-                        }
+                    "task_refs": [
+                        "task--8824b710-60eb-4e00-9e1e-e1b4a40c9a62"
                     ],
                     "events": [
-                        {
-                            "event_ref": "event--da2f25a7-b5d2-47e7-806d-75a2d61cda9f",
-                            "next_steps": [
-                                {
-                                    "event_ref": "event--c2f7f70d-5022-43cb-b2e0-18ae0a172122",
-                                    "condition_type": "required",
-                                    "transition_type": "success"
-                                }
-                            ]
-                        },
-                        {
-                            "event_ref": "event--c2f7f70d-5022-43cb-b2e0-18ae0a172122",
-                            "sequence_start": false,
-                            "next_steps": [
-                                {
-                                    "event_ref": "event--28eb658d-7b0c-4d3a-946e-c417edbb44bd",
-                                    "condition_type": "required",
-                                    "transition_type": "success"
-                                }
-                            ]
-                        },
-                        {
-                            "event_ref": "event--28eb658d-7b0c-4d3a-946e-c417edbb44bd",
-                            "sequence_start": false
-                        }
+                        "event--da2f25a7-b5d2-47e7-806d-75a2d61cda9f",
+                        "event--c2f7f70d-5022-43cb-b2e0-18ae0a172122",
+                        "event--c2f7f70d-5022-43cb-b2e0-18ae0a172122",
+                        "event--28eb658d-7b0c-4d3a-946e-c417edbb44bd",
+                        "event--28eb658d-7b0c-4d3a-946e-c417edbb44bd"
                     ]
                 }
             }
@@ -176,6 +154,9 @@
             "status": "occurred",
             "name": "Ransomware encrypted server and provided a message to the system administrator when they logged in advising they contact evil@decryptyourstuff.zip",
             "sighting_refs": ["sighting--4d051911-6275-4ec0-bf10-2b87348b8877"],
+	    "next_events_refs": [
+		"event--c2f7f70d-5022-43cb-b2e0-18ae0a172122"
+	    ],
             "extensions": {
                 "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
                     "extension_type": "new-sdo"
@@ -229,6 +210,9 @@
             "status": "occurred",
             "name": "A negotiation took place using FakeApp",
             "sighting_refs": ["sighting--e3d81ade-d1b0-4cf0-9450-02b08adb1564"],
+	    "next_events_refs": [
+		"event--28eb658d-7b0c-4d3a-946e-c417edbb44bd"
+	    ],
             "extensions": {
                 "extension-definition--4ca6de00-5b0d-45ef-a1dc-ea7279ea910e": {
                     "extension_type": "new-sdo"

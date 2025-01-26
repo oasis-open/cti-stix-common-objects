@@ -78,6 +78,10 @@
                     "type": "string",
                     "description": "A description of the activity that occurred."
                 },
+		"due_date": {
+		    "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/timestamp.json",
+		    "description": "The date and time the task is/was due to be completed. The value of due_date MAY be unrelated to the values of start_time and end_time, i.e., there is no requirement that a due_date be between those values."
+		}
                 "task_types": {
                     "type": "array",
                     "minItems": 1,

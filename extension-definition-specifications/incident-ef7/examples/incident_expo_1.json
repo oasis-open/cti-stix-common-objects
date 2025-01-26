@@ -129,21 +129,13 @@
                         "impact--7a5806e4-0f37-4c48-9a50-7301bff4b195",
                         "impact--d16ffd9c-4d83-46d5-b6ac-626ada44458c"
                     ],
-                    "events": [
-                        {
-                            "event_ref": "event--90d6dde5-acb6-4a8e-b1d2-72f548a64839"
-                        }
+                    "event_refs": [
+                        "event--90d6dde5-acb6-4a8e-b1d2-72f548a64839"
                     ],
-                    "tasks": [
-                        {
-                            "task_ref": "task--a45aaed9-6504-4f95-982e-78508726eb5a"
-                        },
-                        {
-                            "task_ref": "task--c9bbe53b-58f2-43a8-b68e-160ea57e61b8"
-                        },
-                        {
-                            "task_ref": "task--f5896140-d53d-4fe8-b1a8-06728dbfdc49"
-                        }
+                    "task_refs": [
+                        "task--a45aaed9-6504-4f95-982e-78508726eb5a",
+                        "task--c9bbe53b-58f2-43a8-b68e-160ea57e61b8",
+                        "task--f5896140-d53d-4fe8-b1a8-06728dbfdc49"
                     ]
                 }
             }
@@ -238,20 +230,9 @@
                     "result_ref": "impact--d16ffd9c-4d83-46d5-b6ac-626ada44458c"
                 }
             ],
-            "subtasks": [
-                {
-                    "task_ref": "task--f5ea62cf-bcbb-47cd-bc52-42cadd1afbeb",
-                    "next_steps": [
-                        {
-                            "task_ref": "task--88f6cf01-c575-425e-a304-d842edb91bfa",
-                            "condition_type": "required",
-                            "transition_type": "completion"
-                        }
-                    ]
-                },
-                {
-                    "task_ref": "task--88f6cf01-c575-425e-a304-d842edb91bfa"
-                }
+            "next_tasks_refs": [
+                "task--f5ea62cf-bcbb-47cd-bc52-42cadd1afbeb",
+                "task--88f6cf01-c575-425e-a304-d842edb91bfa"
             ],
             "extensions": {
                 "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {

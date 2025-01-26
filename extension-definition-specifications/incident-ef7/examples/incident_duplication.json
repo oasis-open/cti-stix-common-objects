@@ -18,13 +18,9 @@
                     "determination": "confirmed",
                     "detection_methods": ["user-report"],
                     "incident_types": ["loss-of-control"],
-                    "tasks": [
-                        {
-                            "task_ref": "task--6d6c1a2b-6a9b-4f2a-aa23-961f42acfc83"
-                        },
-                        {
-                            "task_ref": "task--aae16dc7-4ca9-4652-8d1b-10e6f1f8334f"
-                        }
+                    "task_refs": [
+			"task--6d6c1a2b-6a9b-4f2a-aa23-961f42acfc83",
+                       "task--aae16dc7-4ca9-4652-8d1b-10e6f1f8334f"
                     ]
                 }
             }
@@ -82,13 +78,9 @@
                     "determination": "confirmed",
                     "detection_methods": ["user-report"],
                     "incident_types": ["loss-of-control"],
-                    "tasks": [
-                        {
-                            "task_ref": "task--6d6c1a2b-6a9b-4f2a-aa23-961f42acfc83"
-                        },
-                        {
-                            "task_ref": "task--85ddc2d5-4d9f-4639-9365-9aa38631f0b7"
-                        }
+                    "task_refs": [
+			"task--6d6c1a2b-6a9b-4f2a-aa23-961f42acfc83",
+                        "task--85ddc2d5-4d9f-4639-9365-9aa38631f0b7"
                     ]
                 }
             }
