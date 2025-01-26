@@ -28,7 +28,7 @@
                     "task_refs": [
                         "task--8824b710-60eb-4e00-9e1e-e1b4a40c9a62"
                     ],
-                    "events": [
+                    "event_refs": [
                         "event--da2f25a7-b5d2-47e7-806d-75a2d61cda9f",
                         "event--c2f7f70d-5022-43cb-b2e0-18ae0a172122",
                         "event--c2f7f70d-5022-43cb-b2e0-18ae0a172122",

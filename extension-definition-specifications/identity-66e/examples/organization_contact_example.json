@@ -33,7 +33,10 @@
                             "description": "Test Company's organizational social media account",
                             "classified": false
                         }
-                    ]
+                    ],
+		    "websites": [
+			"test.com"
+		    ]
                 }
             }
         },
