@@ -44,7 +44,7 @@
             "status": "occurred",
             "sighting_refs": ["sighting--55183679-1f1d-4824-af63-72ec2ef855a0"],
             "description": "Drive-by compromise of a trusted domain was believed to deliver malware, but it is unclear when it was activated",
-	    "next_events_refs": [
+	    "next_event_refs": [
 		"event--dbe72493-1326-4e25-ad04-99c805a51939"
 	    ],
             "extensions": {
@@ -71,7 +71,7 @@
             "status": "occurred",
             "sighting_refs": ["sighting--9af0cfab-2dfe-448d-a4e3-85ae0af3149c"],
             "description": "A phishing campaign was attachments was used to attempt to deliver malicious PDFs.  The malware may have already been active by the time a user clicks on this however as it started before the drive by, but also ended after it.",
-	    "next_events_refs": [
+	    "next_event_refs": [
 		"event--dbe72493-1326-4e25-ad04-99c805a51939"
 	    ],
             "extensions": {
@@ -98,7 +98,7 @@
             "status": "occurred",
             "sighting_refs": ["sighting--784ccd72-98fa-41e5-bc37-20659e0e9397"],
             "description": "Remote desktop protocol was used to access domain controller",
-	    "next_events_refs": [
+	    "next_event_refs": [
 		"event--774d7ae5-3efc-40e6-8d9d-63ca9904bfad"
 	    ],
             "extensions": {
@@ -152,7 +152,7 @@
             "description": "A server admin found a strange account",
             "start_time": "2020-10-15T01:01:01.000Z",
             "end_time": "2020-10-15T01:01:01.000Z",
-	    "next_tasks_refs": [
+	    "next_task_refs": [
 		"task--b0f2c730-7f0b-4ca9-895f-e41b9cf39949"
 	    ],
             "extensions": {
@@ -177,7 +177,7 @@
             ],
             "description": "Began executing playbook",
             "start_time": "2020-10-15T01:01:01.000Z",
-            "next_tasks_refs": [
+            "next_task_refs": [
                 "task--9ceb67a5-5c5e-4d2c-8fa1-044c91445e49",
 		"task--4d8c9945-cbaa-41d5-b98b-e620f7b7b7e5",
                 "task--caa55f5d-cf7f-4f34-a48b-62c0bf9e9e1d"
@@ -213,7 +213,7 @@
                     "result_ref": "grouping--5ae578cf-5884-45f4-a1bf-1998af828ccc"
                 }
             ],
-	    "next_tasks_refs": [
+	    "next_task_refs": [
 		"task--4d8c9945-cbaa-41d5-b98b-e620f7b7b7e5"
 	    ],
             "extensions": {
@@ -268,7 +268,7 @@
                     "initial_ref": "grouping--5ae578cf-5884-45f4-a1bf-1998af828ccc"
                 }
             ],
-	    "next_tasks_refs": [
+	    "next_task_refs": [
 		"task--caa55f5d-cf7f-4f34-a48b-62c0bf9e9e1d"
 	    ],
             "extensions": {

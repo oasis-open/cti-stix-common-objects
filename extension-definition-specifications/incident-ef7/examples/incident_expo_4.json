@@ -252,12 +252,12 @@
             "spec_version": "2.1",
             "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
             "description": "Due to the public nature of this incident it may impact public relations",
-            "impact_category": "monetary",
+            "impact_category": "economic",
             "extensions": {
                 "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
                     "extension_type": "new-sdo"
                 },
-                "monetary-ext": {
+                "economic-ext": {
                     "variety": "brand-damage"
                 }
             }
@@ -402,7 +402,7 @@
             "start_time_fidelity": "day",
             "end_time": "2022-09-04T22:00:00.000Z",
             "end_time_fidelity": "day",
-	    "next_events_refs": [
+	    "next_event_refs": [
 		"event--71c21ab1-053d-4455-ac41-90b3bc5e5a1f"
 	    ],
             "extensions": {
@@ -517,7 +517,7 @@
             "start_time_fidelity": "day",
             "end_time": "2022-09-13T22:00:00.000Z",
             "end_time_fidelity": "day",
-            "next_events_refs": [
+            "next_event_refs": [
                 "event--4054c4eb-8794-4d7e-a2c7-7bb4dd9c1fbf",
 	        "event--7366ca2b-45af-4112-b352-4e0acc4ee22b",
                 "event--c53aef43-05b1-4e09-8f61-73ac307eb36a",
@@ -549,7 +549,7 @@
             "start_time_fidelity": "day",
             "end_time": "2022-09-13T22:00:00.000Z",
             "end_time_fidelity": "day",
-	    "next_events_refs": [
+	    "next_event_refs": [
 		"event--7366ca2b-45af-4112-b352-4e0acc4ee22b"
 	    ],
             "extensions": {
@@ -593,7 +593,7 @@
                 "sighting--f75289d0-ac26-4925-9c77-327b7499b674",
                 "sighting--36181039-d157-428d-a31a-d79e57b421cd"
             ],
-	    "next_events_refs": [
+	    "next_event_refs": [
 		"event--4054c4eb-8794-4d7e-a2c7-7bb4dd9c1fbf",
 		"event--c53aef43-05b1-4e09-8f61-73ac307eb36a"
             ],
@@ -703,7 +703,7 @@
             "start_time_fidelity": "minute",
             "end_time": "2022-09-15T10:00:00.000Z",
             "end_time_fidelity": "hour",
-            "next_events_refs": [
+            "next_event_refs": [
                 "event--20cfb071-a62f-4f94-a188-96d39af43a8c",
                 "event--219d4b8d-6665-4aee-9387-dc1a475e2996",
                 "event--875dbd12-ed65-44c8-924b-e28354cbc2f5",
@@ -731,7 +731,7 @@
             "start_time_fidelity": "day",
             "end_time": "2022-09-15T10:00:00.000Z",
             "end_time_fidelity": "day",
-	    "next_events_refs": [
+	    "next_event_refs": [
 		"event--875dbd12-ed65-44c8-924b-e28354cbc2f5"
 	    ],
             "extensions": {
@@ -766,7 +766,7 @@
             "start_time_fidelity": "day",
             "end_time": "2022-09-15T10:00:00.000Z",
             "end_time_fidelity": "day",
-	    "next_events_refs": [
+	    "next_event_refs": [
 		"event--875dbd12-ed65-44c8-924b-e28354cbc2f5"
 	    ],
             "extensions": {
@@ -806,7 +806,7 @@
             "start_time_fidelity": "day",
             "end_time": "2022-09-15T10:00:00.000Z",
             "end_time_fidelity": "day",
-	    "next_events_refs": [
+	    "next_event_refs": [
 		"event--2cf8b0a6-76d0-4d76-b015-f7c4c741b0fa"
 	    ],
             "extensions": {
@@ -899,7 +899,7 @@
                     "result_ref": "impact--d16ffd9c-4d83-46d5-b6ac-626ada44458c"
                 }
             ],
-            "next_tasks_refs": [
+            "next_task_refs": [
                 "task--f5ea62cf-bcbb-47cd-bc52-42cadd1afbeb",
 		"task--88f6cf01-c575-425e-a304-d842edb91bfa"
             ],
@@ -918,7 +918,7 @@
             "object_marking_refs": ["marking-definition--f81f633d-3017-4678-a914-fe82dfc4b42c"],
             "name": "Start Bypass",
             "outcome": "successful",
-	    "next_tasks_refs": [
+	    "next_task_refs": [
 		"task--88f6cf01-c575-425e-a304-d842edb91bfa"
 	    ],
             "extensions": {
@@ -958,7 +958,7 @@
             "start_time_fidelity": "hour",
             "end_time": "2022-09-14T18:00:00.000Z",
             "end_time_fidelity": "hour",
-	    "next_tasks_refs": [
+	    "next_task_refs": [
 		"task--6ef78c95-3b5d-4b8d-88c7-a90625cf7a5d"
 	    ],
             "extensions": {
@@ -981,7 +981,7 @@
             "start_time_fidelity": "hour",
             "end_time": "2022-09-15T01:00:00.000Z",
             "end_time_fidelity": "hour",
-	    "next_tasks_refs": [
+	    "next_task_refs": [
 		"task--e0accba2-08cd-41fe-b31a-fab30267b222"
 	    ],
             "extensions": {
@@ -1002,7 +1002,7 @@
             "outcome": "successful",
             "start_time": "2022-09-14T23:00:00.000Z",
             "start_time_fidelity": "hour",
-	    "next_tasks_refs": [
+	    "next_task_refs": [
 		"task--993a1e68-8b5c-4f0e-aef7-75c31b85df3e"
 	    ],
             "extensions": {
@@ -1026,7 +1026,7 @@
             "start_time_fidelity": "hour",
             "end_time": "2022-09-15T00:00:00.000Z",
             "end_time_fidelity": "hour",
-	    "next_tasks_refs": [
+	    "next_task_refs": [
 		"task--980ddd0f-5863-4464-b12e-105e6255eef1"
 	    ], 
             "extensions": {
@@ -1050,7 +1050,7 @@
             "start_time_fidelity": "hour",
             "end_time": "2022-09-15T04:00:00.000Z",
             "end_time_fidelity": "hour",
-	    "next_tasks_refs": [
+	    "next_task_refs": [
 		"task--6998596d-28f5-4670-af86-3bc168df1854"
 	    ],
             "extensions": {
@@ -1095,7 +1095,7 @@
             "start_time_fidelity": "hour",
             "end_time": "2022-09-15T08:00:00.000Z",
             "end_time_fidelity": "hour",
-	    "next_tasks_refs": [
+	    "next_task_refs": [
 		"task--5e0ce2e7-d603-4c5b-bcde-ded2821c0c8a"
 	    ],
             "changed_objects": [
@@ -1125,7 +1125,7 @@
             "start_time_fidelity": "hour",
             "end_time": "2022-09-15T13:00:00.000Z",
             "end_time_fidelity": "hour",
-	    "next_tasks_refs": [
+	    "next_task_refs": [
 		"task--583b5df2-4665-4595-9a10-ed8ddbc18c0f"
 	    ],
             "extensions": {
@@ -1168,7 +1168,7 @@
             "start_time_fidelity": "hour",
             "end_time": "2022-09-15T21:00:00.000Z",
             "end_time_fidelity": "hour",
-	    "next_tasks_refs": [
+	    "next_task_refs": [
 		"task--88f6cf01-c575-425e-a304-d842edb91bfa"
 	    ],
             "changed_objects": [

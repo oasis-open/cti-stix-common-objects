@@ -230,7 +230,7 @@
                     "result_ref": "impact--d16ffd9c-4d83-46d5-b6ac-626ada44458c"
                 }
             ],
-            "next_tasks_refs": [
+            "next_task_refs": [
                 "task--f5ea62cf-bcbb-47cd-bc52-42cadd1afbeb",
                 "task--88f6cf01-c575-425e-a304-d842edb91bfa"
             ],
