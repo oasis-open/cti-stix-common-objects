@@ -141,11 +141,11 @@
                 },
                 "prefix": {
                   "type": "string",
-                  "description": "A prefix or title for an individual such as “Mr” or “Ms”"
+                  "description": "A prefix or title for an individual such as 'Mr' or 'Ms'"
                 },
                 "suffix": {
                   "type": "string",
-                  "description": "A suffix for the individual such as “PhD”"
+                  "description": "A suffix for the individual such as 'PhD'"
                 }
               }
             }
