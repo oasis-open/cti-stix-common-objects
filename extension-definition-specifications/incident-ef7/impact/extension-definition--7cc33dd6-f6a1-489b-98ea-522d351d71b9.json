@@ -251,7 +251,6 @@
                         "economic-ext": {
                             "required": ["variety"],
                             "additionalProperties": false,
-                            
                             "properties": {
                                 "variety": {
                                     "type": "string",
@@ -285,6 +284,7 @@
                                 }
                             },
 			    "dependentRequired": {
+				"$comment": "'not currency_actual implies not conversion_rate' not specified here, but is in the spec",
 				"min_amount": ["currency", "max_amount"],
 				"currency_actual": ["currency", "conversion_rate"],
 				"conversion_rate": ["conversion_time"]
