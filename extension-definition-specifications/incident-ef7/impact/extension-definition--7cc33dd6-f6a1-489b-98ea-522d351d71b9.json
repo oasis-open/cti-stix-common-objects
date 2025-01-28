@@ -8,7 +8,6 @@
         "impact_category",
         "extensions"
     ],
-    "unevaluatedProperties": false,
     "allOf": [
         {
             "$ref": "#/definitions/STIX_Uncommon"
@@ -115,11 +114,12 @@
                     "type": "object",
                     "description": "STIX extensions.",
                     "additionalProperties": true,
-                    "minProperties": 2,
+                    "$comment": "re-consider min_properties: 2 if undetermined is removed",
                     "required": ["extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9"],
                     "properties": {
                         "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
-                            "type": "object",
+                            "required": ["extension_type"],
+			    "type": "object",
                             "additionalProperties": false,
                             "properties": {
                                 "extension_type": {
@@ -251,62 +251,7 @@
                         "economic-ext": {
                             "required": ["variety"],
                             "additionalProperties": false,
-                            "oneOf": [
-                                {
-                                    "not": {
-                                        "anyOf": [
-                                            {
-                                                "required": [
-                                                    "min_amount"
-                                                ]
-                                            },
-                                            {
-                                                "required": [
-                                                    "max_amount"
-                                                ]
-                                            }
-                                        ]
-                                    }
-                                },
-                                {
-                                    "required": [
-                                        "currency",
-                                        "min_amount",
-                                        "max_amount"
-                                    ],
-                                    "not": {
-                                        "anyOf": [
-                                            {
-                                                "required": ["conversion_rate"]
-                                            },
-                                            {
-                                                "required": ["currency_actual"]
-                                            }
-                                        ]
-                                    }
-                                },
-                                {
-                                    "required": [
-                                        "currency",
-                                        "min_amount",
-                                        "max_amount",
-                                        "currency_actual"
-                                    ],
-                                    "not": {
-                                        "required": ["conversion_rate"]
-                                    }
-                                },
-                                {
-                                    "required": [
-                                        "currency",
-                                        "min_amount",
-                                        "max_amount",
-                                        "conversion_rate",
-                                        "currency_actual",
-                                        "conversion_time"
-                                    ]
-                                }
-                            ],
+                            
                             "properties": {
                                 "variety": {
                                     "type": "string",
@@ -338,7 +283,13 @@
                                     "description": "The lower bound estimate using the currency listed for the economic damage caused by this impact",
                                     "minimum": 0
                                 }
-                            }
+                            },
+			    "dependentRequired": {
+				"min_amount": ["currency", "max_amount"],
+				"currency_actual": ["currency", "conversion_rate"],
+				"conversion_rate": ["conversion_time"]
+			    }
+
                         },
                         "physical-ext": {
                             "additionalProperties": false,
