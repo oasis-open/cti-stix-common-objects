@@ -5,7 +5,6 @@
     "description": "An extension for tracking the impact of incidents.",
     "type": "object",
     "required": [
-        "impact_category",
         "extensions"
     ],
     "allOf": [
