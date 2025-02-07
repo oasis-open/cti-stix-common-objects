@@ -4,14 +4,15 @@
     "title": "Impact",
     "description": "An extension for tracking the impact of incidents.",
     "type": "object",
-    "required": [
-        "extensions"
-    ],
+    
     "allOf": [
         {
             "$ref": "#/definitions/STIX_Uncommon"
         },
         {
+	    "required": [
+		"extensions"
+	    ],
             "properties": {
                 "type": {
                     "type": "string",

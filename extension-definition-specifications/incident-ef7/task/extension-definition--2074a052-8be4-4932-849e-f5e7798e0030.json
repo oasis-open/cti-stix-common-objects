@@ -5,11 +5,7 @@
     "description": "An extension for recording tasks in STIX.",
     "type": "object",
     "unevaluatedProperties": false,
-    "required": [
-        "extensions"
-        , "outcome"
-        , "type"
-    ],
+
     "allOf": [
         {
             "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/core.json"
@@ -138,7 +134,12 @@
                         "pattern": "^task--"
                     }
 		}
-            }
+            },
+	    "required": [
+		"extensions",
+		"outcome",
+		"type"
+	    ]
         }
     ]
 }
