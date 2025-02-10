@@ -162,7 +162,7 @@
                             "properties": {
                                 "information_type": {
                                     "type": "string",
-                                    "description": "The type of data that had its confidentiality compromised"
+                                    "description": "The type of data that had its confidentiality compromised. See information-type-ov"
                                 },
                                 "loss_type": {
                                     "type": "string",
@@ -171,7 +171,8 @@
                                         "contained",
                                         "exploited-loss",
                                         "suspected-loss",
-                                        "none"
+                                        "none",
+					"unknown"
                                     ]
                                 },
                                 "record_count": {
@@ -193,6 +194,7 @@
                             "additionalProperties": false,
                             "properties": {
                                 "impact_type": {
+				    "description": "see external-impact-ov",
                                     "type": "string"
                                 }
                             }
@@ -226,13 +228,13 @@
                                     "type": "string",
                                     "description": "The type of information that had its integrity compromised.  This can include control systems and other processes that can result in virtual or physical impacts.",
                                     "enum": [
-                                        "potential-destruction"
-                                        , "potential-modification"
-                                        , "partial-destruction"
-                                        , "partial-modification"
-                                        , "full-destruction"
-                                        , "full-modification"
-                                        , "none"
+                                        "potential-destruction",
+                                        "potential-modification",
+                                        "partial-destruction",
+                                        "partial-modification",
+                                        "full-destruction",
+                                        "full-modification",
+                                        "none"
                                     ]
                                     
                                 },
@@ -315,7 +317,7 @@
                             "properties": {
                                 "asset_type": {
                                     "type": "string",
-                                    "description": "The type of asset that was affected by this impact."
+                                    "description": "The type of asset that was affected by this impact. See asset-type-ov"
                                 },
                                 "impact_type": {
                                     "type": "string",
@@ -349,6 +351,60 @@
         }
     ],
     "definitions": {
+	"asset-type-ov": {
+	    "type": "string",
+	    "enum": [
+		"building-doors",
+		"building-windows",
+		"buildings",
+		"computers-mobile",
+		"computers-personal",
+		"computers-server",
+		"environment",
+		"ics-actuator",
+		"ics-engineering-workstation",
+		"ics-historian",
+		"ics-hmi",
+		"ics-other",
+		"ics-plc",
+		"ics-safety-system",
+		"ics-sensor",
+		"inventory",
+		"network-device",
+		"private-infrastructure",
+		"public-infrastructure",
+		"security-containers",
+		"vehicles"
+	    ]
+	},
+	"external-impact-ov": {
+	    "type": "string",
+	    "enum": [
+		"economic",
+		"emergency-services",
+		"foreign-relations",
+		"national-security",
+		"public-confidence",
+		"public-health",
+		"public-safety"
+	    ]
+	},
+	"information-type-ov": {
+	    "type": "string",
+	    "enum": [
+		"classified-material",
+		"communication",
+		"credentials-admin",
+		"credentials-user",
+		"financial",
+		"legal",
+		"payment",
+		"phi",
+		"pii",
+		"proprietary",
+		"system"
+	    ]
+	},
         "STIX_Uncommon": {
             "type": "object",
             "properties": {

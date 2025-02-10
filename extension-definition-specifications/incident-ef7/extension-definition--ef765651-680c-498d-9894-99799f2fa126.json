@@ -92,7 +92,7 @@
                                 },
                                 "investigation_status": {
                                     "type": "string",
-                                    "description": "The current status of the incident investigation.",
+                                    "description": "The current status of the incident investigation. See incident-investigation-ov",
                                     "$comment": "An Incident should be marked as New until some action is taken"
                                 },
                                 "incident_types": {
@@ -105,7 +105,7 @@
                                 },
                                 "detection_methods": {
                                     "type": "array",
-                                    "description": "A list of strings containing what was used to detect the activity, ex. commercial tool names, techniques associated with proprietary solutions, human review, external sources, or other methods.",
+                                    "description": "A list of strings containing what was used to detect the activity, ex. commercial tool names, techniques associated with proprietary solutions, human review, external sources, or other methods. See detection-methods-ov",
                                     "minItems": 1,
                                     "items": {
                                         "type": "string"
@@ -149,6 +149,27 @@
                 "not-recoverable"
             ],
             "$comment": "This is a closed vocabulary (enumeration): non-applicable is an addition to what is found on https://us-cert.cisa.gov/incident-notification-guidelines for Incident reports that do not have associated recover costs.  For example a phishing email that was detected successfully."
-        }
-    }
+        },
+	"incident-investigation-ov": {
+	    "type": "string",
+	    "enum": [
+		"closed",
+		"new",
+		"open"
+	    ]
+	},
+	"detection-methods-ov": {
+	    "type": "string",
+	    "enum": [
+		"automated-tool",
+		"commercial-solution",
+		"external-notification",
+		"human-review",
+		"message-from-attacker",
+		"proprietary-solution",
+		"system-outage",
+		"user-reporting"
+	    ]
+	}
+   }
 }

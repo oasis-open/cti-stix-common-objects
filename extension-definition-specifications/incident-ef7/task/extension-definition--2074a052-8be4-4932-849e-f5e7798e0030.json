@@ -83,7 +83,7 @@
                     "minItems": 1,
                     "items": {
                         "type": "string",
-                        "description": "A general type for the timestamp for higher level rollup",
+                        "description": "A general type for the timestamp for higher level rollup. See task-type-ov",
                         "$comment": "Open-Vocab including: 'recovery', 'detected', 'declared', 'escalated'"
                     }
                 },
@@ -91,12 +91,12 @@
                     "type": "string",
                     "description": "The outcome of a particular attacker activity",
                     "enum": [
-                        "cancelled"
-                        , "failed"
-                        , "ongoing"
-                        , "pending"
-                        , "successful"
-                        , "unknown"
+                        "cancelled",
+                        "failed",
+                        "ongoing",
+                        "pending",
+                        "successful",
+                        "unknown"
                     ]
                 },
                 "start_time": {
@@ -141,5 +141,33 @@
 		"type"
 	    ]
         }
-    ]
+    ],
+    "definitions": {
+	"task-type-ov": {
+	    "type": "string",
+	    "enum": [
+		"administrative",
+		"attribution",
+		"containment",
+		"declared",
+		"detected",
+		"eradication",
+		"escalated",
+		"exercised-control",
+		"external-intelligence",
+		"external-outreach",
+		"external-support",
+		"implemented-control",
+		"investigation",
+		"negotiation",
+		"playbook-execution",
+		"playbook-step-execution",
+		"ransom-payment",
+		"recovery",
+		"reported",
+		"routine-updates",
+		"victim-notification"
+	    ]
+	}	
+    }
 }
