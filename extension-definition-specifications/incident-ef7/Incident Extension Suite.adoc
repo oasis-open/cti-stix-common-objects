@@ -566,7 +566,8 @@ As a new SDO extension it must follow the requirements as described in section 7
 
 |*impact_category* (optional)
 |[stixtype]#{string_url}[string]#
-|The category to which the impact belongs. If the category is one of the defined extensions from section 2.3.2 are used (availability, confidentiality, integrity, economic, external, traceability) it *MUST* be specified. The value *MUST* be specified without the "-ext" suffix. 
+|The category to which the impact belongs. If one of the defined extensions (see section 2.3.2) is used it 
+*MUST* correspond to the value of this property.  If there is insufficient information about the category, this property is not populated and no extension will be specified. The value *MUST* be specified without the "-ext" suffix which is used to indicate the extension used.
 
 |*type* (required)
 |[stixtype]#{string_url}[string]#
@@ -679,8 +680,8 @@ using the [stixrelationship]#related-to# relationship type or, as with open voca
 <<<
 ==== 2.3.2. Extensions
 
-There are many types of impacts, each with its own unique properties, therefore the Impact SDO emulates the File SCO through the use of STIX (sub-type) Extensions to provide the granular details of specific categories of impacts. Seven extensions to [stixtype]#<<impact,impact>>#, which further define the impact on a related Incident, are given below.
-As such, every Impact *MUST* have the one extension which matches the value of the *impact_category* property (see this property description above).  
+There are many categories of impacts, each with its own unique properties, therefore the Impact SDO emulates the File SCO through the use of STIX (sub-types) Extensions to provide the granular details of specific categories of impacts. Seven extensions are available to further define the impact on a related Incident. If there is insufficient information about the impact that is related to one of these categories, then no extension will be specified.  If one of the defined extensions is used it 
+*MUST* correspond to the value of the *impact_category* property.  
 This allows consumers to quickly validate their ability to process this category of impact and then load all of its specific details.
 
 Because these extensions are used to specify very different types of impacts, producers *SHOULD* use one and only one of these extensions per Impact object. However, additional extensions might be proposed in the future and might be used in conjunction with one of these.
