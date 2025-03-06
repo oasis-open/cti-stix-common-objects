@@ -1246,7 +1246,7 @@ include::examples/example_2.4.json[]
 
 *Type Name:* [stixtype]#entity-count#
 
-The Entity Count type represents the count of one or more entity types.
+The Entity Count type represents the count of an entity type.
 
 [width="100%",cols="37%,23%,40%",options="header",]
 |===
