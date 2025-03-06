@@ -601,7 +601,7 @@ This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidel
 If no value is provided the timestamp should be considered to be accurate up to the number of decimal digits it includes.
 
 |*impacted_entity_counts* (optional)
-|[stixtype]#<<entity-count,entity-count>>#
+|[stixtype]#{list_url}[list]# of type [stixtype]#<<entity-count,entity-count>>#
 |A list of the entity types, along with the number of each type impacted.
 
 If this property is not present it should be assumed that this information is not being shared, not that there were no impacted entities.
@@ -1077,7 +1077,7 @@ If no value is provided the timestamp should be considered to be accurate up to 
 |Details about any failures or deviations that occurred in the task.
 
 |*affected_entity_counts* (optional)
-|[stixtype]#<<entity-count,entity-count>>#
+|[stixtype]#{list_url}[list]# of type [stixtype]#<<entity-count,entity-count>>#
 |A list of affected entity types, along with the number of each type affected.
 
 This property is used primarily to capture victim notification information.
@@ -1247,36 +1247,43 @@ include::examples/example_2.4.json[]
 *Type Name:* [stixtype]#entity-count#
 
 The Entity Count type represents the count of one or more entity types.
-The name of each entity type *MUST* be specified as a key in the dictionary and *MUST* identify the count of the entity that corresponds to the value.
-Each key *SHOULD* come from [stixtype]#<<entity-type-ov,entity-type-ov>># open vocabulary.
-This value *MUST* be an [stixtype]#{int_url}[integer]# that is equal to or greater than zero.
 
+[width="100%",cols="37%,23%,40%",options="header",]
+|===
+^|[stixtr]*Property Name*
+^|[stixtr]*Type* 
+^|[stixtr]*Description*
+
+|*entity_type* (required)
+|[stixtype]#{open_vocab_url}[open-vocab]#
+|The value of the entity type *SHOULD* come from [stixtype]#<<entity-type-ov,entity-type-ov>># open vocabulary.
+
+|*count* (required)
+|[stixtype]#{number_url}[number]# 
+|The number of instances of the entity type.
+
+|*precise_within* (optional)
+|[stixtype]#{number_url}[number]# 
+|The order of magnitude of the approximate count.  If this property is not provided, the count should be considered the accurate count.
+|===
 *Examples:*
 
-_100 individuals, 70 employees, 30 customers_
+_100 individuals - an accurate count_
 [source,json]
 ----
 {
-    "individual": 100,
-    "employee": 70,
-    "customer-individual": 30
+    "entity_type": "individual": 
+    "count": 100,
 }
 ----
 
-_1000 systems, 10 organizations_
+_70000 employees - within 1000 in either direction_
 [source,json]
 ----
 {
-    "organization": 10,
-    "system": 1000
-}
-----
-
-_0 individuals_
-[source,json]
-----
-{
-    "individual": 0
+    "entity_type": "employee": 
+    "count": 70000,
+    "precise_within": 1000
 }
 ----
 
