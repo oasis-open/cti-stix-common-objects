@@ -567,7 +567,9 @@ As a new SDO extension it must follow the requirements as described in section 7
 |*impact_category* (optional)
 |[stixtype]#{string_url}[string]#
 |The category to which the impact belongs. If one of the defined extensions (see section 2.3.2) is used it 
-*MUST* correspond to the value of this property.  If there is insufficient information about the category, this property is not populated and no extension will be specified. The value *MUST* be specified without the "-ext" suffix which is used to indicate the extension used.
+*MUST* correspond to the value of this property.  If there is insufficient information about the category, this property is not populated and no extension will be specified.
+
+The value *MUST* be specified without the "-ext" suffix which is used to indicate the extension used.
 
 |*type* (required)
 |[stixtype]#{string_url}[string]#
@@ -1037,6 +1039,12 @@ The value of this property *MUST* come from the [stixtype]#<<task-outcome-enum,t
 |[stixtype]#{string_url}[string]#
 |The value of this property *MUST* be set to [stixliteral]#task#.
 
+|*affected_entity_counts* (optional)
+|[stixtype]#<<entity-count,entity-count>>#
+|A list of affected entity types, along with the number of each type affected.
+
+This property is used primarily to capture victim notification information.
+
 |*changed_objects* (optional)
 |[stixtype]#{list_url}[list]# of type [stixtype]#<<state-change,state-change>>#
 |A list of changes that this task has caused.
@@ -1075,12 +1083,6 @@ If no value is provided the timestamp should be considered to be accurate up to 
 |*error* (optional)
 |[stixtype]#{string_url}[string]#
 |Details about any failures or deviations that occurred in the task.
-
-|*affected_entity_counts* (optional)
-|[stixtype]#{list_url}[list]# of type [stixtype]#<<entity-count,entity-count>>#
-|A list of affected entity types, along with the number of each type affected.
-
-This property is used primarily to capture victim notification information.
 
 |*name* (optional)
 |[stixtype]#{string_url}[string]#
