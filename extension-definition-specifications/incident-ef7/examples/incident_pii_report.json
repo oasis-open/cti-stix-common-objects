@@ -38,10 +38,7 @@
                         "impact--29d33f9d-a1a4-4d08-a48c-01a8f076331b",
                         "impact--bb4e161d-3053-46e4-8496-3a00c3830037",
                         "impact--a17c0f80-0d75-4f6a-863f-0097ec07fc84"
-                    ],
-                    "impacted_entity_counts": {
-                        "individual": 123456
-                    }
+                    ]
                 }
             }
         },
@@ -52,6 +49,12 @@
             "modified": "2020-10-17T01:01:01.000Z",
             "spec_version": "2.1",
             "impact_category": "confidentiality",
+	    "impacted_entity_counts": [
+		{
+                    "entity_type": "individual",
+		    "count": 123456
+		}
+            ],
             "extensions": {
                 "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
                     "extension_type": "new-sdo"

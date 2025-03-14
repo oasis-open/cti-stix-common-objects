@@ -9,9 +9,12 @@
     "description": "Loss of availability for a critical service.",
     "end_time": "2023-11-22T16:00:00Z",
     "end_time_fidelity": "minute",
-    "impacted_entity_counts": {
-        "system": 1
-    },
+    "impacted_entity_counts": [
+	{
+            "entity_name": "system",
+	    "count": 1
+	}
+    ]
     "impacted_refs": [
         "infrastructure--11c25d0e-48f5-4491-960a-0da71c4e0d16"
     ],

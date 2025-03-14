@@ -114,13 +114,7 @@
                     "investigation_status": "open",
                     "criticality": 90,
                     "detection_methods": ["system-outage"],
-                    "impacted_entity_counts": {
-                        "computers-mobile": 2000,
-                        "computers-personal": 1000,
-                        "computers-server": 232,
-                        "domain-controller": 7,
-                        "network-device": 3252
-                    },
+                    
                     "incident_types": [
                         "denial-of-service",
                         "unattributed"
@@ -172,6 +166,30 @@
             "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
             "description": "After bypass mode all servers still shutdown, but wireless and displays are now up in a limited capacity.",
             "impact_category": "availability",
+	    "impacted_entity_counts": [
+			{
+  "entity_type": "computers-mobile",
+  "count": 2000,
+  "precise_within": 100
+},
+			{
+			    "entity_type": "computers-personal",
+			    "count": 1000,
+			    "precise_within": 100
+			},
+			{
+			    "entity_type": "computers-server",
+			    "count": 232
+			},
+			{
+			    "entity_type": "domain-controller",
+			    "count": 7
+			},
+			{
+			    "entity_type": "network-device",
+			    "count": 3252
+			}
+		    ],
             "start_time": "2022-09-14T17:00:00.000Z",
             "start_time_fidelity": "hour",
             "extensions": {

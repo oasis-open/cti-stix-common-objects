@@ -1040,7 +1040,7 @@ The value of this property *MUST* come from the [stixtype]#<<task-outcome-enum,t
 |The value of this property *MUST* be set to [stixliteral]#task#.
 
 |*affected_entity_counts* (optional)
-|[stixtype]#<<entity-count,entity-count>>#
+|[stixtype]#{list_url}[list]# of type [stixtype]#<<entity-count,entity-count>>#
 |A list of affected entity types, along with the number of each type affected.
 
 This property is used primarily to capture victim notification information.
