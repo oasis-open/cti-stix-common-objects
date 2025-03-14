@@ -564,13 +564,6 @@ As a new SDO extension it must follow the requirements as described in section 7
 |===
 ^|[stixtr]*Property Name* ^|[stixtr]*Type* ^|[stixtr]*Description*
 
-|*impact_category* (optional)
-|[stixtype]#{string_url}[string]#
-|The category to which the impact belongs. If one of the defined extensions (see section 2.3.2) is used it 
-*MUST* correspond to the value of this property.  If there is insufficient information about the category, this property is not populated and no extension will be specified.
-
-The value *MUST* be specified without the "-ext" suffix which is used to indicate the extension used.
-
 |*type* (required)
 |[stixtype]#{string_url}[string]#
 |The value of this property *MUST* be set to [stixliteral]#impact#.
@@ -601,6 +594,13 @@ If the *superseded_by_ref* property is included this *MUST* be included.
 This value *MUST* come from [stixtype]#<<timestamp-fidelity-enum,timestamp-fidelity-enum>># enumeration.
 
 If no value is provided the timestamp should be considered to be accurate up to the number of decimal digits it includes.
+
+|*impact_category* (optional)
+|[stixtype]#{string_url}[string]#
+|The category to which the impact belongs. If one of the defined extensions (see section 2.3.2) is used it 
+*MUST* correspond to the value of this property.  If there is insufficient information about the category, this property is not populated and no extension will be specified.
+
+The value *MUST* be specified without the "-ext" suffix which is used to indicate the extension used.
 
 |*impacted_entity_counts* (optional)
 |[stixtype]#<<entity-count,entity-count>>#
