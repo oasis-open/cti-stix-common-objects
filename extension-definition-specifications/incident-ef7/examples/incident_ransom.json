@@ -28,7 +28,11 @@
                     "task_refs": [
                         "task--8824b710-60eb-4e00-9e1e-e1b4a40c9a62"
                     ],
+<<<<<<< HEAD
                     "events": [
+=======
+                    "event_refs": [
+>>>>>>> impacts-without-an-ext
                         "event--da2f25a7-b5d2-47e7-806d-75a2d61cda9f",
                         "event--c2f7f70d-5022-43cb-b2e0-18ae0a172122",
                         "event--c2f7f70d-5022-43cb-b2e0-18ae0a172122",
@@ -58,7 +62,7 @@
         },
         {
             "type": "impact",
-            "impact_category": "monetary",
+            "impact_category": "economic",
             "id": "impact--0c9511ac-e14b-4f48-9d49-54bfc93c9b34",
             "created": "2023-05-02T20:00:00.0002Z",
             "modified": "2023-05-02T20:00:00.0002Z",
@@ -70,7 +74,7 @@
                 "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
                     "extension_type": "new-sdo"
                 },
-                "monetary-ext": {
+                "economic-ext": {
                     "currency": "usd",
                     "min_amount": 0,
                     "max_amount": 14413.05,
@@ -83,7 +87,7 @@
         },
         {
             "type": "impact",
-            "impact_category": "monetary",
+            "impact_category": "economic",
             "id": "impact--dde347a5-e695-4b58-bc7e-00712abdc9a6",
             "created": "2023-05-02T20:00:00.0002Z",
             "modified": "2023-05-02T20:00:00.0002Z",
@@ -95,7 +99,7 @@
                 "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
                     "extension_type": "new-sdo"
                 },
-                "monetary-ext": {
+                "economic-ext": {
                     "currency": "usd",
                     "min_amount": 10000,
                     "max_amount": 10000,
@@ -154,7 +158,7 @@
             "status": "occurred",
             "name": "Ransomware encrypted server and provided a message to the system administrator when they logged in advising they contact evil@decryptyourstuff.zip",
             "sighting_refs": ["sighting--4d051911-6275-4ec0-bf10-2b87348b8877"],
-	    "next_events_refs": [
+	    "next_event_refs": [
 		"event--c2f7f70d-5022-43cb-b2e0-18ae0a172122"
 	    ],
             "extensions": {
@@ -210,7 +214,11 @@
             "status": "occurred",
             "name": "A negotiation took place using FakeApp",
             "sighting_refs": ["sighting--e3d81ade-d1b0-4cf0-9450-02b08adb1564"],
+<<<<<<< HEAD
 	    "next_events_refs": [
+=======
+	    "next_event_refs": [
+>>>>>>> impacts-without-an-ext
 		"event--28eb658d-7b0c-4d3a-946e-c417edbb44bd"
 	    ],
             "extensions": {

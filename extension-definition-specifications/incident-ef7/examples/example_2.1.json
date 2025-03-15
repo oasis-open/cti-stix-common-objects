@@ -25,11 +25,6 @@
       "impact_refs": [
         "impact--7a5806e4-0f37-4c48-9a50-7301bff4b195"
       ],
-      "impacted_entity_counts": {
-        "individual": 100,
-        "employee": 70,
-        "customer-individual": 30
-      },
       "incident_types": [
         "hosting-phishing-sites"
       ],

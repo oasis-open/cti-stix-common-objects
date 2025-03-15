@@ -13,6 +13,7 @@
         }
     ],
     "description": "Mitigated the impact of the phishing attack.",
+    "due_date": "2023-11-30T00:00:00Z",
     "end_time": "2023-11-22T16:30:00Z",
     "end_time_fidelity": "minute",
     "task_types": [

@@ -5,11 +5,7 @@
     "description": "An extension for recording tasks in STIX.",
     "type": "object",
     "unevaluatedProperties": false,
-    "required": [
-        "extensions"
-        , "outcome"
-        , "type"
-    ],
+
     "allOf": [
         {
             "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/core.json"
@@ -45,6 +41,16 @@
 		"name": {
                     "type": "string"
                 },
+		"affected_entity_counts": {
+                    "description": "A dictionary of entities that were impacted by the incident where the key is the entity type and the value is the number of entities of that type which were impacted.  In most cases these should be understood to be estimates.",
+                    "patternProperties": {
+                        "^[a-z\\-]+": {
+                            "type": "integer",
+                            "description": "Key names MUST be lower case and separated by dashes.  Common values include 'individuals', 'organizations', 'business-units', 'facilities', 'information-systems'",
+                            "minimum": 0
+                        }
+                    }
+                },
                 "changed_objects": {
                     "type": "array",
                     "minItems": 1,
@@ -78,12 +84,16 @@
                     "type": "string",
                     "description": "A description of the activity that occurred."
                 },
+		"due_date": {
+		    "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/timestamp.json",
+		    "description": "The date and time the task is/was due to be completed. The value of due_date MAY be unrelated to the values of start_time and end_time, i.e., there is no requirement that a due_date be between those values."
+		},
                 "task_types": {
                     "type": "array",
                     "minItems": 1,
                     "items": {
                         "type": "string",
-                        "description": "A general type for the timestamp for higher level rollup",
+                        "description": "A general type for the timestamp for higher level rollup. See task-type-ov",
                         "$comment": "Open-Vocab including: 'recovery', 'detected', 'declared', 'escalated'"
                     }
                 },
@@ -91,12 +101,12 @@
                     "type": "string",
                     "description": "The outcome of a particular attacker activity",
                     "enum": [
-                        "cancelled"
-                        , "failed"
-                        , "ongoing"
-                        , "pending"
-                        , "successful"
-                        , "unknown"
+                        "cancelled",
+                        "failed",
+                        "ongoing",
+                        "pending",
+                        "successful",
+                        "unknown"
                     ]
                 },
                 "start_time": {
@@ -134,7 +144,40 @@
                         "pattern": "^task--"
                     }
 		}
-            }
+            },
+	    "required": [
+		"extensions",
+		"outcome",
+		"type"
+	    ]
         }
-    ]
+    ],
+    "definitions": {
+	"task-type-ov": {
+	    "type": "string",
+	    "enum": [
+		"administrative",
+		"attribution",
+		"containment",
+		"declared",
+		"detected",
+		"eradication",
+		"escalated",
+		"exercised-control",
+		"external-intelligence",
+		"external-outreach",
+		"external-support",
+		"implemented-control",
+		"investigation",
+		"negotiation",
+		"playbook-execution",
+		"playbook-step-execution",
+		"ransom-payment",
+		"recovery",
+		"reported",
+		"routine-updates",
+		"victim-notification"
+	    ]
+	}	
+    }
 }

@@ -136,13 +136,6 @@
                     "investigation_status": "open",
                     "criticality": 90,
                     "detection_methods": ["system-outage"],
-                    "impacted_entity_counts": {
-                        "computers-mobile": 2000,
-                        "computers-personal": 1000,
-                        "computers-server": 232,
-                        "domain-controller": 7,
-                        "network-device": 3252
-                    },
                     "incident_types": [
                         "denial-of-service",
                         "unknown-apt"
@@ -198,12 +191,12 @@
             "spec_version": "2.1",
             "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
             "description": "Due to the public nature of this incident it may impact public relations",
-            "impact_category": "monetary",
+            "impact_category": "economic",
             "extensions": {
                 "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
                     "extension_type": "new-sdo"
                 },
-                "monetary-ext": {
+                "economic-ext": {
                     "variety": "brand-damage"
                 }
             }
@@ -217,6 +210,13 @@
             "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
             "description": "All servers shutdown,wireless tied to these went down,all displays went down.",
             "impact_category": "availability",
+	    "impacted_entity_counts": {
+                "computers-mobile": 2000,
+                "computers-personal": 1000,
+                "computers-server": 232,
+                "domain-controller": 7,
+                "network-device": 3252
+            },
             "start_time": "2022-09-14T14:57:00.000Z",
             "start_time_fidelity": "minute",
             "end_time": "2022-09-14T17:00:00.000Z",
@@ -299,7 +299,7 @@
             "start_time_fidelity": "minute",
             "end_time": "2022-09-15T10:00:00.000Z",
             "end_time_fidelity": "hour",
-	    "next_events_refs": [
+	    "next_event_refs": [
 		"event--05385116-81a8-4212-82b5-9f57dd832fb5"
 	    ],
             "extensions": {
@@ -363,7 +363,11 @@
                     "result_ref": "impact--d16ffd9c-4d83-46d5-b6ac-626ada44458c"
                 }
             ],
+<<<<<<< HEAD
             "next_tasks_refs": [
+=======
+            "next_task_refs": [
+>>>>>>> impacts-without-an-ext
                 "task--f5ea62cf-bcbb-47cd-bc52-42cadd1afbeb",
                 "task--88f6cf01-c575-425e-a304-d842edb91bfa"
             ],
@@ -417,7 +421,11 @@
             "start_time_fidelity": "hour",
             "end_time": "2022-09-14T18:00:00.000Z",
             "end_time_fidelity": "hour",
+<<<<<<< HEAD
 	    "next_tasks_refs": [
+=======
+	    "next_task_refs": [
+>>>>>>> impacts-without-an-ext
 		"task--6ef78c95-3b5d-4b8d-88c7-a90625cf7a5d"
 	    ],
             "extensions": {
@@ -458,7 +466,11 @@
             "outcome": "successful",
             "start_time": "2022-09-14T23:00:00.000Z",
             "start_time_fidelity": "hour",
+<<<<<<< HEAD
 	    "next_tasks_refs": [
+=======
+	    "next_task_refs": [
+>>>>>>> impacts-without-an-ext
 		"task--993a1e68-8b5c-4f0e-aef7-75c31b85df3e"
 	    ],
             "extensions": {
@@ -524,7 +536,11 @@
             "start_time_fidelity": "hour",
             "end_time": "2022-09-15T05:00:00.000Z",
             "end_time_fidelity": "hour",
+<<<<<<< HEAD
 	    "next_tasks_refs": [
+=======
+	    "next_task_refs": [
+>>>>>>> impacts-without-an-ext
 		"task--6998596d-28f5-4670-af86-3bc168df1854"
 	    ],
             "extensions": {

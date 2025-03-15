@@ -17,14 +17,12 @@
                     "contact_numbers": [
                         {
                             "contact_number": "456-789-1234",
-                            "contact_number_type": "work-phone",
-			                "classified": false
+			    "classified": false
                         }
                     ],
                     "email_addresses": [
                         {
                             "email_address_ref": "email-addr--035f27c3-0bb7-4400-b270-46cba4a86663",
-                            "digital_contact_type": "organizational",
                             "classified": false
                         }
                     ],
@@ -35,7 +33,10 @@
                             "description": "Test Company's organizational social media account",
                             "classified": false
                         }
-                    ]
+                    ],
+		    "websites": [
+			"test.com"
+		    ]
                 }
             }
         },

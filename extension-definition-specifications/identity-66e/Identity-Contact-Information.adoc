@@ -17,7 +17,7 @@
 
 [.stix-doc-information-heading]#Draft#
 
-[.stix-doc-information-heading]#3 January 2023#
+[.stix-doc-information-heading]#21 January 2025#
 
 [.stix-doc-information-heading]
 Editors:
@@ -71,6 +71,10 @@ The properties and additional types within the Identity Contact Information Exte
 |[stixtype]#{list_url}[list]# of type [stixtype]#<<email-contact,email-contact>>#
 |A list of contact number objects that contain the phone and fax numbers.
 
+|*websites* (optional)
+|[stixtype]#{list_url}[list]# of type [stixtype]#{string_url}[string]#
+|A list of websites associated with the identity.
+
 |*first_name* (optional)
 |[stixtype]#{string_url}[string]# 
 |The first name of an individual.
@@ -115,7 +119,7 @@ The properties and additional types within the Identity Contact Information Exte
 |[stixtype]#{boolean_url}[boolean]#
 |Can be used to reach the identity on a classified phone.  The default is false. 
 
-|*contact_number_type* (required)
+|*contact_number_type* (optional)
 |[stixtype]#{open_vocab_url}[open_vocab]# 
 |The type of number this is used for.  This *SHOULD* be drawn from [stixtype]#<<contact-number-ov,contact-number-ov>>#.
 
@@ -142,7 +146,7 @@ The properties and additional types within the Identity Contact Information Exte
 |[stixtype]#{boolean_url}[boolean]#
 |Can be used to reach the identity on a classified network.  The default is false. 
 
-|*digital_contact_type* (required)
+|*digital_contact_type* (optional)
 |[stixtype]#{open_vocab_url}[open_vocab]# 
 |The type of email that address is used for.  This *SHOULD* be drawn from [stixtype]#<<digital-contact-ov,digital-contact-ov>>#.
 
@@ -169,7 +173,7 @@ The properties and additional types within the Identity Contact Information Exte
 |[stixtype]#{boolean_url}[boolean]#
 |Can be used to reach the identity on a classified network.  The default is false. 
 
-|*digital_contact_type* (required)
+|*digital_contact_type* (optional)
 |[stixtype]#{open_vocab_url}[open_vocab]# 
 |The type of social media account that relates to.  This *SHOULD* be drawn from [stixtype]#<<digital-contact-ov,digital-contact-ov>>#.
 
