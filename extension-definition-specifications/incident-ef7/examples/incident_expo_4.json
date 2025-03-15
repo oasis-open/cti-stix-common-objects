@@ -181,13 +181,6 @@
                     "investigation_status": "open",
                     "criticality": 90,
                     "detection_methods": ["system-outage"],
-                    "impacted_entity_counts": {
-                        "computers-mobile": 2000,
-                        "computers-personal": 1000,
-                        "computers-server": 232,
-                        "domain-controller": 7,
-                        "network-device": 3252
-                    },
                     "incident_types": [
                         "denial-of-service",
                         "data-exfiltration"
@@ -271,6 +264,13 @@
             "object_marking_refs": ["marking-definition--43b7719e-52a7-47d4-ba05-cddbd59d961f"],
             "description": "All servers shutdown,wireless tied to these went down,all displays went down.",
             "impact_category": "availability",
+	    "impacted_entity_counts": {
+                 "computers-mobile": 2000,
+                 "computers-personal": 1000,
+                 "computers-server": 232,
+                 "domain-controller": 7,
+                 "network-device": 3252
+            },
             "start_time": "2022-09-14T14:57:00.000Z",
             "start_time_fidelity": "minute",
             "end_time": "2022-09-14T17:00:00.000Z",

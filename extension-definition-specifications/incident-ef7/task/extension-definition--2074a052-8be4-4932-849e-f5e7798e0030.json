@@ -41,6 +41,16 @@
 		"name": {
                     "type": "string"
                 },
+		"affected_entity_counts": {
+                    "description": "A dictionary of entities that were impacted by the incident where the key is the entity type and the value is the number of entities of that type which were impacted.  In most cases these should be understood to be estimates.",
+                    "patternProperties": {
+                        "^[a-z\\-]+": {
+                            "type": "integer",
+                            "description": "Key names MUST be lower case and separated by dashes.  Common values include 'individuals', 'organizations', 'business-units', 'facilities', 'information-systems'",
+                            "minimum": 0
+                        }
+                    }
+                },
                 "changed_objects": {
                     "type": "array",
                     "minItems": 1,
