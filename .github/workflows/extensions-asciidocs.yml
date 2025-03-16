@@ -37,7 +37,7 @@ jobs:
         uses: actions/configure-pages@v3
 
       - name: Upload Pages
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         if: github.ref == 'refs/heads/main'
         with:
           path: '_site'
