@@ -1,212 +1,216 @@
-[
-    {
-        "type": "incident",
-        "id": "incident--200de3e1-6545-4d21-80b0-ded3570ec7d8",
-        "created": "2020-10-19T01:01:01.000Z",
-        "modified":"2020-10-19T01:01:01.000Z",
-        "created_by_ref": "identity--2242662b-d581-4864-8696-fff719dc0500",
-        "spec_version": "2.1",
-        "name": "Exchange Server Compromise",
-        "description": "An Exchange server was compromised containing protected health information",
-        "external_references": [
-            {
-                "source_name": "Special Internal System 32",
-                "external_id": "Fake Incident 32"
+{
+    "type": "bundle",
+    "id": "bundle--a34c0c61-e579-4f85-9f11-8488c8daad15",
+    "objects": [
+	{
+            "type": "incident",
+            "id": "incident--200de3e1-6545-4d21-80b0-ded3570ec7d8",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified":"2020-10-19T01:01:01.000Z",
+            "created_by_ref": "identity--2242662b-d581-4864-8696-fff719dc0500",
+            "spec_version": "2.1",
+            "name": "Exchange Server Compromise",
+            "description": "An Exchange server was compromised containing protected health information",
+            "external_references": [
+		{
+                    "source_name": "Special Internal System 32",
+                    "external_id": "Fake Incident 32"
+		}
+            ],
+            "extensions": {
+		"extension-definition--ef765651-680c-498d-9894-99799f2fa126": {
+                    "extension_type": "property-extension",
+                    "determination": "confirmed",
+                    "investigation_status": "open",
+                    "recoverability": "regular",
+                    "detection_methods": ["automated-tool"],
+                    "incident_types": ["unauthorized-release"],
+                    "criticality": 93,
+                    "task_refs": [
+			"task--b6e04f72-2414-4916-9d55-9f4c2520d76e",
+			"task--8b2e8ed3-b199-453c-8510-ff1cb764832a"
+                    ],
+                    "impact_refs": [
+			"impact--c946cc28-8c05-4770-82c4-4397f62f72b8",
+			"impact--1fa6e10a-88f3-4498-8f2c-c914798f6be0"
+                    ]
+		}
             }
-        ],
-        "extensions": {
-            "extension-definition--ef765651-680c-498d-9894-99799f2fa126": {
-                "extension_type": "property-extension",
-                "determination": "confirmed",
-                "investigation_status": "open",
-                "recoverability": "regular",
-                "detection_methods": ["automated-tool"],
-                "incident_types": ["unauthorized-release"],
-                "criticality": 93,
-                "task_refs": [
-                    "task--b6e04f72-2414-4916-9d55-9f4c2520d76e",
-                   "task--8b2e8ed3-b199-453c-8510-ff1cb764832a"
-                ],
-                "impact_refs": [
-                    "impact--c946cc28-8c05-4770-82c4-4397f62f72b8",
-                    "impact--1fa6e10a-88f3-4498-8f2c-c914798f6be0"
-                ]
+	},
+	{
+            "type": "impact",
+            "id": "impact--c946cc28-8c05-4770-82c4-4397f62f72b8",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified": "2020-10-19T01:01:01.000Z",
+            "spec_version": "2.1",
+            "impact_category": "confidentiality",
+            "impacted_refs": ["infrastructure--1c69a97c-bcfa-4674-b3a2-bfb8f797b7e5"],
+            "extensions": {
+		"extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+                    "extension_type": "new-sdo"
+		},
+		"confidentiality-ext": {
+                    "information_type": "phi",
+                    "loss_type": "suspected-loss"
+		}
             }
-        }
-    },
-    {
-        "type": "impact",
-        "id": "impact--c946cc28-8c05-4770-82c4-4397f62f72b8",
-        "created": "2020-10-19T01:01:01.000Z",
-        "modified": "2020-10-19T01:01:01.000Z",
-        "spec_version": "2.1",
-        "impact_category": "confidentiality",
-        "impacted_refs": ["infrastructure--1c69a97c-bcfa-4674-b3a2-bfb8f797b7e5"],
-        "extensions": {
-            "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
-                "extension_type": "new-sdo"
-            },
-            "confidentiality-ext": {
-                "information_type": "phi",
-                "loss_type": "suspected-loss"
+	},
+	{
+            "type": "impact",
+            "id": "impact--1fa6e10a-88f3-4498-8f2c-c914798f6be0",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified": "2020-10-19T01:01:01.000Z",
+            "spec_version": "2.1",
+            "impact_category": "availability",
+            "labels": ["overall"],
+            "impacted_refs": ["infrastructure--1c69a97c-bcfa-4674-b3a2-bfb8f797b7e5"],
+            "extensions": {
+		"availability-ext": {
+                    "availability_impact": 50
+		},
+		"extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
+                    "extension_type": "new-sdo"
+		}
             }
-        }
-    },
-    {
-        "type": "impact",
-        "id": "impact--1fa6e10a-88f3-4498-8f2c-c914798f6be0",
-        "created": "2020-10-19T01:01:01.000Z",
-        "modified": "2020-10-19T01:01:01.000Z",
-        "spec_version": "2.1",
-        "impact_category": "availability",
-        "labels": ["overall"],
-        "impacted_refs": ["infrastructure--1c69a97c-bcfa-4674-b3a2-bfb8f797b7e5"],
-        "extensions": {
-            "availability-ext": {
-                "availability_impact": 50
-            },
-	    "extension-definition--7cc33dd6-f6a1-489b-98ea-522d351d71b9": {
-                "extension_type": "new-sdo"
+	},
+	{
+            "type": "task",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified": "2020-10-19T01:01:01.000Z",
+            "spec_version": "2.1",
+            "id": "task--b6e04f72-2414-4916-9d55-9f4c2520d76e",
+            "task_types": ["discovery", "playbook-execution"],
+            "outcome": "successful",
+            "external_references": [
+		{
+                    "source_name": "internal-playbooks",
+                    "external_id": "playbook--6b74199d-42a6-43a1-99cb-75d52207a778"
+		}
+            ],
+            "start_time": "2021-02-15T01:01:01.000Z",
+            "end_time": "2021-02-15T01:01:01.000Z",
+            "extensions": {
+		"extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+		}
             }
-        }
-    },
-    {
-        "type": "task",
-        "created": "2020-10-19T01:01:01.000Z",
-        "modified": "2020-10-19T01:01:01.000Z",
-        "spec_version": "2.1",
-        "id": "task--b6e04f72-2414-4916-9d55-9f4c2520d76e",
-        "task_types": ["discovery", "playbook-execution"],
-        "outcome": "successful",
-        "external_references": [
-            {
-                "source_name": "internal-playbooks",
-                "external_id": "playbook--6b74199d-42a6-43a1-99cb-75d52207a778"
+	},
+	{
+            "type": "task",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified": "2020-10-19T01:01:01.000Z",
+            "spec_version": "2.1",
+            "id": "task--8b2e8ed3-b199-453c-8510-ff1cb764832a",
+            "impacted_refs": ["infrastructure--1c69a97c-bcfa-4674-b3a2-bfb8f797b7e5"],
+            "task_types": ["recovery"],
+            "description": "Per advice of security team it will be easier to start from a new server instead of cleaning the existing one.  The timeline for this is still pending.",
+            "outcome": "pending",
+            "extensions": {
+		"extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
+                    "extension_type": "new-sdo"
+		}
             }
-        ],
-        "start_time": "2021-02-15T01:01:01.000Z",
-        "end_time": "2021-02-15T01:01:01.000Z",
-        "extensions": {
-            "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
-                "extension_type": "new-sdo"
-            }
-        }
-    },
-    {
-        "type": "task",
-        "created": "2020-10-19T01:01:01.000Z",
-        "modified": "2020-10-19T01:01:01.000Z",
-        "spec_version": "2.1",
-        "id": "task--8b2e8ed3-b199-453c-8510-ff1cb764832a",
-        "impacted_refs": ["infrastructure--1c69a97c-bcfa-4674-b3a2-bfb8f797b7e5"],
-        "task_types": ["recovery"],
-        "description": "Per advice of security team it will be easier to start from a new server instead of cleaning the existing one.  The timeline for this is still pending.",
-        "outcome": "pending",
-        "extensions": {
-            "extension-definition--2074a052-8be4-4932-849e-f5e7798e0030": {
-                "extension_type": "new-sdo"
-            }
-        }
-    },
-    {
-        "type": "course-of-action",
-        "spec_version": "2.1",
-        "id": "course-of-action--45b98e3a-3800-49eb-b353-e56def4b6084",
-        "name": "Replace Exchange Server",
-        "description": "Stand up new Exchange server, migrate data store",
-        "created_by_ref": "identity--f431f809-377b-45e0-aa1c-6a4751cae5ff",
-        "created": "2020-10-19T01:01:01.000Z",
-        "modified": "2020-10-19T01:01:01.000Z"
-    },
-    {
-        "type": "identity",
-        "spec_version": "2.1",
-        "id": "identity--a52b3918-1819-454b-8e6a-42cf18a06c0b",
-        "created_by_ref": "identity--f431f809-377b-45e0-aa1c-6a4751cae5ff",
-        "created": "2020-10-19T01:01:01.000Z",
-        "modified": "2020-10-19T01:01:01.000Z",
-        "name": "Victim Corp",
-        "sectors": ["defense", "construction"],
-        "identity_class": "organization"
-    },
-    {
-        "type": "infrastructure",
-        "spec_version": "2.1",
-        "id": "infrastructure--1c69a97c-bcfa-4674-b3a2-bfb8f797b7e5",
-        "created": "2021-03-26T01:01:01.000Z",
-        "modified": "2021-03-26T01:01:01.000Z",
-        "name": "Victim Corp Exchange Server",
-        "infrastructure_types": ["non-malicious"]
-    },
-    {
-        "type": "software",
-        "spec_version": "2.1",
-        "id": "software--4c907a8b-c842-4dd2-b5b9-da4a421d8626",
-        "name": "Exchange 2016",
-        "cpe": "cpe:2.3:a:microsoft:exchange_server:2016:cumulative_update_9:*:*:*:*:*:*"
-    },
-    {
-        "type": "vulnerability",
-        "spec_version": "2.1",
-        "id": "vulnerability--c8e2c77a-0369-47a3-831e-e851bd634028",
-        "created": "2021-03-26T01:01:01.000Z",
-        "modified": "2021-03-26T01:01:01.000Z",
-        "name": "CVE-2021-26855",
-        "external_references": [
-            {
-                "source_name": "cve",
-                "external_id": "CVE-2021-26855"
-            }
-        ]
-    },
-    {
-        "type": "relationship",
-        "spec_version": "2.1",
-        "id": "relationship--b76aa1ba-520a-4f71-b451-0c920305b180",
-        "created": "2021-03-26T01:01:01.000Z",
-        "modified": "2021-03-26T01:01:01.000Z",
-        "relationship_type": "owns",
-        "source_ref": "identity--a52b3918-1819-454b-8e6a-42cf18a06c0b",
-        "target_ref": "infrastructure--1c69a97c-bcfa-4674-b3a2-bfb8f797b7e5"
-    },
-    {
-        "type": "relationship",
-        "spec_version": "2.1",
-        "id": "relationship--447a7da1-c54f-4c3c-a967-c78819348984",
-        "created": "2021-03-26T01:01:01.000Z",
-        "modified": "2021-03-26T01:01:01.000Z",
-        "relationship_type": "used",
-        "source_ref": "task--8b2e8ed3-b199-453c-8510-ff1cb764832a",
-        "target_ref": "course-of-action--45b98e3a-3800-49eb-b353-e56def4b6084"
-    },
-    {
-        "type": "relationship",
-        "spec_version": "2.1",
-        "id": "relationship--fd3aa181-2ad6-4822-821d-b7e4dd42c19d",
-        "created": "2020-10-19T01:01:01.000Z",
-        "modified": "2020-10-19T01:01:01.000Z",
-        "relationship_type": "targets",
-        "source_ref": "incident--200de3e1-6545-4d21-80b0-ded3570ec7d8",
-        "target_ref": "identity--a52b3918-1819-454b-8e6a-42cf18a06c0b"
-    },
-    {
-        "type": "relationship",
-        "spec_version": "2.1",
-        "id": "relationship--e509fe36-6dcd-4b78-8bd2-60dd6788ab55",
-        "created": "2020-10-19T01:01:01.000Z",
-        "modified": "2020-10-19T01:01:01.000Z",
-        "relationship_type": "consists-of",
-        "source_ref": "infrastructure--1c69a97c-bcfa-4674-b3a2-bfb8f797b7e5",
-        "target_ref": "software--4c907a8b-c842-4dd2-b5b9-da4a421d8626"
-    },
-    {
-        "type": "relationship",
-        "spec_version": "2.1",
-        "id": "relationship--a1d1b7d5-b25b-4163-ab43-49820fac905b",
-        "created": "2020-10-19T01:01:01.000Z",
-        "modified": "2020-10-19T01:01:01.000Z",
-        "relationship_type": "has",
-        "source_ref": "software--4c907a8b-c842-4dd2-b5b9-da4a421d8626",
-        "target_ref": "vulnerability--c8e2c77a-0369-47a3-831e-e851bd634028"
-    }
-]
+	},
+	{
+            "type": "course-of-action",
+            "spec_version": "2.1",
+            "id": "course-of-action--45b98e3a-3800-49eb-b353-e56def4b6084",
+            "name": "Replace Exchange Server",
+            "description": "Stand up new Exchange server, migrate data store",
+            "created_by_ref": "identity--f431f809-377b-45e0-aa1c-6a4751cae5ff",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified": "2020-10-19T01:01:01.000Z"
+	},
+	{
+            "type": "identity",
+            "spec_version": "2.1",
+            "id": "identity--a52b3918-1819-454b-8e6a-42cf18a06c0b",
+            "created_by_ref": "identity--f431f809-377b-45e0-aa1c-6a4751cae5ff",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified": "2020-10-19T01:01:01.000Z",
+            "name": "Victim Corp",
+            "sectors": ["defense", "construction"],
+            "identity_class": "organization"
+	},
+	{
+            "type": "infrastructure",
+            "spec_version": "2.1",
+            "id": "infrastructure--1c69a97c-bcfa-4674-b3a2-bfb8f797b7e5",
+            "created": "2021-03-26T01:01:01.000Z",
+            "modified": "2021-03-26T01:01:01.000Z",
+            "name": "Victim Corp Exchange Server",
+            "infrastructure_types": ["non-malicious"]
+	},
+	{
+            "type": "software",
+            "spec_version": "2.1",
+            "id": "software--4c907a8b-c842-4dd2-b5b9-da4a421d8626",
+            "name": "Exchange 2016",
+            "cpe": "cpe:2.3:a:microsoft:exchange_server:2016:cumulative_update_9:*:*:*:*:*:*"
+	},
+	{
+            "type": "vulnerability",
+            "spec_version": "2.1",
+            "id": "vulnerability--c8e2c77a-0369-47a3-831e-e851bd634028",
+            "created": "2021-03-26T01:01:01.000Z",
+            "modified": "2021-03-26T01:01:01.000Z",
+            "name": "CVE-2021-26855",
+            "external_references": [
+		{
+                    "source_name": "cve",
+                    "external_id": "CVE-2021-26855"
+		}
+            ]
+	},
+	{
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--b76aa1ba-520a-4f71-b451-0c920305b180",
+            "created": "2021-03-26T01:01:01.000Z",
+            "modified": "2021-03-26T01:01:01.000Z",
+            "relationship_type": "owns",
+            "source_ref": "identity--a52b3918-1819-454b-8e6a-42cf18a06c0b",
+            "target_ref": "infrastructure--1c69a97c-bcfa-4674-b3a2-bfb8f797b7e5"
+	},
+	{
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--447a7da1-c54f-4c3c-a967-c78819348984",
+            "created": "2021-03-26T01:01:01.000Z",
+            "modified": "2021-03-26T01:01:01.000Z",
+            "relationship_type": "used",
+            "source_ref": "task--8b2e8ed3-b199-453c-8510-ff1cb764832a",
+            "target_ref": "course-of-action--45b98e3a-3800-49eb-b353-e56def4b6084"
+	},
+	{
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--fd3aa181-2ad6-4822-821d-b7e4dd42c19d",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified": "2020-10-19T01:01:01.000Z",
+            "relationship_type": "targets",
+            "source_ref": "incident--200de3e1-6545-4d21-80b0-ded3570ec7d8",
+            "target_ref": "identity--a52b3918-1819-454b-8e6a-42cf18a06c0b"
+	},
+	{
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--e509fe36-6dcd-4b78-8bd2-60dd6788ab55",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified": "2020-10-19T01:01:01.000Z",
+            "relationship_type": "consists-of",
+            "source_ref": "infrastructure--1c69a97c-bcfa-4674-b3a2-bfb8f797b7e5",
+            "target_ref": "software--4c907a8b-c842-4dd2-b5b9-da4a421d8626"
+	},
+	{
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--a1d1b7d5-b25b-4163-ab43-49820fac905b",
+            "created": "2020-10-19T01:01:01.000Z",
+            "modified": "2020-10-19T01:01:01.000Z",
+            "relationship_type": "has",
+            "source_ref": "software--4c907a8b-c842-4dd2-b5b9-da4a421d8626",
+            "target_ref": "vulnerability--c8e2c77a-0369-47a3-831e-e851bd634028"
+	}
+    ]
+}
