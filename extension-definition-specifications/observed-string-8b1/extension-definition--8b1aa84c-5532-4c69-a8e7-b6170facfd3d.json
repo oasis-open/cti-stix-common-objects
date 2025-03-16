@@ -35,13 +35,13 @@
           "value": {
   	      "type": "string",
 	      "description": "The Unicode encoded value of the string. It SHOULD come from string-purpose-ov"
-          },
-	  "required": [
+          }
+	},
+	"required": [
 	      "extensions",	
               "purpose",
               "value"
-	  ]
-	}
+	]
       }
     ]
   }
