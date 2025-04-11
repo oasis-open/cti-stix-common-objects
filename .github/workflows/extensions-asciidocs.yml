@@ -45,4 +45,4 @@ jobs:
       - name: Deploy Pages
         id: deployment
         if: github.ref == 'refs/heads/main'
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
