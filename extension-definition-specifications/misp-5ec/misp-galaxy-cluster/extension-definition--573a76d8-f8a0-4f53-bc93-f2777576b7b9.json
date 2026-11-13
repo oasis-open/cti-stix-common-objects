@@ -1,0 +1,118 @@
+{
+    "$id": "https://raw.githubusercontent.com/oasis-open/cti-stix-common-objects/main/extension-definition-specifications/misp-5ec/misp-galaxy-cluster/extension-definition--573a76d8-f8a0-4f53-bc93-f2777576b7b9.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "misp-galaxy-cluster",
+    "description": "A MISP galaxy cluster that no standard STIX object represents.",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/core.json"
+        },
+        {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "misp-galaxy-cluster"
+                    ]
+                },
+                "spec_version": true,
+                "id": {
+                    "title": "id",
+                    "pattern": "^misp-galaxy-cluster--"
+                },
+                "created_by_ref": true,
+                "labels": true,
+                "created": true,
+                "modified": true,
+                "revoked": true,
+                "confidence": true,
+                "lang": true,
+                "external_references": true,
+                "object_marking_refs": true,
+                "granular_markings": true,
+                "extensions": {
+                    "type": "object",
+                    "properties": {
+                        "extension-definition--573a76d8-f8a0-4f53-bc93-f2777576b7b9": {
+                            "type": "object",
+                            "properties": {
+                                "extension_type": {
+                                    "type": "string",
+                                    "enum": [
+                                        "new-sdo"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "extension_type"
+                            ],
+                            "additionalProperties": false
+                        }
+                    },
+                    "required": [
+                        "extension-definition--573a76d8-f8a0-4f53-bc93-f2777576b7b9"
+                    ]
+                },
+                "galaxy_name": {
+                    "type": "string"
+                },
+                "galaxy_type": {
+                    "type": "string"
+                },
+                "galaxy_description": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "meta": {
+                    "type": "object",
+                    "minProperties": 1,
+                    "patternProperties": {
+                        "^[a-zA-Z0-9_-]{1,250}$": {
+                            "$ref": "#/$defs/meta_value"
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "original_names": {
+                    "type": "object",
+                    "minProperties": 1,
+                    "patternProperties": {
+                        "^[a-zA-Z0-9_-]{1,250}$": {
+                            "type": "string"
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            },
+            "required": [
+                "extensions",
+                "galaxy_name",
+                "galaxy_type",
+                "value"
+            ],
+            "additionalProperties": false
+        }
+    ],
+    "$defs": {
+        "meta_value": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "minItems": 2
+                }
+            ]
+        }
+    }
+}

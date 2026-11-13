@@ -1,0 +1,238 @@
+{
+    "type": "bundle",
+    "id": "bundle--a6ef17d6-91cb-4a05-b10b-2f045daf874c",
+    "objects": [
+        {
+            "type": "identity",
+            "spec_version": "2.1",
+            "id": "identity--a0c22599-9e58-4da4-96ac-7051603fa951",
+            "created": "2020-10-25T16:22:00.000Z",
+            "modified": "2020-10-25T16:22:00.000Z",
+            "name": "MISP-Project",
+            "identity_class": "organization"
+        },
+        {
+            "type": "identity",
+            "spec_version": "2.1",
+            "id": "identity--55f6ea65-aa10-4c5a-bf01-4f84950d210f",
+            "created": "2015-09-14T15:40:21.000Z",
+            "modified": "2015-09-14T15:40:21.000Z",
+            "name": "MISP",
+            "identity_class": "organization"
+        },
+        {
+            "type": "extension-definition",
+            "spec_version": "2.1",
+            "id": "extension-definition--a093107b-933f-4d72-a9a6-6d7318adadda",
+            "created_by_ref": "identity--55f6ea65-aa10-4c5a-bf01-4f84950d210f",
+            "created": "2026-11-12T00:00:00.000Z",
+            "modified": "2026-11-12T00:00:00.000Z",
+            "name": "MISP Object Extension",
+            "description": "Defines misp-object, the object carrying a MISP object, with its attributes, that no standard STIX object represents.",
+            "schema": "https://github.com/oasis-open/cti-stix-common-objects/tree/main/extension-definition-specifications/misp-5ec",
+            "version": "1.0.0",
+            "extension_types": [
+                "new-sdo"
+            ]
+        },
+        {
+            "type": "grouping",
+            "spec_version": "2.1",
+            "id": "grouping--a6ef17d6-91cb-4a05-b10b-2f045daf874c",
+            "created_by_ref": "identity--a0c22599-9e58-4da4-96ac-7051603fa951",
+            "created": "2020-10-25T16:22:00.000Z",
+            "modified": "2020-10-25T16:22:00.000Z",
+            "name": "MISP-STIX-Converter test event",
+            "context": "suspicious-activity",
+            "object_refs": [
+                "misp-object--695e7924-2518-4054-9cea-f82853d37410",
+                "misp-object--6f7509f1-f324-4acc-bf06-bbe726ab8fc7",
+                "misp-object--3e76898a-fcb1-485b-ac24-d450fe8c54bc"
+            ],
+            "labels": [
+                "Threat-Report",
+                "misp:tool=\"MISP-STIX-Converter\""
+            ]
+        },
+        {
+            "type": "misp-object",
+            "spec_version": "2.1",
+            "id": "misp-object--695e7924-2518-4054-9cea-f82853d37410",
+            "created_by_ref": "identity--a0c22599-9e58-4da4-96ac-7051603fa951",
+            "created": "2020-10-25T16:22:00.000Z",
+            "modified": "2020-10-25T16:22:00.000Z",
+            "name": "bank-account",
+            "meta_category": "financial",
+            "attributes": [
+                {
+                    "type": "iban",
+                    "object_relation": "iban",
+                    "value": "LU1234567890ABCDEF1234567890",
+                    "category": "Financial fraud",
+                    "uuid": "8acaad62-227a-4988-96e7-4586847421a2",
+                    "to_ids": true,
+                    "first_seen": "2020-10-25T16:22:00Z"
+                },
+                {
+                    "type": "bic",
+                    "object_relation": "swift",
+                    "value": "CTBKLUPP",
+                    "category": "Financial fraud",
+                    "uuid": "c53382a1-cf4b-4901-a890-1611dbcc7101",
+                    "to_ids": true
+                },
+                {
+                    "type": "bank-account-nr",
+                    "object_relation": "account",
+                    "value": "1234567890",
+                    "category": "Financial fraud",
+                    "uuid": "c7c9f782-582f-4218-af79-e7901237e468",
+                    "to_ids": true
+                },
+                {
+                    "type": "text",
+                    "object_relation": "institution-name",
+                    "value": "Central Bank",
+                    "category": "Other",
+                    "uuid": "c206e7b4-7333-40a3-bf02-9647d32f9df2",
+                    "to_ids": false
+                },
+                {
+                    "type": "text",
+                    "object_relation": "account-name",
+                    "value": "John Smith's bank account",
+                    "category": "Other",
+                    "uuid": "f388d5e6-e4eb-401d-8ea4-efdd519659a1",
+                    "to_ids": false
+                },
+                {
+                    "type": "text",
+                    "object_relation": "beneficiary",
+                    "value": "John Smith",
+                    "category": "Other",
+                    "uuid": "c1ea07c0-a855-4c47-9df2-4acc0d3c4e63",
+                    "to_ids": false
+                },
+                {
+                    "type": "text",
+                    "object_relation": "currency-code",
+                    "value": "EUR",
+                    "category": "Other",
+                    "uuid": "5421d979-9af5-45ae-8c81-5005a4d7fc55",
+                    "to_ids": false
+                }
+            ],
+            "first_seen": "2020-10-25T16:22:00Z",
+            "last_seen": "2020-10-26T16:22:00.123456Z",
+            "labels": [
+                "misp:name=\"bank-account\"",
+                "misp:meta-category=\"financial\""
+            ],
+            "extensions": {
+                "extension-definition--a093107b-933f-4d72-a9a6-6d7318adadda": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "misp-object",
+            "spec_version": "2.1",
+            "id": "misp-object--6f7509f1-f324-4acc-bf06-bbe726ab8fc7",
+            "created_by_ref": "identity--a0c22599-9e58-4da4-96ac-7051603fa951",
+            "created": "2020-10-25T16:22:00.000Z",
+            "modified": "2020-10-25T16:22:00.000Z",
+            "name": "btc-wallet",
+            "meta_category": "financial",
+            "attributes": [
+                {
+                    "type": "btc",
+                    "object_relation": "wallet-address",
+                    "value": "1E38kt7ryhbRXUzbam6iQ6sd93VHUUdjEE",
+                    "category": "Financial fraud",
+                    "uuid": "b25b2538-36e3-4418-a42a-440eed163ffa",
+                    "to_ids": true
+                },
+                {
+                    "type": "float",
+                    "object_relation": "balance_BTC",
+                    "value": "2.25036953",
+                    "category": "Other",
+                    "uuid": "dd142f6f-d8a0-4143-92b3-3b50e7cb1c51",
+                    "to_ids": false,
+                    "last_seen": "2020-10-26T16:22:00Z"
+                },
+                {
+                    "type": "float",
+                    "object_relation": "BTC_received",
+                    "value": "3.35036953",
+                    "category": "Other",
+                    "uuid": "7fd93652-5713-4390-bd15-94ec77e9c6d1",
+                    "to_ids": false
+                },
+                {
+                    "type": "float",
+                    "object_relation": "BTC_sent",
+                    "value": "1.1",
+                    "category": "Other",
+                    "uuid": "c5c0532c-2a63-4f40-86a7-df27914a177e",
+                    "to_ids": false
+                }
+            ],
+            "labels": [
+                "misp:name=\"btc-wallet\"",
+                "misp:meta-category=\"financial\""
+            ],
+            "extensions": {
+                "extension-definition--a093107b-933f-4d72-a9a6-6d7318adadda": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "misp-object",
+            "spec_version": "2.1",
+            "id": "misp-object--3e76898a-fcb1-485b-ac24-d450fe8c54bc",
+            "created_by_ref": "identity--a0c22599-9e58-4da4-96ac-7051603fa951",
+            "created": "2020-10-25T16:22:00.000Z",
+            "modified": "2020-10-25T16:22:00.000Z",
+            "name": "report",
+            "meta_category": "misc",
+            "attributes": [
+                {
+                    "type": "text",
+                    "object_relation": "summary",
+                    "value": "It is compromised",
+                    "category": "Other",
+                    "uuid": "11798cf8-1f53-448d-b424-e0bd7402492c",
+                    "to_ids": false
+                },
+                {
+                    "type": "text",
+                    "object_relation": "type",
+                    "value": "Report",
+                    "category": "Other",
+                    "uuid": "84a5575e-bbe4-4a55-a75d-c4a91b0d1e23",
+                    "to_ids": false
+                },
+                {
+                    "type": "attachment",
+                    "value": "report.md",
+                    "object_relation": "report-file",
+                    "category": "External analysis",
+                    "uuid": "5742717c-7689-4440-af20-3cb44edb45cf",
+                    "to_ids": false,
+                    "data": "VGhyZWF0IFJlcG9ydAoKSXQgaXMgY29tcHJvbWlzZWQK"
+                }
+            ],
+            "labels": [
+                "misp:name=\"report\"",
+                "misp:meta-category=\"misc\""
+            ],
+            "extensions": {
+                "extension-definition--a093107b-933f-4d72-a9a6-6d7318adadda": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        }
+    ]
+}
