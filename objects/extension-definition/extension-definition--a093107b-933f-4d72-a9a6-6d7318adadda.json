@@ -1,0 +1,19 @@
+{
+  "type": "bundle",
+  "id": "bundle--2131248f-71c6-415c-9e64-dcf10977ee38",
+  "objects": [
+    {
+      "type": "extension-definition",
+      "spec_version": "2.1",
+      "id": "extension-definition--a093107b-933f-4d72-a9a6-6d7318adadda",
+      "created_by_ref": "identity--55f6ea65-aa10-4c5a-bf01-4f84950d210f",
+      "created": "2026-11-12T00:00:00.000Z",
+      "modified": "2026-11-12T00:00:00.000Z",
+      "name": "MISP Object Extension",
+      "description": "Defines misp-object, the object carrying a MISP object, with its attributes, that no standard STIX object represents.",
+      "schema": "https://github.com/oasis-open/cti-stix-common-objects/tree/main/extension-definition-specifications/misp-5ec",
+      "version": "1.0.0",
+      "extension_types": [ "new-sdo" ]
+    }
+  ]
+}
