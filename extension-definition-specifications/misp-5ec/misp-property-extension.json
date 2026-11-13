@@ -1,0 +1,153 @@
+{
+    "$id": "https://raw.githubusercontent.com/oasis-open/cti-stix-common-objects/main/extension-definition-specifications/misp-5ec/misp-property-extension.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "misp-property-extension",
+    "description": "The MISP values of a standard STIX object: one property per MISP object relation or galaxy cluster meta key, the MISP fields, and the rooms holding the values of the MISP objects nested in a STIX structure.",
+    "type": "object",
+    "properties": {
+        "extension_type": {
+            "$ref": "#/$defs/extension_type"
+        },
+        "opinion": {
+            "$ref": "#/$defs/opinion"
+        },
+        "author_ref": {
+            "$ref": "#/$defs/author_ref"
+        },
+        "attachment": {
+            "$ref": "#/$defs/value"
+        },
+        "filename": {
+            "$ref": "#/$defs/value"
+        },
+        "url": {
+            "$ref": "#/$defs/value"
+        },
+        "malware_sample": {
+            "$ref": "#/$defs/value"
+        },
+        "original_names": {
+            "$ref": "#/$defs/original_names"
+        },
+        "windows_pebinary_ext": {
+            "$ref": "#/$defs/windows_pebinary_ext"
+        },
+        "values": {
+            "$ref": "#/$defs/list_room"
+        }
+    },
+    "patternProperties": {
+        "^(?!(extension_type|opinion|author_ref|attachment|filename|url|malware_sample|original_names|windows_pebinary_ext|values)$)[a-z][a-z0-9_]{2,249}$": {
+            "$ref": "#/$defs/value"
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "extension_type"
+    ],
+    "$defs": {
+        "extension_type": {
+            "type": "string",
+            "enum": [
+                "property-extension"
+            ]
+        },
+        "opinion": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100
+        },
+        "author_ref": {
+            "type": "string",
+            "pattern": "^identity--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$"
+        },
+        "item": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "boolean"
+                },
+                {
+                    "$ref": "#/$defs/item_with_data"
+                }
+            ]
+        },
+        "item_with_data": {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "type": "string"
+                },
+                "data": {
+                    "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/binary.json"
+                }
+            },
+            "required": [
+                "value",
+                "data"
+            ],
+            "additionalProperties": false
+        },
+        "value": {
+            "oneOf": [
+                {
+                    "$ref": "#/$defs/item"
+                },
+                {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/item"
+                    },
+                    "minItems": 2
+                }
+            ]
+        },
+        "original_names": {
+            "type": "object",
+            "minProperties": 1,
+            "patternProperties": {
+                "^[a-z][a-z0-9_]{2,249}$": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false
+        },
+        "room_item": {
+            "type": "object",
+            "minProperties": 1,
+            "patternProperties": {
+                "^[a-z][a-z0-9_]{2,249}$": {
+                    "$ref": "#/$defs/value"
+                }
+            },
+            "additionalProperties": false
+        },
+        "list_room": {
+            "type": "object",
+            "minProperties": 1,
+            "patternProperties": {
+                "^(0|[1-9][0-9]*)$": {
+                    "$ref": "#/$defs/room_item"
+                }
+            },
+            "additionalProperties": false
+        },
+        "windows_pebinary_ext": {
+            "type": "object",
+            "minProperties": 1,
+            "properties": {
+                "sections": {
+                    "$ref": "#/$defs/list_room"
+                }
+            },
+            "patternProperties": {
+                "^(?!sections$)[a-z][a-z0-9_]{2,249}$": {
+                    "$ref": "#/$defs/value"
+                }
+            },
+            "additionalProperties": false
+        }
+    }
+}

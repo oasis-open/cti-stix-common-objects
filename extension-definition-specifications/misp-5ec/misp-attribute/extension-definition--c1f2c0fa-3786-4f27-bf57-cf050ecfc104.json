@@ -1,0 +1,92 @@
+{
+    "$id": "https://raw.githubusercontent.com/oasis-open/cti-stix-common-objects/main/extension-definition-specifications/misp-5ec/misp-attribute/extension-definition--c1f2c0fa-3786-4f27-bf57-cf050ecfc104.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "misp-attribute",
+    "description": "A MISP attribute that no standard STIX object represents.",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/core.json"
+        },
+        {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "misp-attribute"
+                    ]
+                },
+                "spec_version": true,
+                "id": {
+                    "title": "id",
+                    "pattern": "^misp-attribute--"
+                },
+                "created_by_ref": true,
+                "labels": true,
+                "created": true,
+                "modified": true,
+                "revoked": true,
+                "confidence": true,
+                "lang": true,
+                "external_references": true,
+                "object_marking_refs": true,
+                "granular_markings": true,
+                "extensions": {
+                    "type": "object",
+                    "properties": {
+                        "extension-definition--c1f2c0fa-3786-4f27-bf57-cf050ecfc104": {
+                            "type": "object",
+                            "properties": {
+                                "extension_type": {
+                                    "type": "string",
+                                    "enum": [
+                                        "new-sdo"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "extension_type"
+                            ],
+                            "additionalProperties": false
+                        }
+                    },
+                    "required": [
+                        "extension-definition--c1f2c0fa-3786-4f27-bf57-cf050ecfc104"
+                    ]
+                },
+                "attribute_type": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                },
+                "category": {
+                    "type": "string"
+                },
+                "comment": {
+                    "type": "string"
+                },
+                "to_ids": {
+                    "type": "boolean"
+                },
+                "first_seen": {
+                    "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/timestamp.json"
+                },
+                "last_seen": {
+                    "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/timestamp.json"
+                },
+                "data": {
+                    "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/binary.json"
+                }
+            },
+            "required": [
+                "extensions",
+                "attribute_type",
+                "value",
+                "category",
+                "to_ids"
+            ],
+            "additionalProperties": false
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "$id": "https://raw.githubusercontent.com/oasis-open/cti-stix-common-objects/main/extension-definition-specifications/misp-5ec/extension-definition--5ece67ea-2e8b-4ed0-bb69-26d69053ee0b.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "MISP Property Extension",
+    "description": "A STIX object carrying the MISP Property Extension. The extension is shared by every standard STIX object type MISP extends, so this schema refers to no base type schema.",
+    "type": "object",
+    "properties": {
+        "extensions": {
+            "type": "object",
+            "properties": {
+                "extension-definition--5ece67ea-2e8b-4ed0-bb69-26d69053ee0b": {
+                    "$ref": "misp-property-extension.json"
+                }
+            },
+            "required": [
+                "extension-definition--5ece67ea-2e8b-4ed0-bb69-26d69053ee0b"
+            ]
+        }
+    },
+    "required": [
+        "extensions"
+    ]
+}

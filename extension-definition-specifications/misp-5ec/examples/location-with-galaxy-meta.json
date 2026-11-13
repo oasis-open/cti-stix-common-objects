@@ -1,0 +1,131 @@
+{
+    "type": "bundle",
+    "id": "bundle--a6ef17d6-91cb-4a05-b10b-2f045daf874c",
+    "objects": [
+        {
+            "type": "identity",
+            "spec_version": "2.1",
+            "id": "identity--a0c22599-9e58-4da4-96ac-7051603fa951",
+            "created": "2020-10-25T16:22:00.000Z",
+            "modified": "2020-10-25T16:22:00.000Z",
+            "name": "MISP-Project",
+            "identity_class": "organization"
+        },
+        {
+            "type": "identity",
+            "spec_version": "2.1",
+            "id": "identity--55f6ea65-aa10-4c5a-bf01-4f84950d210f",
+            "created": "2015-09-14T15:40:21.000Z",
+            "modified": "2015-09-14T15:40:21.000Z",
+            "name": "MISP",
+            "identity_class": "organization"
+        },
+        {
+            "type": "extension-definition",
+            "spec_version": "2.1",
+            "id": "extension-definition--5ece67ea-2e8b-4ed0-bb69-26d69053ee0b",
+            "created_by_ref": "identity--55f6ea65-aa10-4c5a-bf01-4f84950d210f",
+            "created": "2026-11-12T00:00:00.000Z",
+            "modified": "2026-11-12T00:00:00.000Z",
+            "name": "MISP Property Extension",
+            "description": "Holds the MISP values a standard STIX object has no property for: MISP object relations, galaxy cluster meta, and MISP fields such as an opinion or an attachment.",
+            "schema": "https://github.com/oasis-open/cti-stix-common-objects/tree/main/extension-definition-specifications/misp-5ec",
+            "version": "1.0.0",
+            "extension_types": [
+                "property-extension"
+            ]
+        },
+        {
+            "type": "grouping",
+            "spec_version": "2.1",
+            "id": "grouping--a6ef17d6-91cb-4a05-b10b-2f045daf874c",
+            "created_by_ref": "identity--a0c22599-9e58-4da4-96ac-7051603fa951",
+            "created": "2020-10-25T16:22:00.000Z",
+            "modified": "2020-10-25T16:22:00.000Z",
+            "name": "MISP-STIX-Converter test event",
+            "context": "suspicious-activity",
+            "object_refs": [
+                "location--84668357-5a8c-4bdd-9f0f-6b50b2535745",
+                "location--f93cb275-0366-4ecc-abf0-a17928d1e177"
+            ],
+            "labels": [
+                "Threat-Report",
+                "misp:tool=\"MISP-STIX-Converter\""
+            ]
+        },
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--84668357-5a8c-4bdd-9f0f-6b50b2535745",
+            "created": "2020-10-25T16:22:00.000Z",
+            "modified": "2020-10-25T16:22:00.000Z",
+            "name": "Sweden",
+            "description": "Country meta information | sweden",
+            "country": "SE",
+            "labels": [
+                "misp:galaxy-name=\"Country\"",
+                "misp:galaxy-type=\"country\""
+            ],
+            "extensions": {
+                "extension-definition--5ece67ea-2e8b-4ed0-bb69-26d69053ee0b": {
+                    "extension_type": "property-extension",
+                    "capital": "Stockholm",
+                    "original_names": {
+                        "capital": "Capital",
+                        "continent": "Continent",
+                        "currencycode": "CurrencyCode",
+                        "currencyname": "CurrencyName",
+                        "iso": "ISO",
+                        "iso3": "ISO3",
+                        "languages": "Languages",
+                        "population": "Population"
+                    },
+                    "continent": "EU",
+                    "currencycode": "SEK",
+                    "currencyname": "Krona",
+                    "iso": "SE",
+                    "iso3": "SWE",
+                    "languages": "sv-SE,se,sma,fi-SE",
+                    "population": "9828655",
+                    "tld": ".se"
+                }
+            }
+        },
+        {
+            "type": "location",
+            "spec_version": "2.1",
+            "id": "location--f93cb275-0366-4ecc-abf0-a17928d1e177",
+            "created": "2020-10-25T16:22:00.000Z",
+            "modified": "2020-10-25T16:22:00.000Z",
+            "name": "Northern Europe",
+            "description": "Regions based on UN M49 | Nothern Europe",
+            "region": "northern-europe",
+            "labels": [
+                "misp:galaxy-name=\"Regions UN M49\"",
+                "misp:galaxy-type=\"region\""
+            ],
+            "extensions": {
+                "extension-definition--5ece67ea-2e8b-4ed0-bb69-26d69053ee0b": {
+                    "extension_type": "property-extension",
+                    "subregion": [
+                        "830 - Channel Islands",
+                        "248 - Åland Islands",
+                        "208 - Denmark",
+                        "233 - Estonia",
+                        "234 - Faroe Islands",
+                        "246 - Finland",
+                        "352 - Iceland",
+                        "372 - Ireland",
+                        "833 - Isle of Man",
+                        "428 - Latvia",
+                        "440 - Lithuania",
+                        "578 - Norway",
+                        "744 - Svalbard and Jan Mayen Islands",
+                        "752 - Sweden",
+                        "826 - United Kingdom of Great Britain and Northern Ireland"
+                    ]
+                }
+            }
+        }
+    ]
+}

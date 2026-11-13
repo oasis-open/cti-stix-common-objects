@@ -1,0 +1,124 @@
+{
+    "type": "bundle",
+    "id": "bundle--a6ef17d6-91cb-4a05-b10b-2f045daf874c",
+    "objects": [
+        {
+            "type": "identity",
+            "spec_version": "2.1",
+            "id": "identity--a0c22599-9e58-4da4-96ac-7051603fa951",
+            "created": "2020-10-25T16:22:00.000Z",
+            "modified": "2020-10-25T16:22:00.000Z",
+            "name": "MISP-Project",
+            "identity_class": "organization"
+        },
+        {
+            "type": "identity",
+            "spec_version": "2.1",
+            "id": "identity--55f6ea65-aa10-4c5a-bf01-4f84950d210f",
+            "created": "2015-09-14T15:40:21.000Z",
+            "modified": "2015-09-14T15:40:21.000Z",
+            "name": "MISP",
+            "identity_class": "organization"
+        },
+        {
+            "type": "extension-definition",
+            "spec_version": "2.1",
+            "id": "extension-definition--5ece67ea-2e8b-4ed0-bb69-26d69053ee0b",
+            "created_by_ref": "identity--55f6ea65-aa10-4c5a-bf01-4f84950d210f",
+            "created": "2026-11-12T00:00:00.000Z",
+            "modified": "2026-11-12T00:00:00.000Z",
+            "name": "MISP Property Extension",
+            "description": "Holds the MISP values a standard STIX object has no property for: MISP object relations, galaxy cluster meta, and MISP fields such as an opinion or an attachment.",
+            "schema": "https://github.com/oasis-open/cti-stix-common-objects/tree/main/extension-definition-specifications/misp-5ec",
+            "version": "1.0.0",
+            "extension_types": [
+                "property-extension"
+            ]
+        },
+        {
+            "type": "grouping",
+            "spec_version": "2.1",
+            "id": "grouping--a6ef17d6-91cb-4a05-b10b-2f045daf874c",
+            "created_by_ref": "identity--a0c22599-9e58-4da4-96ac-7051603fa951",
+            "created": "2020-10-25T16:22:00.000Z",
+            "modified": "2020-10-25T16:22:00.000Z",
+            "name": "MISP-STIX-Converter test event",
+            "context": "suspicious-activity",
+            "object_refs": [
+                "observed-data--5ac347ca-dac4-4562-9775-04120a00020f",
+                "url--5ac347ca-dac4-4562-9775-04120a00020f",
+                "indicator--5ac347ca-dac4-4562-9775-04120a00020f",
+                "relationship--e2b8fa6f-ff8b-5cf9-a54a-0d3980a01bf0"
+            ],
+            "labels": [
+                "Threat-Report",
+                "misp:tool=\"MISP-STIX-Converter\""
+            ]
+        },
+        {
+            "type": "observed-data",
+            "spec_version": "2.1",
+            "id": "observed-data--5ac347ca-dac4-4562-9775-04120a00020f",
+            "created_by_ref": "identity--a0c22599-9e58-4da4-96ac-7051603fa951",
+            "created": "2020-10-25T16:22:00.000Z",
+            "modified": "2020-10-25T16:22:00.000Z",
+            "first_observed": "2020-10-25T16:22:00Z",
+            "last_observed": "2020-10-25T16:22:00Z",
+            "number_observed": 1,
+            "object_refs": [
+                "url--5ac347ca-dac4-4562-9775-04120a00020f"
+            ],
+            "labels": [
+                "misp:name=\"url\"",
+                "misp:meta-category=\"network\""
+            ]
+        },
+        {
+            "type": "url",
+            "spec_version": "2.1",
+            "id": "url--5ac347ca-dac4-4562-9775-04120a00020f",
+            "value": "https://www.circl.lu/team",
+            "extensions": {
+                "extension-definition--5ece67ea-2e8b-4ed0-bb69-26d69053ee0b": {
+                    "extension_type": "property-extension",
+                    "domain": "circl.lu",
+                    "host": "www.circl.lu",
+                    "misp_ip": "149.13.33.14",
+                    "port": "443"
+                }
+            }
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--5ac347ca-dac4-4562-9775-04120a00020f",
+            "created_by_ref": "identity--a0c22599-9e58-4da4-96ac-7051603fa951",
+            "created": "2020-10-25T16:22:00.000Z",
+            "modified": "2020-10-25T16:22:00.000Z",
+            "pattern": "[url:value = 'https://www.circl.lu/team' AND url:extensions.'extension-definition--5ece67ea-2e8b-4ed0-bb69-26d69053ee0b'.domain = 'circl.lu' AND url:extensions.'extension-definition--5ece67ea-2e8b-4ed0-bb69-26d69053ee0b'.host = 'www.circl.lu' AND url:extensions.'extension-definition--5ece67ea-2e8b-4ed0-bb69-26d69053ee0b'.misp_ip = '149.13.33.14']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2020-10-25T16:22:00Z",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "misp-category",
+                    "phase_name": "network"
+                }
+            ],
+            "labels": [
+                "misp:name=\"url\"",
+                "misp:meta-category=\"network\""
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--e2b8fa6f-ff8b-5cf9-a54a-0d3980a01bf0",
+            "created": "2020-10-25T16:22:00.000Z",
+            "modified": "2020-10-25T16:22:00.000Z",
+            "relationship_type": "based-on",
+            "source_ref": "indicator--5ac347ca-dac4-4562-9775-04120a00020f",
+            "target_ref": "observed-data--5ac347ca-dac4-4562-9775-04120a00020f"
+        }
+    ]
+}

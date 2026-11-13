@@ -1,0 +1,190 @@
+{
+    "type": "bundle",
+    "id": "bundle--a6ef17d6-91cb-4a05-b10b-2f045daf874c",
+    "objects": [
+        {
+            "type": "identity",
+            "spec_version": "2.1",
+            "id": "identity--a0c22599-9e58-4da4-96ac-7051603fa951",
+            "created": "2020-10-25T16:22:00.000Z",
+            "modified": "2020-10-25T16:22:00.000Z",
+            "name": "MISP-Project",
+            "identity_class": "organization"
+        },
+        {
+            "type": "identity",
+            "spec_version": "2.1",
+            "id": "identity--55f6ea65-aa10-4c5a-bf01-4f84950d210f",
+            "created": "2015-09-14T15:40:21.000Z",
+            "modified": "2015-09-14T15:40:21.000Z",
+            "name": "MISP",
+            "identity_class": "organization"
+        },
+        {
+            "type": "extension-definition",
+            "spec_version": "2.1",
+            "id": "extension-definition--c1f2c0fa-3786-4f27-bf57-cf050ecfc104",
+            "created_by_ref": "identity--55f6ea65-aa10-4c5a-bf01-4f84950d210f",
+            "created": "2026-11-12T00:00:00.000Z",
+            "modified": "2026-11-12T00:00:00.000Z",
+            "name": "MISP Attribute Extension",
+            "description": "Defines misp-attribute, the object carrying a MISP attribute that no standard STIX object represents.",
+            "schema": "https://github.com/oasis-open/cti-stix-common-objects/tree/main/extension-definition-specifications/misp-5ec",
+            "version": "1.0.0",
+            "extension_types": [
+                "new-sdo"
+            ]
+        },
+        {
+            "type": "grouping",
+            "spec_version": "2.1",
+            "id": "grouping--a6ef17d6-91cb-4a05-b10b-2f045daf874c",
+            "created_by_ref": "identity--a0c22599-9e58-4da4-96ac-7051603fa951",
+            "created": "2020-10-25T16:22:00.000Z",
+            "modified": "2020-10-25T16:22:00.000Z",
+            "name": "MISP-STIX-Converter test event",
+            "context": "suspicious-activity",
+            "object_refs": [
+                "misp-attribute--91ae0a21-c7ae-4c7f-b84b-b84a7ce53d1f",
+                "misp-attribute--518b4bcb-a86b-4783-9457-391d548b605b",
+                "misp-attribute--d94bdd2c-3603-4044-8b70-20090e7526ad",
+                "misp-attribute--1af096a0-efa1-4331-9300-a6b5eb4df2e6",
+                "misp-attribute--8be8065b-ca71-4210-976e-2804665a502d",
+                "misp-attribute--f0b5b638-81b4-4509-bd40-1e114955caf4"
+            ],
+            "labels": [
+                "Threat-Report",
+                "misp:tool=\"MISP-STIX-Converter\""
+            ]
+        },
+        {
+            "type": "misp-attribute",
+            "spec_version": "2.1",
+            "id": "misp-attribute--91ae0a21-c7ae-4c7f-b84b-b84a7ce53d1f",
+            "created_by_ref": "identity--a0c22599-9e58-4da4-96ac-7051603fa951",
+            "created": "2020-10-25T16:22:00.000Z",
+            "modified": "2020-10-25T16:22:00.000Z",
+            "attribute_type": "btc",
+            "value": "1E38kt7ryhbRXUzbam6iQ6sd93VHUUdjEE",
+            "category": "Financial fraud",
+            "comment": "Btc test attribute",
+            "to_ids": true,
+            "labels": [
+                "misp:type=\"btc\"",
+                "misp:category=\"Financial fraud\""
+            ],
+            "extensions": {
+                "extension-definition--c1f2c0fa-3786-4f27-bf57-cf050ecfc104": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "misp-attribute",
+            "spec_version": "2.1",
+            "id": "misp-attribute--518b4bcb-a86b-4783-9457-391d548b605b",
+            "created_by_ref": "identity--a0c22599-9e58-4da4-96ac-7051603fa951",
+            "created": "2020-10-25T16:22:00.000Z",
+            "modified": "2020-10-25T16:22:00.000Z",
+            "attribute_type": "iban",
+            "value": "LU1234567890ABCDEF1234567890",
+            "category": "Financial fraud",
+            "comment": "IBAN test attribute",
+            "to_ids": true,
+            "labels": [
+                "misp:type=\"iban\"",
+                "misp:category=\"Financial fraud\""
+            ],
+            "extensions": {
+                "extension-definition--c1f2c0fa-3786-4f27-bf57-cf050ecfc104": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "misp-attribute",
+            "spec_version": "2.1",
+            "id": "misp-attribute--d94bdd2c-3603-4044-8b70-20090e7526ad",
+            "created_by_ref": "identity--a0c22599-9e58-4da4-96ac-7051603fa951",
+            "created": "2020-10-25T16:22:00.000Z",
+            "modified": "2020-10-25T16:22:00.000Z",
+            "attribute_type": "http-method",
+            "value": "POST",
+            "category": "Network activity",
+            "to_ids": false,
+            "labels": [
+                "misp:type=\"http-method\"",
+                "misp:category=\"Network activity\""
+            ],
+            "extensions": {
+                "extension-definition--c1f2c0fa-3786-4f27-bf57-cf050ecfc104": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "misp-attribute",
+            "spec_version": "2.1",
+            "id": "misp-attribute--1af096a0-efa1-4331-9300-a6b5eb4df2e6",
+            "created_by_ref": "identity--a0c22599-9e58-4da4-96ac-7051603fa951",
+            "created": "2020-10-25T16:22:00.000Z",
+            "modified": "2020-10-25T16:22:00.000Z",
+            "attribute_type": "port",
+            "value": "8443",
+            "category": "Network activity",
+            "to_ids": false,
+            "labels": [
+                "misp:type=\"port\"",
+                "misp:category=\"Network activity\""
+            ],
+            "extensions": {
+                "extension-definition--c1f2c0fa-3786-4f27-bf57-cf050ecfc104": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "misp-attribute",
+            "spec_version": "2.1",
+            "id": "misp-attribute--8be8065b-ca71-4210-976e-2804665a502d",
+            "created_by_ref": "identity--a0c22599-9e58-4da4-96ac-7051603fa951",
+            "created": "2020-10-25T16:22:00.000Z",
+            "modified": "2020-10-25T16:22:00.000Z",
+            "attribute_type": "size-in-bytes",
+            "value": "1234",
+            "category": "Other",
+            "to_ids": false,
+            "labels": [
+                "misp:type=\"size-in-bytes\"",
+                "misp:category=\"Other\""
+            ],
+            "extensions": {
+                "extension-definition--c1f2c0fa-3786-4f27-bf57-cf050ecfc104": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        },
+        {
+            "type": "misp-attribute",
+            "spec_version": "2.1",
+            "id": "misp-attribute--f0b5b638-81b4-4509-bd40-1e114955caf4",
+            "created_by_ref": "identity--a0c22599-9e58-4da4-96ac-7051603fa951",
+            "created": "2020-10-25T16:22:00.000Z",
+            "modified": "2020-10-25T16:22:00.000Z",
+            "attribute_type": "user-agent",
+            "value": "Mozilla Firefox",
+            "category": "Network activity",
+            "comment": "User-agent test attribute",
+            "to_ids": false,
+            "labels": [
+                "misp:type=\"user-agent\"",
+                "misp:category=\"Network activity\""
+            ],
+            "extensions": {
+                "extension-definition--c1f2c0fa-3786-4f27-bf57-cf050ecfc104": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        }
+    ]
+}

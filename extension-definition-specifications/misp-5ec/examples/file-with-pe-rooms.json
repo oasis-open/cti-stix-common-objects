@@ -1,0 +1,170 @@
+{
+    "type": "bundle",
+    "id": "bundle--a6ef17d6-91cb-4a05-b10b-2f045daf874c",
+    "objects": [
+        {
+            "type": "identity",
+            "spec_version": "2.1",
+            "id": "identity--a0c22599-9e58-4da4-96ac-7051603fa951",
+            "created": "2020-10-25T16:22:00.000Z",
+            "modified": "2020-10-25T16:22:00.000Z",
+            "name": "MISP-Project",
+            "identity_class": "organization"
+        },
+        {
+            "type": "identity",
+            "spec_version": "2.1",
+            "id": "identity--55f6ea65-aa10-4c5a-bf01-4f84950d210f",
+            "created": "2015-09-14T15:40:21.000Z",
+            "modified": "2015-09-14T15:40:21.000Z",
+            "name": "MISP",
+            "identity_class": "organization"
+        },
+        {
+            "type": "extension-definition",
+            "spec_version": "2.1",
+            "id": "extension-definition--5ece67ea-2e8b-4ed0-bb69-26d69053ee0b",
+            "created_by_ref": "identity--55f6ea65-aa10-4c5a-bf01-4f84950d210f",
+            "created": "2026-11-12T00:00:00.000Z",
+            "modified": "2026-11-12T00:00:00.000Z",
+            "name": "MISP Property Extension",
+            "description": "Holds the MISP values a standard STIX object has no property for: MISP object relations, galaxy cluster meta, and MISP fields such as an opinion or an attachment.",
+            "schema": "https://github.com/oasis-open/cti-stix-common-objects/tree/main/extension-definition-specifications/misp-5ec",
+            "version": "1.0.0",
+            "extension_types": [
+                "property-extension"
+            ]
+        },
+        {
+            "type": "grouping",
+            "spec_version": "2.1",
+            "id": "grouping--a6ef17d6-91cb-4a05-b10b-2f045daf874c",
+            "created_by_ref": "identity--a0c22599-9e58-4da4-96ac-7051603fa951",
+            "created": "2020-10-25T16:22:00.000Z",
+            "modified": "2020-10-25T16:22:00.000Z",
+            "name": "MISP-STIX-Converter test event",
+            "context": "suspicious-activity",
+            "object_refs": [
+                "observed-data--5ac47782-e1b8-40b6-96b4-02510a00020f",
+                "file--5ac47782-e1b8-40b6-96b4-02510a00020f",
+                "indicator--5ac47782-e1b8-40b6-96b4-02510a00020f",
+                "relationship--bc7a056a-872e-50a5-be2d-7edff850ea0e"
+            ],
+            "labels": [
+                "Threat-Report",
+                "misp:tool=\"MISP-STIX-Converter\""
+            ]
+        },
+        {
+            "type": "observed-data",
+            "spec_version": "2.1",
+            "id": "observed-data--5ac47782-e1b8-40b6-96b4-02510a00020f",
+            "created_by_ref": "identity--a0c22599-9e58-4da4-96ac-7051603fa951",
+            "created": "2020-10-25T16:22:00.000Z",
+            "modified": "2020-10-25T16:22:00.000Z",
+            "first_observed": "2020-10-25T16:22:00Z",
+            "last_observed": "2020-10-25T16:22:00Z",
+            "number_observed": 1,
+            "object_refs": [
+                "file--5ac47782-e1b8-40b6-96b4-02510a00020f"
+            ],
+            "labels": [
+                "misp:name=\"file\"",
+                "misp:meta-category=\"file\""
+            ]
+        },
+        {
+            "type": "file",
+            "spec_version": "2.1",
+            "id": "file--5ac47782-e1b8-40b6-96b4-02510a00020f",
+            "hashes": {
+                "MD5": "b2a5abfeef9e36964281a31e17b57c97",
+                "SHA-1": "5898fc860300e228dcd54c0b1045b5fa0dcda502",
+                "SHA-256": "3a3468fa89b2ab7cbfe5400858a8ec0066e9e8defa9a64c993b5f24210244df8"
+            },
+            "size": 1234,
+            "name": "oui",
+            "extensions": {
+                "extension-definition--5ece67ea-2e8b-4ed0-bb69-26d69053ee0b": {
+                    "extension_type": "property-extension",
+                    "entropy": "1.234",
+                    "windows_pebinary_ext": {
+                        "compilation_timestamp": "2019-03-16T12:31:22Z",
+                        "original_filename": "PuTTy",
+                        "internal_filename": "PuTTy",
+                        "file_description": "SSH, Telnet and Rlogin client",
+                        "file_version": "Release 0.71 (with embedded help)",
+                        "lang_id": "080904B0",
+                        "product_name": "PuTTy suite",
+                        "product_version": "Release 0.71",
+                        "company_name": "Simoe Tatham",
+                        "legal_copyright": "Copyright © 1997-2019 Simon Tatham.",
+                        "impfuzzy": "192:8GMV5iqHKV+5RvUV5iqHKV+5RvAVDNNhwkCtRxwUQt63yf2y9sAkexSECI:vMVzB5R8VzB5R4XGtRxwUccc2y9scxt",
+                        "sections": {
+                            "1": {
+                                "text": "Code section"
+                            }
+                        }
+                    }
+                },
+                "windows-pebinary-ext": {
+                    "pe_type": "exe",
+                    "imphash": "23ea835ab4b9017c74dfb023d2301c99",
+                    "number_of_sections": 8,
+                    "optional_header": {
+                        "address_of_entry_point": 5369222868
+                    },
+                    "sections": [
+                        {
+                            "name": ".rsrc",
+                            "size": 305152,
+                            "entropy": 7.836462238824369,
+                            "hashes": {
+                                "MD5": "8a2a5fc2ce56b3b04d58539a95390600",
+                                "SHA-1": "0aeb9def096e9f73e9460afe6f8783a32c7eabdf",
+                                "SHA-256": "c6b3ac8303a72be90b0e47f69977e6f5665693d4ea0aa93e5c27b5c556c7cf9b",
+                                "SHA-512": "98fce208e6ed9612db53725fe03b73ab7cb1b487814d521c3c218273cad33891ce832c4f842c6f492d92df1e78414c82a00ddb91a1f8ec7d67325231a597a78f",
+                                "SSDEEP": "6144:BvqbV6zoA5yJJ1entjx+UJlVshhKuqMrgyNhahL2uSvhM:BvuVy5UJUtwUJ/UjHSEuSvK"
+                            }
+                        },
+                        {
+                            "name": ".text"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--5ac47782-e1b8-40b6-96b4-02510a00020f",
+            "created_by_ref": "identity--a0c22599-9e58-4da4-96ac-7051603fa951",
+            "created": "2020-10-25T16:22:00.000Z",
+            "modified": "2020-10-25T16:22:00.000Z",
+            "pattern": "[file:hashes.MD5 = 'b2a5abfeef9e36964281a31e17b57c97' AND file:hashes.'SHA-1' = '5898fc860300e228dcd54c0b1045b5fa0dcda502' AND file:hashes.'SHA-256' = '3a3468fa89b2ab7cbfe5400858a8ec0066e9e8defa9a64c993b5f24210244df8' AND file:name = 'oui' AND file:extensions.'windows-pebinary-ext'.imphash = '23ea835ab4b9017c74dfb023d2301c99' AND file:extensions.'extension-definition--5ece67ea-2e8b-4ed0-bb69-26d69053ee0b'.windows_pebinary_ext.original_filename = 'PuTTy' AND file:extensions.'extension-definition--5ece67ea-2e8b-4ed0-bb69-26d69053ee0b'.windows_pebinary_ext.internal_filename = 'PuTTy' AND file:extensions.'extension-definition--5ece67ea-2e8b-4ed0-bb69-26d69053ee0b'.windows_pebinary_ext.impfuzzy = '192:8GMV5iqHKV+5RvUV5iqHKV+5RvAVDNNhwkCtRxwUQt63yf2y9sAkexSECI:vMVzB5R8VzB5R4XGtRxwUccc2y9scxt' AND file:extensions.'windows-pebinary-ext'.sections[0].hashes.MD5 = '8a2a5fc2ce56b3b04d58539a95390600' AND file:extensions.'windows-pebinary-ext'.sections[0].hashes.'SHA-1' = '0aeb9def096e9f73e9460afe6f8783a32c7eabdf' AND file:extensions.'windows-pebinary-ext'.sections[0].hashes.'SHA-256' = 'c6b3ac8303a72be90b0e47f69977e6f5665693d4ea0aa93e5c27b5c556c7cf9b' AND file:extensions.'windows-pebinary-ext'.sections[0].hashes.'SHA-512' = '98fce208e6ed9612db53725fe03b73ab7cb1b487814d521c3c218273cad33891ce832c4f842c6f492d92df1e78414c82a00ddb91a1f8ec7d67325231a597a78f' AND file:extensions.'windows-pebinary-ext'.sections[0].hashes.SSDEEP = '6144:BvqbV6zoA5yJJ1entjx+UJlVshhKuqMrgyNhahL2uSvhM:BvuVy5UJUtwUJ/UjHSEuSvK']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2020-10-25T16:22:00Z",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "misp-category",
+                    "phase_name": "file"
+                }
+            ],
+            "labels": [
+                "misp:name=\"file\"",
+                "misp:meta-category=\"file\""
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--bc7a056a-872e-50a5-be2d-7edff850ea0e",
+            "created": "2020-10-25T16:22:00.000Z",
+            "modified": "2020-10-25T16:22:00.000Z",
+            "relationship_type": "based-on",
+            "source_ref": "indicator--5ac47782-e1b8-40b6-96b4-02510a00020f",
+            "target_ref": "observed-data--5ac47782-e1b8-40b6-96b4-02510a00020f"
+        }
+    ]
+}

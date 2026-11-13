@@ -1,0 +1,84 @@
+{
+    "type": "bundle",
+    "id": "bundle--a6ef17d6-91cb-4a05-b10b-2f045daf874c",
+    "objects": [
+        {
+            "type": "identity",
+            "spec_version": "2.1",
+            "id": "identity--a0c22599-9e58-4da4-96ac-7051603fa951",
+            "created": "2020-10-25T16:22:00.000Z",
+            "modified": "2020-10-25T16:22:00.000Z",
+            "name": "MISP-Project",
+            "identity_class": "organization"
+        },
+        {
+            "type": "identity",
+            "spec_version": "2.1",
+            "id": "identity--55f6ea65-aa10-4c5a-bf01-4f84950d210f",
+            "created": "2015-09-14T15:40:21.000Z",
+            "modified": "2015-09-14T15:40:21.000Z",
+            "name": "MISP",
+            "identity_class": "organization"
+        },
+        {
+            "type": "extension-definition",
+            "spec_version": "2.1",
+            "id": "extension-definition--573a76d8-f8a0-4f53-bc93-f2777576b7b9",
+            "created_by_ref": "identity--55f6ea65-aa10-4c5a-bf01-4f84950d210f",
+            "created": "2026-11-12T00:00:00.000Z",
+            "modified": "2026-11-12T00:00:00.000Z",
+            "name": "MISP Galaxy Cluster Extension",
+            "description": "Defines misp-galaxy-cluster, the object carrying a MISP galaxy cluster that no standard STIX object represents.",
+            "schema": "https://github.com/oasis-open/cti-stix-common-objects/tree/main/extension-definition-specifications/misp-5ec",
+            "version": "1.0.0",
+            "extension_types": [
+                "new-sdo"
+            ]
+        },
+        {
+            "type": "grouping",
+            "spec_version": "2.1",
+            "id": "grouping--a6ef17d6-91cb-4a05-b10b-2f045daf874c",
+            "created_by_ref": "identity--a0c22599-9e58-4da4-96ac-7051603fa951",
+            "created": "2020-10-25T16:22:00.000Z",
+            "modified": "2020-10-25T16:22:00.000Z",
+            "name": "MISP-STIX-Converter test event",
+            "context": "suspicious-activity",
+            "object_refs": [
+                "misp-galaxy-cluster--24430dc6-9c27-4b3c-a5e7-6dda478fffa0"
+            ],
+            "labels": [
+                "Threat-Report",
+                "misp:tool=\"MISP-STIX-Converter\""
+            ]
+        },
+        {
+            "type": "misp-galaxy-cluster",
+            "spec_version": "2.1",
+            "id": "misp-galaxy-cluster--24430dc6-9c27-4b3c-a5e7-6dda478fffa0",
+            "created": "2020-10-25T16:22:00.000Z",
+            "modified": "2020-10-25T16:22:00.000Z",
+            "galaxy_name": "Tea Matrix",
+            "galaxy_type": "tea-matrix",
+            "galaxy_description": "Tea Matrix",
+            "value": "Milk in tea",
+            "description": "Milk in tea",
+            "meta": {
+                "Odd_Key__1_": "odd value",
+                "kept-Case_ok": "kept value"
+            },
+            "original_names": {
+                "Odd_Key__1_": "Odd Key (1)"
+            },
+            "labels": [
+                "misp:galaxy-name=\"Tea Matrix\"",
+                "misp:galaxy-type=\"tea-matrix\""
+            ],
+            "extensions": {
+                "extension-definition--573a76d8-f8a0-4f53-bc93-f2777576b7b9": {
+                    "extension_type": "new-sdo"
+                }
+            }
+        }
+    ]
+}
